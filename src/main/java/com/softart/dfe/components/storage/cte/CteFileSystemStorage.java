@@ -4,6 +4,8 @@ import br.inf.portalfiscal.cte.distribution.DistDFeInt;
 import br.inf.portalfiscal.cte.distribution.RetDistDFeInt;
 import br.inf.portalfiscal.cte.send.*;
 import com.softart.dfe.components.internal.parser.AccessKeyParserFactory;
+import com.softart.dfe.components.internal.xml.marshaller.CteMarshaller;
+import com.softart.dfe.components.internal.xml.unmarshaller.CteUnmarshaller;
 import com.softart.dfe.components.storage.common.CommonFileSystemStorage;
 import com.softart.dfe.enums.cte.CteReturnCode;
 import com.softart.dfe.enums.internal.cte.CteStorageKey;
@@ -13,8 +15,6 @@ import com.softart.dfe.interfaces.storage.Store;
 import com.softart.dfe.interfaces.storage.cte.CteStorage;
 import com.softart.dfe.models.internal.xml.XMLStore;
 import com.softart.dfe.util.IOUtils;
-import com.softart.dfe.components.internal.xml.marshaller.CteMarshaller;
-import com.softart.dfe.components.internal.xml.unmarshaller.CteUnmarshaller;
 import lombok.extern.log4j.Log4j2;
 
 import java.io.IOException;
@@ -310,7 +310,11 @@ public final class CteFileSystemStorage extends CommonFileSystemStorage implemen
     public void storeReturnCteSync(Store<TRetCTe> o) throws StorageException {
         try {
             if (Objects.nonNull(o.getData())) {
-                writeReturn(o.getConfig(), CteStorageKey.CTE_RECEPTION_SYNC, xmlNameWithTime(AccessKeyParserFactory.cte().fromId(o.getData().getProtCTe().getInfProt().getChCTe())), o.getXml());
+                if (Objects.nonNull(o.getData().getProtCTe())) {
+                    writeReturn(o.getConfig(), CteStorageKey.CTE_RECEPTION_SYNC, xmlNameWithTime(AccessKeyParserFactory.cte().fromId(o.getData().getProtCTe().getInfProt().getChCTe())), o.getXml());
+                } else {
+                    writeReturn(o.getConfig(), CteStorageKey.CTE_RECEPTION_SYNC, xmlNameWithTime(""), o.getXml());
+                }
             }
         } catch (Exception e) {
             throw new StorageException(e);

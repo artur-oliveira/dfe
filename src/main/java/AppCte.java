@@ -19,6 +19,7 @@ import com.softart.dfe.models.cte.event.CteGtv;
 import com.softart.dfe.models.cte.inutilization.CteReturnInutilization;
 import com.softart.dfe.models.cte.reception.Cte;
 import com.softart.dfe.models.cte.reception.CteReturnSend;
+import com.softart.dfe.models.cte.reception_sync.CteReturn;
 import com.softart.dfe.models.internal.security.Certificate;
 import com.softart.dfe.services.cte.distribution.CteDistributionServiceImpl;
 import com.softart.dfe.services.cte.event.CteEventService;
@@ -31,6 +32,8 @@ import com.softart.dfe.services.cte.query_receipt.CteQueryReceiptServiceImpl;
 import com.softart.dfe.services.cte.query_situation.CteQuerySituationServiceImpl;
 import com.softart.dfe.services.cte.reception.CteReceptionService;
 import com.softart.dfe.services.cte.reception.CteReceptionServiceImpl;
+import com.softart.dfe.services.cte.reception_sync.CteReceptionSyncService;
+import com.softart.dfe.services.cte.reception_sync.CteReceptionSyncServiceImpl;
 import com.softart.dfe.services.cte.status_service.CteStatusServiceServiceImpl;
 import com.softart.dfe.util.DateUtils;
 import com.softart.dfe.util.InputStreams;
@@ -56,7 +59,8 @@ public final class AppCte {
 //        gtv("22221011520224000140570010000002881903321274");
 //        provisionInDisagreement("22221211520224000140570010000003191604007441", "QUERO TESTAR ISSO AQUI");
 //        multimodal("22221211520224000140570010000003191604007441", "QUERO TESTAR ISSO AQUI", "1");
-        reception();
+//        reception();
+        receptionSync();
 //        queryReceipt("223000019361172");
 //        inutilizarCte();
 //        inutilizarCteOs();
@@ -89,6 +93,13 @@ public final class AppCte {
 
         System.out.println(queryReceiptService.queryReceipt(send.getInfRec().getNRec()));
         ;
+    }
+    private static void receptionSync() throws Exception {
+        KeyStoreInfo info = new PfxKeyStoreInfoImpl(InputStreams.newFileInputStream("/home/artur/Documentos/Certificate/tartigrado.pfx"), "22Rev", InputStreams.newByteArrayInputStream(CertificateChainFactory.getInstance().generate(Certificate.builder().build())), CertificateChainFactory.getInstance().getPassword());
+        CteReceptionSyncService service = new CteReceptionSyncServiceImpl(new PfxCteConfigImpl(UF.PI, "11520224000140", Environment.HOMOLOGATION, info), new DefaultXmlSigner());
+
+        System.out.println(service.reception(getCte(service.getConfig(), 321, Model.CTE)));
+
     }
 
     private static Cte getCte(CteConfig config, int number, Model model) throws Exception {
