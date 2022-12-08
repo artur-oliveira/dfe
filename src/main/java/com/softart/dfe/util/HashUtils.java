@@ -22,10 +22,7 @@ public final class HashUtils {
      * @return A byte array of the hash of the accessKey and base64Image.
      */
     public static byte[] hashDeliveryReceipt(String accessKey, String base64Image) throws GeneralSecurityException {
-        MessageDigest md = MessageDigest.getInstance(HashUtils.SHA1);
-        md.reset();
-        md.update((accessKey + base64Image).getBytes(StandardCharsets.UTF_8));
-        return Base64Utils.encodeToString(DatatypeConverter.parseHexBinary(String.format("%040x", new BigInteger(1, md.digest())))).getBytes(StandardCharsets.UTF_8);
+        return DatatypeConverter.parseHexBinary(sha1((accessKey + base64Image)));
     }
 
     /**

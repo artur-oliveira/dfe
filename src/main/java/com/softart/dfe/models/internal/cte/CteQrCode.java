@@ -1,6 +1,7 @@
 package com.softart.dfe.models.internal.cte;
 
 import com.softart.dfe.interfaces.internal.config.CteConfig;
+import com.softart.dfe.models.cte.reception.Cte;
 import lombok.*;
 
 @Data
@@ -9,6 +10,5 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CteQrCode {
-    private Object cte;
-    private CteConfig config;
+    private Cte cte;
 }

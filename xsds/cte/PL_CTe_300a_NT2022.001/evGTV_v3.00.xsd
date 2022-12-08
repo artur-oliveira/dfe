@@ -2,7 +2,7 @@
 <!-- edited with XMLSpy v2008 (http://www.altova.com) by sas-softwares@procergs.rs.gov.br (PROCERGS) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.portalfiscal.inf.br/cte"
            targetNamespace="http://www.portalfiscal.inf.br/cte" elementFormDefault="qualified"
-           attributeFormDefault="unqualified">
+>
     <xs:include schemaLocation="eventoCTeTiposBasico_v3.00.xsd"/>
     <xs:element name="evGTV" type="EvGTV">
         <xs:annotation>
@@ -106,15 +106,122 @@
                     <xs:documentation>Informações das Espécies transportadas</xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="rem" type="Rem">
+            <xs:element name="rem">
                 <xs:annotation>
                     <xs:documentation>Informações do Remetente da GTV</xs:documentation>
                 </xs:annotation>
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:choice>
+                            <xs:element name="CNPJ" type="TCnpjOpc">
+                                <xs:annotation>
+                                    <xs:documentation>Número do CNPJ</xs:documentation>
+                                    <xs:documentation>Em caso de empresa não estabelecida no Brasil, será
+                                        informado o CNPJ com zeros.
+                                        Informar os zeros não significativos.
+                                    </xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:element name="CPF" type="TCpf">
+                                <xs:annotation>
+                                    <xs:documentation>Número do CPF</xs:documentation>
+                                    <xs:documentation>Informar os zeros não significativos.
+                                    </xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                        </xs:choice>
+                        <xs:element name="IE" minOccurs="0">
+                            <xs:annotation>
+                                <xs:documentation>Inscrição Estadual</xs:documentation>
+                                <xs:documentation>Informar a IE do remetente ou ISENTO se remetente é
+                                    contribuinte do ICMS isento de inscrição no cadastro de contribuintes do
+                                    ICMS. Caso o remetente não seja contribuinte do ICMS não informar o
+                                    conteúdo.
+                                </xs:documentation>
+                            </xs:annotation>
+                            <xs:simpleType>
+                                <xs:restriction base="TIeDest"/>
+                            </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="UF" type="TUf">
+                            <xs:annotation>
+                                <xs:documentation>Sigla da UF</xs:documentation>
+                                <xs:documentation>Informar EX para operações com o exterior.
+                                </xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
+                        <xs:element name="xNome">
+                            <xs:annotation>
+                                <xs:documentation>Razão social ou nome do remetente</xs:documentation>
+                            </xs:annotation>
+                            <xs:simpleType>
+                                <xs:restriction base="TString">
+                                    <xs:maxLength value="60"/>
+                                    <xs:minLength value="2"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
             </xs:element>
-            <xs:element name="dest" type="Dest">
+            <xs:element name="dest">
                 <xs:annotation>
                     <xs:documentation>Informações do Destinatário da GTV</xs:documentation>
                 </xs:annotation>
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:choice>
+                            <xs:element name="CNPJ" type="TCnpjOpc">
+                                <xs:annotation>
+                                    <xs:documentation>Número do CNPJ</xs:documentation>
+                                    <xs:documentation>Em caso de empresa não estabelecida no Brasil, será
+                                        informado o CNPJ com zeros.
+                                        Informar os zeros não significativos.
+                                    </xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:element name="CPF" type="TCpf">
+                                <xs:annotation>
+                                    <xs:documentation>Número do CPF</xs:documentation>
+                                    <xs:documentation>Informar os zeros não significativos.
+                                    </xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                        </xs:choice>
+                        <xs:element name="IE" minOccurs="0">
+                            <xs:annotation>
+                                <xs:documentation>Inscrição Estadual</xs:documentation>
+                                <xs:documentation>Informar a IE do destinatário ou ISENTO se remetente é
+                                    contribuinte do ICMS isento de inscrição no cadastro de contribuintes do
+                                    ICMS. Caso o remetente não seja contribuinte do ICMS não informar o
+                                    conteúdo.
+                                </xs:documentation>
+                            </xs:annotation>
+                            <xs:simpleType>
+                                <xs:restriction base="TIeDest"/>
+                            </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="UF" type="TUf">
+                            <xs:annotation>
+                                <xs:documentation>Sigla da UF</xs:documentation>
+                                <xs:documentation>Informar EX para operações com o exterior.
+                                </xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
+                        <xs:element name="xNome">
+                            <xs:annotation>
+                                <xs:documentation>Razão social ou nome do destinatário</xs:documentation>
+                            </xs:annotation>
+                            <xs:simpleType>
+                                <xs:restriction base="TString">
+                                    <xs:maxLength value="60"/>
+                                    <xs:minLength value="2"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+
             </xs:element>
             <xs:element name="placa" type="TPlaca" minOccurs="0">
                 <xs:annotation>
@@ -166,112 +273,6 @@
                 <xs:annotation>
                     <xs:documentation>Valor Transportada em Espécie indicada</xs:documentation>
                 </xs:annotation>
-            </xs:element>
-        </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="Rem">
-        <xs:sequence>
-            <xs:choice>
-                <xs:element name="CNPJ" type="TCnpjOpc">
-                    <xs:annotation>
-                        <xs:documentation>Número do CNPJ</xs:documentation>
-                        <xs:documentation>Em caso de empresa não estabelecida no Brasil, será
-                            informado o CNPJ com zeros.
-                            Informar os zeros não significativos.
-                        </xs:documentation>
-                    </xs:annotation>
-                </xs:element>
-                <xs:element name="CPF" type="TCpf">
-                    <xs:annotation>
-                        <xs:documentation>Número do CPF</xs:documentation>
-                        <xs:documentation>Informar os zeros não significativos.
-                        </xs:documentation>
-                    </xs:annotation>
-                </xs:element>
-            </xs:choice>
-            <xs:element name="IE" minOccurs="0">
-                <xs:annotation>
-                    <xs:documentation>Inscrição Estadual</xs:documentation>
-                    <xs:documentation>Informar a IE do remetente ou ISENTO se remetente é
-                        contribuinte do ICMS isento de inscrição no cadastro de contribuintes do
-                        ICMS. Caso o remetente não seja contribuinte do ICMS não informar o
-                        conteúdo.
-                    </xs:documentation>
-                </xs:annotation>
-                <xs:simpleType>
-                    <xs:restriction base="TIeDest"/>
-                </xs:simpleType>
-            </xs:element>
-            <xs:element name="UF" type="TUf">
-                <xs:annotation>
-                    <xs:documentation>Sigla da UF</xs:documentation>
-                    <xs:documentation>Informar EX para operações com o exterior.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="xNome">
-                <xs:annotation>
-                    <xs:documentation>Razão social ou nome do remetente</xs:documentation>
-                </xs:annotation>
-                <xs:simpleType>
-                    <xs:restriction base="TString">
-                        <xs:maxLength value="60"/>
-                        <xs:minLength value="2"/>
-                    </xs:restriction>
-                </xs:simpleType>
-            </xs:element>
-        </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="Dest">
-        <xs:sequence>
-            <xs:choice>
-                <xs:element name="CNPJ" type="TCnpjOpc">
-                    <xs:annotation>
-                        <xs:documentation>Número do CNPJ</xs:documentation>
-                        <xs:documentation>Em caso de empresa não estabelecida no Brasil, será
-                            informado o CNPJ com zeros.
-                            Informar os zeros não significativos.
-                        </xs:documentation>
-                    </xs:annotation>
-                </xs:element>
-                <xs:element name="CPF" type="TCpf">
-                    <xs:annotation>
-                        <xs:documentation>Número do CPF</xs:documentation>
-                        <xs:documentation>Informar os zeros não significativos.
-                        </xs:documentation>
-                    </xs:annotation>
-                </xs:element>
-            </xs:choice>
-            <xs:element name="IE" minOccurs="0">
-                <xs:annotation>
-                    <xs:documentation>Inscrição Estadual</xs:documentation>
-                    <xs:documentation>Informar a IE do destinatário ou ISENTO se remetente é
-                        contribuinte do ICMS isento de inscrição no cadastro de contribuintes do
-                        ICMS. Caso o remetente não seja contribuinte do ICMS não informar o
-                        conteúdo.
-                    </xs:documentation>
-                </xs:annotation>
-                <xs:simpleType>
-                    <xs:restriction base="TIeDest"/>
-                </xs:simpleType>
-            </xs:element>
-            <xs:element name="UF" type="TUf">
-                <xs:annotation>
-                    <xs:documentation>Sigla da UF</xs:documentation>
-                    <xs:documentation>Informar EX para operações com o exterior.
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="xNome">
-                <xs:annotation>
-                    <xs:documentation>Razão social ou nome do destinatário</xs:documentation>
-                </xs:annotation>
-                <xs:simpleType>
-                    <xs:restriction base="TString">
-                        <xs:maxLength value="60"/>
-                        <xs:minLength value="2"/>
-                    </xs:restriction>
-                </xs:simpleType>
             </xs:element>
         </xs:sequence>
     </xs:complexType>

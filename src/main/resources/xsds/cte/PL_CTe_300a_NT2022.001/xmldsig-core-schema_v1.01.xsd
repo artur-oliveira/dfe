@@ -5,7 +5,8 @@
 <!-- *** ICP-Brasil - Projeto Nota Fiscal Eletrônica ***-->
 <!-- ***************************************************-->
 <!-- Schema for XML Signatures-->
-<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" targetNamespace="http://www.w3.org/2000/09/xmldsig#" elementFormDefault="qualified" attributeFormDefault="unqualified" version="0.1">
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" targetNamespace="http://www.w3.org/2000/09/xmldsig#" elementFormDefault="qualified"
+        version="0.1">
 	<element name="Signature" type="ds:SignatureType"/>
 	<complexType name="SignatureType">
 		<sequence>
@@ -13,12 +14,12 @@
 			<element name="SignatureValue" type="ds:SignatureValueType"/>
 			<element name="KeyInfo" type="ds:KeyInfoType"/>
 		</sequence>
-		<attribute name="Id" type="ID" use="optional"/>
+		<attribute name="Id" type="ID"/>
 	</complexType>
 	<complexType name="SignatureValueType">
 		<simpleContent>
 			<extension base="base64Binary">
-				<attribute name="Id" type="ID" use="optional"/>
+				<attribute name="Id" type="ID"/>
 			</extension>
 		</simpleContent>
 	</complexType>
@@ -36,7 +37,7 @@
 			</element>
 			<element name="Reference" type="ds:ReferenceType"/>
 		</sequence>
-		<attribute name="Id" type="ID" use="optional"/>
+		<attribute name="Id" type="ID"/>
 	</complexType>
 	<complexType name="ReferenceType">
 		<sequence>
@@ -54,7 +55,7 @@
 			</element>
 			<element name="DigestValue" type="ds:DigestValueType"/>
 		</sequence>
-		<attribute name="Id" type="ID" use="optional"/>
+		<attribute name="Id" type="ID"/>
 		<attribute name="URI" use="required">
 			<simpleType>
 				<restriction base="anyURI">
@@ -62,7 +63,7 @@
 				</restriction>
 			</simpleType>
 		</attribute>
-		<attribute name="Type" type="anyURI" use="optional"/>
+		<attribute name="Type" type="anyURI"/>
 	</complexType>
 	<complexType name="TransformsType">
 		<sequence>
@@ -79,7 +80,7 @@
 		<sequence>
 			<element name="X509Data" type="ds:X509DataType"/>
 		</sequence>
-		<attribute name="Id" type="ID" use="optional"/>
+		<attribute name="Id" type="ID"/>
 	</complexType>
 	<complexType name="X509DataType">
 		<sequence>

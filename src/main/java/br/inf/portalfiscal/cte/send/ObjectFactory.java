@@ -2,7 +2,7 @@
 // Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.3.2 
 // Consulte <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 // Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
-// Gerado em: 2022.12.07 às 10:30:22 PM BRT 
+// Gerado em: 2022.12.08 às 12:12:45 PM BRT 
 //
 
 
@@ -95,6 +95,14 @@ public class ObjectFactory {
      */
     public SignedInfoType createSignedInfoType() {
         return new SignedInfoType();
+    }
+
+    /**
+     * Create an instance of {@link InfGTV }
+     * 
+     */
+    public InfGTV createInfGTV() {
+        return new InfGTV();
     }
 
     /**
@@ -994,35 +1002,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link InfGTV }
-     * 
-     */
-    public InfGTV createInfGTV() {
-        return new InfGTV();
-    }
-
-    /**
      * Create an instance of {@link br.inf.portalfiscal.cte.send.InfEspecie }
      * 
      */
     public br.inf.portalfiscal.cte.send.InfEspecie createInfEspecie() {
         return new br.inf.portalfiscal.cte.send.InfEspecie();
-    }
-
-    /**
-     * Create an instance of {@link br.inf.portalfiscal.cte.send.Rem }
-     * 
-     */
-    public br.inf.portalfiscal.cte.send.Rem createRem() {
-        return new br.inf.portalfiscal.cte.send.Rem();
-    }
-
-    /**
-     * Create an instance of {@link br.inf.portalfiscal.cte.send.Dest }
-     * 
-     */
-    public br.inf.portalfiscal.cte.send.Dest createDest() {
-        return new br.inf.portalfiscal.cte.send.Dest();
     }
 
     /**
@@ -1111,6 +1095,22 @@ public class ObjectFactory {
      */
     public SignedInfoType.SignatureMethod createSignedInfoTypeSignatureMethod() {
         return new SignedInfoType.SignatureMethod();
+    }
+
+    /**
+     * Create an instance of {@link InfGTV.Rem }
+     * 
+     */
+    public InfGTV.Rem createInfGTVRem() {
+        return new InfGTV.Rem();
+    }
+
+    /**
+     * Create an instance of {@link InfGTV.Dest }
+     * 
+     */
+    public InfGTV.Dest createInfGTVDest() {
+        return new InfGTV.Dest();
     }
 
     /**

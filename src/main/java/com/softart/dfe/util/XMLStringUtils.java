@@ -36,7 +36,7 @@ public class XMLStringUtils {
             str = str.replace(String.format("<ns%d:Signature>", i), XMLStringUtils.SIGNATURE_PREFIX);
             str = str.replace(String.format("ns%d:", i), StringUtils.empty());
         }
-        return str;
+        return str.replace("<Signature>", "<Signature xmlns=\"http://www.w3.org/2000/09/xmldsig#\">");
     }
 
     /**
@@ -90,5 +90,9 @@ public class XMLStringUtils {
      */
     public static String idNf(String uf, String year, String month, String cnpj, String model, String serie, String number, String emissonType, String code, String digit) {
         return String.join("", ID_NFE_PREFIX, uf, year, month, cnpj, model, StringUtils.padZeroStart(serie, 3), StringUtils.padZeroStart(number, 9), emissonType, code, digit);
+    }
+
+    public static String idCte(String uf, String year, String month, String cnpj, String model, String serie, String number, String emissonType, String code, String digit) {
+        return String.join("", ID_CTE_PREFIX, uf, year, month, cnpj, model, StringUtils.padZeroStart(serie, 3), StringUtils.padZeroStart(number, 9), emissonType, code, digit);
     }
 }

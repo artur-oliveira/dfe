@@ -73,7 +73,7 @@ public final class CteFileSystemStorage extends CommonFileSystemStorage implemen
     public void storeProcEvent(Store<TProcEvento> o) throws StorageException {
         try {
             if (Objects.nonNull(o.getData()) && Objects.nonNull(o.getData().getRetEventoCTe()) && Objects.nonNull(o.getXml()) && CteReturnCode.generateProc(o.getData().getRetEventoCTe().getInfEvento().getCStat())) {
-                writeReturn(o, CteStorageKey.CTE_EVENT, xmlNameWithTime(o.getData().getRetEventoCTe().getInfEvento().getChCTe() + "-" + o.getData().getEventoCTe().getInfEvento().getTpEvento()));
+                writeProc(o, CteStorageKey.CTE_EVENT, xmlNameWithTime(o.getData().getRetEventoCTe().getInfEvento().getChCTe() + "-" + o.getData().getEventoCTe().getInfEvento().getTpEvento()));
             }
         } catch (Exception e) {
             throw new StorageException(e);

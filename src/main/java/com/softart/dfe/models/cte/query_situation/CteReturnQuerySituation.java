@@ -9,6 +9,7 @@ import com.softart.dfe.models.cte.event.ReturnEvent;
 import lombok.*;
 
 import javax.xml.bind.JAXBElement;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 
@@ -27,6 +28,19 @@ public class CteReturnQuerySituation implements DFObject, XMLAdapter<CteReturnQu
     protected ProtCTe protCTe;
     protected List<ProcEventoCTe> procEventoCTe;
     protected String versao;
+
+    public Long getLastSequenceNumber(String eventType) {
+        return getProcEventoCTe()
+                .stream()
+                .filter(it -> Objects.equals(eventType, it.getRetEvento().getInfEvento().getTpEvento()))
+                .map(it -> Long.valueOf(it.getRetEvento().getInfEvento().getNSeqEvento()))
+                .max(Comparator.naturalOrder())
+                .orElse(0L) + 1L;
+    }
+
+    public String getLastSequenceNumberAsString(String eventType) {
+        return String.valueOf(getLastSequenceNumber(eventType));
+    }
 
     @Getter
     @Setter

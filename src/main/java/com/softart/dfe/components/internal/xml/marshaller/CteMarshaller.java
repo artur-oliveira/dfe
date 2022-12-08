@@ -309,8 +309,20 @@ public final class CteMarshaller {
         }
     }
 
-    public static String protCte(Element element) {
+    public static String any(Element element) {
+        try {
+            TransformerFactory transFactory = TransformerFactory.newInstance();
+            Transformer transformer = transFactory.newTransformer();
+            StringWriter sw = new StringWriter();
+            transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
+            transformer.transform(new DOMSource(element), new StreamResult(sw));
+            return XMLStringUtils.cleanNamespace(sw.toString());
+        } catch (Exception e) {
+            throw new MarshallException(e);
+        }
+    }
 
+    public static String protCte(Element element) {
         try {
             TransformerFactory transFactory = TransformerFactory.newInstance();
             Transformer transformer = transFactory.newTransformer();

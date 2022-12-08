@@ -1,4 +1,4 @@
-package com.softart.dfe.components.internal.nfe;
+package com.softart.dfe.components.internal;
 
 import com.softart.dfe.util.DateUtils;
 import com.softart.dfe.util.StringUtils;

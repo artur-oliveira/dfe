@@ -7,7 +7,6 @@
 <!--  PL_009  versão 4.00 NT2018.005 v1.00-->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.portalfiscal.inf.br/nfe" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" targetNamespace="http://www.portalfiscal.inf.br/nfe" elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<xs:include schemaLocation="tiposBasico_v4.00.xsd"/>
-	<xs:include schemaLocation="leiauteNFe_v4.00.xsd"/>
 	<xs:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="xmldsig-core-schema_v1.01.xsd"/>
 	<xs:complexType name="TConsSitNFe">
 		<xs:annotation>
@@ -99,6 +98,7 @@
 		</xs:sequence>
 		<xs:attribute name="versao" type="TVerConsSitNFe" use="required"/>
 	</xs:complexType>
+
 	<xs:complexType name="TRetCancNFe">
 		<xs:annotation>
 			<xs:documentation>Tipo retorno Pedido de Cancelamento da Nota Fiscal Eletrônica</xs:documentation>

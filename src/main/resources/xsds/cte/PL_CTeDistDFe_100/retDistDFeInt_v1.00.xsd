@@ -1,14 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns="http://www.portalfiscal.inf.br/cte" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.portalfiscal.inf.br/cte"
            targetNamespace="http://www.portalfiscal.inf.br/cte" elementFormDefault="qualified"
-           attributeFormDefault="unqualified">
+>
     <xs:include schemaLocation="tiposDistDFe_v1.00.xsd"/>
     <xs:element name="retDistDFeInt" type="RetDistDFeInt">
         <xs:annotation>
             <xs:documentation>Schema do resultado do pedido de distribuição de DF-e de interesse</xs:documentation>
         </xs:annotation>
     </xs:element>
-
+    <xs:complexType name="DocZip">
+        <xs:simpleContent>
+            <xs:extension base="xs:base64Binary">
+                <xs:attribute name="NSU" type="TNSU" use="required">
+                    <xs:annotation>
+                        <xs:documentation>NSU do documento fiscal</xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="schema" type="xs:string" use="required">
+                    <xs:annotation>
+                        <xs:documentation>Identificação do Schema XML que será utilizado para
+                            validar o XML existente no conteúdo da tag docZip. Vai identificar o
+                            tipo do documento e sua versão. Exemplos: procCTe_v2.00.xsd,
+                            procEventoCTe_v2.00.xsd
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="LoteDistDFeInt">
+        <xs:sequence maxOccurs="50">
+            <xs:element name="docZip" type="DocZip">
+                <xs:annotation>
+                    <xs:documentation>Informação resumida ou documento fiscal eletrônico de interesse da
+                        pessoa ou empresa. O conteúdo desta tag estará compactado no padrão gZip. O tipo do
+                        campo é base64Binary.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
     <xs:complexType name="RetDistDFeInt">
         <xs:sequence>
             <xs:element name="tpAmb" type="TAmb">
@@ -61,44 +92,12 @@
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="loteDistDFeInt" minOccurs="0">
+            <xs:element name="loteDistDFeInt" type="LoteDistDFeInt" minOccurs="0">
                 <xs:annotation>
                     <xs:documentation>Conjunto de informações resumidas e documentos fiscais eletrônicos de interesse da
                         pessoa ou empresa.
                     </xs:documentation>
                 </xs:annotation>
-                <xs:complexType>
-                    <xs:sequence maxOccurs="50">
-                        <xs:element name="docZip">
-                            <xs:annotation>
-                                <xs:documentation>Informação resumida ou documento fiscal eletrônico de interesse da
-                                    pessoa ou empresa. O conteúdo desta tag estará compactado no padrão gZip. O tipo do
-                                    campo é base64Binary.
-                                </xs:documentation>
-                            </xs:annotation>
-                            <xs:complexType>
-                                <xs:simpleContent>
-                                    <xs:extension base="xs:base64Binary">
-                                        <xs:attribute name="NSU" type="TNSU" use="required">
-                                            <xs:annotation>
-                                                <xs:documentation>NSU do documento fiscal</xs:documentation>
-                                            </xs:annotation>
-                                        </xs:attribute>
-                                        <xs:attribute name="schema" type="xs:string" use="required">
-                                            <xs:annotation>
-                                                <xs:documentation>Identificação do Schema XML que será utilizado para
-                                                    validar o XML existente no conteúdo da tag docZip. Vai identificar o
-                                                    tipo do documento e sua versão. Exemplos: procCTe_v2.00.xsd,
-                                                    procEventoCTe_v2.00.xsd
-                                                </xs:documentation>
-                                            </xs:annotation>
-                                        </xs:attribute>
-                                    </xs:extension>
-                                </xs:simpleContent>
-                            </xs:complexType>
-                        </xs:element>
-                    </xs:sequence>
-                </xs:complexType>
             </xs:element>
         </xs:sequence>
         <xs:attribute name="versao" type="TVerDistDFe" use="required"/>

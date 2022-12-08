@@ -15,11 +15,13 @@ public final class DateUtils {
 
     public final static String yyMM = "yyMM";
     public final static String ISO = "yyyy-MM-dd'T'HH:mm:ssXXX";
+    public final static String ISO_DATE = "yyyy-MM-dd";
     private final static Map<String, DateTimeFormatter> formatters = new HashMap<>();
 
     static {
         formatters.put(yyMM, DateTimeFormatter.ofPattern(yyMM));
         formatters.put(ISO, DateTimeFormatter.ofPattern(ISO));
+        formatters.put(ISO_DATE, DateTimeFormatter.ofPattern(ISO_DATE));
     }
 
     private DateUtils() {
@@ -72,7 +74,7 @@ public final class DateUtils {
      * @return The current year
      */
     public static String currentyear() {
-        return String.valueOf(YearMonth.now());
+        return String.valueOf(YearMonth.now().get(ChronoField.YEAR));
     }
 
 
@@ -164,6 +166,14 @@ public final class DateUtils {
      */
     public static String nowString() {
         return format(now(), ISO);
+    }
+    /**
+     * It returns a string representation of the current time in the ISO 8601 format.
+     *
+     * @return A string representation of the current date and time.
+     */
+    public static String nowStringDate() {
+        return format(now(), ISO_DATE);
     }
 
     /**

@@ -109,7 +109,7 @@
 			<xs:pattern value="1\.00"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:complexType name="TretEvento">
+	<xs:complexType name="TRetEvento">
 		<xs:annotation>
 			<xs:documentation>Tipo retorno do Evento</xs:documentation>
 		</xs:annotation>
@@ -304,7 +304,7 @@
 					<xs:documentation>Descrição literal do status do registro do Evento</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="retEvento" type="TretEvento" minOccurs="0" maxOccurs="20"/>
+			<xs:element name="retEvento" type="TRetEvento" minOccurs="0" maxOccurs="20"/>
 		</xs:sequence>
 		<xs:attribute name="versao" type="TVerEnvEvento" use="required"/>
 	</xs:complexType>
@@ -314,7 +314,7 @@
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="evento" type="TEvento"/>
-			<xs:element name="retEvento" type="TretEvento"/>
+			<xs:element name="retEvento" type="TRetEvento"/>
 		</xs:sequence>
 		<xs:attribute name="versao" type="TVerEvento" use="required"/>
 	</xs:complexType>

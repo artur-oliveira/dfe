@@ -1,5 +1,7 @@
 package com.softart.dfe.util;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Arrays;
 import java.util.Locale;
 import java.util.Objects;
@@ -53,6 +55,14 @@ public final class StringUtils {
      */
     public static String padZeroStart(Object text, int len) {
         return padStart(text.toString(), len, '0');
+    }
+
+    public static String zero() {
+        return "0";
+    }
+
+    public static String zero(int scale) {
+        return BigDecimal.valueOf(0L).setScale(scale, RoundingMode.HALF_EVEN).toString();
     }
 
     /**

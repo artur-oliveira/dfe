@@ -50,7 +50,11 @@ final class DefaultXMLValidator extends XMLValidatorFactory {
     private Schema getSchema(String xsd) {
         final SchemaFactory factory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
         factory.setResourceResolver(new ResourceResolver(xsd));
-        return factory.newSchema(new StreamSource(Objects.requireNonNull(DefaultXMLValidator.class.getClassLoader().getResourceAsStream(xsd))));
+        Schema schema = factory.newSchema(new StreamSource(Objects.requireNonNull(DefaultXMLValidator.class.getClassLoader().getResourceAsStream(xsd))));
+
+        getSchemaMapping().put(xsd, schema);
+
+        return schema;
     }
 
     /**

@@ -13,7 +13,9 @@ public interface CteQuerySituationService extends CteSefazService {
 
     CteReturnQuerySituation querySituation(String accessKey) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException;
 
-    Long getLastSequenceNumber(String accessKey, String eventType) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException;
+    default Long getLastSequenceNumber(String accessKey, String eventType) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+        return querySituation(accessKey).getLastSequenceNumber(eventType);
+    }
 
     default Long getLastSequenceNumber(String accessKey, CteEvent event) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return getLastSequenceNumber(accessKey, event.getCode());

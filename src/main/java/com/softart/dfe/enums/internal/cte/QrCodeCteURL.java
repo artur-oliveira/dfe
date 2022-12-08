@@ -6,6 +6,7 @@ import com.softart.dfe.enums.internal.UF;
 import com.softart.dfe.exceptions.services.NoProviderFound;
 import com.softart.dfe.interfaces.internal.allow.AllowUF;
 import com.softart.dfe.interfaces.internal.config.CteConfig;
+import com.softart.dfe.models.cte.reception.Cte;
 import com.softart.dfe.models.internal.cte.CteQrCode;
 
 import java.security.GeneralSecurityException;
@@ -88,8 +89,8 @@ public enum QrCodeCteURL implements AllowUF {
         return environment.production() ? serviceURL.production() : serviceURL.homologation();
     }
 
-    public static String generate(Object cte, CteConfig config) throws NoProviderFound, GeneralSecurityException {
-        return QrCodeGeneratorFactory.getInstance().generate(CteQrCode.builder().cte(cte).config(config).build());
+    public static String generate(Cte cte) throws NoProviderFound, GeneralSecurityException {
+        return QrCodeGeneratorFactory.getInstance().generate(CteQrCode.builder().cte(cte).build());
     }
 
     @Override

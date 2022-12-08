@@ -71,7 +71,6 @@ public final class CteCorrectionLetter implements DFObject, XMLAdapter<CteCorrec
         private String tpEvento = CteEvent.CORRECTION_LETTER.getCode();
         private String nSeqEvento;
         private DetEvento detEvento;
-        private InfSolicNFF infSolicNFF;
         private String id;
 
         @Override
@@ -135,14 +134,6 @@ public final class CteCorrectionLetter implements DFObject, XMLAdapter<CteCorrec
                     private String nroItemAlterado;
                 }
             }
-        }
-
-        @Data
-        @AllArgsConstructor
-        @NoArgsConstructor
-        @Builder
-        public static final class InfSolicNFF implements DFObject, XMLAdapter<DetEvento, br.inf.portalfiscal.cte.send.InfSolicNFF> {
-            private String xSolic;
         }
     }
 }

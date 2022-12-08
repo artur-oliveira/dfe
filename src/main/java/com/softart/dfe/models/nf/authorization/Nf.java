@@ -1,7 +1,7 @@
 package com.softart.dfe.models.nf.authorization;
 
 import br.inf.portalfiscal.nfe.send.*;
-import com.softart.dfe.components.internal.nfe.AccessKeyGenerator;
+import com.softart.dfe.components.internal.AccessKeyGenerator;
 import com.softart.dfe.enums.general.Country;
 import com.softart.dfe.enums.internal.Model;
 import com.softart.dfe.enums.nf.identification.NFEmissionType;
