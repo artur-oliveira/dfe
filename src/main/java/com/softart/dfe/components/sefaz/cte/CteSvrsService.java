@@ -213,7 +213,7 @@ public final class CteSvrsService extends CteAnService {
             if (!resultMsg.getContent().isEmpty())
                 retorno = (TRetEnviCTe) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();
         } else {
-            br.inf.portalfiscal.cte.wsdl.reception.svrs.hom.CteRecepcaoSoap12 ws = ((br.inf.portalfiscal.cte.wsdl.reception.svrs.hom.CteRecepcao) getSoapService().prodReception()).getCteRecepcaoSoap12();
+            br.inf.portalfiscal.cte.wsdl.reception.svrs.hom.CteRecepcaoSoap12 ws = ((br.inf.portalfiscal.cte.wsdl.reception.svrs.hom.CteRecepcao) getSoapService().homReception()).getCteRecepcaoSoap12();
             data.getConfigureProvider().configure((BindingProvider) ws, data.getConfig());
 
             br.inf.portalfiscal.cte.wsdl.reception.svrs.hom.CteDadosMsg msg = new br.inf.portalfiscal.cte.wsdl.reception.svrs.hom.ObjectFactory().createCteDadosMsg();

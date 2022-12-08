@@ -119,7 +119,7 @@ public final class DefaultXmlSigner implements XMLSigner {
 
     public String signCte(String evento, Config config) throws XMLSignException {
         try {
-            return DefaultXmlSigner.sign(evento, config.info(), "infCTe");
+            return DefaultXmlSigner.sign(evento, config.info(), "infCte");
         } catch (XMLSignException e) {
             throw e;
         } catch (Exception e) {

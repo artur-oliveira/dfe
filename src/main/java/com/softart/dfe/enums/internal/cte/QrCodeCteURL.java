@@ -5,9 +5,12 @@ import com.softart.dfe.enums.internal.Environment;
 import com.softart.dfe.enums.internal.UF;
 import com.softart.dfe.exceptions.services.NoProviderFound;
 import com.softart.dfe.interfaces.internal.allow.AllowUF;
-import com.softart.dfe.interfaces.internal.config.CteConfig;
 import com.softart.dfe.models.cte.reception.Cte;
+import com.softart.dfe.models.cte.reception_gtve.Gtve;
+import com.softart.dfe.models.cte.reception_os.CteOs;
+import com.softart.dfe.models.internal.cte.CteOsQrCode;
 import com.softart.dfe.models.internal.cte.CteQrCode;
+import com.softart.dfe.models.internal.cte.GtveQrCode;
 
 import java.security.GeneralSecurityException;
 import java.util.Arrays;
@@ -60,7 +63,7 @@ public enum QrCodeCteURL implements AllowUF {
             return "https://www.fazenda.pr.gov.br/cte/qrcode";
         }
     },
-    SP {
+    SVSP {
         @Override
         public String production() {
             return "https://nfe.fazenda.sp.gov.br/CTeConsulta/qrCode";
@@ -70,6 +73,21 @@ public enum QrCodeCteURL implements AllowUF {
         public String homologation() {
             return "https://homologacao.nfe.fazenda.sp.gov.br/CTeConsulta/qrCode";
         }
+
+        Collection<UF> ufs() {
+            return Arrays.asList(UF.AP, UF.PE, UF.RR, UF.SP);
+        }
+
+        @Override
+        public Collection<UF> allowedUfsProduction() {
+            return ufs();
+        }
+
+        @Override
+        public Collection<UF> allowedUfsHomologation() {
+            return ufs();
+        }
+
     },
     SVRS {
         @Override
@@ -81,6 +99,20 @@ public enum QrCodeCteURL implements AllowUF {
         public String homologation() {
             return "https://dfe-portal.svrs.rs.gov.br/cte/qrCode";
         }
+
+        Collection<UF> ufs() {
+            return Arrays.asList(UF.AC, UF.AL, UF.AM, UF.BA, UF.CE, UF.DF, UF.ES, UF.GO, UF.MA, UF.PA, UF.PB, UF.PI, UF.RJ, UF.RN, UF.RS, UF.RO, UF.SC, UF.SE, UF.TO);
+        }
+
+        @Override
+        public Collection<UF> allowedUfsProduction() {
+            return ufs();
+        }
+
+        @Override
+        public Collection<UF> allowedUfsHomologation() {
+            return ufs();
+        }
     },
     ;
 
@@ -91,6 +123,14 @@ public enum QrCodeCteURL implements AllowUF {
 
     public static String generate(Cte cte) throws NoProviderFound, GeneralSecurityException {
         return QrCodeGeneratorFactory.getInstance().generate(CteQrCode.builder().cte(cte).build());
+    }
+
+    public static String generate(Gtve gtve) throws NoProviderFound, GeneralSecurityException {
+        return QrCodeGeneratorFactory.getInstance().generate(GtveQrCode.builder().gtve(gtve).build());
+    }
+
+    public static String generate(CteOs cteOs) throws NoProviderFound, GeneralSecurityException {
+        return QrCodeGeneratorFactory.getInstance().generate(CteOsQrCode.builder().cteOs(cteOs).build());
     }
 
     @Override

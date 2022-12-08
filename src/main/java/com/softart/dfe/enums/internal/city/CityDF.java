@@ -6,15 +6,17 @@ import lombok.Getter;
 
 @Getter
 public enum CityDF implements DFEnum.Codeable {
-    DF_BRASILIA("5300108", "Brasília", UF.DF),
+    DF_BRASILIA("5300108", "Brasília"),
     ;
     private final String code;
     private final String description;
-    private final UF uf;
 
-    CityDF(String code, String description, UF uf) {
+    CityDF(String code, String description) {
         this.code = code;
         this.description = description;
-        this.uf = uf;
+    }
+
+    public UF getUf() {
+        return UF.valueOf(name().substring(0, 2));
     }
 }

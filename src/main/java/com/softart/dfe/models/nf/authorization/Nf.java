@@ -2,6 +2,7 @@ package com.softart.dfe.models.nf.authorization;
 
 import br.inf.portalfiscal.nfe.send.*;
 import com.softart.dfe.components.internal.AccessKeyGenerator;
+import com.softart.dfe.components.internal.ProjectProperties;
 import com.softart.dfe.enums.general.Country;
 import com.softart.dfe.enums.internal.Model;
 import com.softart.dfe.enums.nf.identification.NFEmissionType;
@@ -15,6 +16,7 @@ import lombok.*;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Properties;
 
 @Getter
 @Setter
@@ -172,7 +174,8 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
             protected String indPres;
             protected String indIntermed;
             protected String procEmi;
-            protected String verProc;
+            @Builder.Default
+            protected String verProc = ProjectProperties.displayVersion();
             protected String dhCont;
             protected String xJust;
             protected List<NFref> nFref;

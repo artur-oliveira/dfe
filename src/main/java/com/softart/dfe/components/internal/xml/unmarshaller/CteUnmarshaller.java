@@ -300,6 +300,10 @@ public final class CteUnmarshaller {
         return toElement(new ObjectFactory().createEvCancCTe(o));
     }
 
+    public static Element toElement(RodoOS o) throws JAXBException {
+        return toElement(new ObjectFactory().createRodoOS(o));
+    }
+
     public static Element toElement(EvCCeCTe o) throws JAXBException {
         return toElement(new ObjectFactory().createEvCCeCTe(o));
     }

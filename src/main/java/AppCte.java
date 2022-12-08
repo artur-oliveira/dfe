@@ -1,17 +1,24 @@
+import br.inf.portalfiscal.cte.send.TUFSemEX;
 import br.inf.portalfiscal.cte.send.TUf;
 import com.softart.dfe.components.internal.PfxKeyStoreInfoImpl;
 import com.softart.dfe.components.internal.config.PfxCteConfigImpl;
 import com.softart.dfe.components.security.CertificateChainFactory;
 import com.softart.dfe.components.security.DefaultXmlSigner;
 import com.softart.dfe.enums.cte.CteGtvKind;
+import com.softart.dfe.enums.cte.identification.*;
+import com.softart.dfe.enums.cte.info.charge.CteChargeUnid;
 import com.softart.dfe.enums.internal.Environment;
+import com.softart.dfe.enums.internal.Model;
 import com.softart.dfe.enums.internal.UF;
+import com.softart.dfe.enums.internal.city.CityPI;
 import com.softart.dfe.interfaces.internal.KeyStoreInfo;
 import com.softart.dfe.interfaces.internal.config.CteConfig;
 import com.softart.dfe.interfaces.xml.XMLSigner;
 import com.softart.dfe.models.cte.event.CteCorrectionLetter;
 import com.softart.dfe.models.cte.event.CteGtv;
 import com.softart.dfe.models.cte.inutilization.CteReturnInutilization;
+import com.softart.dfe.models.cte.reception.Cte;
+import com.softart.dfe.models.cte.reception.CteReturnSend;
 import com.softart.dfe.models.internal.security.Certificate;
 import com.softart.dfe.services.cte.distribution.CteDistributionServiceImpl;
 import com.softart.dfe.services.cte.event.CteEventService;
@@ -19,7 +26,11 @@ import com.softart.dfe.services.cte.event.CteEventServiceImpl;
 import com.softart.dfe.services.cte.inutilization.CteInutilizationServiceImpl;
 import com.softart.dfe.services.cte.inutilization.CteOsInutilizationServiceImpl;
 import com.softart.dfe.services.cte.inutilization.InutilizationService;
+import com.softart.dfe.services.cte.query_receipt.CteQueryReceiptService;
+import com.softart.dfe.services.cte.query_receipt.CteQueryReceiptServiceImpl;
 import com.softart.dfe.services.cte.query_situation.CteQuerySituationServiceImpl;
+import com.softart.dfe.services.cte.reception.CteReceptionService;
+import com.softart.dfe.services.cte.reception.CteReceptionServiceImpl;
 import com.softart.dfe.services.cte.status_service.CteStatusServiceServiceImpl;
 import com.softart.dfe.util.DateUtils;
 import com.softart.dfe.util.InputStreams;
@@ -44,9 +55,18 @@ public final class AppCte {
 //        cancelarComprovanteEntrega("22221011520224000140570010000002881903321274", "322220000001422");
 //        gtv("22221011520224000140570010000002881903321274");
 //        provisionInDisagreement("22221211520224000140570010000003191604007441", "QUERO TESTAR ISSO AQUI");
-        multimodal("22221211520224000140570010000003191604007441", "QUERO TESTAR ISSO AQUI", "1");
+//        multimodal("22221211520224000140570010000003191604007441", "QUERO TESTAR ISSO AQUI", "1");
+        reception();
+//        queryReceipt("223000019361172");
 //        inutilizarCte();
 //        inutilizarCteOs();
+    }
+
+    private static void queryReceipt(String receipt) throws Exception {
+        KeyStoreInfo info = new PfxKeyStoreInfoImpl(InputStreams.newFileInputStream("/home/artur/Documentos/Certificate/tartigrado.pfx"), "22Rev", InputStreams.newByteArrayInputStream(CertificateChainFactory.getInstance().generate(Certificate.builder().build())), CertificateChainFactory.getInstance().getPassword());
+
+        System.out.println(new CteQueryReceiptServiceImpl(new PfxCteConfigImpl(UF.PI, "11520224000140", Environment.HOMOLOGATION, info), new DefaultXmlSigner()).queryReceipt(receipt));
+
     }
 
     private static void cancelar(String accessKey) throws Exception {
@@ -54,6 +74,208 @@ public final class AppCte {
 
         System.out.println(new CteEventServiceImpl(new PfxCteConfigImpl(UF.PI, "11520224000140", Environment.HOMOLOGATION, info), new DefaultXmlSigner()).cancel(accessKey));
 
+    }
+
+    private static void reception() throws Exception {
+        KeyStoreInfo info = new PfxKeyStoreInfoImpl(InputStreams.newFileInputStream("/home/artur/Documentos/Certificate/tartigrado.pfx"), "22Rev", InputStreams.newByteArrayInputStream(CertificateChainFactory.getInstance().generate(Certificate.builder().build())), CertificateChainFactory.getInstance().getPassword());
+        CteReceptionService service = new CteReceptionServiceImpl(new PfxCteConfigImpl(UF.PI, "11520224000140", Environment.HOMOLOGATION, info), new DefaultXmlSigner());
+
+        CteReturnSend send = service.reception(getCte(service.getConfig(), 321, Model.CTE));
+        System.out.println(send);
+
+        Thread.sleep(send.getInfRec().getTMed().longValue() * 1000L);
+
+        CteQueryReceiptService queryReceiptService = new CteQueryReceiptServiceImpl(new PfxCteConfigImpl(UF.PI, "11520224000140", Environment.HOMOLOGATION, info), new DefaultXmlSigner());
+
+        System.out.println(queryReceiptService.queryReceipt(send.getInfRec().getNRec()));
+        ;
+    }
+
+    private static Cte getCte(CteConfig config, int number, Model model) throws Exception {
+        CityPI c = CityPI.PI_TERESINA;
+
+        return Cte
+                .builder()
+                .infCte(Cte.InfCte
+                        .builder()
+                        .ide(Cte.InfCte
+                                .Ide
+                                .builder()
+                                .cuf(config.uf().getCode())
+                                .cfop("5353")
+                                .natOp("TESTE")
+                                .mod(model.getCode())
+                                .serie("1")
+                                .nct(String.valueOf(number))
+                                .tpAmb(config.environment().getCode())
+                                .tpCTe(CteType.NORMAL.getCode())
+                                .procEmi(CteProcessEmission.APPLICATION.getCode())
+                                .tpImp(CtePrintType.PORTRAIT.getCode())
+                                .tpEmis(config.emission().getCode())
+                                .cMunEnv(c.getCode())
+                                .ufEnv(TUf.valueOf(c.getUf().name()))
+                                .xMunEnv(c.getDescription())
+                                .modal(CteModal.RODOVIARIO.getCode())
+                                .tpServ(CteServiceType.NORMAL.getCode())
+                                .cMunIni(c.getCode())
+                                .xMunIni(c.getDescription())
+                                .ufIni(TUf.valueOf(c.getUf().name()))
+                                .cMunFim(c.getCode())
+                                .xMunFim(c.getDescription())
+                                .ufFim(TUf.valueOf(c.getUf().name()))
+                                .indIEToma("1")
+                                .retira("1")
+                                .toma3(Cte.InfCte.Ide.Toma3.builder().toma(CteToma.REMITTEE.getCode()).build())
+                                .build())
+                        .compl(Cte.InfCte.Compl.builder().entrega(Cte.InfCte.Compl.Entrega
+                                        .builder()
+                                        .semData(Cte.InfCte.Compl.Entrega.SemData.builder().build())
+                                        .semHora(Cte.InfCte.Compl.Entrega.SemHora.builder().build())
+                                        .build())
+                                .build())
+                        .emit(Cte.InfCte.Emit
+                                .builder()
+                                .cnpj(config.cnpj())
+                                .xNome("CT-E EMITIDO EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL")
+                                .xFant("Teste")
+                                .ie("194739350")
+                                .crt("1")
+                                .enderEmit(Cte.InfCte.TEndeEmi
+                                        .builder()
+                                        .cep("64014220")
+                                        .xBairro("Bairro Teste")
+                                        .xCpl("Complemento teste")
+                                        .cMun(c.getCode())
+                                        .xMun(c.getDescription())
+                                        .xLgr("Rua teste")
+                                        .nro("666")
+                                        .uf(TUFSemEX.valueOf(config.uf().name()))
+                                        .build())
+                                .build())
+                        .rem(Cte.InfCte.Rem
+                                .builder()
+                                .cnpj(config.cnpj())
+                                .xNome("CT-E EMITIDO EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL")
+                                .xFant("Teste")
+                                .ie("194739350")
+                                .enderReme(Cte.InfCte.TEndereco
+                                        .builder()
+                                        .cep("64014220")
+                                        .xBairro("Bairro Teste")
+                                        .xCpl("Complemento teste")
+                                        .cMun(c.getCode())
+                                        .xMun(c.getDescription())
+                                        .xLgr("Rua teste")
+                                        .nro("666")
+                                        .uf(TUf.valueOf(config.uf().name()))
+                                        .build())
+                                .build())
+                        .exped(Cte.InfCte.Exped
+                                .builder()
+                                .cnpj(config.cnpj())
+                                .xNome("CT-E EMITIDO EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL")
+                                .ie("194739350")
+                                .enderExped(Cte.InfCte.TEndereco
+                                        .builder()
+                                        .cep("64014220")
+                                        .xBairro("Bairro Teste")
+                                        .xCpl("Complemento teste")
+                                        .cMun(c.getCode())
+                                        .xMun(c.getDescription())
+                                        .xLgr("Rua teste")
+                                        .nro("666")
+                                        .uf(TUf.valueOf(config.uf().name()))
+                                        .build())
+                                .build())
+                        .receb(Cte.InfCte.Receb
+                                .builder()
+                                .cnpj(config.cnpj())
+                                .xNome("CT-E EMITIDO EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL")
+                                .ie("194739350")
+                                .enderReceb(Cte.InfCte.TEndereco
+                                        .builder()
+                                        .cep("64014220")
+                                        .xBairro("Bairro Teste")
+                                        .xCpl("Complemento teste")
+                                        .cMun(c.getCode())
+                                        .xMun(c.getDescription())
+                                        .xLgr("Rua teste")
+                                        .nro("666")
+                                        .uf(TUf.valueOf(config.uf().name()))
+                                        .build())
+                                .build())
+                        .dest(Cte.InfCte.Dest
+                                .builder()
+                                .cnpj(config.cnpj())
+                                .xNome("CT-E EMITIDO EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL")
+                                .ie("194739350")
+                                .enderDest(Cte.InfCte.TEndereco
+                                        .builder()
+                                        .cep("64014220")
+                                        .xBairro("Bairro Teste")
+                                        .xCpl("Complemento teste")
+                                        .cMun(c.getCode())
+                                        .xMun(c.getDescription())
+                                        .xLgr("Rua teste")
+                                        .nro("666")
+                                        .uf(TUf.valueOf(config.uf().name()))
+                                        .build())
+                                .build())
+                        .vPrest(Cte.InfCte.VPrest.builder()
+                                .vtPrest("1110.00")
+                                .vRec("1110.00")
+                                .build())
+                        .imp(Cte.InfCte.Imp
+                                .builder()
+                                .icms(Cte.InfCte.Imp.TImp
+                                        .builder()
+                                        .icms00(Cte.InfCte.Imp.TImp.ICMS00.builder()
+                                                .vbc("1110.00")
+                                                .picms("17.00")
+                                                .vicms("188.70")
+                                                .build())
+                                        .build())
+                                .vTotTrib("188.70")
+                                .build())
+                        .infCTeNorm(Cte.InfCte.InfCTeNorm
+                                .builder()
+                                .infCarga(Cte.InfCte.InfCTeNorm.InfCarga
+                                        .builder()
+                                        .vCarga("1600.00")
+                                        .proPred("VASILHAME 13KG - ONU 1075 GLP 2.1")
+                                        .xOutCat("VASILHAME")
+                                        .infQ(Collections.singletonList(
+                                                Cte.InfCte.InfCTeNorm.InfCarga.InfQ
+                                                        .builder()
+                                                        .cUnid(CteChargeUnid.KG.getCode())
+                                                        .tpMed("PESO BRUTO")
+                                                        .qCarga("130.0000")
+                                                        .build()
+                                        ))
+                                        .build())
+                                .infDoc(Cte.InfCte.InfCTeNorm.InfDoc
+                                        .builder()
+                                        .infNFe(Collections.singletonList(Cte.InfCte.InfCTeNorm.InfDoc.InfNFe
+                                                .builder()
+                                                .chave("22220911520224000140550010000035391879129974")
+                                                .build()))
+                                        .build())
+                                .infModal(Cte.InfCte.InfCTeNorm.InfModal
+                                        .builder()
+                                        .rodo(Cte.InfCte.InfCTeNorm.InfModal.Rodo
+                                                .builder()
+                                                .rntrc("12345678")
+                                                .build())
+                                        .build())
+                                .build())
+                        .infRespTec(Cte.InfCte.TRespTec.builder()
+                                .cnpj("11520224000140")
+                                .xContato("TARTIGRADO TECNOLOGIA TLDA")
+                                .email("falecom@tartigrado.com")
+                                .fone("86988033430")
+                                .build())
+                        .build())
+                .build();
     }
 
     private static void cartaCorrecao(String accessKey) throws Exception {

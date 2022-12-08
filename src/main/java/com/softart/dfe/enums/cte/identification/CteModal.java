@@ -1,4 +1,4 @@
-package com.softart.dfe.enums.cte;
+package com.softart.dfe.enums.cte.identification;
 
 import com.softart.dfe.components.internal.DFEnum;
 import lombok.Getter;
