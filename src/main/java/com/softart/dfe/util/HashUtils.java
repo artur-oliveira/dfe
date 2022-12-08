@@ -1,0 +1,64 @@
+package com.softart.dfe.util;
+
+import javax.xml.bind.DatatypeConverter;
+import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
+import java.security.GeneralSecurityException;
+import java.security.MessageDigest;
+
+public final class HashUtils {
+    public static final String SHA1 = "SHA1";
+
+    private HashUtils() {
+        throw new UnsupportedOperationException("No instances of " + this.getClass().getSimpleName());
+    }
+
+    /**
+     * `hashDeliveryReceipt` takes the access key and the base64 encoded image and returns the SHA1 hash of the
+     * concatenation of the access key and the base64 encoded image
+     *
+     * @param accessKey   The access key of the user who is sending the message.
+     * @param base64Image The base64 encoded image of the delivery receipt.
+     * @return A byte array of the hash of the accessKey and base64Image.
+     */
+    public static byte[] hashDeliveryReceipt(String accessKey, String base64Image) throws GeneralSecurityException {
+        MessageDigest md = MessageDigest.getInstance(HashUtils.SHA1);
+        md.reset();
+        md.update((accessKey + base64Image).getBytes(StandardCharsets.UTF_8));
+        return Base64Utils.encodeToString(DatatypeConverter.parseHexBinary(String.format("%040x", new BigInteger(1, md.digest())))).getBytes(StandardCharsets.UTF_8);
+    }
+
+    /**
+     * It takes a string, converts it to a byte array, and then calls the hex function that takes a byte array
+     *
+     * @param str The string to be converted to hexadecimal.
+     * @return A string of hexadecimal characters.
+     */
+    public static String hex(final String str) {
+        return hex(str.getBytes(StandardCharsets.UTF_8));
+    }
+
+    /**
+     * It takes a byte array and returns a string of hexadecimal characters
+     *
+     * @param str The string to be hashed.
+     * @return A string of 40 hexadecimal characters.
+     */
+    public static String hex(final byte[] str) {
+        return String.format("%040x", new BigInteger(1, str));
+    }
+
+    /**
+     * Get the SHA1 hash of the given text, and return it as a hexadecimal string.
+     *
+     * @param text The text to hash
+     * @return A string of the SHA1 hash of the input string.
+     */
+    public static String sha1(String text) throws GeneralSecurityException {
+        final StringBuilder sb = new StringBuilder();
+        for (final byte element : MessageDigest.getInstance(HashUtils.SHA1).digest(text.getBytes(StandardCharsets.UTF_8))) {
+            sb.append(Integer.toString((element & 0xff) + 0x100, 16).substring(1));
+        }
+        return sb.toString();
+    }
+}
