@@ -12,7 +12,7 @@ import com.softart.dfe.models.cte.reception_sync.CteReturn;
 import com.softart.dfe.models.cte.reception_sync.CteSyncRequest;
 
 public interface CteReceptionSyncService extends CteSefazService {
-    default CteReturn reception(TCTe tcTe) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default CteReturn receptionSync(TCTe tcTe) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return CteReturn
                 .builder()
                 .build()
@@ -30,7 +30,7 @@ public interface CteReceptionSyncService extends CteSefazService {
                                 .build()));
     }
 
-    default CteReturn reception(Cte cte) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
-        return reception(cte.toObject());
+    default CteReturn receptionSync(Cte cte) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+        return receptionSync(cte.toObject());
     }
 }

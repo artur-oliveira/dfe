@@ -3,7 +3,6 @@ package com.softart.dfe.models.cte.reception_os;
 import br.inf.portalfiscal.cte.send.TProtCTeOS;
 import com.softart.dfe.interfaces.xml.DFObject;
 import com.softart.dfe.interfaces.xml.XMLAdapter;
-import com.softart.dfe.models.cte.reception.CteProtocol;
 import lombok.*;
 
 @Data
@@ -21,7 +20,7 @@ public final class CteOsProtocol implements DFObject, XMLAdapter<CteOsProtocol, 
     @ToString
     @AllArgsConstructor
     @NoArgsConstructor
-    public static class InfProt implements DFObject, XMLAdapter<CteProtocol.InfProt, TProtCTeOS.InfProt> {
+    public static class InfProt implements DFObject, XMLAdapter<InfProt, TProtCTeOS.InfProt> {
         private String tpAmb;
         private String verAplic;
         private String chCTe;
@@ -39,7 +38,7 @@ public final class CteOsProtocol implements DFObject, XMLAdapter<CteOsProtocol, 
     @ToString
     @AllArgsConstructor
     @NoArgsConstructor
-    public static class InfFisco implements DFObject, XMLAdapter<CteProtocol.InfFisco, TProtCTeOS.InfFisco> {
+    public static class InfFisco implements DFObject, XMLAdapter<InfFisco, TProtCTeOS.InfFisco> {
         private String cMsg;
         private String xMsg;
     }

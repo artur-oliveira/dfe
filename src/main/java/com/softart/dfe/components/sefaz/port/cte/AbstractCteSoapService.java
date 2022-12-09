@@ -7,6 +7,7 @@ import com.softart.dfe.components.sefaz.port.SoapServiceProxy;
 import com.softart.dfe.enums.internal.Environment;
 import com.softart.dfe.enums.internal.cte.CteAuthorizer;
 import com.softart.dfe.enums.internal.cte.CtePathEndpoint;
+import com.softart.dfe.exceptions.RequiredException;
 import com.softart.dfe.exceptions.security.SSLContextException;
 import com.softart.dfe.interfaces.internal.config.Config;
 import com.softart.dfe.interfaces.internal.config.CteConfig;
@@ -53,26 +54,86 @@ public abstract class AbstractCteSoapService extends AbstractSoapService impleme
     public void initialize(CteSoapService cached) {
         this.config = cached.getConfig();
 
-        this.prodDistribution = cached.prodDistribution();
-        this.homDistribution = cached.homDistribution();
-        this.prodEvent = cached.prodEvent();
-        this.homEvent = cached.homEvent();
-        this.prodInutilization = cached.prodInutilization();
-        this.homInutilization = cached.homInutilization();
-        this.prodQueryReceipt = cached.prodQueryReceipt();
-        this.homQueryReceipt = cached.homQueryReceipt();
-        this.prodQuerySituation = cached.prodQuerySituation();
-        this.homQuerySituation = cached.homQuerySituation();
-        this.prodReception = cached.prodReception();
-        this.homReception = cached.homReception();
-        this.prodReceptionGtve = cached.prodReceptionGtve();
-        this.homReceptionGtve = cached.homReceptionGtve();
-        this.prodReceptionOs = cached.prodReceptionOs();
-        this.homReceptionOs = cached.homReceptionOs();
-        this.prodReceptionSync = cached.prodReceptionSync();
-        this.homReceptionSync = cached.homReceptionSync();
-        this.prodStatusService = cached.prodStatusService();
-        this.homStatusService = cached.homStatusService();
+        try {
+            this.prodDistribution = cached.prodDistribution();
+        } catch (RequiredException ignored) {
+        }
+        try {
+            this.homDistribution = cached.homDistribution();
+        } catch (RequiredException ignored) {
+        }
+        try {
+            this.prodEvent = cached.prodEvent();
+        } catch (RequiredException ignored) {
+        }
+        try {
+            this.homEvent = cached.homEvent();
+        } catch (RequiredException ignored) {
+        }
+        try {
+            this.prodInutilization = cached.prodInutilization();
+        } catch (RequiredException ignored) {
+        }
+        try {
+            this.homInutilization = cached.homInutilization();
+        } catch (RequiredException ignored) {
+        }
+        try {
+            this.prodQueryReceipt = cached.prodQueryReceipt();
+        } catch (RequiredException ignored) {
+        }
+        try {
+            this.homQueryReceipt = cached.homQueryReceipt();
+        } catch (RequiredException ignored) {
+        }
+        try {
+            this.prodQuerySituation = cached.prodQuerySituation();
+        } catch (RequiredException ignored) {
+        }
+        try {
+            this.homQuerySituation = cached.homQuerySituation();
+        } catch (RequiredException ignored) {
+        }
+        try {
+            this.prodReception = cached.prodReception();
+        } catch (RequiredException ignored) {
+        }
+        try {
+            this.homReception = cached.homReception();
+        } catch (RequiredException ignored) {
+        }
+        try {
+            this.prodReceptionGtve = cached.prodReceptionGtve();
+        } catch (RequiredException ignored) {
+        }
+        try {
+            this.homReceptionGtve = cached.homReceptionGtve();
+        } catch (RequiredException ignored) {
+        }
+        try {
+            this.prodReceptionOs = cached.prodReceptionOs();
+        } catch (RequiredException ignored) {
+        }
+        try {
+            this.homReceptionOs = cached.homReceptionOs();
+        } catch (RequiredException ignored) {
+        }
+        try {
+            this.prodReceptionSync = cached.prodReceptionSync();
+        } catch (RequiredException ignored) {
+        }
+        try {
+            this.homReceptionSync = cached.homReceptionSync();
+        } catch (RequiredException ignored) {
+        }
+        try {
+            this.prodStatusService = cached.prodStatusService();
+        } catch (RequiredException ignored) {
+        }
+        try {
+            this.homStatusService = cached.homStatusService();
+        } catch (RequiredException ignored) {
+        }
 
         this.initialized = true;
     }

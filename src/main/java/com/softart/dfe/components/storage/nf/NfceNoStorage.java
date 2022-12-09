@@ -11,16 +11,22 @@ import lombok.extern.log4j.Log4j2;
 public final class NfceNoStorage extends NfCommonNoStorage implements NfceStorage {
     @Override
     public void storeProcSubstituteCancel(Store<TProcEvento> o) {
-        log.info(o.getXml());
+        if (LOG_XML) {
+            log.info(o.getXml());
+        }
     }
 
     @Override
     public void storeReturnSubstituteCancel(Store<TRetEnvEvento> o) {
-        log.info(o.getXml());
+        if (LOG_XML) {
+            log.info(o.getXml());
+        }
     }
 
     @Override
     public void storeSendSubstituteCancel(Store<TEnvEvento> o) {
-        log.info(o.getXml());
+        if (LOG_XML) {
+            log.info(o.getXml());
+        }
     }
 }

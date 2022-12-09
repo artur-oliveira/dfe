@@ -95,4 +95,8 @@ public class XMLStringUtils {
     public static String idCte(String uf, String year, String month, String cnpj, String model, String serie, String number, String emissonType, String code, String digit) {
         return String.join("", ID_CTE_PREFIX, uf, year, month, cnpj, model, StringUtils.padZeroStart(serie, 3), StringUtils.padZeroStart(number, 9), emissonType, code, digit);
     }
+
+    public static String idMdfe(String uf, String year, String month, String cnpj, String model, String serie, String number, String emissonType, String code, String digit) {
+        return String.join("", ID_MDFE_PREFIX, uf, year, month, cnpj, model, StringUtils.padZeroStart(serie, 3), StringUtils.padZeroStart(number, 9), emissonType, code, digit);
+    }
 }

@@ -13,6 +13,7 @@ import com.softart.dfe.models.cte.event.CteGtv;
 import com.softart.dfe.models.cte.event.ReturnEvent;
 import com.softart.dfe.models.cte.query_situation.CteReturnQuerySituation;
 import com.softart.dfe.services.cte.query_situation.CteQuerySituationService;
+import com.softart.dfe.util.RequireUtils;
 
 import java.util.Collection;
 import java.util.List;
@@ -34,7 +35,7 @@ public abstract class AbstractCteEventService implements CteEventService {
 
     @Override
     public ReturnEvent cancel(String accessKey) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
-        return cancel(accessKey, getCteQuerySituationService().querySituation(accessKey).getProtCTe().protocol());
+        return cancel(accessKey, RequireUtils.nonNull(getCteQuerySituationService().querySituation(accessKey).getProtCTe(), "protocol must be not null to cancel cfe " + accessKey).protocol());
     }
 
     @Override

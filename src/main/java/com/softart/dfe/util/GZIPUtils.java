@@ -24,7 +24,7 @@ public final class GZIPUtils {
     public static String decompress(byte[] o) throws Exception {
         if (Functions.isNullOrEmpty(o)) return "";
 
-        try (InputStream gis = InputStreams.newGZIPInputStream(InputStreams.newByteArrayInputStream(o))) {
+        try (InputStream gis = InputStreamUtils.newGZIPInputStream(InputStreamUtils.newByteArrayInputStream(o))) {
             try (BufferedReader bf = new BufferedReader(new InputStreamReader(gis, StandardCharsets.UTF_8))) {
                 return bf.lines().collect(Collectors.joining(""));
             }
@@ -51,8 +51,8 @@ public final class GZIPUtils {
     public static byte[] compress(final byte[] o) throws Exception {
         if (Functions.isNullOrEmpty(o)) return "".getBytes(StandardCharsets.UTF_8);
 
-        try (ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream()) {
-            try (GZIPOutputStream gos = new GZIPOutputStream(byteArrayOutputStream)) {
+        try (ByteArrayOutputStream byteArrayOutputStream = OutputStreamUtils.newByteArrayOutputStream()) {
+            try (GZIPOutputStream gos = OutputStreamUtils.newGzipOututStream(byteArrayOutputStream)) {
                 gos.write(o);
                 gos.finish();
                 return Base64Utils.encode(byteArrayOutputStream);

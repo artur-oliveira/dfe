@@ -1,5 +1,7 @@
 package com.softart.dfe.components.internal.xml.namespace;
 
+import lombok.AccessLevel;
+import lombok.Getter;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -8,7 +10,18 @@ import org.w3c.dom.NodeList;
 import javax.xml.XMLConstants;
 import java.util.*;
 
+@Getter(AccessLevel.PRIVATE)
 final class DefaultNamespaceCleaner extends NameSpaceCleanerFactory {
+
+    private final Map<String, String> overridingNamespaces;
+
+    DefaultNamespaceCleaner() {
+        Map<String, String> namespaces = new HashMap<>();
+        namespaces.put("NFe", "http://www.portalfiscal.inf.br/nfe");
+        namespaces.put("CTe", "http://www.portalfiscal.inf.br/cte");
+        namespaces.put("MDFe", "http://www.portalfiscal.inf.br/mdfe");
+        this.overridingNamespaces = Collections.unmodifiableMap(namespaces);
+    }
 
     /**
      * > This function takes a node and a map of nodes to their parents, and recursively cleans the node and all of its
@@ -37,6 +50,10 @@ final class DefaultNamespaceCleaner extends NameSpaceCleanerFactory {
             if (Objects.nonNull(el.getPrefix()) && namespaceElement.containsKey(el.getPrefix())) {
                 el.setAttributeNS(XMLConstants.XMLNS_ATTRIBUTE_NS_URI, XMLConstants.XMLNS_ATTRIBUTE, namespaceElement.get(el.getPrefix()));
                 namespaceElement.remove(el.getPrefix());
+            }
+
+            if (getOverridingNamespaces().containsKey(el.getLocalName())) {
+                el.setAttributeNS(XMLConstants.XMLNS_ATTRIBUTE_NS_URI, XMLConstants.XMLNS_ATTRIBUTE, getOverridingNamespaces().get(el.getLocalName()));
             }
 
             Collection<Attr> removeAttrs = new ArrayList<>();

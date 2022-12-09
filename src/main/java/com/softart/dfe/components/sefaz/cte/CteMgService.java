@@ -3,6 +3,8 @@ package com.softart.dfe.components.sefaz.cte;
 import br.inf.portalfiscal.cte.send.*;
 import com.softart.dfe.components.internal.PairImpl;
 import com.softart.dfe.components.internal.parser.AccessKeyParserFactory;
+import com.softart.dfe.components.internal.xml.marshaller.CteMarshaller;
+import com.softart.dfe.components.internal.xml.unmarshaller.CteUnmarshaller;
 import com.softart.dfe.enums.cte.identification.CteEmissionType;
 import com.softart.dfe.enums.internal.Environment;
 import com.softart.dfe.enums.internal.UF;
@@ -18,8 +20,6 @@ import com.softart.dfe.models.internal.After;
 import com.softart.dfe.models.internal.Before;
 import com.softart.dfe.models.internal.Validation;
 import com.softart.dfe.util.GZIPUtils;
-import com.softart.dfe.components.internal.xml.marshaller.CteMarshaller;
-import com.softart.dfe.components.internal.xml.unmarshaller.CteUnmarshaller;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.ws.BindingProvider;
@@ -231,60 +231,7 @@ public final class CteMgService extends CteAnService {
 
     @Override
     public <T extends SefazRequest<TGTVe, TRetGTVe>> Pair<TGTVe, TRetGTVe> receptionGtve(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = data.getSigner().signCte(CteMarshaller.receptionGtve(data.getData()), data.getConfig());
-        JAXBElement<br.inf.portalfiscal.cte.send.TGTVe> envio = CteUnmarshaller.receptionGtve(xml);
-
-        for (Validator<br.inf.portalfiscal.cte.send.TGTVe> it : data.getValidators())
-            it.valid(new Validation<>(envio.getValue(), xml));
-        for (BeforeWebServiceRequest<br.inf.portalfiscal.cte.send.TGTVe> it : data.getBeforeRequest())
-            it.process(new Before<>(envio.getValue(), data.getConfig()));
-
-        br.inf.portalfiscal.cte.send.TRetGTVe retorno = null;
-
-        if (data.getConfig().production()) {
-            br.inf.portalfiscal.cte.wsdl.reception.mg.prod.CteRecepcaoSoap12 ws = ((br.inf.portalfiscal.cte.wsdl.reception.mg.prod.CteRecepcao) getSoapService().prodReception()).getCteRecepcaoSoap12();
-
-            data.getConfigureProvider().configure((BindingProvider) ws, data.getConfig());
-
-            br.inf.portalfiscal.cte.wsdl.reception.mg.prod.CteDadosMsg msg = new br.inf.portalfiscal.cte.wsdl.reception.mg.prod.ObjectFactory().createCteDadosMsg();
-            try {
-                msg.getContent().add(GZIPUtils.compressToString(xml));
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-
-            br.inf.portalfiscal.cte.wsdl.reception.mg.prod.CteCabecMsg cabecMsg = new br.inf.portalfiscal.cte.wsdl.reception.mg.prod.ObjectFactory().createCteCabecMsg();
-            cabecMsg.setCUF(data.getConfig().uf().getCode());
-            cabecMsg.setVersaoDados(envio.getValue().getVersao());
-
-            br.inf.portalfiscal.cte.wsdl.reception.mg.prod.CteRecepcaoLoteResult resultMsg = ws.cteRecepcaoLote(msg, new Holder<>(cabecMsg));
-
-            if (!resultMsg.getContent().isEmpty())
-                retorno = (br.inf.portalfiscal.cte.send.TRetGTVe) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();
-        } else {
-            br.inf.portalfiscal.cte.wsdl.reception.mg.hom.CteRecepcaoSoap12 ws = ((br.inf.portalfiscal.cte.wsdl.reception.mg.hom.CteRecepcao) getSoapService().homReception()).getCteRecepcaoSoap12();
-            data.getConfigureProvider().configure((BindingProvider) ws, data.getConfig());
-
-            br.inf.portalfiscal.cte.wsdl.reception.mg.hom.CteDadosMsg msg = new br.inf.portalfiscal.cte.wsdl.reception.mg.hom.ObjectFactory().createCteDadosMsg();
-            try {
-                msg.getContent().add(GZIPUtils.compressToString(xml));
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-
-            br.inf.portalfiscal.cte.wsdl.reception.mg.hom.CteCabecMsg cabecMsg = new br.inf.portalfiscal.cte.wsdl.reception.mg.hom.ObjectFactory().createCteCabecMsg();
-            cabecMsg.setCUF(data.getConfig().uf().getCode());
-            cabecMsg.setVersaoDados(envio.getValue().getVersao());
-
-            br.inf.portalfiscal.cte.wsdl.reception.mg.hom.CteRecepcaoLoteResult resultMsg = ws.cteRecepcaoLote(msg, new Holder<>(cabecMsg));
-            if (!resultMsg.getContent().isEmpty())
-                retorno = (br.inf.portalfiscal.cte.send.TRetGTVe) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();
-        }
-
-        for (AfterWebServiceRequest<br.inf.portalfiscal.cte.send.TGTVe, br.inf.portalfiscal.cte.send.TRetGTVe> it : data.getAfterRequest())
-            it.process(new After<>(envio.getValue(), retorno, data.getConfig()));
-
-        return new PairImpl<>(envio.getValue(), retorno);
+        throw new UnsupportedOperationException("Not implemented");
     }
 
     @Override
@@ -306,7 +253,7 @@ public final class CteMgService extends CteAnService {
 
             br.inf.portalfiscal.cte.wsdl.reception_os.mg.prod.CteDadosMsg msg = new br.inf.portalfiscal.cte.wsdl.reception_os.mg.prod.ObjectFactory().createCteDadosMsg();
             try {
-                msg.getContent().add(GZIPUtils.compressToString(xml));
+                msg.getContent().add(envio);
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
@@ -324,7 +271,7 @@ public final class CteMgService extends CteAnService {
 
             br.inf.portalfiscal.cte.wsdl.reception_os.mg.hom.CteDadosMsg msg = new br.inf.portalfiscal.cte.wsdl.reception_os.mg.hom.ObjectFactory().createCteDadosMsg();
             try {
-                msg.getContent().add(GZIPUtils.compressToString(xml));
+                msg.getContent().add(envio);
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }

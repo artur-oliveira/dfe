@@ -2,7 +2,7 @@ package com.softart.dfe.components.internal;
 
 import com.softart.dfe.exceptions.security.CertificateException;
 import com.softart.dfe.interfaces.internal.KeyStoreInfo;
-import com.softart.dfe.util.InputStreams;
+import com.softart.dfe.util.InputStreamUtils;
 
 import java.io.InputStream;
 import java.security.KeyStore;
@@ -17,7 +17,7 @@ public final class PfxKeyStoreInfoImpl implements KeyStoreInfo {
     private KeyStore certificateChainKeyStore;
 
     public PfxKeyStoreInfoImpl(String certPath, String certPassword, String chainPath, String chainPassword) throws CertificateException {
-        this(InputStreams.newFileInputStream(certPath), certPassword, InputStreams.newFileInputStream(chainPath), chainPassword);
+        this(InputStreamUtils.newFileInputStream(certPath), certPassword, InputStreamUtils.newFileInputStream(chainPath), chainPassword);
     }
 
     public PfxKeyStoreInfoImpl(InputStream cert, String certPassword, InputStream chain, String chainPassword) throws CertificateException {

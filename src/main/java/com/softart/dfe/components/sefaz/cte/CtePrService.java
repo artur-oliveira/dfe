@@ -298,7 +298,7 @@ public final class CtePrService extends CteAnService {
 
             br.inf.portalfiscal.cte.wsdl.reception_os.pr.prod.CteDadosMsg msg = new br.inf.portalfiscal.cte.wsdl.reception_os.pr.prod.ObjectFactory().createCteDadosMsg();
             try {
-                msg.getContent().add(GZIPUtils.compressToString(xml));
+                msg.getContent().add(envio);
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
@@ -317,7 +317,7 @@ public final class CtePrService extends CteAnService {
 
             br.inf.portalfiscal.cte.wsdl.reception_os.pr.hom.CteDadosMsg msg = new br.inf.portalfiscal.cte.wsdl.reception_os.pr.hom.ObjectFactory().createCteDadosMsg();
             try {
-                msg.getContent().add(GZIPUtils.compressToString(xml));
+                msg.getContent().add(envio);
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }

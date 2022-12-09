@@ -127,6 +127,8 @@ public final class ClassUtils {
         try {
             method.setAccessible(true);
             method.invoke(thisInstance, val);
+        } catch (IllegalArgumentException e) {
+            throw new RuntimeException("Illegal get on method " + method + " on instance " + thisInstance + " with val " + val);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

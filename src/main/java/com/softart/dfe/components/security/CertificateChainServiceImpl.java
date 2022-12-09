@@ -10,6 +10,7 @@ import com.softart.dfe.exceptions.services.NoProviderFound;
 import com.softart.dfe.interfaces.security.CertificateChain;
 import com.softart.dfe.util.DateUtils;
 import com.softart.dfe.util.IOUtils;
+import com.softart.dfe.util.OutputStreamUtils;
 import lombok.Getter;
 import lombok.SneakyThrows;
 import lombok.extern.log4j.Log4j2;
@@ -69,7 +70,7 @@ final class CertificateChainServiceImpl extends CertificateChainFactory {
         try {
             final KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
             keyStore.load(null, DEFAULT_PASSWORD.toCharArray());
-            try (ByteArrayOutputStream out = new ByteArrayOutputStream()) {
+            try (ByteArrayOutputStream out = OutputStreamUtils.newByteArrayOutputStream()) {
 
                 urls = urls.stream().map(it -> {
                     try {

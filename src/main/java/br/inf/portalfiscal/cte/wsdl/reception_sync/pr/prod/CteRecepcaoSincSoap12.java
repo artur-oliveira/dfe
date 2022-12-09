@@ -31,7 +31,7 @@ public interface CteRecepcaoSincSoap12 {
     CteRecepcaoResult cteRecepcaoSinc(
             @WebParam(name = "cteDadosMsg", targetNamespace = "http://www.portalfiscal.inf.br/cte/wsdl/CteRecepcaoSinc", partName = "cteDadosMsg")
             CteDadosMsg cteDadosMsg,
-            @WebParam(name = "cteCabecMsg", targetNamespace = "http://www.portalfiscal.inf.br/cte/wsdl/CteInutilizacao", header = true, mode = WebParam.Mode.INOUT, partName = "cteCabecMsg")
+            @WebParam(name = "cteCabecMsg", targetNamespace = "http://www.portalfiscal.inf.br/cte/wsdl/CteRecepcaoSinc", header = true, mode = WebParam.Mode.INOUT, partName = "cteCabecMsg")
             Holder<CteCabecMsg> cteCabecMsg);
 
 }

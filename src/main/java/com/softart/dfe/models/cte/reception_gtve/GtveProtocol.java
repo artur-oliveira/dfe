@@ -21,7 +21,7 @@ public final class GtveProtocol implements DFObject, XMLAdapter<GtveProtocol, TP
     @ToString
     @AllArgsConstructor
     @NoArgsConstructor
-    public static class InfProt implements DFObject, XMLAdapter<CteProtocol.InfProt, TProtGTVe.InfProt> {
+    public static class InfProt implements DFObject, XMLAdapter<InfProt, TProtGTVe.InfProt> {
         private String tpAmb;
         private String verAplic;
         private String chCTe;
@@ -39,7 +39,7 @@ public final class GtveProtocol implements DFObject, XMLAdapter<GtveProtocol, TP
     @ToString
     @AllArgsConstructor
     @NoArgsConstructor
-    public static class InfFisco implements DFObject, XMLAdapter<CteProtocol.InfFisco, TProtGTVe.InfFisco> {
+    public static class InfFisco implements DFObject, XMLAdapter<InfFisco, TProtGTVe.InfFisco> {
         private String cMsg;
         private String xMsg;
     }

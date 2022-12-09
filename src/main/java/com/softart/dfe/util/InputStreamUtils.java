@@ -9,8 +9,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.zip.GZIPInputStream;
 
-public final class InputStreams {
-    private InputStreams() {
+public final class InputStreamUtils {
+    private InputStreamUtils() {
         throw new UnsupportedOperationException("No instances of " + this.getClass().getSimpleName());
     }
 

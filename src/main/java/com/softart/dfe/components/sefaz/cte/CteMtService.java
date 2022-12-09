@@ -4,6 +4,8 @@ import br.inf.portalfiscal.cte.send.*;
 import br.inf.portalfiscal.cte.wsdl.reception_sync.mt.prod.CteRecepcaoSincResult;
 import com.softart.dfe.components.internal.PairImpl;
 import com.softart.dfe.components.internal.parser.AccessKeyParserFactory;
+import com.softart.dfe.components.internal.xml.marshaller.CteMarshaller;
+import com.softart.dfe.components.internal.xml.unmarshaller.CteUnmarshaller;
 import com.softart.dfe.enums.cte.identification.CteEmissionType;
 import com.softart.dfe.enums.internal.Environment;
 import com.softart.dfe.enums.internal.UF;
@@ -19,8 +21,6 @@ import com.softart.dfe.models.internal.After;
 import com.softart.dfe.models.internal.Before;
 import com.softart.dfe.models.internal.Validation;
 import com.softart.dfe.util.GZIPUtils;
-import com.softart.dfe.components.internal.xml.marshaller.CteMarshaller;
-import com.softart.dfe.components.internal.xml.unmarshaller.CteUnmarshaller;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.ws.BindingProvider;
@@ -213,7 +213,7 @@ public final class CteMtService extends CteAnService {
             if (!resultMsg.getContent().isEmpty())
                 retorno = (TRetEnviCTe) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();
         } else {
-            br.inf.portalfiscal.cte.wsdl.reception.mt.hom.CteRecepcaoSoap12 ws = ((br.inf.portalfiscal.cte.wsdl.reception.mt.hom.CteRecepcao) getSoapService().prodReception()).getCteRecepcaoSoap12();
+            br.inf.portalfiscal.cte.wsdl.reception.mt.hom.CteRecepcaoSoap12 ws = ((br.inf.portalfiscal.cte.wsdl.reception.mt.hom.CteRecepcao) getSoapService().homReception()).getCteRecepcaoSoap12();
             data.getConfigureProvider().configure((BindingProvider) ws, data.getConfig());
 
             br.inf.portalfiscal.cte.wsdl.reception.mt.hom.CteDadosMsg msg = new br.inf.portalfiscal.cte.wsdl.reception.mt.hom.ObjectFactory().createCteDadosMsg();
@@ -300,7 +300,7 @@ public final class CteMtService extends CteAnService {
 
             br.inf.portalfiscal.cte.wsdl.reception_os.mt.prod.CteDadosMsg msg = new br.inf.portalfiscal.cte.wsdl.reception_os.mt.prod.ObjectFactory().createCteDadosMsg();
             try {
-                msg.getContent().add(GZIPUtils.compressToString(xml));
+                msg.getContent().add(envio);
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
@@ -319,7 +319,7 @@ public final class CteMtService extends CteAnService {
 
             br.inf.portalfiscal.cte.wsdl.reception_os.mt.hom.CteDadosMsg msg = new br.inf.portalfiscal.cte.wsdl.reception_os.mt.hom.ObjectFactory().createCteDadosMsg();
             try {
-                msg.getContent().add(GZIPUtils.compressToString(xml));
+                msg.getContent().add(envio);
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }

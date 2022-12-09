@@ -4,14 +4,20 @@ import com.softart.dfe.components.internal.xml.namespace.NameSpaceCleanerFactory
 import lombok.extern.log4j.Log4j2;
 
 import javax.xml.namespace.QName;
-import javax.xml.soap.SOAPException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 import javax.xml.ws.handler.MessageContext;
 import javax.xml.ws.handler.soap.SOAPHandler;
 import javax.xml.ws.handler.soap.SOAPMessageContext;
+import java.io.StringWriter;
 import java.util.Set;
 
 @Log4j2
 public final class CustomSoapHandler implements SOAPHandler<SOAPMessageContext> {
+
+    private static final boolean LOG_REQUEST = Boolean.parseBoolean(System.getProperty("com.softart.handler.log.request", "true"));
+    private static final boolean LOG_RESPONSE = Boolean.parseBoolean(System.getProperty("com.softart.handler.log.response", "true"));
 
     @Override
     public Set<QName> getHeaders() {
@@ -20,11 +26,32 @@ public final class CustomSoapHandler implements SOAPHandler<SOAPMessageContext> 
 
     @Override
     public boolean handleMessage(SOAPMessageContext context) {
-        if ((boolean) context.get(MessageContext.MESSAGE_OUTBOUND_PROPERTY)) {
+        boolean outbondMessage = (boolean) context.get(MessageContext.MESSAGE_OUTBOUND_PROPERTY);
+
+        if (outbondMessage) {
             try {
                 NameSpaceCleanerFactory.getInstance().clean(context.getMessage().getSOAPPart().getEnvelope().getBody());
                 NameSpaceCleanerFactory.getInstance().clean(context.getMessage().getSOAPPart().getEnvelope().getHeader());
-            } catch (SOAPException ex) {
+
+                if (LOG_REQUEST) {
+                    try (StringWriter xml = new StringWriter()) {
+                        TransformerFactory.newInstance().newTransformer().transform(new DOMSource(context.getMessage().getSOAPPart().getEnvelope().getBody().getFirstChild().getFirstChild()), new StreamResult(xml));
+                        log.info(xml);
+                    }
+                }
+
+            } catch (Exception ex) {
+                log.error(ex.getMessage());
+            }
+        } else {
+            try {
+                if (LOG_RESPONSE) {
+                    try (StringWriter xml = new StringWriter()) {
+                        TransformerFactory.newInstance().newTransformer().transform(new DOMSource(context.getMessage().getSOAPPart().getEnvelope().getBody().getFirstChild().getFirstChild()), new StreamResult(xml));
+                        log.info(xml);
+                    }
+                }
+            } catch (Exception ex) {
                 log.error(ex.getMessage());
             }
         }
