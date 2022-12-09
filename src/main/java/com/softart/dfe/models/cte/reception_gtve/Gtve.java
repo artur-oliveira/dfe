@@ -1,10 +1,10 @@
 package com.softart.dfe.models.cte.reception_gtve;
 
 import br.inf.portalfiscal.cte.send.TGTVe;
-import br.inf.portalfiscal.cte.send.TRespTec;
 import br.inf.portalfiscal.cte.send.TUFSemEX;
 import br.inf.portalfiscal.cte.send.TUf;
 import com.softart.dfe.components.internal.AccessKeyGenerator;
+import com.softart.dfe.components.internal.ProjectProperties;
 import com.softart.dfe.enums.cte.identification.CteType;
 import com.softart.dfe.enums.cte.version.CteVersion;
 import com.softart.dfe.enums.internal.cte.QrCodeCteURL;
@@ -107,17 +107,20 @@ public final class Gtve implements DFObject, XMLAdapter<Gtve, TGTVe> {
 
             TGTVe.InfCte infCte = XMLAdapter.super.toObject();
 
-            if (Objects.isNull(infCte.getId())) infCte.setId(XMLStringUtils.idCte(infCte.getIde().getCUF(),
-                    DateUtils.twoDigitsyear(infCte.getIde().getDhEmi()),
-                    DateUtils.twoDigitsMonth(infCte.getIde().getDhEmi()),
-                    getEmit().getCnpj(),
-                    infCte.getIde().getMod(),
-                    infCte.getIde().getSerie(),
-                    infCte.getIde().getNCT(),
-                    infCte.getIde().getTpEmis(),
-                    infCte.getIde().getCCT(),
-                    infCte.getIde().getCDV()
-            ));
+            if (Objects.isNull(infCte.getId())) {
+                setId(XMLStringUtils.idCte(infCte.getIde().getCUF(),
+                        DateUtils.twoDigitsyear(infCte.getIde().getDhEmi()),
+                        DateUtils.twoDigitsMonth(infCte.getIde().getDhEmi()),
+                        getEmit().getCnpj(),
+                        infCte.getIde().getMod(),
+                        infCte.getIde().getSerie(),
+                        infCte.getIde().getNCT(),
+                        infCte.getIde().getTpEmis(),
+                        infCte.getIde().getCCT(),
+                        infCte.getIde().getCDV()
+                ));
+                infCte.setId(getId());
+            }
             return infCte;
         }
 
@@ -127,26 +130,30 @@ public final class Gtve implements DFObject, XMLAdapter<Gtve, TGTVe> {
         @Builder
         public final static class Ide implements DFObject, XMLAdapter<Ide, TGTVe.InfCte.Ide> {
             private String cuf;
-            private String cct;
+            @Builder.Default
+            private String cct = StringUtils.random(8);
             private String cfop;
             private String natOp;
             private String mod;
             private String serie;
             private String nct;
-            private String dhEmi;
+            @Builder.Default
+            private String dhEmi = DateUtils.nowString();
             private String tpImp;
             private String tpEmis;
             private String cdv;
             private String tpAmb;
             private String tpCTe;
-            private String verProc;
+            @Builder.Default
+            private String verProc = ProjectProperties.displayVersion();
             private String cMunEnv;
             private String xMunEnv;
             private TUf ufEnv;
             private String modal;
             private String tpServ;
             private String indIEToma;
-            private String dhSaidaOrig;
+            @Builder.Default
+            private String dhSaidaOrig = DateUtils.nowString();
             private String dhChegadaDest;
             private Toma toma;
             private TomaTerceiro tomaTerceiro;
@@ -347,6 +354,20 @@ public final class Gtve implements DFObject, XMLAdapter<Gtve, TGTVe> {
         public final static class AutXML implements DFObject, XMLAdapter<AutXML, TGTVe.InfCte.AutXML> {
             private String cnpj;
             private String cpf;
+        }
+
+        @Getter
+        @Setter
+        @Builder
+        @ToString
+        @AllArgsConstructor
+        @NoArgsConstructor
+        public static class TRespTec implements DFObject, XMLAdapter<TRespTec, br.inf.portalfiscal.cte.send.TRespTec> {
+            protected String cnpj;
+            protected String xContato;
+            protected String email;
+            protected String fone;
+            protected String idCSRT;
         }
 
     }

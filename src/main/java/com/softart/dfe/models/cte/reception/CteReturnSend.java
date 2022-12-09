@@ -14,7 +14,7 @@ import java.math.BigInteger;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public final class CteReturnSend implements DFObject, XMLAdapter<CteReturnSend, TRetEnviCTe> {
+public class CteReturnSend implements DFObject, XMLAdapter<CteReturnSend, TRetEnviCTe> {
 
     private String tpAmb;
     private String cuf;

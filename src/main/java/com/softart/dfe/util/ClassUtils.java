@@ -100,6 +100,8 @@ public final class ClassUtils {
         try {
             getter.setAccessible(true);
             return getter.invoke(thisInstance);
+        } catch (IllegalArgumentException e) {
+            throw new RuntimeException("Illegal get on method " + getter + " on instance " + thisInstance);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

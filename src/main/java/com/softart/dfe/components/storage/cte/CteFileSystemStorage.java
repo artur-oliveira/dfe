@@ -210,8 +210,10 @@ public final class CteFileSystemStorage extends CommonFileSystemStorage implemen
     @Override
     public void storeReturnGtve(Store<TRetGTVe> o) throws StorageException {
         try {
-            if (Objects.nonNull(o.getData())) {
+            if (Objects.nonNull(o.getData().getProtCTe())) {
                 writeReturn(o.getConfig(), CteStorageKey.CTE_RECEPTION_GTVE, xmlNameWithTime(AccessKeyParserFactory.cte().fromId(o.getData().getProtCTe().getInfProt().getChCTe())), o.getXml());
+            } else {
+                writeReturn(o.getConfig(), CteStorageKey.CTE_RECEPTION_GTVE, xmlNameWithTime(""), o.getXml());
             }
         } catch (Exception e) {
             throw new StorageException(e);
@@ -244,7 +246,11 @@ public final class CteFileSystemStorage extends CommonFileSystemStorage implemen
     public void storeReturnCteOs(Store<TRetCTeOS> o) throws StorageException {
         try {
             if (Objects.nonNull(o.getData())) {
-                writeReturn(o.getConfig(), CteStorageKey.CTE_RECEPTION_OS, xmlNameWithTime(AccessKeyParserFactory.cte().fromId(o.getData().getProtCTe().getInfProt().getChCTe())), o.getXml());
+                if (Objects.nonNull(o.getData().getProtCTe())) {
+                    writeReturn(o.getConfig(), CteStorageKey.CTE_RECEPTION_OS, xmlNameWithTime(AccessKeyParserFactory.cte().fromId(o.getData().getProtCTe().getInfProt().getChCTe())), o.getXml());
+                } else {
+                    writeReturn(o.getConfig(), CteStorageKey.CTE_RECEPTION_OS, xmlNameWithTime(""), o.getXml());
+                }
             }
         } catch (Exception e) {
             throw new StorageException(e);

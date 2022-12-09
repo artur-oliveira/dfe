@@ -1,12 +1,13 @@
 package com.softart.dfe.models.cte.reception_os;
 
 import br.inf.portalfiscal.cte.send.TCTeOS;
-import br.inf.portalfiscal.cte.send.TRespTec;
 import br.inf.portalfiscal.cte.send.TUFSemEX;
 import br.inf.portalfiscal.cte.send.TUf;
 import com.softart.dfe.components.internal.AccessKeyGenerator;
+import com.softart.dfe.components.internal.ProjectProperties;
 import com.softart.dfe.components.internal.xml.unmarshaller.CteUnmarshaller;
 import com.softart.dfe.enums.cte.identification.CteType;
+import com.softart.dfe.enums.cte.tax.CteICMS;
 import com.softart.dfe.enums.cte.version.CteVersion;
 import com.softart.dfe.enums.internal.cte.QrCodeCteURL;
 import com.softart.dfe.interfaces.xml.DFObject;
@@ -117,17 +118,20 @@ public final class CteOs implements DFObject, XMLAdapter<CteOs, TCTeOS> {
 
             TCTeOS.InfCte infCte = XMLAdapter.super.toObject();
 
-            if (Objects.isNull(infCte.getId())) infCte.setId(XMLStringUtils.idCte(infCte.getIde().getCUF(),
-                    DateUtils.twoDigitsyear(infCte.getIde().getDhEmi()),
-                    DateUtils.twoDigitsMonth(infCte.getIde().getDhEmi()),
-                    getEmit().getCnpj(),
-                    infCte.getIde().getMod(),
-                    infCte.getIde().getSerie(),
-                    infCte.getIde().getNCT(),
-                    infCte.getIde().getTpEmis(),
-                    infCte.getIde().getCCT(),
-                    infCte.getIde().getCDV()
-            ));
+            if (Objects.isNull(infCte.getId())) {
+                setId(XMLStringUtils.idCte(infCte.getIde().getCUF(),
+                        DateUtils.twoDigitsyear(infCte.getIde().getDhEmi()),
+                        DateUtils.twoDigitsMonth(infCte.getIde().getDhEmi()),
+                        getEmit().getCnpj(),
+                        infCte.getIde().getMod(),
+                        infCte.getIde().getSerie(),
+                        infCte.getIde().getNCT(),
+                        infCte.getIde().getTpEmis(),
+                        infCte.getIde().getCCT(),
+                        infCte.getIde().getCDV()
+                ));
+                infCte.setId(getId());
+            }
             return infCte;
         }
 
@@ -137,20 +141,24 @@ public final class CteOs implements DFObject, XMLAdapter<CteOs, TCTeOS> {
         @Builder
         public final static class Ide implements DFObject, XMLAdapter<Ide, TCTeOS.InfCte.Ide> {
             private String cuf;
-            private String cct;
+            @Builder.Default
+            private String cct = StringUtils.random(8);
             private String cfop;
             private String natOp;
             private String mod;
             private String serie;
             private String nct;
-            private String dhEmi;
+
+            @Builder.Default
+            private String dhEmi = DateUtils.nowString();
             private String tpImp;
             private String tpEmis;
             private String cdv;
             private String tpAmb;
             private String tpCTe;
             private String procEmi;
-            private String verProc;
+            @Builder.Default
+            private String verProc = ProjectProperties.displayVersion();
             private String cMunEnv;
             private String xMunEnv;
             private TUf ufEnv;
@@ -219,7 +227,7 @@ public final class CteOs implements DFObject, XMLAdapter<CteOs, TCTeOS> {
         @NoArgsConstructor
         @Data
         @Builder
-        public final static class Toma implements DFObject, XMLAdapter<Emit, TCTeOS.InfCte.Toma> {
+        public final static class Toma implements DFObject, XMLAdapter<Toma, TCTeOS.InfCte.Toma> {
             private String cnpj;
             private String cpf;
             private String ie;
@@ -332,7 +340,9 @@ public final class CteOs implements DFObject, XMLAdapter<CteOs, TCTeOS> {
                 @AllArgsConstructor
                 @NoArgsConstructor
                 public final static class ICMS00 implements DFObject, XMLAdapter<ICMS00, br.inf.portalfiscal.cte.send.TImpOS.ICMS00> {
-                    private String cst;
+
+                    @Builder.Default
+                    private String cst = CteICMS.NORMAL.getCode();
                     private String vbc;
                     private String picms;
                     private String vicms;
@@ -343,7 +353,8 @@ public final class CteOs implements DFObject, XMLAdapter<CteOs, TCTeOS> {
                 @AllArgsConstructor
                 @NoArgsConstructor
                 public final static class ICMS20 implements DFObject, XMLAdapter<ICMS20, br.inf.portalfiscal.cte.send.TImpOS.ICMS20> {
-                    private String cst;
+                    @Builder.Default
+                    private String cst = CteICMS.REDUCTION.getCode();
                     private String pRedBC;
                     private String vbc;
                     private String picms;
@@ -363,7 +374,8 @@ public final class CteOs implements DFObject, XMLAdapter<CteOs, TCTeOS> {
                 @AllArgsConstructor
                 @NoArgsConstructor
                 public final static class ICMS90 implements DFObject, XMLAdapter<ICMS90, br.inf.portalfiscal.cte.send.TImpOS.ICMS90> {
-                    private String cst;
+                    @Builder.Default
+                    private String cst = CteICMS.OTHER.getCode();
                     private String pRedBC;
                     private String vbc;
                     private String picms;
@@ -376,7 +388,8 @@ public final class CteOs implements DFObject, XMLAdapter<CteOs, TCTeOS> {
                 @AllArgsConstructor
                 @NoArgsConstructor
                 public final static class ICMSOutraUF implements DFObject, XMLAdapter<ICMSOutraUF, br.inf.portalfiscal.cte.send.TImpOS.ICMSOutraUF> {
-                    private String cst;
+                    @Builder.Default
+                    private String cst = CteICMS.OTHER_UF.getCode();
                     private String pRedBCOutraUF;
                     private String vbcOutraUF;
                     private String picmsOutraUF;
@@ -388,7 +401,8 @@ public final class CteOs implements DFObject, XMLAdapter<CteOs, TCTeOS> {
                 @AllArgsConstructor
                 @NoArgsConstructor
                 public final static class ICMSSN implements DFObject, XMLAdapter<ICMSSN, br.inf.portalfiscal.cte.send.TImpOS.ICMSSN> {
-                    private String cst;
+                    @Builder.Default
+                    private String cst = CteICMS.SIMPLES.getCode();
                     private String indSN;
                 }
             }
@@ -672,5 +686,18 @@ public final class CteOs implements DFObject, XMLAdapter<CteOs, TCTeOS> {
             private String cpf;
         }
 
+        @Getter
+        @Setter
+        @Builder
+        @ToString
+        @AllArgsConstructor
+        @NoArgsConstructor
+        public static class TRespTec implements DFObject, XMLAdapter<TRespTec, br.inf.portalfiscal.cte.send.TRespTec> {
+            protected String cnpj;
+            protected String xContato;
+            protected String email;
+            protected String fone;
+            protected String idCSRT;
+        }
     }
 }

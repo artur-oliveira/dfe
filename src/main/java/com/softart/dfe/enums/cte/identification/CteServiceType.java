@@ -15,6 +15,7 @@ public enum CteServiceType implements DFEnum.Codeable {
     PEOPLE("6", "Transporte de Pessoas"),
     VALUE("7", "Transporte de Valores"),
     PACKAGE("8", "Excesso de Bagagem"),
+    GTV("9", "GTV"),
     ;
     private final String code;
     private final String description;

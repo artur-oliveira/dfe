@@ -1,21 +1,18 @@
-package com.softart.dfe.models.cte.reception;
+package com.softart.dfe.models.cte.reception_os;
 
-import br.inf.portalfiscal.cte.send.SignatureType;
-import br.inf.portalfiscal.cte.send.TProtCTe;
+import br.inf.portalfiscal.cte.send.TProtCTeOS;
 import com.softart.dfe.interfaces.xml.DFObject;
 import com.softart.dfe.interfaces.xml.XMLAdapter;
+import com.softart.dfe.models.cte.reception.CteProtocol;
 import lombok.*;
 
-@Getter
-@Setter
+@Data
 @Builder
-@ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public final class CteProtocol implements DFObject, XMLAdapter<CteProtocol, TProtCTe> {
+public final class CteOsProtocol implements DFObject, XMLAdapter<CteOsProtocol, TProtCTeOS> {
     private InfProt infProt;
     private InfFisco infFisco;
-    private SignatureType signature;
     private String versao;
 
     @Getter
@@ -24,7 +21,7 @@ public final class CteProtocol implements DFObject, XMLAdapter<CteProtocol, TPro
     @ToString
     @AllArgsConstructor
     @NoArgsConstructor
-    public static class InfProt implements DFObject, XMLAdapter<InfProt, TProtCTe.InfProt> {
+    public static class InfProt implements DFObject, XMLAdapter<CteProtocol.InfProt, TProtCTeOS.InfProt> {
         private String tpAmb;
         private String verAplic;
         private String chCTe;
@@ -42,7 +39,7 @@ public final class CteProtocol implements DFObject, XMLAdapter<CteProtocol, TPro
     @ToString
     @AllArgsConstructor
     @NoArgsConstructor
-    public static class InfFisco implements DFObject, XMLAdapter<InfFisco, TProtCTe.InfFisco> {
+    public static class InfFisco implements DFObject, XMLAdapter<CteProtocol.InfFisco, TProtCTeOS.InfFisco> {
         private String cMsg;
         private String xMsg;
     }

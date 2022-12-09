@@ -1,9 +1,8 @@
-package com.softart.dfe.models.cte.reception_sync;
+package com.softart.dfe.models.cte.reception_gtve;
 
-import br.inf.portalfiscal.cte.send.TRetCTe;
+import br.inf.portalfiscal.cte.send.TRetGTVe;
 import com.softart.dfe.interfaces.xml.DFObject;
 import com.softart.dfe.interfaces.xml.XMLAdapter;
-import com.softart.dfe.models.cte.reception.CteProtocol;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,12 +12,12 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class CteReturn implements DFObject, XMLAdapter<CteReturn, TRetCTe> {
+public final class GtveReturn implements DFObject, XMLAdapter<GtveReturn, TRetGTVe> {
     private String tpAmb;
     private String cuf;
     private String verAplic;
     private String cStat;
     private String xMotivo;
-    private CteProtocol protCTe;
+    private GtveProtocol protCTe;
     private String versao;
 }

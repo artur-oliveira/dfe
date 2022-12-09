@@ -15,7 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public final class ReturnQueryReceipt implements DFObject, XMLAdapter<ReturnQueryReceipt, TRetConsReciCTe> {
+public class ReturnQueryReceipt implements DFObject, XMLAdapter<ReturnQueryReceipt, TRetConsReciCTe> {
     private String tpAmb;
     private String verAplic;
     private String nRec;

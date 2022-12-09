@@ -4,6 +4,8 @@ import br.inf.portalfiscal.cte.send.*;
 import br.inf.portalfiscal.cte.wsdl.reception_sync.svrs.prod.CteRecepcaoSincResult;
 import com.softart.dfe.components.internal.PairImpl;
 import com.softart.dfe.components.internal.parser.AccessKeyParserFactory;
+import com.softart.dfe.components.internal.xml.marshaller.CteMarshaller;
+import com.softart.dfe.components.internal.xml.unmarshaller.CteUnmarshaller;
 import com.softart.dfe.enums.cte.identification.CteEmissionType;
 import com.softart.dfe.enums.internal.Environment;
 import com.softart.dfe.enums.internal.UF;
@@ -19,8 +21,6 @@ import com.softart.dfe.models.internal.After;
 import com.softart.dfe.models.internal.Before;
 import com.softart.dfe.models.internal.Validation;
 import com.softart.dfe.util.GZIPUtils;
-import com.softart.dfe.components.internal.xml.marshaller.CteMarshaller;
-import com.softart.dfe.components.internal.xml.unmarshaller.CteUnmarshaller;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.ws.BindingProvider;
@@ -300,7 +300,7 @@ public final class CteSvrsService extends CteAnService {
 
             br.inf.portalfiscal.cte.wsdl.reception_os.svrs.prod.CteDadosMsg msg = new br.inf.portalfiscal.cte.wsdl.reception_os.svrs.prod.ObjectFactory().createCteDadosMsg();
             try {
-                msg.getContent().add(GZIPUtils.compressToString(xml));
+                msg.getContent().add(envio);
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
@@ -319,7 +319,7 @@ public final class CteSvrsService extends CteAnService {
 
             br.inf.portalfiscal.cte.wsdl.reception_os.svrs.hom.CteDadosMsg msg = new br.inf.portalfiscal.cte.wsdl.reception_os.svrs.hom.ObjectFactory().createCteDadosMsg();
             try {
-                msg.getContent().add(GZIPUtils.compressToString(xml));
+                msg.getContent().add(envio);
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }

@@ -167,6 +167,7 @@ public final class DateUtils {
     public static String nowString() {
         return format(now(), ISO);
     }
+
     /**
      * It returns a string representation of the current time in the ISO 8601 format.
      *
@@ -220,5 +221,21 @@ public final class DateUtils {
                 .toInstant()
                 .atZone(ZoneId.systemDefault())
                 .toLocalDateTime();
+    }
+
+    public static ZonedDateTime plusDays(int days) {
+        return now().plusDays(days);
+    }
+
+    public static String plusDaysAsString(int days) {
+        return format(now().plusDays(days));
+    }
+
+    public static String plusDaysAsString(int days, DateTimeFormatter formatter) {
+        return format(now().plusDays(days), formatter);
+    }
+
+    public static String plusDaysAsString(int days, String formatter) {
+        return format(now().plusDays(days), formatter);
     }
 }

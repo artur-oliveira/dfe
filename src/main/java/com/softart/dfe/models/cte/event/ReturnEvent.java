@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @Data
-public final class ReturnEvent implements DFObject, XMLAdapter<ReturnEvent, br.inf.portalfiscal.cte.send.TRetEvento> {
+public class ReturnEvent implements DFObject, XMLAdapter<ReturnEvent, br.inf.portalfiscal.cte.send.TRetEvento> {
     private RetInfEvento infEvento;
     private String versao;
 

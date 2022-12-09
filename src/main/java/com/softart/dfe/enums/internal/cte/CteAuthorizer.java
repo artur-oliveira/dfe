@@ -113,6 +113,16 @@ public enum CteAuthorizer implements CteURL, AllowUF {
         public String distributionAnHom() {
             return "https://hom1.cte.fazenda.gov.br/CTeDistribuicaoDFe/CTeDistribuicaoDFe.asmx";
         }
+
+        @Override
+        public Collection<UF> allowedUfsProduction() {
+            return UF.states();
+        }
+
+        @Override
+        public Collection<UF> allowedUfsHomologation() {
+            return UF.states();
+        }
     },
 
     MG {
