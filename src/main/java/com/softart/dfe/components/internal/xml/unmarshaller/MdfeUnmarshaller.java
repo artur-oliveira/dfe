@@ -185,6 +185,35 @@ public final class MdfeUnmarshaller {
         return toElement(fc.createEvCancMDFe(element));
     }
 
+    public static Element toElement(Rodo element) throws JAXBException {
+        return toElement(fc.createRodo(element));
+    }
+
+    public static Element toElement(Aquav element) throws JAXBException {
+        return toElement(fc.createAquav(element));
+    }
+
+    public static Element toElement(Aereo element) throws JAXBException {
+        return toElement(fc.createAereo(element));
+    }
+
+    public static Element toElement(Ferrov element) throws JAXBException {
+        return toElement(fc.createFerrov(element));
+    }
+
+    public static JAXBElement<?> any(Element element) {
+        try {
+            javax.xml.bind.Unmarshaller unmarshaller = MdfeContextFactory.getInstance().getMdfeContext().createUnmarshaller();
+            try (StringReader reader = new StringReader(MdfeMarshaller.any(element))) {
+                Object o = unmarshaller.unmarshal(reader);
+                if (o instanceof JAXBElement) return (JAXBElement<?>) o;
+                throw new RuntimeException("Object " + o + " of unknown type");
+            }
+        } catch (Exception e) {
+            throw new MarshallException(e);
+        }
+    }
+
     public static JAXBElement<EvAlteracaoPagtoServMDFe> evAlteracaoPagtoServMDFe(Element el) {
         try {
             javax.xml.bind.Unmarshaller unmarshaller = MdfeContextFactory.getInstance().getMdfeContext().createUnmarshaller();

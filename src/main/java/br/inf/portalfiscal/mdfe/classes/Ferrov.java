@@ -2,7 +2,7 @@
 // Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.3.2 
 // Consulte <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 // Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
-// Gerado em: 2022.12.10 às 03:32:52 PM BRT 
+// Gerado em: 2022.12.11 às 12:34:27 AM BRT 
 //
 
 
@@ -13,18 +13,17 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 import com.softart.dfe.interfaces.xml.XML;
 
 
 /**
- * <p>Classe Java de anonymous complex type.
+ * <p>Classe Java de Ferrov complex type.
  * 
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
  * 
  * <pre>
- * &lt;complexType&gt;
+ * &lt;complexType name="Ferrov"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
@@ -129,11 +128,10 @@ import com.softart.dfe.interfaces.xml.XML;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
+@XmlType(name = "Ferrov", propOrder = {
     "trem",
     "vag"
 })
-@XmlRootElement(name = "ferrov")
 public class Ferrov
     implements XML
 {

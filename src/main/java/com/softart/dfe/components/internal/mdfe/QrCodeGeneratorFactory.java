@@ -1,8 +1,9 @@
-package com.softart.dfe.components.internal.cte;
+package com.softart.dfe.components.internal.mdfe;
 
-import com.softart.dfe.interfaces.internal.cte.QrCodeGenerator;
+import com.softart.dfe.interfaces.internal.mdfe.QrCodeGenerator;
 
 public abstract class QrCodeGeneratorFactory implements QrCodeGenerator {
+
     protected QrCodeGeneratorFactory() {
     }
 

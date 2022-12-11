@@ -1,9 +1,12 @@
 package com.softart.dfe.enums.internal.mdfe;
 
+import com.softart.dfe.components.internal.mdfe.QrCodeGeneratorFactory;
 import com.softart.dfe.enums.internal.Environment;
 import com.softart.dfe.enums.internal.UF;
 import com.softart.dfe.exceptions.services.NoProviderFound;
 import com.softart.dfe.interfaces.internal.allow.AllowUF;
+import com.softart.dfe.models.internal.mdfe.MdfeQrCode;
+import com.softart.dfe.models.mdfe.reception_sync.Mdfe;
 
 import java.security.GeneralSecurityException;
 import java.util.Arrays;
@@ -38,8 +41,8 @@ public enum QrCodeMdfeURL implements AllowUF {
         return environment.production() ? serviceURL.production() : serviceURL.homologation();
     }
 
-    public static String generate(Object mdfe) throws NoProviderFound, GeneralSecurityException {
-        return "";
+    public static String generate(Mdfe mdfe) throws NoProviderFound, GeneralSecurityException {
+        return QrCodeGeneratorFactory.getInstance().generate(MdfeQrCode.builder().mdfe(mdfe).build());
     }
 
     public abstract String production();

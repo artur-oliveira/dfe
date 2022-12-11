@@ -2,7 +2,7 @@
 // Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.3.2 
 // Consulte <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 // Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
-// Gerado em: 2022.12.10 às 03:32:52 PM BRT 
+// Gerado em: 2022.12.11 às 12:34:27 AM BRT 
 //
 
 
@@ -46,6 +46,10 @@ public class ObjectFactory {
     private final static QName _EvPagtoOperMDFe_QNAME = new QName("http://www.portalfiscal.inf.br/mdfe", "evPagtoOperMDFe");
     private final static QName _EventoMDFe_QNAME = new QName("http://www.portalfiscal.inf.br/mdfe", "eventoMDFe");
     private final static QName _MdfeConsultaDFe_QNAME = new QName("http://www.portalfiscal.inf.br/mdfe", "mdfeConsultaDFe");
+    private final static QName _Aereo_QNAME = new QName("http://www.portalfiscal.inf.br/mdfe", "aereo");
+    private final static QName _Aquav_QNAME = new QName("http://www.portalfiscal.inf.br/mdfe", "aquav");
+    private final static QName _Ferrov_QNAME = new QName("http://www.portalfiscal.inf.br/mdfe", "ferrov");
+    private final static QName _Rodo_QNAME = new QName("http://www.portalfiscal.inf.br/mdfe", "rodo");
     private final static QName _MDFe_QNAME = new QName("http://www.portalfiscal.inf.br/mdfe", "MDFe");
     private final static QName _ProcEventoMDFe_QNAME = new QName("http://www.portalfiscal.inf.br/mdfe", "procEventoMDFe");
     private final static QName _MdfeProc_QNAME = new QName("http://www.portalfiscal.inf.br/mdfe", "mdfeProc");
@@ -66,30 +70,6 @@ public class ObjectFactory {
      * 
      */
     public ObjectFactory() {
-    }
-
-    /**
-     * Create an instance of {@link Aquav }
-     * 
-     */
-    public Aquav createAquav() {
-        return new Aquav();
-    }
-
-    /**
-     * Create an instance of {@link Ferrov }
-     * 
-     */
-    public Ferrov createFerrov() {
-        return new Ferrov();
-    }
-
-    /**
-     * Create an instance of {@link Rodo }
-     * 
-     */
-    public Rodo createRodo() {
-        return new Rodo();
     }
 
     /**
@@ -277,6 +257,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link Rodo }
+     * 
+     */
+    public Rodo createRodo() {
+        return new Rodo();
+    }
+
+    /**
      * Create an instance of {@link Rodo.VeicReboque }
      * 
      */
@@ -322,6 +310,22 @@ public class ObjectFactory {
      */
     public Rodo.InfANTT.ValePed createRodoInfANTTValePed() {
         return new Rodo.InfANTT.ValePed();
+    }
+
+    /**
+     * Create an instance of {@link Ferrov }
+     * 
+     */
+    public Ferrov createFerrov() {
+        return new Ferrov();
+    }
+
+    /**
+     * Create an instance of {@link Aquav }
+     * 
+     */
+    public Aquav createAquav() {
+        return new Aquav();
     }
 
     /**
@@ -474,70 +478,6 @@ public class ObjectFactory {
      */
     public Aereo createAereo() {
         return new Aereo();
-    }
-
-    /**
-     * Create an instance of {@link Aquav.InfTermCarreg }
-     * 
-     */
-    public Aquav.InfTermCarreg createAquavInfTermCarreg() {
-        return new Aquav.InfTermCarreg();
-    }
-
-    /**
-     * Create an instance of {@link Aquav.InfTermDescarreg }
-     * 
-     */
-    public Aquav.InfTermDescarreg createAquavInfTermDescarreg() {
-        return new Aquav.InfTermDescarreg();
-    }
-
-    /**
-     * Create an instance of {@link Aquav.InfEmbComb }
-     * 
-     */
-    public Aquav.InfEmbComb createAquavInfEmbComb() {
-        return new Aquav.InfEmbComb();
-    }
-
-    /**
-     * Create an instance of {@link Aquav.InfUnidCargaVazia }
-     * 
-     */
-    public Aquav.InfUnidCargaVazia createAquavInfUnidCargaVazia() {
-        return new Aquav.InfUnidCargaVazia();
-    }
-
-    /**
-     * Create an instance of {@link Aquav.InfUnidTranspVazia }
-     * 
-     */
-    public Aquav.InfUnidTranspVazia createAquavInfUnidTranspVazia() {
-        return new Aquav.InfUnidTranspVazia();
-    }
-
-    /**
-     * Create an instance of {@link Ferrov.Trem }
-     * 
-     */
-    public Ferrov.Trem createFerrovTrem() {
-        return new Ferrov.Trem();
-    }
-
-    /**
-     * Create an instance of {@link Ferrov.Vag }
-     * 
-     */
-    public Ferrov.Vag createFerrovVag() {
-        return new Ferrov.Vag();
-    }
-
-    /**
-     * Create an instance of {@link Rodo.LacRodo }
-     * 
-     */
-    public Rodo.LacRodo createRodoLacRodo() {
-        return new Rodo.LacRodo();
     }
 
     /**
@@ -1021,6 +961,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link Rodo.LacRodo }
+     * 
+     */
+    public Rodo.LacRodo createRodoLacRodo() {
+        return new Rodo.LacRodo();
+    }
+
+    /**
      * Create an instance of {@link Rodo.VeicReboque.Prop }
      * 
      */
@@ -1090,6 +1038,62 @@ public class ObjectFactory {
      */
     public Rodo.InfANTT.ValePed.Disp createRodoInfANTTValePedDisp() {
         return new Rodo.InfANTT.ValePed.Disp();
+    }
+
+    /**
+     * Create an instance of {@link Ferrov.Trem }
+     * 
+     */
+    public Ferrov.Trem createFerrovTrem() {
+        return new Ferrov.Trem();
+    }
+
+    /**
+     * Create an instance of {@link Ferrov.Vag }
+     * 
+     */
+    public Ferrov.Vag createFerrovVag() {
+        return new Ferrov.Vag();
+    }
+
+    /**
+     * Create an instance of {@link Aquav.InfTermCarreg }
+     * 
+     */
+    public Aquav.InfTermCarreg createAquavInfTermCarreg() {
+        return new Aquav.InfTermCarreg();
+    }
+
+    /**
+     * Create an instance of {@link Aquav.InfTermDescarreg }
+     * 
+     */
+    public Aquav.InfTermDescarreg createAquavInfTermDescarreg() {
+        return new Aquav.InfTermDescarreg();
+    }
+
+    /**
+     * Create an instance of {@link Aquav.InfEmbComb }
+     * 
+     */
+    public Aquav.InfEmbComb createAquavInfEmbComb() {
+        return new Aquav.InfEmbComb();
+    }
+
+    /**
+     * Create an instance of {@link Aquav.InfUnidCargaVazia }
+     * 
+     */
+    public Aquav.InfUnidCargaVazia createAquavInfUnidCargaVazia() {
+        return new Aquav.InfUnidCargaVazia();
+    }
+
+    /**
+     * Create an instance of {@link Aquav.InfUnidTranspVazia }
+     * 
+     */
+    public Aquav.InfUnidTranspVazia createAquavInfUnidTranspVazia() {
+        return new Aquav.InfUnidTranspVazia();
     }
 
     /**
@@ -1365,6 +1369,58 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "mdfeConsultaDFe")
     public JAXBElement<TMDFeConsultaDFe> createMdfeConsultaDFe(TMDFeConsultaDFe value) {
         return new JAXBElement<TMDFeConsultaDFe>(_MdfeConsultaDFe_QNAME, TMDFeConsultaDFe.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Aereo }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link Aereo }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "aereo")
+    public JAXBElement<Aereo> createAereo(Aereo value) {
+        return new JAXBElement<Aereo>(_Aereo_QNAME, Aereo.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Aquav }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link Aquav }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "aquav")
+    public JAXBElement<Aquav> createAquav(Aquav value) {
+        return new JAXBElement<Aquav>(_Aquav_QNAME, Aquav.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Ferrov }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link Ferrov }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "ferrov")
+    public JAXBElement<Ferrov> createFerrov(Ferrov value) {
+        return new JAXBElement<Ferrov>(_Ferrov_QNAME, Ferrov.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Rodo }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link Rodo }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "rodo")
+    public JAXBElement<Rodo> createRodo(Rodo value) {
+        return new JAXBElement<Rodo>(_Rodo_QNAME, Rodo.class, null, value);
     }
 
     /**
