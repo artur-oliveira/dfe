@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cte="http://www.portalfiscal.inf.br/mdfe"
+           targetNamespace="http://www.portalfiscal.inf.br/mdfe" elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+    <xs:simpleType name="TVerDistDFe">
+        <xs:annotation>
+            <xs:documentation>Tipo Versão dos leiautes do Web Service CTeDistribuicaoDFe</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:whiteSpace value="preserve"/>
+            <xs:enumeration value="1.00"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

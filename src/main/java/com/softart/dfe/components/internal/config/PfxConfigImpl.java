@@ -5,7 +5,7 @@ import com.softart.dfe.enums.internal.UF;
 import com.softart.dfe.exceptions.security.SSLContextException;
 import com.softart.dfe.interfaces.internal.KeyStoreInfo;
 import com.softart.dfe.interfaces.internal.config.Config;
-import com.softart.dfe.components.security.SocketFactory;
+import com.softart.dfe.components.security.socket.SocketFactory;
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

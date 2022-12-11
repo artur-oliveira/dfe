@@ -5,7 +5,7 @@ import com.softart.dfe.components.internal.xml.unmarshaller.CteUnmarshaller;
 import com.softart.dfe.exceptions.xml.MarshallException;
 import com.softart.dfe.interfaces.xml.DFObject;
 import com.softart.dfe.interfaces.xml.XMLAdapter;
-import com.softart.dfe.models.cte.event.ReturnEvent;
+import com.softart.dfe.models.cte.event.CteReturnEvent;
 import lombok.*;
 
 import javax.xml.bind.JAXBElement;
@@ -149,7 +149,7 @@ public class CteReturnQuerySituation implements DFObject, XMLAdapter<CteReturnQu
     @NoArgsConstructor
     public static class ProcEventoCTe implements DFObject, XMLAdapter<ProcEventoCTe, br.inf.portalfiscal.cte.send.ProcEventoCTe> {
 
-        protected ReturnEvent retEvento;
+        protected CteReturnEvent retEvento;
         protected String versao;
 
         @Override
@@ -157,7 +157,7 @@ public class CteReturnQuerySituation implements DFObject, XMLAdapter<CteReturnQu
             ProcEventoCTe proc = XMLAdapter.super.fromObject(o);
 
             if (o.getAny() instanceof JAXBElement) {
-                proc.setRetEvento(ReturnEvent.builder().build().fromObject((TRetEvento) (((JAXBElement<?>) o.getAny())).getValue()));
+                proc.setRetEvento(CteReturnEvent.builder().build().fromObject((TRetEvento) (((JAXBElement<?>) o.getAny())).getValue()));
             }
 
             return proc;

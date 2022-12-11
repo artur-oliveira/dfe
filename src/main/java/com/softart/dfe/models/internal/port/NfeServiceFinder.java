@@ -5,8 +5,9 @@ import com.softart.dfe.enums.internal.nf.NfeAuthorizer;
 import com.softart.dfe.enums.internal.nf.NfePathEndpoint;
 import lombok.*;
 
-@EqualsAndHashCode(callSuper = true)
-@Data
+@Getter
+@Setter
+@ToString
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -15,7 +16,4 @@ public final class NfeServiceFinder extends Finder {
     public NfeAuthorizer authorizer;
     public Environment environment;
 
-    public NfeAuthorizer getAuthorizer() {
-        return authorizer;
-    }
 }

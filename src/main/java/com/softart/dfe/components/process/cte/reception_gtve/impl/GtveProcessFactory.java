@@ -2,6 +2,11 @@ package com.softart.dfe.components.process.cte.reception_gtve.impl;
 
 import br.inf.portalfiscal.cte.send.TGTVe;
 import br.inf.portalfiscal.cte.send.TRetGTVe;
+import com.softart.dfe.components.process.cte.reception_gtve.impl.GtveProcessFactory;
+import com.softart.dfe.components.process.cte.reception_gtve.impl.file.FileSystemGtveFactory;
+import com.softart.dfe.components.process.cte.reception_gtve.impl.nostore.NoStoreGtveFactory;
+import com.softart.dfe.components.process.cte.reception_os.impl.file.FileSystemCteOsFactory;
+import com.softart.dfe.components.process.cte.reception_os.impl.nostore.NoStoreCteOsFactory;
 import com.softart.dfe.interfaces.process.ProcessFactory;
 import com.softart.dfe.interfaces.process.cte.reception_gtve.AfterReceptionGtve;
 import com.softart.dfe.interfaces.process.cte.reception_gtve.BeforeReceptionGtve;
@@ -9,6 +14,19 @@ import com.softart.dfe.interfaces.process.cte.reception_gtve.BeforeReceptionGtve
 import java.util.Collection;
 
 public abstract class GtveProcessFactory implements ProcessFactory<TGTVe, TRetGTVe> {
+
+    public static GtveProcessFactory noStore() {
+        return GtveProcessFactory.Holder.NOSTORE;
+    }
+
+    public static GtveProcessFactory fileStore() {
+        return GtveProcessFactory.Holder.FILESYSTEM;
+    }
+
+    final static class Holder {
+        final static GtveProcessFactory NOSTORE = new NoStoreGtveFactory();
+        final static GtveProcessFactory FILESYSTEM = new FileSystemGtveFactory();
+    }
 
     public abstract Collection<BeforeReceptionGtve> before();
 

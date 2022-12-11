@@ -17,6 +17,14 @@ public final class DFEnum {
 
         String name();
 
+        default long getCodeAsLong() {
+            return Long.parseLong(getCode());
+        }
+
+        default int getCodeAsInt() {
+            return Integer.parseInt(getCode());
+        }
+
     }
 
 }

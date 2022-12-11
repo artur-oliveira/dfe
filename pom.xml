@@ -305,6 +305,28 @@
                         </configuration>
                     </execution>
                     <!-- END CTE -->
+
+                    <!-- BEGIN MDFE -->
+                    <execution>
+                        <id>mdfe_classes</id>
+                        <goals>
+                            <goal>xjc</goal>
+                        </goals>
+                        <phase>generate-sources</phase>
+                        <configuration>
+                            <xjbSources>
+                                <xjbSource>src/main/resources/binding.xjb</xjbSource>
+                            </xjbSources>
+                            <sources>
+                                <source>${basedir}/xsds/mdfe/PL_MDFe_300a_NT012022</source>
+                            </sources>
+                            <outputDirectory>${basedir}/src/generated</outputDirectory>
+                            <packageName>br.inf.portalfiscal.mdfe.classes</packageName>
+                            <clearOutputDir>false</clearOutputDir>
+                            <extension>true</extension>
+                        </configuration>
+                    </execution>
+                    <!-- END MDFE -->
                 </executions>
             </plugin>
 
@@ -10148,9 +10170,367 @@
                             </args>
                         </configuration>
                     </execution>
-                    <!-- END NFE -->
 
                     <!-- END CTE -->
+
+                    <!-- BEDIN MDFE -->
+
+                    <!-- BEGIN SVRS -->
+
+                    <!-- SVRS DISTRIBUTION MDFE HOMOLOGATION -->
+                    <execution>
+                        <id>mdfe_distribution_svrs_hom</id>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <phase>none</phase>
+                        <configuration>
+                            <wsdlLocation>
+                                https://mdfe-homologacao.svrs.rs.gov.br/ws/MDFeDistribuicaoDFe/MDFeDistribuicaoDFe.asmx?wsdl
+                            </wsdlLocation>
+                            <wsdlFiles>
+                                <wsdlFile>${basedir}/wsdl/mdfe/svrs/hom/distribution.wsdl</wsdlFile>
+                            </wsdlFiles>
+                            <sourceDestDir>${basedir}/src/generated</sourceDestDir>
+                            <packageName>br.inf.portalfiscal.mdfe.wsdl.distribution.svrs.hom</packageName>
+                            <args>
+                                <arg>-extension</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <!-- SVRS EVENT MDFE HOMOLOGATION -->
+                    <execution>
+                        <id>mdfe_event_svrs_hom</id>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <phase>none</phase>
+                        <configuration>
+                            <wsdlLocation>
+                                https://mdfe-homologacao.svrs.rs.gov.br/ws/MDFeRecepcaoEvento/MDFeRecepcaoEvento.asmx?wsdl
+                            </wsdlLocation>
+                            <wsdlFiles>
+                                <wsdlFile>${basedir}/wsdl/mdfe/svrs/hom/event.wsdl</wsdlFile>
+                            </wsdlFiles>
+                            <sourceDestDir>${basedir}/src/generated</sourceDestDir>
+                            <packageName>br.inf.portalfiscal.mdfe.wsdl.event.svrs.hom</packageName>
+                            <args>
+                                <arg>-extension</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <!-- SVRS QUERY RECEIPT MDFE HOMOLOGATION -->
+                    <execution>
+                        <id>mdfe_query_receipt_svrs_hom</id>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <phase>none</phase>
+                        <configuration>
+                            <wsdlLocation>
+                                https://mdfe-homologacao.svrs.rs.gov.br/ws/MDFeRetRecepcao/MDFeRetRecepcao.asmx?wsdl
+                            </wsdlLocation>
+                            <wsdlFiles>
+                                <wsdlFile>${basedir}/wsdl/mdfe/svrs/hom/query_receipt.wsdl</wsdlFile>
+                            </wsdlFiles>
+                            <sourceDestDir>${basedir}/src/generated</sourceDestDir>
+                            <packageName>br.inf.portalfiscal.mdfe.wsdl.query_receipt.svrs.hom</packageName>
+                            <args>
+                                <arg>-extension</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <!-- SVRS QUERY SITUATION MDFE HOMOLOGATION -->
+                    <execution>
+                        <id>mdfe_query_situation_svrs_hom</id>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <phase>none</phase>
+                        <configuration>
+                            <wsdlLocation>
+                                https://mdfe-homologacao.svrs.rs.gov.br/ws/MDFeConsulta/MDFeConsulta.asmx?wsdl
+                            </wsdlLocation>
+                            <wsdlFiles>
+                                <wsdlFile>${basedir}/wsdl/mdfe/svrs/hom/query_situation.wsdl</wsdlFile>
+                            </wsdlFiles>
+                            <sourceDestDir>${basedir}/src/generated</sourceDestDir>
+                            <packageName>br.inf.portalfiscal.mdfe.wsdl.query_situation.svrs.hom</packageName>
+                            <args>
+                                <arg>-extension</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <!-- SVRS QUERY UNCLOSED MDFE HOMOLOGATION -->
+                    <execution>
+                        <id>mdfe_query_unclosed_svrs_hom</id>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <phase>none</phase>
+                        <configuration>
+                            <wsdlLocation>
+                                https://mdfe-homologacao.svrs.rs.gov.br/ws/MDFeConsNaoEnc/MDFeConsNaoEnc.asmx?wsdl
+                            </wsdlLocation>
+                            <wsdlFiles>
+                                <wsdlFile>${basedir}/wsdl/mdfe/svrs/hom/query_unclosed.wsdl</wsdlFile>
+                            </wsdlFiles>
+                            <sourceDestDir>${basedir}/src/generated</sourceDestDir>
+                            <packageName>br.inf.portalfiscal.mdfe.wsdl.query_unclosed.svrs.hom</packageName>
+                            <args>
+                                <arg>-extension</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <!-- SVRS RECEPTION MDFE HOMOLOGATION -->
+                    <execution>
+                        <id>mdfe_reception_svrs_hom</id>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <phase>none</phase>
+                        <configuration>
+                            <wsdlLocation>
+                                https://mdfe-homologacao.svrs.rs.gov.br/ws/MDFeRecepcao/MDFeRecepcao.asmx?wsdl
+                            </wsdlLocation>
+                            <wsdlFiles>
+                                <wsdlFile>${basedir}/wsdl/mdfe/svrs/hom/reception.wsdl</wsdlFile>
+                            </wsdlFiles>
+                            <sourceDestDir>${basedir}/src/generated</sourceDestDir>
+                            <packageName>br.inf.portalfiscal.mdfe.wsdl.reception.svrs.hom</packageName>
+                            <args>
+                                <arg>-extension</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <!-- SVRS RECEPTION SYNC MDFE HOMOLOGATION -->
+                    <execution>
+                        <id>mdfe_reception_sync_svrs_hom</id>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <phase>none</phase>
+                        <configuration>
+                            <wsdlLocation>
+                                https://mdfe-homologacao.svrs.rs.gov.br/ws/MDFeRecepcaoSinc/MDFeRecepcaoSinc.asmx?wsdl
+                            </wsdlLocation>
+                            <wsdlFiles>
+                                <wsdlFile>${basedir}/wsdl/mdfe/svrs/hom/reception_sync.wsdl</wsdlFile>
+                            </wsdlFiles>
+                            <sourceDestDir>${basedir}/src/generated</sourceDestDir>
+                            <packageName>br.inf.portalfiscal.mdfe.wsdl.reception_sync.svrs.hom</packageName>
+                            <args>
+                                <arg>-extension</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <!-- SVRS STATUS SERVICE MDFE HOMOLOGATION -->
+                    <execution>
+                        <id>mdfe_status_service_svrs_hom</id>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <phase>none</phase>
+                        <configuration>
+                            <wsdlLocation>
+                                https://mdfe-homologacao.svrs.rs.gov.br/ws/MDFeStatusServico/MDFeStatusServico.asmx?wsdl
+                            </wsdlLocation>
+                            <wsdlFiles>
+                                <wsdlFile>${basedir}/wsdl/mdfe/svrs/hom/status_service.wsdl</wsdlFile>
+                            </wsdlFiles>
+                            <sourceDestDir>${basedir}/src/generated</sourceDestDir>
+                            <packageName>br.inf.portalfiscal.mdfe.wsdl.status_service.svrs.hom</packageName>
+                            <args>
+                                <arg>-extension</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <!-- SVRS DISTRIBUTION MDFE PRODUCTION -->
+                    <execution>
+                        <id>mdfe_distribution_svrs_prod</id>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <phase>none</phase>
+                        <configuration>
+                            <wsdlLocation>
+                                https://mdfe.svrs.rs.gov.br/ws/MDFeDistribuicaoDFe/MDFeDistribuicaoDFe.asmx?wsdl
+                            </wsdlLocation>
+                            <wsdlFiles>
+                                <wsdlFile>${basedir}/wsdl/mdfe/svrs/prod/distribution.wsdl</wsdlFile>
+                            </wsdlFiles>
+                            <sourceDestDir>${basedir}/src/generated</sourceDestDir>
+                            <packageName>br.inf.portalfiscal.mdfe.wsdl.distribution.svrs.prod</packageName>
+                            <args>
+                                <arg>-extension</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <!-- SVRS EVENT MDFE PRODUCTION -->
+                    <execution>
+                        <id>mdfe_event_svrs_prod</id>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <phase>none</phase>
+                        <configuration>
+                            <wsdlLocation>
+                                https://mdfe.svrs.rs.gov.br/ws/MDFeRecepcaoEvento/MDFeRecepcaoEvento.asmx?wsdl
+                            </wsdlLocation>
+                            <wsdlFiles>
+                                <wsdlFile>${basedir}/wsdl/mdfe/svrs/prod/event.wsdl</wsdlFile>
+                            </wsdlFiles>
+                            <sourceDestDir>${basedir}/src/generated</sourceDestDir>
+                            <packageName>br.inf.portalfiscal.mdfe.wsdl.event.svrs.prod</packageName>
+                            <args>
+                                <arg>-extension</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <!-- SVRS QUERY RECEIPT MDFE PRODUCTION -->
+                    <execution>
+                        <id>mdfe_query_receipt_svrs_prod</id>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <phase>none</phase>
+                        <configuration>
+                            <wsdlLocation>
+                                https://mdfe.svrs.rs.gov.br/ws/MDFeRetRecepcao/MDFeRetRecepcao.asmx?wsdl
+                            </wsdlLocation>
+                            <wsdlFiles>
+                                <wsdlFile>${basedir}/wsdl/mdfe/svrs/prod/query_receipt.wsdl</wsdlFile>
+                            </wsdlFiles>
+                            <sourceDestDir>${basedir}/src/generated</sourceDestDir>
+                            <packageName>br.inf.portalfiscal.mdfe.wsdl.query_receipt.svrs.prod</packageName>
+                            <args>
+                                <arg>-extension</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <!-- SVRS QUERY SITUATION MDFE PRODUCTION -->
+                    <execution>
+                        <id>mdfe_query_situation_svrs_prod</id>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <phase>none</phase>
+                        <configuration>
+                            <wsdlLocation>
+                                https://mdfe.svrs.rs.gov.br/ws/MDFeConsulta/MDFeConsulta.asmx?wsdl
+                            </wsdlLocation>
+                            <wsdlFiles>
+                                <wsdlFile>${basedir}/wsdl/mdfe/svrs/prod/query_situation.wsdl</wsdlFile>
+                            </wsdlFiles>
+                            <sourceDestDir>${basedir}/src/generated</sourceDestDir>
+                            <packageName>br.inf.portalfiscal.mdfe.wsdl.query_situation.svrs.prod</packageName>
+                            <args>
+                                <arg>-extension</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <!-- SVRS QUERY UNCLOSED MDFE PRODUCTION -->
+                    <execution>
+                        <id>mdfe_query_unclosed_svrs_prod</id>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <phase>none</phase>
+                        <configuration>
+                            <wsdlLocation>
+                                https://mdfe.svrs.rs.gov.br/ws/MDFeConsNaoEnc/MDFeConsNaoEnc.asmx?wsdl
+                            </wsdlLocation>
+                            <wsdlFiles>
+                                <wsdlFile>${basedir}/wsdl/mdfe/svrs/prod/query_unclosed.wsdl</wsdlFile>
+                            </wsdlFiles>
+                            <sourceDestDir>${basedir}/src/generated</sourceDestDir>
+                            <packageName>br.inf.portalfiscal.mdfe.wsdl.query_unclosed.svrs.prod</packageName>
+                            <args>
+                                <arg>-extension</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <!-- SVRS RECEPTION MDFE PRODUCTION -->
+                    <execution>
+                        <id>mdfe_reception_svrs_prod</id>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <phase>none</phase>
+                        <configuration>
+                            <wsdlLocation>
+                                https://mdfe.svrs.rs.gov.br/ws/MDFeRecepcao/MDFeRecepcao.asmx?wsdl
+                            </wsdlLocation>
+                            <wsdlFiles>
+                                <wsdlFile>${basedir}/wsdl/mdfe/svrs/prod/reception.wsdl</wsdlFile>
+                            </wsdlFiles>
+                            <sourceDestDir>${basedir}/src/generated</sourceDestDir>
+                            <packageName>br.inf.portalfiscal.mdfe.wsdl.reception.svrs.prod</packageName>
+                            <args>
+                                <arg>-extension</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <!-- SVRS RECEPTION SYNC MDFE PRODUCTION -->
+                    <execution>
+                        <id>mdfe_reception_sync_svrs_prod</id>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <phase>none</phase>
+                        <configuration>
+                            <wsdlLocation>
+                                https://mdfe.svrs.rs.gov.br/ws/MDFeRecepcaoSinc/MDFeRecepcaoSinc.asmx?wsdl
+                            </wsdlLocation>
+                            <wsdlFiles>
+                                <wsdlFile>${basedir}/wsdl/mdfe/svrs/prod/reception_sync.wsdl</wsdlFile>
+                            </wsdlFiles>
+                            <sourceDestDir>${basedir}/src/generated</sourceDestDir>
+                            <packageName>br.inf.portalfiscal.mdfe.wsdl.reception_sync.svrs.prod</packageName>
+                            <args>
+                                <arg>-extension</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <!-- SVRS STATUS SERVICE MDFE PRODUCTION -->
+                    <execution>
+                        <id>mdfe_status_service_svrs_prod</id>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <phase>none</phase>
+                        <configuration>
+                            <wsdlLocation>
+                                https://mdfe.svrs.rs.gov.br/ws/MDFeStatusServico/MDFeStatusServico.asmx?wsdl
+                            </wsdlLocation>
+                            <wsdlFiles>
+                                <wsdlFile>${basedir}/wsdl/mdfe/svrs/prod/status_service.wsdl</wsdlFile>
+                            </wsdlFiles>
+                            <sourceDestDir>${basedir}/src/generated</sourceDestDir>
+                            <packageName>br.inf.portalfiscal.mdfe.wsdl.status_service.svrs.prod</packageName>
+                            <args>
+                                <arg>-extension</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+                    <!-- END SVRS -->
+
+                    <!-- END MDFE -->
                 </executions>
             </plugin>
 

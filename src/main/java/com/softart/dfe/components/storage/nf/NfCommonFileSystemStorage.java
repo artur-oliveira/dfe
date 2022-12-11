@@ -26,7 +26,7 @@ public class NfCommonFileSystemStorage extends CommonFileSystemStorage implement
     public void storeProcCancel(Store<br.inf.portalfiscal.nfe.event_cancel.TProcEvento> o) throws StorageException {
         try {
             if (Objects.nonNull(o.getData()) && Objects.nonNull(o.getData().getEvento()) && Objects.nonNull(o.getData().getRetEvento()) && Objects.nonNull(o.getXml()) && NFReturnCode.generateProc(o.getData().getRetEvento().getInfEvento().getCStat())) {
-                writeProc(o, NFStorageKey.NF_EVENT, xmlNameWithTime(o.getData().getRetEvento().getInfEvento().getChNFe() + "-" + o.getData().getRetEvento().getInfEvento().getTpEvento()));
+                writeProc(o, NFStorageKey.NF_EVENT, xmlNameWithTime(o.getData().getEvento().getInfEvento().getChNFe() + "-" + o.getData().getEvento().getInfEvento().getTpEvento() + "-" + o.getData().getEvento().getInfEvento().getNSeqEvento()));
             }
         } catch (Exception e) {
             throw new StorageException(e);
@@ -127,6 +127,8 @@ public class NfCommonFileSystemStorage extends CommonFileSystemStorage implement
     }
 
     protected void storeProcByQueryReceipt(Store<TRetConsReciNFe> o) throws IOException, StorageException {
+        if (Objects.isNull(o.getData().getProtNFe())) return;
+
         String xml = null;
         for (TProtNFe protNFe : o.getData().getProtNFe()) {
             xml = IOUtils.readFileToString(IOUtils.findLastFileByBasePath(String.join(separator, rootPath(o.getConfig()), NFStorageKey.NF_AUTHORIZATION.getForSend(), protNFe.getInfProt().getChNFe())));

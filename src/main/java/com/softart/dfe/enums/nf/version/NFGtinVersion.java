@@ -21,6 +21,6 @@ public enum NFGtinVersion {
     }
 
     public static NFGtinVersion getDefault() {
-        return valueOfVersion(System.getProperty("DEFAULT_NFE_GTIN_VERSION", "1.00"));
+        return valueOfVersion(System.getProperty("com.softart.nfe.gtin.version", "1.00"));
     }
 }

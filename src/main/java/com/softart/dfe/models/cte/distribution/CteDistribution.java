@@ -40,7 +40,7 @@ public class CteDistribution implements DFObject, XMLAdapter<CteDistribution, Di
     @ToString
     @AllArgsConstructor
     @NoArgsConstructor
-    public static class ConsNSU implements DFObject, XMLAdapter<DistNSU, DistDFeInt.ConsNSU> {
+    public static class ConsNSU implements DFObject, XMLAdapter<ConsNSU, DistDFeInt.ConsNSU> {
         protected String nsu;
     }
 

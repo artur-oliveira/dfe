@@ -21,6 +21,6 @@ public enum CteVersion {
     }
 
     public static CteVersion getDefault() {
-        return valueOfVersion(System.getProperty("DEFAULT_CTE_VERSION", "3.00"));
+        return valueOfVersion(System.getProperty("com.softart.cte.version", "3.00"));
     }
 }

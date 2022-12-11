@@ -73,7 +73,7 @@ public final class CteFileSystemStorage extends CommonFileSystemStorage implemen
     public void storeProcEvent(Store<TProcEvento> o) throws StorageException {
         try {
             if (Objects.nonNull(o.getData()) && Objects.nonNull(o.getData().getRetEventoCTe()) && Objects.nonNull(o.getXml()) && CteReturnCode.generateProc(o.getData().getRetEventoCTe().getInfEvento().getCStat())) {
-                writeProc(o, CteStorageKey.CTE_EVENT, xmlNameWithTime(o.getData().getRetEventoCTe().getInfEvento().getChCTe() + "-" + o.getData().getEventoCTe().getInfEvento().getTpEvento()));
+                writeProc(o, CteStorageKey.CTE_EVENT, xmlNameWithTime(o.getData().getRetEventoCTe().getInfEvento().getChCTe() + "-" + o.getData().getEventoCTe().getInfEvento().getTpEvento() + "-" + o.getData().getEventoCTe().getInfEvento().getNSeqEvento()));
             }
         } catch (Exception e) {
             throw new StorageException(e);
@@ -128,6 +128,8 @@ public final class CteFileSystemStorage extends CommonFileSystemStorage implemen
     }
 
     private void storeProcByQueryReceipt(Store<TRetConsReciCTe> o) throws IOException, StorageException {
+        if (Objects.isNull(o.getData().getProtCTe())) return;
+
         String xml = null;
         for (TProtCTe protCTe : o.getData().getProtCTe()) {
             xml = IOUtils.readFileToString(IOUtils.findLastFileByBasePath(String.join(separator, rootPath(o.getConfig()), CteStorageKey.CTE_RECEPTION.getForSend(), protCTe.getInfProt().getChCTe())));
@@ -189,7 +191,7 @@ public final class CteFileSystemStorage extends CommonFileSystemStorage implemen
                     }
                 }
 
-                writeReturn(o, CteStorageKey.CTE_QUERY_RECEIPT, xmlNameWithTime(accessKey));
+                writeReturn(o, CteStorageKey.CTE_QUERY_SITUATION, xmlNameWithTime(accessKey));
             }
         } catch (Exception e) {
             throw new StorageException(e);

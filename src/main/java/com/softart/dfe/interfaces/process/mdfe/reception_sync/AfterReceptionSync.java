@@ -1,0 +1,11 @@
+package com.softart.dfe.interfaces.process.mdfe.reception_sync;
+
+import br.inf.portalfiscal.mdfe.classes.TEnviMDFe;
+import br.inf.portalfiscal.mdfe.classes.TMDFe;
+import br.inf.portalfiscal.mdfe.classes.TRetEnviMDFe;
+import br.inf.portalfiscal.mdfe.classes.TRetMDFe;
+import com.softart.dfe.interfaces.process.AfterRequest;
+import com.softart.dfe.interfaces.process.AfterWebServiceRequest;
+
+public interface AfterReceptionSync extends AfterWebServiceRequest<TMDFe, TRetMDFe> {
+}

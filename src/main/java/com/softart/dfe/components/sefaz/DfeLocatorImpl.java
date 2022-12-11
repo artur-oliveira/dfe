@@ -1,13 +1,14 @@
 package com.softart.dfe.components.sefaz;
 
 import com.softart.dfe.components.sefaz.cte.CteAnService;
-import com.softart.dfe.components.sefaz.nfe.NfeAmService;
 import com.softart.dfe.components.sefaz.nfe.NfeAnService;
 import com.softart.dfe.exceptions.port.SoapServiceGeneralException;
 import com.softart.dfe.exceptions.services.NoProviderFound;
 import com.softart.dfe.interfaces.internal.config.CteConfig;
+import com.softart.dfe.interfaces.internal.config.MdfeConfig;
 import com.softart.dfe.interfaces.internal.config.NfConfig;
 import com.softart.dfe.interfaces.sefaz.cte.CteService;
+import com.softart.dfe.interfaces.sefaz.mdfe.MdfeService;
 import com.softart.dfe.interfaces.sefaz.nf.nfce.NfceService;
 import com.softart.dfe.interfaces.sefaz.nf.nfe.NfeService;
 import com.softart.dfe.models.internal.reflection.PackageFinder;
@@ -26,6 +27,7 @@ final class DfeLocatorImpl extends DfeFactory {
     private final Collection<NfceService> nfceServices = ReflectionUtils.findAllClasses(PackageFinder.builder().packages(Collections.singleton("com.softart.dfe.components.sefaz.nfce")).assignables(Collections.singleton(NfceService.class)).build()).stream().map(it -> (NfceService) ReflectionUtils.newInstance(it)).collect(Collectors.toList());
 
     private final Collection<CteService> cteServices = ReflectionUtils.findAllClasses(PackageFinder.builder().packages(Collections.singleton("com.softart.dfe.components.sefaz.cte")).assignables(Collections.singleton(CteService.class)).excludeClasses(Collections.singleton(CteAnService.class)).build()).stream().map(it -> (CteService) ReflectionUtils.newInstance(it)).collect(Collectors.toList());
+    private final Collection<MdfeService> mdfeServices = ReflectionUtils.findAllClasses(PackageFinder.builder().packages(Collections.singleton("com.softart.dfe.components.sefaz.mdfe")).assignables(Collections.singleton(MdfeService.class)).build()).stream().map(it -> (MdfeService) ReflectionUtils.newInstance(it)).collect(Collectors.toList());
 
     @Override
     public NfceService getNfceService(NfConfig config) throws NoProviderFound, SoapServiceGeneralException {
@@ -40,5 +42,10 @@ final class DfeLocatorImpl extends DfeFactory {
     @Override
     public CteService getCteService(CteConfig config) throws NoProviderFound, SoapServiceGeneralException {
         return ReflectionUtils.newInstance(getCteServices().stream().filter(it -> it.allow(config.uf(), config.environment(), config.emission())).findFirst().orElseThrow(NoProviderFound::new).getClass()).withSoapService(SoapServiceFactory.getInstance().getCteSoapService(config));
+    }
+
+    @Override
+    public MdfeService getMdfeService(MdfeConfig config) throws NoProviderFound, SoapServiceGeneralException {
+        return ReflectionUtils.newInstance(getMdfeServices().stream().filter(it -> it.allow(config.uf(), config.environment(), config.emission())).findFirst().orElseThrow(NoProviderFound::new).getClass()).withSoapService(SoapServiceFactory.getInstance().getMdfeSoapService(config));
     }
 }

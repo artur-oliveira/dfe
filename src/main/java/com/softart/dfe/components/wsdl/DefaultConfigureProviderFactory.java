@@ -1,7 +1,7 @@
 package com.softart.dfe.components.wsdl;
 
 import com.softart.dfe.components.internal.xml.handler.CustomSoapHandler;
-import com.softart.dfe.components.security.SocketFactory;
+import com.softart.dfe.components.security.socket.SocketFactory;
 import com.softart.dfe.exceptions.security.SecurityException;
 import com.softart.dfe.interfaces.internal.config.Config;
 import lombok.AccessLevel;

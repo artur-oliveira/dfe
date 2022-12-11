@@ -21,6 +21,6 @@ public enum NFEventVersion {
     }
 
     public static NFEventVersion getDefault() {
-        return valueOfVersion(System.getProperty("DEFAULT_NFE_EVENT_VERSION", "1.00"));
+        return valueOfVersion(System.getProperty("com.softart.nfe.event.version", "1.00"));
     }
 }

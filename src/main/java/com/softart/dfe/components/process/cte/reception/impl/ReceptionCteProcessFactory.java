@@ -2,6 +2,8 @@ package com.softart.dfe.components.process.cte.reception.impl;
 
 import br.inf.portalfiscal.cte.send.TEnviCTe;
 import br.inf.portalfiscal.cte.send.TRetEnviCTe;
+import com.softart.dfe.components.process.cte.reception.impl.file.FileSystemReceptionCteFactory;
+import com.softart.dfe.components.process.cte.reception.impl.nostore.NoStoreReceptionCteFactory;
 import com.softart.dfe.interfaces.process.ProcessFactory;
 import com.softart.dfe.interfaces.process.cte.reception.AfterReception;
 import com.softart.dfe.interfaces.process.cte.reception.BeforeReception;
@@ -10,7 +12,20 @@ import java.util.Collection;
 
 public abstract class ReceptionCteProcessFactory implements ProcessFactory<TEnviCTe, TRetEnviCTe> {
 
+    public static ReceptionCteProcessFactory noStore() {
+        return ReceptionCteProcessFactory.Holder.NOSTORE;
+    }
+
+    public static ReceptionCteProcessFactory fileStore() {
+        return ReceptionCteProcessFactory.Holder.FILESYSTEM;
+    }
+
     public abstract Collection<BeforeReception> before();
 
     public abstract Collection<AfterReception> after();
+
+    final static class Holder {
+        final static ReceptionCteProcessFactory NOSTORE = new NoStoreReceptionCteFactory();
+        final static ReceptionCteProcessFactory FILESYSTEM = new FileSystemReceptionCteFactory();
+    }
 }

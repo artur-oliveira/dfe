@@ -13,15 +13,20 @@ import java.util.Collection;
 public abstract class SubstituteCancelProcessFactory implements ProcessFactory<TEnvEvento, TRetEnvEvento> {
 
     public static SubstituteCancelProcessFactory noStore() {
-        return new NoStoreFactory();
+        return Holder.NO_STORE;
     }
 
     public static SubstituteCancelProcessFactory fileStore() {
-        return new FileStoreFactory();
+        return Holder.FILE_STORE;
     }
 
     public abstract Collection<AfterSubstituteCancel> after();
 
     public abstract Collection<BeforeSubstituteCancel> before();
+
+    static final class Holder {
+        static final SubstituteCancelProcessFactory NO_STORE = new NoStoreFactory();
+        static final SubstituteCancelProcessFactory FILE_STORE = new FileStoreFactory();
+    }
 
 }

@@ -26,4 +26,9 @@ public final class Functions {
         else if (o instanceof Map) return ((Map<?, ?>) o).size() == 0;
         return o.toString().isEmpty();
     }
+
+    @SafeVarargs
+    public static <T> T coalesce(T... args) {
+        return Arrays.stream(args).filter(Objects::nonNull).findFirst().orElse(null);
+    }
 }

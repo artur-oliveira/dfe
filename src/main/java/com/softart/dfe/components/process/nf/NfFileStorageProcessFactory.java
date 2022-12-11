@@ -18,67 +18,82 @@ final class NfFileStorageProcessFactory extends NfProcessFactory {
 
     @Override
     public InutilizationProcessFactory inutilization() {
-        return InutilizationProcessFactory.fileStore();
+        return Holder.INUTILIZATION;
     }
 
     @Override
     public CancelProcessFactory cancel() {
-        return CancelProcessFactory.fileStore();
+        return Holder.CANCEL;
     }
 
     @Override
     public AuthorizationProcessFactory authorization() {
-        return AuthorizationProcessFactory.fileStore();
+        return Holder.AUTHORIZATION;
     }
 
     @Override
     public ReturnAuthorizationProcessFactory returnAuthorization() {
-        return ReturnAuthorizationProcessFactory.fileStore();
+        return Holder.RETURNAUTHORIZATION;
     }
 
     @Override
     public QueryProtocolProcessFactory queryProtocol() {
-        return QueryProtocolProcessFactory.fileStore();
+        return Holder.QUERYPROTOCOL;
     }
 
     @Override
     public DistributionProcessFactory distribution() {
-        return DistributionProcessFactory.fileStore();
+        return Holder.DISTRIBUTION;
     }
 
     @Override
     public ManifestationProcessFactory manifestation() {
-        return ManifestationProcessFactory.fileStore();
-    }
-
-    @Override
-    public CorrectionLetterProcessFactory correctionLetter() {
-        return CorrectionLetterProcessFactory.fileStore();
+        return Holder.MANIFESTATION;
     }
 
     @Override
     public QueryStatusServiceProcessFactory queryStatusService() {
-        return QueryStatusServiceProcessFactory.fileStore();
-    }
-
-
-    @Override
-    public QueryGtinProcessFactory queryGtin() {
-        return QueryGtinProcessFactory.fileStore();
+        return Holder.QUERYSTATUSSERVICE;
     }
 
     @Override
-    public SubstituteCancelProcessFactory substituteCancel() {
-        return SubstituteCancelProcessFactory.fileStore();
+    public CorrectionLetterProcessFactory correctionLetter() {
+        return Holder.CORRECTIONLETTER;
     }
 
     @Override
     public EpecProcessFactory epec() {
-        return EpecProcessFactory.fileStore();
+        return Holder.EPEC;
     }
 
     @Override
     public InterestedActorProcessFactory interestedActor() {
-        return InterestedActorProcessFactory.fileStore();
+        return Holder.INTERESTEDACTOR;
+    }
+
+    @Override
+    public QueryGtinProcessFactory queryGtin() {
+        return Holder.QUERYGTIN;
+    }
+
+    @Override
+    public SubstituteCancelProcessFactory substituteCancel() {
+        return Holder.SUBSTITUTECANCEL;
+    }
+
+    static final class Holder {
+        static final InutilizationProcessFactory INUTILIZATION = InutilizationProcessFactory.fileStore();
+        static final CancelProcessFactory CANCEL = CancelProcessFactory.fileStore();
+        static final AuthorizationProcessFactory AUTHORIZATION = AuthorizationProcessFactory.fileStore();
+        static final ReturnAuthorizationProcessFactory RETURNAUTHORIZATION = ReturnAuthorizationProcessFactory.fileStore();
+        static final QueryProtocolProcessFactory QUERYPROTOCOL = QueryProtocolProcessFactory.fileStore();
+        static final DistributionProcessFactory DISTRIBUTION = DistributionProcessFactory.fileStore();
+        static final ManifestationProcessFactory MANIFESTATION = ManifestationProcessFactory.fileStore();
+        static final QueryStatusServiceProcessFactory QUERYSTATUSSERVICE = QueryStatusServiceProcessFactory.fileStore();
+        static final CorrectionLetterProcessFactory CORRECTIONLETTER = CorrectionLetterProcessFactory.fileStore();
+        static final EpecProcessFactory EPEC = EpecProcessFactory.fileStore();
+        static final InterestedActorProcessFactory INTERESTEDACTOR = InterestedActorProcessFactory.fileStore();
+        static final QueryGtinProcessFactory QUERYGTIN = QueryGtinProcessFactory.fileStore();
+        static final SubstituteCancelProcessFactory SUBSTITUTECANCEL = SubstituteCancelProcessFactory.fileStore();
     }
 }

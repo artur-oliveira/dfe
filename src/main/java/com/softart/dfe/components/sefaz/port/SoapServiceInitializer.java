@@ -3,6 +3,9 @@ package com.softart.dfe.components.sefaz.port;
 import com.softart.dfe.components.sefaz.port.cte.AbstractCteSoapService;
 import com.softart.dfe.components.sefaz.port.cte.initializer.ConfigCteSoapServiceInitializer;
 import com.softart.dfe.components.sefaz.port.cte.initializer.ProxyCteSoapServiceInitializer;
+import com.softart.dfe.components.sefaz.port.mdfe.AbstractMdfeSoapService;
+import com.softart.dfe.components.sefaz.port.mdfe.initializer.ConfigMdfeSoapServiceInitializer;
+import com.softart.dfe.components.sefaz.port.mdfe.initializer.ProxyMdfeSoapServiceInitializer;
 import com.softart.dfe.components.sefaz.port.nfce.AbstractNfceSoapService;
 import com.softart.dfe.components.sefaz.port.nfce.initializer.ConfigNfceSoapServiceInitializer;
 import com.softart.dfe.components.sefaz.port.nfce.initializer.ProxyNfceSoapServiceInitializer;
@@ -27,9 +30,12 @@ public abstract class SoapServiceInitializer<T extends SoapService> {
         return SoapServiceInitializer.link(new ProxyNfceSoapServiceInitializer(), new ConfigNfceSoapServiceInitializer());
     }
 
-
     public static SoapServiceInitializer<AbstractCteSoapService> cte() {
         return SoapServiceInitializer.link(new ProxyCteSoapServiceInitializer(), new ConfigCteSoapServiceInitializer());
+    }
+
+    public static SoapServiceInitializer<AbstractMdfeSoapService> mdfe() {
+        return SoapServiceInitializer.link(new ProxyMdfeSoapServiceInitializer(), new ConfigMdfeSoapServiceInitializer());
     }
 
     @SafeVarargs

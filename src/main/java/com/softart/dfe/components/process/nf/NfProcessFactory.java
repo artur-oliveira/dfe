@@ -46,11 +46,11 @@ import java.util.Collection;
 public abstract class NfProcessFactory implements NfProcess {
 
     public static NfProcessFactory noStorageProcess() {
-        return new NfNoStorageProcessFactory();
+        return NfProcessFactoryHolder.NO_STORAGE_INSTANCE;
     }
 
     public static NfProcessFactory fileStorageProcess() {
-        return new NfFileStorageProcessFactory();
+        return NfProcessFactoryHolder.FILE_STORAGE_INSTANCE;
     }
 
     public abstract InutilizationProcessFactory inutilization();
@@ -205,5 +205,10 @@ public abstract class NfProcessFactory implements NfProcess {
     @Override
     public Collection<BeforeSubstituteCancel> beforeSubstituteCancel() {
         return substituteCancel().before();
+    }
+
+    private static final class NfProcessFactoryHolder {
+        static final NfProcessFactory NO_STORAGE_INSTANCE = new NfNoStorageProcessFactory();
+        static final NfProcessFactory FILE_STORAGE_INSTANCE = new NfFileStorageProcessFactory();
     }
 }

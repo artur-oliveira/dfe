@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bindings version="2.1" xmlns="http://java.sun.com/xml/ns/jaxb">
+  <!--
+
+Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.3.2 
+Consulte <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
+Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
+Gerado em: 2022.12.10 às 08:16:40 PM BRT 
+
+  -->
+  <bindings scd="x-schema::tns" xmlns:tns="http://www.portalfiscal.inf.br/mdfe">
+    <schemaBindings map="false">
+      <package name="br.inf.portalfiscal.mdfe.classes"/>
+    </schemaBindings>
+    <bindings scd="tns:aquav">
+      <class ref="br.inf.portalfiscal.mdfe.classes.Aquav"/>
+    </bindings>
+    <bindings scd="tns:ferrov">
+      <class ref="br.inf.portalfiscal.mdfe.classes.Ferrov"/>
+    </bindings>
+    <bindings scd="tns:rodo">
+      <class ref="br.inf.portalfiscal.mdfe.classes.Rodo"/>
+    </bindings>
+    <bindings scd="~tns:TMDFeDFe">
+      <class ref="br.inf.portalfiscal.mdfe.classes.TMDFeDFe"/>
+    </bindings>
+    <bindings scd="~tns:TUnidCarga">
+      <class ref="br.inf.portalfiscal.mdfe.classes.TUnidCarga"/>
+    </bindings>
+    <bindings scd="~tns:TUnidadeTransp">
+      <class ref="br.inf.portalfiscal.mdfe.classes.TUnidadeTransp"/>
+    </bindings>
+    <bindings scd="~tns:TNFeNF">
+      <class ref="br.inf.portalfiscal.mdfe.classes.TNFeNF"/>
+    </bindings>
+    <bindings scd="~tns:TRetEvento">
+      <class ref="br.inf.portalfiscal.mdfe.classes.TRetEvento"/>
+    </bindings>
+    <bindings scd="~tns:TRetEnviMDFe">
+      <class ref="br.inf.portalfiscal.mdfe.classes.TRetEnviMDFe"/>
+    </bindings>
+    <bindings scd="~tns:TRetConsSitMDFe">
+      <class ref="br.inf.portalfiscal.mdfe.classes.TRetConsSitMDFe"/>
+    </bindings>
+    <bindings scd="~tns:TRetConsMDFeNaoEnc">
+      <class ref="br.inf.portalfiscal.mdfe.classes.TRetConsMDFeNaoEnc"/>
+    </bindings>
+    <bindings scd="~tns:TProtMDFe">
+      <class ref="br.inf.portalfiscal.mdfe.classes.TProtMDFe"/>
+    </bindings>
+    <bindings scd="~tns:TMDFe">
+      <class ref="br.inf.portalfiscal.mdfe.classes.TMDFe"/>
+    </bindings>
+    <bindings scd="~tns:TEvento">
+      <class ref="br.inf.portalfiscal.mdfe.classes.TEvento"/>
+    </bindings>
+    <bindings scd="~tns:EvPagtoOperMDFe">
+      <class ref="br.inf.portalfiscal.mdfe.classes.EvPagtoOperMDFe"/>
+    </bindings>
+    <bindings scd="~tns:EvIncDFeMDFe">
+      <class ref="br.inf.portalfiscal.mdfe.classes.EvIncDFeMDFe"/>
+    </bindings>
+    <bindings scd="~tns:EvIncCondutorMDFe">
+      <class ref="br.inf.portalfiscal.mdfe.classes.EvIncCondutorMDFe"/>
+    </bindings>
+    <bindings scd="~tns:EvAlteracaoPagtoServMDFe">
+      <class ref="br.inf.portalfiscal.mdfe.classes.EvAlteracaoPagtoServMDFe"/>
+    </bindings>
+    <bindings scd="~tns:TConsMDFeNaoEnc">
+      <class ref="br.inf.portalfiscal.mdfe.classes.TConsMDFeNaoEnc"/>
+    </bindings>
+    <bindings scd="~tns:TConsReciMDFe">
+      <class ref="br.inf.portalfiscal.mdfe.classes.TConsReciMDFe"/>
+    </bindings>
+    <bindings scd="~tns:TConsSitMDFe">
+      <class ref="br.inf.portalfiscal.mdfe.classes.TConsSitMDFe"/>
+    </bindings>
+    <bindings scd="~tns:TConsStatServ">
+      <class ref="br.inf.portalfiscal.mdfe.classes.TConsStatServ"/>
+    </bindings>
+    <bindings scd="~tns:DistDFeInt">
+      <class ref="br.inf.portalfiscal.mdfe.classes.DistDFeInt"/>
+    </bindings>
+    <bindings scd="~tns:TEnviMDFe">
+      <class ref="br.inf.portalfiscal.mdfe.classes.TEnviMDFe"/>
+    </bindings>
+    <bindings scd="~tns:EvCancMDFe">
+      <class ref="br.inf.portalfiscal.mdfe.classes.EvCancMDFe"/>
+    </bindings>
+    <bindings scd="~tns:EvConfirmaServMDFe">
+      <class ref="br.inf.portalfiscal.mdfe.classes.EvConfirmaServMDFe"/>
+    </bindings>
+    <bindings scd="~tns:EvEncMDFe">
+      <class ref="br.inf.portalfiscal.mdfe.classes.EvEncMDFe"/>
+    </bindings>
+    <bindings scd="~tns:TMDFeConsultaDFe">
+      <class ref="br.inf.portalfiscal.mdfe.classes.TMDFeConsultaDFe"/>
+    </bindings>
+    <bindings scd="tns:aereo">
+      <class ref="br.inf.portalfiscal.mdfe.classes.Aereo"/>
+    </bindings>
+    <bindings scd="~tns:TProcEvento">
+      <class ref="br.inf.portalfiscal.mdfe.classes.TProcEvento"/>
+    </bindings>
+    <bindings scd="~tns:TMdfeProc">
+      <class ref="br.inf.portalfiscal.mdfe.classes.TMdfeProc"/>
+    </bindings>
+    <bindings scd="~tns:TRetConsReciMDFe">
+      <class ref="br.inf.portalfiscal.mdfe.classes.TRetConsReciMDFe"/>
+    </bindings>
+    <bindings scd="~tns:TRetConsStatServ">
+      <class ref="br.inf.portalfiscal.mdfe.classes.TRetConsStatServ"/>
+    </bindings>
+    <bindings scd="~tns:RetDistDFeInt">
+      <class ref="br.inf.portalfiscal.mdfe.classes.RetDistDFeInt"/>
+    </bindings>
+    <bindings scd="~tns:TRetMDFeConsultaDFe">
+      <class ref="br.inf.portalfiscal.mdfe.classes.TRetMDFeConsultaDFe"/>
+    </bindings>
+    <bindings scd="~tns:TRetMDFe">
+      <class ref="br.inf.portalfiscal.mdfe.classes.TRetMDFe"/>
+    </bindings>
+    <bindings scd="~tns:TEndeEmi">
+      <class ref="br.inf.portalfiscal.mdfe.classes.TEndeEmi"/>
+    </bindings>
+    <bindings scd="~tns:TEndereco">
+      <class ref="br.inf.portalfiscal.mdfe.classes.TEndereco"/>
+    </bindings>
+    <bindings scd="~tns:TEndernac">
+      <class ref="br.inf.portalfiscal.mdfe.classes.TEndernac"/>
+    </bindings>
+    <bindings scd="~tns:TEnderFer">
+      <class ref="br.inf.portalfiscal.mdfe.classes.TEnderFer"/>
+    </bindings>
+    <bindings scd="~tns:TEndOrg">
+      <class ref="br.inf.portalfiscal.mdfe.classes.TEndOrg"/>
+    </bindings>
+    <bindings scd="~tns:TLocal">
+      <class ref="br.inf.portalfiscal.mdfe.classes.TLocal"/>
+    </bindings>
+    <bindings scd="~tns:TEndReEnt">
+      <class ref="br.inf.portalfiscal.mdfe.classes.TEndReEnt"/>
+    </bindings>
+    <bindings scd="~tns:TRespTec">
+      <class ref="br.inf.portalfiscal.mdfe.classes.TRespTec"/>
+    </bindings>
+    <bindings scd="~tns:ConsNSU">
+      <class ref="br.inf.portalfiscal.mdfe.classes.ConsNSU"/>
+    </bindings>
+    <bindings scd="~tns:DistNSU">
+      <class ref="br.inf.portalfiscal.mdfe.classes.DistNSU"/>
+    </bindings>
+    <bindings scd="~tns:DocZip">
+      <class ref="br.inf.portalfiscal.mdfe.classes.DocZip"/>
+    </bindings>
+    <bindings scd="~tns:LoteDistDFeInt">
+      <class ref="br.inf.portalfiscal.mdfe.classes.LoteDistDFeInt"/>
+    </bindings>
+    <bindings scd="~tns:TUf">
+      <typesafeEnumClass ref="br.inf.portalfiscal.mdfe.classes.TUf"/>
+    </bindings>
+  </bindings>
+  <bindings scd="x-schema::tns" xmlns:tns="http://www.w3.org/2000/09/xmldsig#">
+    <schemaBindings map="false">
+      <package name="br.inf.portalfiscal.mdfe.classes"/>
+    </schemaBindings>
+    <bindings scd="~tns:ReferenceType">
+      <class ref="br.inf.portalfiscal.mdfe.classes.ReferenceType"/>
+    </bindings>
+    <bindings scd="~tns:SignedInfoType">
+      <class ref="br.inf.portalfiscal.mdfe.classes.SignedInfoType"/>
+    </bindings>
+    <bindings scd="~tns:SignatureType">
+      <class ref="br.inf.portalfiscal.mdfe.classes.SignatureType"/>
+    </bindings>
+    <bindings scd="~tns:SignatureValueType">
+      <class ref="br.inf.portalfiscal.mdfe.classes.SignatureValueType"/>
+    </bindings>
+    <bindings scd="~tns:TransformsType">
+      <class ref="br.inf.portalfiscal.mdfe.classes.TransformsType"/>
+    </bindings>
+    <bindings scd="~tns:TransformType">
+      <class ref="br.inf.portalfiscal.mdfe.classes.TransformType"/>
+    </bindings>
+    <bindings scd="~tns:KeyInfoType">
+      <class ref="br.inf.portalfiscal.mdfe.classes.KeyInfoType"/>
+    </bindings>
+    <bindings scd="~tns:X509DataType">
+      <class ref="br.inf.portalfiscal.mdfe.classes.X509DataType"/>
+    </bindings>
+  </bindings>
+</bindings>
+

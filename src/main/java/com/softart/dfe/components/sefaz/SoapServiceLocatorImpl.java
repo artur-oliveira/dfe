@@ -2,12 +2,15 @@ package com.softart.dfe.components.sefaz;
 
 import com.softart.dfe.components.sefaz.port.SoapServiceInitializer;
 import com.softart.dfe.components.sefaz.port.cte.AbstractCteSoapService;
+import com.softart.dfe.components.sefaz.port.mdfe.AbstractMdfeSoapService;
 import com.softart.dfe.components.sefaz.port.nfce.AbstractNfceSoapService;
 import com.softart.dfe.components.sefaz.port.nfe.AbstractNfeSoapService;
 import com.softart.dfe.exceptions.port.SoapServiceGeneralException;
 import com.softart.dfe.interfaces.internal.config.CteConfig;
+import com.softart.dfe.interfaces.internal.config.MdfeConfig;
 import com.softart.dfe.interfaces.internal.config.NfConfig;
 import com.softart.dfe.interfaces.sefaz.port.CteSoapService;
+import com.softart.dfe.interfaces.sefaz.port.MdfeSoapService;
 import com.softart.dfe.interfaces.sefaz.port.NfceSoapService;
 import com.softart.dfe.interfaces.sefaz.port.NfeSoapService;
 import com.softart.dfe.models.internal.reflection.PackageFinder;
@@ -47,6 +50,14 @@ final class SoapServiceLocatorImpl extends SoapServiceFactory {
             .stream()
             .map(it -> (AbstractCteSoapService) ReflectionUtils.newInstance(it))
             .collect(Collectors.toList());
+    private final Collection<AbstractMdfeSoapService> mdfeSoapServices = ReflectionUtils.findAllClasses(PackageFinder
+                    .builder()
+                    .packages(Collections.singleton("com.softart.dfe.components.sefaz.port.mdfe.impl"))
+                    .assignables(Collections.singleton(AbstractMdfeSoapService.class))
+                    .build())
+            .stream()
+            .map(it -> (AbstractMdfeSoapService) ReflectionUtils.newInstance(it))
+            .collect(Collectors.toList());
 
 
     @Override
@@ -85,6 +96,19 @@ final class SoapServiceLocatorImpl extends SoapServiceFactory {
                         .getClass())
                 .withConfig(config);
         SoapServiceInitializer.cte().initialize(service);
+        return service;
+    }
+
+    @Override
+    public MdfeSoapService getMdfeSoapService(MdfeConfig config) throws SoapServiceGeneralException {
+        AbstractMdfeSoapService service = (AbstractMdfeSoapService) ReflectionUtils.newInstance(getMdfeSoapServices()
+                        .stream()
+                        .filter(it -> it.getAuthorizer().allow(config.uf(), config.environment()))
+                        .findFirst()
+                        .orElseThrow(SoapServiceGeneralException::new)
+                        .getClass())
+                .withConfig(config);
+        SoapServiceInitializer.mdfe().initialize(service);
         return service;
     }
 }

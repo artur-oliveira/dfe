@@ -4,11 +4,12 @@ import com.softart.dfe.components.internal.DFEnum;
 import com.softart.dfe.enums.internal.Environment;
 import com.softart.dfe.util.StringUtils;
 
+@SuppressWarnings("rawtypes")
 public abstract class Finder {
 
-    public abstract <T extends Enum> T getAuthorizer();
+    public abstract Enum getAuthorizer();
 
-    public abstract <T extends DFEnum.Codeable> T getEndpoint();
+    public abstract DFEnum.Codeable getEndpoint();
 
     public abstract Environment getEnvironment();
 

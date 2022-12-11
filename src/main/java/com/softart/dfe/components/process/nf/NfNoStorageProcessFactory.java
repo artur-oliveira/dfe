@@ -18,66 +18,82 @@ final class NfNoStorageProcessFactory extends NfProcessFactory {
 
     @Override
     public InutilizationProcessFactory inutilization() {
-        return InutilizationProcessFactory.noStore();
+        return Holder.INUTILIZATION;
     }
 
     @Override
     public CancelProcessFactory cancel() {
-        return CancelProcessFactory.noStore();
+        return Holder.CANCEL;
     }
 
     @Override
     public AuthorizationProcessFactory authorization() {
-        return AuthorizationProcessFactory.noStore();
+        return Holder.AUTHORIZATION;
     }
 
     @Override
     public ReturnAuthorizationProcessFactory returnAuthorization() {
-        return ReturnAuthorizationProcessFactory.noStore();
+        return Holder.RETURNAUTHORIZATION;
     }
 
     @Override
     public QueryProtocolProcessFactory queryProtocol() {
-        return QueryProtocolProcessFactory.noStore();
+        return Holder.QUERYPROTOCOL;
     }
 
     @Override
     public DistributionProcessFactory distribution() {
-        return DistributionProcessFactory.noStore();
+        return Holder.DISTRIBUTION;
     }
 
     @Override
     public ManifestationProcessFactory manifestation() {
-        return ManifestationProcessFactory.noStore();
+        return Holder.MANIFESTATION;
     }
 
     @Override
     public QueryStatusServiceProcessFactory queryStatusService() {
-        return QueryStatusServiceProcessFactory.noStore();
+        return Holder.QUERYSTATUSSERVICE;
     }
 
     @Override
     public CorrectionLetterProcessFactory correctionLetter() {
-        return CorrectionLetterProcessFactory.noStore();
+        return Holder.CORRECTIONLETTER;
     }
 
     @Override
     public EpecProcessFactory epec() {
-        return EpecProcessFactory.noStore();
+        return Holder.EPEC;
     }
 
     @Override
     public InterestedActorProcessFactory interestedActor() {
-        return InterestedActorProcessFactory.noStore();
+        return Holder.INTERESTEDACTOR;
     }
 
     @Override
     public QueryGtinProcessFactory queryGtin() {
-        return QueryGtinProcessFactory.noStore();
+        return Holder.QUERYGTIN;
     }
 
     @Override
     public SubstituteCancelProcessFactory substituteCancel() {
-        return SubstituteCancelProcessFactory.noStore();
+        return Holder.SUBSTITUTECANCEL;
+    }
+
+    static final class Holder {
+        static final InutilizationProcessFactory INUTILIZATION = InutilizationProcessFactory.noStore();
+        static final CancelProcessFactory CANCEL = CancelProcessFactory.noStore();
+        static final AuthorizationProcessFactory AUTHORIZATION = AuthorizationProcessFactory.noStore();
+        static final ReturnAuthorizationProcessFactory RETURNAUTHORIZATION = ReturnAuthorizationProcessFactory.noStore();
+        static final QueryProtocolProcessFactory QUERYPROTOCOL = QueryProtocolProcessFactory.noStore();
+        static final DistributionProcessFactory DISTRIBUTION = DistributionProcessFactory.noStore();
+        static final ManifestationProcessFactory MANIFESTATION = ManifestationProcessFactory.noStore();
+        static final QueryStatusServiceProcessFactory QUERYSTATUSSERVICE = QueryStatusServiceProcessFactory.noStore();
+        static final CorrectionLetterProcessFactory CORRECTIONLETTER = CorrectionLetterProcessFactory.noStore();
+        static final EpecProcessFactory EPEC = EpecProcessFactory.noStore();
+        static final InterestedActorProcessFactory INTERESTEDACTOR = InterestedActorProcessFactory.noStore();
+        static final QueryGtinProcessFactory QUERYGTIN = QueryGtinProcessFactory.noStore();
+        static final SubstituteCancelProcessFactory SUBSTITUTECANCEL = SubstituteCancelProcessFactory.noStore();
     }
 }

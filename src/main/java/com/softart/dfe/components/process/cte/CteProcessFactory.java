@@ -37,11 +37,11 @@ import java.util.Collection;
 public abstract class CteProcessFactory implements CteProcess {
 
     public static CteProcessFactory noStorageProcess() {
-        return new CteNoStorageProcessFactory();
+        return CteProcessFactoryHolder.NO_STORAGE_INSTANCE;
     }
 
     public static CteProcessFactory fileStorageProcess() {
-        return new CteFileStorageProcessFactory();
+        return CteProcessFactoryHolder.FILE_STORAGE_INSTANCE;
     }
 
     public abstract DistributionCteProcessFactory distributionCteProcessFactory();
@@ -162,5 +162,10 @@ public abstract class CteProcessFactory implements CteProcess {
     @Override
     public Collection<AfterStatusService> afterStatusService() {
         return statusServiceCteProcessFactory().after();
+    }
+
+    private static class CteProcessFactoryHolder {
+        private static final CteProcessFactory NO_STORAGE_INSTANCE = new CteNoStorageProcessFactory();
+        private static final CteProcessFactory FILE_STORAGE_INSTANCE = new CteFileStorageProcessFactory();
     }
 }

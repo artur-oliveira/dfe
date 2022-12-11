@@ -10,7 +10,7 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 public final class CteNoStorage implements CteStorage {
 
-    private static final Boolean LOG_XML = Boolean.parseBoolean(System.getProperty("com.softart.nostorage.logxml", "true"));
+    private static final Boolean LOG_XML = Boolean.parseBoolean(System.getProperty("com.softart.storage.cte.logxml", "true"));
 
     @Override
     public void storeDistribution(Store<DistDFeInt> o) {

@@ -1,6 +1,6 @@
 package com.softart.dfe.components.sefaz.port.cte;
 
-import com.softart.dfe.components.security.SocketFactory;
+import com.softart.dfe.components.security.socket.SocketFactory;
 import com.softart.dfe.components.sefaz.port.AbstractSoapService;
 import com.softart.dfe.components.sefaz.port.SoapServiceMapping;
 import com.softart.dfe.components.sefaz.port.SoapServiceProxy;

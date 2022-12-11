@@ -6,10 +6,10 @@ import com.softart.dfe.interfaces.xml.NfContext;
 public abstract class CteContextFactory implements CteContext {
 
     public static CteContextFactory getInstance() {
-        return NfContextFactoryHolder.INSTANCE;
+        return CteContextFactoryHolder.INSTANCE;
     }
 
-    final static class NfContextFactoryHolder {
+    final static class CteContextFactoryHolder {
         final static CteContextFactory INSTANCE = new DefaultCteContext();
     }
 

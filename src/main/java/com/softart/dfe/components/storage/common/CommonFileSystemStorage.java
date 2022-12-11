@@ -4,10 +4,11 @@ import com.softart.dfe.interfaces.internal.StorageKey;
 import com.softart.dfe.interfaces.internal.config.Config;
 import com.softart.dfe.interfaces.storage.Store;
 import com.softart.dfe.util.DateUtils;
-import com.softart.dfe.util.StringUtils;
 import com.softart.dfe.util.IOUtils;
+import com.softart.dfe.util.StringUtils;
 
 import java.io.IOException;
+import java.util.UUID;
 
 import static java.io.File.separator;
 import static java.nio.charset.StandardCharsets.UTF_8;
@@ -19,6 +20,7 @@ public abstract class CommonFileSystemStorage {
     protected static String rootPath(Config config) {
         return String.join(separator, BASE_DIR,
                 "xmls",
+                config.environment().getRootPath(),
                 config.cnpj(),
                 DateUtils.currentyear(),
                 StringUtils.padZeroStart(DateUtils.currentMonth(), 2)
@@ -26,11 +28,11 @@ public abstract class CommonFileSystemStorage {
     }
 
     protected String xmlNameWithTime(Object prefix) {
-        return prefix + "-" + System.currentTimeMillis() + ".xml";
+        return prefix + "-" + System.currentTimeMillis() + "-" + UUID.randomUUID() + ".xml";
     }
 
     protected String xmlNameWithTime() {
-        return System.currentTimeMillis() + ".xml";
+        return System.currentTimeMillis() + "-" + UUID.randomUUID() + ".xml";
     }
 
     protected void writeSend(Config conf, StorageKey key, String xmlName, String xmlContent) throws IOException {

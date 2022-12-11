@@ -20,62 +20,62 @@ import java.util.List;
 
 public interface CteEventService extends CteSefazService {
 
-    ReturnEvent event(TEvento evento) throws SoapServiceGeneralException, NoProviderFound, ProcessException, ValidationException, SecurityException;
+    CteReturnEvent event(TEvento evento) throws SoapServiceGeneralException, NoProviderFound, ProcessException, ValidationException, SecurityException;
 
-    default ReturnEvent cancel(CteCancel cancel) throws ProcessException, SoapServiceGeneralException, ValidationException, NoProviderFound, SecurityException {
+    default CteReturnEvent cancel(CteCancel cancel) throws ProcessException, SoapServiceGeneralException, ValidationException, NoProviderFound, SecurityException {
         return event(cancel.toObject());
     }
 
-    default ReturnEvent cancel(String accessKey, String protocol, String defaultMessage) throws ProcessException, SoapServiceGeneralException, ValidationException, NoProviderFound, SecurityException {
+    default CteReturnEvent cancel(String accessKey, String protocol, String defaultMessage) throws ProcessException, SoapServiceGeneralException, ValidationException, NoProviderFound, SecurityException {
         return event(CteCancel.build(accessKey, protocol, defaultMessage, "1", getConfig()).toObject());
     }
 
-    default ReturnEvent cancel(String accessKey, String protocol) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default CteReturnEvent cancel(String accessKey, String protocol) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return cancel(accessKey, protocol, NFEvent.CANCEL.getDefaultMessage());
     }
 
-    default ReturnEvent correctionLetter(CteCorrectionLetter correctionLetter) throws ProcessException, SoapServiceGeneralException, ValidationException, NoProviderFound, SecurityException {
+    default CteReturnEvent correctionLetter(CteCorrectionLetter correctionLetter) throws ProcessException, SoapServiceGeneralException, ValidationException, NoProviderFound, SecurityException {
         return event(correctionLetter.toObject());
     }
 
-    default ReturnEvent correctionLetter(String accessKey, CteCorrectionLetter.InfEvento.DetEvento.EvCCeCTe.InfCorrecao correction, String sequence) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default CteReturnEvent correctionLetter(String accessKey, CteCorrectionLetter.InfEvento.DetEvento.EvCCeCTe.InfCorrecao correction, String sequence) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return correctionLetter(CteCorrectionLetter.build(accessKey, correction, sequence, getConfig()));
     }
 
-    default ReturnEvent correctionLetter(String accessKey, List<CteCorrectionLetter.InfEvento.DetEvento.EvCCeCTe.InfCorrecao> corrections, String sequence) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default CteReturnEvent correctionLetter(String accessKey, List<CteCorrectionLetter.InfEvento.DetEvento.EvCCeCTe.InfCorrecao> corrections, String sequence) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return correctionLetter(CteCorrectionLetter.build(accessKey, corrections, sequence, getConfig()));
     }
 
-    default ReturnEvent correctionLetter(String accessKey, CteCorrectionLetter.InfEvento.DetEvento.EvCCeCTe.InfCorrecao correction) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default CteReturnEvent correctionLetter(String accessKey, CteCorrectionLetter.InfEvento.DetEvento.EvCCeCTe.InfCorrecao correction) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return correctionLetter(accessKey, Arrays.asList(correction));
     }
 
-    default ReturnEvent deliveryReceipt(CteDeliveryReceipt deliveryReceipt) throws ProcessException, SoapServiceGeneralException, ValidationException, NoProviderFound, SecurityException {
+    default CteReturnEvent deliveryReceipt(CteDeliveryReceipt deliveryReceipt) throws ProcessException, SoapServiceGeneralException, ValidationException, NoProviderFound, SecurityException {
         return event(deliveryReceipt.toObject());
     }
 
-    default ReturnEvent deliveryReceipt(String accessKey, String protocol, String base64Image, String sequence, String document, String name, String lat, String lon, Collection<String> deliveryAcessKey) throws ProcessException, SoapServiceGeneralException, ValidationException, NoProviderFound, SecurityException {
+    default CteReturnEvent deliveryReceipt(String accessKey, String protocol, String base64Image, String sequence, String document, String name, String lat, String lon, Collection<String> deliveryAcessKey) throws ProcessException, SoapServiceGeneralException, ValidationException, NoProviderFound, SecurityException {
         return deliveryReceipt(CteDeliveryReceipt.build(accessKey, protocol, base64Image, sequence, document, name, lat, lon, deliveryAcessKey, getConfig()));
     }
 
-    default ReturnEvent cancelDeliveryReceipt(CteCancelDeliveryReceipt cancelDeliveryReceipt) throws ProcessException, SoapServiceGeneralException, ValidationException, NoProviderFound, SecurityException {
+    default CteReturnEvent cancelDeliveryReceipt(CteCancelDeliveryReceipt cancelDeliveryReceipt) throws ProcessException, SoapServiceGeneralException, ValidationException, NoProviderFound, SecurityException {
         return event(cancelDeliveryReceipt.toObject());
     }
 
-    default ReturnEvent cancelDeliveryReceipt(String accessKey, String protocol, String sequence, String protocolDelivery) throws ProcessException, SoapServiceGeneralException, ValidationException, NoProviderFound, SecurityException {
+    default CteReturnEvent cancelDeliveryReceipt(String accessKey, String protocol, String sequence, String protocolDelivery) throws ProcessException, SoapServiceGeneralException, ValidationException, NoProviderFound, SecurityException {
         return cancelDeliveryReceipt(CteCancelDeliveryReceipt.build(accessKey, protocol, sequence, protocolDelivery, getConfig()));
     }
 
-    default ReturnEvent epec(CteEpec epec) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default CteReturnEvent epec(CteEpec epec) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return event(epec.toObject());
     }
 
-    default ReturnEvent epec(String accessKey, CteEpec.InfEvento.DetEvento.EvEPECCTe epec) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default CteReturnEvent epec(String accessKey, CteEpec.InfEvento.DetEvento.EvEPECCTe epec) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return epec(CteEpec.build(accessKey, "1", epec, getConfig()));
     }
 
 
-    default ReturnEvent epec(Cte cte) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default CteReturnEvent epec(Cte cte) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         cte = Cte.builder().build().fromObject(cte.toObject());
         return epec(CteEpec.build(
                 AccessKeyParserFactory.cte().fromId(cte.getInfCte().getId()),
@@ -106,49 +106,49 @@ public interface CteEventService extends CteSefazService {
         ));
     }
 
-    default ReturnEvent gtv(CteGtv gtv) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default CteReturnEvent gtv(CteGtv gtv) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return event(gtv.toObject());
     }
 
-    default ReturnEvent gtv(String accessKey, String sequence, List<CteGtv.InfEvento.DetEvento.EvGTV.InfGTV> infGTV) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default CteReturnEvent gtv(String accessKey, String sequence, List<CteGtv.InfEvento.DetEvento.EvGTV.InfGTV> infGTV) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return gtv(CteGtv.build(accessKey, sequence, infGTV, getConfig()));
     }
 
-    default ReturnEvent gtv(String accessKey, String sequence, CteGtv.InfEvento.DetEvento.EvGTV.InfGTV infGTV) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default CteReturnEvent gtv(String accessKey, String sequence, CteGtv.InfEvento.DetEvento.EvGTV.InfGTV infGTV) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return gtv(CteGtv.build(accessKey, sequence, Collections.singletonList(infGTV), getConfig()));
     }
 
-    default ReturnEvent gtv(String accessKey, CteGtv.InfEvento.DetEvento.EvGTV.InfGTV infGTV) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default CteReturnEvent gtv(String accessKey, CteGtv.InfEvento.DetEvento.EvGTV.InfGTV infGTV) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return gtv(accessKey, Collections.singletonList(infGTV));
     }
 
-    default ReturnEvent provisionDisagreement(CteProvisionDisagreement provisionDisagreement) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default CteReturnEvent provisionDisagreement(CteProvisionDisagreement provisionDisagreement) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return event(provisionDisagreement.toObject());
     }
 
-    default ReturnEvent provisionDisagreement(String accessKey, String sequence, String observation) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default CteReturnEvent provisionDisagreement(String accessKey, String sequence, String observation) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return provisionDisagreement(CteProvisionDisagreement.build(accessKey, sequence, observation, getConfig()));
     }
 
-    default ReturnEvent multimodal(CteMultiModal multiModal) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default CteReturnEvent multimodal(CteMultiModal multiModal) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return event(multiModal.toObject());
     }
 
-    default ReturnEvent multimodal(String accessKey, String sequence, String register, String document) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default CteReturnEvent multimodal(String accessKey, String sequence, String register, String document) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return multimodal(CteMultiModal.build(accessKey, sequence, register, document, getConfig()));
     }
 
-    ReturnEvent multimodal(String accessKey, String register, String document) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException;
+    CteReturnEvent multimodal(String accessKey, String register, String document) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException;
 
-    ReturnEvent provisionDisagreement(String accessKey, String observation) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException;
+    CteReturnEvent provisionDisagreement(String accessKey, String observation) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException;
 
-    ReturnEvent gtv(String accessKey, List<CteGtv.InfEvento.DetEvento.EvGTV.InfGTV> infGTV) throws ProcessException, ValidationException, SoapServiceGeneralException, NoProviderFound, SecurityException;
+    CteReturnEvent gtv(String accessKey, List<CteGtv.InfEvento.DetEvento.EvGTV.InfGTV> infGTV) throws ProcessException, ValidationException, SoapServiceGeneralException, NoProviderFound, SecurityException;
 
-    ReturnEvent cancelDeliveryReceipt(String accessKey, String protocolDelivery) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException;
+    CteReturnEvent cancelDeliveryReceipt(String accessKey, String protocolDelivery) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException;
 
-    ReturnEvent correctionLetter(String accessKey, List<CteCorrectionLetter.InfEvento.DetEvento.EvCCeCTe.InfCorrecao> corrections) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException;
+    CteReturnEvent correctionLetter(String accessKey, List<CteCorrectionLetter.InfEvento.DetEvento.EvCCeCTe.InfCorrecao> corrections) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException;
 
-    ReturnEvent cancel(String accessKey) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException;
+    CteReturnEvent cancel(String accessKey) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException;
 
-    ReturnEvent deliveryReceipt(String accessKey, String base64Image, String document, String name, String lat, String lon, Collection<String> deliveryAcessKey) throws ProcessException, SoapServiceGeneralException, ValidationException, NoProviderFound, SecurityException;
+    CteReturnEvent deliveryReceipt(String accessKey, String base64Image, String document, String name, String lat, String lon, Collection<String> deliveryAcessKey) throws ProcessException, SoapServiceGeneralException, ValidationException, NoProviderFound, SecurityException;
 }

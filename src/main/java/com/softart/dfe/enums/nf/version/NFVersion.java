@@ -21,6 +21,6 @@ public enum NFVersion {
     }
 
     public static NFVersion getDefault() {
-        return valueOfVersion(System.getProperty("DEFAULT_NFE_VERSION", "4.00"));
+        return valueOfVersion(System.getProperty("com.softart.nfe.version", "4.00"));
     }
 }

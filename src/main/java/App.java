@@ -1,11 +1,11 @@
 import br.inf.portalfiscal.nfe.send.TUf;
 import br.inf.portalfiscal.nfe.send.TUfEmi;
 import com.softart.dfe.components.internal.DFEnum;
-import com.softart.dfe.components.internal.PfxKeyStoreInfoImpl;
+import com.softart.dfe.components.internal.certificate.PfxKeyStoreInfoImpl;
 import com.softart.dfe.components.internal.ProjectProperties;
 import com.softart.dfe.components.internal.config.PfxNfConfigImpl;
-import com.softart.dfe.components.security.CertificateChainFactory;
-import com.softart.dfe.components.security.DefaultXmlSigner;
+import com.softart.dfe.components.security.chain.CertificateChainFactory;
+import com.softart.dfe.components.security.signer.DefaultXmlSigner;
 import com.softart.dfe.enums.internal.Environment;
 import com.softart.dfe.enums.internal.Model;
 import com.softart.dfe.enums.internal.UF;

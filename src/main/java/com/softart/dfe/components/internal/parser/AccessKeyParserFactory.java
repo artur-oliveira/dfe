@@ -15,11 +15,15 @@ public abstract class AccessKeyParserFactory implements AccessKeyParser {
     }
 
     public static AccessKeyParserFactory nfe() {
-        return new NFAccessKeyParser();
+        return Holder.NFE;
     }
 
     public static AccessKeyParserFactory cte() {
-        return new CteAccessKeyParser();
+        return Holder.CTE;
+    }
+
+    public static AccessKeyParserFactory mdfe() {
+        return Holder.MDFE;
     }
 
     @Override
@@ -69,5 +73,12 @@ public abstract class AccessKeyParserFactory implements AccessKeyParser {
 
     public String format(String ch) {
         return ch.replaceFirst("(\\d{4})(\\d{4})(\\d{4})(\\d{4})(\\d{4})(\\d{4})(\\d{4})(\\d{4})(\\d{4})(\\d{4})(\\d{4})", "$1 $2 $3 $4 $5 $6 $7 $8 $9 $10 $11");
+    }
+
+    static final class Holder {
+        final static AccessKeyParserFactory NFE = new NFAccessKeyParser();
+        final static AccessKeyParserFactory CTE = new CteAccessKeyParser();
+        final static AccessKeyParserFactory MDFE = new MdfeAccessKeyParser();
+
     }
 }
