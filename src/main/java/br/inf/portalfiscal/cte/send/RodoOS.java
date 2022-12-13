@@ -8,18 +8,19 @@
 
 package br.inf.portalfiscal.cte.send;
 
+import com.softart.dfe.interfaces.xml.generic.XML;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
 
 
 /**
  * <p>Classe Java de RodoOS complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="RodoOS"&gt;
  *   &lt;complexContent&gt;
@@ -36,19 +37,16 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "RodoOS", propOrder = {
-    "taf",
-    "nroRegEstadual",
-    "veic",
-    "infFretamento"
+        "taf",
+        "nroRegEstadual",
+        "veic",
+        "infFretamento"
 })
 public class RodoOS
-    implements XML
-{
+        implements XML {
 
     @XmlElement(name = "TAF")
     protected String taf;
@@ -59,11 +57,9 @@ public class RodoOS
 
     /**
      * Obtém o valor da propriedade taf.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getTAF() {
         return taf;
@@ -71,11 +67,9 @@ public class RodoOS
 
     /**
      * Define o valor da propriedade taf.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setTAF(String value) {
         this.taf = value;
@@ -83,11 +77,9 @@ public class RodoOS
 
     /**
      * Obtém o valor da propriedade nroRegEstadual.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getNroRegEstadual() {
         return nroRegEstadual;
@@ -95,11 +87,9 @@ public class RodoOS
 
     /**
      * Define o valor da propriedade nroRegEstadual.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setNroRegEstadual(String value) {
         this.nroRegEstadual = value;
@@ -107,11 +97,9 @@ public class RodoOS
 
     /**
      * Obtém o valor da propriedade veic.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Veic }
-     *     
+     *
+     * @return possible object is
+     * {@link Veic }
      */
     public Veic getVeic() {
         return veic;
@@ -119,11 +107,9 @@ public class RodoOS
 
     /**
      * Define o valor da propriedade veic.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Veic }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Veic }
      */
     public void setVeic(Veic value) {
         this.veic = value;
@@ -131,11 +117,9 @@ public class RodoOS
 
     /**
      * Obtém o valor da propriedade infFretamento.
-     * 
-     * @return
-     *     possible object is
-     *     {@link InfFretamento }
-     *     
+     *
+     * @return possible object is
+     * {@link InfFretamento }
      */
     public InfFretamento getInfFretamento() {
         return infFretamento;
@@ -143,11 +127,9 @@ public class RodoOS
 
     /**
      * Define o valor da propriedade infFretamento.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link InfFretamento }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link InfFretamento }
      */
     public void setInfFretamento(InfFretamento value) {
         this.infFretamento = value;

@@ -6,9 +6,24 @@ import com.softart.dfe.interfaces.storage.Store;
 
 public interface NfInutStorage extends Storage {
 
+    /**
+     * It stores the object of type TProcInutNFe in the database.
+     *
+     * @param o The object to be stored.
+     */
     void storeProcInut(Store<br.inf.portalfiscal.nfe.send.TProcInutNFe> o) throws StorageException;
 
+    /**
+     * It stores the TRetInutNFe object in the database.
+     *
+     * @param o The object to be stored.
+     */
     void storeRetInut(Store<br.inf.portalfiscal.nfe.send.TRetInutNFe> o) throws StorageException;
 
+    /**
+     * It stores the TInutNFe object in the database.
+     *
+     * @param o The object to be stored.
+     */
     void storeEnvInut(Store<br.inf.portalfiscal.nfe.send.TInutNFe> o) throws StorageException;
 }

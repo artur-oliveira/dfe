@@ -4,6 +4,9 @@ import com.softart.dfe.components.internal.DFEnum;
 
 import java.util.Arrays;
 
+/**
+ * It's an unchecked exception that's thrown when a value doesn't match any of the values of an enum
+ */
 public class NoEnumException extends DFUncheckedException {
 
     public NoEnumException(String val, DFEnum.Codeable[] values) {

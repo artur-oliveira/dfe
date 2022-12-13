@@ -1,9 +1,9 @@
 package com.softart.dfe.models.nf.return_authorization;
 
 import br.inf.portalfiscal.nfe.send.TRetConsReciNFe;
-import com.softart.dfe.interfaces.xml.DFObject;
 import com.softart.dfe.interfaces.xml.XMLAdapter;
-import com.softart.dfe.models.nf.authorization.ReturnNf;
+import com.softart.dfe.interfaces.xml.generic.DFObject;
+import com.softart.dfe.models.nf.authorization.NfProtocol;
 import lombok.*;
 
 import java.util.List;
@@ -24,7 +24,7 @@ public class ReturnQueryReceiptNfe implements DFObject, XMLAdapter<ReturnQueryRe
     protected String dhRecbto;
     protected String cMsg;
     protected String xMsg;
-    protected List<ReturnNf.ProtNFe> protNFe;
+    protected List<NfProtocol> protNFe;
     protected String versao;
 
 }

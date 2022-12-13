@@ -150,6 +150,7 @@ public enum CityMT implements DFEnum.Codeable {
     ;
     private final String code;
     private final String description;
+
     CityMT(String code, String description) {
         this.code = code;
         this.description = description;

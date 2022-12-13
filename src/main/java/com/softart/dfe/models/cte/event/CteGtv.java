@@ -1,6 +1,5 @@
 package com.softart.dfe.models.cte.event;
 
-import br.inf.portalfiscal.cte.send.InfGTV;
 import br.inf.portalfiscal.cte.send.TEvento;
 import br.inf.portalfiscal.cte.send.TUf;
 import com.softart.dfe.components.internal.parser.AccessKeyParserFactory;
@@ -8,15 +7,12 @@ import com.softart.dfe.components.internal.xml.unmarshaller.CteUnmarshaller;
 import com.softart.dfe.enums.cte.CteEvent;
 import com.softart.dfe.enums.cte.version.CteEventVersion;
 import com.softart.dfe.interfaces.internal.config.CteConfig;
-import com.softart.dfe.interfaces.xml.DFObject;
 import com.softart.dfe.interfaces.xml.XMLAdapter;
-import com.softart.dfe.models.cte.reception.Cte;
+import com.softart.dfe.interfaces.xml.generic.DFObject;
 import com.softart.dfe.util.DateUtils;
 import com.softart.dfe.util.XMLStringUtils;
 import lombok.*;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSchemaType;
 import java.util.List;
 
 @Data
@@ -158,6 +154,7 @@ public final class CteGtv implements DFObject, XMLAdapter<CteGtv, TEvento> {
                         private TUf uf;
                         private String xNome;
                     }
+
                     @Data
                     @AllArgsConstructor
                     @NoArgsConstructor

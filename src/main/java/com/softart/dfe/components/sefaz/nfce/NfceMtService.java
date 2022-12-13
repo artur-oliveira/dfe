@@ -2,6 +2,8 @@ package com.softart.dfe.components.sefaz.nfce;
 
 import br.inf.portalfiscal.nfe.send.*;
 import com.softart.dfe.components.internal.PairImpl;
+import com.softart.dfe.components.internal.xml.marshaller.NfMarshaller;
+import com.softart.dfe.components.internal.xml.unmarshaller.NfUnmarshaller;
 import com.softart.dfe.enums.internal.Environment;
 import com.softart.dfe.enums.internal.UF;
 import com.softart.dfe.enums.nf.identification.NFEmissionType;
@@ -18,8 +20,6 @@ import com.softart.dfe.interfaces.validation.Validator;
 import com.softart.dfe.models.internal.After;
 import com.softart.dfe.models.internal.Before;
 import com.softart.dfe.models.internal.Validation;
-import com.softart.dfe.components.internal.xml.marshaller.NfMarshaller;
-import com.softart.dfe.components.internal.xml.unmarshaller.NfUnmarshaller;
 import lombok.Getter;
 
 import javax.xml.bind.JAXBElement;

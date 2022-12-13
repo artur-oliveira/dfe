@@ -4,6 +4,8 @@ import br.inf.portalfiscal.nfe.gtin.TConsGTIN;
 import br.inf.portalfiscal.nfe.gtin.TRetConsGTIN;
 import br.inf.portalfiscal.nfe.send.*;
 import com.softart.dfe.components.internal.parser.AccessKeyParserFactory;
+import com.softart.dfe.components.internal.xml.marshaller.NfMarshaller;
+import com.softart.dfe.components.internal.xml.unmarshaller.NfUnmarshaller;
 import com.softart.dfe.components.storage.common.CommonFileSystemStorage;
 import com.softart.dfe.enums.internal.nf.NFStorageKey;
 import com.softart.dfe.enums.nf.NFReturnCode;
@@ -12,8 +14,6 @@ import com.softart.dfe.interfaces.storage.Store;
 import com.softart.dfe.interfaces.storage.nf.common.NfCommonStorage;
 import com.softart.dfe.models.internal.xml.XMLStore;
 import com.softart.dfe.util.IOUtils;
-import com.softart.dfe.components.internal.xml.marshaller.NfMarshaller;
-import com.softart.dfe.components.internal.xml.unmarshaller.NfUnmarshaller;
 
 import java.io.IOException;
 import java.util.Objects;

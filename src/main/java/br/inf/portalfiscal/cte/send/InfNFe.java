@@ -8,18 +8,19 @@
 
 package br.inf.portalfiscal.cte.send;
 
+import com.softart.dfe.interfaces.xml.generic.XML;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
 
 
 /**
  * <p>Classe Java de InfNFe complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="InfNFe"&gt;
  *   &lt;complexContent&gt;
@@ -32,17 +33,14 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "InfNFe", propOrder = {
-    "chave",
-    "unidRat"
+        "chave",
+        "unidRat"
 })
 public class InfNFe
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected String chave;
@@ -50,11 +48,9 @@ public class InfNFe
 
     /**
      * Obtém o valor da propriedade chave.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getChave() {
         return chave;
@@ -62,11 +58,9 @@ public class InfNFe
 
     /**
      * Define o valor da propriedade chave.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setChave(String value) {
         this.chave = value;
@@ -74,11 +68,9 @@ public class InfNFe
 
     /**
      * Obtém o valor da propriedade unidRat.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getUnidRat() {
         return unidRat;
@@ -86,11 +78,9 @@ public class InfNFe
 
     /**
      * Define o valor da propriedade unidRat.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setUnidRat(String value) {
         this.unidRat = value;

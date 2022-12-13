@@ -8,21 +8,18 @@
 
 package br.inf.portalfiscal.cte.send;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
+import com.softart.dfe.interfaces.xml.generic.XML;
+
+import javax.xml.bind.annotation.*;
 
 
 /**
  * Tipo Pedido de Consulta do Recibo do Lote de CT-e
- * 
+ *
  * <p>Classe Java de TConsReciCTe complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="TConsReciCTe"&gt;
  *   &lt;complexContent&gt;
@@ -36,17 +33,14 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TConsReciCTe", propOrder = {
-    "tpAmb",
-    "nRec"
+        "tpAmb",
+        "nRec"
 })
 public class TConsReciCTe
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected String tpAmb;
@@ -57,11 +51,9 @@ public class TConsReciCTe
 
     /**
      * Obtém o valor da propriedade tpAmb.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getTpAmb() {
         return tpAmb;
@@ -69,11 +61,9 @@ public class TConsReciCTe
 
     /**
      * Define o valor da propriedade tpAmb.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setTpAmb(String value) {
         this.tpAmb = value;
@@ -81,11 +71,9 @@ public class TConsReciCTe
 
     /**
      * Obtém o valor da propriedade nRec.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getNRec() {
         return nRec;
@@ -93,11 +81,9 @@ public class TConsReciCTe
 
     /**
      * Define o valor da propriedade nRec.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setNRec(String value) {
         this.nRec = value;
@@ -105,11 +91,9 @@ public class TConsReciCTe
 
     /**
      * Obtém o valor da propriedade versao.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVersao() {
         return versao;
@@ -117,11 +101,9 @@ public class TConsReciCTe
 
     /**
      * Define o valor da propriedade versao.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVersao(String value) {
         this.versao = value;

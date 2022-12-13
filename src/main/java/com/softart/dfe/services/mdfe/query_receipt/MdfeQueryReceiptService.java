@@ -13,6 +13,12 @@ import com.softart.dfe.models.mdfe.query_receipt.MdfeReturnQueryReceipt;
 
 public interface MdfeQueryReceiptService extends MdfeSefazService {
 
+    /**
+     * It queries the receipt of the MDFe.
+     *
+     * @param tConsReciMDFe The object that contains the receipt number.
+     * @return A MdfeReturnQueryReceipt object.
+     */
     default MdfeReturnQueryReceipt queryReceipt(TConsReciMDFe tConsReciMDFe) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return MdfeReturnQueryReceipt
                 .builder()
@@ -31,10 +37,22 @@ public interface MdfeQueryReceiptService extends MdfeSefazService {
                                 .build()));
     }
 
+    /**
+     * It queries the receipt of a MDF-e
+     *
+     * @param queryReceipt The query receipt object.
+     * @return The return is a MdfeReturnQueryReceipt object.
+     */
     default MdfeReturnQueryReceipt queryReceipt(MdfeQueryReceipt queryReceipt) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return queryReceipt(queryReceipt.toObject());
     }
 
+    /**
+     * It queries the receipt of a MDF-e
+     *
+     * @param receipt The receipt number of the query.
+     * @return The return is a MdfeReturnQueryReceipt object.
+     */
     default MdfeReturnQueryReceipt queryReceipt(String receipt) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return queryReceipt(MdfeQueryReceipt.build(receipt, getConfig()));
     }

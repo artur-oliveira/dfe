@@ -1,6 +1,6 @@
 package com.softart.dfe.components.internal.xml.context;
 
-import com.softart.dfe.interfaces.xml.MdfeContext;
+import com.softart.dfe.interfaces.xml.context.MdfeContext;
 
 public abstract class MdfeContextFactory implements MdfeContext {
 

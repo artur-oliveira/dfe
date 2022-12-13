@@ -8,7 +8,7 @@ import com.softart.dfe.interfaces.process.nf.interested_actor.BeforeInterestedAc
 import com.softart.dfe.interfaces.sefaz.SefazRequest;
 import com.softart.dfe.interfaces.validation.nf.NfeInterestedActorValidator;
 import com.softart.dfe.interfaces.wsdl.ConfigureProvider;
-import com.softart.dfe.interfaces.xml.XMLSigner;
+import com.softart.dfe.interfaces.xml.XMLSignerService;
 import lombok.*;
 
 import java.util.Collection;
@@ -23,7 +23,7 @@ public final class NfeInterestedActorRequest implements SefazRequest<TEnvEvento,
 
     public TEnvEvento data;
     public Config config;
-    public XMLSigner signer;
+    public XMLSignerService signer;
     public ConfigureProvider configureProvider;
     public Collection<NfeInterestedActorValidator> validators;
     public Collection<BeforeInterestedActor> beforeRequest;

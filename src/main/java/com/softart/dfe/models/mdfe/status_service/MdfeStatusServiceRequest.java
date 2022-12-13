@@ -8,7 +8,7 @@ import com.softart.dfe.interfaces.process.mdfe.status_service.BeforeStatusServic
 import com.softart.dfe.interfaces.sefaz.SefazRequest;
 import com.softart.dfe.interfaces.validation.mdfe.MdfeStatusServiceValidator;
 import com.softart.dfe.interfaces.wsdl.ConfigureProvider;
-import com.softart.dfe.interfaces.xml.XMLSigner;
+import com.softart.dfe.interfaces.xml.XMLSignerService;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -23,7 +23,7 @@ import java.util.Collection;
 public final class MdfeStatusServiceRequest implements SefazRequest<TConsStatServ, TRetConsStatServ> {
     public TConsStatServ data;
     public Config config;
-    public XMLSigner signer;
+    public XMLSignerService signer;
     public ConfigureProvider configureProvider;
     public Collection<MdfeStatusServiceValidator> validators;
     public Collection<BeforeStatusService> beforeRequest;

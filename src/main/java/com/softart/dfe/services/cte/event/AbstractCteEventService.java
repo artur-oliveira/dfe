@@ -1,6 +1,5 @@
 package com.softart.dfe.services.cte.event;
 
-import br.inf.portalfiscal.cte.send.TEvento;
 import com.softart.dfe.enums.cte.CteEvent;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.exceptions.ValidationException;
@@ -8,7 +7,6 @@ import com.softart.dfe.exceptions.port.SoapServiceGeneralException;
 import com.softart.dfe.exceptions.security.SecurityException;
 import com.softart.dfe.exceptions.services.NoProviderFound;
 import com.softart.dfe.models.cte.event.CteCorrectionLetter;
-import com.softart.dfe.models.cte.event.CteEventRequest;
 import com.softart.dfe.models.cte.event.CteGtv;
 import com.softart.dfe.models.cte.event.CteReturnEvent;
 import com.softart.dfe.models.cte.query_situation.CteReturnQuerySituation;
@@ -19,19 +17,6 @@ import java.util.Collection;
 import java.util.List;
 
 public abstract class AbstractCteEventService implements CteEventService {
-    @Override
-    public CteReturnEvent event(TEvento evento) throws SoapServiceGeneralException, NoProviderFound, ProcessException, ValidationException, SecurityException {
-        return CteReturnEvent.builder().build().fromObject(getProviderFactory().getCteService(getConfig())
-                .event(CteEventRequest.builder()
-                        .data(evento)
-                        .validators(getValidatorFactory().cteValidator().eventValidators())
-                        .signer(getXmlSigner())
-                        .config(getConfig())
-                        .configureProvider(getConfigureProviderFactory())
-                        .beforeRequest(getProcess().beforeEvent())
-                        .afterRequest(getProcess().afterEvent())
-                        .build()));
-    }
 
     @Override
     public CteReturnEvent cancel(String accessKey) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {

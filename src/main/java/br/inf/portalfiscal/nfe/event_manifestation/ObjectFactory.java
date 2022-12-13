@@ -15,18 +15,17 @@ import javax.xml.namespace.QName;
 
 
 /**
- * This object contains factory methods for each 
- * Java content interface and Java element interface 
- * generated in the br.inf.portalfiscal.nfe.event_manifestation package. 
- * <p>An ObjectFactory allows you to programatically 
- * construct new instances of the Java representation 
- * for XML content. The Java representation of XML 
- * content can consist of schema derived interfaces 
- * and classes representing the binding of schema 
- * type definitions, element declarations and model 
- * groups.  Factory methods for each of these are 
+ * This object contains factory methods for each
+ * Java content interface and Java element interface
+ * generated in the br.inf.portalfiscal.nfe.event_manifestation package.
+ * <p>An ObjectFactory allows you to programatically
+ * construct new instances of the Java representation
+ * for XML content. The Java representation of XML
+ * content can consist of schema derived interfaces
+ * and classes representing the binding of schema
+ * type definitions, element declarations and model
+ * groups.  Factory methods for each of these are
  * provided in this class.
- * 
  */
 @XmlRegistry
 public class ObjectFactory {
@@ -39,14 +38,12 @@ public class ObjectFactory {
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: br.inf.portalfiscal.nfe.event_manifestation
-     * 
      */
     public ObjectFactory() {
     }
 
     /**
      * Create an instance of {@link ReferenceType }
-     * 
      */
     public ReferenceType createReferenceType() {
         return new ReferenceType();
@@ -54,7 +51,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SignedInfoType }
-     * 
      */
     public SignedInfoType createSignedInfoType() {
         return new SignedInfoType();
@@ -62,7 +58,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TretEvento }
-     * 
      */
     public TretEvento createTretEvento() {
         return new TretEvento();
@@ -70,7 +65,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TEvento }
-     * 
      */
     public TEvento createTEvento() {
         return new TEvento();
@@ -78,7 +72,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TEvento.InfEvento }
-     * 
      */
     public TEvento.InfEvento createTEventoInfEvento() {
         return new TEvento.InfEvento();
@@ -86,7 +79,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TEnvEvento }
-     * 
      */
     public TEnvEvento createTEnvEvento() {
         return new TEnvEvento();
@@ -94,7 +86,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TProcEvento }
-     * 
      */
     public TProcEvento createTProcEvento() {
         return new TProcEvento();
@@ -102,7 +93,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TRetEnvEvento }
-     * 
      */
     public TRetEnvEvento createTRetEnvEvento() {
         return new TRetEnvEvento();
@@ -110,7 +100,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SignatureType }
-     * 
      */
     public SignatureType createSignatureType() {
         return new SignatureType();
@@ -118,7 +107,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SignatureValueType }
-     * 
      */
     public SignatureValueType createSignatureValueType() {
         return new SignatureValueType();
@@ -126,7 +114,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TransformsType }
-     * 
      */
     public TransformsType createTransformsType() {
         return new TransformsType();
@@ -134,7 +121,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TransformType }
-     * 
      */
     public TransformType createTransformType() {
         return new TransformType();
@@ -142,7 +128,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link KeyInfoType }
-     * 
      */
     public KeyInfoType createKeyInfoType() {
         return new KeyInfoType();
@@ -150,7 +135,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link X509DataType }
-     * 
      */
     public X509DataType createX509DataType() {
         return new X509DataType();
@@ -158,7 +142,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ReferenceType.DigestMethod }
-     * 
      */
     public ReferenceType.DigestMethod createReferenceTypeDigestMethod() {
         return new ReferenceType.DigestMethod();
@@ -166,7 +149,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SignedInfoType.CanonicalizationMethod }
-     * 
      */
     public SignedInfoType.CanonicalizationMethod createSignedInfoTypeCanonicalizationMethod() {
         return new SignedInfoType.CanonicalizationMethod();
@@ -174,7 +156,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SignedInfoType.SignatureMethod }
-     * 
      */
     public SignedInfoType.SignatureMethod createSignedInfoTypeSignatureMethod() {
         return new SignedInfoType.SignatureMethod();
@@ -182,7 +163,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TretEvento.InfEvento }
-     * 
      */
     public TretEvento.InfEvento createTretEventoInfEvento() {
         return new TretEvento.InfEvento();
@@ -190,7 +170,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TEvento.InfEvento.DetEvento }
-     * 
      */
     public TEvento.InfEvento.DetEvento createTEventoInfEventoDetEvento() {
         return new TEvento.InfEvento.DetEvento();
@@ -198,7 +177,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TEvento }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/nfe", name = "evento")
     public JAXBElement<TEvento> createEvento(TEvento value) {
@@ -207,7 +185,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TEnvEvento }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/nfe", name = "envEvento")
     public JAXBElement<TEnvEvento> createEnvEvento(TEnvEvento value) {
@@ -216,7 +193,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TProcEvento }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/nfe", name = "procEventoNFe")
     public JAXBElement<TProcEvento> createProcEventoNFe(TProcEvento value) {
@@ -225,7 +201,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TRetEnvEvento }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/nfe", name = "retEnvEvento")
     public JAXBElement<TRetEnvEvento> createRetEnvEvento(TRetEnvEvento value) {
@@ -234,7 +209,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link SignatureType }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "http://www.w3.org/2000/09/xmldsig#", name = "Signature")
     public JAXBElement<SignatureType> createSignature(SignatureType value) {

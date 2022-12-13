@@ -8,20 +8,17 @@
 
 package br.inf.portalfiscal.cte.send;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAnyElement;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
+import com.softart.dfe.interfaces.xml.generic.XML;
 import org.w3c.dom.Element;
+
+import javax.xml.bind.annotation.*;
 
 
 /**
  * <p>Classe Java de ProtCTeAny complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="ProtCTeAny"&gt;
  *   &lt;complexContent&gt;
@@ -44,16 +41,13 @@ import org.w3c.dom.Element;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ProtCTeAny", propOrder = {
-    "any"
+        "any"
 })
 public class ProtCTeAny
-    implements XML
-{
+        implements XML {
 
     @XmlAnyElement
     protected Element any;
@@ -62,11 +56,9 @@ public class ProtCTeAny
 
     /**
      * Obtém o valor da propriedade any.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Element }
-     *     
+     *
+     * @return possible object is
+     * {@link Element }
      */
     public Element getAny() {
         return any;
@@ -74,11 +66,9 @@ public class ProtCTeAny
 
     /**
      * Define o valor da propriedade any.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Element }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Element }
      */
     public void setAny(Element value) {
         this.any = value;
@@ -86,11 +76,9 @@ public class ProtCTeAny
 
     /**
      * Obtém o valor da propriedade versao.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVersao() {
         return versao;
@@ -98,11 +86,9 @@ public class ProtCTeAny
 
     /**
      * Define o valor da propriedade versao.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVersao(String value) {
         this.versao = value;

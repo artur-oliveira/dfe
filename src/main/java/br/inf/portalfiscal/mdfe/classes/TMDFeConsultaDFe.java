@@ -8,21 +8,18 @@
 
 package br.inf.portalfiscal.mdfe.classes;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
+import com.softart.dfe.interfaces.xml.generic.XML;
+
+import javax.xml.bind.annotation.*;
 
 
 /**
  * Tipo Pedido de Consulta do Manifesto Eletrônico de Documentos Fiscais
- * 
+ *
  * <p>Classe Java de TMDFeConsultaDFe complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="TMDFeConsultaDFe"&gt;
  *   &lt;complexContent&gt;
@@ -37,18 +34,15 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TMDFeConsultaDFe", propOrder = {
-    "tpAmb",
-    "xServ",
-    "chMDFe"
+        "tpAmb",
+        "xServ",
+        "chMDFe"
 })
 public class TMDFeConsultaDFe
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected String tpAmb;
@@ -61,11 +55,9 @@ public class TMDFeConsultaDFe
 
     /**
      * Obtém o valor da propriedade tpAmb.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getTpAmb() {
         return tpAmb;
@@ -73,11 +65,9 @@ public class TMDFeConsultaDFe
 
     /**
      * Define o valor da propriedade tpAmb.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setTpAmb(String value) {
         this.tpAmb = value;
@@ -85,11 +75,9 @@ public class TMDFeConsultaDFe
 
     /**
      * Obtém o valor da propriedade xServ.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getXServ() {
         return xServ;
@@ -97,11 +85,9 @@ public class TMDFeConsultaDFe
 
     /**
      * Define o valor da propriedade xServ.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setXServ(String value) {
         this.xServ = value;
@@ -109,11 +95,9 @@ public class TMDFeConsultaDFe
 
     /**
      * Obtém o valor da propriedade chMDFe.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getChMDFe() {
         return chMDFe;
@@ -121,11 +105,9 @@ public class TMDFeConsultaDFe
 
     /**
      * Define o valor da propriedade chMDFe.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setChMDFe(String value) {
         this.chMDFe = value;
@@ -133,11 +115,9 @@ public class TMDFeConsultaDFe
 
     /**
      * Obtém o valor da propriedade versao.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVersao() {
         return versao;
@@ -145,11 +125,9 @@ public class TMDFeConsultaDFe
 
     /**
      * Define o valor da propriedade versao.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVersao(String value) {
         this.versao = value;

@@ -8,19 +8,16 @@
 
 package br.inf.portalfiscal.cte.send;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
+import com.softart.dfe.interfaces.xml.generic.XML;
+
+import javax.xml.bind.annotation.*;
 
 
 /**
  * <p>Classe Java de TGTVeProc complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="TGTVeProc"&gt;
  *   &lt;complexContent&gt;
@@ -43,17 +40,14 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TGTVeProc", propOrder = {
-    "gtVe",
-    "protCTe"
+        "gtVe",
+        "protCTe"
 })
 public class TGTVeProc
-    implements XML
-{
+        implements XML {
 
     @XmlElement(name = "GTVe", required = true)
     protected TGTVe gtVe;
@@ -70,11 +64,9 @@ public class TGTVeProc
 
     /**
      * Obtém o valor da propriedade gtVe.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TGTVe }
-     *     
+     *
+     * @return possible object is
+     * {@link TGTVe }
      */
     public TGTVe getGTVe() {
         return gtVe;
@@ -82,11 +74,9 @@ public class TGTVeProc
 
     /**
      * Define o valor da propriedade gtVe.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TGTVe }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link TGTVe }
      */
     public void setGTVe(TGTVe value) {
         this.gtVe = value;
@@ -94,11 +84,9 @@ public class TGTVeProc
 
     /**
      * Obtém o valor da propriedade protCTe.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TProtGTVe }
-     *     
+     *
+     * @return possible object is
+     * {@link TProtGTVe }
      */
     public TProtGTVe getProtCTe() {
         return protCTe;
@@ -106,11 +94,9 @@ public class TGTVeProc
 
     /**
      * Define o valor da propriedade protCTe.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TProtGTVe }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link TProtGTVe }
      */
     public void setProtCTe(TProtGTVe value) {
         this.protCTe = value;
@@ -118,11 +104,9 @@ public class TGTVeProc
 
     /**
      * Obtém o valor da propriedade versao.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVersao() {
         return versao;
@@ -130,11 +114,9 @@ public class TGTVeProc
 
     /**
      * Define o valor da propriedade versao.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVersao(String value) {
         this.versao = value;
@@ -142,11 +124,9 @@ public class TGTVeProc
 
     /**
      * Obtém o valor da propriedade ipTransmissor.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getIpTransmissor() {
         return ipTransmissor;
@@ -154,11 +134,9 @@ public class TGTVeProc
 
     /**
      * Define o valor da propriedade ipTransmissor.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setIpTransmissor(String value) {
         this.ipTransmissor = value;
@@ -166,11 +144,9 @@ public class TGTVeProc
 
     /**
      * Obtém o valor da propriedade nPortaCon.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getNPortaCon() {
         return nPortaCon;
@@ -178,11 +154,9 @@ public class TGTVeProc
 
     /**
      * Define o valor da propriedade nPortaCon.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setNPortaCon(String value) {
         this.nPortaCon = value;
@@ -190,11 +164,9 @@ public class TGTVeProc
 
     /**
      * Obtém o valor da propriedade dhConexao.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getDhConexao() {
         return dhConexao;
@@ -202,11 +174,9 @@ public class TGTVeProc
 
     /**
      * Define o valor da propriedade dhConexao.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setDhConexao(String value) {
         this.dhConexao = value;

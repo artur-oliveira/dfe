@@ -8,23 +8,18 @@
 
 package br.inf.portalfiscal.cte.send;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlID;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
+import com.softart.dfe.interfaces.xml.generic.XML;
+
+import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-import com.softart.dfe.interfaces.xml.XML;
 
 
 /**
  * <p>Classe Java de RetInfInut complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="RetInfInut"&gt;
  *   &lt;complexContent&gt;
@@ -63,28 +58,25 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "RetInfInut", propOrder = {
-    "tpAmb",
-    "verAplic",
-    "cStat",
-    "xMotivo",
-    "cuf",
-    "ano",
-    "cnpj",
-    "mod",
-    "serie",
-    "nctIni",
-    "nctFin",
-    "dhRecbto",
-    "nProt"
+        "tpAmb",
+        "verAplic",
+        "cStat",
+        "xMotivo",
+        "cuf",
+        "ano",
+        "cnpj",
+        "mod",
+        "serie",
+        "nctIni",
+        "nctFin",
+        "dhRecbto",
+        "nProt"
 })
 public class RetInfInut
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected String tpAmb;
@@ -115,11 +107,9 @@ public class RetInfInut
 
     /**
      * Obtém o valor da propriedade tpAmb.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getTpAmb() {
         return tpAmb;
@@ -127,11 +117,9 @@ public class RetInfInut
 
     /**
      * Define o valor da propriedade tpAmb.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setTpAmb(String value) {
         this.tpAmb = value;
@@ -139,11 +127,9 @@ public class RetInfInut
 
     /**
      * Obtém o valor da propriedade verAplic.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVerAplic() {
         return verAplic;
@@ -151,11 +137,9 @@ public class RetInfInut
 
     /**
      * Define o valor da propriedade verAplic.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVerAplic(String value) {
         this.verAplic = value;
@@ -163,11 +147,9 @@ public class RetInfInut
 
     /**
      * Obtém o valor da propriedade cStat.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCStat() {
         return cStat;
@@ -175,11 +157,9 @@ public class RetInfInut
 
     /**
      * Define o valor da propriedade cStat.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCStat(String value) {
         this.cStat = value;
@@ -187,11 +167,9 @@ public class RetInfInut
 
     /**
      * Obtém o valor da propriedade xMotivo.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getXMotivo() {
         return xMotivo;
@@ -199,11 +177,9 @@ public class RetInfInut
 
     /**
      * Define o valor da propriedade xMotivo.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setXMotivo(String value) {
         this.xMotivo = value;
@@ -211,11 +187,9 @@ public class RetInfInut
 
     /**
      * Obtém o valor da propriedade cuf.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCUF() {
         return cuf;
@@ -223,11 +197,9 @@ public class RetInfInut
 
     /**
      * Define o valor da propriedade cuf.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCUF(String value) {
         this.cuf = value;
@@ -235,11 +207,9 @@ public class RetInfInut
 
     /**
      * Obtém o valor da propriedade ano.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Short }
-     *     
+     *
+     * @return possible object is
+     * {@link Short }
      */
     public Short getAno() {
         return ano;
@@ -247,11 +217,9 @@ public class RetInfInut
 
     /**
      * Define o valor da propriedade ano.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Short }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Short }
      */
     public void setAno(Short value) {
         this.ano = value;
@@ -259,11 +227,9 @@ public class RetInfInut
 
     /**
      * Obtém o valor da propriedade cnpj.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCNPJ() {
         return cnpj;
@@ -271,11 +237,9 @@ public class RetInfInut
 
     /**
      * Define o valor da propriedade cnpj.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCNPJ(String value) {
         this.cnpj = value;
@@ -283,11 +247,9 @@ public class RetInfInut
 
     /**
      * Obtém o valor da propriedade mod.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getMod() {
         return mod;
@@ -295,11 +257,9 @@ public class RetInfInut
 
     /**
      * Define o valor da propriedade mod.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setMod(String value) {
         this.mod = value;
@@ -307,11 +267,9 @@ public class RetInfInut
 
     /**
      * Obtém o valor da propriedade serie.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getSerie() {
         return serie;
@@ -319,11 +277,9 @@ public class RetInfInut
 
     /**
      * Define o valor da propriedade serie.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setSerie(String value) {
         this.serie = value;
@@ -331,11 +287,9 @@ public class RetInfInut
 
     /**
      * Obtém o valor da propriedade nctIni.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getNCTIni() {
         return nctIni;
@@ -343,11 +297,9 @@ public class RetInfInut
 
     /**
      * Define o valor da propriedade nctIni.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setNCTIni(String value) {
         this.nctIni = value;
@@ -355,11 +307,9 @@ public class RetInfInut
 
     /**
      * Obtém o valor da propriedade nctFin.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getNCTFin() {
         return nctFin;
@@ -367,11 +317,9 @@ public class RetInfInut
 
     /**
      * Define o valor da propriedade nctFin.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setNCTFin(String value) {
         this.nctFin = value;
@@ -379,11 +327,9 @@ public class RetInfInut
 
     /**
      * Obtém o valor da propriedade dhRecbto.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getDhRecbto() {
         return dhRecbto;
@@ -391,11 +337,9 @@ public class RetInfInut
 
     /**
      * Define o valor da propriedade dhRecbto.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setDhRecbto(String value) {
         this.dhRecbto = value;
@@ -403,11 +347,9 @@ public class RetInfInut
 
     /**
      * Obtém o valor da propriedade nProt.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getNProt() {
         return nProt;
@@ -415,11 +357,9 @@ public class RetInfInut
 
     /**
      * Define o valor da propriedade nProt.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setNProt(String value) {
         this.nProt = value;
@@ -427,11 +367,9 @@ public class RetInfInut
 
     /**
      * Obtém o valor da propriedade id.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getId() {
         return id;
@@ -439,11 +377,9 @@ public class RetInfInut
 
     /**
      * Define o valor da propriedade id.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setId(String value) {
         this.id = value;

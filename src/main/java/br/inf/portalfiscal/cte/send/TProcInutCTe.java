@@ -8,21 +8,18 @@
 
 package br.inf.portalfiscal.cte.send;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
+import com.softart.dfe.interfaces.xml.generic.XML;
+
+import javax.xml.bind.annotation.*;
 
 
 /**
  * Tipo Pedido de inutilzação de númeração de CT-e processado
- * 
+ *
  * <p>Classe Java de TProcInutCTe complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="TProcInutCTe"&gt;
  *   &lt;complexContent&gt;
@@ -45,17 +42,14 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TProcInutCTe", propOrder = {
-    "inutCTe",
-    "retInutCTe"
+        "inutCTe",
+        "retInutCTe"
 })
 public class TProcInutCTe
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected TInutCTe inutCTe;
@@ -72,11 +66,9 @@ public class TProcInutCTe
 
     /**
      * Obtém o valor da propriedade inutCTe.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TInutCTe }
-     *     
+     *
+     * @return possible object is
+     * {@link TInutCTe }
      */
     public TInutCTe getInutCTe() {
         return inutCTe;
@@ -84,11 +76,9 @@ public class TProcInutCTe
 
     /**
      * Define o valor da propriedade inutCTe.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TInutCTe }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link TInutCTe }
      */
     public void setInutCTe(TInutCTe value) {
         this.inutCTe = value;
@@ -96,11 +86,9 @@ public class TProcInutCTe
 
     /**
      * Obtém o valor da propriedade retInutCTe.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TRetInutCTe }
-     *     
+     *
+     * @return possible object is
+     * {@link TRetInutCTe }
      */
     public TRetInutCTe getRetInutCTe() {
         return retInutCTe;
@@ -108,11 +96,9 @@ public class TProcInutCTe
 
     /**
      * Define o valor da propriedade retInutCTe.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TRetInutCTe }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link TRetInutCTe }
      */
     public void setRetInutCTe(TRetInutCTe value) {
         this.retInutCTe = value;
@@ -120,11 +106,9 @@ public class TProcInutCTe
 
     /**
      * Obtém o valor da propriedade versao.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVersao() {
         return versao;
@@ -132,11 +116,9 @@ public class TProcInutCTe
 
     /**
      * Define o valor da propriedade versao.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVersao(String value) {
         this.versao = value;
@@ -144,11 +126,9 @@ public class TProcInutCTe
 
     /**
      * Obtém o valor da propriedade ipTransmissor.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getIpTransmissor() {
         return ipTransmissor;
@@ -156,11 +136,9 @@ public class TProcInutCTe
 
     /**
      * Define o valor da propriedade ipTransmissor.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setIpTransmissor(String value) {
         this.ipTransmissor = value;
@@ -168,11 +146,9 @@ public class TProcInutCTe
 
     /**
      * Obtém o valor da propriedade nPortaCon.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getNPortaCon() {
         return nPortaCon;
@@ -180,11 +156,9 @@ public class TProcInutCTe
 
     /**
      * Define o valor da propriedade nPortaCon.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setNPortaCon(String value) {
         this.nPortaCon = value;
@@ -192,11 +166,9 @@ public class TProcInutCTe
 
     /**
      * Obtém o valor da propriedade dhConexao.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getDhConexao() {
         return dhConexao;
@@ -204,11 +176,9 @@ public class TProcInutCTe
 
     /**
      * Define o valor da propriedade dhConexao.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setDhConexao(String value) {
         this.dhConexao = value;

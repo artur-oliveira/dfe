@@ -9,10 +9,25 @@ import com.softart.dfe.interfaces.storage.Store;
 
 public interface NfceSubstituteCancelStorage extends Storage {
 
+    /**
+     * It cancels the substitution of a procedure.
+     *
+     * @param o The store object
+     */
     void storeProcSubstituteCancel(Store<TProcEvento> o) throws StorageException;
 
+    /**
+     * It stores a return substitute cancel event.
+     *
+     * @param o The object to be stored.
+     */
     void storeReturnSubstituteCancel(Store<TRetEnvEvento> o) throws StorageException;
 
+    /**
+     * It stores a substitute cancel event.
+     *
+     * @param o The object to be stored.
+     */
     void storeSendSubstituteCancel(Store<TEnvEvento> o) throws StorageException;
 
 }

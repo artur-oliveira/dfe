@@ -8,18 +8,19 @@
 
 package br.inf.portalfiscal.cte.send;
 
+import com.softart.dfe.interfaces.xml.generic.XML;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
 
 
 /**
  * <p>Classe Java de InfEspecie complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="InfEspecie"&gt;
  *   &lt;complexContent&gt;
@@ -42,17 +43,14 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "InfEspecie", propOrder = {
-    "tpEspecie",
-    "vEspecie"
+        "tpEspecie",
+        "vEspecie"
 })
 public class InfEspecie
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected String tpEspecie;
@@ -60,11 +58,9 @@ public class InfEspecie
 
     /**
      * Obtém o valor da propriedade tpEspecie.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getTpEspecie() {
         return tpEspecie;
@@ -72,11 +68,9 @@ public class InfEspecie
 
     /**
      * Define o valor da propriedade tpEspecie.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setTpEspecie(String value) {
         this.tpEspecie = value;
@@ -84,11 +78,9 @@ public class InfEspecie
 
     /**
      * Obtém o valor da propriedade vEspecie.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVEspecie() {
         return vEspecie;
@@ -96,11 +88,9 @@ public class InfEspecie
 
     /**
      * Define o valor da propriedade vEspecie.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVEspecie(String value) {
         this.vEspecie = value;

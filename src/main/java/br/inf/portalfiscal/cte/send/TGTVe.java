@@ -8,27 +8,22 @@
 
 package br.inf.portalfiscal.cte.send;
 
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlID;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
+import com.softart.dfe.interfaces.xml.generic.XML;
+
+import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-import com.softart.dfe.interfaces.xml.XML;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
  * Tipo Guia de Transporte de Valores Eletrônica (Modelo 64)
- * 
+ *
  * <p>Classe Java de TGTVe complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="TGTVe"&gt;
  *   &lt;complexContent&gt;
@@ -605,18 +600,15 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TGTVe", propOrder = {
-    "infCte",
-    "infCTeSupl",
-    "signature"
+        "infCte",
+        "infCTeSupl",
+        "signature"
 })
 public class TGTVe
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected TGTVe.InfCte infCte;
@@ -628,11 +620,9 @@ public class TGTVe
 
     /**
      * Obtém o valor da propriedade infCte.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TGTVe.InfCte }
-     *     
+     *
+     * @return possible object is
+     * {@link TGTVe.InfCte }
      */
     public TGTVe.InfCte getInfCte() {
         return infCte;
@@ -640,11 +630,9 @@ public class TGTVe
 
     /**
      * Define o valor da propriedade infCte.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TGTVe.InfCte }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link TGTVe.InfCte }
      */
     public void setInfCte(TGTVe.InfCte value) {
         this.infCte = value;
@@ -652,11 +640,9 @@ public class TGTVe
 
     /**
      * Obtém o valor da propriedade infCTeSupl.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TGTVe.InfCTeSupl }
-     *     
+     *
+     * @return possible object is
+     * {@link TGTVe.InfCTeSupl }
      */
     public TGTVe.InfCTeSupl getInfCTeSupl() {
         return infCTeSupl;
@@ -664,11 +650,9 @@ public class TGTVe
 
     /**
      * Define o valor da propriedade infCTeSupl.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TGTVe.InfCTeSupl }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link TGTVe.InfCTeSupl }
      */
     public void setInfCTeSupl(TGTVe.InfCTeSupl value) {
         this.infCTeSupl = value;
@@ -676,11 +660,9 @@ public class TGTVe
 
     /**
      * Obtém o valor da propriedade signature.
-     * 
-     * @return
-     *     possible object is
-     *     {@link SignatureType }
-     *     
+     *
+     * @return possible object is
+     * {@link SignatureType }
      */
     public SignatureType getSignature() {
         return signature;
@@ -688,11 +670,9 @@ public class TGTVe
 
     /**
      * Define o valor da propriedade signature.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link SignatureType }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link SignatureType }
      */
     public void setSignature(SignatureType value) {
         this.signature = value;
@@ -700,11 +680,9 @@ public class TGTVe
 
     /**
      * Obtém o valor da propriedade versao.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVersao() {
         return versao;
@@ -712,11 +690,9 @@ public class TGTVe
 
     /**
      * Define o valor da propriedade versao.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVersao(String value) {
         this.versao = value;
@@ -725,9 +701,9 @@ public class TGTVe
 
     /**
      * <p>Classe Java de anonymous complex type.
-     * 
+     *
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     * 
+     *
      * <pre>
      * &lt;complexType&gt;
      *   &lt;complexContent&gt;
@@ -1267,25 +1243,22 @@ public class TGTVe
      *   &lt;/complexContent&gt;
      * &lt;/complexType&gt;
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "ide",
-        "compl",
-        "emit",
-        "rem",
-        "dest",
-        "origem",
-        "destino",
-        "detGTV",
-        "autXML",
-        "infRespTec"
+            "ide",
+            "compl",
+            "emit",
+            "rem",
+            "dest",
+            "origem",
+            "destino",
+            "detGTV",
+            "autXML",
+            "infRespTec"
     })
     public static class InfCte
-        implements XML
-    {
+            implements XML {
 
         @XmlElement(required = true)
         protected TGTVe.InfCte.Ide ide;
@@ -1311,11 +1284,9 @@ public class TGTVe
 
         /**
          * Obtém o valor da propriedade ide.
-         * 
-         * @return
-         *     possible object is
-         *     {@link TGTVe.InfCte.Ide }
-         *     
+         *
+         * @return possible object is
+         * {@link TGTVe.InfCte.Ide }
          */
         public TGTVe.InfCte.Ide getIde() {
             return ide;
@@ -1323,11 +1294,9 @@ public class TGTVe
 
         /**
          * Define o valor da propriedade ide.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link TGTVe.InfCte.Ide }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link TGTVe.InfCte.Ide }
          */
         public void setIde(TGTVe.InfCte.Ide value) {
             this.ide = value;
@@ -1335,11 +1304,9 @@ public class TGTVe
 
         /**
          * Obtém o valor da propriedade compl.
-         * 
-         * @return
-         *     possible object is
-         *     {@link TGTVe.InfCte.Compl }
-         *     
+         *
+         * @return possible object is
+         * {@link TGTVe.InfCte.Compl }
          */
         public TGTVe.InfCte.Compl getCompl() {
             return compl;
@@ -1347,11 +1314,9 @@ public class TGTVe
 
         /**
          * Define o valor da propriedade compl.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link TGTVe.InfCte.Compl }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link TGTVe.InfCte.Compl }
          */
         public void setCompl(TGTVe.InfCte.Compl value) {
             this.compl = value;
@@ -1359,11 +1324,9 @@ public class TGTVe
 
         /**
          * Obtém o valor da propriedade emit.
-         * 
-         * @return
-         *     possible object is
-         *     {@link TGTVe.InfCte.Emit }
-         *     
+         *
+         * @return possible object is
+         * {@link TGTVe.InfCte.Emit }
          */
         public TGTVe.InfCte.Emit getEmit() {
             return emit;
@@ -1371,11 +1334,9 @@ public class TGTVe
 
         /**
          * Define o valor da propriedade emit.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link TGTVe.InfCte.Emit }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link TGTVe.InfCte.Emit }
          */
         public void setEmit(TGTVe.InfCte.Emit value) {
             this.emit = value;
@@ -1383,11 +1344,9 @@ public class TGTVe
 
         /**
          * Obtém o valor da propriedade rem.
-         * 
-         * @return
-         *     possible object is
-         *     {@link TGTVe.InfCte.Rem }
-         *     
+         *
+         * @return possible object is
+         * {@link TGTVe.InfCte.Rem }
          */
         public TGTVe.InfCte.Rem getRem() {
             return rem;
@@ -1395,11 +1354,9 @@ public class TGTVe
 
         /**
          * Define o valor da propriedade rem.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link TGTVe.InfCte.Rem }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link TGTVe.InfCte.Rem }
          */
         public void setRem(TGTVe.InfCte.Rem value) {
             this.rem = value;
@@ -1407,11 +1364,9 @@ public class TGTVe
 
         /**
          * Obtém o valor da propriedade dest.
-         * 
-         * @return
-         *     possible object is
-         *     {@link TGTVe.InfCte.Dest }
-         *     
+         *
+         * @return possible object is
+         * {@link TGTVe.InfCte.Dest }
          */
         public TGTVe.InfCte.Dest getDest() {
             return dest;
@@ -1419,11 +1374,9 @@ public class TGTVe
 
         /**
          * Define o valor da propriedade dest.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link TGTVe.InfCte.Dest }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link TGTVe.InfCte.Dest }
          */
         public void setDest(TGTVe.InfCte.Dest value) {
             this.dest = value;
@@ -1431,11 +1384,9 @@ public class TGTVe
 
         /**
          * Obtém o valor da propriedade origem.
-         * 
-         * @return
-         *     possible object is
-         *     {@link TEndeEmi }
-         *     
+         *
+         * @return possible object is
+         * {@link TEndeEmi }
          */
         public TEndeEmi getOrigem() {
             return origem;
@@ -1443,11 +1394,9 @@ public class TGTVe
 
         /**
          * Define o valor da propriedade origem.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link TEndeEmi }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link TEndeEmi }
          */
         public void setOrigem(TEndeEmi value) {
             this.origem = value;
@@ -1455,11 +1404,9 @@ public class TGTVe
 
         /**
          * Obtém o valor da propriedade destino.
-         * 
-         * @return
-         *     possible object is
-         *     {@link TEndeEmi }
-         *     
+         *
+         * @return possible object is
+         * {@link TEndeEmi }
          */
         public TEndeEmi getDestino() {
             return destino;
@@ -1467,11 +1414,9 @@ public class TGTVe
 
         /**
          * Define o valor da propriedade destino.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link TEndeEmi }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link TEndeEmi }
          */
         public void setDestino(TEndeEmi value) {
             this.destino = value;
@@ -1479,11 +1424,9 @@ public class TGTVe
 
         /**
          * Obtém o valor da propriedade detGTV.
-         * 
-         * @return
-         *     possible object is
-         *     {@link TGTVe.InfCte.DetGTV }
-         *     
+         *
+         * @return possible object is
+         * {@link TGTVe.InfCte.DetGTV }
          */
         public TGTVe.InfCte.DetGTV getDetGTV() {
             return detGTV;
@@ -1491,11 +1434,9 @@ public class TGTVe
 
         /**
          * Define o valor da propriedade detGTV.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link TGTVe.InfCte.DetGTV }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link TGTVe.InfCte.DetGTV }
          */
         public void setDetGTV(TGTVe.InfCte.DetGTV value) {
             this.detGTV = value;
@@ -1503,25 +1444,23 @@ public class TGTVe
 
         /**
          * Gets the value of the autXML property.
-         * 
+         *
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the autXML property.
-         * 
+         *
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getAutXML().add(newItem);
          * </pre>
-         * 
-         * 
+         *
+         *
          * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link TGTVe.InfCte.AutXML }
-         * 
-         * 
          */
         public List<TGTVe.InfCte.AutXML> getAutXML() {
             if (autXML == null) {
@@ -1532,11 +1471,9 @@ public class TGTVe
 
         /**
          * Obtém o valor da propriedade infRespTec.
-         * 
-         * @return
-         *     possible object is
-         *     {@link TRespTec }
-         *     
+         *
+         * @return possible object is
+         * {@link TRespTec }
          */
         public TRespTec getInfRespTec() {
             return infRespTec;
@@ -1544,11 +1481,9 @@ public class TGTVe
 
         /**
          * Define o valor da propriedade infRespTec.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link TRespTec }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link TRespTec }
          */
         public void setInfRespTec(TRespTec value) {
             this.infRespTec = value;
@@ -1556,11 +1491,9 @@ public class TGTVe
 
         /**
          * Obtém o valor da propriedade versao.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getVersao() {
             return versao;
@@ -1568,11 +1501,9 @@ public class TGTVe
 
         /**
          * Define o valor da propriedade versao.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setVersao(String value) {
             this.versao = value;
@@ -1580,11 +1511,9 @@ public class TGTVe
 
         /**
          * Obtém o valor da propriedade id.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getId() {
             return id;
@@ -1592,11 +1521,9 @@ public class TGTVe
 
         /**
          * Define o valor da propriedade id.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setId(String value) {
             this.id = value;
@@ -1605,9 +1532,9 @@ public class TGTVe
 
         /**
          * <p>Classe Java de anonymous complex type.
-         * 
+         *
          * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-         * 
+         *
          * <pre>
          * &lt;complexType&gt;
          *   &lt;complexContent&gt;
@@ -1622,17 +1549,14 @@ public class TGTVe
          *   &lt;/complexContent&gt;
          * &lt;/complexType&gt;
          * </pre>
-         * 
-         * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "cnpj",
-            "cpf"
+                "cnpj",
+                "cpf"
         })
         public static class AutXML
-            implements XML
-        {
+                implements XML {
 
             @XmlElement(name = "CNPJ")
             protected String cnpj;
@@ -1641,11 +1565,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade cnpj.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getCNPJ() {
                 return cnpj;
@@ -1653,11 +1575,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade cnpj.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setCNPJ(String value) {
                 this.cnpj = value;
@@ -1665,11 +1585,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade cpf.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getCPF() {
                 return cpf;
@@ -1677,11 +1595,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade cpf.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setCPF(String value) {
                 this.cpf = value;
@@ -1692,9 +1608,9 @@ public class TGTVe
 
         /**
          * <p>Classe Java de anonymous complex type.
-         * 
+         *
          * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-         * 
+         *
          * <pre>
          * &lt;complexType&gt;
          *   &lt;complexContent&gt;
@@ -1789,21 +1705,18 @@ public class TGTVe
          *   &lt;/complexContent&gt;
          * &lt;/complexType&gt;
          * </pre>
-         * 
-         * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "xCaracAd",
-            "xCaracSer",
-            "xEmi",
-            "xObs",
-            "obsCont",
-            "obsFisco"
+                "xCaracAd",
+                "xCaracSer",
+                "xEmi",
+                "xObs",
+                "obsCont",
+                "obsFisco"
         })
         public static class Compl
-            implements XML
-        {
+                implements XML {
 
             protected String xCaracAd;
             protected String xCaracSer;
@@ -1816,11 +1729,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade xCaracAd.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getXCaracAd() {
                 return xCaracAd;
@@ -1828,11 +1739,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade xCaracAd.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setXCaracAd(String value) {
                 this.xCaracAd = value;
@@ -1840,11 +1749,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade xCaracSer.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getXCaracSer() {
                 return xCaracSer;
@@ -1852,11 +1759,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade xCaracSer.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setXCaracSer(String value) {
                 this.xCaracSer = value;
@@ -1864,11 +1769,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade xEmi.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getXEmi() {
                 return xEmi;
@@ -1876,11 +1779,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade xEmi.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setXEmi(String value) {
                 this.xEmi = value;
@@ -1888,11 +1789,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade xObs.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getXObs() {
                 return xObs;
@@ -1900,11 +1799,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade xObs.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setXObs(String value) {
                 this.xObs = value;
@@ -1912,25 +1809,23 @@ public class TGTVe
 
             /**
              * Gets the value of the obsCont property.
-             * 
+             *
              * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the obsCont property.
-             * 
+             *
              * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getObsCont().add(newItem);
              * </pre>
-             * 
-             * 
+             *
+             *
              * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link TGTVe.InfCte.Compl.ObsCont }
-             * 
-             * 
              */
             public List<TGTVe.InfCte.Compl.ObsCont> getObsCont() {
                 if (obsCont == null) {
@@ -1941,25 +1836,23 @@ public class TGTVe
 
             /**
              * Gets the value of the obsFisco property.
-             * 
+             *
              * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the obsFisco property.
-             * 
+             *
              * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getObsFisco().add(newItem);
              * </pre>
-             * 
-             * 
+             *
+             *
              * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link TGTVe.InfCte.Compl.ObsFisco }
-             * 
-             * 
              */
             public List<TGTVe.InfCte.Compl.ObsFisco> getObsFisco() {
                 if (obsFisco == null) {
@@ -1971,9 +1864,9 @@ public class TGTVe
 
             /**
              * <p>Classe Java de anonymous complex type.
-             * 
+             *
              * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-             * 
+             *
              * <pre>
              * &lt;complexType&gt;
              *   &lt;complexContent&gt;
@@ -2000,16 +1893,13 @@ public class TGTVe
              *   &lt;/complexContent&gt;
              * &lt;/complexType&gt;
              * </pre>
-             * 
-             * 
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
-                "xTexto"
+                    "xTexto"
             })
             public static class ObsCont
-                implements XML
-            {
+                    implements XML {
 
                 @XmlElement(required = true)
                 protected String xTexto;
@@ -2018,11 +1908,9 @@ public class TGTVe
 
                 /**
                  * Obtém o valor da propriedade xTexto.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getXTexto() {
                     return xTexto;
@@ -2030,11 +1918,9 @@ public class TGTVe
 
                 /**
                  * Define o valor da propriedade xTexto.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setXTexto(String value) {
                     this.xTexto = value;
@@ -2042,11 +1928,9 @@ public class TGTVe
 
                 /**
                  * Obtém o valor da propriedade xCampo.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getXCampo() {
                     return xCampo;
@@ -2054,11 +1938,9 @@ public class TGTVe
 
                 /**
                  * Define o valor da propriedade xCampo.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setXCampo(String value) {
                     this.xCampo = value;
@@ -2069,9 +1951,9 @@ public class TGTVe
 
             /**
              * <p>Classe Java de anonymous complex type.
-             * 
+             *
              * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-             * 
+             *
              * <pre>
              * &lt;complexType&gt;
              *   &lt;complexContent&gt;
@@ -2098,16 +1980,13 @@ public class TGTVe
              *   &lt;/complexContent&gt;
              * &lt;/complexType&gt;
              * </pre>
-             * 
-             * 
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
-                "xTexto"
+                    "xTexto"
             })
             public static class ObsFisco
-                implements XML
-            {
+                    implements XML {
 
                 @XmlElement(required = true)
                 protected String xTexto;
@@ -2116,11 +1995,9 @@ public class TGTVe
 
                 /**
                  * Obtém o valor da propriedade xTexto.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getXTexto() {
                     return xTexto;
@@ -2128,11 +2005,9 @@ public class TGTVe
 
                 /**
                  * Define o valor da propriedade xTexto.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setXTexto(String value) {
                     this.xTexto = value;
@@ -2140,11 +2015,9 @@ public class TGTVe
 
                 /**
                  * Obtém o valor da propriedade xCampo.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getXCampo() {
                     return xCampo;
@@ -2152,11 +2025,9 @@ public class TGTVe
 
                 /**
                  * Define o valor da propriedade xCampo.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setXCampo(String value) {
                     this.xCampo = value;
@@ -2169,9 +2040,9 @@ public class TGTVe
 
         /**
          * <p>Classe Java de anonymous complex type.
-         * 
+         *
          * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-         * 
+         *
          * <pre>
          * &lt;complexType&gt;
          *   &lt;complexContent&gt;
@@ -2211,23 +2082,20 @@ public class TGTVe
          *   &lt;/complexContent&gt;
          * &lt;/complexType&gt;
          * </pre>
-         * 
-         * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "cnpj",
-            "cpf",
-            "ie",
-            "xNome",
-            "fone",
-            "isuf",
-            "enderDest",
-            "email"
+                "cnpj",
+                "cpf",
+                "ie",
+                "xNome",
+                "fone",
+                "isuf",
+                "enderDest",
+                "email"
         })
         public static class Dest
-            implements XML
-        {
+                implements XML {
 
             @XmlElement(name = "CNPJ")
             protected String cnpj;
@@ -2246,11 +2114,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade cnpj.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getCNPJ() {
                 return cnpj;
@@ -2258,11 +2124,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade cnpj.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setCNPJ(String value) {
                 this.cnpj = value;
@@ -2270,11 +2134,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade cpf.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getCPF() {
                 return cpf;
@@ -2282,11 +2144,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade cpf.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setCPF(String value) {
                 this.cpf = value;
@@ -2294,11 +2154,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade ie.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getIE() {
                 return ie;
@@ -2306,11 +2164,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade ie.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setIE(String value) {
                 this.ie = value;
@@ -2318,11 +2174,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade xNome.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getXNome() {
                 return xNome;
@@ -2330,11 +2184,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade xNome.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setXNome(String value) {
                 this.xNome = value;
@@ -2342,11 +2194,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade fone.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getFone() {
                 return fone;
@@ -2354,11 +2204,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade fone.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setFone(String value) {
                 this.fone = value;
@@ -2366,11 +2214,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade isuf.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getISUF() {
                 return isuf;
@@ -2378,11 +2224,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade isuf.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setISUF(String value) {
                 this.isuf = value;
@@ -2390,11 +2234,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade enderDest.
-             * 
-             * @return
-             *     possible object is
-             *     {@link TEndereco }
-             *     
+             *
+             * @return possible object is
+             * {@link TEndereco }
              */
             public TEndereco getEnderDest() {
                 return enderDest;
@@ -2402,11 +2244,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade enderDest.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link TEndereco }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link TEndereco }
              */
             public void setEnderDest(TEndereco value) {
                 this.enderDest = value;
@@ -2414,11 +2254,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade email.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getEmail() {
                 return email;
@@ -2426,11 +2264,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade email.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setEmail(String value) {
                 this.email = value;
@@ -2441,9 +2277,9 @@ public class TGTVe
 
         /**
          * <p>Classe Java de anonymous complex type.
-         * 
+         *
          * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-         * 
+         *
          * <pre>
          * &lt;complexType&gt;
          *   &lt;complexContent&gt;
@@ -2514,18 +2350,15 @@ public class TGTVe
          *   &lt;/complexContent&gt;
          * &lt;/complexType&gt;
          * </pre>
-         * 
-         * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "infEspecie",
-            "qCarga",
-            "infVeiculo"
+                "infEspecie",
+                "qCarga",
+                "infVeiculo"
         })
         public static class DetGTV
-            implements XML
-        {
+                implements XML {
 
             @XmlElement(required = true)
             protected List<TGTVe.InfCte.DetGTV.InfEspecie> infEspecie;
@@ -2536,25 +2369,23 @@ public class TGTVe
 
             /**
              * Gets the value of the infEspecie property.
-             * 
+             *
              * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the infEspecie property.
-             * 
+             *
              * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getInfEspecie().add(newItem);
              * </pre>
-             * 
-             * 
+             *
+             *
              * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link TGTVe.InfCte.DetGTV.InfEspecie }
-             * 
-             * 
              */
             public List<TGTVe.InfCte.DetGTV.InfEspecie> getInfEspecie() {
                 if (infEspecie == null) {
@@ -2565,11 +2396,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade qCarga.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getQCarga() {
                 return qCarga;
@@ -2577,11 +2406,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade qCarga.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setQCarga(String value) {
                 this.qCarga = value;
@@ -2589,25 +2416,23 @@ public class TGTVe
 
             /**
              * Gets the value of the infVeiculo property.
-             * 
+             *
              * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the infVeiculo property.
-             * 
+             *
              * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getInfVeiculo().add(newItem);
              * </pre>
-             * 
-             * 
+             *
+             *
              * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link TGTVe.InfCte.DetGTV.InfVeiculo }
-             * 
-             * 
              */
             public List<TGTVe.InfCte.DetGTV.InfVeiculo> getInfVeiculo() {
                 if (infVeiculo == null) {
@@ -2619,9 +2444,9 @@ public class TGTVe
 
             /**
              * <p>Classe Java de anonymous complex type.
-             * 
+             *
              * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-             * 
+             *
              * <pre>
              * &lt;complexType&gt;
              *   &lt;complexContent&gt;
@@ -2661,19 +2486,16 @@ public class TGTVe
              *   &lt;/complexContent&gt;
              * &lt;/complexType&gt;
              * </pre>
-             * 
-             * 
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
-                "tpEspecie",
-                "vEspecie",
-                "tpNumerario",
-                "xMoedaEstr"
+                    "tpEspecie",
+                    "vEspecie",
+                    "tpNumerario",
+                    "xMoedaEstr"
             })
             public static class InfEspecie
-                implements XML
-            {
+                    implements XML {
 
                 @XmlElement(required = true)
                 protected String tpEspecie;
@@ -2685,11 +2507,9 @@ public class TGTVe
 
                 /**
                  * Obtém o valor da propriedade tpEspecie.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getTpEspecie() {
                     return tpEspecie;
@@ -2697,11 +2517,9 @@ public class TGTVe
 
                 /**
                  * Define o valor da propriedade tpEspecie.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setTpEspecie(String value) {
                     this.tpEspecie = value;
@@ -2709,11 +2527,9 @@ public class TGTVe
 
                 /**
                  * Obtém o valor da propriedade vEspecie.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getVEspecie() {
                     return vEspecie;
@@ -2721,11 +2537,9 @@ public class TGTVe
 
                 /**
                  * Define o valor da propriedade vEspecie.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setVEspecie(String value) {
                     this.vEspecie = value;
@@ -2733,11 +2547,9 @@ public class TGTVe
 
                 /**
                  * Obtém o valor da propriedade tpNumerario.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getTpNumerario() {
                     return tpNumerario;
@@ -2745,11 +2557,9 @@ public class TGTVe
 
                 /**
                  * Define o valor da propriedade tpNumerario.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setTpNumerario(String value) {
                     this.tpNumerario = value;
@@ -2757,11 +2567,9 @@ public class TGTVe
 
                 /**
                  * Obtém o valor da propriedade xMoedaEstr.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getXMoedaEstr() {
                     return xMoedaEstr;
@@ -2769,11 +2577,9 @@ public class TGTVe
 
                 /**
                  * Define o valor da propriedade xMoedaEstr.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setXMoedaEstr(String value) {
                     this.xMoedaEstr = value;
@@ -2784,9 +2590,9 @@ public class TGTVe
 
             /**
              * <p>Classe Java de anonymous complex type.
-             * 
+             *
              * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-             * 
+             *
              * <pre>
              * &lt;complexType&gt;
              *   &lt;complexContent&gt;
@@ -2807,18 +2613,15 @@ public class TGTVe
              *   &lt;/complexContent&gt;
              * &lt;/complexType&gt;
              * </pre>
-             * 
-             * 
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
-                "placa",
-                "uf",
-                "rntrc"
+                    "placa",
+                    "uf",
+                    "rntrc"
             })
             public static class InfVeiculo
-                implements XML
-            {
+                    implements XML {
 
                 @XmlElement(required = true)
                 protected String placa;
@@ -2830,11 +2633,9 @@ public class TGTVe
 
                 /**
                  * Obtém o valor da propriedade placa.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getPlaca() {
                     return placa;
@@ -2842,11 +2643,9 @@ public class TGTVe
 
                 /**
                  * Define o valor da propriedade placa.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setPlaca(String value) {
                     this.placa = value;
@@ -2854,11 +2653,9 @@ public class TGTVe
 
                 /**
                  * Obtém o valor da propriedade uf.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link TUf }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link TUf }
                  */
                 public TUf getUF() {
                     return uf;
@@ -2866,11 +2663,9 @@ public class TGTVe
 
                 /**
                  * Define o valor da propriedade uf.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link TUf }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link TUf }
                  */
                 public void setUF(TUf value) {
                     this.uf = value;
@@ -2878,11 +2673,9 @@ public class TGTVe
 
                 /**
                  * Obtém o valor da propriedade rntrc.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getRNTRC() {
                     return rntrc;
@@ -2890,11 +2683,9 @@ public class TGTVe
 
                 /**
                  * Define o valor da propriedade rntrc.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setRNTRC(String value) {
                     this.rntrc = value;
@@ -2907,9 +2698,9 @@ public class TGTVe
 
         /**
          * <p>Classe Java de anonymous complex type.
-         * 
+         *
          * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-         * 
+         *
          * <pre>
          * &lt;complexType&gt;
          *   &lt;complexContent&gt;
@@ -2950,21 +2741,18 @@ public class TGTVe
          *   &lt;/complexContent&gt;
          * &lt;/complexType&gt;
          * </pre>
-         * 
-         * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "cnpj",
-            "ie",
-            "iest",
-            "xNome",
-            "xFant",
-            "enderEmit"
+                "cnpj",
+                "ie",
+                "iest",
+                "xNome",
+                "xFant",
+                "enderEmit"
         })
         public static class Emit
-            implements XML
-        {
+                implements XML {
 
             @XmlElement(name = "CNPJ", required = true)
             protected String cnpj;
@@ -2980,11 +2768,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade cnpj.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getCNPJ() {
                 return cnpj;
@@ -2992,11 +2778,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade cnpj.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setCNPJ(String value) {
                 this.cnpj = value;
@@ -3004,11 +2788,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade ie.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getIE() {
                 return ie;
@@ -3016,11 +2798,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade ie.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setIE(String value) {
                 this.ie = value;
@@ -3028,11 +2808,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade iest.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getIEST() {
                 return iest;
@@ -3040,11 +2818,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade iest.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setIEST(String value) {
                 this.iest = value;
@@ -3052,11 +2828,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade xNome.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getXNome() {
                 return xNome;
@@ -3064,11 +2838,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade xNome.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setXNome(String value) {
                 this.xNome = value;
@@ -3076,11 +2848,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade xFant.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getXFant() {
                 return xFant;
@@ -3088,11 +2858,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade xFant.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setXFant(String value) {
                 this.xFant = value;
@@ -3100,11 +2868,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade enderEmit.
-             * 
-             * @return
-             *     possible object is
-             *     {@link TEndeEmi }
-             *     
+             *
+             * @return possible object is
+             * {@link TEndeEmi }
              */
             public TEndeEmi getEnderEmit() {
                 return enderEmit;
@@ -3112,11 +2878,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade enderEmit.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link TEndeEmi }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link TEndeEmi }
              */
             public void setEnderEmit(TEndeEmi value) {
                 this.enderEmit = value;
@@ -3127,9 +2891,9 @@ public class TGTVe
 
         /**
          * <p>Classe Java de anonymous complex type.
-         * 
+         *
          * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-         * 
+         *
          * <pre>
          * &lt;complexType&gt;
          *   &lt;complexContent&gt;
@@ -3342,41 +3106,38 @@ public class TGTVe
          *   &lt;/complexContent&gt;
          * &lt;/complexType&gt;
          * </pre>
-         * 
-         * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "cuf",
-            "cct",
-            "cfop",
-            "natOp",
-            "mod",
-            "serie",
-            "nct",
-            "dhEmi",
-            "tpImp",
-            "tpEmis",
-            "cdv",
-            "tpAmb",
-            "tpCTe",
-            "verProc",
-            "cMunEnv",
-            "xMunEnv",
-            "ufEnv",
-            "modal",
-            "tpServ",
-            "indIEToma",
-            "dhSaidaOrig",
-            "dhChegadaDest",
-            "toma",
-            "tomaTerceiro",
-            "dhCont",
-            "xJust"
+                "cuf",
+                "cct",
+                "cfop",
+                "natOp",
+                "mod",
+                "serie",
+                "nct",
+                "dhEmi",
+                "tpImp",
+                "tpEmis",
+                "cdv",
+                "tpAmb",
+                "tpCTe",
+                "verProc",
+                "cMunEnv",
+                "xMunEnv",
+                "ufEnv",
+                "modal",
+                "tpServ",
+                "indIEToma",
+                "dhSaidaOrig",
+                "dhChegadaDest",
+                "toma",
+                "tomaTerceiro",
+                "dhCont",
+                "xJust"
         })
         public static class Ide
-            implements XML
-        {
+                implements XML {
 
             @XmlElement(name = "cUF", required = true)
             protected String cuf;
@@ -3430,11 +3191,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade cuf.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getCUF() {
                 return cuf;
@@ -3442,11 +3201,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade cuf.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setCUF(String value) {
                 this.cuf = value;
@@ -3454,11 +3211,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade cct.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getCCT() {
                 return cct;
@@ -3466,11 +3221,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade cct.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setCCT(String value) {
                 this.cct = value;
@@ -3478,11 +3231,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade cfop.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getCFOP() {
                 return cfop;
@@ -3490,11 +3241,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade cfop.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setCFOP(String value) {
                 this.cfop = value;
@@ -3502,11 +3251,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade natOp.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getNatOp() {
                 return natOp;
@@ -3514,11 +3261,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade natOp.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setNatOp(String value) {
                 this.natOp = value;
@@ -3526,11 +3271,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade mod.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getMod() {
                 return mod;
@@ -3538,11 +3281,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade mod.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setMod(String value) {
                 this.mod = value;
@@ -3550,11 +3291,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade serie.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getSerie() {
                 return serie;
@@ -3562,11 +3301,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade serie.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setSerie(String value) {
                 this.serie = value;
@@ -3574,11 +3311,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade nct.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getNCT() {
                 return nct;
@@ -3586,11 +3321,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade nct.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setNCT(String value) {
                 this.nct = value;
@@ -3598,11 +3331,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade dhEmi.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getDhEmi() {
                 return dhEmi;
@@ -3610,11 +3341,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade dhEmi.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setDhEmi(String value) {
                 this.dhEmi = value;
@@ -3622,11 +3351,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade tpImp.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getTpImp() {
                 return tpImp;
@@ -3634,11 +3361,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade tpImp.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setTpImp(String value) {
                 this.tpImp = value;
@@ -3646,11 +3371,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade tpEmis.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getTpEmis() {
                 return tpEmis;
@@ -3658,11 +3381,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade tpEmis.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setTpEmis(String value) {
                 this.tpEmis = value;
@@ -3670,11 +3391,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade cdv.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getCDV() {
                 return cdv;
@@ -3682,11 +3401,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade cdv.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setCDV(String value) {
                 this.cdv = value;
@@ -3694,11 +3411,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade tpAmb.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getTpAmb() {
                 return tpAmb;
@@ -3706,11 +3421,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade tpAmb.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setTpAmb(String value) {
                 this.tpAmb = value;
@@ -3718,11 +3431,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade tpCTe.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getTpCTe() {
                 return tpCTe;
@@ -3730,11 +3441,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade tpCTe.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setTpCTe(String value) {
                 this.tpCTe = value;
@@ -3742,11 +3451,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade verProc.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getVerProc() {
                 return verProc;
@@ -3754,11 +3461,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade verProc.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setVerProc(String value) {
                 this.verProc = value;
@@ -3766,11 +3471,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade cMunEnv.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getCMunEnv() {
                 return cMunEnv;
@@ -3778,11 +3481,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade cMunEnv.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setCMunEnv(String value) {
                 this.cMunEnv = value;
@@ -3790,11 +3491,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade xMunEnv.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getXMunEnv() {
                 return xMunEnv;
@@ -3802,11 +3501,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade xMunEnv.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setXMunEnv(String value) {
                 this.xMunEnv = value;
@@ -3814,11 +3511,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade ufEnv.
-             * 
-             * @return
-             *     possible object is
-             *     {@link TUf }
-             *     
+             *
+             * @return possible object is
+             * {@link TUf }
              */
             public TUf getUFEnv() {
                 return ufEnv;
@@ -3826,11 +3521,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade ufEnv.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link TUf }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link TUf }
              */
             public void setUFEnv(TUf value) {
                 this.ufEnv = value;
@@ -3838,11 +3531,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade modal.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getModal() {
                 return modal;
@@ -3850,11 +3541,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade modal.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setModal(String value) {
                 this.modal = value;
@@ -3862,11 +3551,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade tpServ.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getTpServ() {
                 return tpServ;
@@ -3874,11 +3561,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade tpServ.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setTpServ(String value) {
                 this.tpServ = value;
@@ -3886,11 +3571,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade indIEToma.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getIndIEToma() {
                 return indIEToma;
@@ -3898,11 +3581,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade indIEToma.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setIndIEToma(String value) {
                 this.indIEToma = value;
@@ -3910,11 +3591,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade dhSaidaOrig.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getDhSaidaOrig() {
                 return dhSaidaOrig;
@@ -3922,11 +3601,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade dhSaidaOrig.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setDhSaidaOrig(String value) {
                 this.dhSaidaOrig = value;
@@ -3934,11 +3611,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade dhChegadaDest.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getDhChegadaDest() {
                 return dhChegadaDest;
@@ -3946,11 +3621,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade dhChegadaDest.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setDhChegadaDest(String value) {
                 this.dhChegadaDest = value;
@@ -3958,11 +3631,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade toma.
-             * 
-             * @return
-             *     possible object is
-             *     {@link TGTVe.InfCte.Ide.Toma }
-             *     
+             *
+             * @return possible object is
+             * {@link TGTVe.InfCte.Ide.Toma }
              */
             public TGTVe.InfCte.Ide.Toma getToma() {
                 return toma;
@@ -3970,11 +3641,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade toma.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link TGTVe.InfCte.Ide.Toma }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link TGTVe.InfCte.Ide.Toma }
              */
             public void setToma(TGTVe.InfCte.Ide.Toma value) {
                 this.toma = value;
@@ -3982,11 +3651,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade tomaTerceiro.
-             * 
-             * @return
-             *     possible object is
-             *     {@link TGTVe.InfCte.Ide.TomaTerceiro }
-             *     
+             *
+             * @return possible object is
+             * {@link TGTVe.InfCte.Ide.TomaTerceiro }
              */
             public TGTVe.InfCte.Ide.TomaTerceiro getTomaTerceiro() {
                 return tomaTerceiro;
@@ -3994,11 +3661,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade tomaTerceiro.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link TGTVe.InfCte.Ide.TomaTerceiro }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link TGTVe.InfCte.Ide.TomaTerceiro }
              */
             public void setTomaTerceiro(TGTVe.InfCte.Ide.TomaTerceiro value) {
                 this.tomaTerceiro = value;
@@ -4006,11 +3671,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade dhCont.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getDhCont() {
                 return dhCont;
@@ -4018,11 +3681,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade dhCont.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setDhCont(String value) {
                 this.dhCont = value;
@@ -4030,11 +3691,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade xJust.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getXJust() {
                 return xJust;
@@ -4042,11 +3701,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade xJust.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setXJust(String value) {
                 this.xJust = value;
@@ -4055,9 +3712,9 @@ public class TGTVe
 
             /**
              * <p>Classe Java de anonymous complex type.
-             * 
+             *
              * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-             * 
+             *
              * <pre>
              * &lt;complexType&gt;
              *   &lt;complexContent&gt;
@@ -4077,27 +3734,22 @@ public class TGTVe
              *   &lt;/complexContent&gt;
              * &lt;/complexType&gt;
              * </pre>
-             * 
-             * 
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
-                "toma"
+                    "toma"
             })
             public static class Toma
-                implements XML
-            {
+                    implements XML {
 
                 @XmlElement(required = true)
                 protected String toma;
 
                 /**
                  * Obtém o valor da propriedade toma.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getToma() {
                     return toma;
@@ -4105,11 +3757,9 @@ public class TGTVe
 
                 /**
                  * Define o valor da propriedade toma.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setToma(String value) {
                     this.toma = value;
@@ -4120,9 +3770,9 @@ public class TGTVe
 
             /**
              * <p>Classe Java de anonymous complex type.
-             * 
+             *
              * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-             * 
+             *
              * <pre>
              * &lt;complexType&gt;
              *   &lt;complexContent&gt;
@@ -4170,24 +3820,21 @@ public class TGTVe
              *   &lt;/complexContent&gt;
              * &lt;/complexType&gt;
              * </pre>
-             * 
-             * 
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
-                "toma",
-                "cnpj",
-                "cpf",
-                "ie",
-                "xNome",
-                "xFant",
-                "fone",
-                "enderToma",
-                "email"
+                    "toma",
+                    "cnpj",
+                    "cpf",
+                    "ie",
+                    "xNome",
+                    "xFant",
+                    "fone",
+                    "enderToma",
+                    "email"
             })
             public static class TomaTerceiro
-                implements XML
-            {
+                    implements XML {
 
                 @XmlElement(required = true)
                 protected String toma;
@@ -4207,11 +3854,9 @@ public class TGTVe
 
                 /**
                  * Obtém o valor da propriedade toma.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getToma() {
                     return toma;
@@ -4219,11 +3864,9 @@ public class TGTVe
 
                 /**
                  * Define o valor da propriedade toma.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setToma(String value) {
                     this.toma = value;
@@ -4231,11 +3874,9 @@ public class TGTVe
 
                 /**
                  * Obtém o valor da propriedade cnpj.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getCNPJ() {
                     return cnpj;
@@ -4243,11 +3884,9 @@ public class TGTVe
 
                 /**
                  * Define o valor da propriedade cnpj.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setCNPJ(String value) {
                     this.cnpj = value;
@@ -4255,11 +3894,9 @@ public class TGTVe
 
                 /**
                  * Obtém o valor da propriedade cpf.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getCPF() {
                     return cpf;
@@ -4267,11 +3904,9 @@ public class TGTVe
 
                 /**
                  * Define o valor da propriedade cpf.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setCPF(String value) {
                     this.cpf = value;
@@ -4279,11 +3914,9 @@ public class TGTVe
 
                 /**
                  * Obtém o valor da propriedade ie.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getIE() {
                     return ie;
@@ -4291,11 +3924,9 @@ public class TGTVe
 
                 /**
                  * Define o valor da propriedade ie.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setIE(String value) {
                     this.ie = value;
@@ -4303,11 +3934,9 @@ public class TGTVe
 
                 /**
                  * Obtém o valor da propriedade xNome.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getXNome() {
                     return xNome;
@@ -4315,11 +3944,9 @@ public class TGTVe
 
                 /**
                  * Define o valor da propriedade xNome.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setXNome(String value) {
                     this.xNome = value;
@@ -4327,11 +3954,9 @@ public class TGTVe
 
                 /**
                  * Obtém o valor da propriedade xFant.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getXFant() {
                     return xFant;
@@ -4339,11 +3964,9 @@ public class TGTVe
 
                 /**
                  * Define o valor da propriedade xFant.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setXFant(String value) {
                     this.xFant = value;
@@ -4351,11 +3974,9 @@ public class TGTVe
 
                 /**
                  * Obtém o valor da propriedade fone.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getFone() {
                     return fone;
@@ -4363,11 +3984,9 @@ public class TGTVe
 
                 /**
                  * Define o valor da propriedade fone.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setFone(String value) {
                     this.fone = value;
@@ -4375,11 +3994,9 @@ public class TGTVe
 
                 /**
                  * Obtém o valor da propriedade enderToma.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link TEndereco }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link TEndereco }
                  */
                 public TEndereco getEnderToma() {
                     return enderToma;
@@ -4387,11 +4004,9 @@ public class TGTVe
 
                 /**
                  * Define o valor da propriedade enderToma.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link TEndereco }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link TEndereco }
                  */
                 public void setEnderToma(TEndereco value) {
                     this.enderToma = value;
@@ -4399,11 +4014,9 @@ public class TGTVe
 
                 /**
                  * Obtém o valor da propriedade email.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getEmail() {
                     return email;
@@ -4411,11 +4024,9 @@ public class TGTVe
 
                 /**
                  * Define o valor da propriedade email.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setEmail(String value) {
                     this.email = value;
@@ -4428,9 +4039,9 @@ public class TGTVe
 
         /**
          * <p>Classe Java de anonymous complex type.
-         * 
+         *
          * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-         * 
+         *
          * <pre>
          * &lt;complexType&gt;
          *   &lt;complexContent&gt;
@@ -4475,23 +4086,20 @@ public class TGTVe
          *   &lt;/complexContent&gt;
          * &lt;/complexType&gt;
          * </pre>
-         * 
-         * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "cnpj",
-            "cpf",
-            "ie",
-            "xNome",
-            "xFant",
-            "fone",
-            "enderReme",
-            "email"
+                "cnpj",
+                "cpf",
+                "ie",
+                "xNome",
+                "xFant",
+                "fone",
+                "enderReme",
+                "email"
         })
         public static class Rem
-            implements XML
-        {
+                implements XML {
 
             @XmlElement(name = "CNPJ")
             protected String cnpj;
@@ -4509,11 +4117,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade cnpj.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getCNPJ() {
                 return cnpj;
@@ -4521,11 +4127,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade cnpj.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setCNPJ(String value) {
                 this.cnpj = value;
@@ -4533,11 +4137,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade cpf.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getCPF() {
                 return cpf;
@@ -4545,11 +4147,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade cpf.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setCPF(String value) {
                 this.cpf = value;
@@ -4557,11 +4157,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade ie.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getIE() {
                 return ie;
@@ -4569,11 +4167,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade ie.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setIE(String value) {
                 this.ie = value;
@@ -4581,11 +4177,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade xNome.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getXNome() {
                 return xNome;
@@ -4593,11 +4187,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade xNome.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setXNome(String value) {
                 this.xNome = value;
@@ -4605,11 +4197,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade xFant.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getXFant() {
                 return xFant;
@@ -4617,11 +4207,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade xFant.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setXFant(String value) {
                 this.xFant = value;
@@ -4629,11 +4217,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade fone.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getFone() {
                 return fone;
@@ -4641,11 +4227,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade fone.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setFone(String value) {
                 this.fone = value;
@@ -4653,11 +4237,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade enderReme.
-             * 
-             * @return
-             *     possible object is
-             *     {@link TEndereco }
-             *     
+             *
+             * @return possible object is
+             * {@link TEndereco }
              */
             public TEndereco getEnderReme() {
                 return enderReme;
@@ -4665,11 +4247,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade enderReme.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link TEndereco }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link TEndereco }
              */
             public void setEnderReme(TEndereco value) {
                 this.enderReme = value;
@@ -4677,11 +4257,9 @@ public class TGTVe
 
             /**
              * Obtém o valor da propriedade email.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getEmail() {
                 return email;
@@ -4689,11 +4267,9 @@ public class TGTVe
 
             /**
              * Define o valor da propriedade email.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setEmail(String value) {
                 this.email = value;
@@ -4706,9 +4282,9 @@ public class TGTVe
 
     /**
      * <p>Classe Java de anonymous complex type.
-     * 
+     *
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     * 
+     *
      * <pre>
      * &lt;complexType&gt;
      *   &lt;complexContent&gt;
@@ -4729,27 +4305,22 @@ public class TGTVe
      *   &lt;/complexContent&gt;
      * &lt;/complexType&gt;
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "qrCodCTe"
+            "qrCodCTe"
     })
     public static class InfCTeSupl
-        implements XML
-    {
+            implements XML {
 
         @XmlElement(required = true)
         protected String qrCodCTe;
 
         /**
          * Obtém o valor da propriedade qrCodCTe.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getQrCodCTe() {
             return qrCodCTe;
@@ -4757,11 +4328,9 @@ public class TGTVe
 
         /**
          * Define o valor da propriedade qrCodCTe.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setQrCodCTe(String value) {
             this.qrCodCTe = value;

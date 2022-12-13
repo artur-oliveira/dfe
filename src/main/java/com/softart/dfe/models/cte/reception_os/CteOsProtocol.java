@@ -1,8 +1,8 @@
 package com.softart.dfe.models.cte.reception_os;
 
 import br.inf.portalfiscal.cte.send.TProtCTeOS;
-import com.softart.dfe.interfaces.xml.DFObject;
 import com.softart.dfe.interfaces.xml.XMLAdapter;
+import com.softart.dfe.interfaces.xml.generic.DFObject;
 import lombok.*;
 
 @Data

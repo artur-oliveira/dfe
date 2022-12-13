@@ -8,20 +8,21 @@
 
 package br.inf.portalfiscal.cte.send;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.softart.dfe.interfaces.xml.generic.XML;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
  * <p>Classe Java de Aquav complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="Aquav"&gt;
  *   &lt;complexContent&gt;
@@ -81,24 +82,21 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Aquav", propOrder = {
-    "vPrest",
-    "vafrmm",
-    "xNavio",
-    "balsa",
-    "nViag",
-    "direc",
-    "irin",
-    "detCont",
-    "tpNav"
+        "vPrest",
+        "vafrmm",
+        "xNavio",
+        "balsa",
+        "nViag",
+        "direc",
+        "irin",
+        "detCont",
+        "tpNav"
 })
 public class Aquav
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected String vPrest;
@@ -117,11 +115,9 @@ public class Aquav
 
     /**
      * Obtém o valor da propriedade vPrest.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVPrest() {
         return vPrest;
@@ -129,11 +125,9 @@ public class Aquav
 
     /**
      * Define o valor da propriedade vPrest.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVPrest(String value) {
         this.vPrest = value;
@@ -141,11 +135,9 @@ public class Aquav
 
     /**
      * Obtém o valor da propriedade vafrmm.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVAFRMM() {
         return vafrmm;
@@ -153,11 +145,9 @@ public class Aquav
 
     /**
      * Define o valor da propriedade vafrmm.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVAFRMM(String value) {
         this.vafrmm = value;
@@ -165,11 +155,9 @@ public class Aquav
 
     /**
      * Obtém o valor da propriedade xNavio.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getXNavio() {
         return xNavio;
@@ -177,11 +165,9 @@ public class Aquav
 
     /**
      * Define o valor da propriedade xNavio.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setXNavio(String value) {
         this.xNavio = value;
@@ -189,25 +175,23 @@ public class Aquav
 
     /**
      * Gets the value of the balsa property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the balsa property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getBalsa().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Balsa }
-     * 
-     * 
      */
     public List<Balsa> getBalsa() {
         if (balsa == null) {
@@ -218,11 +202,9 @@ public class Aquav
 
     /**
      * Obtém o valor da propriedade nViag.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getNViag() {
         return nViag;
@@ -230,11 +212,9 @@ public class Aquav
 
     /**
      * Define o valor da propriedade nViag.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setNViag(String value) {
         this.nViag = value;
@@ -242,11 +222,9 @@ public class Aquav
 
     /**
      * Obtém o valor da propriedade direc.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getDirec() {
         return direc;
@@ -254,11 +232,9 @@ public class Aquav
 
     /**
      * Define o valor da propriedade direc.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setDirec(String value) {
         this.direc = value;
@@ -266,11 +242,9 @@ public class Aquav
 
     /**
      * Obtém o valor da propriedade irin.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getIrin() {
         return irin;
@@ -278,11 +252,9 @@ public class Aquav
 
     /**
      * Define o valor da propriedade irin.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setIrin(String value) {
         this.irin = value;
@@ -290,25 +262,23 @@ public class Aquav
 
     /**
      * Gets the value of the detCont property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the detCont property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getDetCont().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link DetCont }
-     * 
-     * 
      */
     public List<DetCont> getDetCont() {
         if (detCont == null) {
@@ -319,11 +289,9 @@ public class Aquav
 
     /**
      * Obtém o valor da propriedade tpNav.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getTpNav() {
         return tpNav;
@@ -331,11 +299,9 @@ public class Aquav
 
     /**
      * Define o valor da propriedade tpNav.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setTpNav(String value) {
         this.tpNav = value;

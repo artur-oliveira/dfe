@@ -8,19 +8,16 @@
 
 package br.inf.portalfiscal.cte.send;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
+import com.softart.dfe.interfaces.xml.generic.XML;
+
+import javax.xml.bind.annotation.*;
 
 
 /**
  * <p>Classe Java de EmiOcc complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="EmiOcc"&gt;
  *   &lt;complexContent&gt;
@@ -43,20 +40,17 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "EmiOcc", propOrder = {
-    "cnpj",
-    "cInt",
-    "ie",
-    "uf",
-    "fone"
+        "cnpj",
+        "cInt",
+        "ie",
+        "uf",
+        "fone"
 })
 public class EmiOcc
-    implements XML
-{
+        implements XML {
 
     @XmlElement(name = "CNPJ", required = true)
     protected String cnpj;
@@ -70,11 +64,9 @@ public class EmiOcc
 
     /**
      * Obtém o valor da propriedade cnpj.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCNPJ() {
         return cnpj;
@@ -82,11 +74,9 @@ public class EmiOcc
 
     /**
      * Define o valor da propriedade cnpj.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCNPJ(String value) {
         this.cnpj = value;
@@ -94,11 +84,9 @@ public class EmiOcc
 
     /**
      * Obtém o valor da propriedade cInt.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCInt() {
         return cInt;
@@ -106,11 +94,9 @@ public class EmiOcc
 
     /**
      * Define o valor da propriedade cInt.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCInt(String value) {
         this.cInt = value;
@@ -118,11 +104,9 @@ public class EmiOcc
 
     /**
      * Obtém o valor da propriedade ie.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getIE() {
         return ie;
@@ -130,11 +114,9 @@ public class EmiOcc
 
     /**
      * Define o valor da propriedade ie.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setIE(String value) {
         this.ie = value;
@@ -142,11 +124,9 @@ public class EmiOcc
 
     /**
      * Obtém o valor da propriedade uf.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TUf }
-     *     
+     *
+     * @return possible object is
+     * {@link TUf }
      */
     public TUf getUF() {
         return uf;
@@ -154,11 +134,9 @@ public class EmiOcc
 
     /**
      * Define o valor da propriedade uf.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TUf }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link TUf }
      */
     public void setUF(TUf value) {
         this.uf = value;
@@ -166,11 +144,9 @@ public class EmiOcc
 
     /**
      * Obtém o valor da propriedade fone.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getFone() {
         return fone;
@@ -178,11 +154,9 @@ public class EmiOcc
 
     /**
      * Define o valor da propriedade fone.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setFone(String value) {
         this.fone = value;

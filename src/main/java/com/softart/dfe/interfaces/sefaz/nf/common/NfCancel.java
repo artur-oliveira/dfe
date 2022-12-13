@@ -10,6 +10,12 @@ import com.softart.dfe.interfaces.sefaz.SefazRequest;
 
 public interface NfCancel {
 
+    /**
+     * It cancels the event.
+     *
+     * @param data The request object.
+     * @return Pair<TEnvEvento, TRetEnvEvento>
+     */
     <T extends SefazRequest<TEnvEvento, TRetEnvEvento>> Pair<TEnvEvento, TRetEnvEvento> cancel(T data) throws SecurityException, ValidationException, ProcessException;
 
 }

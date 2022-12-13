@@ -8,7 +8,7 @@
 
 package br.inf.portalfiscal.nfe.distribution;
 
-import com.softart.dfe.interfaces.xml.XML;
+import com.softart.dfe.interfaces.xml.generic.XML;
 
 import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
@@ -17,9 +17,9 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 /**
  * <p>Classe Java de SignedInfoType complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="SignedInfoType"&gt;
  *   &lt;complexContent&gt;
@@ -50,18 +50,15 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "SignedInfoType", propOrder = {
-    "canonicalizationMethod",
-    "signatureMethod",
-    "reference"
+        "canonicalizationMethod",
+        "signatureMethod",
+        "reference"
 })
 public class SignedInfoType
-    implements XML
-{
+        implements XML {
 
     @XmlElement(name = "CanonicalizationMethod", required = true)
     protected SignedInfoType.CanonicalizationMethod canonicalizationMethod;
@@ -77,11 +74,9 @@ public class SignedInfoType
 
     /**
      * Obtém o valor da propriedade canonicalizationMethod.
-     * 
-     * @return
-     *     possible object is
-     *     {@link SignedInfoType.CanonicalizationMethod }
-     *     
+     *
+     * @return possible object is
+     * {@link SignedInfoType.CanonicalizationMethod }
      */
     public SignedInfoType.CanonicalizationMethod getCanonicalizationMethod() {
         return canonicalizationMethod;
@@ -89,11 +84,9 @@ public class SignedInfoType
 
     /**
      * Define o valor da propriedade canonicalizationMethod.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link SignedInfoType.CanonicalizationMethod }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link SignedInfoType.CanonicalizationMethod }
      */
     public void setCanonicalizationMethod(SignedInfoType.CanonicalizationMethod value) {
         this.canonicalizationMethod = value;
@@ -101,11 +94,9 @@ public class SignedInfoType
 
     /**
      * Obtém o valor da propriedade signatureMethod.
-     * 
-     * @return
-     *     possible object is
-     *     {@link SignedInfoType.SignatureMethod }
-     *     
+     *
+     * @return possible object is
+     * {@link SignedInfoType.SignatureMethod }
      */
     public SignedInfoType.SignatureMethod getSignatureMethod() {
         return signatureMethod;
@@ -113,11 +104,9 @@ public class SignedInfoType
 
     /**
      * Define o valor da propriedade signatureMethod.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link SignedInfoType.SignatureMethod }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link SignedInfoType.SignatureMethod }
      */
     public void setSignatureMethod(SignedInfoType.SignatureMethod value) {
         this.signatureMethod = value;
@@ -125,11 +114,9 @@ public class SignedInfoType
 
     /**
      * Obtém o valor da propriedade reference.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ReferenceType }
-     *     
+     *
+     * @return possible object is
+     * {@link ReferenceType }
      */
     public ReferenceType getReference() {
         return reference;
@@ -137,11 +124,9 @@ public class SignedInfoType
 
     /**
      * Define o valor da propriedade reference.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link ReferenceType }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link ReferenceType }
      */
     public void setReference(ReferenceType value) {
         this.reference = value;
@@ -149,11 +134,9 @@ public class SignedInfoType
 
     /**
      * Obtém o valor da propriedade id.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getId() {
         return id;
@@ -161,11 +144,9 @@ public class SignedInfoType
 
     /**
      * Define o valor da propriedade id.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setId(String value) {
         this.id = value;
@@ -174,9 +155,9 @@ public class SignedInfoType
 
     /**
      * <p>Classe Java de anonymous complex type.
-     * 
+     *
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     * 
+     *
      * <pre>
      * &lt;complexType&gt;
      *   &lt;complexContent&gt;
@@ -186,14 +167,11 @@ public class SignedInfoType
      *   &lt;/complexContent&gt;
      * &lt;/complexType&gt;
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "")
     public static class CanonicalizationMethod
-        implements XML
-    {
+            implements XML {
 
         @XmlAttribute(name = "Algorithm", required = true)
         @XmlSchemaType(name = "anyURI")
@@ -201,11 +179,9 @@ public class SignedInfoType
 
         /**
          * Obtém o valor da propriedade algorithm.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getAlgorithm() {
             if (algorithm == null) {
@@ -217,11 +193,9 @@ public class SignedInfoType
 
         /**
          * Define o valor da propriedade algorithm.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setAlgorithm(String value) {
             this.algorithm = value;
@@ -232,9 +206,9 @@ public class SignedInfoType
 
     /**
      * <p>Classe Java de anonymous complex type.
-     * 
+     *
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     * 
+     *
      * <pre>
      * &lt;complexType&gt;
      *   &lt;complexContent&gt;
@@ -244,14 +218,11 @@ public class SignedInfoType
      *   &lt;/complexContent&gt;
      * &lt;/complexType&gt;
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "")
     public static class SignatureMethod
-        implements XML
-    {
+            implements XML {
 
         @XmlAttribute(name = "Algorithm", required = true)
         @XmlSchemaType(name = "anyURI")
@@ -259,11 +230,9 @@ public class SignedInfoType
 
         /**
          * Obtém o valor da propriedade algorithm.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getAlgorithm() {
             if (algorithm == null) {
@@ -275,11 +244,9 @@ public class SignedInfoType
 
         /**
          * Define o valor da propriedade algorithm.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setAlgorithm(String value) {
             this.algorithm = value;

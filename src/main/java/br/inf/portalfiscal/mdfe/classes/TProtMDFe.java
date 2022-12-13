@@ -8,25 +8,20 @@
 
 package br.inf.portalfiscal.mdfe.classes;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlID;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
+import com.softart.dfe.interfaces.xml.generic.XML;
+
+import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-import com.softart.dfe.interfaces.xml.XML;
 
 
 /**
  * Tipo Protocolo de status resultado do processamento do MDF-e
- * 
+ *
  * <p>Classe Java de TProtMDFe complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="TProtMDFe"&gt;
  *   &lt;complexContent&gt;
@@ -80,18 +75,15 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TProtMDFe", propOrder = {
-    "infProt",
-    "infFisco",
-    "signature"
+        "infProt",
+        "infFisco",
+        "signature"
 })
 public class TProtMDFe
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected TProtMDFe.InfProt infProt;
@@ -103,11 +95,9 @@ public class TProtMDFe
 
     /**
      * Obtém o valor da propriedade infProt.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TProtMDFe.InfProt }
-     *     
+     *
+     * @return possible object is
+     * {@link TProtMDFe.InfProt }
      */
     public TProtMDFe.InfProt getInfProt() {
         return infProt;
@@ -115,11 +105,9 @@ public class TProtMDFe
 
     /**
      * Define o valor da propriedade infProt.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TProtMDFe.InfProt }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link TProtMDFe.InfProt }
      */
     public void setInfProt(TProtMDFe.InfProt value) {
         this.infProt = value;
@@ -127,11 +115,9 @@ public class TProtMDFe
 
     /**
      * Obtém o valor da propriedade infFisco.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TProtMDFe.InfFisco }
-     *     
+     *
+     * @return possible object is
+     * {@link TProtMDFe.InfFisco }
      */
     public TProtMDFe.InfFisco getInfFisco() {
         return infFisco;
@@ -139,11 +125,9 @@ public class TProtMDFe
 
     /**
      * Define o valor da propriedade infFisco.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TProtMDFe.InfFisco }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link TProtMDFe.InfFisco }
      */
     public void setInfFisco(TProtMDFe.InfFisco value) {
         this.infFisco = value;
@@ -151,11 +135,9 @@ public class TProtMDFe
 
     /**
      * Obtém o valor da propriedade signature.
-     * 
-     * @return
-     *     possible object is
-     *     {@link SignatureType }
-     *     
+     *
+     * @return possible object is
+     * {@link SignatureType }
      */
     public SignatureType getSignature() {
         return signature;
@@ -163,11 +145,9 @@ public class TProtMDFe
 
     /**
      * Define o valor da propriedade signature.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link SignatureType }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link SignatureType }
      */
     public void setSignature(SignatureType value) {
         this.signature = value;
@@ -175,11 +155,9 @@ public class TProtMDFe
 
     /**
      * Obtém o valor da propriedade versao.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVersao() {
         return versao;
@@ -187,11 +165,9 @@ public class TProtMDFe
 
     /**
      * Define o valor da propriedade versao.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVersao(String value) {
         this.versao = value;
@@ -200,9 +176,9 @@ public class TProtMDFe
 
     /**
      * <p>Classe Java de anonymous complex type.
-     * 
+     *
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     * 
+     *
      * <pre>
      * &lt;complexType&gt;
      *   &lt;complexContent&gt;
@@ -220,17 +196,14 @@ public class TProtMDFe
      *   &lt;/complexContent&gt;
      * &lt;/complexType&gt;
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "cMsg",
-        "xMsg"
+            "cMsg",
+            "xMsg"
     })
     public static class InfFisco
-        implements XML
-    {
+            implements XML {
 
         @XmlElement(required = true)
         protected String cMsg;
@@ -239,11 +212,9 @@ public class TProtMDFe
 
         /**
          * Obtém o valor da propriedade cMsg.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getCMsg() {
             return cMsg;
@@ -251,11 +222,9 @@ public class TProtMDFe
 
         /**
          * Define o valor da propriedade cMsg.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setCMsg(String value) {
             this.cMsg = value;
@@ -263,11 +232,9 @@ public class TProtMDFe
 
         /**
          * Obtém o valor da propriedade xMsg.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getXMsg() {
             return xMsg;
@@ -275,11 +242,9 @@ public class TProtMDFe
 
         /**
          * Define o valor da propriedade xMsg.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setXMsg(String value) {
             this.xMsg = value;
@@ -290,9 +255,9 @@ public class TProtMDFe
 
     /**
      * <p>Classe Java de anonymous complex type.
-     * 
+     *
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     * 
+     *
      * <pre>
      * &lt;complexType&gt;
      *   &lt;complexContent&gt;
@@ -317,23 +282,20 @@ public class TProtMDFe
      *   &lt;/complexContent&gt;
      * &lt;/complexType&gt;
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "tpAmb",
-        "verAplic",
-        "chMDFe",
-        "dhRecbto",
-        "nProt",
-        "digVal",
-        "cStat",
-        "xMotivo"
+            "tpAmb",
+            "verAplic",
+            "chMDFe",
+            "dhRecbto",
+            "nProt",
+            "digVal",
+            "cStat",
+            "xMotivo"
     })
     public static class InfProt
-        implements XML
-    {
+            implements XML {
 
         @XmlElement(required = true)
         protected String tpAmb;
@@ -357,11 +319,9 @@ public class TProtMDFe
 
         /**
          * Obtém o valor da propriedade tpAmb.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getTpAmb() {
             return tpAmb;
@@ -369,11 +329,9 @@ public class TProtMDFe
 
         /**
          * Define o valor da propriedade tpAmb.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setTpAmb(String value) {
             this.tpAmb = value;
@@ -381,11 +339,9 @@ public class TProtMDFe
 
         /**
          * Obtém o valor da propriedade verAplic.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getVerAplic() {
             return verAplic;
@@ -393,11 +349,9 @@ public class TProtMDFe
 
         /**
          * Define o valor da propriedade verAplic.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setVerAplic(String value) {
             this.verAplic = value;
@@ -405,11 +359,9 @@ public class TProtMDFe
 
         /**
          * Obtém o valor da propriedade chMDFe.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getChMDFe() {
             return chMDFe;
@@ -417,11 +369,9 @@ public class TProtMDFe
 
         /**
          * Define o valor da propriedade chMDFe.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setChMDFe(String value) {
             this.chMDFe = value;
@@ -429,11 +379,9 @@ public class TProtMDFe
 
         /**
          * Obtém o valor da propriedade dhRecbto.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getDhRecbto() {
             return dhRecbto;
@@ -441,11 +389,9 @@ public class TProtMDFe
 
         /**
          * Define o valor da propriedade dhRecbto.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setDhRecbto(String value) {
             this.dhRecbto = value;
@@ -453,11 +399,9 @@ public class TProtMDFe
 
         /**
          * Obtém o valor da propriedade nProt.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getNProt() {
             return nProt;
@@ -465,11 +409,9 @@ public class TProtMDFe
 
         /**
          * Define o valor da propriedade nProt.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setNProt(String value) {
             this.nProt = value;
@@ -477,10 +419,9 @@ public class TProtMDFe
 
         /**
          * Obtém o valor da propriedade digVal.
-         * 
-         * @return
-         *     possible object is
-         *     byte[]
+         *
+         * @return possible object is
+         * byte[]
          */
         public byte[] getDigVal() {
             return digVal;
@@ -488,10 +429,9 @@ public class TProtMDFe
 
         /**
          * Define o valor da propriedade digVal.
-         * 
-         * @param value
-         *     allowed object is
-         *     byte[]
+         *
+         * @param value allowed object is
+         *              byte[]
          */
         public void setDigVal(byte[] value) {
             this.digVal = value;
@@ -499,11 +439,9 @@ public class TProtMDFe
 
         /**
          * Obtém o valor da propriedade cStat.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getCStat() {
             return cStat;
@@ -511,11 +449,9 @@ public class TProtMDFe
 
         /**
          * Define o valor da propriedade cStat.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setCStat(String value) {
             this.cStat = value;
@@ -523,11 +459,9 @@ public class TProtMDFe
 
         /**
          * Obtém o valor da propriedade xMotivo.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getXMotivo() {
             return xMotivo;
@@ -535,11 +469,9 @@ public class TProtMDFe
 
         /**
          * Define o valor da propriedade xMotivo.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setXMotivo(String value) {
             this.xMotivo = value;
@@ -547,11 +479,9 @@ public class TProtMDFe
 
         /**
          * Obtém o valor da propriedade id.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getId() {
             return id;
@@ -559,11 +489,9 @@ public class TProtMDFe
 
         /**
          * Define o valor da propriedade id.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setId(String value) {
             this.id = value;

@@ -13,22 +13,21 @@ public final class RequireUtils {
     }
 
     /**
-     * Non null t.
+     * If the object is null, throw an exception, otherwise return the object.
      *
-     * @param <T> the type parameter
-     * @param obj the obj
-     * @return the t
+     * @param obj The object to check
+     * @return A non-null object.
      */
     public static <T> T nonNull(T obj) {
         return nonNull(obj, "Object is required");
     }
 
     /**
-     * Non null t.
+     * If the object is null, throw a RequiredException with the given message, otherwise return the object.
      *
-     * @param <T> the type parameter
-     * @param obj the obj
-     * @return the t
+     * @param obj The object to check for null
+     * @param msg The message to be displayed when the exception is thrown.
+     * @return A non-null object.
      */
     public static <T> T nonNull(T obj, String msg) {
         try {

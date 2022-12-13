@@ -1,57 +1,19 @@
 package com.softart.dfe.services.nf.manifestation;
 
+import com.softart.dfe.components.internal.PairImpl;
 import com.softart.dfe.enums.nf.NFEvent;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.exceptions.ValidationException;
 import com.softart.dfe.exceptions.port.SoapServiceGeneralException;
 import com.softart.dfe.exceptions.security.SecurityException;
 import com.softart.dfe.exceptions.services.NoProviderFound;
-import com.softart.dfe.models.nf.manifestation.NfeManifestationRequest;
 import com.softart.dfe.models.nf.manifestation.NfeReturnManifestation;
-import com.softart.dfe.models.nf.manifestation.NfeSendManifestation;
 import com.softart.dfe.services.nf.query_protocol.NfQueryProtocolService;
 
+import java.util.Collection;
+import java.util.stream.Collectors;
+
 public abstract class AbstractManifestationService implements NfeManifestationService {
-
-    @Override
-    public NfeReturnManifestation manifestation(NfeSendManifestation manifestation) throws NoProviderFound, ProcessException, ValidationException, SecurityException, SoapServiceGeneralException {
-        return NfeReturnManifestation
-                .builder()
-                .build()
-                .fromObject(getProviderFactory()
-                        .getNfeService(getConfig())
-                        .manifestation(NfeManifestationRequest
-                                .builder()
-                                .signer(getXmlSigner())
-                                .config(getConfig())
-                                .data(manifestation.toObject())
-                                .validators(getValidatorFactory().nfeValidator().manifestationValidators())
-                                .configureProvider(getConfigureProviderFactory())
-                                .afterRequest(getProcess().afterManifestation())
-                                .beforeRequest(getProcess().beforeManifestation())
-                                .build())
-                        .second());
-    }
-
-    @Override
-    public NfeReturnManifestation confirmation(String accessKey, String nseq) throws ProcessException, ValidationException, NoProviderFound, SecurityException, SoapServiceGeneralException {
-        return manifestation(NfeSendManifestation.operationConfirmation(accessKey, nseq, getConfig()));
-    }
-
-    @Override
-    public NfeReturnManifestation science(String accessKey, String nseq) throws ProcessException, ValidationException, NoProviderFound, SecurityException, SoapServiceGeneralException {
-        return manifestation(NfeSendManifestation.operationScience(accessKey, nseq, getConfig()));
-    }
-
-    @Override
-    public NfeReturnManifestation ignorance(String accessKey, String motive, String nseq) throws ProcessException, ValidationException, NoProviderFound, SecurityException, SoapServiceGeneralException {
-        return manifestation(NfeSendManifestation.operationIgnorance(accessKey, nseq, motive, getConfig()));
-    }
-
-    @Override
-    public NfeReturnManifestation notPerformed(String accessKey, String motive, String nseq) throws ProcessException, ValidationException, NoProviderFound, SecurityException, SoapServiceGeneralException {
-        return manifestation(NfeSendManifestation.operationNotPerformed(accessKey, nseq, motive, getConfig()));
-    }
 
     @Override
     public NfeReturnManifestation confirmation(String accessKey) throws ProcessException, ValidationException, NoProviderFound, SecurityException, SoapServiceGeneralException {
@@ -59,8 +21,15 @@ public abstract class AbstractManifestationService implements NfeManifestationSe
     }
 
     @Override
-    public NfeReturnManifestation science(String accessKey) throws ProcessException, ValidationException, NoProviderFound, SecurityException, SoapServiceGeneralException {
-        return science(accessKey, String.valueOf(getNfeQueryProtocolService().getLastSequenceNumber(accessKey, NFEvent.OPERATION_SCIENCE)));
+    public NfeReturnManifestation science(Collection<String> accessKey) throws ProcessException, ValidationException, NoProviderFound, SecurityException, SoapServiceGeneralException {
+        return science(accessKey.stream().map(it -> {
+            try {
+                return new PairImpl<>(it, String.valueOf(getNfeQueryProtocolService().getLastSequenceNumber(it, NFEvent.OPERATION_SCIENCE)));
+            } catch (NoProviderFound | SecurityException | ProcessException | ValidationException |
+                     SoapServiceGeneralException e) {
+                throw new RuntimeException(e);
+            }
+        }).collect(Collectors.toList()));
     }
 
     @Override

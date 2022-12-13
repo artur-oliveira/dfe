@@ -8,20 +8,21 @@
 
 package br.inf.portalfiscal.cte.send;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.softart.dfe.interfaces.xml.generic.XML;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
  * <p>Classe Java de EvGTV complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="EvGTV"&gt;
  *   &lt;complexContent&gt;
@@ -42,17 +43,14 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "EvGTV", propOrder = {
-    "descEvento",
-    "infGTV"
+        "descEvento",
+        "infGTV"
 })
 public class EvGTV
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected String descEvento;
@@ -61,11 +59,9 @@ public class EvGTV
 
     /**
      * Obtém o valor da propriedade descEvento.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getDescEvento() {
         return descEvento;
@@ -73,11 +69,9 @@ public class EvGTV
 
     /**
      * Define o valor da propriedade descEvento.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setDescEvento(String value) {
         this.descEvento = value;
@@ -85,25 +79,23 @@ public class EvGTV
 
     /**
      * Gets the value of the infGTV property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the infGTV property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getInfGTV().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link InfGTV }
-     * 
-     * 
      */
     public List<InfGTV> getInfGTV() {
         if (infGTV == null) {

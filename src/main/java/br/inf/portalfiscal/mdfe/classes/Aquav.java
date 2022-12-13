@@ -8,20 +8,21 @@
 
 package br.inf.portalfiscal.mdfe.classes;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.softart.dfe.interfaces.xml.generic.XML;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
  * <p>Classe Java de Aquav complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="Aquav"&gt;
  *   &lt;complexContent&gt;
@@ -224,29 +225,26 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Aquav", propOrder = {
-    "irin",
-    "tpEmb",
-    "cEmbar",
-    "xEmbar",
-    "nViag",
-    "cPrtEmb",
-    "cPrtDest",
-    "prtTrans",
-    "tpNav",
-    "infTermCarreg",
-    "infTermDescarreg",
-    "infEmbComb",
-    "infUnidCargaVazia",
-    "infUnidTranspVazia"
+        "irin",
+        "tpEmb",
+        "cEmbar",
+        "xEmbar",
+        "nViag",
+        "cPrtEmb",
+        "cPrtDest",
+        "prtTrans",
+        "tpNav",
+        "infTermCarreg",
+        "infTermDescarreg",
+        "infEmbComb",
+        "infUnidCargaVazia",
+        "infUnidTranspVazia"
 })
 public class Aquav
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected String irin;
@@ -272,11 +270,9 @@ public class Aquav
 
     /**
      * Obtém o valor da propriedade irin.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getIrin() {
         return irin;
@@ -284,11 +280,9 @@ public class Aquav
 
     /**
      * Define o valor da propriedade irin.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setIrin(String value) {
         this.irin = value;
@@ -296,11 +290,9 @@ public class Aquav
 
     /**
      * Obtém o valor da propriedade tpEmb.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getTpEmb() {
         return tpEmb;
@@ -308,11 +300,9 @@ public class Aquav
 
     /**
      * Define o valor da propriedade tpEmb.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setTpEmb(String value) {
         this.tpEmb = value;
@@ -320,11 +310,9 @@ public class Aquav
 
     /**
      * Obtém o valor da propriedade cEmbar.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCEmbar() {
         return cEmbar;
@@ -332,11 +320,9 @@ public class Aquav
 
     /**
      * Define o valor da propriedade cEmbar.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCEmbar(String value) {
         this.cEmbar = value;
@@ -344,11 +330,9 @@ public class Aquav
 
     /**
      * Obtém o valor da propriedade xEmbar.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getXEmbar() {
         return xEmbar;
@@ -356,11 +340,9 @@ public class Aquav
 
     /**
      * Define o valor da propriedade xEmbar.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setXEmbar(String value) {
         this.xEmbar = value;
@@ -368,11 +350,9 @@ public class Aquav
 
     /**
      * Obtém o valor da propriedade nViag.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getNViag() {
         return nViag;
@@ -380,11 +360,9 @@ public class Aquav
 
     /**
      * Define o valor da propriedade nViag.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setNViag(String value) {
         this.nViag = value;
@@ -392,11 +370,9 @@ public class Aquav
 
     /**
      * Obtém o valor da propriedade cPrtEmb.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCPrtEmb() {
         return cPrtEmb;
@@ -404,11 +380,9 @@ public class Aquav
 
     /**
      * Define o valor da propriedade cPrtEmb.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCPrtEmb(String value) {
         this.cPrtEmb = value;
@@ -416,11 +390,9 @@ public class Aquav
 
     /**
      * Obtém o valor da propriedade cPrtDest.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCPrtDest() {
         return cPrtDest;
@@ -428,11 +400,9 @@ public class Aquav
 
     /**
      * Define o valor da propriedade cPrtDest.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCPrtDest(String value) {
         this.cPrtDest = value;
@@ -440,11 +410,9 @@ public class Aquav
 
     /**
      * Obtém o valor da propriedade prtTrans.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getPrtTrans() {
         return prtTrans;
@@ -452,11 +420,9 @@ public class Aquav
 
     /**
      * Define o valor da propriedade prtTrans.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setPrtTrans(String value) {
         this.prtTrans = value;
@@ -464,11 +430,9 @@ public class Aquav
 
     /**
      * Obtém o valor da propriedade tpNav.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getTpNav() {
         return tpNav;
@@ -476,11 +440,9 @@ public class Aquav
 
     /**
      * Define o valor da propriedade tpNav.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setTpNav(String value) {
         this.tpNav = value;
@@ -488,25 +450,23 @@ public class Aquav
 
     /**
      * Gets the value of the infTermCarreg property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the infTermCarreg property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getInfTermCarreg().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Aquav.InfTermCarreg }
-     * 
-     * 
      */
     public List<Aquav.InfTermCarreg> getInfTermCarreg() {
         if (infTermCarreg == null) {
@@ -517,25 +477,23 @@ public class Aquav
 
     /**
      * Gets the value of the infTermDescarreg property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the infTermDescarreg property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getInfTermDescarreg().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Aquav.InfTermDescarreg }
-     * 
-     * 
      */
     public List<Aquav.InfTermDescarreg> getInfTermDescarreg() {
         if (infTermDescarreg == null) {
@@ -546,25 +504,23 @@ public class Aquav
 
     /**
      * Gets the value of the infEmbComb property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the infEmbComb property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getInfEmbComb().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Aquav.InfEmbComb }
-     * 
-     * 
      */
     public List<Aquav.InfEmbComb> getInfEmbComb() {
         if (infEmbComb == null) {
@@ -575,25 +531,23 @@ public class Aquav
 
     /**
      * Gets the value of the infUnidCargaVazia property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the infUnidCargaVazia property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getInfUnidCargaVazia().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Aquav.InfUnidCargaVazia }
-     * 
-     * 
      */
     public List<Aquav.InfUnidCargaVazia> getInfUnidCargaVazia() {
         if (infUnidCargaVazia == null) {
@@ -604,25 +558,23 @@ public class Aquav
 
     /**
      * Gets the value of the infUnidTranspVazia property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the infUnidTranspVazia property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getInfUnidTranspVazia().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Aquav.InfUnidTranspVazia }
-     * 
-     * 
      */
     public List<Aquav.InfUnidTranspVazia> getInfUnidTranspVazia() {
         if (infUnidTranspVazia == null) {
@@ -634,9 +586,9 @@ public class Aquav
 
     /**
      * <p>Classe Java de anonymous complex type.
-     * 
+     *
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     * 
+     *
      * <pre>
      * &lt;complexType&gt;
      *   &lt;complexContent&gt;
@@ -663,17 +615,14 @@ public class Aquav
      *   &lt;/complexContent&gt;
      * &lt;/complexType&gt;
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "cEmbComb",
-        "xBalsa"
+            "cEmbComb",
+            "xBalsa"
     })
     public static class InfEmbComb
-        implements XML
-    {
+            implements XML {
 
         @XmlElement(required = true)
         protected String cEmbComb;
@@ -682,11 +631,9 @@ public class Aquav
 
         /**
          * Obtém o valor da propriedade cEmbComb.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getCEmbComb() {
             return cEmbComb;
@@ -694,11 +641,9 @@ public class Aquav
 
         /**
          * Define o valor da propriedade cEmbComb.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setCEmbComb(String value) {
             this.cEmbComb = value;
@@ -706,11 +651,9 @@ public class Aquav
 
         /**
          * Obtém o valor da propriedade xBalsa.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getXBalsa() {
             return xBalsa;
@@ -718,11 +661,9 @@ public class Aquav
 
         /**
          * Define o valor da propriedade xBalsa.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setXBalsa(String value) {
             this.xBalsa = value;
@@ -733,9 +674,9 @@ public class Aquav
 
     /**
      * <p>Classe Java de anonymous complex type.
-     * 
+     *
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     * 
+     *
      * <pre>
      * &lt;complexType&gt;
      *   &lt;complexContent&gt;
@@ -762,17 +703,14 @@ public class Aquav
      *   &lt;/complexContent&gt;
      * &lt;/complexType&gt;
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "cTermCarreg",
-        "xTermCarreg"
+            "cTermCarreg",
+            "xTermCarreg"
     })
     public static class InfTermCarreg
-        implements XML
-    {
+            implements XML {
 
         @XmlElement(required = true)
         protected String cTermCarreg;
@@ -781,11 +719,9 @@ public class Aquav
 
         /**
          * Obtém o valor da propriedade cTermCarreg.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getCTermCarreg() {
             return cTermCarreg;
@@ -793,11 +729,9 @@ public class Aquav
 
         /**
          * Define o valor da propriedade cTermCarreg.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setCTermCarreg(String value) {
             this.cTermCarreg = value;
@@ -805,11 +739,9 @@ public class Aquav
 
         /**
          * Obtém o valor da propriedade xTermCarreg.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getXTermCarreg() {
             return xTermCarreg;
@@ -817,11 +749,9 @@ public class Aquav
 
         /**
          * Define o valor da propriedade xTermCarreg.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setXTermCarreg(String value) {
             this.xTermCarreg = value;
@@ -832,9 +762,9 @@ public class Aquav
 
     /**
      * <p>Classe Java de anonymous complex type.
-     * 
+     *
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     * 
+     *
      * <pre>
      * &lt;complexType&gt;
      *   &lt;complexContent&gt;
@@ -861,17 +791,14 @@ public class Aquav
      *   &lt;/complexContent&gt;
      * &lt;/complexType&gt;
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "cTermDescarreg",
-        "xTermDescarreg"
+            "cTermDescarreg",
+            "xTermDescarreg"
     })
     public static class InfTermDescarreg
-        implements XML
-    {
+            implements XML {
 
         @XmlElement(required = true)
         protected String cTermDescarreg;
@@ -880,11 +807,9 @@ public class Aquav
 
         /**
          * Obtém o valor da propriedade cTermDescarreg.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getCTermDescarreg() {
             return cTermDescarreg;
@@ -892,11 +817,9 @@ public class Aquav
 
         /**
          * Define o valor da propriedade cTermDescarreg.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setCTermDescarreg(String value) {
             this.cTermDescarreg = value;
@@ -904,11 +827,9 @@ public class Aquav
 
         /**
          * Obtém o valor da propriedade xTermDescarreg.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getXTermDescarreg() {
             return xTermDescarreg;
@@ -916,11 +837,9 @@ public class Aquav
 
         /**
          * Define o valor da propriedade xTermDescarreg.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setXTermDescarreg(String value) {
             this.xTermDescarreg = value;
@@ -931,9 +850,9 @@ public class Aquav
 
     /**
      * <p>Classe Java de anonymous complex type.
-     * 
+     *
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     * 
+     *
      * <pre>
      * &lt;complexType&gt;
      *   &lt;complexContent&gt;
@@ -955,17 +874,14 @@ public class Aquav
      *   &lt;/complexContent&gt;
      * &lt;/complexType&gt;
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "idUnidCargaVazia",
-        "tpUnidCargaVazia"
+            "idUnidCargaVazia",
+            "tpUnidCargaVazia"
     })
     public static class InfUnidCargaVazia
-        implements XML
-    {
+            implements XML {
 
         @XmlElement(required = true)
         protected String idUnidCargaVazia;
@@ -974,11 +890,9 @@ public class Aquav
 
         /**
          * Obtém o valor da propriedade idUnidCargaVazia.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getIdUnidCargaVazia() {
             return idUnidCargaVazia;
@@ -986,11 +900,9 @@ public class Aquav
 
         /**
          * Define o valor da propriedade idUnidCargaVazia.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setIdUnidCargaVazia(String value) {
             this.idUnidCargaVazia = value;
@@ -998,11 +910,9 @@ public class Aquav
 
         /**
          * Obtém o valor da propriedade tpUnidCargaVazia.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getTpUnidCargaVazia() {
             return tpUnidCargaVazia;
@@ -1010,11 +920,9 @@ public class Aquav
 
         /**
          * Define o valor da propriedade tpUnidCargaVazia.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setTpUnidCargaVazia(String value) {
             this.tpUnidCargaVazia = value;
@@ -1025,9 +933,9 @@ public class Aquav
 
     /**
      * <p>Classe Java de anonymous complex type.
-     * 
+     *
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     * 
+     *
      * <pre>
      * &lt;complexType&gt;
      *   &lt;complexContent&gt;
@@ -1047,17 +955,14 @@ public class Aquav
      *   &lt;/complexContent&gt;
      * &lt;/complexType&gt;
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "idUnidTranspVazia",
-        "tpUnidTranspVazia"
+            "idUnidTranspVazia",
+            "tpUnidTranspVazia"
     })
     public static class InfUnidTranspVazia
-        implements XML
-    {
+            implements XML {
 
         @XmlElement(required = true)
         protected String idUnidTranspVazia;
@@ -1066,11 +971,9 @@ public class Aquav
 
         /**
          * Obtém o valor da propriedade idUnidTranspVazia.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getIdUnidTranspVazia() {
             return idUnidTranspVazia;
@@ -1078,11 +981,9 @@ public class Aquav
 
         /**
          * Define o valor da propriedade idUnidTranspVazia.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setIdUnidTranspVazia(String value) {
             this.idUnidTranspVazia = value;
@@ -1090,11 +991,9 @@ public class Aquav
 
         /**
          * Obtém o valor da propriedade tpUnidTranspVazia.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getTpUnidTranspVazia() {
             return tpUnidTranspVazia;
@@ -1102,11 +1001,9 @@ public class Aquav
 
         /**
          * Define o valor da propriedade tpUnidTranspVazia.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setTpUnidTranspVazia(String value) {
             this.tpUnidTranspVazia = value;

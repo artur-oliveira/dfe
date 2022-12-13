@@ -8,18 +8,19 @@
 
 package br.inf.portalfiscal.cte.send;
 
+import com.softart.dfe.interfaces.xml.generic.XML;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
 
 
 /**
  * <p>Classe Java de InfSeg complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="InfSeg"&gt;
  *   &lt;complexContent&gt;
@@ -39,17 +40,14 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "InfSeg", propOrder = {
-    "xSeg",
-    "cnpj"
+        "xSeg",
+        "cnpj"
 })
 public class InfSeg
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected String xSeg;
@@ -58,11 +56,9 @@ public class InfSeg
 
     /**
      * Obtém o valor da propriedade xSeg.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getXSeg() {
         return xSeg;
@@ -70,11 +66,9 @@ public class InfSeg
 
     /**
      * Define o valor da propriedade xSeg.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setXSeg(String value) {
         this.xSeg = value;
@@ -82,11 +76,9 @@ public class InfSeg
 
     /**
      * Obtém o valor da propriedade cnpj.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCNPJ() {
         return cnpj;
@@ -94,11 +86,9 @@ public class InfSeg
 
     /**
      * Define o valor da propriedade cnpj.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCNPJ(String value) {
         this.cnpj = value;

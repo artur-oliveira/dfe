@@ -5,6 +5,9 @@ import lombok.Getter;
 import lombok.extern.log4j.Log4j2;
 import org.xml.sax.SAXParseException;
 
+/**
+ * A custom exception class that extends the ValidationException class.
+ */
 @Getter
 @Log4j2
 public class XSDValidationException extends ValidationException {

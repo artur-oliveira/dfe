@@ -8,21 +8,18 @@
 
 package br.inf.portalfiscal.cte.send;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
+import com.softart.dfe.interfaces.xml.generic.XML;
+
+import javax.xml.bind.annotation.*;
 
 
 /**
  * Tipo Dados do Local de Origem ou Destino
- * 
+ *
  * <p>Classe Java de TLocal complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="TLocal"&gt;
  *   &lt;complexContent&gt;
@@ -43,18 +40,15 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TLocal", propOrder = {
-    "cMun",
-    "xMun",
-    "uf"
+        "cMun",
+        "xMun",
+        "uf"
 })
 public class TLocal
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected String cMun;
@@ -66,11 +60,9 @@ public class TLocal
 
     /**
      * Obtém o valor da propriedade cMun.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCMun() {
         return cMun;
@@ -78,11 +70,9 @@ public class TLocal
 
     /**
      * Define o valor da propriedade cMun.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCMun(String value) {
         this.cMun = value;
@@ -90,11 +80,9 @@ public class TLocal
 
     /**
      * Obtém o valor da propriedade xMun.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getXMun() {
         return xMun;
@@ -102,11 +90,9 @@ public class TLocal
 
     /**
      * Define o valor da propriedade xMun.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setXMun(String value) {
         this.xMun = value;
@@ -114,11 +100,9 @@ public class TLocal
 
     /**
      * Obtém o valor da propriedade uf.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TUf }
-     *     
+     *
+     * @return possible object is
+     * {@link TUf }
      */
     public TUf getUF() {
         return uf;
@@ -126,11 +110,9 @@ public class TLocal
 
     /**
      * Define o valor da propriedade uf.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TUf }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link TUf }
      */
     public void setUF(TUf value) {
         this.uf = value;

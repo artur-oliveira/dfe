@@ -1,6 +1,5 @@
 package com.softart.dfe.components.process.mdfe.event.impl.nostore;
 
-import com.softart.dfe.components.process.mdfe.distribution.StoreDistributionMdfe;
 import com.softart.dfe.components.process.mdfe.event.StoreEventMdfe;
 import com.softart.dfe.components.storage.StorageFactory;
 import com.softart.dfe.interfaces.storage.mdfe.MdfeStorage;

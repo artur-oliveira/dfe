@@ -57,10 +57,21 @@ public final class StringUtils {
         return padStart(text.toString(), len, '0');
     }
 
+    /**
+     * Return the string '0'.
+     *
+     * @return A string of "0"
+     */
     public static String zero() {
         return "0";
     }
 
+    /**
+     * If you want to create a BigDecimal with a value of zero, you can use the zero() function.
+     *
+     * @param scale The number of digits to the right of the decimal point.
+     * @return A string representation of a BigDecimal with a value of 0 and a scale of the value passed in.
+     */
     public static String zero(int scale) {
         return BigDecimal.valueOf(0L).setScale(scale, RoundingMode.HALF_EVEN).toString();
     }

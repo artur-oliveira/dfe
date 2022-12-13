@@ -6,8 +6,8 @@ import com.softart.dfe.enums.cte.CteEvent;
 import com.softart.dfe.enums.cte.version.CteVersion;
 import com.softart.dfe.enums.internal.Model;
 import com.softart.dfe.interfaces.internal.config.CteConfig;
-import com.softart.dfe.interfaces.xml.DFObject;
 import com.softart.dfe.interfaces.xml.XMLAdapter;
+import com.softart.dfe.interfaces.xml.generic.DFObject;
 import com.softart.dfe.util.XMLStringUtils;
 import lombok.*;
 
@@ -26,12 +26,12 @@ public class CteInutilization implements DFObject, XMLAdapter<CteInutilization, 
     @Builder.Default
     protected String versao = CteVersion.getDefault().getVersion();
 
-    public static CteInutilization build(int ano, int serie, int numberStart, int numberEnd, String motive, Model model, CteConfig config) {
+    public static CteInutilization build(Number ano, Number serie, Number numberStart, Number numberEnd, String motive, Model model, CteConfig config) {
         return CteInutilization
                 .builder()
                 .infInut(InfInut
                         .builder()
-                        .ano(Short.valueOf(Year.of(ano).toString().substring(2)))
+                        .ano(Short.valueOf(Year.of(ano.intValue()).toString().substring(2)))
                         .serie(Objects.toString(serie))
                         .nctIni(Objects.toString(numberStart))
                         .nctFin(Objects.toString(numberEnd))
@@ -42,33 +42,33 @@ public class CteInutilization implements DFObject, XMLAdapter<CteInutilization, 
                         .mod(model.getCode()).build()).build();
     }
 
-    public static CteInutilization build(int ano, int serie, int numberStart, int numberEnd, Model model, CteConfig config) {
+    public static CteInutilization build(Number ano, Number serie, Number numberStart, Number numberEnd, Model model, CteConfig config) {
         return build(ano, serie, numberStart, numberEnd, CteEvent.INUTILIZATION.getDefaultMessage(), model, config);
 
     }
 
-    public static CteInutilization cte(int ano, int serie, int numberStart, int numberEnd, String motive, CteConfig config) {
+    public static CteInutilization cte(Number ano, Number serie, Number numberStart, Number numberEnd, String motive, CteConfig config) {
         return build(ano, serie, numberStart, numberEnd, motive, Model.CTE, config);
     }
 
-    public static CteInutilization cte(int ano, int serie, int numberStart, int numberEnd, CteConfig config) {
+    public static CteInutilization cte(Number ano, Number serie, Number numberStart, Number numberEnd, CteConfig config) {
         return build(ano, serie, numberStart, numberEnd, Model.CTE, config);
     }
 
-    public static CteInutilization cteOs(int ano, int serie, int numberStart, int numberEnd, String motive, CteConfig config) {
+    public static CteInutilization cteOs(Number ano, Number serie, Number numberStart, Number numberEnd, String motive, CteConfig config) {
         return build(ano, serie, numberStart, numberEnd, motive, Model.CTE_OS, config);
     }
 
-    public static CteInutilization cteOs(int ano, int serie, int numberStart, int numberEnd, CteConfig config) {
+    public static CteInutilization cteOs(Number ano, Number serie, Number numberStart, Number numberEnd, CteConfig config) {
         return build(ano, serie, numberStart, numberEnd, Model.CTE_OS, config);
     }
 
 
-    public static CteInutilization gtve(int ano, int serie, int numberStart, int numberEnd, String motive, CteConfig config) {
+    public static CteInutilization gtve(Number ano, Number serie, Number numberStart, Number numberEnd, String motive, CteConfig config) {
         return build(ano, serie, numberStart, numberEnd, motive, Model.GTVE, config);
     }
 
-    public static CteInutilization gtve(int ano, int serie, int numberStart, int numberEnd, CteConfig config) {
+    public static CteInutilization gtve(Number ano, Number serie, Number numberStart, Number numberEnd, CteConfig config) {
         return build(ano, serie, numberStart, numberEnd, Model.GTVE, config);
     }
 

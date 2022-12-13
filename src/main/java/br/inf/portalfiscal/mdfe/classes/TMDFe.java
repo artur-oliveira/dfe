@@ -8,29 +8,23 @@
 
 package br.inf.portalfiscal.mdfe.classes;
 
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAnyElement;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlID;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
+import com.softart.dfe.interfaces.xml.generic.XML;
+import org.w3c.dom.Element;
+
+import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-import com.softart.dfe.interfaces.xml.XML;
-import org.w3c.dom.Element;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
  * Tipo Manifesto de Documentos Fiscais Eletrônicos
- * 
+ *
  * <p>Classe Java de TMDFe complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="TMDFe"&gt;
  *   &lt;complexContent&gt;
@@ -811,18 +805,15 @@ import org.w3c.dom.Element;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TMDFe", propOrder = {
-    "infMDFe",
-    "infMDFeSupl",
-    "signature"
+        "infMDFe",
+        "infMDFeSupl",
+        "signature"
 })
 public class TMDFe
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected TMDFe.InfMDFe infMDFe;
@@ -832,11 +823,9 @@ public class TMDFe
 
     /**
      * Obtém o valor da propriedade infMDFe.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TMDFe.InfMDFe }
-     *     
+     *
+     * @return possible object is
+     * {@link TMDFe.InfMDFe }
      */
     public TMDFe.InfMDFe getInfMDFe() {
         return infMDFe;
@@ -844,11 +833,9 @@ public class TMDFe
 
     /**
      * Define o valor da propriedade infMDFe.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TMDFe.InfMDFe }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link TMDFe.InfMDFe }
      */
     public void setInfMDFe(TMDFe.InfMDFe value) {
         this.infMDFe = value;
@@ -856,11 +843,9 @@ public class TMDFe
 
     /**
      * Obtém o valor da propriedade infMDFeSupl.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TMDFe.InfMDFeSupl }
-     *     
+     *
+     * @return possible object is
+     * {@link TMDFe.InfMDFeSupl }
      */
     public TMDFe.InfMDFeSupl getInfMDFeSupl() {
         return infMDFeSupl;
@@ -868,11 +853,9 @@ public class TMDFe
 
     /**
      * Define o valor da propriedade infMDFeSupl.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TMDFe.InfMDFeSupl }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link TMDFe.InfMDFeSupl }
      */
     public void setInfMDFeSupl(TMDFe.InfMDFeSupl value) {
         this.infMDFeSupl = value;
@@ -880,11 +863,9 @@ public class TMDFe
 
     /**
      * Obtém o valor da propriedade signature.
-     * 
-     * @return
-     *     possible object is
-     *     {@link SignatureType }
-     *     
+     *
+     * @return possible object is
+     * {@link SignatureType }
      */
     public SignatureType getSignature() {
         return signature;
@@ -892,11 +873,9 @@ public class TMDFe
 
     /**
      * Define o valor da propriedade signature.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link SignatureType }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link SignatureType }
      */
     public void setSignature(SignatureType value) {
         this.signature = value;
@@ -905,9 +884,9 @@ public class TMDFe
 
     /**
      * <p>Classe Java de anonymous complex type.
-     * 
+     *
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     * 
+     *
      * <pre>
      * &lt;complexType&gt;
      *   &lt;complexContent&gt;
@@ -1657,27 +1636,24 @@ public class TMDFe
      *   &lt;/complexContent&gt;
      * &lt;/complexType&gt;
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "ide",
-        "emit",
-        "infModal",
-        "infDoc",
-        "seg",
-        "prodPred",
-        "tot",
-        "lacres",
-        "autXML",
-        "infAdic",
-        "infRespTec",
-        "infSolicNFF"
+            "ide",
+            "emit",
+            "infModal",
+            "infDoc",
+            "seg",
+            "prodPred",
+            "tot",
+            "lacres",
+            "autXML",
+            "infAdic",
+            "infRespTec",
+            "infSolicNFF"
     })
     public static class InfMDFe
-        implements XML
-    {
+            implements XML {
 
         @XmlElement(required = true)
         protected TMDFe.InfMDFe.Ide ide;
@@ -1705,11 +1681,9 @@ public class TMDFe
 
         /**
          * Obtém o valor da propriedade ide.
-         * 
-         * @return
-         *     possible object is
-         *     {@link TMDFe.InfMDFe.Ide }
-         *     
+         *
+         * @return possible object is
+         * {@link TMDFe.InfMDFe.Ide }
          */
         public TMDFe.InfMDFe.Ide getIde() {
             return ide;
@@ -1717,11 +1691,9 @@ public class TMDFe
 
         /**
          * Define o valor da propriedade ide.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link TMDFe.InfMDFe.Ide }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link TMDFe.InfMDFe.Ide }
          */
         public void setIde(TMDFe.InfMDFe.Ide value) {
             this.ide = value;
@@ -1729,11 +1701,9 @@ public class TMDFe
 
         /**
          * Obtém o valor da propriedade emit.
-         * 
-         * @return
-         *     possible object is
-         *     {@link TMDFe.InfMDFe.Emit }
-         *     
+         *
+         * @return possible object is
+         * {@link TMDFe.InfMDFe.Emit }
          */
         public TMDFe.InfMDFe.Emit getEmit() {
             return emit;
@@ -1741,11 +1711,9 @@ public class TMDFe
 
         /**
          * Define o valor da propriedade emit.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link TMDFe.InfMDFe.Emit }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link TMDFe.InfMDFe.Emit }
          */
         public void setEmit(TMDFe.InfMDFe.Emit value) {
             this.emit = value;
@@ -1753,11 +1721,9 @@ public class TMDFe
 
         /**
          * Obtém o valor da propriedade infModal.
-         * 
-         * @return
-         *     possible object is
-         *     {@link TMDFe.InfMDFe.InfModal }
-         *     
+         *
+         * @return possible object is
+         * {@link TMDFe.InfMDFe.InfModal }
          */
         public TMDFe.InfMDFe.InfModal getInfModal() {
             return infModal;
@@ -1765,11 +1731,9 @@ public class TMDFe
 
         /**
          * Define o valor da propriedade infModal.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link TMDFe.InfMDFe.InfModal }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link TMDFe.InfMDFe.InfModal }
          */
         public void setInfModal(TMDFe.InfMDFe.InfModal value) {
             this.infModal = value;
@@ -1777,11 +1741,9 @@ public class TMDFe
 
         /**
          * Obtém o valor da propriedade infDoc.
-         * 
-         * @return
-         *     possible object is
-         *     {@link TMDFe.InfMDFe.InfDoc }
-         *     
+         *
+         * @return possible object is
+         * {@link TMDFe.InfMDFe.InfDoc }
          */
         public TMDFe.InfMDFe.InfDoc getInfDoc() {
             return infDoc;
@@ -1789,11 +1751,9 @@ public class TMDFe
 
         /**
          * Define o valor da propriedade infDoc.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link TMDFe.InfMDFe.InfDoc }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link TMDFe.InfMDFe.InfDoc }
          */
         public void setInfDoc(TMDFe.InfMDFe.InfDoc value) {
             this.infDoc = value;
@@ -1801,25 +1761,23 @@ public class TMDFe
 
         /**
          * Gets the value of the seg property.
-         * 
+         *
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the seg property.
-         * 
+         *
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getSeg().add(newItem);
          * </pre>
-         * 
-         * 
+         *
+         *
          * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link TMDFe.InfMDFe.Seg }
-         * 
-         * 
          */
         public List<TMDFe.InfMDFe.Seg> getSeg() {
             if (seg == null) {
@@ -1830,11 +1788,9 @@ public class TMDFe
 
         /**
          * Obtém o valor da propriedade prodPred.
-         * 
-         * @return
-         *     possible object is
-         *     {@link TMDFe.InfMDFe.ProdPred }
-         *     
+         *
+         * @return possible object is
+         * {@link TMDFe.InfMDFe.ProdPred }
          */
         public TMDFe.InfMDFe.ProdPred getProdPred() {
             return prodPred;
@@ -1842,11 +1798,9 @@ public class TMDFe
 
         /**
          * Define o valor da propriedade prodPred.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link TMDFe.InfMDFe.ProdPred }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link TMDFe.InfMDFe.ProdPred }
          */
         public void setProdPred(TMDFe.InfMDFe.ProdPred value) {
             this.prodPred = value;
@@ -1854,11 +1808,9 @@ public class TMDFe
 
         /**
          * Obtém o valor da propriedade tot.
-         * 
-         * @return
-         *     possible object is
-         *     {@link TMDFe.InfMDFe.Tot }
-         *     
+         *
+         * @return possible object is
+         * {@link TMDFe.InfMDFe.Tot }
          */
         public TMDFe.InfMDFe.Tot getTot() {
             return tot;
@@ -1866,11 +1818,9 @@ public class TMDFe
 
         /**
          * Define o valor da propriedade tot.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link TMDFe.InfMDFe.Tot }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link TMDFe.InfMDFe.Tot }
          */
         public void setTot(TMDFe.InfMDFe.Tot value) {
             this.tot = value;
@@ -1878,25 +1828,23 @@ public class TMDFe
 
         /**
          * Gets the value of the lacres property.
-         * 
+         *
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the lacres property.
-         * 
+         *
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getLacres().add(newItem);
          * </pre>
-         * 
-         * 
+         *
+         *
          * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link TMDFe.InfMDFe.Lacres }
-         * 
-         * 
          */
         public List<TMDFe.InfMDFe.Lacres> getLacres() {
             if (lacres == null) {
@@ -1907,25 +1855,23 @@ public class TMDFe
 
         /**
          * Gets the value of the autXML property.
-         * 
+         *
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the autXML property.
-         * 
+         *
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getAutXML().add(newItem);
          * </pre>
-         * 
-         * 
+         *
+         *
          * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link TMDFe.InfMDFe.AutXML }
-         * 
-         * 
          */
         public List<TMDFe.InfMDFe.AutXML> getAutXML() {
             if (autXML == null) {
@@ -1936,11 +1882,9 @@ public class TMDFe
 
         /**
          * Obtém o valor da propriedade infAdic.
-         * 
-         * @return
-         *     possible object is
-         *     {@link TMDFe.InfMDFe.InfAdic }
-         *     
+         *
+         * @return possible object is
+         * {@link TMDFe.InfMDFe.InfAdic }
          */
         public TMDFe.InfMDFe.InfAdic getInfAdic() {
             return infAdic;
@@ -1948,11 +1892,9 @@ public class TMDFe
 
         /**
          * Define o valor da propriedade infAdic.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link TMDFe.InfMDFe.InfAdic }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link TMDFe.InfMDFe.InfAdic }
          */
         public void setInfAdic(TMDFe.InfMDFe.InfAdic value) {
             this.infAdic = value;
@@ -1960,11 +1902,9 @@ public class TMDFe
 
         /**
          * Obtém o valor da propriedade infRespTec.
-         * 
-         * @return
-         *     possible object is
-         *     {@link TRespTec }
-         *     
+         *
+         * @return possible object is
+         * {@link TRespTec }
          */
         public TRespTec getInfRespTec() {
             return infRespTec;
@@ -1972,11 +1912,9 @@ public class TMDFe
 
         /**
          * Define o valor da propriedade infRespTec.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link TRespTec }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link TRespTec }
          */
         public void setInfRespTec(TRespTec value) {
             this.infRespTec = value;
@@ -1984,11 +1922,9 @@ public class TMDFe
 
         /**
          * Obtém o valor da propriedade infSolicNFF.
-         * 
-         * @return
-         *     possible object is
-         *     {@link TMDFe.InfMDFe.InfSolicNFF }
-         *     
+         *
+         * @return possible object is
+         * {@link TMDFe.InfMDFe.InfSolicNFF }
          */
         public TMDFe.InfMDFe.InfSolicNFF getInfSolicNFF() {
             return infSolicNFF;
@@ -1996,11 +1932,9 @@ public class TMDFe
 
         /**
          * Define o valor da propriedade infSolicNFF.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link TMDFe.InfMDFe.InfSolicNFF }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link TMDFe.InfMDFe.InfSolicNFF }
          */
         public void setInfSolicNFF(TMDFe.InfMDFe.InfSolicNFF value) {
             this.infSolicNFF = value;
@@ -2008,11 +1942,9 @@ public class TMDFe
 
         /**
          * Obtém o valor da propriedade versao.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getVersao() {
             return versao;
@@ -2020,11 +1952,9 @@ public class TMDFe
 
         /**
          * Define o valor da propriedade versao.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setVersao(String value) {
             this.versao = value;
@@ -2032,11 +1962,9 @@ public class TMDFe
 
         /**
          * Obtém o valor da propriedade id.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getId() {
             return id;
@@ -2044,11 +1972,9 @@ public class TMDFe
 
         /**
          * Define o valor da propriedade id.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setId(String value) {
             this.id = value;
@@ -2057,9 +1983,9 @@ public class TMDFe
 
         /**
          * <p>Classe Java de anonymous complex type.
-         * 
+         *
          * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-         * 
+         *
          * <pre>
          * &lt;complexType&gt;
          *   &lt;complexContent&gt;
@@ -2074,17 +2000,14 @@ public class TMDFe
          *   &lt;/complexContent&gt;
          * &lt;/complexType&gt;
          * </pre>
-         * 
-         * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "cnpj",
-            "cpf"
+                "cnpj",
+                "cpf"
         })
         public static class AutXML
-            implements XML
-        {
+                implements XML {
 
             @XmlElement(name = "CNPJ")
             protected String cnpj;
@@ -2093,11 +2016,9 @@ public class TMDFe
 
             /**
              * Obtém o valor da propriedade cnpj.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getCNPJ() {
                 return cnpj;
@@ -2105,11 +2026,9 @@ public class TMDFe
 
             /**
              * Define o valor da propriedade cnpj.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setCNPJ(String value) {
                 this.cnpj = value;
@@ -2117,11 +2036,9 @@ public class TMDFe
 
             /**
              * Obtém o valor da propriedade cpf.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getCPF() {
                 return cpf;
@@ -2129,11 +2046,9 @@ public class TMDFe
 
             /**
              * Define o valor da propriedade cpf.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setCPF(String value) {
                 this.cpf = value;
@@ -2144,9 +2059,9 @@ public class TMDFe
 
         /**
          * <p>Classe Java de anonymous complex type.
-         * 
+         *
          * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-         * 
+         *
          * <pre>
          * &lt;complexType&gt;
          *   &lt;complexContent&gt;
@@ -2184,21 +2099,18 @@ public class TMDFe
          *   &lt;/complexContent&gt;
          * &lt;/complexType&gt;
          * </pre>
-         * 
-         * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "cnpj",
-            "cpf",
-            "ie",
-            "xNome",
-            "xFant",
-            "enderEmit"
+                "cnpj",
+                "cpf",
+                "ie",
+                "xNome",
+                "xFant",
+                "enderEmit"
         })
         public static class Emit
-            implements XML
-        {
+                implements XML {
 
             @XmlElement(name = "CNPJ")
             protected String cnpj;
@@ -2214,11 +2126,9 @@ public class TMDFe
 
             /**
              * Obtém o valor da propriedade cnpj.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getCNPJ() {
                 return cnpj;
@@ -2226,11 +2136,9 @@ public class TMDFe
 
             /**
              * Define o valor da propriedade cnpj.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setCNPJ(String value) {
                 this.cnpj = value;
@@ -2238,11 +2146,9 @@ public class TMDFe
 
             /**
              * Obtém o valor da propriedade cpf.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getCPF() {
                 return cpf;
@@ -2250,11 +2156,9 @@ public class TMDFe
 
             /**
              * Define o valor da propriedade cpf.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setCPF(String value) {
                 this.cpf = value;
@@ -2262,11 +2166,9 @@ public class TMDFe
 
             /**
              * Obtém o valor da propriedade ie.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getIE() {
                 return ie;
@@ -2274,11 +2176,9 @@ public class TMDFe
 
             /**
              * Define o valor da propriedade ie.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setIE(String value) {
                 this.ie = value;
@@ -2286,11 +2186,9 @@ public class TMDFe
 
             /**
              * Obtém o valor da propriedade xNome.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getXNome() {
                 return xNome;
@@ -2298,11 +2196,9 @@ public class TMDFe
 
             /**
              * Define o valor da propriedade xNome.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setXNome(String value) {
                 this.xNome = value;
@@ -2310,11 +2206,9 @@ public class TMDFe
 
             /**
              * Obtém o valor da propriedade xFant.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getXFant() {
                 return xFant;
@@ -2322,11 +2216,9 @@ public class TMDFe
 
             /**
              * Define o valor da propriedade xFant.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setXFant(String value) {
                 this.xFant = value;
@@ -2334,11 +2226,9 @@ public class TMDFe
 
             /**
              * Obtém o valor da propriedade enderEmit.
-             * 
-             * @return
-             *     possible object is
-             *     {@link TEndeEmi }
-             *     
+             *
+             * @return possible object is
+             * {@link TEndeEmi }
              */
             public TEndeEmi getEnderEmit() {
                 return enderEmit;
@@ -2346,11 +2236,9 @@ public class TMDFe
 
             /**
              * Define o valor da propriedade enderEmit.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link TEndeEmi }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link TEndeEmi }
              */
             public void setEnderEmit(TEndeEmi value) {
                 this.enderEmit = value;
@@ -2361,9 +2249,9 @@ public class TMDFe
 
         /**
          * <p>Classe Java de anonymous complex type.
-         * 
+         *
          * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-         * 
+         *
          * <pre>
          * &lt;complexType&gt;
          *   &lt;complexContent&gt;
@@ -2470,36 +2358,33 @@ public class TMDFe
          *   &lt;/complexContent&gt;
          * &lt;/complexType&gt;
          * </pre>
-         * 
-         * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "cuf",
-            "tpAmb",
-            "tpEmit",
-            "tpTransp",
-            "mod",
-            "serie",
-            "nmdf",
-            "cmdf",
-            "cdv",
-            "modal",
-            "dhEmi",
-            "tpEmis",
-            "procEmi",
-            "verProc",
-            "ufIni",
-            "ufFim",
-            "infMunCarrega",
-            "infPercurso",
-            "dhIniViagem",
-            "indCanalVerde",
-            "indCarregaPosterior"
+                "cuf",
+                "tpAmb",
+                "tpEmit",
+                "tpTransp",
+                "mod",
+                "serie",
+                "nmdf",
+                "cmdf",
+                "cdv",
+                "modal",
+                "dhEmi",
+                "tpEmis",
+                "procEmi",
+                "verProc",
+                "ufIni",
+                "ufFim",
+                "infMunCarrega",
+                "infPercurso",
+                "dhIniViagem",
+                "indCanalVerde",
+                "indCarregaPosterior"
         })
         public static class Ide
-            implements XML
-        {
+                implements XML {
 
             @XmlElement(name = "cUF", required = true)
             protected String cuf;
@@ -2543,11 +2428,9 @@ public class TMDFe
 
             /**
              * Obtém o valor da propriedade cuf.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getCUF() {
                 return cuf;
@@ -2555,11 +2438,9 @@ public class TMDFe
 
             /**
              * Define o valor da propriedade cuf.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setCUF(String value) {
                 this.cuf = value;
@@ -2567,11 +2448,9 @@ public class TMDFe
 
             /**
              * Obtém o valor da propriedade tpAmb.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getTpAmb() {
                 return tpAmb;
@@ -2579,11 +2458,9 @@ public class TMDFe
 
             /**
              * Define o valor da propriedade tpAmb.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setTpAmb(String value) {
                 this.tpAmb = value;
@@ -2591,11 +2468,9 @@ public class TMDFe
 
             /**
              * Obtém o valor da propriedade tpEmit.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getTpEmit() {
                 return tpEmit;
@@ -2603,11 +2478,9 @@ public class TMDFe
 
             /**
              * Define o valor da propriedade tpEmit.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setTpEmit(String value) {
                 this.tpEmit = value;
@@ -2615,11 +2488,9 @@ public class TMDFe
 
             /**
              * Obtém o valor da propriedade tpTransp.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getTpTransp() {
                 return tpTransp;
@@ -2627,11 +2498,9 @@ public class TMDFe
 
             /**
              * Define o valor da propriedade tpTransp.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setTpTransp(String value) {
                 this.tpTransp = value;
@@ -2639,11 +2508,9 @@ public class TMDFe
 
             /**
              * Obtém o valor da propriedade mod.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getMod() {
                 return mod;
@@ -2651,11 +2518,9 @@ public class TMDFe
 
             /**
              * Define o valor da propriedade mod.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setMod(String value) {
                 this.mod = value;
@@ -2663,11 +2528,9 @@ public class TMDFe
 
             /**
              * Obtém o valor da propriedade serie.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getSerie() {
                 return serie;
@@ -2675,11 +2538,9 @@ public class TMDFe
 
             /**
              * Define o valor da propriedade serie.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setSerie(String value) {
                 this.serie = value;
@@ -2687,11 +2548,9 @@ public class TMDFe
 
             /**
              * Obtém o valor da propriedade nmdf.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getNMDF() {
                 return nmdf;
@@ -2699,11 +2558,9 @@ public class TMDFe
 
             /**
              * Define o valor da propriedade nmdf.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setNMDF(String value) {
                 this.nmdf = value;
@@ -2711,11 +2568,9 @@ public class TMDFe
 
             /**
              * Obtém o valor da propriedade cmdf.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getCMDF() {
                 return cmdf;
@@ -2723,11 +2578,9 @@ public class TMDFe
 
             /**
              * Define o valor da propriedade cmdf.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setCMDF(String value) {
                 this.cmdf = value;
@@ -2735,11 +2588,9 @@ public class TMDFe
 
             /**
              * Obtém o valor da propriedade cdv.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getCDV() {
                 return cdv;
@@ -2747,11 +2598,9 @@ public class TMDFe
 
             /**
              * Define o valor da propriedade cdv.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setCDV(String value) {
                 this.cdv = value;
@@ -2759,11 +2608,9 @@ public class TMDFe
 
             /**
              * Obtém o valor da propriedade modal.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getModal() {
                 return modal;
@@ -2771,11 +2618,9 @@ public class TMDFe
 
             /**
              * Define o valor da propriedade modal.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setModal(String value) {
                 this.modal = value;
@@ -2783,11 +2628,9 @@ public class TMDFe
 
             /**
              * Obtém o valor da propriedade dhEmi.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getDhEmi() {
                 return dhEmi;
@@ -2795,11 +2638,9 @@ public class TMDFe
 
             /**
              * Define o valor da propriedade dhEmi.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setDhEmi(String value) {
                 this.dhEmi = value;
@@ -2807,11 +2648,9 @@ public class TMDFe
 
             /**
              * Obtém o valor da propriedade tpEmis.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getTpEmis() {
                 return tpEmis;
@@ -2819,11 +2658,9 @@ public class TMDFe
 
             /**
              * Define o valor da propriedade tpEmis.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setTpEmis(String value) {
                 this.tpEmis = value;
@@ -2831,11 +2668,9 @@ public class TMDFe
 
             /**
              * Obtém o valor da propriedade procEmi.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getProcEmi() {
                 return procEmi;
@@ -2843,11 +2678,9 @@ public class TMDFe
 
             /**
              * Define o valor da propriedade procEmi.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setProcEmi(String value) {
                 this.procEmi = value;
@@ -2855,11 +2688,9 @@ public class TMDFe
 
             /**
              * Obtém o valor da propriedade verProc.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getVerProc() {
                 return verProc;
@@ -2867,11 +2698,9 @@ public class TMDFe
 
             /**
              * Define o valor da propriedade verProc.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setVerProc(String value) {
                 this.verProc = value;
@@ -2879,11 +2708,9 @@ public class TMDFe
 
             /**
              * Obtém o valor da propriedade ufIni.
-             * 
-             * @return
-             *     possible object is
-             *     {@link TUf }
-             *     
+             *
+             * @return possible object is
+             * {@link TUf }
              */
             public TUf getUFIni() {
                 return ufIni;
@@ -2891,11 +2718,9 @@ public class TMDFe
 
             /**
              * Define o valor da propriedade ufIni.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link TUf }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link TUf }
              */
             public void setUFIni(TUf value) {
                 this.ufIni = value;
@@ -2903,11 +2728,9 @@ public class TMDFe
 
             /**
              * Obtém o valor da propriedade ufFim.
-             * 
-             * @return
-             *     possible object is
-             *     {@link TUf }
-             *     
+             *
+             * @return possible object is
+             * {@link TUf }
              */
             public TUf getUFFim() {
                 return ufFim;
@@ -2915,11 +2738,9 @@ public class TMDFe
 
             /**
              * Define o valor da propriedade ufFim.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link TUf }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link TUf }
              */
             public void setUFFim(TUf value) {
                 this.ufFim = value;
@@ -2927,25 +2748,23 @@ public class TMDFe
 
             /**
              * Gets the value of the infMunCarrega property.
-             * 
+             *
              * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the infMunCarrega property.
-             * 
+             *
              * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getInfMunCarrega().add(newItem);
              * </pre>
-             * 
-             * 
+             *
+             *
              * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link TMDFe.InfMDFe.Ide.InfMunCarrega }
-             * 
-             * 
              */
             public List<TMDFe.InfMDFe.Ide.InfMunCarrega> getInfMunCarrega() {
                 if (infMunCarrega == null) {
@@ -2956,25 +2775,23 @@ public class TMDFe
 
             /**
              * Gets the value of the infPercurso property.
-             * 
+             *
              * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the infPercurso property.
-             * 
+             *
              * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getInfPercurso().add(newItem);
              * </pre>
-             * 
-             * 
+             *
+             *
              * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link TMDFe.InfMDFe.Ide.InfPercurso }
-             * 
-             * 
              */
             public List<TMDFe.InfMDFe.Ide.InfPercurso> getInfPercurso() {
                 if (infPercurso == null) {
@@ -2985,11 +2802,9 @@ public class TMDFe
 
             /**
              * Obtém o valor da propriedade dhIniViagem.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getDhIniViagem() {
                 return dhIniViagem;
@@ -2997,11 +2812,9 @@ public class TMDFe
 
             /**
              * Define o valor da propriedade dhIniViagem.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setDhIniViagem(String value) {
                 this.dhIniViagem = value;
@@ -3009,11 +2822,9 @@ public class TMDFe
 
             /**
              * Obtém o valor da propriedade indCanalVerde.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getIndCanalVerde() {
                 return indCanalVerde;
@@ -3021,11 +2832,9 @@ public class TMDFe
 
             /**
              * Define o valor da propriedade indCanalVerde.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setIndCanalVerde(String value) {
                 this.indCanalVerde = value;
@@ -3033,11 +2842,9 @@ public class TMDFe
 
             /**
              * Obtém o valor da propriedade indCarregaPosterior.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getIndCarregaPosterior() {
                 return indCarregaPosterior;
@@ -3045,11 +2852,9 @@ public class TMDFe
 
             /**
              * Define o valor da propriedade indCarregaPosterior.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setIndCarregaPosterior(String value) {
                 this.indCarregaPosterior = value;
@@ -3058,9 +2863,9 @@ public class TMDFe
 
             /**
              * <p>Classe Java de anonymous complex type.
-             * 
+             *
              * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-             * 
+             *
              * <pre>
              * &lt;complexType&gt;
              *   &lt;complexContent&gt;
@@ -3080,17 +2885,14 @@ public class TMDFe
              *   &lt;/complexContent&gt;
              * &lt;/complexType&gt;
              * </pre>
-             * 
-             * 
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
-                "cMunCarrega",
-                "xMunCarrega"
+                    "cMunCarrega",
+                    "xMunCarrega"
             })
             public static class InfMunCarrega
-                implements XML
-            {
+                    implements XML {
 
                 @XmlElement(required = true)
                 protected String cMunCarrega;
@@ -3099,11 +2901,9 @@ public class TMDFe
 
                 /**
                  * Obtém o valor da propriedade cMunCarrega.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getCMunCarrega() {
                     return cMunCarrega;
@@ -3111,11 +2911,9 @@ public class TMDFe
 
                 /**
                  * Define o valor da propriedade cMunCarrega.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setCMunCarrega(String value) {
                     this.cMunCarrega = value;
@@ -3123,11 +2921,9 @@ public class TMDFe
 
                 /**
                  * Obtém o valor da propriedade xMunCarrega.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getXMunCarrega() {
                     return xMunCarrega;
@@ -3135,11 +2931,9 @@ public class TMDFe
 
                 /**
                  * Define o valor da propriedade xMunCarrega.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setXMunCarrega(String value) {
                     this.xMunCarrega = value;
@@ -3150,9 +2944,9 @@ public class TMDFe
 
             /**
              * <p>Classe Java de anonymous complex type.
-             * 
+             *
              * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-             * 
+             *
              * <pre>
              * &lt;complexType&gt;
              *   &lt;complexContent&gt;
@@ -3164,16 +2958,13 @@ public class TMDFe
              *   &lt;/complexContent&gt;
              * &lt;/complexType&gt;
              * </pre>
-             * 
-             * 
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
-                "ufPer"
+                    "ufPer"
             })
             public static class InfPercurso
-                implements XML
-            {
+                    implements XML {
 
                 @XmlElement(name = "UFPer", required = true)
                 @XmlSchemaType(name = "string")
@@ -3181,11 +2972,9 @@ public class TMDFe
 
                 /**
                  * Obtém o valor da propriedade ufPer.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link TUf }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link TUf }
                  */
                 public TUf getUFPer() {
                     return ufPer;
@@ -3193,11 +2982,9 @@ public class TMDFe
 
                 /**
                  * Define o valor da propriedade ufPer.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link TUf }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link TUf }
                  */
                 public void setUFPer(TUf value) {
                     this.ufPer = value;
@@ -3210,9 +2997,9 @@ public class TMDFe
 
         /**
          * <p>Classe Java de anonymous complex type.
-         * 
+         *
          * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-         * 
+         *
          * <pre>
          * &lt;complexType&gt;
          *   &lt;complexContent&gt;
@@ -3239,28 +3026,23 @@ public class TMDFe
          *   &lt;/complexContent&gt;
          * &lt;/complexType&gt;
          * </pre>
-         * 
-         * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "infAdFisco",
-            "infCpl"
+                "infAdFisco",
+                "infCpl"
         })
         public static class InfAdic
-            implements XML
-        {
+                implements XML {
 
             protected String infAdFisco;
             protected String infCpl;
 
             /**
              * Obtém o valor da propriedade infAdFisco.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getInfAdFisco() {
                 return infAdFisco;
@@ -3268,11 +3050,9 @@ public class TMDFe
 
             /**
              * Define o valor da propriedade infAdFisco.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setInfAdFisco(String value) {
                 this.infAdFisco = value;
@@ -3280,11 +3060,9 @@ public class TMDFe
 
             /**
              * Obtém o valor da propriedade infCpl.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getInfCpl() {
                 return infCpl;
@@ -3292,11 +3070,9 @@ public class TMDFe
 
             /**
              * Define o valor da propriedade infCpl.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setInfCpl(String value) {
                 this.infCpl = value;
@@ -3307,9 +3083,9 @@ public class TMDFe
 
         /**
          * <p>Classe Java de anonymous complex type.
-         * 
+         *
          * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-         * 
+         *
          * <pre>
          * &lt;complexType&gt;
          *   &lt;complexContent&gt;
@@ -3584,41 +3360,36 @@ public class TMDFe
          *   &lt;/complexContent&gt;
          * &lt;/complexType&gt;
          * </pre>
-         * 
-         * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "infMunDescarga"
+                "infMunDescarga"
         })
         public static class InfDoc
-            implements XML
-        {
+                implements XML {
 
             @XmlElement(required = true)
             protected List<TMDFe.InfMDFe.InfDoc.InfMunDescarga> infMunDescarga;
 
             /**
              * Gets the value of the infMunDescarga property.
-             * 
+             *
              * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the infMunDescarga property.
-             * 
+             *
              * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getInfMunDescarga().add(newItem);
              * </pre>
-             * 
-             * 
+             *
+             *
              * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link TMDFe.InfMDFe.InfDoc.InfMunDescarga }
-             * 
-             * 
              */
             public List<TMDFe.InfMDFe.InfDoc.InfMunDescarga> getInfMunDescarga() {
                 if (infMunDescarga == null) {
@@ -3630,9 +3401,9 @@ public class TMDFe
 
             /**
              * <p>Classe Java de anonymous complex type.
-             * 
+             *
              * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-             * 
+             *
              * <pre>
              * &lt;complexType&gt;
              *   &lt;complexContent&gt;
@@ -3897,20 +3668,17 @@ public class TMDFe
              *   &lt;/complexContent&gt;
              * &lt;/complexType&gt;
              * </pre>
-             * 
-             * 
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
-                "cMunDescarga",
-                "xMunDescarga",
-                "infCTe",
-                "infNFe",
-                "infMDFeTransp"
+                    "cMunDescarga",
+                    "xMunDescarga",
+                    "infCTe",
+                    "infNFe",
+                    "infMDFeTransp"
             })
             public static class InfMunDescarga
-                implements XML
-            {
+                    implements XML {
 
                 @XmlElement(required = true)
                 protected String cMunDescarga;
@@ -3922,11 +3690,9 @@ public class TMDFe
 
                 /**
                  * Obtém o valor da propriedade cMunDescarga.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getCMunDescarga() {
                     return cMunDescarga;
@@ -3934,11 +3700,9 @@ public class TMDFe
 
                 /**
                  * Define o valor da propriedade cMunDescarga.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setCMunDescarga(String value) {
                     this.cMunDescarga = value;
@@ -3946,11 +3710,9 @@ public class TMDFe
 
                 /**
                  * Obtém o valor da propriedade xMunDescarga.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getXMunDescarga() {
                     return xMunDescarga;
@@ -3958,11 +3720,9 @@ public class TMDFe
 
                 /**
                  * Define o valor da propriedade xMunDescarga.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setXMunDescarga(String value) {
                     this.xMunDescarga = value;
@@ -3970,25 +3730,23 @@ public class TMDFe
 
                 /**
                  * Gets the value of the infCTe property.
-                 * 
+                 *
                  * <p>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
                  * returned list will be present inside the JAXB object.
                  * This is why there is not a <CODE>set</CODE> method for the infCTe property.
-                 * 
+                 *
                  * <p>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getInfCTe().add(newItem);
                  * </pre>
-                 * 
-                 * 
+                 *
+                 *
                  * <p>
                  * Objects of the following type(s) are allowed in the list
                  * {@link TMDFe.InfMDFe.InfDoc.InfMunDescarga.InfCTe }
-                 * 
-                 * 
                  */
                 public List<TMDFe.InfMDFe.InfDoc.InfMunDescarga.InfCTe> getInfCTe() {
                     if (infCTe == null) {
@@ -3999,25 +3757,23 @@ public class TMDFe
 
                 /**
                  * Gets the value of the infNFe property.
-                 * 
+                 *
                  * <p>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
                  * returned list will be present inside the JAXB object.
                  * This is why there is not a <CODE>set</CODE> method for the infNFe property.
-                 * 
+                 *
                  * <p>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getInfNFe().add(newItem);
                  * </pre>
-                 * 
-                 * 
+                 *
+                 *
                  * <p>
                  * Objects of the following type(s) are allowed in the list
                  * {@link TMDFe.InfMDFe.InfDoc.InfMunDescarga.InfNFe }
-                 * 
-                 * 
                  */
                 public List<TMDFe.InfMDFe.InfDoc.InfMunDescarga.InfNFe> getInfNFe() {
                     if (infNFe == null) {
@@ -4028,25 +3784,23 @@ public class TMDFe
 
                 /**
                  * Gets the value of the infMDFeTransp property.
-                 * 
+                 *
                  * <p>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
                  * returned list will be present inside the JAXB object.
                  * This is why there is not a <CODE>set</CODE> method for the infMDFeTransp property.
-                 * 
+                 *
                  * <p>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getInfMDFeTransp().add(newItem);
                  * </pre>
-                 * 
-                 * 
+                 *
+                 *
                  * <p>
                  * Objects of the following type(s) are allowed in the list
                  * {@link TMDFe.InfMDFe.InfDoc.InfMunDescarga.InfMDFeTransp }
-                 * 
-                 * 
                  */
                 public List<TMDFe.InfMDFe.InfDoc.InfMunDescarga.InfMDFeTransp> getInfMDFeTransp() {
                     if (infMDFeTransp == null) {
@@ -4058,9 +3812,9 @@ public class TMDFe
 
                 /**
                  * <p>Classe Java de anonymous complex type.
-                 * 
+                 *
                  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-                 * 
+                 *
                  * <pre>
                  * &lt;complexType&gt;
                  *   &lt;complexContent&gt;
@@ -4151,21 +3905,18 @@ public class TMDFe
                  *   &lt;/complexContent&gt;
                  * &lt;/complexType&gt;
                  * </pre>
-                 * 
-                 * 
                  */
                 @XmlAccessorType(XmlAccessType.FIELD)
                 @XmlType(name = "", propOrder = {
-                    "chCTe",
-                    "segCodBarra",
-                    "indReentrega",
-                    "infUnidTransp",
-                    "peri",
-                    "infEntregaParcial"
+                        "chCTe",
+                        "segCodBarra",
+                        "indReentrega",
+                        "infUnidTransp",
+                        "peri",
+                        "infEntregaParcial"
                 })
                 public static class InfCTe
-                    implements XML
-                {
+                        implements XML {
 
                     @XmlElement(required = true)
                     protected String chCTe;
@@ -4178,11 +3929,9 @@ public class TMDFe
 
                     /**
                      * Obtém o valor da propriedade chCTe.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is
+                     * {@link String }
                      */
                     public String getChCTe() {
                         return chCTe;
@@ -4190,11 +3939,9 @@ public class TMDFe
 
                     /**
                      * Define o valor da propriedade chCTe.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is
+                     *              {@link String }
                      */
                     public void setChCTe(String value) {
                         this.chCTe = value;
@@ -4202,11 +3949,9 @@ public class TMDFe
 
                     /**
                      * Obtém o valor da propriedade segCodBarra.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is
+                     * {@link String }
                      */
                     public String getSegCodBarra() {
                         return segCodBarra;
@@ -4214,11 +3959,9 @@ public class TMDFe
 
                     /**
                      * Define o valor da propriedade segCodBarra.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is
+                     *              {@link String }
                      */
                     public void setSegCodBarra(String value) {
                         this.segCodBarra = value;
@@ -4226,11 +3969,9 @@ public class TMDFe
 
                     /**
                      * Obtém o valor da propriedade indReentrega.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is
+                     * {@link String }
                      */
                     public String getIndReentrega() {
                         return indReentrega;
@@ -4238,11 +3979,9 @@ public class TMDFe
 
                     /**
                      * Define o valor da propriedade indReentrega.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is
+                     *              {@link String }
                      */
                     public void setIndReentrega(String value) {
                         this.indReentrega = value;
@@ -4250,25 +3989,23 @@ public class TMDFe
 
                     /**
                      * Gets the value of the infUnidTransp property.
-                     * 
+                     *
                      * <p>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the infUnidTransp property.
-                     * 
+                     *
                      * <p>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getInfUnidTransp().add(newItem);
                      * </pre>
-                     * 
-                     * 
+                     *
+                     *
                      * <p>
                      * Objects of the following type(s) are allowed in the list
                      * {@link TUnidadeTransp }
-                     * 
-                     * 
                      */
                     public List<TUnidadeTransp> getInfUnidTransp() {
                         if (infUnidTransp == null) {
@@ -4279,25 +4016,23 @@ public class TMDFe
 
                     /**
                      * Gets the value of the peri property.
-                     * 
+                     *
                      * <p>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the peri property.
-                     * 
+                     *
                      * <p>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getPeri().add(newItem);
                      * </pre>
-                     * 
-                     * 
+                     *
+                     *
                      * <p>
                      * Objects of the following type(s) are allowed in the list
                      * {@link TMDFe.InfMDFe.InfDoc.InfMunDescarga.InfCTe.Peri }
-                     * 
-                     * 
                      */
                     public List<TMDFe.InfMDFe.InfDoc.InfMunDescarga.InfCTe.Peri> getPeri() {
                         if (peri == null) {
@@ -4308,11 +4043,9 @@ public class TMDFe
 
                     /**
                      * Obtém o valor da propriedade infEntregaParcial.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link TMDFe.InfMDFe.InfDoc.InfMunDescarga.InfCTe.InfEntregaParcial }
-                     *     
+                     *
+                     * @return possible object is
+                     * {@link TMDFe.InfMDFe.InfDoc.InfMunDescarga.InfCTe.InfEntregaParcial }
                      */
                     public TMDFe.InfMDFe.InfDoc.InfMunDescarga.InfCTe.InfEntregaParcial getInfEntregaParcial() {
                         return infEntregaParcial;
@@ -4320,11 +4053,9 @@ public class TMDFe
 
                     /**
                      * Define o valor da propriedade infEntregaParcial.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link TMDFe.InfMDFe.InfDoc.InfMunDescarga.InfCTe.InfEntregaParcial }
-                     *     
+                     *
+                     * @param value allowed object is
+                     *              {@link TMDFe.InfMDFe.InfDoc.InfMunDescarga.InfCTe.InfEntregaParcial }
                      */
                     public void setInfEntregaParcial(TMDFe.InfMDFe.InfDoc.InfMunDescarga.InfCTe.InfEntregaParcial value) {
                         this.infEntregaParcial = value;
@@ -4333,9 +4064,9 @@ public class TMDFe
 
                     /**
                      * <p>Classe Java de anonymous complex type.
-                     * 
+                     *
                      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-                     * 
+                     *
                      * <pre>
                      * &lt;complexType&gt;
                      *   &lt;complexContent&gt;
@@ -4348,17 +4079,14 @@ public class TMDFe
                      *   &lt;/complexContent&gt;
                      * &lt;/complexType&gt;
                      * </pre>
-                     * 
-                     * 
                      */
                     @XmlAccessorType(XmlAccessType.FIELD)
                     @XmlType(name = "", propOrder = {
-                        "qtdTotal",
-                        "qtdParcial"
+                            "qtdTotal",
+                            "qtdParcial"
                     })
                     public static class InfEntregaParcial
-                        implements XML
-                    {
+                            implements XML {
 
                         @XmlElement(required = true)
                         protected String qtdTotal;
@@ -4367,11 +4095,9 @@ public class TMDFe
 
                         /**
                          * Obtém o valor da propriedade qtdTotal.
-                         * 
-                         * @return
-                         *     possible object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @return possible object is
+                         * {@link String }
                          */
                         public String getQtdTotal() {
                             return qtdTotal;
@@ -4379,11 +4105,9 @@ public class TMDFe
 
                         /**
                          * Define o valor da propriedade qtdTotal.
-                         * 
-                         * @param value
-                         *     allowed object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @param value allowed object is
+                         *              {@link String }
                          */
                         public void setQtdTotal(String value) {
                             this.qtdTotal = value;
@@ -4391,11 +4115,9 @@ public class TMDFe
 
                         /**
                          * Obtém o valor da propriedade qtdParcial.
-                         * 
-                         * @return
-                         *     possible object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @return possible object is
+                         * {@link String }
                          */
                         public String getQtdParcial() {
                             return qtdParcial;
@@ -4403,11 +4125,9 @@ public class TMDFe
 
                         /**
                          * Define o valor da propriedade qtdParcial.
-                         * 
-                         * @param value
-                         *     allowed object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @param value allowed object is
+                         *              {@link String }
                          */
                         public void setQtdParcial(String value) {
                             this.qtdParcial = value;
@@ -4418,9 +4138,9 @@ public class TMDFe
 
                     /**
                      * <p>Classe Java de anonymous complex type.
-                     * 
+                     *
                      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-                     * 
+                     *
                      * <pre>
                      * &lt;complexType&gt;
                      *   &lt;complexContent&gt;
@@ -4479,21 +4199,18 @@ public class TMDFe
                      *   &lt;/complexContent&gt;
                      * &lt;/complexType&gt;
                      * </pre>
-                     * 
-                     * 
                      */
                     @XmlAccessorType(XmlAccessType.FIELD)
                     @XmlType(name = "", propOrder = {
-                        "nonu",
-                        "xNomeAE",
-                        "xClaRisco",
-                        "grEmb",
-                        "qTotProd",
-                        "qVolTipo"
+                            "nonu",
+                            "xNomeAE",
+                            "xClaRisco",
+                            "grEmb",
+                            "qTotProd",
+                            "qVolTipo"
                     })
                     public static class Peri
-                        implements XML
-                    {
+                            implements XML {
 
                         @XmlElement(name = "nONU", required = true)
                         protected String nonu;
@@ -4506,11 +4223,9 @@ public class TMDFe
 
                         /**
                          * Obtém o valor da propriedade nonu.
-                         * 
-                         * @return
-                         *     possible object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @return possible object is
+                         * {@link String }
                          */
                         public String getNONU() {
                             return nonu;
@@ -4518,11 +4233,9 @@ public class TMDFe
 
                         /**
                          * Define o valor da propriedade nonu.
-                         * 
-                         * @param value
-                         *     allowed object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @param value allowed object is
+                         *              {@link String }
                          */
                         public void setNONU(String value) {
                             this.nonu = value;
@@ -4530,11 +4243,9 @@ public class TMDFe
 
                         /**
                          * Obtém o valor da propriedade xNomeAE.
-                         * 
-                         * @return
-                         *     possible object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @return possible object is
+                         * {@link String }
                          */
                         public String getXNomeAE() {
                             return xNomeAE;
@@ -4542,11 +4253,9 @@ public class TMDFe
 
                         /**
                          * Define o valor da propriedade xNomeAE.
-                         * 
-                         * @param value
-                         *     allowed object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @param value allowed object is
+                         *              {@link String }
                          */
                         public void setXNomeAE(String value) {
                             this.xNomeAE = value;
@@ -4554,11 +4263,9 @@ public class TMDFe
 
                         /**
                          * Obtém o valor da propriedade xClaRisco.
-                         * 
-                         * @return
-                         *     possible object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @return possible object is
+                         * {@link String }
                          */
                         public String getXClaRisco() {
                             return xClaRisco;
@@ -4566,11 +4273,9 @@ public class TMDFe
 
                         /**
                          * Define o valor da propriedade xClaRisco.
-                         * 
-                         * @param value
-                         *     allowed object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @param value allowed object is
+                         *              {@link String }
                          */
                         public void setXClaRisco(String value) {
                             this.xClaRisco = value;
@@ -4578,11 +4283,9 @@ public class TMDFe
 
                         /**
                          * Obtém o valor da propriedade grEmb.
-                         * 
-                         * @return
-                         *     possible object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @return possible object is
+                         * {@link String }
                          */
                         public String getGrEmb() {
                             return grEmb;
@@ -4590,11 +4293,9 @@ public class TMDFe
 
                         /**
                          * Define o valor da propriedade grEmb.
-                         * 
-                         * @param value
-                         *     allowed object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @param value allowed object is
+                         *              {@link String }
                          */
                         public void setGrEmb(String value) {
                             this.grEmb = value;
@@ -4602,11 +4303,9 @@ public class TMDFe
 
                         /**
                          * Obtém o valor da propriedade qTotProd.
-                         * 
-                         * @return
-                         *     possible object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @return possible object is
+                         * {@link String }
                          */
                         public String getQTotProd() {
                             return qTotProd;
@@ -4614,11 +4313,9 @@ public class TMDFe
 
                         /**
                          * Define o valor da propriedade qTotProd.
-                         * 
-                         * @param value
-                         *     allowed object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @param value allowed object is
+                         *              {@link String }
                          */
                         public void setQTotProd(String value) {
                             this.qTotProd = value;
@@ -4626,11 +4323,9 @@ public class TMDFe
 
                         /**
                          * Obtém o valor da propriedade qVolTipo.
-                         * 
-                         * @return
-                         *     possible object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @return possible object is
+                         * {@link String }
                          */
                         public String getQVolTipo() {
                             return qVolTipo;
@@ -4638,11 +4333,9 @@ public class TMDFe
 
                         /**
                          * Define o valor da propriedade qVolTipo.
-                         * 
-                         * @param value
-                         *     allowed object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @param value allowed object is
+                         *              {@link String }
                          */
                         public void setQVolTipo(String value) {
                             this.qVolTipo = value;
@@ -4655,9 +4348,9 @@ public class TMDFe
 
                 /**
                  * <p>Classe Java de anonymous complex type.
-                 * 
+                 *
                  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-                 * 
+                 *
                  * <pre>
                  * &lt;complexType&gt;
                  *   &lt;complexContent&gt;
@@ -4735,19 +4428,16 @@ public class TMDFe
                  *   &lt;/complexContent&gt;
                  * &lt;/complexType&gt;
                  * </pre>
-                 * 
-                 * 
                  */
                 @XmlAccessorType(XmlAccessType.FIELD)
                 @XmlType(name = "", propOrder = {
-                    "chMDFe",
-                    "indReentrega",
-                    "infUnidTransp",
-                    "peri"
+                        "chMDFe",
+                        "indReentrega",
+                        "infUnidTransp",
+                        "peri"
                 })
                 public static class InfMDFeTransp
-                    implements XML
-                {
+                        implements XML {
 
                     @XmlElement(required = true)
                     protected String chMDFe;
@@ -4757,11 +4447,9 @@ public class TMDFe
 
                     /**
                      * Obtém o valor da propriedade chMDFe.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is
+                     * {@link String }
                      */
                     public String getChMDFe() {
                         return chMDFe;
@@ -4769,11 +4457,9 @@ public class TMDFe
 
                     /**
                      * Define o valor da propriedade chMDFe.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is
+                     *              {@link String }
                      */
                     public void setChMDFe(String value) {
                         this.chMDFe = value;
@@ -4781,11 +4467,9 @@ public class TMDFe
 
                     /**
                      * Obtém o valor da propriedade indReentrega.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is
+                     * {@link String }
                      */
                     public String getIndReentrega() {
                         return indReentrega;
@@ -4793,11 +4477,9 @@ public class TMDFe
 
                     /**
                      * Define o valor da propriedade indReentrega.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is
+                     *              {@link String }
                      */
                     public void setIndReentrega(String value) {
                         this.indReentrega = value;
@@ -4805,25 +4487,23 @@ public class TMDFe
 
                     /**
                      * Gets the value of the infUnidTransp property.
-                     * 
+                     *
                      * <p>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the infUnidTransp property.
-                     * 
+                     *
                      * <p>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getInfUnidTransp().add(newItem);
                      * </pre>
-                     * 
-                     * 
+                     *
+                     *
                      * <p>
                      * Objects of the following type(s) are allowed in the list
                      * {@link TUnidadeTransp }
-                     * 
-                     * 
                      */
                     public List<TUnidadeTransp> getInfUnidTransp() {
                         if (infUnidTransp == null) {
@@ -4834,25 +4514,23 @@ public class TMDFe
 
                     /**
                      * Gets the value of the peri property.
-                     * 
+                     *
                      * <p>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the peri property.
-                     * 
+                     *
                      * <p>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getPeri().add(newItem);
                      * </pre>
-                     * 
-                     * 
+                     *
+                     *
                      * <p>
                      * Objects of the following type(s) are allowed in the list
                      * {@link TMDFe.InfMDFe.InfDoc.InfMunDescarga.InfMDFeTransp.Peri }
-                     * 
-                     * 
                      */
                     public List<TMDFe.InfMDFe.InfDoc.InfMunDescarga.InfMDFeTransp.Peri> getPeri() {
                         if (peri == null) {
@@ -4864,9 +4542,9 @@ public class TMDFe
 
                     /**
                      * <p>Classe Java de anonymous complex type.
-                     * 
+                     *
                      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-                     * 
+                     *
                      * <pre>
                      * &lt;complexType&gt;
                      *   &lt;complexContent&gt;
@@ -4925,21 +4603,18 @@ public class TMDFe
                      *   &lt;/complexContent&gt;
                      * &lt;/complexType&gt;
                      * </pre>
-                     * 
-                     * 
                      */
                     @XmlAccessorType(XmlAccessType.FIELD)
                     @XmlType(name = "", propOrder = {
-                        "nonu",
-                        "xNomeAE",
-                        "xClaRisco",
-                        "grEmb",
-                        "qTotProd",
-                        "qVolTipo"
+                            "nonu",
+                            "xNomeAE",
+                            "xClaRisco",
+                            "grEmb",
+                            "qTotProd",
+                            "qVolTipo"
                     })
                     public static class Peri
-                        implements XML
-                    {
+                            implements XML {
 
                         @XmlElement(name = "nONU", required = true)
                         protected String nonu;
@@ -4952,11 +4627,9 @@ public class TMDFe
 
                         /**
                          * Obtém o valor da propriedade nonu.
-                         * 
-                         * @return
-                         *     possible object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @return possible object is
+                         * {@link String }
                          */
                         public String getNONU() {
                             return nonu;
@@ -4964,11 +4637,9 @@ public class TMDFe
 
                         /**
                          * Define o valor da propriedade nonu.
-                         * 
-                         * @param value
-                         *     allowed object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @param value allowed object is
+                         *              {@link String }
                          */
                         public void setNONU(String value) {
                             this.nonu = value;
@@ -4976,11 +4647,9 @@ public class TMDFe
 
                         /**
                          * Obtém o valor da propriedade xNomeAE.
-                         * 
-                         * @return
-                         *     possible object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @return possible object is
+                         * {@link String }
                          */
                         public String getXNomeAE() {
                             return xNomeAE;
@@ -4988,11 +4657,9 @@ public class TMDFe
 
                         /**
                          * Define o valor da propriedade xNomeAE.
-                         * 
-                         * @param value
-                         *     allowed object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @param value allowed object is
+                         *              {@link String }
                          */
                         public void setXNomeAE(String value) {
                             this.xNomeAE = value;
@@ -5000,11 +4667,9 @@ public class TMDFe
 
                         /**
                          * Obtém o valor da propriedade xClaRisco.
-                         * 
-                         * @return
-                         *     possible object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @return possible object is
+                         * {@link String }
                          */
                         public String getXClaRisco() {
                             return xClaRisco;
@@ -5012,11 +4677,9 @@ public class TMDFe
 
                         /**
                          * Define o valor da propriedade xClaRisco.
-                         * 
-                         * @param value
-                         *     allowed object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @param value allowed object is
+                         *              {@link String }
                          */
                         public void setXClaRisco(String value) {
                             this.xClaRisco = value;
@@ -5024,11 +4687,9 @@ public class TMDFe
 
                         /**
                          * Obtém o valor da propriedade grEmb.
-                         * 
-                         * @return
-                         *     possible object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @return possible object is
+                         * {@link String }
                          */
                         public String getGrEmb() {
                             return grEmb;
@@ -5036,11 +4697,9 @@ public class TMDFe
 
                         /**
                          * Define o valor da propriedade grEmb.
-                         * 
-                         * @param value
-                         *     allowed object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @param value allowed object is
+                         *              {@link String }
                          */
                         public void setGrEmb(String value) {
                             this.grEmb = value;
@@ -5048,11 +4707,9 @@ public class TMDFe
 
                         /**
                          * Obtém o valor da propriedade qTotProd.
-                         * 
-                         * @return
-                         *     possible object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @return possible object is
+                         * {@link String }
                          */
                         public String getQTotProd() {
                             return qTotProd;
@@ -5060,11 +4717,9 @@ public class TMDFe
 
                         /**
                          * Define o valor da propriedade qTotProd.
-                         * 
-                         * @param value
-                         *     allowed object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @param value allowed object is
+                         *              {@link String }
                          */
                         public void setQTotProd(String value) {
                             this.qTotProd = value;
@@ -5072,11 +4727,9 @@ public class TMDFe
 
                         /**
                          * Obtém o valor da propriedade qVolTipo.
-                         * 
-                         * @return
-                         *     possible object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @return possible object is
+                         * {@link String }
                          */
                         public String getQVolTipo() {
                             return qVolTipo;
@@ -5084,11 +4737,9 @@ public class TMDFe
 
                         /**
                          * Define o valor da propriedade qVolTipo.
-                         * 
-                         * @param value
-                         *     allowed object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @param value allowed object is
+                         *              {@link String }
                          */
                         public void setQVolTipo(String value) {
                             this.qVolTipo = value;
@@ -5101,9 +4752,9 @@ public class TMDFe
 
                 /**
                  * <p>Classe Java de anonymous complex type.
-                 * 
+                 *
                  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-                 * 
+                 *
                  * <pre>
                  * &lt;complexType&gt;
                  *   &lt;complexContent&gt;
@@ -5182,20 +4833,17 @@ public class TMDFe
                  *   &lt;/complexContent&gt;
                  * &lt;/complexType&gt;
                  * </pre>
-                 * 
-                 * 
                  */
                 @XmlAccessorType(XmlAccessType.FIELD)
                 @XmlType(name = "", propOrder = {
-                    "chNFe",
-                    "segCodBarra",
-                    "indReentrega",
-                    "infUnidTransp",
-                    "peri"
+                        "chNFe",
+                        "segCodBarra",
+                        "indReentrega",
+                        "infUnidTransp",
+                        "peri"
                 })
                 public static class InfNFe
-                    implements XML
-                {
+                        implements XML {
 
                     @XmlElement(required = true)
                     protected String chNFe;
@@ -5207,11 +4855,9 @@ public class TMDFe
 
                     /**
                      * Obtém o valor da propriedade chNFe.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is
+                     * {@link String }
                      */
                     public String getChNFe() {
                         return chNFe;
@@ -5219,11 +4865,9 @@ public class TMDFe
 
                     /**
                      * Define o valor da propriedade chNFe.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is
+                     *              {@link String }
                      */
                     public void setChNFe(String value) {
                         this.chNFe = value;
@@ -5231,11 +4875,9 @@ public class TMDFe
 
                     /**
                      * Obtém o valor da propriedade segCodBarra.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is
+                     * {@link String }
                      */
                     public String getSegCodBarra() {
                         return segCodBarra;
@@ -5243,11 +4885,9 @@ public class TMDFe
 
                     /**
                      * Define o valor da propriedade segCodBarra.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is
+                     *              {@link String }
                      */
                     public void setSegCodBarra(String value) {
                         this.segCodBarra = value;
@@ -5255,11 +4895,9 @@ public class TMDFe
 
                     /**
                      * Obtém o valor da propriedade indReentrega.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is
+                     * {@link String }
                      */
                     public String getIndReentrega() {
                         return indReentrega;
@@ -5267,11 +4905,9 @@ public class TMDFe
 
                     /**
                      * Define o valor da propriedade indReentrega.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is
+                     *              {@link String }
                      */
                     public void setIndReentrega(String value) {
                         this.indReentrega = value;
@@ -5279,25 +4915,23 @@ public class TMDFe
 
                     /**
                      * Gets the value of the infUnidTransp property.
-                     * 
+                     *
                      * <p>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the infUnidTransp property.
-                     * 
+                     *
                      * <p>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getInfUnidTransp().add(newItem);
                      * </pre>
-                     * 
-                     * 
+                     *
+                     *
                      * <p>
                      * Objects of the following type(s) are allowed in the list
                      * {@link TUnidadeTransp }
-                     * 
-                     * 
                      */
                     public List<TUnidadeTransp> getInfUnidTransp() {
                         if (infUnidTransp == null) {
@@ -5308,25 +4942,23 @@ public class TMDFe
 
                     /**
                      * Gets the value of the peri property.
-                     * 
+                     *
                      * <p>
                      * This accessor method returns a reference to the live list,
                      * not a snapshot. Therefore any modification you make to the
                      * returned list will be present inside the JAXB object.
                      * This is why there is not a <CODE>set</CODE> method for the peri property.
-                     * 
+                     *
                      * <p>
                      * For example, to add a new item, do as follows:
                      * <pre>
                      *    getPeri().add(newItem);
                      * </pre>
-                     * 
-                     * 
+                     *
+                     *
                      * <p>
                      * Objects of the following type(s) are allowed in the list
                      * {@link TMDFe.InfMDFe.InfDoc.InfMunDescarga.InfNFe.Peri }
-                     * 
-                     * 
                      */
                     public List<TMDFe.InfMDFe.InfDoc.InfMunDescarga.InfNFe.Peri> getPeri() {
                         if (peri == null) {
@@ -5338,9 +4970,9 @@ public class TMDFe
 
                     /**
                      * <p>Classe Java de anonymous complex type.
-                     * 
+                     *
                      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-                     * 
+                     *
                      * <pre>
                      * &lt;complexType&gt;
                      *   &lt;complexContent&gt;
@@ -5399,21 +5031,18 @@ public class TMDFe
                      *   &lt;/complexContent&gt;
                      * &lt;/complexType&gt;
                      * </pre>
-                     * 
-                     * 
                      */
                     @XmlAccessorType(XmlAccessType.FIELD)
                     @XmlType(name = "", propOrder = {
-                        "nonu",
-                        "xNomeAE",
-                        "xClaRisco",
-                        "grEmb",
-                        "qTotProd",
-                        "qVolTipo"
+                            "nonu",
+                            "xNomeAE",
+                            "xClaRisco",
+                            "grEmb",
+                            "qTotProd",
+                            "qVolTipo"
                     })
                     public static class Peri
-                        implements XML
-                    {
+                            implements XML {
 
                         @XmlElement(name = "nONU", required = true)
                         protected String nonu;
@@ -5426,11 +5055,9 @@ public class TMDFe
 
                         /**
                          * Obtém o valor da propriedade nonu.
-                         * 
-                         * @return
-                         *     possible object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @return possible object is
+                         * {@link String }
                          */
                         public String getNONU() {
                             return nonu;
@@ -5438,11 +5065,9 @@ public class TMDFe
 
                         /**
                          * Define o valor da propriedade nonu.
-                         * 
-                         * @param value
-                         *     allowed object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @param value allowed object is
+                         *              {@link String }
                          */
                         public void setNONU(String value) {
                             this.nonu = value;
@@ -5450,11 +5075,9 @@ public class TMDFe
 
                         /**
                          * Obtém o valor da propriedade xNomeAE.
-                         * 
-                         * @return
-                         *     possible object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @return possible object is
+                         * {@link String }
                          */
                         public String getXNomeAE() {
                             return xNomeAE;
@@ -5462,11 +5085,9 @@ public class TMDFe
 
                         /**
                          * Define o valor da propriedade xNomeAE.
-                         * 
-                         * @param value
-                         *     allowed object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @param value allowed object is
+                         *              {@link String }
                          */
                         public void setXNomeAE(String value) {
                             this.xNomeAE = value;
@@ -5474,11 +5095,9 @@ public class TMDFe
 
                         /**
                          * Obtém o valor da propriedade xClaRisco.
-                         * 
-                         * @return
-                         *     possible object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @return possible object is
+                         * {@link String }
                          */
                         public String getXClaRisco() {
                             return xClaRisco;
@@ -5486,11 +5105,9 @@ public class TMDFe
 
                         /**
                          * Define o valor da propriedade xClaRisco.
-                         * 
-                         * @param value
-                         *     allowed object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @param value allowed object is
+                         *              {@link String }
                          */
                         public void setXClaRisco(String value) {
                             this.xClaRisco = value;
@@ -5498,11 +5115,9 @@ public class TMDFe
 
                         /**
                          * Obtém o valor da propriedade grEmb.
-                         * 
-                         * @return
-                         *     possible object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @return possible object is
+                         * {@link String }
                          */
                         public String getGrEmb() {
                             return grEmb;
@@ -5510,11 +5125,9 @@ public class TMDFe
 
                         /**
                          * Define o valor da propriedade grEmb.
-                         * 
-                         * @param value
-                         *     allowed object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @param value allowed object is
+                         *              {@link String }
                          */
                         public void setGrEmb(String value) {
                             this.grEmb = value;
@@ -5522,11 +5135,9 @@ public class TMDFe
 
                         /**
                          * Obtém o valor da propriedade qTotProd.
-                         * 
-                         * @return
-                         *     possible object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @return possible object is
+                         * {@link String }
                          */
                         public String getQTotProd() {
                             return qTotProd;
@@ -5534,11 +5145,9 @@ public class TMDFe
 
                         /**
                          * Define o valor da propriedade qTotProd.
-                         * 
-                         * @param value
-                         *     allowed object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @param value allowed object is
+                         *              {@link String }
                          */
                         public void setQTotProd(String value) {
                             this.qTotProd = value;
@@ -5546,11 +5155,9 @@ public class TMDFe
 
                         /**
                          * Obtém o valor da propriedade qVolTipo.
-                         * 
-                         * @return
-                         *     possible object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @return possible object is
+                         * {@link String }
                          */
                         public String getQVolTipo() {
                             return qVolTipo;
@@ -5558,11 +5165,9 @@ public class TMDFe
 
                         /**
                          * Define o valor da propriedade qVolTipo.
-                         * 
-                         * @param value
-                         *     allowed object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @param value allowed object is
+                         *              {@link String }
                          */
                         public void setQVolTipo(String value) {
                             this.qVolTipo = value;
@@ -5579,9 +5184,9 @@ public class TMDFe
 
         /**
          * <p>Classe Java de anonymous complex type.
-         * 
+         *
          * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-         * 
+         *
          * <pre>
          * &lt;complexType&gt;
          *   &lt;complexContent&gt;
@@ -5601,16 +5206,13 @@ public class TMDFe
          *   &lt;/complexContent&gt;
          * &lt;/complexType&gt;
          * </pre>
-         * 
-         * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "any"
+                "any"
         })
         public static class InfModal
-            implements XML
-        {
+                implements XML {
 
             @XmlAnyElement
             protected Element any;
@@ -5619,11 +5221,9 @@ public class TMDFe
 
             /**
              * Obtém o valor da propriedade any.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Element }
-             *     
+             *
+             * @return possible object is
+             * {@link Element }
              */
             public Element getAny() {
                 return any;
@@ -5631,11 +5231,9 @@ public class TMDFe
 
             /**
              * Define o valor da propriedade any.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Element }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link Element }
              */
             public void setAny(Element value) {
                 this.any = value;
@@ -5643,11 +5241,9 @@ public class TMDFe
 
             /**
              * Obtém o valor da propriedade versaoModal.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getVersaoModal() {
                 return versaoModal;
@@ -5655,11 +5251,9 @@ public class TMDFe
 
             /**
              * Define o valor da propriedade versaoModal.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setVersaoModal(String value) {
                 this.versaoModal = value;
@@ -5670,9 +5264,9 @@ public class TMDFe
 
         /**
          * <p>Classe Java de anonymous complex type.
-         * 
+         *
          * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-         * 
+         *
          * <pre>
          * &lt;complexType&gt;
          *   &lt;complexContent&gt;
@@ -5691,27 +5285,22 @@ public class TMDFe
          *   &lt;/complexContent&gt;
          * &lt;/complexType&gt;
          * </pre>
-         * 
-         * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "xSolic"
+                "xSolic"
         })
         public static class InfSolicNFF
-            implements XML
-        {
+                implements XML {
 
             @XmlElement(required = true)
             protected String xSolic;
 
             /**
              * Obtém o valor da propriedade xSolic.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getXSolic() {
                 return xSolic;
@@ -5719,11 +5308,9 @@ public class TMDFe
 
             /**
              * Define o valor da propriedade xSolic.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setXSolic(String value) {
                 this.xSolic = value;
@@ -5734,9 +5321,9 @@ public class TMDFe
 
         /**
          * <p>Classe Java de anonymous complex type.
-         * 
+         *
          * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-         * 
+         *
          * <pre>
          * &lt;complexType&gt;
          *   &lt;complexContent&gt;
@@ -5755,27 +5342,22 @@ public class TMDFe
          *   &lt;/complexContent&gt;
          * &lt;/complexType&gt;
          * </pre>
-         * 
-         * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "nLacre"
+                "nLacre"
         })
         public static class Lacres
-            implements XML
-        {
+                implements XML {
 
             @XmlElement(required = true)
             protected String nLacre;
 
             /**
              * Obtém o valor da propriedade nLacre.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getNLacre() {
                 return nLacre;
@@ -5783,11 +5365,9 @@ public class TMDFe
 
             /**
              * Define o valor da propriedade nLacre.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setNLacre(String value) {
                 this.nLacre = value;
@@ -5798,9 +5378,9 @@ public class TMDFe
 
         /**
          * <p>Classe Java de anonymous complex type.
-         * 
+         *
          * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-         * 
+         *
          * <pre>
          * &lt;complexType&gt;
          *   &lt;complexContent&gt;
@@ -5907,20 +5487,17 @@ public class TMDFe
          *   &lt;/complexContent&gt;
          * &lt;/complexType&gt;
          * </pre>
-         * 
-         * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "tpCarga",
-            "xProd",
-            "cean",
-            "ncm",
-            "infLotacao"
+                "tpCarga",
+                "xProd",
+                "cean",
+                "ncm",
+                "infLotacao"
         })
         public static class ProdPred
-            implements XML
-        {
+                implements XML {
 
             @XmlElement(required = true)
             protected String tpCarga;
@@ -5934,11 +5511,9 @@ public class TMDFe
 
             /**
              * Obtém o valor da propriedade tpCarga.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getTpCarga() {
                 return tpCarga;
@@ -5946,11 +5521,9 @@ public class TMDFe
 
             /**
              * Define o valor da propriedade tpCarga.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setTpCarga(String value) {
                 this.tpCarga = value;
@@ -5958,11 +5531,9 @@ public class TMDFe
 
             /**
              * Obtém o valor da propriedade xProd.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getXProd() {
                 return xProd;
@@ -5970,11 +5541,9 @@ public class TMDFe
 
             /**
              * Define o valor da propriedade xProd.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setXProd(String value) {
                 this.xProd = value;
@@ -5982,11 +5551,9 @@ public class TMDFe
 
             /**
              * Obtém o valor da propriedade cean.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getCEAN() {
                 return cean;
@@ -5994,11 +5561,9 @@ public class TMDFe
 
             /**
              * Define o valor da propriedade cean.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setCEAN(String value) {
                 this.cean = value;
@@ -6006,11 +5571,9 @@ public class TMDFe
 
             /**
              * Obtém o valor da propriedade ncm.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getNCM() {
                 return ncm;
@@ -6018,11 +5581,9 @@ public class TMDFe
 
             /**
              * Define o valor da propriedade ncm.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setNCM(String value) {
                 this.ncm = value;
@@ -6030,11 +5591,9 @@ public class TMDFe
 
             /**
              * Obtém o valor da propriedade infLotacao.
-             * 
-             * @return
-             *     possible object is
-             *     {@link TMDFe.InfMDFe.ProdPred.InfLotacao }
-             *     
+             *
+             * @return possible object is
+             * {@link TMDFe.InfMDFe.ProdPred.InfLotacao }
              */
             public TMDFe.InfMDFe.ProdPred.InfLotacao getInfLotacao() {
                 return infLotacao;
@@ -6042,11 +5601,9 @@ public class TMDFe
 
             /**
              * Define o valor da propriedade infLotacao.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link TMDFe.InfMDFe.ProdPred.InfLotacao }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link TMDFe.InfMDFe.ProdPred.InfLotacao }
              */
             public void setInfLotacao(TMDFe.InfMDFe.ProdPred.InfLotacao value) {
                 this.infLotacao = value;
@@ -6055,9 +5612,9 @@ public class TMDFe
 
             /**
              * <p>Classe Java de anonymous complex type.
-             * 
+             *
              * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-             * 
+             *
              * <pre>
              * &lt;complexType&gt;
              *   &lt;complexContent&gt;
@@ -6112,17 +5669,14 @@ public class TMDFe
              *   &lt;/complexContent&gt;
              * &lt;/complexType&gt;
              * </pre>
-             * 
-             * 
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
-                "infLocalCarrega",
-                "infLocalDescarrega"
+                    "infLocalCarrega",
+                    "infLocalDescarrega"
             })
             public static class InfLotacao
-                implements XML
-            {
+                    implements XML {
 
                 @XmlElement(required = true)
                 protected TMDFe.InfMDFe.ProdPred.InfLotacao.InfLocalCarrega infLocalCarrega;
@@ -6131,11 +5685,9 @@ public class TMDFe
 
                 /**
                  * Obtém o valor da propriedade infLocalCarrega.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link TMDFe.InfMDFe.ProdPred.InfLotacao.InfLocalCarrega }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link TMDFe.InfMDFe.ProdPred.InfLotacao.InfLocalCarrega }
                  */
                 public TMDFe.InfMDFe.ProdPred.InfLotacao.InfLocalCarrega getInfLocalCarrega() {
                     return infLocalCarrega;
@@ -6143,11 +5695,9 @@ public class TMDFe
 
                 /**
                  * Define o valor da propriedade infLocalCarrega.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link TMDFe.InfMDFe.ProdPred.InfLotacao.InfLocalCarrega }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link TMDFe.InfMDFe.ProdPred.InfLotacao.InfLocalCarrega }
                  */
                 public void setInfLocalCarrega(TMDFe.InfMDFe.ProdPred.InfLotacao.InfLocalCarrega value) {
                     this.infLocalCarrega = value;
@@ -6155,11 +5705,9 @@ public class TMDFe
 
                 /**
                  * Obtém o valor da propriedade infLocalDescarrega.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link TMDFe.InfMDFe.ProdPred.InfLotacao.InfLocalDescarrega }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link TMDFe.InfMDFe.ProdPred.InfLotacao.InfLocalDescarrega }
                  */
                 public TMDFe.InfMDFe.ProdPred.InfLotacao.InfLocalDescarrega getInfLocalDescarrega() {
                     return infLocalDescarrega;
@@ -6167,11 +5715,9 @@ public class TMDFe
 
                 /**
                  * Define o valor da propriedade infLocalDescarrega.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link TMDFe.InfMDFe.ProdPred.InfLotacao.InfLocalDescarrega }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link TMDFe.InfMDFe.ProdPred.InfLotacao.InfLocalDescarrega }
                  */
                 public void setInfLocalDescarrega(TMDFe.InfMDFe.ProdPred.InfLotacao.InfLocalDescarrega value) {
                     this.infLocalDescarrega = value;
@@ -6180,9 +5726,9 @@ public class TMDFe
 
                 /**
                  * <p>Classe Java de anonymous complex type.
-                 * 
+                 *
                  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-                 * 
+                 *
                  * <pre>
                  * &lt;complexType&gt;
                  *   &lt;complexContent&gt;
@@ -6205,18 +5751,15 @@ public class TMDFe
                  *   &lt;/complexContent&gt;
                  * &lt;/complexType&gt;
                  * </pre>
-                 * 
-                 * 
                  */
                 @XmlAccessorType(XmlAccessType.FIELD)
                 @XmlType(name = "", propOrder = {
-                    "cep",
-                    "latitude",
-                    "longitude"
+                        "cep",
+                        "latitude",
+                        "longitude"
                 })
                 public static class InfLocalCarrega
-                    implements XML
-                {
+                        implements XML {
 
                     @XmlElement(name = "CEP")
                     protected String cep;
@@ -6225,11 +5768,9 @@ public class TMDFe
 
                     /**
                      * Obtém o valor da propriedade cep.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is
+                     * {@link String }
                      */
                     public String getCEP() {
                         return cep;
@@ -6237,11 +5778,9 @@ public class TMDFe
 
                     /**
                      * Define o valor da propriedade cep.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is
+                     *              {@link String }
                      */
                     public void setCEP(String value) {
                         this.cep = value;
@@ -6249,11 +5788,9 @@ public class TMDFe
 
                     /**
                      * Obtém o valor da propriedade latitude.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is
+                     * {@link String }
                      */
                     public String getLatitude() {
                         return latitude;
@@ -6261,11 +5798,9 @@ public class TMDFe
 
                     /**
                      * Define o valor da propriedade latitude.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is
+                     *              {@link String }
                      */
                     public void setLatitude(String value) {
                         this.latitude = value;
@@ -6273,11 +5808,9 @@ public class TMDFe
 
                     /**
                      * Obtém o valor da propriedade longitude.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is
+                     * {@link String }
                      */
                     public String getLongitude() {
                         return longitude;
@@ -6285,11 +5818,9 @@ public class TMDFe
 
                     /**
                      * Define o valor da propriedade longitude.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is
+                     *              {@link String }
                      */
                     public void setLongitude(String value) {
                         this.longitude = value;
@@ -6300,9 +5831,9 @@ public class TMDFe
 
                 /**
                  * <p>Classe Java de anonymous complex type.
-                 * 
+                 *
                  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-                 * 
+                 *
                  * <pre>
                  * &lt;complexType&gt;
                  *   &lt;complexContent&gt;
@@ -6325,18 +5856,15 @@ public class TMDFe
                  *   &lt;/complexContent&gt;
                  * &lt;/complexType&gt;
                  * </pre>
-                 * 
-                 * 
                  */
                 @XmlAccessorType(XmlAccessType.FIELD)
                 @XmlType(name = "", propOrder = {
-                    "cep",
-                    "latitude",
-                    "longitude"
+                        "cep",
+                        "latitude",
+                        "longitude"
                 })
                 public static class InfLocalDescarrega
-                    implements XML
-                {
+                        implements XML {
 
                     @XmlElement(name = "CEP")
                     protected String cep;
@@ -6345,11 +5873,9 @@ public class TMDFe
 
                     /**
                      * Obtém o valor da propriedade cep.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is
+                     * {@link String }
                      */
                     public String getCEP() {
                         return cep;
@@ -6357,11 +5883,9 @@ public class TMDFe
 
                     /**
                      * Define o valor da propriedade cep.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is
+                     *              {@link String }
                      */
                     public void setCEP(String value) {
                         this.cep = value;
@@ -6369,11 +5893,9 @@ public class TMDFe
 
                     /**
                      * Obtém o valor da propriedade latitude.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is
+                     * {@link String }
                      */
                     public String getLatitude() {
                         return latitude;
@@ -6381,11 +5903,9 @@ public class TMDFe
 
                     /**
                      * Define o valor da propriedade latitude.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is
+                     *              {@link String }
                      */
                     public void setLatitude(String value) {
                         this.latitude = value;
@@ -6393,11 +5913,9 @@ public class TMDFe
 
                     /**
                      * Obtém o valor da propriedade longitude.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is
+                     * {@link String }
                      */
                     public String getLongitude() {
                         return longitude;
@@ -6405,11 +5923,9 @@ public class TMDFe
 
                     /**
                      * Define o valor da propriedade longitude.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is
+                     *              {@link String }
                      */
                     public void setLongitude(String value) {
                         this.longitude = value;
@@ -6424,9 +5940,9 @@ public class TMDFe
 
         /**
          * <p>Classe Java de anonymous complex type.
-         * 
+         *
          * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-         * 
+         *
          * <pre>
          * &lt;complexType&gt;
          *   &lt;complexContent&gt;
@@ -6497,19 +6013,16 @@ public class TMDFe
          *   &lt;/complexContent&gt;
          * &lt;/complexType&gt;
          * </pre>
-         * 
-         * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "infResp",
-            "infSeg",
-            "nApol",
-            "nAver"
+                "infResp",
+                "infSeg",
+                "nApol",
+                "nAver"
         })
         public static class Seg
-            implements XML
-        {
+                implements XML {
 
             @XmlElement(required = true)
             protected TMDFe.InfMDFe.Seg.InfResp infResp;
@@ -6519,11 +6032,9 @@ public class TMDFe
 
             /**
              * Obtém o valor da propriedade infResp.
-             * 
-             * @return
-             *     possible object is
-             *     {@link TMDFe.InfMDFe.Seg.InfResp }
-             *     
+             *
+             * @return possible object is
+             * {@link TMDFe.InfMDFe.Seg.InfResp }
              */
             public TMDFe.InfMDFe.Seg.InfResp getInfResp() {
                 return infResp;
@@ -6531,11 +6042,9 @@ public class TMDFe
 
             /**
              * Define o valor da propriedade infResp.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link TMDFe.InfMDFe.Seg.InfResp }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link TMDFe.InfMDFe.Seg.InfResp }
              */
             public void setInfResp(TMDFe.InfMDFe.Seg.InfResp value) {
                 this.infResp = value;
@@ -6543,11 +6052,9 @@ public class TMDFe
 
             /**
              * Obtém o valor da propriedade infSeg.
-             * 
-             * @return
-             *     possible object is
-             *     {@link TMDFe.InfMDFe.Seg.InfSeg }
-             *     
+             *
+             * @return possible object is
+             * {@link TMDFe.InfMDFe.Seg.InfSeg }
              */
             public TMDFe.InfMDFe.Seg.InfSeg getInfSeg() {
                 return infSeg;
@@ -6555,11 +6062,9 @@ public class TMDFe
 
             /**
              * Define o valor da propriedade infSeg.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link TMDFe.InfMDFe.Seg.InfSeg }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link TMDFe.InfMDFe.Seg.InfSeg }
              */
             public void setInfSeg(TMDFe.InfMDFe.Seg.InfSeg value) {
                 this.infSeg = value;
@@ -6567,11 +6072,9 @@ public class TMDFe
 
             /**
              * Obtém o valor da propriedade nApol.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getNApol() {
                 return nApol;
@@ -6579,11 +6082,9 @@ public class TMDFe
 
             /**
              * Define o valor da propriedade nApol.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setNApol(String value) {
                 this.nApol = value;
@@ -6591,25 +6092,23 @@ public class TMDFe
 
             /**
              * Gets the value of the nAver property.
-             * 
+             *
              * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the nAver property.
-             * 
+             *
              * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getNAver().add(newItem);
              * </pre>
-             * 
-             * 
+             *
+             *
              * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link String }
-             * 
-             * 
              */
             public List<String> getNAver() {
                 if (nAver == null) {
@@ -6621,9 +6120,9 @@ public class TMDFe
 
             /**
              * <p>Classe Java de anonymous complex type.
-             * 
+             *
              * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-             * 
+             *
              * <pre>
              * &lt;complexType&gt;
              *   &lt;complexContent&gt;
@@ -6649,18 +6148,15 @@ public class TMDFe
              *   &lt;/complexContent&gt;
              * &lt;/complexType&gt;
              * </pre>
-             * 
-             * 
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
-                "respSeg",
-                "cnpj",
-                "cpf"
+                    "respSeg",
+                    "cnpj",
+                    "cpf"
             })
             public static class InfResp
-                implements XML
-            {
+                    implements XML {
 
                 @XmlElement(required = true)
                 protected String respSeg;
@@ -6671,11 +6167,9 @@ public class TMDFe
 
                 /**
                  * Obtém o valor da propriedade respSeg.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getRespSeg() {
                     return respSeg;
@@ -6683,11 +6177,9 @@ public class TMDFe
 
                 /**
                  * Define o valor da propriedade respSeg.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setRespSeg(String value) {
                     this.respSeg = value;
@@ -6695,11 +6187,9 @@ public class TMDFe
 
                 /**
                  * Obtém o valor da propriedade cnpj.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getCNPJ() {
                     return cnpj;
@@ -6707,11 +6197,9 @@ public class TMDFe
 
                 /**
                  * Define o valor da propriedade cnpj.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setCNPJ(String value) {
                     this.cnpj = value;
@@ -6719,11 +6207,9 @@ public class TMDFe
 
                 /**
                  * Obtém o valor da propriedade cpf.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getCPF() {
                     return cpf;
@@ -6731,11 +6217,9 @@ public class TMDFe
 
                 /**
                  * Define o valor da propriedade cpf.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setCPF(String value) {
                     this.cpf = value;
@@ -6746,9 +6230,9 @@ public class TMDFe
 
             /**
              * <p>Classe Java de anonymous complex type.
-             * 
+             *
              * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-             * 
+             *
              * <pre>
              * &lt;complexType&gt;
              *   &lt;complexContent&gt;
@@ -6768,17 +6252,14 @@ public class TMDFe
              *   &lt;/complexContent&gt;
              * &lt;/complexType&gt;
              * </pre>
-             * 
-             * 
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
-                "xSeg",
-                "cnpj"
+                    "xSeg",
+                    "cnpj"
             })
             public static class InfSeg
-                implements XML
-            {
+                    implements XML {
 
                 @XmlElement(required = true)
                 protected String xSeg;
@@ -6787,11 +6268,9 @@ public class TMDFe
 
                 /**
                  * Obtém o valor da propriedade xSeg.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getXSeg() {
                     return xSeg;
@@ -6799,11 +6278,9 @@ public class TMDFe
 
                 /**
                  * Define o valor da propriedade xSeg.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setXSeg(String value) {
                     this.xSeg = value;
@@ -6811,11 +6288,9 @@ public class TMDFe
 
                 /**
                  * Obtém o valor da propriedade cnpj.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getCNPJ() {
                     return cnpj;
@@ -6823,11 +6298,9 @@ public class TMDFe
 
                 /**
                  * Define o valor da propriedade cnpj.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setCNPJ(String value) {
                     this.cnpj = value;
@@ -6840,9 +6313,9 @@ public class TMDFe
 
         /**
          * <p>Classe Java de anonymous complex type.
-         * 
+         *
          * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-         * 
+         *
          * <pre>
          * &lt;complexType&gt;
          *   &lt;complexContent&gt;
@@ -6885,21 +6358,18 @@ public class TMDFe
          *   &lt;/complexContent&gt;
          * &lt;/complexType&gt;
          * </pre>
-         * 
-         * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "qcTe",
-            "qnFe",
-            "qmdFe",
-            "vCarga",
-            "cUnid",
-            "qCarga"
+                "qcTe",
+                "qnFe",
+                "qmdFe",
+                "vCarga",
+                "cUnid",
+                "qCarga"
         })
         public static class Tot
-            implements XML
-        {
+                implements XML {
 
             @XmlElement(name = "qCTe")
             protected String qcTe;
@@ -6916,11 +6386,9 @@ public class TMDFe
 
             /**
              * Obtém o valor da propriedade qcTe.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getQCTe() {
                 return qcTe;
@@ -6928,11 +6396,9 @@ public class TMDFe
 
             /**
              * Define o valor da propriedade qcTe.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setQCTe(String value) {
                 this.qcTe = value;
@@ -6940,11 +6406,9 @@ public class TMDFe
 
             /**
              * Obtém o valor da propriedade qnFe.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getQNFe() {
                 return qnFe;
@@ -6952,11 +6416,9 @@ public class TMDFe
 
             /**
              * Define o valor da propriedade qnFe.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setQNFe(String value) {
                 this.qnFe = value;
@@ -6964,11 +6426,9 @@ public class TMDFe
 
             /**
              * Obtém o valor da propriedade qmdFe.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getQMDFe() {
                 return qmdFe;
@@ -6976,11 +6436,9 @@ public class TMDFe
 
             /**
              * Define o valor da propriedade qmdFe.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setQMDFe(String value) {
                 this.qmdFe = value;
@@ -6988,11 +6446,9 @@ public class TMDFe
 
             /**
              * Obtém o valor da propriedade vCarga.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getVCarga() {
                 return vCarga;
@@ -7000,11 +6456,9 @@ public class TMDFe
 
             /**
              * Define o valor da propriedade vCarga.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setVCarga(String value) {
                 this.vCarga = value;
@@ -7012,11 +6466,9 @@ public class TMDFe
 
             /**
              * Obtém o valor da propriedade cUnid.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getCUnid() {
                 return cUnid;
@@ -7024,11 +6476,9 @@ public class TMDFe
 
             /**
              * Define o valor da propriedade cUnid.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setCUnid(String value) {
                 this.cUnid = value;
@@ -7036,11 +6486,9 @@ public class TMDFe
 
             /**
              * Obtém o valor da propriedade qCarga.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getQCarga() {
                 return qCarga;
@@ -7048,11 +6496,9 @@ public class TMDFe
 
             /**
              * Define o valor da propriedade qCarga.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setQCarga(String value) {
                 this.qCarga = value;
@@ -7065,9 +6511,9 @@ public class TMDFe
 
     /**
      * <p>Classe Java de anonymous complex type.
-     * 
+     *
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     * 
+     *
      * <pre>
      * &lt;complexType&gt;
      *   &lt;complexContent&gt;
@@ -7088,27 +6534,22 @@ public class TMDFe
      *   &lt;/complexContent&gt;
      * &lt;/complexType&gt;
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "qrCodMDFe"
+            "qrCodMDFe"
     })
     public static class InfMDFeSupl
-        implements XML
-    {
+            implements XML {
 
         @XmlElement(required = true)
         protected String qrCodMDFe;
 
         /**
          * Obtém o valor da propriedade qrCodMDFe.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getQrCodMDFe() {
             return qrCodMDFe;
@@ -7116,11 +6557,9 @@ public class TMDFe
 
         /**
          * Define o valor da propriedade qrCodMDFe.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setQrCodMDFe(String value) {
             this.qrCodMDFe = value;

@@ -14,6 +14,11 @@ import com.softart.dfe.models.nf.query_status_service.ReturnQueryStatusServiceNf
 
 public interface NfQueryStatusService extends NfSefazService {
 
+    /**
+     * A function that returns the status of the NF-e.
+     *
+     * @return A ReturnQueryStatusServiceNf object.
+     */
     default ReturnQueryStatusServiceNf queryStatusService() throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return ReturnQueryStatusServiceNf
                 .builder()
@@ -34,7 +39,19 @@ public interface NfQueryStatusService extends NfSefazService {
                         ).second());
     }
 
+    /**
+     * > Returns the validator used by this class
+     *
+     * @return The validator object.
+     */
     NfCommonValidator getValidator();
 
+    /**
+     * * If the service is already instantiated, return it.
+     * * If the service is not instantiated, try to instantiate it.
+     * * If the service cannot be instantiated, throw an exception
+     *
+     * @return The service object.
+     */
     NfCommonService getService() throws NoProviderFound, SoapServiceGeneralException;
 }

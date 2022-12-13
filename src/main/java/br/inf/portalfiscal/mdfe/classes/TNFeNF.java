@@ -8,21 +8,18 @@
 
 package br.inf.portalfiscal.mdfe.classes;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
+import com.softart.dfe.interfaces.xml.generic.XML;
+
+import javax.xml.bind.annotation.*;
 
 
 /**
  * Tipo  de Dados das Notas Fiscais Papel e Eletrônica
- * 
+ *
  * <p>Classe Java de TNFeNF complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="TNFeNF"&gt;
  *   &lt;complexContent&gt;
@@ -117,28 +114,23 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TNFeNF", propOrder = {
-    "infNFe",
-    "infNF"
+        "infNFe",
+        "infNF"
 })
 public class TNFeNF
-    implements XML
-{
+        implements XML {
 
     protected TNFeNF.InfNFe infNFe;
     protected TNFeNF.InfNF infNF;
 
     /**
      * Obtém o valor da propriedade infNFe.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TNFeNF.InfNFe }
-     *     
+     *
+     * @return possible object is
+     * {@link TNFeNF.InfNFe }
      */
     public TNFeNF.InfNFe getInfNFe() {
         return infNFe;
@@ -146,11 +138,9 @@ public class TNFeNF
 
     /**
      * Define o valor da propriedade infNFe.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TNFeNF.InfNFe }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link TNFeNF.InfNFe }
      */
     public void setInfNFe(TNFeNF.InfNFe value) {
         this.infNFe = value;
@@ -158,11 +148,9 @@ public class TNFeNF
 
     /**
      * Obtém o valor da propriedade infNF.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TNFeNF.InfNF }
-     *     
+     *
+     * @return possible object is
+     * {@link TNFeNF.InfNF }
      */
     public TNFeNF.InfNF getInfNF() {
         return infNF;
@@ -170,11 +158,9 @@ public class TNFeNF
 
     /**
      * Define o valor da propriedade infNF.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TNFeNF.InfNF }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link TNFeNF.InfNF }
      */
     public void setInfNF(TNFeNF.InfNF value) {
         this.infNF = value;
@@ -183,9 +169,9 @@ public class TNFeNF
 
     /**
      * <p>Classe Java de anonymous complex type.
-     * 
+     *
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     * 
+     *
      * <pre>
      * &lt;complexType&gt;
      *   &lt;complexContent&gt;
@@ -258,22 +244,19 @@ public class TNFeNF
      *   &lt;/complexContent&gt;
      * &lt;/complexType&gt;
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "emi",
-        "dest",
-        "serie",
-        "nnf",
-        "dEmi",
-        "vnf",
-        "pin"
+            "emi",
+            "dest",
+            "serie",
+            "nnf",
+            "dEmi",
+            "vnf",
+            "pin"
     })
     public static class InfNF
-        implements XML
-    {
+            implements XML {
 
         @XmlElement(required = true)
         protected TNFeNF.InfNF.Emi emi;
@@ -292,11 +275,9 @@ public class TNFeNF
 
         /**
          * Obtém o valor da propriedade emi.
-         * 
-         * @return
-         *     possible object is
-         *     {@link TNFeNF.InfNF.Emi }
-         *     
+         *
+         * @return possible object is
+         * {@link TNFeNF.InfNF.Emi }
          */
         public TNFeNF.InfNF.Emi getEmi() {
             return emi;
@@ -304,11 +285,9 @@ public class TNFeNF
 
         /**
          * Define o valor da propriedade emi.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link TNFeNF.InfNF.Emi }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link TNFeNF.InfNF.Emi }
          */
         public void setEmi(TNFeNF.InfNF.Emi value) {
             this.emi = value;
@@ -316,11 +295,9 @@ public class TNFeNF
 
         /**
          * Obtém o valor da propriedade dest.
-         * 
-         * @return
-         *     possible object is
-         *     {@link TNFeNF.InfNF.Dest }
-         *     
+         *
+         * @return possible object is
+         * {@link TNFeNF.InfNF.Dest }
          */
         public TNFeNF.InfNF.Dest getDest() {
             return dest;
@@ -328,11 +305,9 @@ public class TNFeNF
 
         /**
          * Define o valor da propriedade dest.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link TNFeNF.InfNF.Dest }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link TNFeNF.InfNF.Dest }
          */
         public void setDest(TNFeNF.InfNF.Dest value) {
             this.dest = value;
@@ -340,11 +315,9 @@ public class TNFeNF
 
         /**
          * Obtém o valor da propriedade serie.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getSerie() {
             return serie;
@@ -352,11 +325,9 @@ public class TNFeNF
 
         /**
          * Define o valor da propriedade serie.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setSerie(String value) {
             this.serie = value;
@@ -364,11 +335,9 @@ public class TNFeNF
 
         /**
          * Obtém o valor da propriedade nnf.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getNNF() {
             return nnf;
@@ -376,11 +345,9 @@ public class TNFeNF
 
         /**
          * Define o valor da propriedade nnf.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setNNF(String value) {
             this.nnf = value;
@@ -388,11 +355,9 @@ public class TNFeNF
 
         /**
          * Obtém o valor da propriedade dEmi.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getDEmi() {
             return dEmi;
@@ -400,11 +365,9 @@ public class TNFeNF
 
         /**
          * Define o valor da propriedade dEmi.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setDEmi(String value) {
             this.dEmi = value;
@@ -412,11 +375,9 @@ public class TNFeNF
 
         /**
          * Obtém o valor da propriedade vnf.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getVNF() {
             return vnf;
@@ -424,11 +385,9 @@ public class TNFeNF
 
         /**
          * Define o valor da propriedade vnf.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setVNF(String value) {
             this.vnf = value;
@@ -436,11 +395,9 @@ public class TNFeNF
 
         /**
          * Obtém o valor da propriedade pin.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getPIN() {
             return pin;
@@ -448,11 +405,9 @@ public class TNFeNF
 
         /**
          * Define o valor da propriedade pin.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setPIN(String value) {
             this.pin = value;
@@ -461,9 +416,9 @@ public class TNFeNF
 
         /**
          * <p>Classe Java de anonymous complex type.
-         * 
+         *
          * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-         * 
+         *
          * <pre>
          * &lt;complexType&gt;
          *   &lt;complexContent&gt;
@@ -487,19 +442,16 @@ public class TNFeNF
          *   &lt;/complexContent&gt;
          * &lt;/complexType&gt;
          * </pre>
-         * 
-         * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "cnpj",
-            "cpf",
-            "xNome",
-            "uf"
+                "cnpj",
+                "cpf",
+                "xNome",
+                "uf"
         })
         public static class Dest
-            implements XML
-        {
+                implements XML {
 
             @XmlElement(name = "CNPJ")
             protected String cnpj;
@@ -513,11 +465,9 @@ public class TNFeNF
 
             /**
              * Obtém o valor da propriedade cnpj.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getCNPJ() {
                 return cnpj;
@@ -525,11 +475,9 @@ public class TNFeNF
 
             /**
              * Define o valor da propriedade cnpj.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setCNPJ(String value) {
                 this.cnpj = value;
@@ -537,11 +485,9 @@ public class TNFeNF
 
             /**
              * Obtém o valor da propriedade cpf.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getCPF() {
                 return cpf;
@@ -549,11 +495,9 @@ public class TNFeNF
 
             /**
              * Define o valor da propriedade cpf.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setCPF(String value) {
                 this.cpf = value;
@@ -561,11 +505,9 @@ public class TNFeNF
 
             /**
              * Obtém o valor da propriedade xNome.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getXNome() {
                 return xNome;
@@ -573,11 +515,9 @@ public class TNFeNF
 
             /**
              * Define o valor da propriedade xNome.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setXNome(String value) {
                 this.xNome = value;
@@ -585,11 +525,9 @@ public class TNFeNF
 
             /**
              * Obtém o valor da propriedade uf.
-             * 
-             * @return
-             *     possible object is
-             *     {@link TUf }
-             *     
+             *
+             * @return possible object is
+             * {@link TUf }
              */
             public TUf getUF() {
                 return uf;
@@ -597,11 +535,9 @@ public class TNFeNF
 
             /**
              * Define o valor da propriedade uf.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link TUf }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link TUf }
              */
             public void setUF(TUf value) {
                 this.uf = value;
@@ -612,9 +548,9 @@ public class TNFeNF
 
         /**
          * <p>Classe Java de anonymous complex type.
-         * 
+         *
          * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-         * 
+         *
          * <pre>
          * &lt;complexType&gt;
          *   &lt;complexContent&gt;
@@ -635,18 +571,15 @@ public class TNFeNF
          *   &lt;/complexContent&gt;
          * &lt;/complexType&gt;
          * </pre>
-         * 
-         * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "cnpj",
-            "xNome",
-            "uf"
+                "cnpj",
+                "xNome",
+                "uf"
         })
         public static class Emi
-            implements XML
-        {
+                implements XML {
 
             @XmlElement(name = "CNPJ", required = true)
             protected String cnpj;
@@ -658,11 +591,9 @@ public class TNFeNF
 
             /**
              * Obtém o valor da propriedade cnpj.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getCNPJ() {
                 return cnpj;
@@ -670,11 +601,9 @@ public class TNFeNF
 
             /**
              * Define o valor da propriedade cnpj.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setCNPJ(String value) {
                 this.cnpj = value;
@@ -682,11 +611,9 @@ public class TNFeNF
 
             /**
              * Obtém o valor da propriedade xNome.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getXNome() {
                 return xNome;
@@ -694,11 +621,9 @@ public class TNFeNF
 
             /**
              * Define o valor da propriedade xNome.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setXNome(String value) {
                 this.xNome = value;
@@ -706,11 +631,9 @@ public class TNFeNF
 
             /**
              * Obtém o valor da propriedade uf.
-             * 
-             * @return
-             *     possible object is
-             *     {@link TUf }
-             *     
+             *
+             * @return possible object is
+             * {@link TUf }
              */
             public TUf getUF() {
                 return uf;
@@ -718,11 +641,9 @@ public class TNFeNF
 
             /**
              * Define o valor da propriedade uf.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link TUf }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link TUf }
              */
             public void setUF(TUf value) {
                 this.uf = value;
@@ -735,9 +656,9 @@ public class TNFeNF
 
     /**
      * <p>Classe Java de anonymous complex type.
-     * 
+     *
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     * 
+     *
      * <pre>
      * &lt;complexType&gt;
      *   &lt;complexContent&gt;
@@ -750,17 +671,14 @@ public class TNFeNF
      *   &lt;/complexContent&gt;
      * &lt;/complexType&gt;
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "chNFe",
-        "pin"
+            "chNFe",
+            "pin"
     })
     public static class InfNFe
-        implements XML
-    {
+            implements XML {
 
         @XmlElement(required = true)
         protected String chNFe;
@@ -769,11 +687,9 @@ public class TNFeNF
 
         /**
          * Obtém o valor da propriedade chNFe.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getChNFe() {
             return chNFe;
@@ -781,11 +697,9 @@ public class TNFeNF
 
         /**
          * Define o valor da propriedade chNFe.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setChNFe(String value) {
             this.chNFe = value;
@@ -793,11 +707,9 @@ public class TNFeNF
 
         /**
          * Obtém o valor da propriedade pin.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getPIN() {
             return pin;
@@ -805,11 +717,9 @@ public class TNFeNF
 
         /**
          * Define o valor da propriedade pin.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setPIN(String value) {
             this.pin = value;

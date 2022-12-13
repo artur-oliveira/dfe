@@ -5,8 +5,18 @@ import com.softart.dfe.interfaces.storage.Store;
 
 public interface CteQuerySituationStorage {
 
+    /**
+     * It stores the query situation of the CTe.
+     *
+     * @param o The object to be stored.
+     */
     void storeQuerySituation(Store<br.inf.portalfiscal.cte.send.TConsSitCTe> o) throws StorageException;
 
+    /**
+     * It stores the return of the query situation of the CTe.
+     *
+     * @param o The object to be stored.
+     */
     void storeReturnQuerySituation(Store<br.inf.portalfiscal.cte.send.TRetConsSitCTe> o) throws StorageException;
 
 }

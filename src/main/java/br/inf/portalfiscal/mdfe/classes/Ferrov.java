@@ -8,20 +8,21 @@
 
 package br.inf.portalfiscal.mdfe.classes;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.softart.dfe.interfaces.xml.generic.XML;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
  * <p>Classe Java de Ferrov complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="Ferrov"&gt;
  *   &lt;complexContent&gt;
@@ -124,17 +125,14 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Ferrov", propOrder = {
-    "trem",
-    "vag"
+        "trem",
+        "vag"
 })
 public class Ferrov
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected Ferrov.Trem trem;
@@ -143,11 +141,9 @@ public class Ferrov
 
     /**
      * Obtém o valor da propriedade trem.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Ferrov.Trem }
-     *     
+     *
+     * @return possible object is
+     * {@link Ferrov.Trem }
      */
     public Ferrov.Trem getTrem() {
         return trem;
@@ -155,11 +151,9 @@ public class Ferrov
 
     /**
      * Define o valor da propriedade trem.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Ferrov.Trem }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Ferrov.Trem }
      */
     public void setTrem(Ferrov.Trem value) {
         this.trem = value;
@@ -167,25 +161,23 @@ public class Ferrov
 
     /**
      * Gets the value of the vag property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the vag property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getVag().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Ferrov.Vag }
-     * 
-     * 
      */
     public List<Ferrov.Vag> getVag() {
         if (vag == null) {
@@ -197,9 +189,9 @@ public class Ferrov
 
     /**
      * <p>Classe Java de anonymous complex type.
-     * 
+     *
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     * 
+     *
      * <pre>
      * &lt;complexType&gt;
      *   &lt;complexContent&gt;
@@ -242,20 +234,17 @@ public class Ferrov
      *   &lt;/complexContent&gt;
      * &lt;/complexType&gt;
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "xPref",
-        "dhTrem",
-        "xOri",
-        "xDest",
-        "qVag"
+            "xPref",
+            "dhTrem",
+            "xOri",
+            "xDest",
+            "qVag"
     })
     public static class Trem
-        implements XML
-    {
+            implements XML {
 
         @XmlElement(required = true)
         protected String xPref;
@@ -269,11 +258,9 @@ public class Ferrov
 
         /**
          * Obtém o valor da propriedade xPref.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getXPref() {
             return xPref;
@@ -281,11 +268,9 @@ public class Ferrov
 
         /**
          * Define o valor da propriedade xPref.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setXPref(String value) {
             this.xPref = value;
@@ -293,11 +278,9 @@ public class Ferrov
 
         /**
          * Obtém o valor da propriedade dhTrem.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getDhTrem() {
             return dhTrem;
@@ -305,11 +288,9 @@ public class Ferrov
 
         /**
          * Define o valor da propriedade dhTrem.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setDhTrem(String value) {
             this.dhTrem = value;
@@ -317,11 +298,9 @@ public class Ferrov
 
         /**
          * Obtém o valor da propriedade xOri.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getXOri() {
             return xOri;
@@ -329,11 +308,9 @@ public class Ferrov
 
         /**
          * Define o valor da propriedade xOri.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setXOri(String value) {
             this.xOri = value;
@@ -341,11 +318,9 @@ public class Ferrov
 
         /**
          * Obtém o valor da propriedade xDest.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getXDest() {
             return xDest;
@@ -353,11 +328,9 @@ public class Ferrov
 
         /**
          * Define o valor da propriedade xDest.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setXDest(String value) {
             this.xDest = value;
@@ -365,11 +338,9 @@ public class Ferrov
 
         /**
          * Obtém o valor da propriedade qVag.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getQVag() {
             return qVag;
@@ -377,11 +348,9 @@ public class Ferrov
 
         /**
          * Define o valor da propriedade qVag.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setQVag(String value) {
             this.qVag = value;
@@ -392,9 +361,9 @@ public class Ferrov
 
     /**
      * <p>Classe Java de anonymous complex type.
-     * 
+     *
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     * 
+     *
      * <pre>
      * &lt;complexType&gt;
      *   &lt;complexContent&gt;
@@ -445,22 +414,19 @@ public class Ferrov
      *   &lt;/complexContent&gt;
      * &lt;/complexType&gt;
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "pesoBC",
-        "pesoR",
-        "tpVag",
-        "serie",
-        "nVag",
-        "nSeq",
-        "tu"
+            "pesoBC",
+            "pesoR",
+            "tpVag",
+            "serie",
+            "nVag",
+            "nSeq",
+            "tu"
     })
     public static class Vag
-        implements XML
-    {
+            implements XML {
 
         @XmlElement(required = true)
         protected String pesoBC;
@@ -477,11 +443,9 @@ public class Ferrov
 
         /**
          * Obtém o valor da propriedade pesoBC.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getPesoBC() {
             return pesoBC;
@@ -489,11 +453,9 @@ public class Ferrov
 
         /**
          * Define o valor da propriedade pesoBC.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setPesoBC(String value) {
             this.pesoBC = value;
@@ -501,11 +463,9 @@ public class Ferrov
 
         /**
          * Obtém o valor da propriedade pesoR.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getPesoR() {
             return pesoR;
@@ -513,11 +473,9 @@ public class Ferrov
 
         /**
          * Define o valor da propriedade pesoR.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setPesoR(String value) {
             this.pesoR = value;
@@ -525,11 +483,9 @@ public class Ferrov
 
         /**
          * Obtém o valor da propriedade tpVag.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getTpVag() {
             return tpVag;
@@ -537,11 +493,9 @@ public class Ferrov
 
         /**
          * Define o valor da propriedade tpVag.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setTpVag(String value) {
             this.tpVag = value;
@@ -549,11 +503,9 @@ public class Ferrov
 
         /**
          * Obtém o valor da propriedade serie.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getSerie() {
             return serie;
@@ -561,11 +513,9 @@ public class Ferrov
 
         /**
          * Define o valor da propriedade serie.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setSerie(String value) {
             this.serie = value;
@@ -573,11 +523,9 @@ public class Ferrov
 
         /**
          * Obtém o valor da propriedade nVag.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getNVag() {
             return nVag;
@@ -585,11 +533,9 @@ public class Ferrov
 
         /**
          * Define o valor da propriedade nVag.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setNVag(String value) {
             this.nVag = value;
@@ -597,11 +543,9 @@ public class Ferrov
 
         /**
          * Obtém o valor da propriedade nSeq.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getNSeq() {
             return nSeq;
@@ -609,11 +553,9 @@ public class Ferrov
 
         /**
          * Define o valor da propriedade nSeq.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setNSeq(String value) {
             this.nSeq = value;
@@ -621,11 +563,9 @@ public class Ferrov
 
         /**
          * Obtém o valor da propriedade tu.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getTU() {
             return tu;
@@ -633,11 +573,9 @@ public class Ferrov
 
         /**
          * Define o valor da propriedade tu.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setTU(String value) {
             this.tu = value;

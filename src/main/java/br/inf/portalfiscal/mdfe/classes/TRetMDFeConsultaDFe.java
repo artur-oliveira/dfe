@@ -8,21 +8,18 @@
 
 package br.inf.portalfiscal.mdfe.classes;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
+import com.softart.dfe.interfaces.xml.generic.XML;
+
+import javax.xml.bind.annotation.*;
 
 
 /**
  * Tipo Retorno de Pedido de Consulta do Manifesto Eletrônico de Documentos Fiscais
- * 
+ *
  * <p>Classe Java de TRetMDFeConsultaDFe complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="TRetMDFeConsultaDFe"&gt;
  *   &lt;complexContent&gt;
@@ -39,20 +36,17 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TRetMDFeConsultaDFe", propOrder = {
-    "tpAmb",
-    "verAplic",
-    "cStat",
-    "xMotivo",
-    "mdFeDFe"
+        "tpAmb",
+        "verAplic",
+        "cStat",
+        "xMotivo",
+        "mdFeDFe"
 })
 public class TRetMDFeConsultaDFe
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected String tpAmb;
@@ -69,11 +63,9 @@ public class TRetMDFeConsultaDFe
 
     /**
      * Obtém o valor da propriedade tpAmb.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getTpAmb() {
         return tpAmb;
@@ -81,11 +73,9 @@ public class TRetMDFeConsultaDFe
 
     /**
      * Define o valor da propriedade tpAmb.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setTpAmb(String value) {
         this.tpAmb = value;
@@ -93,11 +83,9 @@ public class TRetMDFeConsultaDFe
 
     /**
      * Obtém o valor da propriedade verAplic.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVerAplic() {
         return verAplic;
@@ -105,11 +93,9 @@ public class TRetMDFeConsultaDFe
 
     /**
      * Define o valor da propriedade verAplic.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVerAplic(String value) {
         this.verAplic = value;
@@ -117,11 +103,9 @@ public class TRetMDFeConsultaDFe
 
     /**
      * Obtém o valor da propriedade cStat.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCStat() {
         return cStat;
@@ -129,11 +113,9 @@ public class TRetMDFeConsultaDFe
 
     /**
      * Define o valor da propriedade cStat.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCStat(String value) {
         this.cStat = value;
@@ -141,11 +123,9 @@ public class TRetMDFeConsultaDFe
 
     /**
      * Obtém o valor da propriedade xMotivo.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getXMotivo() {
         return xMotivo;
@@ -153,11 +133,9 @@ public class TRetMDFeConsultaDFe
 
     /**
      * Define o valor da propriedade xMotivo.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setXMotivo(String value) {
         this.xMotivo = value;
@@ -165,11 +143,9 @@ public class TRetMDFeConsultaDFe
 
     /**
      * Obtém o valor da propriedade mdFeDFe.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TMDFeDFe }
-     *     
+     *
+     * @return possible object is
+     * {@link TMDFeDFe }
      */
     public TMDFeDFe getMDFeDFe() {
         return mdFeDFe;
@@ -177,11 +153,9 @@ public class TRetMDFeConsultaDFe
 
     /**
      * Define o valor da propriedade mdFeDFe.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TMDFeDFe }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link TMDFeDFe }
      */
     public void setMDFeDFe(TMDFeDFe value) {
         this.mdFeDFe = value;
@@ -189,11 +163,9 @@ public class TRetMDFeConsultaDFe
 
     /**
      * Obtém o valor da propriedade versao.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVersao() {
         return versao;
@@ -201,11 +173,9 @@ public class TRetMDFeConsultaDFe
 
     /**
      * Define o valor da propriedade versao.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVersao(String value) {
         this.versao = value;

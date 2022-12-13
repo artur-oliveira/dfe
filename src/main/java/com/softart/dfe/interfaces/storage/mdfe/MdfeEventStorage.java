@@ -9,10 +9,25 @@ import com.softart.dfe.interfaces.storage.Store;
 
 public interface MdfeEventStorage extends Storage {
 
+    /**
+     * It stores a TRetEvento object in the Store object.
+     *
+     * @param o The object to be stored.
+     */
     void storeRetEvent(Store<TRetEvento> o) throws StorageException;
 
+    /**
+     * > Stores the event in the storage
+     *
+     * @param o The object to be stored.
+     */
     void storeSendEvent(Store<TEvento> o) throws StorageException;
 
+    /**
+     * It stores a TProcEvento object in the database.
+     *
+     * @param o The object to be stored.
+     */
     void storeProcEvent(Store<TProcEvento> o) throws StorageException;
 
 }

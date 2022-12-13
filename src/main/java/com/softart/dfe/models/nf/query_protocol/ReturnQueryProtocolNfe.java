@@ -4,9 +4,9 @@ import br.inf.portalfiscal.nfe.send.SignatureType;
 import br.inf.portalfiscal.nfe.send.TProcEvento;
 import br.inf.portalfiscal.nfe.send.TRetCancNFe;
 import br.inf.portalfiscal.nfe.send.TRetConsSitNFe;
-import com.softart.dfe.interfaces.xml.DFObject;
 import com.softart.dfe.interfaces.xml.XMLAdapter;
-import com.softart.dfe.models.nf.authorization.ReturnNf;
+import com.softart.dfe.interfaces.xml.generic.DFObject;
+import com.softart.dfe.models.nf.authorization.NfProtocol;
 import lombok.*;
 
 import javax.xml.datatype.XMLGregorianCalendar;
@@ -28,7 +28,7 @@ public class ReturnQueryProtocolNfe implements DFObject, XMLAdapter<ReturnQueryP
     protected String cuf;
     protected String dhRecbto;
     protected String chNFe;
-    protected ReturnNf.ProtNFe protNFe;
+    protected NfProtocol protNFe;
     protected RetCancNFe retCancNFe;
     protected List<ProcNfeEvent> procEventoNFe;
     protected String versao;

@@ -27,6 +27,11 @@ public final class Functions {
         return o.toString().isEmpty();
     }
 
+    /**
+     * Return the first non-null argument, or null if all arguments are null.
+     *
+     * @return The first non-null value in the array.
+     */
     @SafeVarargs
     public static <T> T coalesce(T... args) {
         return Arrays.stream(args).filter(Objects::nonNull).findFirst().orElse(null);

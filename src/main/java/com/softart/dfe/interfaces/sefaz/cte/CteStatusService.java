@@ -11,6 +11,12 @@ import com.softart.dfe.interfaces.sefaz.SefazRequest;
 
 public interface CteStatusService {
 
+    /**
+     * It takes a SefazRequest object as a parameter, and returns a Pair object containing the request and response objects
+     *
+     * @param data The request object.
+     * @return A pair of objects, the first is the request object and the second is the response object.
+     */
     <T extends SefazRequest<TConsStatServ, TRetConsStatServ>> Pair<TConsStatServ, TRetConsStatServ> statusService(T data) throws SecurityException, ValidationException, ProcessException;
 
 }

@@ -8,19 +8,16 @@
 
 package br.inf.portalfiscal.cte.send;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
+import com.softart.dfe.interfaces.xml.generic.XML;
+
+import javax.xml.bind.annotation.*;
 
 
 /**
  * <p>Classe Java de Veic complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="Veic"&gt;
  *   &lt;complexContent&gt;
@@ -47,19 +44,16 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Veic", propOrder = {
-    "placa",
-    "renavam",
-    "prop",
-    "uf"
+        "placa",
+        "renavam",
+        "prop",
+        "uf"
 })
 public class Veic
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected String placa;
@@ -72,11 +66,9 @@ public class Veic
 
     /**
      * Obtém o valor da propriedade placa.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getPlaca() {
         return placa;
@@ -84,11 +76,9 @@ public class Veic
 
     /**
      * Define o valor da propriedade placa.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setPlaca(String value) {
         this.placa = value;
@@ -96,11 +86,9 @@ public class Veic
 
     /**
      * Obtém o valor da propriedade renavam.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getRENAVAM() {
         return renavam;
@@ -108,11 +96,9 @@ public class Veic
 
     /**
      * Define o valor da propriedade renavam.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setRENAVAM(String value) {
         this.renavam = value;
@@ -120,11 +106,9 @@ public class Veic
 
     /**
      * Obtém o valor da propriedade prop.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Prop }
-     *     
+     *
+     * @return possible object is
+     * {@link Prop }
      */
     public Prop getProp() {
         return prop;
@@ -132,11 +116,9 @@ public class Veic
 
     /**
      * Define o valor da propriedade prop.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Prop }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Prop }
      */
     public void setProp(Prop value) {
         this.prop = value;
@@ -144,11 +126,9 @@ public class Veic
 
     /**
      * Obtém o valor da propriedade uf.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TUf }
-     *     
+     *
+     * @return possible object is
+     * {@link TUf }
      */
     public TUf getUF() {
         return uf;
@@ -156,11 +136,9 @@ public class Veic
 
     /**
      * Define o valor da propriedade uf.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TUf }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link TUf }
      */
     public void setUF(TUf value) {
         this.uf = value;

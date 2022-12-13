@@ -32,10 +32,21 @@ public final class SoapServiceProxy {
     private SoapServiceProxy() {
     }
 
+    /**
+     * > The function returns a static instance of the class
+     *
+     * @return A singleton instance of the SoapServiceProxy class.
+     */
     public static SoapServiceProxy getInstance() {
         return SoapServiceProxyHolder.INSTANCE;
     }
 
+    /**
+     * > If the service is already in the map, return it. Otherwise, return null
+     *
+     * @param config NfConfig object
+     * @return The NfeSoapService object.
+     */
     public synchronized NfeSoapService getNfeService(NfConfig config) {
         NfeSoapService soapService = getInstance().getNfeServiceMap().get(config);
         if (Objects.nonNull(soapService)) {
@@ -44,11 +55,23 @@ public final class SoapServiceProxy {
         return null;
     }
 
+    /**
+     * > This function adds a new NfeSoapService to the NfeServiceMap
+     *
+     * @param config      The configuration object that contains the information about the webservice.
+     * @param soapService The SOAP service that will be used to send the XML to the Sefaz.
+     */
     public synchronized void addNfeService(NfConfig config, AbstractNfeSoapService soapService) {
         getInstance().getNfeServiceMap().put(config, soapService);
     }
 
 
+    /**
+     * > If the service is already in the map, return it. Otherwise, return null
+     *
+     * @param config NfConfig object
+     * @return A NfceSoapService object.
+     */
     public synchronized NfceSoapService getNfceService(NfConfig config) {
         NfceSoapService soapService = getInstance().getNfceServiceMap().get(config);
         if (Objects.nonNull(soapService)) {
@@ -57,10 +80,22 @@ public final class SoapServiceProxy {
         return null;
     }
 
+    /**
+     * > This function adds a NFCe service to the list of NFCe services
+     *
+     * @param config      The configuration object that contains the information about the NFC-e service.
+     * @param soapService The SOAP service that will be used to communicate with the webservice.
+     */
     public synchronized void addNfceService(NfConfig config, AbstractNfceSoapService soapService) {
         getInstance().getNfceServiceMap().put(config, soapService);
     }
 
+    /**
+     * > If the service is already in the map, return it. Otherwise, return null
+     *
+     * @param config CteConfig object
+     * @return A CteSoapService object.
+     */
     public synchronized CteSoapService getCteService(CteConfig config) {
         CteSoapService soapService = getInstance().getCteServiceMap().get(config);
         if (Objects.nonNull(soapService)) {
@@ -69,10 +104,22 @@ public final class SoapServiceProxy {
         return null;
     }
 
+    /**
+     * > This function adds a CteConfig object and a CteSoapService object to a HashMap
+     *
+     * @param config      The configuration object for the CteConfig class.
+     * @param soapService The SOAP service that will be used to send the CTe.
+     */
     public synchronized void addCteService(CteConfig config, AbstractCteSoapService soapService) {
         getInstance().getCteServiceMap().put(config, soapService);
     }
 
+    /**
+     * If the service is already in the map, return it. Otherwise, return null
+     *
+     * @param config MdfeConfig
+     * @return A MdfeSoapService object.
+     */
     public synchronized MdfeSoapService getMdfeService(MdfeConfig config) {
         MdfeSoapService soapService = getInstance().getMdfeServiceMap().get(config);
         if (Objects.nonNull(soapService)) {
@@ -81,6 +128,12 @@ public final class SoapServiceProxy {
         return null;
     }
 
+    /**
+     * > Adds a new MDF-e service to the list of available services
+     *
+     * @param config      MdfeConfig object
+     * @param soapService The SOAP service that will be used to send the MDF-e.
+     */
     public synchronized void addMdfeService(MdfeConfig config, AbstractMdfeSoapService soapService) {
         getInstance().getMdfeServiceMap().put(config, soapService);
     }

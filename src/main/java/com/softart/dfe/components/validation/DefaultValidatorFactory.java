@@ -11,22 +11,39 @@ import com.softart.dfe.interfaces.validation.nf.NfeValidator;
 
 final class DefaultValidatorFactory extends ValidatorFactory {
 
-    @Override
+    /**
+     * If the NfeValidator instance is null, create a new one and return it. Otherwise, return the existing instance.
+     *
+     * @return A validator instance.
+     */
     public NfeValidator nfeValidator() {
         return DefaultValidatorFactoryHolder.NFE_INSTANCE;
     }
 
-    @Override
+    /**
+     * It returns a singleton instance of the NFCe validator
+     *
+     * @return A new instance of the NfceValidator class.
+     */
     public NfceValidator nfceValidator() {
         return DefaultValidatorFactoryHolder.NFCE_INSTANCE;
     }
 
-    @Override
+    /**
+     * If the CTE validator has not been initialized, initialize it and return it. Otherwise, return the already
+     * initialized CTE validator.
+     *
+     * @return A validator instance.
+     */
     public CteValidator cteValidator() {
         return DefaultValidatorFactoryHolder.CTE_INSTANCE;
     }
 
-    @Override
+    /**
+     * It returns a validator for MDF-e
+     *
+     * @return The instance of the class MdfeValidator.
+     */
     public MdfeValidator mdfeValidator() {
         return DefaultValidatorFactoryHolder.MDFE_INSTANCE;
     }

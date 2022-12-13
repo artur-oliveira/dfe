@@ -1,8 +1,8 @@
 package com.softart.dfe.models.mdfe.distribution;
 
 import br.inf.portalfiscal.mdfe.classes.RetDistDFeInt;
-import com.softart.dfe.interfaces.xml.DFObject;
 import com.softart.dfe.interfaces.xml.XMLAdapter;
+import com.softart.dfe.interfaces.xml.generic.DFObject;
 import com.softart.dfe.util.GZIPUtils;
 import lombok.*;
 

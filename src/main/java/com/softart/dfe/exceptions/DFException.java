@@ -1,5 +1,8 @@
 package com.softart.dfe.exceptions;
 
+/**
+ * DFException is a subclass of Exception that adds nothing.
+ */
 public class DFException extends Exception {
     public DFException() {
     }

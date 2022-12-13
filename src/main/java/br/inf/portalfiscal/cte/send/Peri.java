@@ -8,18 +8,19 @@
 
 package br.inf.portalfiscal.cte.send;
 
+import com.softart.dfe.interfaces.xml.generic.XML;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
 
 
 /**
  * <p>Classe Java de Peri complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="Peri"&gt;
  *   &lt;complexContent&gt;
@@ -47,18 +48,15 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Peri", propOrder = {
-    "nonu",
-    "qTotEmb",
-    "infTotAP"
+        "nonu",
+        "qTotEmb",
+        "infTotAP"
 })
 public class Peri
-    implements XML
-{
+        implements XML {
 
     @XmlElement(name = "nONU", required = true)
     protected String nonu;
@@ -69,11 +67,9 @@ public class Peri
 
     /**
      * Obtém o valor da propriedade nonu.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getNONU() {
         return nonu;
@@ -81,11 +77,9 @@ public class Peri
 
     /**
      * Define o valor da propriedade nonu.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setNONU(String value) {
         this.nonu = value;
@@ -93,11 +87,9 @@ public class Peri
 
     /**
      * Obtém o valor da propriedade qTotEmb.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getQTotEmb() {
         return qTotEmb;
@@ -105,11 +97,9 @@ public class Peri
 
     /**
      * Define o valor da propriedade qTotEmb.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setQTotEmb(String value) {
         this.qTotEmb = value;
@@ -117,11 +107,9 @@ public class Peri
 
     /**
      * Obtém o valor da propriedade infTotAP.
-     * 
-     * @return
-     *     possible object is
-     *     {@link InfTotAP }
-     *     
+     *
+     * @return possible object is
+     * {@link InfTotAP }
      */
     public InfTotAP getInfTotAP() {
         return infTotAP;
@@ -129,11 +117,9 @@ public class Peri
 
     /**
      * Define o valor da propriedade infTotAP.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link InfTotAP }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link InfTotAP }
      */
     public void setInfTotAP(InfTotAP value) {
         this.infTotAP = value;

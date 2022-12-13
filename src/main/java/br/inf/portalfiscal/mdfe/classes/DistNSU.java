@@ -8,18 +8,19 @@
 
 package br.inf.portalfiscal.mdfe.classes;
 
+import com.softart.dfe.interfaces.xml.generic.XML;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
 
 
 /**
  * <p>Classe Java de DistNSU complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="DistNSU"&gt;
  *   &lt;complexContent&gt;
@@ -31,27 +32,22 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "DistNSU", propOrder = {
-    "ultNSU"
+        "ultNSU"
 })
 public class DistNSU
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected String ultNSU;
 
     /**
      * Obtém o valor da propriedade ultNSU.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getUltNSU() {
         return ultNSU;
@@ -59,11 +55,9 @@ public class DistNSU
 
     /**
      * Define o valor da propriedade ultNSU.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setUltNSU(String value) {
         this.ultNSU = value;

@@ -10,6 +10,12 @@ import com.softart.dfe.interfaces.sefaz.SefazRequest;
 
 public interface NfeEpec {
 
+    /**
+     * A function that takes a generic type T that extends SefazRequest and returns a pair of TEnvEvento and TRetEnvEvento.
+     *
+     * @param data The request object.
+     * @return Pair<TEnvEvento, TRetEnvEvento>
+     */
     <T extends SefazRequest<TEnvEvento, TRetEnvEvento>> Pair<TEnvEvento, TRetEnvEvento> epec(T data) throws SecurityException, ValidationException, ProcessException;
 
 }

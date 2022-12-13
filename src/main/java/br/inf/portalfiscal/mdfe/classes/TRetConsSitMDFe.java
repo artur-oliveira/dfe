@@ -8,25 +8,21 @@
 
 package br.inf.portalfiscal.mdfe.classes;
 
+import com.softart.dfe.interfaces.xml.generic.XML;
+import org.w3c.dom.Element;
+
+import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAnyElement;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
-import org.w3c.dom.Element;
 
 
 /**
  * Tipo Retorno de Pedido de Consulta da Situação Atual do MDF-e
- * 
+ *
  * <p>Classe Java de TRetConsSitMDFe complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="TRetConsSitMDFe"&gt;
  *   &lt;complexContent&gt;
@@ -83,22 +79,19 @@ import org.w3c.dom.Element;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TRetConsSitMDFe", propOrder = {
-    "tpAmb",
-    "verAplic",
-    "cStat",
-    "xMotivo",
-    "cuf",
-    "protMDFe",
-    "procEventoMDFe"
+        "tpAmb",
+        "verAplic",
+        "cStat",
+        "xMotivo",
+        "cuf",
+        "protMDFe",
+        "procEventoMDFe"
 })
 public class TRetConsSitMDFe
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected String tpAmb;
@@ -117,11 +110,9 @@ public class TRetConsSitMDFe
 
     /**
      * Obtém o valor da propriedade tpAmb.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getTpAmb() {
         return tpAmb;
@@ -129,11 +120,9 @@ public class TRetConsSitMDFe
 
     /**
      * Define o valor da propriedade tpAmb.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setTpAmb(String value) {
         this.tpAmb = value;
@@ -141,11 +130,9 @@ public class TRetConsSitMDFe
 
     /**
      * Obtém o valor da propriedade verAplic.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVerAplic() {
         return verAplic;
@@ -153,11 +140,9 @@ public class TRetConsSitMDFe
 
     /**
      * Define o valor da propriedade verAplic.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVerAplic(String value) {
         this.verAplic = value;
@@ -165,11 +150,9 @@ public class TRetConsSitMDFe
 
     /**
      * Obtém o valor da propriedade cStat.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCStat() {
         return cStat;
@@ -177,11 +160,9 @@ public class TRetConsSitMDFe
 
     /**
      * Define o valor da propriedade cStat.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCStat(String value) {
         this.cStat = value;
@@ -189,11 +170,9 @@ public class TRetConsSitMDFe
 
     /**
      * Obtém o valor da propriedade xMotivo.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getXMotivo() {
         return xMotivo;
@@ -201,11 +180,9 @@ public class TRetConsSitMDFe
 
     /**
      * Define o valor da propriedade xMotivo.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setXMotivo(String value) {
         this.xMotivo = value;
@@ -213,11 +190,9 @@ public class TRetConsSitMDFe
 
     /**
      * Obtém o valor da propriedade cuf.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCUF() {
         return cuf;
@@ -225,11 +200,9 @@ public class TRetConsSitMDFe
 
     /**
      * Define o valor da propriedade cuf.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCUF(String value) {
         this.cuf = value;
@@ -237,11 +210,9 @@ public class TRetConsSitMDFe
 
     /**
      * Obtém o valor da propriedade protMDFe.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TRetConsSitMDFe.ProtMDFe }
-     *     
+     *
+     * @return possible object is
+     * {@link TRetConsSitMDFe.ProtMDFe }
      */
     public TRetConsSitMDFe.ProtMDFe getProtMDFe() {
         return protMDFe;
@@ -249,11 +220,9 @@ public class TRetConsSitMDFe
 
     /**
      * Define o valor da propriedade protMDFe.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TRetConsSitMDFe.ProtMDFe }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link TRetConsSitMDFe.ProtMDFe }
      */
     public void setProtMDFe(TRetConsSitMDFe.ProtMDFe value) {
         this.protMDFe = value;
@@ -261,25 +230,23 @@ public class TRetConsSitMDFe
 
     /**
      * Gets the value of the procEventoMDFe property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the procEventoMDFe property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getProcEventoMDFe().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link TRetConsSitMDFe.ProcEventoMDFe }
-     * 
-     * 
      */
     public List<TRetConsSitMDFe.ProcEventoMDFe> getProcEventoMDFe() {
         if (procEventoMDFe == null) {
@@ -290,11 +257,9 @@ public class TRetConsSitMDFe
 
     /**
      * Obtém o valor da propriedade versao.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVersao() {
         return versao;
@@ -302,11 +267,9 @@ public class TRetConsSitMDFe
 
     /**
      * Define o valor da propriedade versao.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVersao(String value) {
         this.versao = value;
@@ -315,9 +278,9 @@ public class TRetConsSitMDFe
 
     /**
      * <p>Classe Java de anonymous complex type.
-     * 
+     *
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     * 
+     *
      * <pre>
      * &lt;complexType&gt;
      *   &lt;complexContent&gt;
@@ -338,16 +301,13 @@ public class TRetConsSitMDFe
      *   &lt;/complexContent&gt;
      * &lt;/complexType&gt;
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "any"
+            "any"
     })
     public static class ProcEventoMDFe
-        implements XML
-    {
+            implements XML {
 
         @XmlAnyElement
         protected Element any;
@@ -356,11 +316,9 @@ public class TRetConsSitMDFe
 
         /**
          * Obtém o valor da propriedade any.
-         * 
-         * @return
-         *     possible object is
-         *     {@link Element }
-         *     
+         *
+         * @return possible object is
+         * {@link Element }
          */
         public Element getAny() {
             return any;
@@ -368,11 +326,9 @@ public class TRetConsSitMDFe
 
         /**
          * Define o valor da propriedade any.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link Element }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link Element }
          */
         public void setAny(Element value) {
             this.any = value;
@@ -380,11 +336,9 @@ public class TRetConsSitMDFe
 
         /**
          * Obtém o valor da propriedade versao.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getVersao() {
             return versao;
@@ -392,11 +346,9 @@ public class TRetConsSitMDFe
 
         /**
          * Define o valor da propriedade versao.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setVersao(String value) {
             this.versao = value;
@@ -407,9 +359,9 @@ public class TRetConsSitMDFe
 
     /**
      * <p>Classe Java de anonymous complex type.
-     * 
+     *
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     * 
+     *
      * <pre>
      * &lt;complexType&gt;
      *   &lt;complexContent&gt;
@@ -430,16 +382,13 @@ public class TRetConsSitMDFe
      *   &lt;/complexContent&gt;
      * &lt;/complexType&gt;
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "any"
+            "any"
     })
     public static class ProtMDFe
-        implements XML
-    {
+            implements XML {
 
         @XmlAnyElement
         protected Element any;
@@ -448,11 +397,9 @@ public class TRetConsSitMDFe
 
         /**
          * Obtém o valor da propriedade any.
-         * 
-         * @return
-         *     possible object is
-         *     {@link Element }
-         *     
+         *
+         * @return possible object is
+         * {@link Element }
          */
         public Element getAny() {
             return any;
@@ -460,11 +407,9 @@ public class TRetConsSitMDFe
 
         /**
          * Define o valor da propriedade any.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link Element }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link Element }
          */
         public void setAny(Element value) {
             this.any = value;
@@ -472,11 +417,9 @@ public class TRetConsSitMDFe
 
         /**
          * Obtém o valor da propriedade versao.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getVersao() {
             return versao;
@@ -484,11 +427,9 @@ public class TRetConsSitMDFe
 
         /**
          * Define o valor da propriedade versao.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setVersao(String value) {
             this.versao = value;

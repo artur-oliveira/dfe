@@ -2,8 +2,8 @@ package com.softart.dfe.models.mdfe.query_situation;
 
 import br.inf.portalfiscal.mdfe.classes.TRetConsSitMDFe;
 import com.softart.dfe.components.internal.xml.unmarshaller.MdfeUnmarshaller;
-import com.softart.dfe.interfaces.xml.DFObject;
 import com.softart.dfe.interfaces.xml.XMLAdapter;
+import com.softart.dfe.interfaces.xml.generic.DFObject;
 import com.softart.dfe.models.mdfe.event.MdfeReturnEvent;
 import com.softart.dfe.models.mdfe.reception_sync.MdfeProtocol;
 import com.softart.dfe.util.RequireUtils;

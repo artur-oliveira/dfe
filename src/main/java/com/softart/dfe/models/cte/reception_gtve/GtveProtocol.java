@@ -1,9 +1,8 @@
 package com.softart.dfe.models.cte.reception_gtve;
 
 import br.inf.portalfiscal.cte.send.TProtGTVe;
-import com.softart.dfe.interfaces.xml.DFObject;
 import com.softart.dfe.interfaces.xml.XMLAdapter;
-import com.softart.dfe.models.cte.reception.CteProtocol;
+import com.softart.dfe.interfaces.xml.generic.DFObject;
 import lombok.*;
 
 @Data

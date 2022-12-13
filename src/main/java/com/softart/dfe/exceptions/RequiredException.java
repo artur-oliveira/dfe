@@ -1,5 +1,8 @@
 package com.softart.dfe.exceptions;
 
+/**
+ * > This exception is thrown when a required field is missing
+ */
 public class RequiredException extends DFUncheckedException {
 
     public RequiredException() {

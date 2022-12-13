@@ -25,11 +25,6 @@ public abstract class AbstractMdfeEventService implements MdfeEventService {
     }
 
     @Override
-    public MdfeReturnEvent driverInclusion(String accessKey, String driverName, String driverCpf) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
-        return driverInclusion(accessKey, driverName, driverCpf, getMdfeQuerySituationService().querySituation(accessKey).getLastSequenceNumberAsString(MdfeEvent.DRIVER_INCLUSION.getCode()));
-    }
-
-    @Override
     public MdfeReturnEvent paymentOperation(String accessKey, MdfePaymentOperation.InfEvento.DetEvento.EvPagtoOperMDFe.InfViagens travel, List<MdfePaymentOperation.InfEvento.DetEvento.EvPagtoOperMDFe.InfPag> payments) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         MdfeReturnQuerySituation returnQuerySituation = getMdfeQuerySituationService().querySituation(accessKey);
         return paymentOperation(accessKey, returnQuerySituation.protocol(), travel, payments, returnQuerySituation.getLastSequenceNumberAsString(MdfeEvent.PAYMENT_OPERATION.getCode()));

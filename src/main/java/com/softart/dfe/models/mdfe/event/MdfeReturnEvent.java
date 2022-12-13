@@ -2,8 +2,8 @@ package com.softart.dfe.models.mdfe.event;
 
 import br.inf.portalfiscal.mdfe.classes.SignatureType;
 import br.inf.portalfiscal.mdfe.classes.TRetEvento;
-import com.softart.dfe.interfaces.xml.DFObject;
 import com.softart.dfe.interfaces.xml.XMLAdapter;
+import com.softart.dfe.interfaces.xml.generic.DFObject;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

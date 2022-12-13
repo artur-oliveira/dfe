@@ -5,6 +5,8 @@ import br.inf.portalfiscal.nfe.distribution.TRetDistDFeInt;
 import br.inf.portalfiscal.nfe.event_manifestation.TEnvEvento;
 import br.inf.portalfiscal.nfe.event_manifestation.TRetEnvEvento;
 import com.softart.dfe.components.internal.PairImpl;
+import com.softart.dfe.components.internal.xml.marshaller.NfMarshaller;
+import com.softart.dfe.components.internal.xml.unmarshaller.NfUnmarshaller;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.exceptions.ValidationException;
 import com.softart.dfe.exceptions.security.SecurityException;
@@ -17,8 +19,6 @@ import com.softart.dfe.interfaces.validation.Validator;
 import com.softart.dfe.models.internal.After;
 import com.softart.dfe.models.internal.Before;
 import com.softart.dfe.models.internal.Validation;
-import com.softart.dfe.components.internal.xml.marshaller.NfMarshaller;
-import com.softart.dfe.components.internal.xml.unmarshaller.NfUnmarshaller;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.ws.BindingProvider;

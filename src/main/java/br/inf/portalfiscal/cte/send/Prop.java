@@ -8,19 +8,16 @@
 
 package br.inf.portalfiscal.cte.send;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
+import com.softart.dfe.interfaces.xml.generic.XML;
+
+import javax.xml.bind.annotation.*;
 
 
 /**
  * <p>Classe Java de Prop complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="Prop"&gt;
  *   &lt;complexContent&gt;
@@ -66,23 +63,20 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Prop", propOrder = {
-    "cpf",
-    "cnpj",
-    "taf",
-    "nroRegEstadual",
-    "xNome",
-    "ie",
-    "uf",
-    "tpProp"
+        "cpf",
+        "cnpj",
+        "taf",
+        "nroRegEstadual",
+        "xNome",
+        "ie",
+        "uf",
+        "tpProp"
 })
 public class Prop
-    implements XML
-{
+        implements XML {
 
     @XmlElement(name = "CPF")
     protected String cpf;
@@ -104,11 +98,9 @@ public class Prop
 
     /**
      * Obtém o valor da propriedade cpf.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCPF() {
         return cpf;
@@ -116,11 +108,9 @@ public class Prop
 
     /**
      * Define o valor da propriedade cpf.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCPF(String value) {
         this.cpf = value;
@@ -128,11 +118,9 @@ public class Prop
 
     /**
      * Obtém o valor da propriedade cnpj.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCNPJ() {
         return cnpj;
@@ -140,11 +128,9 @@ public class Prop
 
     /**
      * Define o valor da propriedade cnpj.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCNPJ(String value) {
         this.cnpj = value;
@@ -152,11 +138,9 @@ public class Prop
 
     /**
      * Obtém o valor da propriedade taf.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getTAF() {
         return taf;
@@ -164,11 +148,9 @@ public class Prop
 
     /**
      * Define o valor da propriedade taf.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setTAF(String value) {
         this.taf = value;
@@ -176,11 +158,9 @@ public class Prop
 
     /**
      * Obtém o valor da propriedade nroRegEstadual.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getNroRegEstadual() {
         return nroRegEstadual;
@@ -188,11 +168,9 @@ public class Prop
 
     /**
      * Define o valor da propriedade nroRegEstadual.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setNroRegEstadual(String value) {
         this.nroRegEstadual = value;
@@ -200,11 +178,9 @@ public class Prop
 
     /**
      * Obtém o valor da propriedade xNome.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getXNome() {
         return xNome;
@@ -212,11 +188,9 @@ public class Prop
 
     /**
      * Define o valor da propriedade xNome.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setXNome(String value) {
         this.xNome = value;
@@ -224,11 +198,9 @@ public class Prop
 
     /**
      * Obtém o valor da propriedade ie.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getIE() {
         return ie;
@@ -236,11 +208,9 @@ public class Prop
 
     /**
      * Define o valor da propriedade ie.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setIE(String value) {
         this.ie = value;
@@ -248,11 +218,9 @@ public class Prop
 
     /**
      * Obtém o valor da propriedade uf.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TUf }
-     *     
+     *
+     * @return possible object is
+     * {@link TUf }
      */
     public TUf getUF() {
         return uf;
@@ -260,11 +228,9 @@ public class Prop
 
     /**
      * Define o valor da propriedade uf.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TUf }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link TUf }
      */
     public void setUF(TUf value) {
         this.uf = value;
@@ -272,11 +238,9 @@ public class Prop
 
     /**
      * Obtém o valor da propriedade tpProp.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getTpProp() {
         return tpProp;
@@ -284,11 +248,9 @@ public class Prop
 
     /**
      * Define o valor da propriedade tpProp.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setTpProp(String value) {
         this.tpProp = value;

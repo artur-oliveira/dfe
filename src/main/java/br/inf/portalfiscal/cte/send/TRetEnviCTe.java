@@ -8,22 +8,19 @@
 
 package br.inf.portalfiscal.cte.send;
 
+import com.softart.dfe.interfaces.xml.generic.XML;
+
+import javax.xml.bind.annotation.*;
 import java.math.BigInteger;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
 
 
 /**
  * Tipo Retorno do Pedido de Concessão de Autorização da CT-e
- * 
+ *
  * <p>Classe Java de TRetEnviCTe complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="TRetEnviCTe"&gt;
  *   &lt;complexContent&gt;
@@ -59,21 +56,18 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TRetEnviCTe", propOrder = {
-    "tpAmb",
-    "cuf",
-    "verAplic",
-    "cStat",
-    "xMotivo",
-    "infRec"
+        "tpAmb",
+        "cuf",
+        "verAplic",
+        "cStat",
+        "xMotivo",
+        "infRec"
 })
 public class TRetEnviCTe
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected String tpAmb;
@@ -91,11 +85,9 @@ public class TRetEnviCTe
 
     /**
      * Obtém o valor da propriedade tpAmb.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getTpAmb() {
         return tpAmb;
@@ -103,11 +95,9 @@ public class TRetEnviCTe
 
     /**
      * Define o valor da propriedade tpAmb.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setTpAmb(String value) {
         this.tpAmb = value;
@@ -115,11 +105,9 @@ public class TRetEnviCTe
 
     /**
      * Obtém o valor da propriedade cuf.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCUF() {
         return cuf;
@@ -127,11 +115,9 @@ public class TRetEnviCTe
 
     /**
      * Define o valor da propriedade cuf.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCUF(String value) {
         this.cuf = value;
@@ -139,11 +125,9 @@ public class TRetEnviCTe
 
     /**
      * Obtém o valor da propriedade verAplic.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVerAplic() {
         return verAplic;
@@ -151,11 +135,9 @@ public class TRetEnviCTe
 
     /**
      * Define o valor da propriedade verAplic.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVerAplic(String value) {
         this.verAplic = value;
@@ -163,11 +145,9 @@ public class TRetEnviCTe
 
     /**
      * Obtém o valor da propriedade cStat.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCStat() {
         return cStat;
@@ -175,11 +155,9 @@ public class TRetEnviCTe
 
     /**
      * Define o valor da propriedade cStat.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCStat(String value) {
         this.cStat = value;
@@ -187,11 +165,9 @@ public class TRetEnviCTe
 
     /**
      * Obtém o valor da propriedade xMotivo.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getXMotivo() {
         return xMotivo;
@@ -199,11 +175,9 @@ public class TRetEnviCTe
 
     /**
      * Define o valor da propriedade xMotivo.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setXMotivo(String value) {
         this.xMotivo = value;
@@ -211,11 +185,9 @@ public class TRetEnviCTe
 
     /**
      * Obtém o valor da propriedade infRec.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TRetEnviCTe.InfRec }
-     *     
+     *
+     * @return possible object is
+     * {@link TRetEnviCTe.InfRec }
      */
     public TRetEnviCTe.InfRec getInfRec() {
         return infRec;
@@ -223,11 +195,9 @@ public class TRetEnviCTe
 
     /**
      * Define o valor da propriedade infRec.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TRetEnviCTe.InfRec }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link TRetEnviCTe.InfRec }
      */
     public void setInfRec(TRetEnviCTe.InfRec value) {
         this.infRec = value;
@@ -235,11 +205,9 @@ public class TRetEnviCTe
 
     /**
      * Obtém o valor da propriedade versao.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVersao() {
         return versao;
@@ -247,11 +215,9 @@ public class TRetEnviCTe
 
     /**
      * Define o valor da propriedade versao.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVersao(String value) {
         this.versao = value;
@@ -260,9 +226,9 @@ public class TRetEnviCTe
 
     /**
      * <p>Classe Java de anonymous complex type.
-     * 
+     *
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     * 
+     *
      * <pre>
      * &lt;complexType&gt;
      *   &lt;complexContent&gt;
@@ -282,18 +248,15 @@ public class TRetEnviCTe
      *   &lt;/complexContent&gt;
      * &lt;/complexType&gt;
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "nRec",
-        "dhRecbto",
-        "tMed"
+            "nRec",
+            "dhRecbto",
+            "tMed"
     })
     public static class InfRec
-        implements XML
-    {
+            implements XML {
 
         @XmlElement(required = true)
         protected String nRec;
@@ -304,11 +267,9 @@ public class TRetEnviCTe
 
         /**
          * Obtém o valor da propriedade nRec.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getNRec() {
             return nRec;
@@ -316,11 +277,9 @@ public class TRetEnviCTe
 
         /**
          * Define o valor da propriedade nRec.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setNRec(String value) {
             this.nRec = value;
@@ -328,11 +287,9 @@ public class TRetEnviCTe
 
         /**
          * Obtém o valor da propriedade dhRecbto.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getDhRecbto() {
             return dhRecbto;
@@ -340,11 +297,9 @@ public class TRetEnviCTe
 
         /**
          * Define o valor da propriedade dhRecbto.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setDhRecbto(String value) {
             this.dhRecbto = value;
@@ -352,11 +307,9 @@ public class TRetEnviCTe
 
         /**
          * Obtém o valor da propriedade tMed.
-         * 
-         * @return
-         *     possible object is
-         *     {@link BigInteger }
-         *     
+         *
+         * @return possible object is
+         * {@link BigInteger }
          */
         public BigInteger getTMed() {
             return tMed;
@@ -364,11 +317,9 @@ public class TRetEnviCTe
 
         /**
          * Define o valor da propriedade tMed.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link BigInteger }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link BigInteger }
          */
         public void setTMed(BigInteger value) {
             this.tMed = value;

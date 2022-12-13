@@ -1,8 +1,8 @@
 package com.softart.dfe.models.nf.inut;
 
 import br.inf.portalfiscal.nfe.send.TRetInutNFe;
-import com.softart.dfe.interfaces.xml.DFObject;
 import com.softart.dfe.interfaces.xml.XMLAdapter;
+import com.softart.dfe.interfaces.xml.generic.DFObject;
 import lombok.*;
 
 @Getter

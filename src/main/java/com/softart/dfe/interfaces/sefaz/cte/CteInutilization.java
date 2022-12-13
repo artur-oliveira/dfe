@@ -11,6 +11,13 @@ import com.softart.dfe.interfaces.sefaz.SefazRequest;
 
 public interface CteInutilization {
 
+    /**
+     * It takes a SefazRequest object as a parameter, and returns a pair of objects, one of type TInutCTe and the other of
+     * type TRetInutCTe
+     *
+     * @param data The request object.
+     * @return A pair of objects, the first is the request and the second is the response.
+     */
     <T extends SefazRequest<TInutCTe, TRetInutCTe>> Pair<TInutCTe, TRetInutCTe> inutilization(T data) throws SecurityException, ValidationException, ProcessException;
 
 }

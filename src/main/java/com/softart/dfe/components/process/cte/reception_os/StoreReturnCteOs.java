@@ -3,12 +3,12 @@ package com.softart.dfe.components.process.cte.reception_os;
 
 import br.inf.portalfiscal.cte.send.TCTeOS;
 import br.inf.portalfiscal.cte.send.TRetCTeOS;
+import com.softart.dfe.components.internal.xml.marshaller.CteMarshaller;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.interfaces.process.AfterRequest;
 import com.softart.dfe.interfaces.process.cte.reception_os.AfterReceptionCteOs;
 import com.softart.dfe.interfaces.storage.cte.CteReceptionOsStorage;
 import com.softart.dfe.models.internal.xml.XMLStore;
-import com.softart.dfe.components.internal.xml.marshaller.CteMarshaller;
 
 import java.util.Objects;
 

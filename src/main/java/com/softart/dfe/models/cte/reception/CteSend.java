@@ -2,8 +2,8 @@ package com.softart.dfe.models.cte.reception;
 
 import br.inf.portalfiscal.cte.send.TEnviCTe;
 import com.softart.dfe.enums.cte.version.CteVersion;
-import com.softart.dfe.interfaces.xml.DFObject;
 import com.softart.dfe.interfaces.xml.XMLAdapter;
+import com.softart.dfe.interfaces.xml.generic.DFObject;
 import com.softart.dfe.util.StringUtils;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

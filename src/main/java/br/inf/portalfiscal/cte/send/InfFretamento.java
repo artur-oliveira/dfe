@@ -8,18 +8,19 @@
 
 package br.inf.portalfiscal.cte.send;
 
+import com.softart.dfe.interfaces.xml.generic.XML;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
 
 
 /**
  * <p>Classe Java de InfFretamento complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="InfFretamento"&gt;
  *   &lt;complexContent&gt;
@@ -40,17 +41,14 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "InfFretamento", propOrder = {
-    "tpFretamento",
-    "dhViagem"
+        "tpFretamento",
+        "dhViagem"
 })
 public class InfFretamento
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected String tpFretamento;
@@ -58,11 +56,9 @@ public class InfFretamento
 
     /**
      * Obtém o valor da propriedade tpFretamento.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getTpFretamento() {
         return tpFretamento;
@@ -70,11 +66,9 @@ public class InfFretamento
 
     /**
      * Define o valor da propriedade tpFretamento.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setTpFretamento(String value) {
         this.tpFretamento = value;
@@ -82,11 +76,9 @@ public class InfFretamento
 
     /**
      * Obtém o valor da propriedade dhViagem.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getDhViagem() {
         return dhViagem;
@@ -94,11 +86,9 @@ public class InfFretamento
 
     /**
      * Define o valor da propriedade dhViagem.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setDhViagem(String value) {
         this.dhViagem = value;

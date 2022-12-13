@@ -11,6 +11,13 @@ import com.softart.dfe.interfaces.sefaz.SefazRequest;
 
 public interface MdfeReception {
 
+    /**
+     * It receives a SefazRequest object, which is a generic type that extends the SefazRequest class, and returns a pair
+     * of objects, one of type TEnviMDFe and the other of type TRetEnviMDFe
+     *
+     * @param data The request object.
+     * @return A pair of objects, one of type TEnviMDFe and the other of type TRetEnviMDFe.
+     */
     <T extends SefazRequest<TEnviMDFe, TRetEnviMDFe>> Pair<TEnviMDFe, TRetEnviMDFe> reception(T data) throws SecurityException, ValidationException, ProcessException;
 
 }

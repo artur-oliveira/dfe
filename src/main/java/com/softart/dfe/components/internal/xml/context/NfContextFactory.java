@@ -1,6 +1,6 @@
 package com.softart.dfe.components.internal.xml.context;
 
-import com.softart.dfe.interfaces.xml.NfContext;
+import com.softart.dfe.interfaces.xml.context.NfContext;
 
 public abstract class NfContextFactory implements NfContext {
 

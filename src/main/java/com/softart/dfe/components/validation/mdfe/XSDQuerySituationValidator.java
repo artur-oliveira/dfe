@@ -1,10 +1,8 @@
 package com.softart.dfe.components.validation.mdfe;
 
-import br.inf.portalfiscal.mdfe.classes.TConsReciMDFe;
 import br.inf.portalfiscal.mdfe.classes.TConsSitMDFe;
 import com.softart.dfe.components.internal.xml.validation.XMLValidatorFactory;
 import com.softart.dfe.exceptions.ValidationException;
-import com.softart.dfe.interfaces.validation.mdfe.MdfeQueryReceiptValidator;
 import com.softart.dfe.interfaces.validation.mdfe.MdfeQuerySituationValidator;
 import com.softart.dfe.models.internal.Validation;
 import com.softart.dfe.models.internal.xml.XMLValidation;

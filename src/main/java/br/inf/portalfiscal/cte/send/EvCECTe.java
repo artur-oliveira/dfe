@@ -8,20 +8,21 @@
 
 package br.inf.portalfiscal.cte.send;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.softart.dfe.interfaces.xml.generic.XML;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
  * <p>Classe Java de EvCECTe complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="EvCECTe"&gt;
  *   &lt;complexContent&gt;
@@ -79,25 +80,22 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "EvCECTe", propOrder = {
-    "descEvento",
-    "nProt",
-    "dhEntrega",
-    "nDoc",
-    "xNome",
-    "latitude",
-    "longitude",
-    "hashEntrega",
-    "dhHashEntrega",
-    "infEntrega"
+        "descEvento",
+        "nProt",
+        "dhEntrega",
+        "nDoc",
+        "xNome",
+        "latitude",
+        "longitude",
+        "hashEntrega",
+        "dhHashEntrega",
+        "infEntrega"
 })
 public class EvCECTe
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected String descEvento;
@@ -119,11 +117,9 @@ public class EvCECTe
 
     /**
      * Obtém o valor da propriedade descEvento.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getDescEvento() {
         return descEvento;
@@ -131,11 +127,9 @@ public class EvCECTe
 
     /**
      * Define o valor da propriedade descEvento.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setDescEvento(String value) {
         this.descEvento = value;
@@ -143,11 +137,9 @@ public class EvCECTe
 
     /**
      * Obtém o valor da propriedade nProt.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getNProt() {
         return nProt;
@@ -155,11 +147,9 @@ public class EvCECTe
 
     /**
      * Define o valor da propriedade nProt.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setNProt(String value) {
         this.nProt = value;
@@ -167,11 +157,9 @@ public class EvCECTe
 
     /**
      * Obtém o valor da propriedade dhEntrega.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getDhEntrega() {
         return dhEntrega;
@@ -179,11 +167,9 @@ public class EvCECTe
 
     /**
      * Define o valor da propriedade dhEntrega.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setDhEntrega(String value) {
         this.dhEntrega = value;
@@ -191,11 +177,9 @@ public class EvCECTe
 
     /**
      * Obtém o valor da propriedade nDoc.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getNDoc() {
         return nDoc;
@@ -203,11 +187,9 @@ public class EvCECTe
 
     /**
      * Define o valor da propriedade nDoc.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setNDoc(String value) {
         this.nDoc = value;
@@ -215,11 +197,9 @@ public class EvCECTe
 
     /**
      * Obtém o valor da propriedade xNome.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getXNome() {
         return xNome;
@@ -227,11 +207,9 @@ public class EvCECTe
 
     /**
      * Define o valor da propriedade xNome.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setXNome(String value) {
         this.xNome = value;
@@ -239,11 +217,9 @@ public class EvCECTe
 
     /**
      * Obtém o valor da propriedade latitude.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getLatitude() {
         return latitude;
@@ -251,11 +227,9 @@ public class EvCECTe
 
     /**
      * Define o valor da propriedade latitude.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setLatitude(String value) {
         this.latitude = value;
@@ -263,11 +237,9 @@ public class EvCECTe
 
     /**
      * Obtém o valor da propriedade longitude.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getLongitude() {
         return longitude;
@@ -275,11 +247,9 @@ public class EvCECTe
 
     /**
      * Define o valor da propriedade longitude.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setLongitude(String value) {
         this.longitude = value;
@@ -287,10 +257,9 @@ public class EvCECTe
 
     /**
      * Obtém o valor da propriedade hashEntrega.
-     * 
-     * @return
-     *     possible object is
-     *     byte[]
+     *
+     * @return possible object is
+     * byte[]
      */
     public byte[] getHashEntrega() {
         return hashEntrega;
@@ -298,10 +267,9 @@ public class EvCECTe
 
     /**
      * Define o valor da propriedade hashEntrega.
-     * 
-     * @param value
-     *     allowed object is
-     *     byte[]
+     *
+     * @param value allowed object is
+     *              byte[]
      */
     public void setHashEntrega(byte[] value) {
         this.hashEntrega = value;
@@ -309,11 +277,9 @@ public class EvCECTe
 
     /**
      * Obtém o valor da propriedade dhHashEntrega.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getDhHashEntrega() {
         return dhHashEntrega;
@@ -321,11 +287,9 @@ public class EvCECTe
 
     /**
      * Define o valor da propriedade dhHashEntrega.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setDhHashEntrega(String value) {
         this.dhHashEntrega = value;
@@ -333,25 +297,23 @@ public class EvCECTe
 
     /**
      * Gets the value of the infEntrega property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the infEntrega property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getInfEntrega().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link InfEntrega }
-     * 
-     * 
      */
     public List<InfEntrega> getInfEntrega() {
         if (infEntrega == null) {

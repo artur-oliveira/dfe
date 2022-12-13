@@ -1,7 +1,5 @@
 package com.softart.dfe.util;
 
-import com.softart.dfe.util.DateUtils;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -30,11 +28,23 @@ public final class IOUtils {
         return String.join("", Files.readAllLines(f.toPath()));
     }
 
+    /**
+     * Reads all bytes from a file into a byte array.
+     *
+     * @param f The file to read from.
+     * @return A byte array of the file contents.
+     */
     public static byte[] readAllBytes(File f) throws IOException {
         if (Objects.isNull(f) || !f.exists()) return null;
         return Files.readAllBytes(f.toPath());
     }
 
+    /**
+     * If the file exists, return the creation date, otherwise return null.
+     *
+     * @param f The file to get the creation date of.
+     * @return A LocalDateTime object
+     */
     public static LocalDateTime creationDate(File f) throws IOException {
         if (Objects.isNull(f) || !f.exists()) return null;
 
@@ -49,14 +59,15 @@ public final class IOUtils {
      *
      * @param fileName The name of the file to write to.
      * @param bytes    The bytes to write to the file.
+     * @return A File object
      */
-    public static void write(String fileName, byte[] bytes) throws IOException {
+    public static File write(String fileName, byte[] bytes) throws IOException {
         final Path path = Paths.get(fileName);
 
         if (!path.getParent().toFile().exists()) Files.createDirectories(path.getParent());
         if (!path.toFile().exists()) Files.createFile(path);
 
-        Files.write(path, bytes, StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
+        return Files.write(path, bytes, StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING).toFile();
     }
 
     /**
@@ -89,10 +100,20 @@ public final class IOUtils {
         return findFilesByBasePath(bPath).stream().max(Comparator.naturalOrder()).orElse(null);
     }
 
+    /**
+     * Return the user's home directory.
+     *
+     * @return The home directory of the user.
+     */
     public static String homeDir() {
         return System.getProperty("user.home");
     }
 
+    /**
+     * The separator() function returns the file separator for the current platform.
+     *
+     * @return The file separator character.
+     */
     public static String separator() {
         return File.separator;
     }

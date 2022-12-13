@@ -1,10 +1,7 @@
 package com.softart.dfe.components.internal.xml.unmarshaller;
 
 import br.inf.portalfiscal.nfe.distribution.TDistDFeInt;
-import br.inf.portalfiscal.nfe.send.TConsReciNFe;
-import br.inf.portalfiscal.nfe.send.TConsSitNFe;
-import br.inf.portalfiscal.nfe.send.TEnviNFe;
-import br.inf.portalfiscal.nfe.send.TInutNFe;
+import br.inf.portalfiscal.nfe.send.*;
 import com.softart.dfe.components.internal.xml.context.NfContextFactory;
 import com.softart.dfe.exceptions.xml.MarshallException;
 
@@ -176,6 +173,21 @@ public final class NfUnmarshaller {
             if (o instanceof JAXBElement)
                 return fc.createNFe((br.inf.portalfiscal.nfe.send.TNFe) ((JAXBElement<?>) o).getValue());
             return fc.createNFe((br.inf.portalfiscal.nfe.send.TNFe) o);
+        } catch (JAXBException e) {
+            throw new MarshallException(e);
+        }
+    }
+
+    public static JAXBElement<TNfeProc> nfeProc(String xmlProc) {
+        try {
+            javax.xml.bind.Unmarshaller unmarshaller = NfContextFactory.getInstance().getNfeSendContext().createUnmarshaller();
+            try (StringReader reader = new StringReader(xmlProc)) {
+                Object o = unmarshaller.unmarshal(reader);
+                br.inf.portalfiscal.nfe.send.ObjectFactory fc = new br.inf.portalfiscal.nfe.send.ObjectFactory();
+                if (o instanceof JAXBElement)
+                    return fc.createNfeProc((br.inf.portalfiscal.nfe.send.TNfeProc) ((JAXBElement<?>) o).getValue());
+                return fc.createNfeProc((br.inf.portalfiscal.nfe.send.TNfeProc) o);
+            }
         } catch (JAXBException e) {
             throw new MarshallException(e);
         }

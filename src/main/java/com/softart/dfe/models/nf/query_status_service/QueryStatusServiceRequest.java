@@ -8,7 +8,7 @@ import com.softart.dfe.interfaces.process.nf.query_status_service.BeforeQuerySta
 import com.softart.dfe.interfaces.sefaz.SefazRequest;
 import com.softart.dfe.interfaces.validation.nf.common.NfQueryStatusServiceValidator;
 import com.softart.dfe.interfaces.wsdl.ConfigureProvider;
-import com.softart.dfe.interfaces.xml.XMLSigner;
+import com.softart.dfe.interfaces.xml.XMLSignerService;
 import lombok.*;
 
 import java.util.Collection;
@@ -23,7 +23,7 @@ public final class QueryStatusServiceRequest implements SefazRequest<TConsStatSe
 
     public TConsStatServ data;
     public Config config;
-    public XMLSigner signer;
+    public XMLSignerService signer;
     public ConfigureProvider configureProvider;
     public Collection<NfQueryStatusServiceValidator> validators;
     public Collection<BeforeQueryStatusService> beforeRequest;

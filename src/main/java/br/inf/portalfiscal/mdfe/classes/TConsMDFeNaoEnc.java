@@ -8,21 +8,18 @@
 
 package br.inf.portalfiscal.mdfe.classes;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
+import com.softart.dfe.interfaces.xml.generic.XML;
+
+import javax.xml.bind.annotation.*;
 
 
 /**
  * Tipo Pedido de Consulta MDF-e Não Encerrados
- * 
+ *
  * <p>Classe Java de TConsMDFeNaoEnc complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="TConsMDFeNaoEnc"&gt;
  *   &lt;complexContent&gt;
@@ -45,19 +42,16 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TConsMDFeNaoEnc", propOrder = {
-    "tpAmb",
-    "xServ",
-    "cnpj",
-    "cpf"
+        "tpAmb",
+        "xServ",
+        "cnpj",
+        "cpf"
 })
 public class TConsMDFeNaoEnc
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected String tpAmb;
@@ -72,11 +66,9 @@ public class TConsMDFeNaoEnc
 
     /**
      * Obtém o valor da propriedade tpAmb.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getTpAmb() {
         return tpAmb;
@@ -84,11 +76,9 @@ public class TConsMDFeNaoEnc
 
     /**
      * Define o valor da propriedade tpAmb.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setTpAmb(String value) {
         this.tpAmb = value;
@@ -96,11 +86,9 @@ public class TConsMDFeNaoEnc
 
     /**
      * Obtém o valor da propriedade xServ.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getXServ() {
         return xServ;
@@ -108,11 +96,9 @@ public class TConsMDFeNaoEnc
 
     /**
      * Define o valor da propriedade xServ.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setXServ(String value) {
         this.xServ = value;
@@ -120,11 +106,9 @@ public class TConsMDFeNaoEnc
 
     /**
      * Obtém o valor da propriedade cnpj.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCNPJ() {
         return cnpj;
@@ -132,11 +116,9 @@ public class TConsMDFeNaoEnc
 
     /**
      * Define o valor da propriedade cnpj.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCNPJ(String value) {
         this.cnpj = value;
@@ -144,11 +126,9 @@ public class TConsMDFeNaoEnc
 
     /**
      * Obtém o valor da propriedade cpf.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCPF() {
         return cpf;
@@ -156,11 +136,9 @@ public class TConsMDFeNaoEnc
 
     /**
      * Define o valor da propriedade cpf.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCPF(String value) {
         this.cpf = value;
@@ -168,11 +146,9 @@ public class TConsMDFeNaoEnc
 
     /**
      * Obtém o valor da propriedade versao.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVersao() {
         return versao;
@@ -180,11 +156,9 @@ public class TConsMDFeNaoEnc
 
     /**
      * Define o valor da propriedade versao.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVersao(String value) {
         this.versao = value;

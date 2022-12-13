@@ -33,49 +33,52 @@ public final class SoapServiceMapping {
     }
 
     /**
-     * Gets instance.
+     * > The function returns a static instance of the class
      *
-     * @return the instance
+     * @return The instance of the SoapServiceMapping class.
      */
     public static SoapServiceMapping getInstance() {
         return SoapServiceMappingHolder.INSTANCE;
     }
 
+
     /**
-     * Gets nfe service class for.
+     * Return the first class that matches the given predicate, or null if none matches.
      *
-     * @param finder the finder
-     * @return the nfe service class for
+     * @param finder A functional interface that receives a class and returns a boolean.
+     * @return A list of classes that implement the NfeService interface.
      */
     public Class<?> getNfeServiceClassFor(NfeServiceFinder finder) {
         return getServicesNfe().stream().filter(finder::found).findFirst().orElse(null);
     }
 
     /**
-     * Gets nfce service class for.
+     * "Return the first NFCe service class that matches the given finder."
+     * <p>
+     * The `NfceServiceFinder` interface is defined as follows:
      *
-     * @param finder the finder
-     * @return the nfce service class for
+     * @param finder A functional interface that will be used to find the service class.
+     * @return A class object.
      */
     public Class<?> getNfceServiceClassFor(NfceServiceFinder finder) {
         return getServicesNfce().stream().filter(finder::found).findFirst().orElse(null);
     }
 
     /**
-     * Gets cte service class for.
+     * Return the first CteService class that matches the given CteServiceFinder.
      *
-     * @param finder the finder
-     * @return the cte service class for
+     * @param finder a lambda expression that returns true if the service is found.
+     * @return A class object.
      */
     public Class<?> getCteServiceClassFor(CteServiceFinder finder) {
         return getServicesCte().stream().filter(finder::found).findFirst().orElse(null);
     }
 
     /**
-     * Gets mdfe service class for.
+     * Return the first MdfeService class that matches the given MdfeServiceFinder.
      *
-     * @param finder the finder
-     * @return the mdfe service class for
+     * @param finder a lambda expression that receives a MdfeService and returns a boolean.
+     * @return A class that implements the MdfeService interface.
      */
     public Class<?> getMdfeServiceClassFor(MdfeServiceFinder finder) {
         return getServicesMdfe().stream().filter(finder::found).findFirst().orElse(null);

@@ -9,10 +9,25 @@ import com.softart.dfe.interfaces.storage.Store;
 
 public interface NfeInterestedActorStorage extends Storage {
 
+    /**
+     * It stores the interested actor in the database.
+     *
+     * @param o The object to be stored.
+     */
     void storeProcInterestedActor(Store<TProcEvento> o) throws StorageException;
 
+    /**
+     * It stores the interested actor in the store.
+     *
+     * @param o The object to be stored.
+     */
     void storeRetInterestedActor(Store<TRetEnvEvento> o) throws StorageException;
 
+    /**
+     * It stores the interested actor in the store.
+     *
+     * @param o The object to be stored.
+     */
     void storeSendInterestedActor(Store<TEnvEvento> o) throws StorageException;
 
 }

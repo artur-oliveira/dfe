@@ -8,7 +8,7 @@
 
 package br.inf.portalfiscal.nfe.event_correction_letter;
 
-import com.softart.dfe.interfaces.xml.XML;
+import com.softart.dfe.interfaces.xml.generic.XML;
 
 import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
@@ -16,12 +16,12 @@ import java.util.List;
 
 
 /**
- *  Tipo Lote de Envio
- * 
+ * Tipo Lote de Envio
+ *
  * <p>Classe Java de TEnvEvento complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="TEnvEvento"&gt;
  *   &lt;complexContent&gt;
@@ -42,17 +42,14 @@ import java.util.List;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TEnvEvento", namespace = "http://www.portalfiscal.inf.br/nfe", propOrder = {
-    "idLote",
-    "evento"
+        "idLote",
+        "evento"
 })
 public class TEnvEvento
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected String idLote;
@@ -63,11 +60,9 @@ public class TEnvEvento
 
     /**
      * Obtém o valor da propriedade idLote.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getIdLote() {
         return idLote;
@@ -75,11 +70,9 @@ public class TEnvEvento
 
     /**
      * Define o valor da propriedade idLote.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setIdLote(String value) {
         this.idLote = value;
@@ -87,25 +80,23 @@ public class TEnvEvento
 
     /**
      * Gets the value of the evento property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the evento property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getEvento().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link TEvento }
-     * 
-     * 
      */
     public List<TEvento> getEvento() {
         if (evento == null) {
@@ -116,11 +107,9 @@ public class TEnvEvento
 
     /**
      * Obtém o valor da propriedade versao.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVersao() {
         return versao;
@@ -128,11 +117,9 @@ public class TEnvEvento
 
     /**
      * Define o valor da propriedade versao.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVersao(String value) {
         this.versao = value;

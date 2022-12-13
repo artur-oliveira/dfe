@@ -3,8 +3,8 @@ package com.softart.dfe.models.nf.epec;
 
 import br.inf.portalfiscal.nfe.event_epec.SignatureType;
 import br.inf.portalfiscal.nfe.event_epec.TRetEnvEvento;
-import com.softart.dfe.interfaces.xml.DFObject;
 import com.softart.dfe.interfaces.xml.XMLAdapter;
+import com.softart.dfe.interfaces.xml.generic.DFObject;
 import lombok.*;
 
 import java.util.List;

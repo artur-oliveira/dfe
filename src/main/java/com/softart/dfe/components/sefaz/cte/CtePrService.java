@@ -3,6 +3,8 @@ package com.softart.dfe.components.sefaz.cte;
 import br.inf.portalfiscal.cte.send.*;
 import com.softart.dfe.components.internal.PairImpl;
 import com.softart.dfe.components.internal.parser.AccessKeyParserFactory;
+import com.softart.dfe.components.internal.xml.marshaller.CteMarshaller;
+import com.softart.dfe.components.internal.xml.unmarshaller.CteUnmarshaller;
 import com.softart.dfe.enums.cte.identification.CteEmissionType;
 import com.softart.dfe.enums.internal.Environment;
 import com.softart.dfe.enums.internal.UF;
@@ -18,8 +20,6 @@ import com.softart.dfe.models.internal.After;
 import com.softart.dfe.models.internal.Before;
 import com.softart.dfe.models.internal.Validation;
 import com.softart.dfe.util.GZIPUtils;
-import com.softart.dfe.components.internal.xml.marshaller.CteMarshaller;
-import com.softart.dfe.components.internal.xml.unmarshaller.CteUnmarshaller;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.ws.BindingProvider;

@@ -8,21 +8,18 @@
 
 package br.inf.portalfiscal.cte.send;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
+import com.softart.dfe.interfaces.xml.generic.XML;
+
+import javax.xml.bind.annotation.*;
 
 
 /**
  * Tipo retorno do Evento
- * 
+ *
  * <p>Classe Java de TRetEvento complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="TRetEvento"&gt;
  *   &lt;complexContent&gt;
@@ -41,17 +38,14 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TRetEvento", propOrder = {
-    "infEvento",
-    "signature"
+        "infEvento",
+        "signature"
 })
 public class TRetEvento
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected RetInfEvento infEvento;
@@ -62,11 +56,9 @@ public class TRetEvento
 
     /**
      * Obtém o valor da propriedade infEvento.
-     * 
-     * @return
-     *     possible object is
-     *     {@link RetInfEvento }
-     *     
+     *
+     * @return possible object is
+     * {@link RetInfEvento }
      */
     public RetInfEvento getInfEvento() {
         return infEvento;
@@ -74,11 +66,9 @@ public class TRetEvento
 
     /**
      * Define o valor da propriedade infEvento.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link RetInfEvento }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link RetInfEvento }
      */
     public void setInfEvento(RetInfEvento value) {
         this.infEvento = value;
@@ -86,11 +76,9 @@ public class TRetEvento
 
     /**
      * Obtém o valor da propriedade signature.
-     * 
-     * @return
-     *     possible object is
-     *     {@link SignatureType }
-     *     
+     *
+     * @return possible object is
+     * {@link SignatureType }
      */
     public SignatureType getSignature() {
         return signature;
@@ -98,11 +86,9 @@ public class TRetEvento
 
     /**
      * Define o valor da propriedade signature.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link SignatureType }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link SignatureType }
      */
     public void setSignature(SignatureType value) {
         this.signature = value;
@@ -110,11 +96,9 @@ public class TRetEvento
 
     /**
      * Obtém o valor da propriedade versao.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVersao() {
         return versao;
@@ -122,11 +106,9 @@ public class TRetEvento
 
     /**
      * Define o valor da propriedade versao.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVersao(String value) {
         this.versao = value;

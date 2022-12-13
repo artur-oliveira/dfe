@@ -8,18 +8,19 @@
 
 package br.inf.portalfiscal.cte.send;
 
+import com.softart.dfe.interfaces.xml.generic.XML;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
 
 
 /**
  * <p>Classe Java de Seg complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="Seg"&gt;
  *   &lt;complexContent&gt;
@@ -47,18 +48,15 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Seg", propOrder = {
-    "infSeg",
-    "nApol",
-    "nAver"
+        "infSeg",
+        "nApol",
+        "nAver"
 })
 public class Seg
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected InfSeg infSeg;
@@ -69,11 +67,9 @@ public class Seg
 
     /**
      * Obtém o valor da propriedade infSeg.
-     * 
-     * @return
-     *     possible object is
-     *     {@link InfSeg }
-     *     
+     *
+     * @return possible object is
+     * {@link InfSeg }
      */
     public InfSeg getInfSeg() {
         return infSeg;
@@ -81,11 +77,9 @@ public class Seg
 
     /**
      * Define o valor da propriedade infSeg.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link InfSeg }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link InfSeg }
      */
     public void setInfSeg(InfSeg value) {
         this.infSeg = value;
@@ -93,11 +87,9 @@ public class Seg
 
     /**
      * Obtém o valor da propriedade nApol.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getNApol() {
         return nApol;
@@ -105,11 +97,9 @@ public class Seg
 
     /**
      * Define o valor da propriedade nApol.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setNApol(String value) {
         this.nApol = value;
@@ -117,11 +107,9 @@ public class Seg
 
     /**
      * Obtém o valor da propriedade nAver.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getNAver() {
         return nAver;
@@ -129,11 +117,9 @@ public class Seg
 
     /**
      * Define o valor da propriedade nAver.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setNAver(String value) {
         this.nAver = value;

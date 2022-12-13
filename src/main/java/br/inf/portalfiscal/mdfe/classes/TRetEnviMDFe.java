@@ -8,24 +8,20 @@
 
 package br.inf.portalfiscal.mdfe.classes;
 
-import java.math.BigInteger;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
+import com.softart.dfe.interfaces.xml.generic.XML;
+
+import javax.xml.bind.annotation.*;
 import javax.xml.datatype.XMLGregorianCalendar;
-import com.softart.dfe.interfaces.xml.XML;
+import java.math.BigInteger;
 
 
 /**
  * Tipo Retorno do Recibo do Pedido de Autorização do MDF-e
- * 
+ *
  * <p>Classe Java de TRetEnviMDFe complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="TRetEnviMDFe"&gt;
  *   &lt;complexContent&gt;
@@ -61,21 +57,18 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TRetEnviMDFe", propOrder = {
-    "tpAmb",
-    "cuf",
-    "verAplic",
-    "cStat",
-    "xMotivo",
-    "infRec"
+        "tpAmb",
+        "cuf",
+        "verAplic",
+        "cStat",
+        "xMotivo",
+        "infRec"
 })
 public class TRetEnviMDFe
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected Object tpAmb;
@@ -93,11 +86,9 @@ public class TRetEnviMDFe
 
     /**
      * Obtém o valor da propriedade tpAmb.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Object }
-     *     
+     *
+     * @return possible object is
+     * {@link Object }
      */
     public Object getTpAmb() {
         return tpAmb;
@@ -105,11 +96,9 @@ public class TRetEnviMDFe
 
     /**
      * Define o valor da propriedade tpAmb.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Object }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Object }
      */
     public void setTpAmb(Object value) {
         this.tpAmb = value;
@@ -117,11 +106,9 @@ public class TRetEnviMDFe
 
     /**
      * Obtém o valor da propriedade cuf.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCUF() {
         return cuf;
@@ -129,11 +116,9 @@ public class TRetEnviMDFe
 
     /**
      * Define o valor da propriedade cuf.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCUF(String value) {
         this.cuf = value;
@@ -141,11 +126,9 @@ public class TRetEnviMDFe
 
     /**
      * Obtém o valor da propriedade verAplic.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVerAplic() {
         return verAplic;
@@ -153,11 +136,9 @@ public class TRetEnviMDFe
 
     /**
      * Define o valor da propriedade verAplic.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVerAplic(String value) {
         this.verAplic = value;
@@ -165,11 +146,9 @@ public class TRetEnviMDFe
 
     /**
      * Obtém o valor da propriedade cStat.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCStat() {
         return cStat;
@@ -177,11 +156,9 @@ public class TRetEnviMDFe
 
     /**
      * Define o valor da propriedade cStat.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCStat(String value) {
         this.cStat = value;
@@ -189,11 +166,9 @@ public class TRetEnviMDFe
 
     /**
      * Obtém o valor da propriedade xMotivo.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getXMotivo() {
         return xMotivo;
@@ -201,11 +176,9 @@ public class TRetEnviMDFe
 
     /**
      * Define o valor da propriedade xMotivo.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setXMotivo(String value) {
         this.xMotivo = value;
@@ -213,11 +186,9 @@ public class TRetEnviMDFe
 
     /**
      * Obtém o valor da propriedade infRec.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TRetEnviMDFe.InfRec }
-     *     
+     *
+     * @return possible object is
+     * {@link TRetEnviMDFe.InfRec }
      */
     public TRetEnviMDFe.InfRec getInfRec() {
         return infRec;
@@ -225,11 +196,9 @@ public class TRetEnviMDFe
 
     /**
      * Define o valor da propriedade infRec.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TRetEnviMDFe.InfRec }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link TRetEnviMDFe.InfRec }
      */
     public void setInfRec(TRetEnviMDFe.InfRec value) {
         this.infRec = value;
@@ -237,11 +206,9 @@ public class TRetEnviMDFe
 
     /**
      * Obtém o valor da propriedade versao.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVersao() {
         return versao;
@@ -249,11 +216,9 @@ public class TRetEnviMDFe
 
     /**
      * Define o valor da propriedade versao.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVersao(String value) {
         this.versao = value;
@@ -262,9 +227,9 @@ public class TRetEnviMDFe
 
     /**
      * <p>Classe Java de anonymous complex type.
-     * 
+     *
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     * 
+     *
      * <pre>
      * &lt;complexType&gt;
      *   &lt;complexContent&gt;
@@ -284,18 +249,15 @@ public class TRetEnviMDFe
      *   &lt;/complexContent&gt;
      * &lt;/complexType&gt;
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "nRec",
-        "dhRecbto",
-        "tMed"
+            "nRec",
+            "dhRecbto",
+            "tMed"
     })
     public static class InfRec
-        implements XML
-    {
+            implements XML {
 
         @XmlElement(required = true)
         protected String nRec;
@@ -307,11 +269,9 @@ public class TRetEnviMDFe
 
         /**
          * Obtém o valor da propriedade nRec.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getNRec() {
             return nRec;
@@ -319,11 +279,9 @@ public class TRetEnviMDFe
 
         /**
          * Define o valor da propriedade nRec.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setNRec(String value) {
             this.nRec = value;
@@ -331,11 +289,9 @@ public class TRetEnviMDFe
 
         /**
          * Obtém o valor da propriedade dhRecbto.
-         * 
-         * @return
-         *     possible object is
-         *     {@link XMLGregorianCalendar }
-         *     
+         *
+         * @return possible object is
+         * {@link XMLGregorianCalendar }
          */
         public XMLGregorianCalendar getDhRecbto() {
             return dhRecbto;
@@ -343,11 +299,9 @@ public class TRetEnviMDFe
 
         /**
          * Define o valor da propriedade dhRecbto.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link XMLGregorianCalendar }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link XMLGregorianCalendar }
          */
         public void setDhRecbto(XMLGregorianCalendar value) {
             this.dhRecbto = value;
@@ -355,11 +309,9 @@ public class TRetEnviMDFe
 
         /**
          * Obtém o valor da propriedade tMed.
-         * 
-         * @return
-         *     possible object is
-         *     {@link BigInteger }
-         *     
+         *
+         * @return possible object is
+         * {@link BigInteger }
          */
         public BigInteger getTMed() {
             return tMed;
@@ -367,11 +319,9 @@ public class TRetEnviMDFe
 
         /**
          * Define o valor da propriedade tMed.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link BigInteger }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link BigInteger }
          */
         public void setTMed(BigInteger value) {
             this.tMed = value;

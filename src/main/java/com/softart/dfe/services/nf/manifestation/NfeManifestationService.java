@@ -1,32 +1,162 @@
 package com.softart.dfe.services.nf.manifestation;
 
+import br.inf.portalfiscal.nfe.event_manifestation.TEnvEvento;
+import com.softart.dfe.components.internal.PairImpl;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.exceptions.ValidationException;
 import com.softart.dfe.exceptions.port.SoapServiceGeneralException;
 import com.softart.dfe.exceptions.security.SecurityException;
 import com.softart.dfe.exceptions.services.NoProviderFound;
+import com.softart.dfe.interfaces.internal.Pair;
 import com.softart.dfe.interfaces.services.NfSefazService;
+import com.softart.dfe.models.nf.manifestation.NfeManifestationRequest;
 import com.softart.dfe.models.nf.manifestation.NfeReturnManifestation;
 import com.softart.dfe.models.nf.manifestation.NfeSendManifestation;
 
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+
 public interface NfeManifestationService extends NfSefazService {
 
-    NfeReturnManifestation manifestation(NfeSendManifestation manifestation) throws NoProviderFound, ProcessException, ValidationException, SecurityException, SoapServiceGeneralException;
+    /**
+     * A function that returns the NfeReturnManifestation object, which is the object that contains the response of the
+     * manifestation of the event.
+     *
+     * @param evento The event object to be sent to the SEFAZ.
+     * @return The return is a NfeReturnManifestation object, which is a wrapper for the return of the webservice.
+     */
+    default NfeReturnManifestation manifestation(TEnvEvento evento) throws NoProviderFound, ProcessException, ValidationException, SecurityException, SoapServiceGeneralException {
+        return NfeReturnManifestation
+                .builder()
+                .build()
+                .fromObject(getProviderFactory()
+                        .getNfeService(getConfig())
+                        .manifestation(NfeManifestationRequest
+                                .builder()
+                                .signer(getXmlSigner())
+                                .config(getConfig())
+                                .data(evento)
+                                .validators(getValidatorFactory().nfeValidator().manifestationValidators())
+                                .configureProvider(getConfigureProviderFactory())
+                                .afterRequest(getProcess().afterManifestation())
+                                .beforeRequest(getProcess().beforeManifestation())
+                                .build())
+                        .second());
+    }
 
-    NfeReturnManifestation confirmation(String accessKey, String nseq) throws ProcessException, ValidationException, NoProviderFound, SecurityException, SoapServiceGeneralException;
+    /**
+     * It sends a manifestation to the Sefaz
+     *
+     * @param manifestation Manifestation object
+     * @return The return of the manifestation.
+     */
+    default NfeReturnManifestation manifestation(NfeSendManifestation manifestation) throws NoProviderFound, ProcessException, ValidationException, SecurityException, SoapServiceGeneralException {
+        return manifestation(manifestation.toObject());
+    }
 
-    NfeReturnManifestation science(String accessKey, String nseq) throws ProcessException, ValidationException, NoProviderFound, SecurityException, SoapServiceGeneralException;
+    /**
+     * Confirm the receipt of the event.
+     *
+     * @param accessKey The access key of the NF-e.
+     * @param nseq      The sequence number of the event.
+     * @return The return is the object NfeReturnManifestation, which contains the following attributes:
+     */
+    default NfeReturnManifestation confirmation(String accessKey, String nseq) throws ProcessException, ValidationException, NoProviderFound, SecurityException, SoapServiceGeneralException {
+        return manifestation(NfeSendManifestation.operationConfirmation(accessKey, nseq, getConfig()));
+    }
 
-    NfeReturnManifestation ignorance(String accessKey, String motive, String nseq) throws ProcessException, ValidationException, NoProviderFound, SecurityException, SoapServiceGeneralException;
+    /**
+     * This function sends a science manifestation to the Sefaz.
+     *
+     * @param pair Pair<String, String>
+     * @return The return of the method is the object NfeReturnManifestation, which contains the return of the operation.
+     */
+    default NfeReturnManifestation science(List<Pair<String, String>> pair) throws ProcessException, ValidationException, NoProviderFound, SecurityException, SoapServiceGeneralException {
+        return manifestation(NfeSendManifestation.operationScience(pair, getConfig()));
+    }
 
-    NfeReturnManifestation notPerformed(String accessKey, String motive, String nseq) throws ProcessException, ValidationException, NoProviderFound, SecurityException, SoapServiceGeneralException;
+    default NfeReturnManifestation science(Pair<String, String> pair) throws ProcessException, ValidationException, NoProviderFound, SecurityException, SoapServiceGeneralException {
+        return science(Collections.singletonList(pair));
+    }
 
+    /**
+     * It returns a NfeReturnManifestation object.
+     *
+     * @param accessKey The access key of the company that will be used to make the request.
+     * @param nseq      The sequence number of the NF-e.
+     * @return The return is a NfeReturnManifestation object.
+     */
+    default NfeReturnManifestation science(String accessKey, String nseq) throws ProcessException, ValidationException, NoProviderFound, SecurityException, SoapServiceGeneralException {
+        return science(new PairImpl<>(accessKey, nseq));
+    }
+
+    /**
+     * Ignore the event with the access key and sequence number, and the reason for the ignorance is the motive.
+     *
+     * @param accessKey The access key of the NF-e.
+     * @param motive    The reason for the cancellation.
+     * @param nseq      The number of the NF-e to be manifested.
+     * @return The return is the object NfeReturnManifestation, which contains the following attributes:
+     */
+    default NfeReturnManifestation ignorance(String accessKey, String motive, String nseq) throws ProcessException, ValidationException, NoProviderFound, SecurityException, SoapServiceGeneralException {
+        return manifestation(NfeSendManifestation.operationIgnorance(accessKey, nseq, motive, getConfig()));
+    }
+
+    /**
+     * This function sends a message to the Sefaz informing that the operation was not performed.
+     *
+     * @param accessKey The access key of the NF-e.
+     * @param motive    The reason for the cancellation.
+     * @param nseq      The sequence number of the NF-e.
+     * @return The return is the object NfeReturnManifestation, which contains the return of the SEFAZ.
+     */
+    default NfeReturnManifestation notPerformed(String accessKey, String motive, String nseq) throws ProcessException, ValidationException, NoProviderFound, SecurityException, SoapServiceGeneralException {
+        return manifestation(NfeSendManifestation.operationNotPerformed(accessKey, nseq, motive, getConfig()));
+    }
+
+    /**
+     * Confirms the receipt of the event of the Manifestation of the Interested Party
+     *
+     * @param accessKey The access key of the NF-e to be confirmed.
+     * @return The return is a NfeReturnManifestation object.
+     */
     NfeReturnManifestation confirmation(String accessKey) throws ProcessException, ValidationException, NoProviderFound, SecurityException, SoapServiceGeneralException;
 
-    NfeReturnManifestation science(String accessKey) throws ProcessException, ValidationException, NoProviderFound, SecurityException, SoapServiceGeneralException;
+    /**
+     * It returns the status of the NF-e.
+     *
+     * @param accessKey The access key of the NF-e.
+     * @return The return is a object of type NfeReturnManifestation.
+     */
+    default NfeReturnManifestation science(String accessKey) throws ProcessException, ValidationException, NoProviderFound, SecurityException, SoapServiceGeneralException {
+        return science(Collections.singletonList(accessKey));
+    }
 
+    /**
+     * It returns a NfeReturnManifestation object.
+     *
+     * @param accessKey Collection of access keys to be sent to the Sefaz.
+     * @return The return is a collection of objects of type NfeReturnManifestation.
+     */
+    NfeReturnManifestation science(Collection<String> accessKey) throws ProcessException, ValidationException, NoProviderFound, SecurityException, SoapServiceGeneralException;
+
+    /**
+     * It returns the ignorance of the NF-e.
+     *
+     * @param accessKey The access key of the NF-e.
+     * @param motive    The reason for the ignorance.
+     * @return The return is a object of type NfeReturnManifestation.
+     */
     NfeReturnManifestation ignorance(String accessKey, String motive) throws ProcessException, ValidationException, NoProviderFound, SecurityException, SoapServiceGeneralException;
 
+    /**
+     * It cancels the manifest.
+     *
+     * @param accessKey The access key of the NF-e.
+     * @param motive    The reason for the rejection of the event.
+     * @return The return is a NfeReturnManifestation object.
+     */
     NfeReturnManifestation notPerformed(String accessKey, String motive) throws ProcessException, ValidationException, NoProviderFound, SecurityException, SoapServiceGeneralException;
 
 }

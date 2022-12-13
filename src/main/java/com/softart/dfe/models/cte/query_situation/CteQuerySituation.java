@@ -4,8 +4,8 @@ import br.inf.portalfiscal.cte.send.TConsSitCTe;
 import com.softart.dfe.enums.cte.CteEvent;
 import com.softart.dfe.enums.cte.version.CteVersion;
 import com.softart.dfe.interfaces.internal.config.Config;
-import com.softart.dfe.interfaces.xml.DFObject;
 import com.softart.dfe.interfaces.xml.XMLAdapter;
+import com.softart.dfe.interfaces.xml.generic.DFObject;
 import lombok.*;
 
 @Getter

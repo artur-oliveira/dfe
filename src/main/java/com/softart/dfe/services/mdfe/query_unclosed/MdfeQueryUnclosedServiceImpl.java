@@ -1,12 +1,13 @@
 package com.softart.dfe.services.mdfe.query_unclosed;
 
-import com.softart.dfe.components.sefaz.DfeFactory;
+import com.softart.dfe.components.security.signer.XmlSigner;
+import com.softart.dfe.components.sefaz.DfeService;
 import com.softart.dfe.components.validation.ValidatorFactory;
 import com.softart.dfe.components.wsdl.ConfigureProviderFactory;
 import com.softart.dfe.interfaces.internal.config.MdfeConfig;
-import com.softart.dfe.interfaces.process.mdfe.MdfeProcess;
-import com.softart.dfe.interfaces.xml.XMLSigner;
-import com.softart.dfe.models.internal.process.DefaultMdfeProcess;
+import com.softart.dfe.interfaces.process.mdfe.MdfeProcessService;
+import com.softart.dfe.interfaces.xml.XMLSignerService;
+import com.softart.dfe.models.internal.process.MdfeProcess;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -16,9 +17,9 @@ import lombok.Setter;
 @Setter
 public final class MdfeQueryUnclosedServiceImpl extends AbstractMdfeQueryUnclosedService {
     private final MdfeConfig config;
-    private final XMLSigner xmlSigner;
-    private final MdfeProcess process = new DefaultMdfeProcess();
-    private final DfeFactory providerFactory = DfeFactory.getInstance();
+    private final XMLSignerService xmlSigner = XmlSigner.getInstance();
+    private final MdfeProcessService process = MdfeProcess.getInstance();
+    private final DfeService providerFactory = DfeService.getInstance();
     private final ValidatorFactory validatorFactory = ValidatorFactory.getInstance();
     private final ConfigureProviderFactory configureProviderFactory = ConfigureProviderFactory.getInstance();
 }

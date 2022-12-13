@@ -8,10 +8,25 @@ import com.softart.dfe.interfaces.storage.Storage;
 import com.softart.dfe.interfaces.storage.Store;
 
 public interface NfeManifestationStorage extends Storage {
+    /**
+     * It stores a manifestation of a process event.
+     *
+     * @param o The object to be stored.
+     */
     void storeProcManifestation(Store<TProcEvento> o) throws StorageException;
 
+    /**
+     * It stores the return manifestation of the event.
+     *
+     * @param o The object to be stored.
+     */
     void storeRetManifestation(Store<TRetEnvEvento> o) throws StorageException;
 
+    /**
+     * It stores the manifestation of the event.
+     *
+     * @param o The object to be stored.
+     */
     void storeSendManifestation(Store<TEnvEvento> o) throws StorageException;
 
 }

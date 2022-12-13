@@ -2,7 +2,6 @@ package com.softart.dfe.enums.internal.mdfe;
 
 import com.softart.dfe.enums.internal.Environment;
 import com.softart.dfe.enums.internal.UF;
-import com.softart.dfe.enums.internal.nf.NfceAuthorizer;
 import com.softart.dfe.exceptions.services.NoProviderFound;
 import com.softart.dfe.interfaces.internal.allow.AllowUF;
 import com.softart.dfe.interfaces.internal.mdfe.MdfeURL;

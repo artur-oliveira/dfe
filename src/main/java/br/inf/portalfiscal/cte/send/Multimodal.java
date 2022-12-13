@@ -8,18 +8,19 @@
 
 package br.inf.portalfiscal.cte.send;
 
+import com.softart.dfe.interfaces.xml.generic.XML;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
 
 
 /**
  * <p>Classe Java de Multimodal complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="Multimodal"&gt;
  *   &lt;complexContent&gt;
@@ -48,18 +49,15 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Multimodal", propOrder = {
-    "cotm",
-    "indNegociavel",
-    "seg"
+        "cotm",
+        "indNegociavel",
+        "seg"
 })
 public class Multimodal
-    implements XML
-{
+        implements XML {
 
     @XmlElement(name = "COTM", required = true)
     protected String cotm;
@@ -69,11 +67,9 @@ public class Multimodal
 
     /**
      * Obtém o valor da propriedade cotm.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCOTM() {
         return cotm;
@@ -81,11 +77,9 @@ public class Multimodal
 
     /**
      * Define o valor da propriedade cotm.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCOTM(String value) {
         this.cotm = value;
@@ -93,11 +87,9 @@ public class Multimodal
 
     /**
      * Obtém o valor da propriedade indNegociavel.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getIndNegociavel() {
         return indNegociavel;
@@ -105,11 +97,9 @@ public class Multimodal
 
     /**
      * Define o valor da propriedade indNegociavel.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setIndNegociavel(String value) {
         this.indNegociavel = value;
@@ -117,11 +107,9 @@ public class Multimodal
 
     /**
      * Obtém o valor da propriedade seg.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Seg }
-     *     
+     *
+     * @return possible object is
+     * {@link Seg }
      */
     public Seg getSeg() {
         return seg;
@@ -129,11 +117,9 @@ public class Multimodal
 
     /**
      * Define o valor da propriedade seg.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Seg }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Seg }
      */
     public void setSeg(Seg value) {
         this.seg = value;

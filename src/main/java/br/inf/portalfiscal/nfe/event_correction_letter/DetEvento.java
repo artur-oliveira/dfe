@@ -8,16 +8,16 @@
 
 package br.inf.portalfiscal.nfe.event_correction_letter;
 
-import com.softart.dfe.interfaces.xml.XML;
+import com.softart.dfe.interfaces.xml.generic.XML;
 
 import javax.xml.bind.annotation.*;
 
 
 /**
  * <p>Classe Java de anonymous complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType&gt;
  *   &lt;complexContent&gt;
@@ -64,19 +64,16 @@ import javax.xml.bind.annotation.*;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "descEvento",
-    "xCorrecao",
-    "xCondUso"
+        "descEvento",
+        "xCorrecao",
+        "xCondUso"
 })
 @XmlRootElement(name = "detEvento", namespace = "http://www.portalfiscal.inf.br/nfe")
 public class DetEvento
-    implements XML
-{
+        implements XML {
 
     @XmlElement(namespace = "http://www.portalfiscal.inf.br/nfe", required = true)
     protected String descEvento;
@@ -89,11 +86,9 @@ public class DetEvento
 
     /**
      * Obtém o valor da propriedade descEvento.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getDescEvento() {
         return descEvento;
@@ -101,11 +96,9 @@ public class DetEvento
 
     /**
      * Define o valor da propriedade descEvento.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setDescEvento(String value) {
         this.descEvento = value;
@@ -113,11 +106,9 @@ public class DetEvento
 
     /**
      * Obtém o valor da propriedade xCorrecao.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getXCorrecao() {
         return xCorrecao;
@@ -125,11 +116,9 @@ public class DetEvento
 
     /**
      * Define o valor da propriedade xCorrecao.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setXCorrecao(String value) {
         this.xCorrecao = value;
@@ -137,11 +126,9 @@ public class DetEvento
 
     /**
      * Obtém o valor da propriedade xCondUso.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getXCondUso() {
         return xCondUso;
@@ -149,11 +136,9 @@ public class DetEvento
 
     /**
      * Define o valor da propriedade xCondUso.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setXCondUso(String value) {
         this.xCondUso = value;
@@ -161,11 +146,9 @@ public class DetEvento
 
     /**
      * Obtém o valor da propriedade versao.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVersao() {
         return versao;
@@ -173,11 +156,9 @@ public class DetEvento
 
     /**
      * Define o valor da propriedade versao.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVersao(String value) {
         this.versao = value;

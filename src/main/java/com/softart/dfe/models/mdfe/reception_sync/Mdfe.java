@@ -1,13 +1,17 @@
 package com.softart.dfe.models.mdfe.reception_sync;
 
 import br.inf.portalfiscal.mdfe.classes.TMDFe;
-import br.inf.portalfiscal.mdfe.classes.TRespTec;
 import br.inf.portalfiscal.mdfe.classes.TUf;
 import com.softart.dfe.components.internal.AccessKeyGenerator;
+import com.softart.dfe.components.internal.ProjectProperties;
 import com.softart.dfe.components.internal.xml.unmarshaller.MdfeUnmarshaller;
+import com.softart.dfe.enums.internal.Model;
 import com.softart.dfe.enums.internal.mdfe.QrCodeMdfeURL;
-import com.softart.dfe.interfaces.xml.DFObject;
+import com.softart.dfe.enums.mdfe.identification.MdfeProcessEmissionType;
+import com.softart.dfe.enums.mdfe.version.MdfeModalVersion;
+import com.softart.dfe.enums.mdfe.version.MdfeVersion;
 import com.softart.dfe.interfaces.xml.XMLAdapter;
+import com.softart.dfe.interfaces.xml.generic.DFObject;
 import com.softart.dfe.util.DateUtils;
 import com.softart.dfe.util.StringUtils;
 import com.softart.dfe.util.XMLStringUtils;
@@ -55,13 +59,14 @@ public final class Mdfe implements DFObject, XMLAdapter<Mdfe, TMDFe> {
         private InfAdic infAdic;
         private TRespTec infRespTec;
         private InfSolicNFF infSolicNFF;
-        private String versao;
+        @Builder.Default
+        private String versao = MdfeVersion.getDefault().getVersion();
         private String id;
 
         @Override
         public TMDFe.InfMDFe toObject() {
-            Objects.requireNonNull(getIde(), "Cte.InfCte.Ide cannot be null in generation of ID");
-            Objects.requireNonNull(getEmit(), "Cte.InfCte.Emit cannot be null in generation of ID");
+            Objects.requireNonNull(getIde(), "MDFe.InfMDFe.Ide cannot be null in generation of ID");
+            Objects.requireNonNull(getEmit(), "MDFe.InfMDFe.Emit cannot be null in generation of ID");
             if (Objects.isNull(getIde().getCmdf())) getIde().setCmdf(StringUtils.random(8));
 
             if (Objects.isNull(getIde().getCdv())) getIde().setCdv(
@@ -80,7 +85,7 @@ public final class Mdfe implements DFObject, XMLAdapter<Mdfe, TMDFe> {
             TMDFe.InfMDFe infMdfe = XMLAdapter.super.toObject();
 
             if (Objects.isNull(infMdfe.getId())) {
-                setId(XMLStringUtils.idCte(infMdfe.getIde().getCUF(),
+                setId(XMLStringUtils.idMdfe(infMdfe.getIde().getCUF(),
                         DateUtils.twoDigitsyear(infMdfe.getIde().getDhEmi()),
                         DateUtils.twoDigitsMonth(infMdfe.getIde().getDhEmi()),
                         getEmit().getCnpj(),
@@ -105,21 +110,28 @@ public final class Mdfe implements DFObject, XMLAdapter<Mdfe, TMDFe> {
             private String tpAmb;
             private String tpEmit;
             private String tpTransp;
-            private String mod;
+            @Builder.Default
+            private String mod = Model.MDFE.getCode();
             private String serie;
             private String nmdf;
-            private String cmdf;
+            @Builder.Default
+            private String cmdf = StringUtils.random(8);
             private String cdv;
             private String modal;
-            private String dhEmi;
+            @Builder.Default
+            private String dhEmi = DateUtils.nowString();
             private String tpEmis;
-            private String procEmi;
-            private String verProc;
+            @Builder.Default
+            private String procEmi = MdfeProcessEmissionType.APPLICATION.getCode();
+            @Builder.Default
+            private String verProc = ProjectProperties.displayVersion();
             private TUf ufIni;
             private TUf ufFim;
             private List<InfMunCarrega> infMunCarrega;
             private List<InfPercurso> infPercurso;
-            private String dhIniViagem;
+
+            @Builder.Default
+            private String dhIniViagem = DateUtils.nowString();
             private String indCanalVerde;
             private String indCarregaPosterior;
 
@@ -176,7 +188,8 @@ public final class Mdfe implements DFObject, XMLAdapter<Mdfe, TMDFe> {
         @AllArgsConstructor
         @NoArgsConstructor
         public static final class InfModal implements DFObject, XMLAdapter<InfModal, TMDFe.InfMDFe.InfModal> {
-            private String versaoModal;
+            @Builder.Default
+            private String versaoModal = MdfeModalVersion.getDefault().getVersion();
             private Aereo aereo;
             private Ferrov ferrov;
             private Rodo rodo;
@@ -195,6 +208,7 @@ public final class Mdfe implements DFObject, XMLAdapter<Mdfe, TMDFe> {
                 } else if (Objects.nonNull(getFerrov())) {
                     infModal.setAny(MdfeUnmarshaller.toElement(getFerrov().toObject()));
                 }
+                infModal.setVersaoModal(getVersaoModal());
                 return infModal;
             }
 
@@ -806,6 +820,20 @@ public final class Mdfe implements DFObject, XMLAdapter<Mdfe, TMDFe> {
         public static final class InfSolicNFF implements DFObject, XMLAdapter<InfSolicNFF, TMDFe.InfMDFe.InfSolicNFF> {
             private String xSolic;
         }
+
+        @Data
+        @Builder
+        @AllArgsConstructor
+        @NoArgsConstructor
+        public static final class TRespTec implements DFObject, XMLAdapter<TRespTec, br.inf.portalfiscal.mdfe.classes.TRespTec> {
+            private String cnpj;
+            private String xContato;
+            private String email;
+            private String fone;
+            private String idCSRT;
+            private byte[] hashCSRT;
+        }
+
     }
 
     @Data
@@ -815,4 +843,5 @@ public final class Mdfe implements DFObject, XMLAdapter<Mdfe, TMDFe> {
     public static final class InfMDFeSupl implements DFObject, XMLAdapter<InfMDFeSupl, br.inf.portalfiscal.mdfe.classes.TMDFe.InfMDFeSupl> {
         private String qrCodMDFe;
     }
+
 }

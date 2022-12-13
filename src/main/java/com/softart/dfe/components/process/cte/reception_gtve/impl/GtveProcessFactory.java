@@ -2,11 +2,8 @@ package com.softart.dfe.components.process.cte.reception_gtve.impl;
 
 import br.inf.portalfiscal.cte.send.TGTVe;
 import br.inf.portalfiscal.cte.send.TRetGTVe;
-import com.softart.dfe.components.process.cte.reception_gtve.impl.GtveProcessFactory;
 import com.softart.dfe.components.process.cte.reception_gtve.impl.file.FileSystemGtveFactory;
 import com.softart.dfe.components.process.cte.reception_gtve.impl.nostore.NoStoreGtveFactory;
-import com.softart.dfe.components.process.cte.reception_os.impl.file.FileSystemCteOsFactory;
-import com.softart.dfe.components.process.cte.reception_os.impl.nostore.NoStoreCteOsFactory;
 import com.softart.dfe.interfaces.process.ProcessFactory;
 import com.softart.dfe.interfaces.process.cte.reception_gtve.AfterReceptionGtve;
 import com.softart.dfe.interfaces.process.cte.reception_gtve.BeforeReceptionGtve;
@@ -23,12 +20,12 @@ public abstract class GtveProcessFactory implements ProcessFactory<TGTVe, TRetGT
         return GtveProcessFactory.Holder.FILESYSTEM;
     }
 
+    public abstract Collection<BeforeReceptionGtve> before();
+
+    public abstract Collection<AfterReceptionGtve> after();
+
     final static class Holder {
         final static GtveProcessFactory NOSTORE = new NoStoreGtveFactory();
         final static GtveProcessFactory FILESYSTEM = new FileSystemGtveFactory();
     }
-
-    public abstract Collection<BeforeReceptionGtve> before();
-
-    public abstract Collection<AfterReceptionGtve> after();
 }

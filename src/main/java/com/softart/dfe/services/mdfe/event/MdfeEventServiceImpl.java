@@ -1,14 +1,13 @@
 package com.softart.dfe.services.mdfe.event;
 
-import com.softart.dfe.components.sefaz.DfeFactory;
+import com.softart.dfe.components.security.signer.XmlSigner;
+import com.softart.dfe.components.sefaz.DfeService;
 import com.softart.dfe.components.validation.ValidatorFactory;
 import com.softart.dfe.components.wsdl.ConfigureProviderFactory;
 import com.softart.dfe.interfaces.internal.config.MdfeConfig;
-import com.softart.dfe.interfaces.process.cte.CteProcess;
-import com.softart.dfe.interfaces.process.mdfe.MdfeProcess;
-import com.softart.dfe.interfaces.xml.XMLSigner;
-import com.softart.dfe.models.internal.process.DefaultCteProcess;
-import com.softart.dfe.models.internal.process.DefaultMdfeProcess;
+import com.softart.dfe.interfaces.process.mdfe.MdfeProcessService;
+import com.softart.dfe.interfaces.xml.XMLSignerService;
+import com.softart.dfe.models.internal.process.MdfeProcess;
 import com.softart.dfe.services.mdfe.query_situation.MdfeQuerySituationService;
 import com.softart.dfe.services.mdfe.query_situation.MdfeQuerySituationServiceImpl;
 import lombok.Getter;
@@ -22,9 +21,9 @@ import java.util.Objects;
 @Setter
 public final class MdfeEventServiceImpl extends AbstractMdfeEventService {
     private final MdfeConfig config;
-    private final XMLSigner xmlSigner;
-    private final MdfeProcess process = new DefaultMdfeProcess();
-    private final DfeFactory providerFactory = DfeFactory.getInstance();
+    private final XMLSignerService xmlSigner = XmlSigner.getInstance();
+    private final MdfeProcessService process = MdfeProcess.getInstance();
+    private final DfeService providerFactory = DfeService.getInstance();
     private final ValidatorFactory validatorFactory = ValidatorFactory.getInstance();
     private final ConfigureProviderFactory configureProviderFactory = ConfigureProviderFactory.getInstance();
     private MdfeQuerySituationService mdfeQuerySituationService;

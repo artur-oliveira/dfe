@@ -15,18 +15,17 @@ import javax.xml.namespace.QName;
 
 
 /**
- * This object contains factory methods for each 
- * Java content interface and Java element interface 
- * generated in the br.inf.portalfiscal.cte.send package. 
- * <p>An ObjectFactory allows you to programatically 
- * construct new instances of the Java representation 
- * for XML content. The Java representation of XML 
- * content can consist of schema derived interfaces 
- * and classes representing the binding of schema 
- * type definitions, element declarations and model 
- * groups.  Factory methods for each of these are 
+ * This object contains factory methods for each
+ * Java content interface and Java element interface
+ * generated in the br.inf.portalfiscal.cte.send package.
+ * <p>An ObjectFactory allows you to programatically
+ * construct new instances of the Java representation
+ * for XML content. The Java representation of XML
+ * content can consist of schema derived interfaces
+ * and classes representing the binding of schema
+ * type definitions, element declarations and model
+ * groups.  Factory methods for each of these are
  * provided in this class.
- * 
  */
 @XmlRegistry
 public class ObjectFactory {
@@ -76,14 +75,12 @@ public class ObjectFactory {
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: br.inf.portalfiscal.cte.send
-     * 
      */
     public ObjectFactory() {
     }
 
     /**
      * Create an instance of {@link ReferenceType }
-     * 
      */
     public ReferenceType createReferenceType() {
         return new ReferenceType();
@@ -91,7 +88,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SignedInfoType }
-     * 
      */
     public SignedInfoType createSignedInfoType() {
         return new SignedInfoType();
@@ -99,7 +95,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link InfGTV }
-     * 
      */
     public InfGTV createInfGTV() {
         return new InfGTV();
@@ -107,7 +102,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TUnidCarga }
-     * 
      */
     public TUnidCarga createTUnidCarga() {
         return new TUnidCarga();
@@ -115,7 +109,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TUnidadeTransp }
-     * 
      */
     public TUnidadeTransp createTUnidadeTransp() {
         return new TUnidadeTransp();
@@ -123,7 +116,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TImpOS }
-     * 
      */
     public TImpOS createTImpOS() {
         return new TImpOS();
@@ -131,7 +123,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TImp }
-     * 
      */
     public TImp createTImp() {
         return new TImp();
@@ -139,7 +130,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TRetEnviCTe }
-     * 
      */
     public TRetEnviCTe createTRetEnviCTe() {
         return new TRetEnviCTe();
@@ -147,7 +137,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TProtGTVe }
-     * 
      */
     public TProtGTVe createTProtGTVe() {
         return new TProtGTVe();
@@ -155,7 +144,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TProtCTeOS }
-     * 
      */
     public TProtCTeOS createTProtCTeOS() {
         return new TProtCTeOS();
@@ -163,7 +151,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TProtCTe }
-     * 
      */
     public TProtCTe createTProtCTe() {
         return new TProtCTe();
@@ -171,7 +158,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link EvEPECCTe }
-     * 
      */
     public EvEPECCTe createEvEPECCTe() {
         return new EvEPECCTe();
@@ -179,7 +165,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTe }
-     * 
      */
     public TCTe createTCTe() {
         return new TCTe();
@@ -187,7 +172,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTe.InfCte }
-     * 
      */
     public TCTe.InfCte createTCTeInfCte() {
         return new TCTe.InfCte();
@@ -195,7 +179,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTe.InfCte.InfCTeNorm }
-     * 
      */
     public TCTe.InfCte.InfCTeNorm createTCTeInfCteInfCTeNorm() {
         return new TCTe.InfCte.InfCTeNorm();
@@ -203,7 +186,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTe.InfCte.InfCTeNorm.InfServVinc }
-     * 
      */
     public TCTe.InfCte.InfCTeNorm.InfServVinc createTCTeInfCteInfCTeNormInfServVinc() {
         return new TCTe.InfCte.InfCTeNorm.InfServVinc();
@@ -211,7 +193,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTe.InfCte.InfCTeNorm.InfCteSub }
-     * 
      */
     public TCTe.InfCte.InfCTeNorm.InfCteSub createTCTeInfCteInfCTeNormInfCteSub() {
         return new TCTe.InfCte.InfCTeNorm.InfCteSub();
@@ -219,7 +200,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTe.InfCte.InfCTeNorm.InfCteSub.TomaICMS }
-     * 
      */
     public TCTe.InfCte.InfCTeNorm.InfCteSub.TomaICMS createTCTeInfCteInfCTeNormInfCteSubTomaICMS() {
         return new TCTe.InfCte.InfCTeNorm.InfCteSub.TomaICMS();
@@ -227,7 +207,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTe.InfCte.InfCTeNorm.Cobr }
-     * 
      */
     public TCTe.InfCte.InfCTeNorm.Cobr createTCTeInfCteInfCTeNormCobr() {
         return new TCTe.InfCte.InfCTeNorm.Cobr();
@@ -235,7 +214,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTe.InfCte.InfCTeNorm.DocAnt }
-     * 
      */
     public TCTe.InfCte.InfCTeNorm.DocAnt createTCTeInfCteInfCTeNormDocAnt() {
         return new TCTe.InfCte.InfCTeNorm.DocAnt();
@@ -243,7 +221,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTe.InfCte.InfCTeNorm.DocAnt.EmiDocAnt }
-     * 
      */
     public TCTe.InfCte.InfCTeNorm.DocAnt.EmiDocAnt createTCTeInfCteInfCTeNormDocAntEmiDocAnt() {
         return new TCTe.InfCte.InfCTeNorm.DocAnt.EmiDocAnt();
@@ -251,7 +228,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTe.InfCte.InfCTeNorm.DocAnt.EmiDocAnt.IdDocAnt }
-     * 
      */
     public TCTe.InfCte.InfCTeNorm.DocAnt.EmiDocAnt.IdDocAnt createTCTeInfCteInfCTeNormDocAntEmiDocAntIdDocAnt() {
         return new TCTe.InfCte.InfCTeNorm.DocAnt.EmiDocAnt.IdDocAnt();
@@ -259,7 +235,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTe.InfCte.InfCTeNorm.InfDoc }
-     * 
      */
     public TCTe.InfCte.InfCTeNorm.InfDoc createTCTeInfCteInfCTeNormInfDoc() {
         return new TCTe.InfCte.InfCTeNorm.InfDoc();
@@ -267,7 +242,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTe.InfCte.InfCTeNorm.InfCarga }
-     * 
      */
     public TCTe.InfCte.InfCTeNorm.InfCarga createTCTeInfCteInfCTeNormInfCarga() {
         return new TCTe.InfCte.InfCTeNorm.InfCarga();
@@ -275,7 +249,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTe.InfCte.Imp }
-     * 
      */
     public TCTe.InfCte.Imp createTCTeInfCteImp() {
         return new TCTe.InfCte.Imp();
@@ -283,7 +256,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTe.InfCte.VPrest }
-     * 
      */
     public TCTe.InfCte.VPrest createTCTeInfCteVPrest() {
         return new TCTe.InfCte.VPrest();
@@ -291,7 +263,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTe.InfCte.Compl }
-     * 
      */
     public TCTe.InfCte.Compl createTCTeInfCteCompl() {
         return new TCTe.InfCte.Compl();
@@ -299,7 +270,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTe.InfCte.Compl.Entrega }
-     * 
      */
     public TCTe.InfCte.Compl.Entrega createTCTeInfCteComplEntrega() {
         return new TCTe.InfCte.Compl.Entrega();
@@ -307,7 +277,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTe.InfCte.Compl.Fluxo }
-     * 
      */
     public TCTe.InfCte.Compl.Fluxo createTCTeInfCteComplFluxo() {
         return new TCTe.InfCte.Compl.Fluxo();
@@ -315,7 +284,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTe.InfCte.Ide }
-     * 
      */
     public TCTe.InfCte.Ide createTCTeInfCteIde() {
         return new TCTe.InfCte.Ide();
@@ -323,7 +291,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTeOS }
-     * 
      */
     public TCTeOS createTCTeOS() {
         return new TCTeOS();
@@ -331,7 +298,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTeOS.InfCte }
-     * 
      */
     public TCTeOS.InfCte createTCTeOSInfCte() {
         return new TCTeOS.InfCte();
@@ -339,7 +305,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTeOS.InfCte.InfCTeNorm }
-     * 
      */
     public TCTeOS.InfCte.InfCTeNorm createTCTeOSInfCteInfCTeNorm() {
         return new TCTeOS.InfCte.InfCTeNorm();
@@ -347,7 +312,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTeOS.InfCte.InfCTeNorm.InfGTVe }
-     * 
      */
     public TCTeOS.InfCte.InfCTeNorm.InfGTVe createTCTeOSInfCteInfCTeNormInfGTVe() {
         return new TCTeOS.InfCte.InfCTeNorm.InfGTVe();
@@ -355,7 +319,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTeOS.InfCte.InfCTeNorm.Cobr }
-     * 
      */
     public TCTeOS.InfCte.InfCTeNorm.Cobr createTCTeOSInfCteInfCTeNormCobr() {
         return new TCTeOS.InfCte.InfCTeNorm.Cobr();
@@ -363,7 +326,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTeOS.InfCte.InfCTeNorm.InfCteSub }
-     * 
      */
     public TCTeOS.InfCte.InfCTeNorm.InfCteSub createTCTeOSInfCteInfCTeNormInfCteSub() {
         return new TCTeOS.InfCte.InfCTeNorm.InfCteSub();
@@ -371,7 +333,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTeOS.InfCte.InfCTeNorm.InfCteSub.TomaICMS }
-     * 
      */
     public TCTeOS.InfCte.InfCTeNorm.InfCteSub.TomaICMS createTCTeOSInfCteInfCTeNormInfCteSubTomaICMS() {
         return new TCTeOS.InfCte.InfCTeNorm.InfCteSub.TomaICMS();
@@ -379,7 +340,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTeOS.InfCte.InfCTeNorm.InfServico }
-     * 
      */
     public TCTeOS.InfCte.InfCTeNorm.InfServico createTCTeOSInfCteInfCTeNormInfServico() {
         return new TCTeOS.InfCte.InfCTeNorm.InfServico();
@@ -387,7 +347,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTeOS.InfCte.Imp }
-     * 
      */
     public TCTeOS.InfCte.Imp createTCTeOSInfCteImp() {
         return new TCTeOS.InfCte.Imp();
@@ -395,7 +354,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTeOS.InfCte.VPrest }
-     * 
      */
     public TCTeOS.InfCte.VPrest createTCTeOSInfCteVPrest() {
         return new TCTeOS.InfCte.VPrest();
@@ -403,7 +361,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTeOS.InfCte.Compl }
-     * 
      */
     public TCTeOS.InfCte.Compl createTCTeOSInfCteCompl() {
         return new TCTeOS.InfCte.Compl();
@@ -411,7 +368,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTeOS.InfCte.Ide }
-     * 
      */
     public TCTeOS.InfCte.Ide createTCTeOSInfCteIde() {
         return new TCTeOS.InfCte.Ide();
@@ -419,7 +375,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TGTVe }
-     * 
      */
     public TGTVe createTGTVe() {
         return new TGTVe();
@@ -427,7 +382,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TGTVe.InfCte }
-     * 
      */
     public TGTVe.InfCte createTGTVeInfCte() {
         return new TGTVe.InfCte();
@@ -435,7 +389,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TGTVe.InfCte.DetGTV }
-     * 
      */
     public TGTVe.InfCte.DetGTV createTGTVeInfCteDetGTV() {
         return new TGTVe.InfCte.DetGTV();
@@ -443,7 +396,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TGTVe.InfCte.Compl }
-     * 
      */
     public TGTVe.InfCte.Compl createTGTVeInfCteCompl() {
         return new TGTVe.InfCte.Compl();
@@ -451,7 +403,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TGTVe.InfCte.Ide }
-     * 
      */
     public TGTVe.InfCte.Ide createTGTVeInfCteIde() {
         return new TGTVe.InfCte.Ide();
@@ -459,7 +410,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TConsReciCTe }
-     * 
      */
     public TConsReciCTe createTConsReciCTe() {
         return new TConsReciCTe();
@@ -467,7 +417,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TConsSitCTe }
-     * 
      */
     public TConsSitCTe createTConsSitCTe() {
         return new TConsSitCTe();
@@ -475,7 +424,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TConsStatServ }
-     * 
      */
     public TConsStatServ createTConsStatServ() {
         return new TConsStatServ();
@@ -483,7 +431,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Aereo }
-     * 
      */
     public Aereo createAereo() {
         return new Aereo();
@@ -491,7 +438,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Aquav }
-     * 
      */
     public Aquav createAquav() {
         return new Aquav();
@@ -499,7 +445,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Duto }
-     * 
      */
     public Duto createDuto() {
         return new Duto();
@@ -507,7 +452,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Ferrov }
-     * 
      */
     public Ferrov createFerrov() {
         return new Ferrov();
@@ -515,7 +459,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link RodoOS }
-     * 
      */
     public RodoOS createRodoOS() {
         return new RodoOS();
@@ -523,7 +466,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Rodo }
-     * 
      */
     public Rodo createRodo() {
         return new Rodo();
@@ -531,7 +473,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Multimodal }
-     * 
      */
     public Multimodal createMultimodal() {
         return new Multimodal();
@@ -539,7 +480,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TEnviCTe }
-     * 
      */
     public TEnviCTe createTEnviCTe() {
         return new TEnviCTe();
@@ -547,7 +487,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link EvCCeCTe }
-     * 
      */
     public EvCCeCTe createEvCCeCTe() {
         return new EvCCeCTe();
@@ -555,7 +494,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link EvCECTe }
-     * 
      */
     public EvCECTe createEvCECTe() {
         return new EvCECTe();
@@ -563,7 +501,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link EvCancCECTe }
-     * 
      */
     public EvCancCECTe createEvCancCECTe() {
         return new EvCancCECTe();
@@ -571,7 +508,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link EvCancCTe }
-     * 
      */
     public EvCancCTe createEvCancCTe() {
         return new EvCancCTe();
@@ -579,7 +515,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link EvGTV }
-     * 
      */
     public EvGTV createEvGTV() {
         return new EvGTV();
@@ -587,7 +522,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link EvPrestDesacordo }
-     * 
      */
     public EvPrestDesacordo createEvPrestDesacordo() {
         return new EvPrestDesacordo();
@@ -595,7 +529,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link EvRegMultimodal }
-     * 
      */
     public EvRegMultimodal createEvRegMultimodal() {
         return new EvRegMultimodal();
@@ -603,7 +536,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TEvento }
-     * 
      */
     public TEvento createTEvento() {
         return new TEvento();
@@ -611,7 +543,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TInutCTe }
-     * 
      */
     public TInutCTe createTInutCTe() {
         return new TInutCTe();
@@ -619,7 +550,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCteOSProc }
-     * 
      */
     public TCteOSProc createTCteOSProc() {
         return new TCteOSProc();
@@ -627,7 +557,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCteProc }
-     * 
      */
     public TCteProc createTCteProc() {
         return new TCteProc();
@@ -635,7 +564,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TProcEvento }
-     * 
      */
     public TProcEvento createTProcEvento() {
         return new TProcEvento();
@@ -643,7 +571,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TGTVeProc }
-     * 
      */
     public TGTVeProc createTGTVeProc() {
         return new TGTVeProc();
@@ -651,7 +578,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TProcInutCTe }
-     * 
      */
     public TProcInutCTe createTProcInutCTe() {
         return new TProcInutCTe();
@@ -659,7 +585,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TRetCTeOS }
-     * 
      */
     public TRetCTeOS createTRetCTeOS() {
         return new TRetCTeOS();
@@ -667,7 +592,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TRetCTe }
-     * 
      */
     public TRetCTe createTRetCTe() {
         return new TRetCTe();
@@ -675,7 +599,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TRetConsReciCTe }
-     * 
      */
     public TRetConsReciCTe createTRetConsReciCTe() {
         return new TRetConsReciCTe();
@@ -683,7 +606,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TRetConsSitCTe }
-     * 
      */
     public TRetConsSitCTe createTRetConsSitCTe() {
         return new TRetConsSitCTe();
@@ -691,7 +613,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TRetConsStatServ }
-     * 
      */
     public TRetConsStatServ createTRetConsStatServ() {
         return new TRetConsStatServ();
@@ -699,7 +620,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TRetEvento }
-     * 
      */
     public TRetEvento createTRetEvento() {
         return new TRetEvento();
@@ -707,7 +627,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TRetGTVe }
-     * 
      */
     public TRetGTVe createTRetGTVe() {
         return new TRetGTVe();
@@ -715,7 +634,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TRetInutCTe }
-     * 
      */
     public TRetInutCTe createTRetInutCTe() {
         return new TRetInutCTe();
@@ -723,7 +641,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TEndeEmi }
-     * 
      */
     public TEndeEmi createTEndeEmi() {
         return new TEndeEmi();
@@ -731,7 +648,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TEndereco }
-     * 
      */
     public TEndereco createTEndereco() {
         return new TEndereco();
@@ -739,7 +655,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TEndernac }
-     * 
      */
     public TEndernac createTEndernac() {
         return new TEndernac();
@@ -747,7 +662,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TEndOrg }
-     * 
      */
     public TEndOrg createTEndOrg() {
         return new TEndOrg();
@@ -755,7 +669,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TLocal }
-     * 
      */
     public TLocal createTLocal() {
         return new TLocal();
@@ -763,7 +676,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TEndReEnt }
-     * 
      */
     public TEndReEnt createTEndReEnt() {
         return new TEndReEnt();
@@ -771,7 +683,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TRespTec }
-     * 
      */
     public TRespTec createTRespTec() {
         return new TRespTec();
@@ -779,7 +690,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ProtCTeAny }
-     * 
      */
     public ProtCTeAny createProtCTeAny() {
         return new ProtCTeAny();
@@ -787,7 +697,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ProcEventoCTe }
-     * 
      */
     public ProcEventoCTe createProcEventoCTe() {
         return new ProcEventoCTe();
@@ -795,7 +704,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link NatCarga }
-     * 
      */
     public NatCarga createNatCarga() {
         return new NatCarga();
@@ -803,7 +711,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Tarifa }
-     * 
      */
     public Tarifa createTarifa() {
         return new Tarifa();
@@ -811,7 +718,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Peri }
-     * 
      */
     public Peri createPeri() {
         return new Peri();
@@ -819,7 +725,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link InfTotAP }
-     * 
      */
     public InfTotAP createInfTotAP() {
         return new InfTotAP();
@@ -827,7 +732,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Balsa }
-     * 
      */
     public Balsa createBalsa() {
         return new Balsa();
@@ -835,7 +739,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link br.inf.portalfiscal.cte.send.InfNFe }
-     * 
      */
     public br.inf.portalfiscal.cte.send.InfNFe createInfNFe() {
         return new br.inf.portalfiscal.cte.send.InfNFe();
@@ -843,7 +746,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link br.inf.portalfiscal.cte.send.InfNF }
-     * 
      */
     public br.inf.portalfiscal.cte.send.InfNF createInfNF() {
         return new br.inf.portalfiscal.cte.send.InfNF();
@@ -851,7 +753,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link br.inf.portalfiscal.cte.send.InfDoc }
-     * 
      */
     public br.inf.portalfiscal.cte.send.InfDoc createInfDoc() {
         return new br.inf.portalfiscal.cte.send.InfDoc();
@@ -859,7 +760,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Lacre }
-     * 
      */
     public Lacre createLacre() {
         return new Lacre();
@@ -867,7 +767,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DetCont }
-     * 
      */
     public DetCont createDetCont() {
         return new DetCont();
@@ -875,7 +774,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TEnderFer }
-     * 
      */
     public TEnderFer createTEnderFer() {
         return new TEnderFer();
@@ -883,7 +781,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TrafMut }
-     * 
      */
     public TrafMut createTrafMut() {
         return new TrafMut();
@@ -891,7 +788,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link FerroEnv }
-     * 
      */
     public FerroEnv createFerroEnv() {
         return new FerroEnv();
@@ -899,7 +795,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link InfFretamento }
-     * 
      */
     public InfFretamento createInfFretamento() {
         return new InfFretamento();
@@ -907,7 +802,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Prop }
-     * 
      */
     public Prop createProp() {
         return new Prop();
@@ -915,7 +809,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Veic }
-     * 
      */
     public Veic createVeic() {
         return new Veic();
@@ -923,7 +816,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Occ }
-     * 
      */
     public Occ createOcc() {
         return new Occ();
@@ -931,7 +823,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link EmiOcc }
-     * 
      */
     public EmiOcc createEmiOcc() {
         return new EmiOcc();
@@ -939,7 +830,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link InfSeg }
-     * 
      */
     public InfSeg createInfSeg() {
         return new InfSeg();
@@ -947,7 +837,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link br.inf.portalfiscal.cte.send.Seg }
-     * 
      */
     public br.inf.portalfiscal.cte.send.Seg createSeg() {
         return new br.inf.portalfiscal.cte.send.Seg();
@@ -955,7 +844,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DetEvento }
-     * 
      */
     public DetEvento createDetEvento() {
         return new DetEvento();
@@ -963,7 +851,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link RetInfEvento }
-     * 
      */
     public RetInfEvento createRetInfEvento() {
         return new RetInfEvento();
@@ -971,7 +858,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link InfEvento }
-     * 
      */
     public InfEvento createInfEvento() {
         return new InfEvento();
@@ -979,7 +865,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link br.inf.portalfiscal.cte.send.InfSolicNFF }
-     * 
      */
     public br.inf.portalfiscal.cte.send.InfSolicNFF createInfSolicNFF() {
         return new br.inf.portalfiscal.cte.send.InfSolicNFF();
@@ -987,7 +872,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link InfCorrecao }
-     * 
      */
     public InfCorrecao createInfCorrecao() {
         return new InfCorrecao();
@@ -995,7 +879,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link InfEntrega }
-     * 
      */
     public InfEntrega createInfEntrega() {
         return new InfEntrega();
@@ -1003,7 +886,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link br.inf.portalfiscal.cte.send.InfEspecie }
-     * 
      */
     public br.inf.portalfiscal.cte.send.InfEspecie createInfEspecie() {
         return new br.inf.portalfiscal.cte.send.InfEspecie();
@@ -1011,7 +893,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link RetInfInut }
-     * 
      */
     public RetInfInut createRetInfInut() {
         return new RetInfInut();
@@ -1019,7 +900,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link InfInut }
-     * 
      */
     public InfInut createInfInut() {
         return new InfInut();
@@ -1027,7 +907,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SignatureType }
-     * 
      */
     public SignatureType createSignatureType() {
         return new SignatureType();
@@ -1035,7 +914,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SignatureValueType }
-     * 
      */
     public SignatureValueType createSignatureValueType() {
         return new SignatureValueType();
@@ -1043,7 +921,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TransformsType }
-     * 
      */
     public TransformsType createTransformsType() {
         return new TransformsType();
@@ -1051,7 +928,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TransformType }
-     * 
      */
     public TransformType createTransformType() {
         return new TransformType();
@@ -1059,7 +935,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link KeyInfoType }
-     * 
      */
     public KeyInfoType createKeyInfoType() {
         return new KeyInfoType();
@@ -1067,7 +942,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link X509DataType }
-     * 
      */
     public X509DataType createX509DataType() {
         return new X509DataType();
@@ -1075,7 +949,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ReferenceType.DigestMethod }
-     * 
      */
     public ReferenceType.DigestMethod createReferenceTypeDigestMethod() {
         return new ReferenceType.DigestMethod();
@@ -1083,7 +956,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SignedInfoType.CanonicalizationMethod }
-     * 
      */
     public SignedInfoType.CanonicalizationMethod createSignedInfoTypeCanonicalizationMethod() {
         return new SignedInfoType.CanonicalizationMethod();
@@ -1091,7 +963,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SignedInfoType.SignatureMethod }
-     * 
      */
     public SignedInfoType.SignatureMethod createSignedInfoTypeSignatureMethod() {
         return new SignedInfoType.SignatureMethod();
@@ -1099,7 +970,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link InfGTV.Rem }
-     * 
      */
     public InfGTV.Rem createInfGTVRem() {
         return new InfGTV.Rem();
@@ -1107,7 +977,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link InfGTV.Dest }
-     * 
      */
     public InfGTV.Dest createInfGTVDest() {
         return new InfGTV.Dest();
@@ -1115,7 +984,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TUnidCarga.LacUnidCarga }
-     * 
      */
     public TUnidCarga.LacUnidCarga createTUnidCargaLacUnidCarga() {
         return new TUnidCarga.LacUnidCarga();
@@ -1123,7 +991,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TUnidadeTransp.LacUnidTransp }
-     * 
      */
     public TUnidadeTransp.LacUnidTransp createTUnidadeTranspLacUnidTransp() {
         return new TUnidadeTransp.LacUnidTransp();
@@ -1131,7 +998,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TImpOS.ICMS00 }
-     * 
      */
     public TImpOS.ICMS00 createTImpOSICMS00() {
         return new TImpOS.ICMS00();
@@ -1139,7 +1005,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TImpOS.ICMS20 }
-     * 
      */
     public TImpOS.ICMS20 createTImpOSICMS20() {
         return new TImpOS.ICMS20();
@@ -1147,7 +1012,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TImpOS.ICMS45 }
-     * 
      */
     public TImpOS.ICMS45 createTImpOSICMS45() {
         return new TImpOS.ICMS45();
@@ -1155,7 +1019,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TImpOS.ICMS90 }
-     * 
      */
     public TImpOS.ICMS90 createTImpOSICMS90() {
         return new TImpOS.ICMS90();
@@ -1163,7 +1026,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TImpOS.ICMSOutraUF }
-     * 
      */
     public TImpOS.ICMSOutraUF createTImpOSICMSOutraUF() {
         return new TImpOS.ICMSOutraUF();
@@ -1171,7 +1033,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TImpOS.ICMSSN }
-     * 
      */
     public TImpOS.ICMSSN createTImpOSICMSSN() {
         return new TImpOS.ICMSSN();
@@ -1179,7 +1040,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TImp.ICMS00 }
-     * 
      */
     public TImp.ICMS00 createTImpICMS00() {
         return new TImp.ICMS00();
@@ -1187,7 +1047,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TImp.ICMS20 }
-     * 
      */
     public TImp.ICMS20 createTImpICMS20() {
         return new TImp.ICMS20();
@@ -1195,7 +1054,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TImp.ICMS45 }
-     * 
      */
     public TImp.ICMS45 createTImpICMS45() {
         return new TImp.ICMS45();
@@ -1203,7 +1061,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TImp.ICMS60 }
-     * 
      */
     public TImp.ICMS60 createTImpICMS60() {
         return new TImp.ICMS60();
@@ -1211,7 +1068,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TImp.ICMS90 }
-     * 
      */
     public TImp.ICMS90 createTImpICMS90() {
         return new TImp.ICMS90();
@@ -1219,7 +1075,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TImp.ICMSOutraUF }
-     * 
      */
     public TImp.ICMSOutraUF createTImpICMSOutraUF() {
         return new TImp.ICMSOutraUF();
@@ -1227,7 +1082,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TImp.ICMSSN }
-     * 
      */
     public TImp.ICMSSN createTImpICMSSN() {
         return new TImp.ICMSSN();
@@ -1235,7 +1089,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TRetEnviCTe.InfRec }
-     * 
      */
     public TRetEnviCTe.InfRec createTRetEnviCTeInfRec() {
         return new TRetEnviCTe.InfRec();
@@ -1243,7 +1096,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TProtGTVe.InfProt }
-     * 
      */
     public TProtGTVe.InfProt createTProtGTVeInfProt() {
         return new TProtGTVe.InfProt();
@@ -1251,7 +1103,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TProtGTVe.InfFisco }
-     * 
      */
     public TProtGTVe.InfFisco createTProtGTVeInfFisco() {
         return new TProtGTVe.InfFisco();
@@ -1259,7 +1110,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TProtCTeOS.InfProt }
-     * 
      */
     public TProtCTeOS.InfProt createTProtCTeOSInfProt() {
         return new TProtCTeOS.InfProt();
@@ -1267,7 +1117,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TProtCTeOS.InfFisco }
-     * 
      */
     public TProtCTeOS.InfFisco createTProtCTeOSInfFisco() {
         return new TProtCTeOS.InfFisco();
@@ -1275,7 +1124,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TProtCTe.InfProt }
-     * 
      */
     public TProtCTe.InfProt createTProtCTeInfProt() {
         return new TProtCTe.InfProt();
@@ -1283,7 +1131,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TProtCTe.InfFisco }
-     * 
      */
     public TProtCTe.InfFisco createTProtCTeInfFisco() {
         return new TProtCTe.InfFisco();
@@ -1291,7 +1138,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link EvEPECCTe.Toma4 }
-     * 
      */
     public EvEPECCTe.Toma4 createEvEPECCTeToma4() {
         return new EvEPECCTe.Toma4();
@@ -1299,7 +1145,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTe.InfCTeSupl }
-     * 
      */
     public TCTe.InfCTeSupl createTCTeInfCTeSupl() {
         return new TCTe.InfCTeSupl();
@@ -1307,7 +1152,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTe.InfCte.Emit }
-     * 
      */
     public TCTe.InfCte.Emit createTCTeInfCteEmit() {
         return new TCTe.InfCte.Emit();
@@ -1315,7 +1159,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTe.InfCte.Rem }
-     * 
      */
     public TCTe.InfCte.Rem createTCTeInfCteRem() {
         return new TCTe.InfCte.Rem();
@@ -1323,7 +1166,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTe.InfCte.Exped }
-     * 
      */
     public TCTe.InfCte.Exped createTCTeInfCteExped() {
         return new TCTe.InfCte.Exped();
@@ -1331,7 +1173,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTe.InfCte.Receb }
-     * 
      */
     public TCTe.InfCte.Receb createTCTeInfCteReceb() {
         return new TCTe.InfCte.Receb();
@@ -1339,7 +1180,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTe.InfCte.Dest }
-     * 
      */
     public TCTe.InfCte.Dest createTCTeInfCteDest() {
         return new TCTe.InfCte.Dest();
@@ -1347,7 +1187,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTe.InfCte.InfCteComp }
-     * 
      */
     public TCTe.InfCte.InfCteComp createTCTeInfCteInfCteComp() {
         return new TCTe.InfCte.InfCteComp();
@@ -1355,7 +1194,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTe.InfCte.InfCteAnu }
-     * 
      */
     public TCTe.InfCte.InfCteAnu createTCTeInfCteInfCteAnu() {
         return new TCTe.InfCte.InfCteAnu();
@@ -1363,7 +1201,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTe.InfCte.AutXML }
-     * 
      */
     public TCTe.InfCte.AutXML createTCTeInfCteAutXML() {
         return new TCTe.InfCte.AutXML();
@@ -1371,7 +1208,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTe.InfCte.InfSolicNFF }
-     * 
      */
     public TCTe.InfCte.InfSolicNFF createTCTeInfCteInfSolicNFF() {
         return new TCTe.InfCte.InfSolicNFF();
@@ -1379,7 +1215,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTe.InfCte.InfCTeNorm.InfModal }
-     * 
      */
     public TCTe.InfCte.InfCTeNorm.InfModal createTCTeInfCteInfCTeNormInfModal() {
         return new TCTe.InfCte.InfCTeNorm.InfModal();
@@ -1387,7 +1222,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTe.InfCte.InfCTeNorm.VeicNovos }
-     * 
      */
     public TCTe.InfCte.InfCTeNorm.VeicNovos createTCTeInfCteInfCTeNormVeicNovos() {
         return new TCTe.InfCte.InfCTeNorm.VeicNovos();
@@ -1395,7 +1229,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTe.InfCte.InfCTeNorm.InfGlobalizado }
-     * 
      */
     public TCTe.InfCte.InfCTeNorm.InfGlobalizado createTCTeInfCteInfCTeNormInfGlobalizado() {
         return new TCTe.InfCte.InfCTeNorm.InfGlobalizado();
@@ -1403,7 +1236,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTe.InfCte.InfCTeNorm.InfServVinc.InfCTeMultimodal }
-     * 
      */
     public TCTe.InfCte.InfCTeNorm.InfServVinc.InfCTeMultimodal createTCTeInfCteInfCTeNormInfServVincInfCTeMultimodal() {
         return new TCTe.InfCte.InfCTeNorm.InfServVinc.InfCTeMultimodal();
@@ -1411,7 +1243,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTe.InfCte.InfCTeNorm.InfCteSub.TomaICMS.RefNF }
-     * 
      */
     public TCTe.InfCte.InfCTeNorm.InfCteSub.TomaICMS.RefNF createTCTeInfCteInfCTeNormInfCteSubTomaICMSRefNF() {
         return new TCTe.InfCte.InfCTeNorm.InfCteSub.TomaICMS.RefNF();
@@ -1419,7 +1250,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTe.InfCte.InfCTeNorm.Cobr.Fat }
-     * 
      */
     public TCTe.InfCte.InfCTeNorm.Cobr.Fat createTCTeInfCteInfCTeNormCobrFat() {
         return new TCTe.InfCte.InfCTeNorm.Cobr.Fat();
@@ -1427,7 +1257,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTe.InfCte.InfCTeNorm.Cobr.Dup }
-     * 
      */
     public TCTe.InfCte.InfCTeNorm.Cobr.Dup createTCTeInfCteInfCTeNormCobrDup() {
         return new TCTe.InfCte.InfCTeNorm.Cobr.Dup();
@@ -1435,7 +1264,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTe.InfCte.InfCTeNorm.DocAnt.EmiDocAnt.IdDocAnt.IdDocAntPap }
-     * 
      */
     public TCTe.InfCte.InfCTeNorm.DocAnt.EmiDocAnt.IdDocAnt.IdDocAntPap createTCTeInfCteInfCTeNormDocAntEmiDocAntIdDocAntIdDocAntPap() {
         return new TCTe.InfCte.InfCTeNorm.DocAnt.EmiDocAnt.IdDocAnt.IdDocAntPap();
@@ -1443,7 +1271,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTe.InfCte.InfCTeNorm.DocAnt.EmiDocAnt.IdDocAnt.IdDocAntEle }
-     * 
      */
     public TCTe.InfCte.InfCTeNorm.DocAnt.EmiDocAnt.IdDocAnt.IdDocAntEle createTCTeInfCteInfCTeNormDocAntEmiDocAntIdDocAntIdDocAntEle() {
         return new TCTe.InfCte.InfCTeNorm.DocAnt.EmiDocAnt.IdDocAnt.IdDocAntEle();
@@ -1451,7 +1278,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTe.InfCte.InfCTeNorm.InfDoc.InfNF }
-     * 
      */
     public TCTe.InfCte.InfCTeNorm.InfDoc.InfNF createTCTeInfCteInfCTeNormInfDocInfNF() {
         return new TCTe.InfCte.InfCTeNorm.InfDoc.InfNF();
@@ -1459,7 +1285,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTe.InfCte.InfCTeNorm.InfDoc.InfNFe }
-     * 
      */
     public TCTe.InfCte.InfCTeNorm.InfDoc.InfNFe createTCTeInfCteInfCTeNormInfDocInfNFe() {
         return new TCTe.InfCte.InfCTeNorm.InfDoc.InfNFe();
@@ -1467,7 +1292,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTe.InfCte.InfCTeNorm.InfDoc.InfOutros }
-     * 
      */
     public TCTe.InfCte.InfCTeNorm.InfDoc.InfOutros createTCTeInfCteInfCTeNormInfDocInfOutros() {
         return new TCTe.InfCte.InfCTeNorm.InfDoc.InfOutros();
@@ -1475,7 +1299,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTe.InfCte.InfCTeNorm.InfCarga.InfQ }
-     * 
      */
     public TCTe.InfCte.InfCTeNorm.InfCarga.InfQ createTCTeInfCteInfCTeNormInfCargaInfQ() {
         return new TCTe.InfCte.InfCTeNorm.InfCarga.InfQ();
@@ -1483,7 +1306,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTe.InfCte.Imp.ICMSUFFim }
-     * 
      */
     public TCTe.InfCte.Imp.ICMSUFFim createTCTeInfCteImpICMSUFFim() {
         return new TCTe.InfCte.Imp.ICMSUFFim();
@@ -1491,7 +1313,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTe.InfCte.VPrest.Comp }
-     * 
      */
     public TCTe.InfCte.VPrest.Comp createTCTeInfCteVPrestComp() {
         return new TCTe.InfCte.VPrest.Comp();
@@ -1499,7 +1320,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTe.InfCte.Compl.ObsCont }
-     * 
      */
     public TCTe.InfCte.Compl.ObsCont createTCTeInfCteComplObsCont() {
         return new TCTe.InfCte.Compl.ObsCont();
@@ -1507,7 +1327,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTe.InfCte.Compl.ObsFisco }
-     * 
      */
     public TCTe.InfCte.Compl.ObsFisco createTCTeInfCteComplObsFisco() {
         return new TCTe.InfCte.Compl.ObsFisco();
@@ -1515,7 +1334,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTe.InfCte.Compl.Entrega.SemData }
-     * 
      */
     public TCTe.InfCte.Compl.Entrega.SemData createTCTeInfCteComplEntregaSemData() {
         return new TCTe.InfCte.Compl.Entrega.SemData();
@@ -1523,7 +1341,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTe.InfCte.Compl.Entrega.ComData }
-     * 
      */
     public TCTe.InfCte.Compl.Entrega.ComData createTCTeInfCteComplEntregaComData() {
         return new TCTe.InfCte.Compl.Entrega.ComData();
@@ -1531,7 +1348,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTe.InfCte.Compl.Entrega.NoPeriodo }
-     * 
      */
     public TCTe.InfCte.Compl.Entrega.NoPeriodo createTCTeInfCteComplEntregaNoPeriodo() {
         return new TCTe.InfCte.Compl.Entrega.NoPeriodo();
@@ -1539,7 +1355,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTe.InfCte.Compl.Entrega.SemHora }
-     * 
      */
     public TCTe.InfCte.Compl.Entrega.SemHora createTCTeInfCteComplEntregaSemHora() {
         return new TCTe.InfCte.Compl.Entrega.SemHora();
@@ -1547,7 +1362,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTe.InfCte.Compl.Entrega.ComHora }
-     * 
      */
     public TCTe.InfCte.Compl.Entrega.ComHora createTCTeInfCteComplEntregaComHora() {
         return new TCTe.InfCte.Compl.Entrega.ComHora();
@@ -1555,7 +1369,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTe.InfCte.Compl.Entrega.NoInter }
-     * 
      */
     public TCTe.InfCte.Compl.Entrega.NoInter createTCTeInfCteComplEntregaNoInter() {
         return new TCTe.InfCte.Compl.Entrega.NoInter();
@@ -1563,7 +1376,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTe.InfCte.Compl.Fluxo.Pass }
-     * 
      */
     public TCTe.InfCte.Compl.Fluxo.Pass createTCTeInfCteComplFluxoPass() {
         return new TCTe.InfCte.Compl.Fluxo.Pass();
@@ -1571,7 +1383,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTe.InfCte.Ide.Toma3 }
-     * 
      */
     public TCTe.InfCte.Ide.Toma3 createTCTeInfCteIdeToma3() {
         return new TCTe.InfCte.Ide.Toma3();
@@ -1579,7 +1390,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTe.InfCte.Ide.Toma4 }
-     * 
      */
     public TCTe.InfCte.Ide.Toma4 createTCTeInfCteIdeToma4() {
         return new TCTe.InfCte.Ide.Toma4();
@@ -1587,7 +1397,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTeOS.InfCTeSupl }
-     * 
      */
     public TCTeOS.InfCTeSupl createTCTeOSInfCTeSupl() {
         return new TCTeOS.InfCTeSupl();
@@ -1595,7 +1404,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTeOS.InfCte.Emit }
-     * 
      */
     public TCTeOS.InfCte.Emit createTCTeOSInfCteEmit() {
         return new TCTeOS.InfCte.Emit();
@@ -1603,7 +1411,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTeOS.InfCte.Toma }
-     * 
      */
     public TCTeOS.InfCte.Toma createTCTeOSInfCteToma() {
         return new TCTeOS.InfCte.Toma();
@@ -1611,7 +1418,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTeOS.InfCte.InfCteComp }
-     * 
      */
     public TCTeOS.InfCte.InfCteComp createTCTeOSInfCteInfCteComp() {
         return new TCTeOS.InfCte.InfCteComp();
@@ -1619,7 +1425,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTeOS.InfCte.InfCteAnu }
-     * 
      */
     public TCTeOS.InfCte.InfCteAnu createTCTeOSInfCteInfCteAnu() {
         return new TCTeOS.InfCte.InfCteAnu();
@@ -1627,7 +1432,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTeOS.InfCte.AutXML }
-     * 
      */
     public TCTeOS.InfCte.AutXML createTCTeOSInfCteAutXML() {
         return new TCTeOS.InfCte.AutXML();
@@ -1635,7 +1439,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTeOS.InfCte.InfCTeNorm.InfDocRef }
-     * 
      */
     public TCTeOS.InfCte.InfCTeNorm.InfDocRef createTCTeOSInfCteInfCTeNormInfDocRef() {
         return new TCTeOS.InfCte.InfCTeNorm.InfDocRef();
@@ -1643,7 +1446,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTeOS.InfCte.InfCTeNorm.Seg }
-     * 
      */
     public TCTeOS.InfCte.InfCTeNorm.Seg createTCTeOSInfCteInfCTeNormSeg() {
         return new TCTeOS.InfCte.InfCTeNorm.Seg();
@@ -1651,7 +1453,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTeOS.InfCte.InfCTeNorm.InfModal }
-     * 
      */
     public TCTeOS.InfCte.InfCTeNorm.InfModal createTCTeOSInfCteInfCTeNormInfModal() {
         return new TCTeOS.InfCte.InfCTeNorm.InfModal();
@@ -1659,7 +1460,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTeOS.InfCte.InfCTeNorm.InfGTVe.Comp }
-     * 
      */
     public TCTeOS.InfCte.InfCTeNorm.InfGTVe.Comp createTCTeOSInfCteInfCTeNormInfGTVeComp() {
         return new TCTeOS.InfCte.InfCTeNorm.InfGTVe.Comp();
@@ -1667,7 +1467,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTeOS.InfCte.InfCTeNorm.Cobr.Fat }
-     * 
      */
     public TCTeOS.InfCte.InfCTeNorm.Cobr.Fat createTCTeOSInfCteInfCTeNormCobrFat() {
         return new TCTeOS.InfCte.InfCTeNorm.Cobr.Fat();
@@ -1675,7 +1474,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTeOS.InfCte.InfCTeNorm.Cobr.Dup }
-     * 
      */
     public TCTeOS.InfCte.InfCTeNorm.Cobr.Dup createTCTeOSInfCteInfCTeNormCobrDup() {
         return new TCTeOS.InfCte.InfCTeNorm.Cobr.Dup();
@@ -1683,7 +1481,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTeOS.InfCte.InfCTeNorm.InfCteSub.TomaICMS.RefNF }
-     * 
      */
     public TCTeOS.InfCte.InfCTeNorm.InfCteSub.TomaICMS.RefNF createTCTeOSInfCteInfCTeNormInfCteSubTomaICMSRefNF() {
         return new TCTeOS.InfCte.InfCTeNorm.InfCteSub.TomaICMS.RefNF();
@@ -1691,7 +1488,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTeOS.InfCte.InfCTeNorm.InfServico.InfQ }
-     * 
      */
     public TCTeOS.InfCte.InfCTeNorm.InfServico.InfQ createTCTeOSInfCteInfCTeNormInfServicoInfQ() {
         return new TCTeOS.InfCte.InfCTeNorm.InfServico.InfQ();
@@ -1699,7 +1495,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTeOS.InfCte.Imp.ICMSUFFim }
-     * 
      */
     public TCTeOS.InfCte.Imp.ICMSUFFim createTCTeOSInfCteImpICMSUFFim() {
         return new TCTeOS.InfCte.Imp.ICMSUFFim();
@@ -1707,7 +1502,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTeOS.InfCte.Imp.InfTribFed }
-     * 
      */
     public TCTeOS.InfCte.Imp.InfTribFed createTCTeOSInfCteImpInfTribFed() {
         return new TCTeOS.InfCte.Imp.InfTribFed();
@@ -1715,7 +1509,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTeOS.InfCte.VPrest.Comp }
-     * 
      */
     public TCTeOS.InfCte.VPrest.Comp createTCTeOSInfCteVPrestComp() {
         return new TCTeOS.InfCte.VPrest.Comp();
@@ -1723,7 +1516,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTeOS.InfCte.Compl.ObsCont }
-     * 
      */
     public TCTeOS.InfCte.Compl.ObsCont createTCTeOSInfCteComplObsCont() {
         return new TCTeOS.InfCte.Compl.ObsCont();
@@ -1731,7 +1523,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTeOS.InfCte.Compl.ObsFisco }
-     * 
      */
     public TCTeOS.InfCte.Compl.ObsFisco createTCTeOSInfCteComplObsFisco() {
         return new TCTeOS.InfCte.Compl.ObsFisco();
@@ -1739,7 +1530,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TCTeOS.InfCte.Ide.InfPercurso }
-     * 
      */
     public TCTeOS.InfCte.Ide.InfPercurso createTCTeOSInfCteIdeInfPercurso() {
         return new TCTeOS.InfCte.Ide.InfPercurso();
@@ -1747,7 +1537,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TGTVe.InfCTeSupl }
-     * 
      */
     public TGTVe.InfCTeSupl createTGTVeInfCTeSupl() {
         return new TGTVe.InfCTeSupl();
@@ -1755,7 +1544,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TGTVe.InfCte.Emit }
-     * 
      */
     public TGTVe.InfCte.Emit createTGTVeInfCteEmit() {
         return new TGTVe.InfCte.Emit();
@@ -1763,7 +1551,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TGTVe.InfCte.Rem }
-     * 
      */
     public TGTVe.InfCte.Rem createTGTVeInfCteRem() {
         return new TGTVe.InfCte.Rem();
@@ -1771,7 +1558,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TGTVe.InfCte.Dest }
-     * 
      */
     public TGTVe.InfCte.Dest createTGTVeInfCteDest() {
         return new TGTVe.InfCte.Dest();
@@ -1779,7 +1565,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TGTVe.InfCte.AutXML }
-     * 
      */
     public TGTVe.InfCte.AutXML createTGTVeInfCteAutXML() {
         return new TGTVe.InfCte.AutXML();
@@ -1787,7 +1572,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TGTVe.InfCte.DetGTV.InfEspecie }
-     * 
      */
     public TGTVe.InfCte.DetGTV.InfEspecie createTGTVeInfCteDetGTVInfEspecie() {
         return new TGTVe.InfCte.DetGTV.InfEspecie();
@@ -1795,7 +1579,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TGTVe.InfCte.DetGTV.InfVeiculo }
-     * 
      */
     public TGTVe.InfCte.DetGTV.InfVeiculo createTGTVeInfCteDetGTVInfVeiculo() {
         return new TGTVe.InfCte.DetGTV.InfVeiculo();
@@ -1803,7 +1586,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TGTVe.InfCte.Compl.ObsCont }
-     * 
      */
     public TGTVe.InfCte.Compl.ObsCont createTGTVeInfCteComplObsCont() {
         return new TGTVe.InfCte.Compl.ObsCont();
@@ -1811,7 +1593,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TGTVe.InfCte.Compl.ObsFisco }
-     * 
      */
     public TGTVe.InfCte.Compl.ObsFisco createTGTVeInfCteComplObsFisco() {
         return new TGTVe.InfCte.Compl.ObsFisco();
@@ -1819,7 +1600,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TGTVe.InfCte.Ide.Toma }
-     * 
      */
     public TGTVe.InfCte.Ide.Toma createTGTVeInfCteIdeToma() {
         return new TGTVe.InfCte.Ide.Toma();
@@ -1827,7 +1607,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TGTVe.InfCte.Ide.TomaTerceiro }
-     * 
      */
     public TGTVe.InfCte.Ide.TomaTerceiro createTGTVeInfCteIdeTomaTerceiro() {
         return new TGTVe.InfCte.Ide.TomaTerceiro();
@@ -1835,11 +1614,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TGTVe }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TGTVe }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TGTVe }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "GTVe")
     public JAXBElement<TGTVe> createGTVe(TGTVe value) {
@@ -1848,11 +1625,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TConsReciCTe }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TConsReciCTe }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TConsReciCTe }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "consReciCTe")
     public JAXBElement<TConsReciCTe> createConsReciCTe(TConsReciCTe value) {
@@ -1861,11 +1636,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TConsSitCTe }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TConsSitCTe }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TConsSitCTe }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "consSitCTe")
     public JAXBElement<TConsSitCTe> createConsSitCTe(TConsSitCTe value) {
@@ -1874,11 +1647,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TConsStatServ }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TConsStatServ }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TConsStatServ }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "consStatServCte")
     public JAXBElement<TConsStatServ> createConsStatServCte(TConsStatServ value) {
@@ -1887,11 +1658,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Aereo }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link Aereo }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link Aereo }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "aereo")
     public JAXBElement<Aereo> createAereo(Aereo value) {
@@ -1900,11 +1669,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Aquav }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link Aquav }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link Aquav }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "aquav")
     public JAXBElement<Aquav> createAquav(Aquav value) {
@@ -1913,11 +1680,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Duto }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link Duto }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link Duto }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "duto")
     public JAXBElement<Duto> createDuto(Duto value) {
@@ -1926,11 +1691,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Ferrov }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link Ferrov }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link Ferrov }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "ferrov")
     public JAXBElement<Ferrov> createFerrov(Ferrov value) {
@@ -1939,11 +1702,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link RodoOS }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link RodoOS }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link RodoOS }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "rodoOS")
     public JAXBElement<RodoOS> createRodoOS(RodoOS value) {
@@ -1952,11 +1713,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Rodo }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link Rodo }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link Rodo }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "rodo")
     public JAXBElement<Rodo> createRodo(Rodo value) {
@@ -1965,11 +1724,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Multimodal }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link Multimodal }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link Multimodal }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "multimodal")
     public JAXBElement<Multimodal> createMultimodal(Multimodal value) {
@@ -1978,11 +1735,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TCTeOS }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TCTeOS }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TCTeOS }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "CTeOS")
     public JAXBElement<TCTeOS> createCTeOS(TCTeOS value) {
@@ -1991,11 +1746,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TCTe }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TCTe }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TCTe }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "CTe")
     public JAXBElement<TCTe> createCTe(TCTe value) {
@@ -2004,11 +1757,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TEnviCTe }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TEnviCTe }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TEnviCTe }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "enviCTe")
     public JAXBElement<TEnviCTe> createEnviCTe(TEnviCTe value) {
@@ -2017,11 +1768,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link EvCCeCTe }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link EvCCeCTe }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link EvCCeCTe }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "evCCeCTe")
     public JAXBElement<EvCCeCTe> createEvCCeCTe(EvCCeCTe value) {
@@ -2030,11 +1779,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link EvCECTe }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link EvCECTe }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link EvCECTe }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "evCECTe")
     public JAXBElement<EvCECTe> createEvCECTe(EvCECTe value) {
@@ -2043,11 +1790,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link EvCancCECTe }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link EvCancCECTe }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link EvCancCECTe }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "evCancCECTe")
     public JAXBElement<EvCancCECTe> createEvCancCECTe(EvCancCECTe value) {
@@ -2056,11 +1801,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link EvCancCTe }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link EvCancCTe }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link EvCancCTe }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "evCancCTe")
     public JAXBElement<EvCancCTe> createEvCancCTe(EvCancCTe value) {
@@ -2069,11 +1812,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link EvEPECCTe }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link EvEPECCTe }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link EvEPECCTe }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "evEPECCTe")
     public JAXBElement<EvEPECCTe> createEvEPECCTe(EvEPECCTe value) {
@@ -2082,11 +1823,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link EvGTV }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link EvGTV }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link EvGTV }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "evGTV")
     public JAXBElement<EvGTV> createEvGTV(EvGTV value) {
@@ -2095,11 +1834,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link EvPrestDesacordo }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link EvPrestDesacordo }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link EvPrestDesacordo }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "evPrestDesacordo")
     public JAXBElement<EvPrestDesacordo> createEvPrestDesacordo(EvPrestDesacordo value) {
@@ -2108,11 +1845,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link EvRegMultimodal }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link EvRegMultimodal }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link EvRegMultimodal }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "evRegMultimodal")
     public JAXBElement<EvRegMultimodal> createEvRegMultimodal(EvRegMultimodal value) {
@@ -2121,11 +1856,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TEvento }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TEvento }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TEvento }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "eventoCTe")
     public JAXBElement<TEvento> createEventoCTe(TEvento value) {
@@ -2134,11 +1867,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TInutCTe }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TInutCTe }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TInutCTe }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "inutCTe")
     public JAXBElement<TInutCTe> createInutCTe(TInutCTe value) {
@@ -2147,11 +1878,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TCteOSProc }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TCteOSProc }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TCteOSProc }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "cteOSProc")
     public JAXBElement<TCteOSProc> createCteOSProc(TCteOSProc value) {
@@ -2160,11 +1889,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TCteProc }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TCteProc }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TCteProc }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "cteProc")
     public JAXBElement<TCteProc> createCteProc(TCteProc value) {
@@ -2173,11 +1900,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TProcEvento }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TProcEvento }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TProcEvento }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "procEventoCTe")
     public JAXBElement<TProcEvento> createProcEventoCTe(TProcEvento value) {
@@ -2186,11 +1911,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TGTVeProc }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TGTVeProc }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TGTVeProc }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "GTVeProc")
     public JAXBElement<TGTVeProc> createGTVeProc(TGTVeProc value) {
@@ -2199,11 +1922,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TProcInutCTe }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TProcInutCTe }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TProcInutCTe }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "procInutCTe")
     public JAXBElement<TProcInutCTe> createProcInutCTe(TProcInutCTe value) {
@@ -2212,11 +1933,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TProtCTe }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TProtCTe }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TProtCTe }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "protCTe")
     public JAXBElement<TProtCTe> createProtCTe(TProtCTe value) {
@@ -2225,11 +1944,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TProtCTeOS }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TProtCTeOS }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TProtCTeOS }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "protCTeOS")
     public JAXBElement<TProtCTeOS> createProtCTeOS(TProtCTeOS value) {
@@ -2238,11 +1955,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TProtGTVe }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TProtGTVe }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TProtGTVe }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "protGTVe")
     public JAXBElement<TProtGTVe> createProtGTVe(TProtGTVe value) {
@@ -2251,11 +1966,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TRetCTeOS }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TRetCTeOS }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TRetCTeOS }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "retCTeOS")
     public JAXBElement<TRetCTeOS> createRetCTeOS(TRetCTeOS value) {
@@ -2264,11 +1977,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TRetCTe }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TRetCTe }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TRetCTe }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "retCTe")
     public JAXBElement<TRetCTe> createRetCTe(TRetCTe value) {
@@ -2277,11 +1988,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TRetConsReciCTe }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TRetConsReciCTe }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TRetConsReciCTe }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "retConsReciCTe")
     public JAXBElement<TRetConsReciCTe> createRetConsReciCTe(TRetConsReciCTe value) {
@@ -2290,11 +1999,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TRetConsSitCTe }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TRetConsSitCTe }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TRetConsSitCTe }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "retConsSitCTe")
     public JAXBElement<TRetConsSitCTe> createRetConsSitCTe(TRetConsSitCTe value) {
@@ -2303,11 +2010,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TRetConsStatServ }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TRetConsStatServ }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TRetConsStatServ }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "retConsStatServCte")
     public JAXBElement<TRetConsStatServ> createRetConsStatServCte(TRetConsStatServ value) {
@@ -2316,11 +2021,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TRetEnviCTe }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TRetEnviCTe }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TRetEnviCTe }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "retEnviCte")
     public JAXBElement<TRetEnviCTe> createRetEnviCte(TRetEnviCTe value) {
@@ -2329,11 +2032,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TRetEvento }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TRetEvento }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TRetEvento }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "retEventoCTe")
     public JAXBElement<TRetEvento> createRetEventoCTe(TRetEvento value) {
@@ -2342,11 +2043,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TRetGTVe }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TRetGTVe }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TRetGTVe }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "retGTVe")
     public JAXBElement<TRetGTVe> createRetGTVe(TRetGTVe value) {
@@ -2355,11 +2054,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TRetInutCTe }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TRetInutCTe }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TRetInutCTe }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "retInutCTe")
     public JAXBElement<TRetInutCTe> createRetInutCTe(TRetInutCTe value) {
@@ -2368,11 +2065,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link SignatureType }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link SignatureType }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link SignatureType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.w3.org/2000/09/xmldsig#", name = "Signature")
     public JAXBElement<SignatureType> createSignature(SignatureType value) {

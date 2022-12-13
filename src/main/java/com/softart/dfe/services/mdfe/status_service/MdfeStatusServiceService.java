@@ -13,6 +13,13 @@ import com.softart.dfe.models.mdfe.status_service.MdfeStatusServiceRequest;
 
 public interface MdfeStatusServiceService extends MdfeSefazService {
 
+    /**
+     * It creates a MdfeReturnStatusService object from the response of the statusService function of the MdfeService
+     * object
+     *
+     * @param tConsStatServ The object that contains the parameters for the status service.
+     * @return A MdfeReturnStatusService object.
+     */
     default MdfeReturnStatusService statusService(TConsStatServ tConsStatServ) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return MdfeReturnStatusService
                 .builder()
@@ -31,10 +38,21 @@ public interface MdfeStatusServiceService extends MdfeSefazService {
                                 .build()));
     }
 
+    /**
+     * It returns the status of the MDF-e service
+     *
+     * @param statusService The status service object.
+     * @return The status of the MDF-e  service.
+     */
     default MdfeReturnStatusService statusService(MdfeStatusService statusService) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return statusService(statusService.toObject());
     }
 
+    /**
+     * It returns the status of the MDF-e service
+     *
+     * @return The status of the MDF-e  service.
+     */
     default MdfeReturnStatusService statusService() throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return statusService(MdfeStatusService.build(getConfig()));
     }

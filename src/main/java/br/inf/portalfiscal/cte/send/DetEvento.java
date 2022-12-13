@@ -8,20 +8,17 @@
 
 package br.inf.portalfiscal.cte.send;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAnyElement;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
+import com.softart.dfe.interfaces.xml.generic.XML;
 import org.w3c.dom.Element;
+
+import javax.xml.bind.annotation.*;
 
 
 /**
  * <p>Classe Java de DetEvento complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="DetEvento"&gt;
  *   &lt;complexContent&gt;
@@ -41,16 +38,13 @@ import org.w3c.dom.Element;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "DetEvento", propOrder = {
-    "any"
+        "any"
 })
 public class DetEvento
-    implements XML
-{
+        implements XML {
 
     @XmlAnyElement
     protected Element any;
@@ -59,11 +53,9 @@ public class DetEvento
 
     /**
      * Obtém o valor da propriedade any.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Element }
-     *     
+     *
+     * @return possible object is
+     * {@link Element }
      */
     public Element getAny() {
         return any;
@@ -71,11 +63,9 @@ public class DetEvento
 
     /**
      * Define o valor da propriedade any.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Element }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Element }
      */
     public void setAny(Element value) {
         this.any = value;
@@ -83,11 +73,9 @@ public class DetEvento
 
     /**
      * Obtém o valor da propriedade versaoEvento.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVersaoEvento() {
         return versaoEvento;
@@ -95,11 +83,9 @@ public class DetEvento
 
     /**
      * Define o valor da propriedade versaoEvento.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVersaoEvento(String value) {
         this.versaoEvento = value;

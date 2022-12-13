@@ -1,12 +1,12 @@
 package com.softart.dfe.components.process.nf.substitute_cancel;
 
 import br.inf.portalfiscal.nfe.event_substitute_cancel.TEnvEvento;
+import com.softart.dfe.components.internal.xml.marshaller.NfMarshaller;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.interfaces.process.BeforeRequest;
 import com.softart.dfe.interfaces.process.nf.substitute_cancel.BeforeSubstituteCancel;
 import com.softart.dfe.interfaces.storage.nf.NfceSubstituteCancelStorage;
 import com.softart.dfe.models.internal.xml.XMLStore;
-import com.softart.dfe.components.internal.xml.marshaller.NfMarshaller;
 
 import java.util.Objects;
 

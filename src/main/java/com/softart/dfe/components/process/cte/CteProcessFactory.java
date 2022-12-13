@@ -10,7 +10,7 @@ import com.softart.dfe.components.process.cte.reception_gtve.impl.GtveProcessFac
 import com.softart.dfe.components.process.cte.reception_os.impl.CteOsProcessFactory;
 import com.softart.dfe.components.process.cte.reception_sync.impl.CteSyncProcessFactory;
 import com.softart.dfe.components.process.cte.status_service.impl.StatusServiceCteProcessFactory;
-import com.softart.dfe.interfaces.process.cte.CteProcess;
+import com.softart.dfe.interfaces.process.cte.CteProcessService;
 import com.softart.dfe.interfaces.process.cte.distribution.AfterDistribution;
 import com.softart.dfe.interfaces.process.cte.distribution.BeforeDistribution;
 import com.softart.dfe.interfaces.process.cte.event.AfterEvent;
@@ -34,7 +34,7 @@ import com.softart.dfe.interfaces.process.cte.status_service.BeforeStatusService
 
 import java.util.Collection;
 
-public abstract class CteProcessFactory implements CteProcess {
+public abstract class CteProcessFactory implements CteProcessService {
 
     public static CteProcessFactory noStorageProcess() {
         return CteProcessFactoryHolder.NO_STORAGE_INSTANCE;

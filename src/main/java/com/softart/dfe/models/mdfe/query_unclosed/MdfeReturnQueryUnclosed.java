@@ -1,8 +1,8 @@
 package com.softart.dfe.models.mdfe.query_unclosed;
 
 import br.inf.portalfiscal.mdfe.classes.TRetConsMDFeNaoEnc;
-import com.softart.dfe.interfaces.xml.DFObject;
 import com.softart.dfe.interfaces.xml.XMLAdapter;
+import com.softart.dfe.interfaces.xml.generic.DFObject;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

@@ -8,18 +8,19 @@
 
 package br.inf.portalfiscal.cte.send;
 
+import com.softart.dfe.interfaces.xml.generic.XML;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
 
 
 /**
  * <p>Classe Java de InfCorrecao complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="InfCorrecao"&gt;
  *   &lt;complexContent&gt;
@@ -65,19 +66,16 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "InfCorrecao", propOrder = {
-    "grupoAlterado",
-    "campoAlterado",
-    "valorAlterado",
-    "nroItemAlterado"
+        "grupoAlterado",
+        "campoAlterado",
+        "valorAlterado",
+        "nroItemAlterado"
 })
 public class InfCorrecao
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected String grupoAlterado;
@@ -89,11 +87,9 @@ public class InfCorrecao
 
     /**
      * Obtém o valor da propriedade grupoAlterado.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getGrupoAlterado() {
         return grupoAlterado;
@@ -101,11 +97,9 @@ public class InfCorrecao
 
     /**
      * Define o valor da propriedade grupoAlterado.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setGrupoAlterado(String value) {
         this.grupoAlterado = value;
@@ -113,11 +107,9 @@ public class InfCorrecao
 
     /**
      * Obtém o valor da propriedade campoAlterado.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCampoAlterado() {
         return campoAlterado;
@@ -125,11 +117,9 @@ public class InfCorrecao
 
     /**
      * Define o valor da propriedade campoAlterado.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCampoAlterado(String value) {
         this.campoAlterado = value;
@@ -137,11 +127,9 @@ public class InfCorrecao
 
     /**
      * Obtém o valor da propriedade valorAlterado.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getValorAlterado() {
         return valorAlterado;
@@ -149,11 +137,9 @@ public class InfCorrecao
 
     /**
      * Define o valor da propriedade valorAlterado.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setValorAlterado(String value) {
         this.valorAlterado = value;
@@ -161,11 +147,9 @@ public class InfCorrecao
 
     /**
      * Obtém o valor da propriedade nroItemAlterado.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getNroItemAlterado() {
         return nroItemAlterado;
@@ -173,11 +157,9 @@ public class InfCorrecao
 
     /**
      * Define o valor da propriedade nroItemAlterado.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setNroItemAlterado(String value) {
         this.nroItemAlterado = value;

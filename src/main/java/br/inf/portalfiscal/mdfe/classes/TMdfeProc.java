@@ -8,19 +8,16 @@
 
 package br.inf.portalfiscal.mdfe.classes;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
+import com.softart.dfe.interfaces.xml.generic.XML;
+
+import javax.xml.bind.annotation.*;
 
 
 /**
  * <p>Classe Java de TMdfeProc complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="TMdfeProc"&gt;
  *   &lt;complexContent&gt;
@@ -43,17 +40,14 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TMdfeProc", propOrder = {
-    "mdFe",
-    "protMDFe"
+        "mdFe",
+        "protMDFe"
 })
 public class TMdfeProc
-    implements XML
-{
+        implements XML {
 
     @XmlElement(name = "MDFe", required = true)
     protected TMDFe mdFe;
@@ -70,11 +64,9 @@ public class TMdfeProc
 
     /**
      * Obtém o valor da propriedade mdFe.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TMDFe }
-     *     
+     *
+     * @return possible object is
+     * {@link TMDFe }
      */
     public TMDFe getMDFe() {
         return mdFe;
@@ -82,11 +74,9 @@ public class TMdfeProc
 
     /**
      * Define o valor da propriedade mdFe.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TMDFe }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link TMDFe }
      */
     public void setMDFe(TMDFe value) {
         this.mdFe = value;
@@ -94,11 +84,9 @@ public class TMdfeProc
 
     /**
      * Obtém o valor da propriedade protMDFe.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TProtMDFe }
-     *     
+     *
+     * @return possible object is
+     * {@link TProtMDFe }
      */
     public TProtMDFe getProtMDFe() {
         return protMDFe;
@@ -106,11 +94,9 @@ public class TMdfeProc
 
     /**
      * Define o valor da propriedade protMDFe.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TProtMDFe }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link TProtMDFe }
      */
     public void setProtMDFe(TProtMDFe value) {
         this.protMDFe = value;
@@ -118,11 +104,9 @@ public class TMdfeProc
 
     /**
      * Obtém o valor da propriedade versao.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVersao() {
         return versao;
@@ -130,11 +114,9 @@ public class TMdfeProc
 
     /**
      * Define o valor da propriedade versao.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVersao(String value) {
         this.versao = value;
@@ -142,11 +124,9 @@ public class TMdfeProc
 
     /**
      * Obtém o valor da propriedade ipTransmissor.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getIpTransmissor() {
         return ipTransmissor;
@@ -154,11 +134,9 @@ public class TMdfeProc
 
     /**
      * Define o valor da propriedade ipTransmissor.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setIpTransmissor(String value) {
         this.ipTransmissor = value;
@@ -166,11 +144,9 @@ public class TMdfeProc
 
     /**
      * Obtém o valor da propriedade nPortaCon.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getNPortaCon() {
         return nPortaCon;
@@ -178,11 +154,9 @@ public class TMdfeProc
 
     /**
      * Define o valor da propriedade nPortaCon.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setNPortaCon(String value) {
         this.nPortaCon = value;
@@ -190,11 +164,9 @@ public class TMdfeProc
 
     /**
      * Obtém o valor da propriedade dhConexao.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getDhConexao() {
         return dhConexao;
@@ -202,11 +174,9 @@ public class TMdfeProc
 
     /**
      * Define o valor da propriedade dhConexao.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setDhConexao(String value) {
         this.dhConexao = value;

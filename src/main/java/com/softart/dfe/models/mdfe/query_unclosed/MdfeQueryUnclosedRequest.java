@@ -8,7 +8,7 @@ import com.softart.dfe.interfaces.process.mdfe.query_unclosed.BeforeQueryUnclose
 import com.softart.dfe.interfaces.sefaz.SefazRequest;
 import com.softart.dfe.interfaces.validation.mdfe.MdfeQueryUnclosedValidator;
 import com.softart.dfe.interfaces.wsdl.ConfigureProvider;
-import com.softart.dfe.interfaces.xml.XMLSigner;
+import com.softart.dfe.interfaces.xml.XMLSignerService;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -23,7 +23,7 @@ import java.util.Collection;
 public final class MdfeQueryUnclosedRequest implements SefazRequest<TConsMDFeNaoEnc, TRetConsMDFeNaoEnc> {
     public TConsMDFeNaoEnc data;
     public Config config;
-    public XMLSigner signer;
+    public XMLSignerService signer;
     public ConfigureProvider configureProvider;
     public Collection<MdfeQueryUnclosedValidator> validators;
     public Collection<BeforeQueryUnclosed> beforeRequest;

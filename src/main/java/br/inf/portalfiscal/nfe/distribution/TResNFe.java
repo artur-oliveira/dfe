@@ -8,16 +8,16 @@
 
 package br.inf.portalfiscal.nfe.distribution;
 
-import com.softart.dfe.interfaces.xml.XML;
+import com.softart.dfe.interfaces.xml.generic.XML;
 
 import javax.xml.bind.annotation.*;
 
 
 /**
  * <p>Classe Java de TResNFe complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="TResNFe"&gt;
  *   &lt;complexContent&gt;
@@ -67,27 +67,24 @@ import javax.xml.bind.annotation.*;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TResNFe", namespace = "http://www.portalfiscal.inf.br/nfe", propOrder = {
-    "chNFe",
-    "cnpj",
-    "cpf",
-    "xNome",
-    "ie",
-    "dhEmi",
-    "tpNF",
-    "vnf",
-    "digVal",
-    "dhRecbto",
-    "nProt",
-    "cSitNFe"
+        "chNFe",
+        "cnpj",
+        "cpf",
+        "xNome",
+        "ie",
+        "dhEmi",
+        "tpNF",
+        "vnf",
+        "digVal",
+        "dhRecbto",
+        "nProt",
+        "cSitNFe"
 })
 public class TResNFe
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected String chNFe;
@@ -117,11 +114,9 @@ public class TResNFe
 
     /**
      * Obtém o valor da propriedade chNFe.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getChNFe() {
         return chNFe;
@@ -129,11 +124,9 @@ public class TResNFe
 
     /**
      * Define o valor da propriedade chNFe.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setChNFe(String value) {
         this.chNFe = value;
@@ -141,11 +134,9 @@ public class TResNFe
 
     /**
      * Obtém o valor da propriedade cnpj.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCNPJ() {
         return cnpj;
@@ -153,11 +144,9 @@ public class TResNFe
 
     /**
      * Define o valor da propriedade cnpj.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCNPJ(String value) {
         this.cnpj = value;
@@ -165,11 +154,9 @@ public class TResNFe
 
     /**
      * Obtém o valor da propriedade cpf.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCPF() {
         return cpf;
@@ -177,11 +164,9 @@ public class TResNFe
 
     /**
      * Define o valor da propriedade cpf.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCPF(String value) {
         this.cpf = value;
@@ -189,11 +174,9 @@ public class TResNFe
 
     /**
      * Obtém o valor da propriedade xNome.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getXNome() {
         return xNome;
@@ -201,11 +184,9 @@ public class TResNFe
 
     /**
      * Define o valor da propriedade xNome.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setXNome(String value) {
         this.xNome = value;
@@ -213,11 +194,9 @@ public class TResNFe
 
     /**
      * Obtém o valor da propriedade ie.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getIE() {
         return ie;
@@ -225,11 +204,9 @@ public class TResNFe
 
     /**
      * Define o valor da propriedade ie.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setIE(String value) {
         this.ie = value;
@@ -237,11 +214,9 @@ public class TResNFe
 
     /**
      * Obtém o valor da propriedade dhEmi.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getDhEmi() {
         return dhEmi;
@@ -249,11 +224,9 @@ public class TResNFe
 
     /**
      * Define o valor da propriedade dhEmi.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setDhEmi(String value) {
         this.dhEmi = value;
@@ -261,11 +234,9 @@ public class TResNFe
 
     /**
      * Obtém o valor da propriedade tpNF.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getTpNF() {
         return tpNF;
@@ -273,11 +244,9 @@ public class TResNFe
 
     /**
      * Define o valor da propriedade tpNF.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setTpNF(String value) {
         this.tpNF = value;
@@ -285,11 +254,9 @@ public class TResNFe
 
     /**
      * Obtém o valor da propriedade vnf.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVNF() {
         return vnf;
@@ -297,11 +264,9 @@ public class TResNFe
 
     /**
      * Define o valor da propriedade vnf.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVNF(String value) {
         this.vnf = value;
@@ -309,10 +274,9 @@ public class TResNFe
 
     /**
      * Obtém o valor da propriedade digVal.
-     * 
-     * @return
-     *     possible object is
-     *     byte[]
+     *
+     * @return possible object is
+     * byte[]
      */
     public byte[] getDigVal() {
         return digVal;
@@ -320,10 +284,9 @@ public class TResNFe
 
     /**
      * Define o valor da propriedade digVal.
-     * 
-     * @param value
-     *     allowed object is
-     *     byte[]
+     *
+     * @param value allowed object is
+     *              byte[]
      */
     public void setDigVal(byte[] value) {
         this.digVal = value;
@@ -331,11 +294,9 @@ public class TResNFe
 
     /**
      * Obtém o valor da propriedade dhRecbto.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getDhRecbto() {
         return dhRecbto;
@@ -343,11 +304,9 @@ public class TResNFe
 
     /**
      * Define o valor da propriedade dhRecbto.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setDhRecbto(String value) {
         this.dhRecbto = value;
@@ -355,11 +314,9 @@ public class TResNFe
 
     /**
      * Obtém o valor da propriedade nProt.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getNProt() {
         return nProt;
@@ -367,11 +324,9 @@ public class TResNFe
 
     /**
      * Define o valor da propriedade nProt.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setNProt(String value) {
         this.nProt = value;
@@ -379,11 +334,9 @@ public class TResNFe
 
     /**
      * Obtém o valor da propriedade cSitNFe.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCSitNFe() {
         return cSitNFe;
@@ -391,11 +344,9 @@ public class TResNFe
 
     /**
      * Define o valor da propriedade cSitNFe.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCSitNFe(String value) {
         this.cSitNFe = value;
@@ -403,11 +354,9 @@ public class TResNFe
 
     /**
      * Obtém o valor da propriedade versao.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVersao() {
         return versao;
@@ -415,11 +364,9 @@ public class TResNFe
 
     /**
      * Define o valor da propriedade versao.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVersao(String value) {
         this.versao = value;

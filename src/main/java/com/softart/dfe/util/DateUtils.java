@@ -209,6 +209,12 @@ public final class DateUtils {
         return Objects.requireNonNull(formatter, "formatter cannot be null").format(temporal);
     }
 
+    /**
+     * Convert a FileTime to a LocalDateTime.
+     *
+     * @param f The FileTime object to convert to a LocalDateTime object.
+     * @return A LocalDateTime object
+     */
     public static LocalDateTime localDateTime(FileTime f) {
         return f
                 .toInstant()
@@ -216,6 +222,12 @@ public final class DateUtils {
                 .toLocalDateTime();
     }
 
+    /**
+     * Convert a Date to a LocalDateTime
+     *
+     * @param f The date to be converted
+     * @return A LocalDateTime object
+     */
     public static LocalDateTime localDateTime(Date f) {
         return f
                 .toInstant()
@@ -223,18 +235,47 @@ public final class DateUtils {
                 .toLocalDateTime();
     }
 
+    /**
+     * Returns a copy of this date-time with the specified number of days added.
+     *
+     * @param days the amount of days to add, may be negative
+     * @return A ZonedDateTime object
+     */
     public static ZonedDateTime plusDays(int days) {
         return now().plusDays(days);
     }
 
+    /**
+     * Given a number of days, return a string representing the date that many days from now.
+     *
+     * @param days the number of days to add
+     * @return A string representation of the date in the format "yyyy-MM-dd"
+     */
     public static String plusDaysAsString(int days) {
         return format(now().plusDays(days));
     }
 
+    /**
+     * Return the date in the future, formatted as a string.
+     *
+     * @param days      The number of days to add to the current date.
+     * @param formatter The formatter to use to format the date.
+     * @return A string representation of the date in the format specified by the formatter.
+     */
     public static String plusDaysAsString(int days, DateTimeFormatter formatter) {
         return format(now().plusDays(days), formatter);
     }
 
+    /**
+     * "Returns a string representation of the date that is `days` days from now, formatted using the given formatter."
+     * <p>
+     * The first line of the function is a comment that describes what the function does. The second line is the function
+     * signature. The third line is the function body
+     *
+     * @param days      The number of days to add to the current date.
+     * @param formatter The format of the date you want to return.
+     * @return A string representation of the date plus the number of days specified.
+     */
     public static String plusDaysAsString(int days, String formatter) {
         return format(now().plusDays(days), formatter);
     }

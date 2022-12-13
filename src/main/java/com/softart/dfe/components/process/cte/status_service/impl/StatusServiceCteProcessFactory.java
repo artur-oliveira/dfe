@@ -20,12 +20,12 @@ public abstract class StatusServiceCteProcessFactory implements ProcessFactory<T
         return Holder.FILESYSTEM;
     }
 
+    public abstract Collection<BeforeStatusService> before();
+
+    public abstract Collection<AfterStatusService> after();
+
     final static class Holder {
         final static StatusServiceCteProcessFactory NOSTORE = new NoStoreStatusServiceCteFactory();
         final static StatusServiceCteProcessFactory FILESYSTEM = new FileSystemStatusServiceCteFactory();
     }
-
-    public abstract Collection<BeforeStatusService> before();
-
-    public abstract Collection<AfterStatusService> after();
 }

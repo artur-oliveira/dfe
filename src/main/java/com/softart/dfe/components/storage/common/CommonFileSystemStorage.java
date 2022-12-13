@@ -2,23 +2,27 @@ package com.softart.dfe.components.storage.common;
 
 import com.softart.dfe.interfaces.internal.StorageKey;
 import com.softart.dfe.interfaces.internal.config.Config;
-import com.softart.dfe.interfaces.storage.Store;
+import com.softart.dfe.interfaces.storage.StorageService;
 import com.softart.dfe.util.DateUtils;
 import com.softart.dfe.util.IOUtils;
 import com.softart.dfe.util.StringUtils;
 
+import java.io.File;
 import java.io.IOException;
-import java.util.UUID;
 
-import static java.io.File.separator;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
-public abstract class CommonFileSystemStorage {
+public abstract class CommonFileSystemStorage extends CommonStorage implements StorageService {
 
-    protected final static String BASE_DIR = System.getProperty("user.home");
-
-    protected static String rootPath(Config config) {
-        return String.join(separator, BASE_DIR,
+    /**
+     * It returns a string with the path to the directory where the XML files are stored
+     *
+     * @param config The config object that contains the environment, cnpj and other information.
+     * @return The root path of the XMLs
+     */
+    @Override
+    public String rootPath(Config config) {
+        return String.join(IOUtils.separator(), IOUtils.homeDir(),
                 "xmls",
                 config.environment().getRootPath(),
                 config.cnpj(),
@@ -27,36 +31,43 @@ public abstract class CommonFileSystemStorage {
         );
     }
 
-    protected String xmlNameWithTime(Object prefix) {
-        return prefix + "-" + System.currentTimeMillis() + "-" + UUID.randomUUID() + ".xml";
+    /**
+     * "Write the XML content to the file system."
+     *
+     * @param conf       The configuration object that contains the root path of the storage.
+     * @param key        The key of the file to be written.
+     * @param xmlName    The name of the file to be written.
+     * @param xmlContent The XML content to be written to the file.
+     */
+    @Override
+    public File writeSend(Config conf, StorageKey key, String xmlName, String xmlContent) throws IOException {
+        return IOUtils.write(String.join(IOUtils.separator(), rootPath(conf), key.getForSend(), xmlName), xmlContent.getBytes(UTF_8));
     }
 
-    protected String xmlNameWithTime() {
-        return System.currentTimeMillis() + "-" + UUID.randomUUID() + ".xml";
+    /**
+     * Write the XML content to the file system.
+     *
+     * @param conf       The configuration object.
+     * @param key        The key of the file to be written.
+     * @param xmlName    the name of the file to be written
+     * @param xmlContent The XML content to be written to the file.
+     */
+    @Override
+    public File writeReturn(Config conf, StorageKey key, String xmlName, String xmlContent) throws IOException {
+        return IOUtils.write(String.join(IOUtils.separator(), rootPath(conf), key.getForReturn(), xmlName), xmlContent.getBytes(UTF_8));
     }
 
-    protected void writeSend(Config conf, StorageKey key, String xmlName, String xmlContent) throws IOException {
-        IOUtils.write(String.join(separator, rootPath(conf), key.getForSend(), xmlName), xmlContent.getBytes(UTF_8));
-    }
-
-    protected void writeReturn(Config conf, StorageKey key, String xmlName, String xmlContent) throws IOException {
-        IOUtils.write(String.join(separator, rootPath(conf), key.getForReturn(), xmlName), xmlContent.getBytes(UTF_8));
-    }
-
-    protected void writeProc(Config conf, StorageKey key, String xmlName, String xmlContent) throws IOException {
-        IOUtils.write(String.join(separator, rootPath(conf), key.getForProcessed(), xmlName), xmlContent.getBytes(UTF_8));
-    }
-
-    protected void writeSend(Store<?> o, StorageKey key, String xmlName) throws IOException {
-        writeSend(o.getConfig(), key, xmlName, o.getXml());
-    }
-
-    protected void writeReturn(Store<?> o, StorageKey key, String xmlName) throws IOException {
-        writeReturn(o.getConfig(), key, xmlName, o.getXml());
-    }
-
-    protected void writeProc(Store<?> o, StorageKey key, String xmlName) throws IOException {
-        writeProc(o.getConfig(), key, xmlName, o.getXml());
+    /**
+     * > This function writes the XML content to a file in the processed directory
+     *
+     * @param conf       The configuration object
+     * @param key        The key of the file to be written.
+     * @param xmlName    the name of the file to be written
+     * @param xmlContent The XML content to be written to the file.
+     */
+    @Override
+    public File writeProc(Config conf, StorageKey key, String xmlName, String xmlContent) throws IOException {
+        return IOUtils.write(String.join(IOUtils.separator(), rootPath(conf), key.getForProcessed(), xmlName), xmlContent.getBytes(UTF_8));
     }
 
 

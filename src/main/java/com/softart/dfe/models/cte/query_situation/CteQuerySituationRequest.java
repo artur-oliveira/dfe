@@ -8,7 +8,7 @@ import com.softart.dfe.interfaces.process.cte.query_situation.BeforeQuerySituati
 import com.softart.dfe.interfaces.sefaz.SefazRequest;
 import com.softart.dfe.interfaces.validation.cte.CteQuerySituationValidator;
 import com.softart.dfe.interfaces.wsdl.ConfigureProvider;
-import com.softart.dfe.interfaces.xml.XMLSigner;
+import com.softart.dfe.interfaces.xml.XMLSignerService;
 import lombok.*;
 
 import java.util.Collection;
@@ -22,7 +22,7 @@ import java.util.Collection;
 public final class CteQuerySituationRequest implements SefazRequest<TConsSitCTe, TRetConsSitCTe> {
     public TConsSitCTe data;
     public Config config;
-    public XMLSigner signer;
+    public XMLSignerService signer;
     public ConfigureProvider configureProvider;
     public Collection<CteQuerySituationValidator> validators;
     public Collection<BeforeQuerySituation> beforeRequest;

@@ -1,6 +1,5 @@
 package com.softart.dfe.models.internal.cte;
 
-import com.softart.dfe.models.cte.reception_gtve.Gtve;
 import com.softart.dfe.models.cte.reception_os.CteOs;
 import lombok.*;
 

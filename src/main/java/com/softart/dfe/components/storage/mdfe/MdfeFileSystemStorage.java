@@ -5,7 +5,6 @@ import com.softart.dfe.components.internal.parser.AccessKeyParserFactory;
 import com.softart.dfe.components.internal.xml.marshaller.MdfeMarshaller;
 import com.softart.dfe.components.internal.xml.unmarshaller.MdfeUnmarshaller;
 import com.softart.dfe.components.storage.common.CommonFileSystemStorage;
-import com.softart.dfe.enums.internal.cte.CteStorageKey;
 import com.softart.dfe.enums.internal.mdfe.MdfeStorageKey;
 import com.softart.dfe.enums.mdfe.MdfeReturnCode;
 import com.softart.dfe.exceptions.storage.StorageException;
@@ -17,8 +16,6 @@ import com.softart.dfe.util.IOUtils;
 
 import java.io.IOException;
 import java.util.Objects;
-
-import static java.io.File.separator;
 
 public class MdfeFileSystemStorage extends CommonFileSystemStorage implements MdfeStorage {
     @Override
@@ -95,7 +92,7 @@ public class MdfeFileSystemStorage extends CommonFileSystemStorage implements Md
         String xml;
         TProtMDFe prot = o.getData().getProtMDFe();
 
-        xml = IOUtils.readFileToString(IOUtils.findLastFileByBasePath(String.join(separator, rootPath(o.getConfig()), MdfeStorageKey.MDFE_RECEPTION.getForSend(), prot.getInfProt().getChMDFe())));
+        xml = IOUtils.readFileToString(IOUtils.findLastFileByBasePath(String.join(IOUtils.separator(), rootPath(o.getConfig()), MdfeStorageKey.MDFE_RECEPTION.getForSend(), prot.getInfProt().getChMDFe())));
 
         if (Objects.isNull(xml)) return;
 

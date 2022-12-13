@@ -1,21 +1,16 @@
-
 package br.inf.portalfiscal.mdfe.wsdl.event.svrs.prod;
 
+import javax.xml.bind.annotation.*;
+import javax.xml.namespace.QName;
 import java.util.HashMap;
 import java.util.Map;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAnyAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.namespace.QName;
 
 
 /**
  * <p>Classe Java de mdfeCabecMsg complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="mdfeCabecMsg"&gt;
  *   &lt;complexContent&gt;
@@ -29,13 +24,11 @@ import javax.xml.namespace.QName;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "mdfeCabecMsg", propOrder = {
-    "cuf",
-    "versaoDados"
+        "cuf",
+        "versaoDados"
 })
 public class MdfeCabecMsg {
 
@@ -43,15 +36,13 @@ public class MdfeCabecMsg {
     protected String cuf;
     protected String versaoDados;
     @XmlAnyAttribute
-    private Map<QName, String> otherAttributes = new HashMap<QName, String>();
+    private final Map<QName, String> otherAttributes = new HashMap<QName, String>();
 
     /**
      * Obtém o valor da propriedade cuf.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCUF() {
         return cuf;
@@ -59,11 +50,9 @@ public class MdfeCabecMsg {
 
     /**
      * Define o valor da propriedade cuf.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCUF(String value) {
         this.cuf = value;
@@ -71,11 +60,9 @@ public class MdfeCabecMsg {
 
     /**
      * Obtém o valor da propriedade versaoDados.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVersaoDados() {
         return versaoDados;
@@ -83,11 +70,9 @@ public class MdfeCabecMsg {
 
     /**
      * Define o valor da propriedade versaoDados.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVersaoDados(String value) {
         this.versaoDados = value;
@@ -95,17 +80,15 @@ public class MdfeCabecMsg {
 
     /**
      * Gets a map that contains attributes that aren't bound to any typed property on this class.
-     * 
+     *
      * <p>
-     * the map is keyed by the name of the attribute and 
+     * the map is keyed by the name of the attribute and
      * the value is the string value of the attribute.
-     * 
+     * <p>
      * the map returned by this method is live, and you can add new attribute
      * by updating the map directly. Because of this design, there's no setter.
-     * 
-     * 
-     * @return
-     *     always non-null
+     *
+     * @return always non-null
      */
     public Map<QName, String> getOtherAttributes() {
         return otherAttributes;

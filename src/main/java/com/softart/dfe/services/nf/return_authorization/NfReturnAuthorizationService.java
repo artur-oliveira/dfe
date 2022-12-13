@@ -14,6 +14,12 @@ import com.softart.dfe.models.nf.return_authorization.ReturnQueryReceiptNfe;
 
 public interface NfReturnAuthorizationService extends NfSefazService {
 
+    /**
+     * It queries the receipt of the NFe.
+     *
+     * @param receipt The receipt number returned by the Sefaz.
+     * @return A ReturnQueryReceiptNfe object.
+     */
     default ReturnQueryReceiptNfe queryReceipt(String receipt) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return ReturnQueryReceiptNfe
                 .builder()
@@ -31,8 +37,20 @@ public interface NfReturnAuthorizationService extends NfSefazService {
                 ).second());
     }
 
+    /**
+     * > Returns the validator used by this class
+     *
+     * @return The validator object.
+     */
     NfCommonValidator getValidator();
 
+    /**
+     * * If the service is already instantiated, return it.
+     * * If the service is not instantiated, try to instantiate it.
+     * * If the service cannot be instantiated, throw an exception
+     *
+     * @return The service object.
+     */
     NfCommonService getService() throws NoProviderFound, SoapServiceGeneralException;
 
 }

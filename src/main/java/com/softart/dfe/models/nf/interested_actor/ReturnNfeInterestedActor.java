@@ -3,8 +3,8 @@ package com.softart.dfe.models.nf.interested_actor;
 
 import br.inf.portalfiscal.nfe.event_interested_actor.SignatureType;
 import br.inf.portalfiscal.nfe.event_interested_actor.TRetEnvEvento;
-import com.softart.dfe.interfaces.xml.DFObject;
 import com.softart.dfe.interfaces.xml.XMLAdapter;
+import com.softart.dfe.interfaces.xml.generic.DFObject;
 import lombok.*;
 
 import java.util.List;

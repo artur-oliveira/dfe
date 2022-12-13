@@ -1,7 +1,7 @@
 package com.softart.dfe.interfaces.process;
 
 import com.softart.dfe.interfaces.internal.config.Config;
-import com.softart.dfe.interfaces.xml.XML;
+import com.softart.dfe.interfaces.xml.generic.XML;
 
 public interface AfterRequest<REQ extends XML, RES extends XML> {
 

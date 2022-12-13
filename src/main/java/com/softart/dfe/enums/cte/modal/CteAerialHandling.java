@@ -1,7 +1,6 @@
 package com.softart.dfe.enums.cte.modal;
 
 import com.softart.dfe.components.internal.DFEnum;
-import com.softart.dfe.enums.cte.CteEvent;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

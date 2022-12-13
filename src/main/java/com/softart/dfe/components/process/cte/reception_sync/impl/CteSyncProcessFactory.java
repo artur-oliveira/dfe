@@ -20,12 +20,12 @@ public abstract class CteSyncProcessFactory implements ProcessFactory<TCTe, TRet
         return CteSyncProcessFactory.Holder.FILESYSTEM;
     }
 
+    public abstract Collection<BeforeReceptionCteSync> before();
+
+    public abstract Collection<AfterReceptionCteSync> after();
+
     final static class Holder {
         final static CteSyncProcessFactory NOSTORE = new NoStoreCteFactory();
         final static CteSyncProcessFactory FILESYSTEM = new FileSystemCteFactory();
     }
-
-    public abstract Collection<BeforeReceptionCteSync> before();
-
-    public abstract Collection<AfterReceptionCteSync> after();
 }

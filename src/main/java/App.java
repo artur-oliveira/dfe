@@ -1,8 +1,8 @@
 import br.inf.portalfiscal.nfe.send.TUf;
 import br.inf.portalfiscal.nfe.send.TUfEmi;
 import com.softart.dfe.components.internal.DFEnum;
-import com.softart.dfe.components.internal.certificate.PfxKeyStoreInfoImpl;
 import com.softart.dfe.components.internal.ProjectProperties;
+import com.softart.dfe.components.internal.certificate.PfxKeyStoreInfoImpl;
 import com.softart.dfe.components.internal.config.PfxNfConfigImpl;
 import com.softart.dfe.components.security.chain.CertificateChainFactory;
 import com.softart.dfe.components.security.signer.DefaultXmlSigner;
@@ -14,10 +14,11 @@ import com.softart.dfe.enums.nf.payment.NFPaymentIndicative;
 import com.softart.dfe.enums.nf.payment.NFPaymentType;
 import com.softart.dfe.interfaces.internal.KeyStoreInfo;
 import com.softart.dfe.interfaces.internal.config.NfConfig;
-import com.softart.dfe.interfaces.xml.XMLSigner;
+import com.softart.dfe.interfaces.xml.XMLSignerService;
 import com.softart.dfe.models.internal.security.Certificate;
 import com.softart.dfe.models.nf.authorization.Nf;
-import com.softart.dfe.models.nf.authorization.ReturnNf;
+import com.softart.dfe.models.nf.authorization.NfProtocol;
+import com.softart.dfe.models.nf.authorization.ReturnSendNf;
 import com.softart.dfe.models.nf.epec.ReturnNfeEpec;
 import com.softart.dfe.models.nf.return_authorization.ReturnQueryReceiptNfe;
 import com.softart.dfe.services.nf.authorization.NfAuthorizationService;
@@ -68,7 +69,7 @@ public final class App {
 //        System.setProperty("com.sun.xml.ws.transport.http.HttpAdapter.dump", "true");
 //        System.setProperty("com.sun.xml.internal.ws.transport.http.HttpAdapter.dump", "true");
 //        System.setProperty("com.sun.xml.internal.ws.transport.http.HttpAdapter.dumpTreshold", "999999");
-        cancelarNf("22221211520224000140550010000036481434788272", "322220000036984");
+//        cancelarNf("22221211520224000140550010000036481434788272", "322220000036984");
 //        cancelarNfc("22220911520224000140650010000046781605558739");
 //        substituteCancelNfc("22220911520224000140650010000046851087679555", "22220911520224000140650010000046869703887050");
 //        queryGtin("7891249061166");
@@ -83,7 +84,7 @@ public final class App {
 //        distributionNfAccessKey();
 //        distributionNfUniqueNsu();
 //        distributionNf();
-//        operationScienceNf();
+        operationScienceNf();
 //        correctionLetterNf();
 //        queryStatusServiceNf();
 //        queryStatusServiceNfc();
@@ -94,29 +95,29 @@ public final class App {
     private static void all() throws Exception {
         KeyStoreInfo info = new PfxKeyStoreInfoImpl(InputStreamUtils.newFileInputStream("/home/artur/Documentos/Certificate/tartigrado.pfx"), "22Rev", InputStreamUtils.newByteArrayInputStream(CertificateChainFactory.getInstance().generate(Certificate.builder().build())), CertificateChainFactory.getInstance().getPassword());
         NfConfig config = new PfxNfConfigImpl(UF.PI, "11520224000140", Environment.HOMOLOGATION, info, NFEmissionType.NORMAL, null, null);
-        XMLSigner signer = new DefaultXmlSigner();
-        NfAuthorizationService service = new NfeAuthorizationServiceImpl(config, signer);
+        XMLSignerService signer = new DefaultXmlSigner();
+        NfAuthorizationService service = new NfeAuthorizationServiceImpl(config);
 
-        ReturnNf returnNf = service.authorization(Arrays.asList(getNfe(config, 3649), getNfe(config, 3650)));
+        ReturnSendNf returnNf = service.authorization(Arrays.asList(getNfe(config, 3649), getNfe(config, 3650)));
 
-        ReturnNf.InfRec rec = Objects.requireNonNull(returnNf.getInfRec());
-        NfReturnAuthorizationService returnAuthorizationService = new NfeReturnAuthorizationServiceImpl(config, signer);
+        ReturnSendNf.InfRec rec = Objects.requireNonNull(returnNf.getInfRec());
+        NfReturnAuthorizationService returnAuthorizationService = new NfeReturnAuthorizationServiceImpl(config);
         ReturnQueryReceiptNfe returnQueryReceiptNfe;
         do {
             Thread.sleep(1000L * Integer.parseInt((Objects.nonNull(rec.getTMed()) ? rec.getTMed() : "5")));
             returnQueryReceiptNfe = returnAuthorizationService.queryReceipt(rec.getNRec());
         } while (returnQueryReceiptNfe.getProtNFe().isEmpty());
 
-        NfeCorrectionLetterService correction = new NfeCorrectionLetterServiceImpl(config, signer);
+        NfeCorrectionLetterService correction = new NfeCorrectionLetterServiceImpl(config);
 
-        for (ReturnNf.ProtNFe protNFe : returnQueryReceiptNfe.getProtNFe()) {
+        for (NfProtocol protNFe : returnQueryReceiptNfe.getProtNFe()) {
             correction.correctionLetter(protNFe.getInfProt().getChNFe(), "TESTE CARTA CORREÇÃO");
         }
 
-        NfeCancelServiceImpl cancelService = new NfeCancelServiceImpl(config, signer);
+        NfeCancelServiceImpl cancelService = new NfeCancelServiceImpl(config);
 
-        for (ReturnNf.ProtNFe protNFe : returnQueryReceiptNfe.getProtNFe()) {
-            cancelService.cancelar(protNFe.getInfProt().getChNFe(), protNFe.getInfProt().getNProt());
+        for (NfProtocol protNFe : returnQueryReceiptNfe.getProtNFe()) {
+            cancelService.cancel(protNFe.getInfProt().getChNFe(), protNFe.getInfProt().getNProt());
         }
     }
 
@@ -124,8 +125,8 @@ public final class App {
         KeyStoreInfo info = new PfxKeyStoreInfoImpl(InputStreamUtils.newFileInputStream("/home/artur/Documentos/Certificate/tartigrado.pfx"), "22Rev", InputStreamUtils.newByteArrayInputStream(CertificateChainFactory.getInstance().generate(Certificate.builder().build())), CertificateChainFactory.getInstance().getPassword());
 //
         NfConfig config = new PfxNfConfigImpl(UF.PI, "11520224000140", Environment.HOMOLOGATION, info, NFEmissionType.NORMAL, null, null);
-        XMLSigner signer = new DefaultXmlSigner();
-        NfeInterestedActorService service = new NfeInterestedActorServiceImpl(config, signer);
+        XMLSignerService signer = new DefaultXmlSigner();
+        NfeInterestedActorService service = new NfeInterestedActorServiceImpl(config);
 
         System.out.println(service.interestedActor("22220911520224000140550010000035361187602778", "05213730345", null));
     }
@@ -134,8 +135,8 @@ public final class App {
         KeyStoreInfo info = new PfxKeyStoreInfoImpl(InputStreamUtils.newFileInputStream("/home/artur/Documentos/Certificate/tartigrado.pfx"), "22Rev", InputStreamUtils.newByteArrayInputStream(CertificateChainFactory.getInstance().generate(Certificate.builder().build())), CertificateChainFactory.getInstance().getPassword());
 //
         NfConfig config = new PfxNfConfigImpl(UF.PI, "11520224000140", Environment.HOMOLOGATION, info, NFEmissionType.NORMAL, null, null);
-        XMLSigner signer = new DefaultXmlSigner();
-        NfQueryGtinService service = new NfQueryGtinServiceImpl(config, signer);
+        XMLSignerService signer = new DefaultXmlSigner();
+        NfQueryGtinService service = new NfQueryGtinServiceImpl(config);
 
         System.out.println(service.queryGtin(gtin));
     }
@@ -144,8 +145,8 @@ public final class App {
         KeyStoreInfo info = new PfxKeyStoreInfoImpl(InputStreamUtils.newFileInputStream("/home/artur/Documentos/Certificate/tartigrado.pfx"), "22Rev", InputStreamUtils.newByteArrayInputStream(CertificateChainFactory.getInstance().generate(Certificate.builder().build())), CertificateChainFactory.getInstance().getPassword());
 //
         NfConfig config = new PfxNfConfigImpl(UF.PI, "11520224000140", Environment.HOMOLOGATION, info, NFEmissionType.NORMAL, null, null);
-        XMLSigner signer = new DefaultXmlSigner();
-        NfeEpecService epecService = new NfeEpecServiceImpl(config, signer);
+        XMLSignerService signer = new DefaultXmlSigner();
+        NfeEpecService epecService = new NfeEpecServiceImpl(config);
 
         Nf n = getNfe(config, 3532);
         ReturnNfeEpec returnepec = epecService.epec(n);
@@ -154,15 +155,14 @@ public final class App {
     }
 
     private static void operationScienceNf() throws Exception {
-        Collection<String> aks = Collections.singletonList("22220911520224000140550010000035361187602778");
+        Collection<String> aks = Arrays.asList("22221211520224000140550010000036941623271229", "22221211520224000140550010000036931656073631");
         KeyStoreInfo info = new PfxKeyStoreInfoImpl(InputStreamUtils.newFileInputStream("/home/artur/Documentos/Certificate/tartigrado.pfx"), "22Rev", InputStreamUtils.newByteArrayInputStream(CertificateChainFactory.getInstance().generate(Certificate.builder().build())), CertificateChainFactory.getInstance().getPassword());
 
         NfConfig config = new PfxNfConfigImpl(UF.PI, "11520224000140", Environment.HOMOLOGATION, info, NFEmissionType.NORMAL, null, null);
-        XMLSigner signer = new DefaultXmlSigner();
-        NfeManifestationService service = new NfeManifestationServiceImpl(config, signer);
-        for (String ak : aks) {
-            System.out.println(service.science(ak));
-        }
+        XMLSignerService signer = new DefaultXmlSigner();
+        NfeManifestationService service = new NfeManifestationServiceImpl(config);
+        System.out.println(service.science(aks));
+
     }
 
     private static void correctionLetterNf() throws Exception {
@@ -170,8 +170,8 @@ public final class App {
         KeyStoreInfo info = new PfxKeyStoreInfoImpl(InputStreamUtils.newFileInputStream("/home/artur/Documentos/Certificate/tartigrado.pfx"), "22Rev", InputStreamUtils.newByteArrayInputStream(CertificateChainFactory.getInstance().generate(Certificate.builder().build())), CertificateChainFactory.getInstance().getPassword());
 
         NfConfig config = new PfxNfConfigImpl(UF.PI, "11520224000140", Environment.HOMOLOGATION, info, NFEmissionType.NORMAL, null, null);
-        XMLSigner signer = new DefaultXmlSigner();
-        NfeCorrectionLetterService service = new NfeCorrectionLetterServiceImpl(config, signer);
+        XMLSignerService signer = new DefaultXmlSigner();
+        NfeCorrectionLetterService service = new NfeCorrectionLetterServiceImpl(config);
         for (String ak : aks) {
             System.out.println(service.correctionLetter(ak, "LOREM IPSUM DOLOR SIT AMET"));
         }
@@ -181,20 +181,20 @@ public final class App {
         KeyStoreInfo info = new PfxKeyStoreInfoImpl(InputStreamUtils.newFileInputStream("/home/artur/Documentos/Certificate/tartigrado.pfx"), "22Rev", InputStreamUtils.newByteArrayInputStream(CertificateChainFactory.getInstance().generate(Certificate.builder().build())), CertificateChainFactory.getInstance().getPassword());
 
         NfConfig config = new PfxNfConfigImpl(UF.PI, "11520224000140", Environment.HOMOLOGATION, info, NFEmissionType.NORMAL, null, null);
-        XMLSigner signer = new DefaultXmlSigner();
-        NfInutilizationService service = new NfeInutilizationServiceImpl(config, signer);
-        System.out.println(service.inutilizar(1, 1, 1).getInfInut().getXMotivo());
+        XMLSignerService signer = new DefaultXmlSigner();
+        NfInutilizationService service = new NfeInutilizationServiceImpl(config);
+        System.out.println(service.inutilization(1, 1, 1).getInfInut().getXMotivo());
     }
 
     private static void inutilizarNfce() throws Exception {
         KeyStoreInfo info = new PfxKeyStoreInfoImpl(InputStreamUtils.newFileInputStream("/home/artur/Documentos/Certificate/tartigrado.pfx"), "22Rev", InputStreamUtils.newByteArrayInputStream(CertificateChainFactory.getInstance().generate(Certificate.builder().build())), CertificateChainFactory.getInstance().getPassword());
 
         NfConfig config = new PfxNfConfigImpl(UF.PI, "11520224000140", Environment.HOMOLOGATION, info, NFEmissionType.NORMAL, null, null);
-        XMLSigner signer = new DefaultXmlSigner();
-        NfInutilizationService service = new NfceInutilizationServiceImpl(config, signer);
+        XMLSignerService signer = new DefaultXmlSigner();
+        NfInutilizationService service = new NfceInutilizationServiceImpl(config);
 
         for (int i = 1; i <= 4664; i++) {
-            System.out.println(service.inutilizar(1, i, i).getInfInut());
+            System.out.println(service.inutilization(1, i, i).getInfInut());
         }
 
     }
@@ -203,8 +203,8 @@ public final class App {
         KeyStoreInfo info = new PfxKeyStoreInfoImpl(InputStreamUtils.newFileInputStream("/home/artur/Documentos/Certificate/tartigrado.pfx"), "22Rev", InputStreamUtils.newByteArrayInputStream(CertificateChainFactory.getInstance().generate(Certificate.builder().build())), CertificateChainFactory.getInstance().getPassword());
 
         NfConfig config = new PfxNfConfigImpl(UF.PI, "11520224000140", Environment.PRODUCTION, info, NFEmissionType.NORMAL, null, null);
-        XMLSigner signer = new DefaultXmlSigner();
-        NfeDistributionService service = new NfeDistributionServiceImpl(config, signer);
+        XMLSignerService signer = new DefaultXmlSigner();
+        NfeDistributionService service = new NfeDistributionServiceImpl(config);
         System.out.println(service.distributionUltNsu(0L));
     }
 
@@ -212,8 +212,8 @@ public final class App {
         KeyStoreInfo info = new PfxKeyStoreInfoImpl(InputStreamUtils.newFileInputStream("/home/artur/Documentos/Certificate/tartigrado.pfx"), "22Rev", InputStreamUtils.newByteArrayInputStream(CertificateChainFactory.getInstance().generate(Certificate.builder().build())), CertificateChainFactory.getInstance().getPassword());
 
         NfConfig config = new PfxNfConfigImpl(UF.PI, "11520224000140", Environment.HOMOLOGATION, info, NFEmissionType.NORMAL, null, null);
-        XMLSigner signer = new DefaultXmlSigner();
-        NfeDistributionService service = new NfeDistributionServiceImpl(config, signer);
+        XMLSignerService signer = new DefaultXmlSigner();
+        NfeDistributionService service = new NfeDistributionServiceImpl(config);
         System.out.println(service.distributionAccessKey("22220111520224000140550010000017131070903776"));
     }
 
@@ -221,8 +221,8 @@ public final class App {
         KeyStoreInfo info = new PfxKeyStoreInfoImpl(InputStreamUtils.newFileInputStream("/home/artur/Documentos/Certificate/tartigrado.pfx"), "22Rev", InputStreamUtils.newByteArrayInputStream(CertificateChainFactory.getInstance().generate(Certificate.builder().build())), CertificateChainFactory.getInstance().getPassword());
 
         NfConfig config = new PfxNfConfigImpl(UF.PI, "11520224000140", Environment.PRODUCTION, info, NFEmissionType.NORMAL, null, null);
-        XMLSigner signer = new DefaultXmlSigner();
-        NfeDistributionService service = new NfeDistributionServiceImpl(config, signer);
+        XMLSignerService signer = new DefaultXmlSigner();
+        NfeDistributionService service = new NfeDistributionServiceImpl(config);
         System.out.println(service.distributionUniqueNsu(78L));
     }
 
@@ -230,8 +230,8 @@ public final class App {
         KeyStoreInfo info = new PfxKeyStoreInfoImpl(InputStreamUtils.newFileInputStream("/home/artur/Documentos/Certificate/tartigrado.pfx"), "22Rev", InputStreamUtils.newByteArrayInputStream(CertificateChainFactory.getInstance().generate(Certificate.builder().build())), CertificateChainFactory.getInstance().getPassword());
 
         NfConfig config = new PfxNfConfigImpl(UF.PI, "11520224000140", Environment.HOMOLOGATION, info, NFEmissionType.NORMAL, null, null);
-        XMLSigner signer = new DefaultXmlSigner();
-        NfAuthorizationService service = new NfeAuthorizationServiceImpl(config, signer);
+        XMLSignerService signer = new DefaultXmlSigner();
+        NfAuthorizationService service = new NfeAuthorizationServiceImpl(config);
 
         System.out.println(service.authorization(Collections.singletonList(getNfe(config, 1))));
     }
@@ -240,8 +240,8 @@ public final class App {
         KeyStoreInfo info = new PfxKeyStoreInfoImpl(InputStreamUtils.newFileInputStream("/home/artur/Documentos/Certificate/tartigrado.pfx"), "22Rev", InputStreamUtils.newByteArrayInputStream(CertificateChainFactory.getInstance().generate(Certificate.builder().build())), CertificateChainFactory.getInstance().getPassword());
 
         NfConfig config = new PfxNfConfigImpl(UF.PI, "11520224000140", Environment.HOMOLOGATION, info, NFEmissionType.NORMAL, "1", "115202241607220426225340");
-        XMLSigner signer = new DefaultXmlSigner();
-        NfAuthorizationService service = new NfceAuthorizationServiceImpl(config, signer);
+        XMLSignerService signer = new DefaultXmlSigner();
+        NfAuthorizationService service = new NfceAuthorizationServiceImpl(config);
 
         System.out.println(service.authorization(Collections.singletonList(getNfe(config, 4681, Model.NFCE))));
         System.out.println(service.authorization(Collections.singletonList(getNfe(config, 4682, Model.NFCE))));
@@ -252,7 +252,7 @@ public final class App {
         KeyStoreInfo info = new PfxKeyStoreInfoImpl(InputStreamUtils.newFileInputStream("/home/artur/Documentos/Certificate/tartigrado.pfx"), "22Rev", InputStreamUtils.newByteArrayInputStream(CertificateChainFactory.getInstance().generate(Certificate.builder().build())), CertificateChainFactory.getInstance().getPassword());
 
         NfConfig config = new PfxNfConfigImpl(UF.PI, "11520224000140", Environment.HOMOLOGATION, info, NFEmissionType.NORMAL, null, null);
-        NfReturnAuthorizationService service = new NfeReturnAuthorizationServiceImpl(config, null);
+        NfReturnAuthorizationService service = new NfeReturnAuthorizationServiceImpl(config);
 
         System.out.println(service.queryReceipt(lote));
     }
@@ -261,7 +261,7 @@ public final class App {
         KeyStoreInfo info = new PfxKeyStoreInfoImpl(InputStreamUtils.newFileInputStream("/home/artur/Documentos/Certificate/tartigrado.pfx"), "22Rev", InputStreamUtils.newByteArrayInputStream(CertificateChainFactory.getInstance().generate(Certificate.builder().build())), CertificateChainFactory.getInstance().getPassword());
 
         NfConfig config = new PfxNfConfigImpl(UF.PI, "11520224000140", Environment.HOMOLOGATION, info, NFEmissionType.NORMAL, null, null);
-        NfReturnAuthorizationService service = new NfceReturnAuthorizationServiceImpl(config, null);
+        NfReturnAuthorizationService service = new NfceReturnAuthorizationServiceImpl(config);
 
         System.out.println(service.queryReceipt(lote));
     }
@@ -270,7 +270,7 @@ public final class App {
         KeyStoreInfo info = new PfxKeyStoreInfoImpl(InputStreamUtils.newFileInputStream("/home/artur/Documentos/Certificate/tartigrado.pfx"), "22Rev", InputStreamUtils.newByteArrayInputStream(CertificateChainFactory.getInstance().generate(Certificate.builder().build())), CertificateChainFactory.getInstance().getPassword());
 
         NfConfig config = new PfxNfConfigImpl(UF.PI, "11520224000140", Environment.HOMOLOGATION, info, NFEmissionType.NORMAL, null, null);
-        NfQueryStatusService service = new NfeQueryStatusServiceImpl(config, null);
+        NfQueryStatusService service = new NfeQueryStatusServiceImpl(config);
 
         System.out.println(service.queryStatusService());
     }
@@ -279,7 +279,7 @@ public final class App {
         KeyStoreInfo info = new PfxKeyStoreInfoImpl(InputStreamUtils.newFileInputStream("/home/artur/Documentos/Certificate/tartigrado.pfx"), "22Rev", InputStreamUtils.newByteArrayInputStream(CertificateChainFactory.getInstance().generate(Certificate.builder().build())), CertificateChainFactory.getInstance().getPassword());
 
         NfConfig config = new PfxNfConfigImpl(UF.PI, "11520224000140", Environment.HOMOLOGATION, info, NFEmissionType.NORMAL, null, null);
-        NfQueryStatusService service = new NfceQueryStatusServiceImpl(config, null);
+        NfQueryStatusService service = new NfceQueryStatusServiceImpl(config);
 
         System.out.println(service.queryStatusService());
     }
@@ -288,7 +288,7 @@ public final class App {
         KeyStoreInfo info = new PfxKeyStoreInfoImpl(InputStreamUtils.newFileInputStream("/home/artur/Documentos/Certificate/tartigrado.pfx"), "22Rev", InputStreamUtils.newByteArrayInputStream(CertificateChainFactory.getInstance().generate(Certificate.builder().build())), CertificateChainFactory.getInstance().getPassword());
 
         NfConfig config = new PfxNfConfigImpl(UF.PI, "11520224000140", Environment.HOMOLOGATION, info, NFEmissionType.NORMAL, null, null);
-        NfQueryProtocolService service = new NfeQueryProtocolServiceImpl(config, null);
+        NfQueryProtocolService service = new NfeQueryProtocolServiceImpl(config);
 
         System.out.println(service.queryProtocol(accessKey));
     }
@@ -297,7 +297,7 @@ public final class App {
         KeyStoreInfo info = new PfxKeyStoreInfoImpl(InputStreamUtils.newFileInputStream("/home/artur/Documentos/Certificate/tartigrado.pfx"), "22Rev", InputStreamUtils.newByteArrayInputStream(CertificateChainFactory.getInstance().generate(Certificate.builder().build())), CertificateChainFactory.getInstance().getPassword());
 
         NfConfig config = new PfxNfConfigImpl(UF.PI, "11520224000140", Environment.HOMOLOGATION, info, NFEmissionType.NORMAL, null, null);
-        NfQueryProtocolService service = new NfceQueryProtocolServiceImpl(config, null);
+        NfQueryProtocolService service = new NfceQueryProtocolServiceImpl(config);
 
         System.out.println(service.queryProtocol(accessKey));
     }
@@ -374,9 +374,9 @@ public final class App {
 
         NfConfig config = new PfxNfConfigImpl(UF.PI, "11520224000140", Environment.HOMOLOGATION, info, NFEmissionType.NORMAL, null, null);
 
-        XMLSigner signer = new DefaultXmlSigner();
-        NfCancelService service = new NfeCancelServiceImpl(config, signer);
-        System.out.println(service.cancelar(accessKey, protocol, "Quero Cancelar essa nota", "1").getRetEvento().get(0).getInfEvento().getXMotivo());
+        XMLSignerService signer = new DefaultXmlSigner();
+        NfCancelService service = new NfeCancelServiceImpl(config);
+        System.out.println(service.cancel(accessKey, protocol, "Quero Cancelar essa nota", "1").getRetEvento().get(0).getInfEvento().getXMotivo());
     }
 
     private static void cancelarNfc(final String accessKey) throws Exception {
@@ -384,9 +384,9 @@ public final class App {
 
         NfConfig config = new PfxNfConfigImpl(UF.PI, "11520224000140", Environment.HOMOLOGATION, info, NFEmissionType.NORMAL, null, null);
 
-        XMLSigner signer = new DefaultXmlSigner();
-        NfCancelService service = new NfceCancelServiceImpl(config, signer);
-        System.out.println(service.cancelar(accessKey));
+        XMLSignerService signer = new DefaultXmlSigner();
+        NfCancelService service = new NfceCancelServiceImpl(config);
+        System.out.println(service.cancel(accessKey));
     }
 
     private static void substituteCancelNfc(final String accessKey, final String accessKeyRef) throws Exception {
@@ -394,8 +394,8 @@ public final class App {
 
         NfConfig config = new PfxNfConfigImpl(UF.PI, "11520224000140", Environment.HOMOLOGATION, info, NFEmissionType.NORMAL, null, null);
 
-        XMLSigner signer = new DefaultXmlSigner();
-        NfSubstituteCancelService service = new NfceSubstituteCancelServiceImpl(config, signer);
+        XMLSignerService signer = new DefaultXmlSigner();
+        NfSubstituteCancelService service = new NfceSubstituteCancelServiceImpl(config);
         System.out.println(service.substituteCancel(accessKey, accessKeyRef));
     }
 }

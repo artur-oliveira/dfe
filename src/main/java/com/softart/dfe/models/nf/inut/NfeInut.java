@@ -3,8 +3,8 @@ package com.softart.dfe.models.nf.inut;
 import br.inf.portalfiscal.nfe.send.TInutNFe;
 import com.softart.dfe.enums.nf.NFEvent;
 import com.softart.dfe.enums.nf.version.NFVersion;
-import com.softart.dfe.interfaces.xml.DFObject;
 import com.softart.dfe.interfaces.xml.XMLAdapter;
+import com.softart.dfe.interfaces.xml.generic.DFObject;
 import com.softart.dfe.util.XMLStringUtils;
 import lombok.*;
 

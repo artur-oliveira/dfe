@@ -2,12 +2,12 @@ package com.softart.dfe.components.process.cte.query_receipt;
 
 import br.inf.portalfiscal.cte.send.TConsReciCTe;
 import br.inf.portalfiscal.cte.send.TRetConsReciCTe;
+import com.softart.dfe.components.internal.xml.marshaller.CteMarshaller;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.interfaces.process.AfterRequest;
 import com.softart.dfe.interfaces.process.cte.query_receipt.AfterQueryReceipt;
 import com.softart.dfe.interfaces.storage.cte.CteQueryReceiptStorage;
 import com.softart.dfe.models.internal.xml.XMLStore;
-import com.softart.dfe.components.internal.xml.marshaller.CteMarshaller;
 
 import java.util.Objects;
 

@@ -8,16 +8,16 @@
 
 package br.inf.portalfiscal.nfe.event_substitute_cancel;
 
-import com.softart.dfe.interfaces.xml.XML;
+import com.softart.dfe.interfaces.xml.generic.XML;
 
 import javax.xml.bind.annotation.*;
 
 
 /**
  * <p>Classe Java de anonymous complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType&gt;
  *   &lt;complexContent&gt;
@@ -56,23 +56,20 @@ import javax.xml.bind.annotation.*;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "descEvento",
-    "cOrgaoAutor",
-    "tpAutor",
-    "verAplic",
-    "nProt",
-    "xJust",
-    "chNFeRef"
+        "descEvento",
+        "cOrgaoAutor",
+        "tpAutor",
+        "verAplic",
+        "nProt",
+        "xJust",
+        "chNFeRef"
 })
 @XmlRootElement(name = "detEvento", namespace = "http://www.portalfiscal.inf.br/nfe")
 public class DetEvento
-    implements XML
-{
+        implements XML {
 
     @XmlElement(namespace = "http://www.portalfiscal.inf.br/nfe", required = true)
     protected String descEvento;
@@ -93,11 +90,9 @@ public class DetEvento
 
     /**
      * Obtém o valor da propriedade descEvento.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getDescEvento() {
         return descEvento;
@@ -105,11 +100,9 @@ public class DetEvento
 
     /**
      * Define o valor da propriedade descEvento.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setDescEvento(String value) {
         this.descEvento = value;
@@ -117,11 +110,9 @@ public class DetEvento
 
     /**
      * Obtém o valor da propriedade cOrgaoAutor.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCOrgaoAutor() {
         return cOrgaoAutor;
@@ -129,11 +120,9 @@ public class DetEvento
 
     /**
      * Define o valor da propriedade cOrgaoAutor.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCOrgaoAutor(String value) {
         this.cOrgaoAutor = value;
@@ -141,11 +130,9 @@ public class DetEvento
 
     /**
      * Obtém o valor da propriedade tpAutor.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getTpAutor() {
         return tpAutor;
@@ -153,11 +140,9 @@ public class DetEvento
 
     /**
      * Define o valor da propriedade tpAutor.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setTpAutor(String value) {
         this.tpAutor = value;
@@ -165,11 +150,9 @@ public class DetEvento
 
     /**
      * Obtém o valor da propriedade verAplic.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVerAplic() {
         return verAplic;
@@ -177,11 +160,9 @@ public class DetEvento
 
     /**
      * Define o valor da propriedade verAplic.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVerAplic(String value) {
         this.verAplic = value;
@@ -189,11 +170,9 @@ public class DetEvento
 
     /**
      * Obtém o valor da propriedade nProt.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getNProt() {
         return nProt;
@@ -201,11 +180,9 @@ public class DetEvento
 
     /**
      * Define o valor da propriedade nProt.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setNProt(String value) {
         this.nProt = value;
@@ -213,11 +190,9 @@ public class DetEvento
 
     /**
      * Obtém o valor da propriedade xJust.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getXJust() {
         return xJust;
@@ -225,11 +200,9 @@ public class DetEvento
 
     /**
      * Define o valor da propriedade xJust.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setXJust(String value) {
         this.xJust = value;
@@ -237,11 +210,9 @@ public class DetEvento
 
     /**
      * Obtém o valor da propriedade chNFeRef.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getChNFeRef() {
         return chNFeRef;
@@ -249,11 +220,9 @@ public class DetEvento
 
     /**
      * Define o valor da propriedade chNFeRef.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setChNFeRef(String value) {
         this.chNFeRef = value;
@@ -261,11 +230,9 @@ public class DetEvento
 
     /**
      * Obtém o valor da propriedade versao.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVersao() {
         return versao;
@@ -273,11 +240,9 @@ public class DetEvento
 
     /**
      * Define o valor da propriedade versao.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVersao(String value) {
         this.versao = value;

@@ -8,16 +8,16 @@
 
 package br.inf.portalfiscal.nfe.distribution;
 
-import com.softart.dfe.interfaces.xml.XML;
+import com.softart.dfe.interfaces.xml.generic.XML;
 
 import javax.xml.bind.annotation.*;
 
 
 /**
  * <p>Classe Java de TResEvento complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="TResEvento"&gt;
  *   &lt;complexContent&gt;
@@ -62,25 +62,22 @@ import javax.xml.bind.annotation.*;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TResEvento", namespace = "http://www.portalfiscal.inf.br/nfe", propOrder = {
-    "cOrgao",
-    "cnpj",
-    "cpf",
-    "chNFe",
-    "dhEvento",
-    "tpEvento",
-    "nSeqEvento",
-    "xEvento",
-    "dhRecbto",
-    "nProt"
+        "cOrgao",
+        "cnpj",
+        "cpf",
+        "chNFe",
+        "dhEvento",
+        "tpEvento",
+        "nSeqEvento",
+        "xEvento",
+        "dhRecbto",
+        "nProt"
 })
 public class TResEvento
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected String cOrgao;
@@ -107,11 +104,9 @@ public class TResEvento
 
     /**
      * Obtém o valor da propriedade cOrgao.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCOrgao() {
         return cOrgao;
@@ -119,11 +114,9 @@ public class TResEvento
 
     /**
      * Define o valor da propriedade cOrgao.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCOrgao(String value) {
         this.cOrgao = value;
@@ -131,11 +124,9 @@ public class TResEvento
 
     /**
      * Obtém o valor da propriedade cnpj.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCNPJ() {
         return cnpj;
@@ -143,11 +134,9 @@ public class TResEvento
 
     /**
      * Define o valor da propriedade cnpj.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCNPJ(String value) {
         this.cnpj = value;
@@ -155,11 +144,9 @@ public class TResEvento
 
     /**
      * Obtém o valor da propriedade cpf.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCPF() {
         return cpf;
@@ -167,11 +154,9 @@ public class TResEvento
 
     /**
      * Define o valor da propriedade cpf.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCPF(String value) {
         this.cpf = value;
@@ -179,11 +164,9 @@ public class TResEvento
 
     /**
      * Obtém o valor da propriedade chNFe.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getChNFe() {
         return chNFe;
@@ -191,11 +174,9 @@ public class TResEvento
 
     /**
      * Define o valor da propriedade chNFe.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setChNFe(String value) {
         this.chNFe = value;
@@ -203,11 +184,9 @@ public class TResEvento
 
     /**
      * Obtém o valor da propriedade dhEvento.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getDhEvento() {
         return dhEvento;
@@ -215,11 +194,9 @@ public class TResEvento
 
     /**
      * Define o valor da propriedade dhEvento.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setDhEvento(String value) {
         this.dhEvento = value;
@@ -227,11 +204,9 @@ public class TResEvento
 
     /**
      * Obtém o valor da propriedade tpEvento.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getTpEvento() {
         return tpEvento;
@@ -239,11 +214,9 @@ public class TResEvento
 
     /**
      * Define o valor da propriedade tpEvento.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setTpEvento(String value) {
         this.tpEvento = value;
@@ -251,11 +224,9 @@ public class TResEvento
 
     /**
      * Obtém o valor da propriedade nSeqEvento.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getNSeqEvento() {
         return nSeqEvento;
@@ -263,11 +234,9 @@ public class TResEvento
 
     /**
      * Define o valor da propriedade nSeqEvento.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setNSeqEvento(String value) {
         this.nSeqEvento = value;
@@ -275,11 +244,9 @@ public class TResEvento
 
     /**
      * Obtém o valor da propriedade xEvento.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getXEvento() {
         return xEvento;
@@ -287,11 +254,9 @@ public class TResEvento
 
     /**
      * Define o valor da propriedade xEvento.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setXEvento(String value) {
         this.xEvento = value;
@@ -299,11 +264,9 @@ public class TResEvento
 
     /**
      * Obtém o valor da propriedade dhRecbto.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getDhRecbto() {
         return dhRecbto;
@@ -311,11 +274,9 @@ public class TResEvento
 
     /**
      * Define o valor da propriedade dhRecbto.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setDhRecbto(String value) {
         this.dhRecbto = value;
@@ -323,11 +284,9 @@ public class TResEvento
 
     /**
      * Obtém o valor da propriedade nProt.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getNProt() {
         return nProt;
@@ -335,11 +294,9 @@ public class TResEvento
 
     /**
      * Define o valor da propriedade nProt.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setNProt(String value) {
         this.nProt = value;
@@ -347,11 +304,9 @@ public class TResEvento
 
     /**
      * Obtém o valor da propriedade versao.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVersao() {
         return versao;
@@ -359,11 +314,9 @@ public class TResEvento
 
     /**
      * Define o valor da propriedade versao.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVersao(String value) {
         this.versao = value;

@@ -2,12 +2,12 @@ package com.softart.dfe.components.process.cte.query_situation;
 
 import br.inf.portalfiscal.cte.send.TConsSitCTe;
 import br.inf.portalfiscal.cte.send.TRetConsSitCTe;
+import com.softart.dfe.components.internal.xml.marshaller.CteMarshaller;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.interfaces.process.AfterRequest;
 import com.softart.dfe.interfaces.process.cte.query_situation.AfterQuerySituation;
 import com.softart.dfe.interfaces.storage.cte.CteQuerySituationStorage;
 import com.softart.dfe.models.internal.xml.XMLStore;
-import com.softart.dfe.components.internal.xml.marshaller.CteMarshaller;
 
 import java.util.Objects;
 

@@ -312,7 +312,7 @@
                         <goals>
                             <goal>xjc</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <xjbSources>
                                 <xjbSource>src/main/resources/binding.xjb</xjbSource>

@@ -8,21 +8,18 @@
 
 package br.inf.portalfiscal.mdfe.classes;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
+import com.softart.dfe.interfaces.xml.generic.XML;
+
+import javax.xml.bind.annotation.*;
 
 
 /**
  * Tipo Pedido de Autorização Assíncrona de MDF-e
- * 
+ *
  * <p>Classe Java de TEnviMDFe complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="TEnviMDFe"&gt;
  *   &lt;complexContent&gt;
@@ -36,17 +33,14 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TEnviMDFe", propOrder = {
-    "idLote",
-    "mdFe"
+        "idLote",
+        "mdFe"
 })
 public class TEnviMDFe
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected String idLote;
@@ -57,11 +51,9 @@ public class TEnviMDFe
 
     /**
      * Obtém o valor da propriedade idLote.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getIdLote() {
         return idLote;
@@ -69,11 +61,9 @@ public class TEnviMDFe
 
     /**
      * Define o valor da propriedade idLote.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setIdLote(String value) {
         this.idLote = value;
@@ -81,11 +71,9 @@ public class TEnviMDFe
 
     /**
      * Obtém o valor da propriedade mdFe.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TMDFe }
-     *     
+     *
+     * @return possible object is
+     * {@link TMDFe }
      */
     public TMDFe getMDFe() {
         return mdFe;
@@ -93,11 +81,9 @@ public class TEnviMDFe
 
     /**
      * Define o valor da propriedade mdFe.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TMDFe }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link TMDFe }
      */
     public void setMDFe(TMDFe value) {
         this.mdFe = value;
@@ -105,11 +91,9 @@ public class TEnviMDFe
 
     /**
      * Obtém o valor da propriedade versao.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVersao() {
         return versao;
@@ -117,11 +101,9 @@ public class TEnviMDFe
 
     /**
      * Define o valor da propriedade versao.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVersao(String value) {
         this.versao = value;

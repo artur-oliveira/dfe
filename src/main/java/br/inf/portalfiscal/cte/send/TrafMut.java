@@ -8,20 +8,21 @@
 
 package br.inf.portalfiscal.cte.send;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.softart.dfe.interfaces.xml.generic.XML;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
  * <p>Classe Java de TrafMut complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="TrafMut"&gt;
  *   &lt;complexContent&gt;
@@ -53,20 +54,17 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TrafMut", propOrder = {
-    "respFat",
-    "ferrEmi",
-    "vFrete",
-    "chCTeFerroOrigem",
-    "ferroEnv"
+        "respFat",
+        "ferrEmi",
+        "vFrete",
+        "chCTeFerroOrigem",
+        "ferroEnv"
 })
 public class TrafMut
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected String respFat;
@@ -79,11 +77,9 @@ public class TrafMut
 
     /**
      * Obtém o valor da propriedade respFat.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getRespFat() {
         return respFat;
@@ -91,11 +87,9 @@ public class TrafMut
 
     /**
      * Define o valor da propriedade respFat.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setRespFat(String value) {
         this.respFat = value;
@@ -103,11 +97,9 @@ public class TrafMut
 
     /**
      * Obtém o valor da propriedade ferrEmi.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getFerrEmi() {
         return ferrEmi;
@@ -115,11 +107,9 @@ public class TrafMut
 
     /**
      * Define o valor da propriedade ferrEmi.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setFerrEmi(String value) {
         this.ferrEmi = value;
@@ -127,11 +117,9 @@ public class TrafMut
 
     /**
      * Obtém o valor da propriedade vFrete.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVFrete() {
         return vFrete;
@@ -139,11 +127,9 @@ public class TrafMut
 
     /**
      * Define o valor da propriedade vFrete.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVFrete(String value) {
         this.vFrete = value;
@@ -151,11 +137,9 @@ public class TrafMut
 
     /**
      * Obtém o valor da propriedade chCTeFerroOrigem.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getChCTeFerroOrigem() {
         return chCTeFerroOrigem;
@@ -163,11 +147,9 @@ public class TrafMut
 
     /**
      * Define o valor da propriedade chCTeFerroOrigem.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setChCTeFerroOrigem(String value) {
         this.chCTeFerroOrigem = value;
@@ -175,25 +157,23 @@ public class TrafMut
 
     /**
      * Gets the value of the ferroEnv property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the ferroEnv property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getFerroEnv().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link FerroEnv }
-     * 
-     * 
      */
     public List<FerroEnv> getFerroEnv() {
         if (ferroEnv == null) {

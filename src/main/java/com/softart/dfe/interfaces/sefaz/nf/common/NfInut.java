@@ -10,6 +10,12 @@ import com.softart.dfe.interfaces.sefaz.SefazRequest;
 
 public interface NfInut {
 
+    /**
+     * A function that takes a generic type T that extends SefazRequest and returns a pair of TInutNFe and TRetInutNFe.
+     *
+     * @param data The request object.
+     * @return A pair of objects, the first is the request object and the second is the response object.
+     */
     <T extends SefazRequest<TInutNFe, TRetInutNFe>> Pair<TInutNFe, TRetInutNFe> inutilization(T data) throws SecurityException, ValidationException, ProcessException;
 
 }

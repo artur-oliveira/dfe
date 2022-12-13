@@ -15,18 +15,17 @@ import javax.xml.namespace.QName;
 
 
 /**
- * This object contains factory methods for each 
- * Java content interface and Java element interface 
- * generated in the br.inf.portalfiscal.mdfe.classes package. 
- * <p>An ObjectFactory allows you to programatically 
- * construct new instances of the Java representation 
- * for XML content. The Java representation of XML 
- * content can consist of schema derived interfaces 
- * and classes representing the binding of schema 
- * type definitions, element declarations and model 
- * groups.  Factory methods for each of these are 
+ * This object contains factory methods for each
+ * Java content interface and Java element interface
+ * generated in the br.inf.portalfiscal.mdfe.classes package.
+ * <p>An ObjectFactory allows you to programatically
+ * construct new instances of the Java representation
+ * for XML content. The Java representation of XML
+ * content can consist of schema derived interfaces
+ * and classes representing the binding of schema
+ * type definitions, element declarations and model
+ * groups.  Factory methods for each of these are
  * provided in this class.
- * 
  */
 @XmlRegistry
 public class ObjectFactory {
@@ -67,14 +66,12 @@ public class ObjectFactory {
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: br.inf.portalfiscal.mdfe.classes
-     * 
      */
     public ObjectFactory() {
     }
 
     /**
      * Create an instance of {@link ReferenceType }
-     * 
      */
     public ReferenceType createReferenceType() {
         return new ReferenceType();
@@ -82,7 +79,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SignedInfoType }
-     * 
      */
     public SignedInfoType createSignedInfoType() {
         return new SignedInfoType();
@@ -90,7 +86,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TMDFeDFe }
-     * 
      */
     public TMDFeDFe createTMDFeDFe() {
         return new TMDFeDFe();
@@ -98,7 +93,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TUnidCarga }
-     * 
      */
     public TUnidCarga createTUnidCarga() {
         return new TUnidCarga();
@@ -106,7 +100,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TUnidadeTransp }
-     * 
      */
     public TUnidadeTransp createTUnidadeTransp() {
         return new TUnidadeTransp();
@@ -114,7 +107,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TNFeNF }
-     * 
      */
     public TNFeNF createTNFeNF() {
         return new TNFeNF();
@@ -122,7 +114,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TNFeNF.InfNF }
-     * 
      */
     public TNFeNF.InfNF createTNFeNFInfNF() {
         return new TNFeNF.InfNF();
@@ -130,7 +121,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TRetEvento }
-     * 
      */
     public TRetEvento createTRetEvento() {
         return new TRetEvento();
@@ -138,7 +128,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TRetEnviMDFe }
-     * 
      */
     public TRetEnviMDFe createTRetEnviMDFe() {
         return new TRetEnviMDFe();
@@ -146,7 +135,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TRetConsSitMDFe }
-     * 
      */
     public TRetConsSitMDFe createTRetConsSitMDFe() {
         return new TRetConsSitMDFe();
@@ -154,7 +142,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TRetConsMDFeNaoEnc }
-     * 
      */
     public TRetConsMDFeNaoEnc createTRetConsMDFeNaoEnc() {
         return new TRetConsMDFeNaoEnc();
@@ -162,7 +149,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TProtMDFe }
-     * 
      */
     public TProtMDFe createTProtMDFe() {
         return new TProtMDFe();
@@ -170,7 +156,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TMDFe }
-     * 
      */
     public TMDFe createTMDFe() {
         return new TMDFe();
@@ -178,7 +163,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TMDFe.InfMDFe }
-     * 
      */
     public TMDFe.InfMDFe createTMDFeInfMDFe() {
         return new TMDFe.InfMDFe();
@@ -186,7 +170,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TMDFe.InfMDFe.ProdPred }
-     * 
      */
     public TMDFe.InfMDFe.ProdPred createTMDFeInfMDFeProdPred() {
         return new TMDFe.InfMDFe.ProdPred();
@@ -194,7 +177,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TMDFe.InfMDFe.ProdPred.InfLotacao }
-     * 
      */
     public TMDFe.InfMDFe.ProdPred.InfLotacao createTMDFeInfMDFeProdPredInfLotacao() {
         return new TMDFe.InfMDFe.ProdPred.InfLotacao();
@@ -202,7 +184,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TMDFe.InfMDFe.Seg }
-     * 
      */
     public TMDFe.InfMDFe.Seg createTMDFeInfMDFeSeg() {
         return new TMDFe.InfMDFe.Seg();
@@ -210,7 +191,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TMDFe.InfMDFe.InfDoc }
-     * 
      */
     public TMDFe.InfMDFe.InfDoc createTMDFeInfMDFeInfDoc() {
         return new TMDFe.InfMDFe.InfDoc();
@@ -218,7 +198,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TMDFe.InfMDFe.InfDoc.InfMunDescarga }
-     * 
      */
     public TMDFe.InfMDFe.InfDoc.InfMunDescarga createTMDFeInfMDFeInfDocInfMunDescarga() {
         return new TMDFe.InfMDFe.InfDoc.InfMunDescarga();
@@ -226,7 +205,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TMDFe.InfMDFe.InfDoc.InfMunDescarga.InfMDFeTransp }
-     * 
      */
     public TMDFe.InfMDFe.InfDoc.InfMunDescarga.InfMDFeTransp createTMDFeInfMDFeInfDocInfMunDescargaInfMDFeTransp() {
         return new TMDFe.InfMDFe.InfDoc.InfMunDescarga.InfMDFeTransp();
@@ -234,7 +212,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TMDFe.InfMDFe.InfDoc.InfMunDescarga.InfNFe }
-     * 
      */
     public TMDFe.InfMDFe.InfDoc.InfMunDescarga.InfNFe createTMDFeInfMDFeInfDocInfMunDescargaInfNFe() {
         return new TMDFe.InfMDFe.InfDoc.InfMunDescarga.InfNFe();
@@ -242,7 +219,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TMDFe.InfMDFe.InfDoc.InfMunDescarga.InfCTe }
-     * 
      */
     public TMDFe.InfMDFe.InfDoc.InfMunDescarga.InfCTe createTMDFeInfMDFeInfDocInfMunDescargaInfCTe() {
         return new TMDFe.InfMDFe.InfDoc.InfMunDescarga.InfCTe();
@@ -250,7 +226,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TMDFe.InfMDFe.Ide }
-     * 
      */
     public TMDFe.InfMDFe.Ide createTMDFeInfMDFeIde() {
         return new TMDFe.InfMDFe.Ide();
@@ -258,7 +233,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Rodo }
-     * 
      */
     public Rodo createRodo() {
         return new Rodo();
@@ -266,7 +240,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Rodo.VeicReboque }
-     * 
      */
     public Rodo.VeicReboque createRodoVeicReboque() {
         return new Rodo.VeicReboque();
@@ -274,7 +247,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Rodo.VeicTracao }
-     * 
      */
     public Rodo.VeicTracao createRodoVeicTracao() {
         return new Rodo.VeicTracao();
@@ -282,7 +254,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Rodo.InfANTT }
-     * 
      */
     public Rodo.InfANTT createRodoInfANTT() {
         return new Rodo.InfANTT();
@@ -290,7 +261,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Rodo.InfANTT.InfPag }
-     * 
      */
     public Rodo.InfANTT.InfPag createRodoInfANTTInfPag() {
         return new Rodo.InfANTT.InfPag();
@@ -298,7 +268,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Rodo.InfANTT.InfContratante }
-     * 
      */
     public Rodo.InfANTT.InfContratante createRodoInfANTTInfContratante() {
         return new Rodo.InfANTT.InfContratante();
@@ -306,7 +275,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Rodo.InfANTT.ValePed }
-     * 
      */
     public Rodo.InfANTT.ValePed createRodoInfANTTValePed() {
         return new Rodo.InfANTT.ValePed();
@@ -314,7 +282,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Ferrov }
-     * 
      */
     public Ferrov createFerrov() {
         return new Ferrov();
@@ -322,7 +289,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Aquav }
-     * 
      */
     public Aquav createAquav() {
         return new Aquav();
@@ -330,7 +296,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TEvento }
-     * 
      */
     public TEvento createTEvento() {
         return new TEvento();
@@ -338,7 +303,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TEvento.InfEvento }
-     * 
      */
     public TEvento.InfEvento createTEventoInfEvento() {
         return new TEvento.InfEvento();
@@ -346,7 +310,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link EvPagtoOperMDFe }
-     * 
      */
     public EvPagtoOperMDFe createEvPagtoOperMDFe() {
         return new EvPagtoOperMDFe();
@@ -354,7 +317,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link EvPagtoOperMDFe.InfPag }
-     * 
      */
     public EvPagtoOperMDFe.InfPag createEvPagtoOperMDFeInfPag() {
         return new EvPagtoOperMDFe.InfPag();
@@ -362,7 +324,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link EvIncDFeMDFe }
-     * 
      */
     public EvIncDFeMDFe createEvIncDFeMDFe() {
         return new EvIncDFeMDFe();
@@ -370,7 +331,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link EvIncCondutorMDFe }
-     * 
      */
     public EvIncCondutorMDFe createEvIncCondutorMDFe() {
         return new EvIncCondutorMDFe();
@@ -378,7 +338,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link EvAlteracaoPagtoServMDFe }
-     * 
      */
     public EvAlteracaoPagtoServMDFe createEvAlteracaoPagtoServMDFe() {
         return new EvAlteracaoPagtoServMDFe();
@@ -386,7 +345,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link EvAlteracaoPagtoServMDFe.InfPag }
-     * 
      */
     public EvAlteracaoPagtoServMDFe.InfPag createEvAlteracaoPagtoServMDFeInfPag() {
         return new EvAlteracaoPagtoServMDFe.InfPag();
@@ -394,7 +352,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TConsMDFeNaoEnc }
-     * 
      */
     public TConsMDFeNaoEnc createTConsMDFeNaoEnc() {
         return new TConsMDFeNaoEnc();
@@ -402,7 +359,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TConsReciMDFe }
-     * 
      */
     public TConsReciMDFe createTConsReciMDFe() {
         return new TConsReciMDFe();
@@ -410,7 +366,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TConsSitMDFe }
-     * 
      */
     public TConsSitMDFe createTConsSitMDFe() {
         return new TConsSitMDFe();
@@ -418,7 +373,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TConsStatServ }
-     * 
      */
     public TConsStatServ createTConsStatServ() {
         return new TConsStatServ();
@@ -426,7 +380,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DistDFeInt }
-     * 
      */
     public DistDFeInt createDistDFeInt() {
         return new DistDFeInt();
@@ -434,7 +387,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TEnviMDFe }
-     * 
      */
     public TEnviMDFe createTEnviMDFe() {
         return new TEnviMDFe();
@@ -442,7 +394,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link EvCancMDFe }
-     * 
      */
     public EvCancMDFe createEvCancMDFe() {
         return new EvCancMDFe();
@@ -450,7 +401,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link EvConfirmaServMDFe }
-     * 
      */
     public EvConfirmaServMDFe createEvConfirmaServMDFe() {
         return new EvConfirmaServMDFe();
@@ -458,7 +408,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link EvEncMDFe }
-     * 
      */
     public EvEncMDFe createEvEncMDFe() {
         return new EvEncMDFe();
@@ -466,7 +415,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TMDFeConsultaDFe }
-     * 
      */
     public TMDFeConsultaDFe createTMDFeConsultaDFe() {
         return new TMDFeConsultaDFe();
@@ -474,7 +422,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Aereo }
-     * 
      */
     public Aereo createAereo() {
         return new Aereo();
@@ -482,7 +429,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TProcEvento }
-     * 
      */
     public TProcEvento createTProcEvento() {
         return new TProcEvento();
@@ -490,7 +436,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TMdfeProc }
-     * 
      */
     public TMdfeProc createTMdfeProc() {
         return new TMdfeProc();
@@ -498,7 +443,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TRetConsReciMDFe }
-     * 
      */
     public TRetConsReciMDFe createTRetConsReciMDFe() {
         return new TRetConsReciMDFe();
@@ -506,7 +450,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TRetConsStatServ }
-     * 
      */
     public TRetConsStatServ createTRetConsStatServ() {
         return new TRetConsStatServ();
@@ -514,7 +457,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link RetDistDFeInt }
-     * 
      */
     public RetDistDFeInt createRetDistDFeInt() {
         return new RetDistDFeInt();
@@ -522,7 +464,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TRetMDFeConsultaDFe }
-     * 
      */
     public TRetMDFeConsultaDFe createTRetMDFeConsultaDFe() {
         return new TRetMDFeConsultaDFe();
@@ -530,7 +471,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TRetMDFe }
-     * 
      */
     public TRetMDFe createTRetMDFe() {
         return new TRetMDFe();
@@ -538,7 +478,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TEndeEmi }
-     * 
      */
     public TEndeEmi createTEndeEmi() {
         return new TEndeEmi();
@@ -546,7 +485,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TEndereco }
-     * 
      */
     public TEndereco createTEndereco() {
         return new TEndereco();
@@ -554,7 +492,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TEndernac }
-     * 
      */
     public TEndernac createTEndernac() {
         return new TEndernac();
@@ -562,7 +499,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TEnderFer }
-     * 
      */
     public TEnderFer createTEnderFer() {
         return new TEnderFer();
@@ -570,7 +506,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TEndOrg }
-     * 
      */
     public TEndOrg createTEndOrg() {
         return new TEndOrg();
@@ -578,7 +513,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TLocal }
-     * 
      */
     public TLocal createTLocal() {
         return new TLocal();
@@ -586,7 +520,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TEndReEnt }
-     * 
      */
     public TEndReEnt createTEndReEnt() {
         return new TEndReEnt();
@@ -594,7 +527,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TRespTec }
-     * 
      */
     public TRespTec createTRespTec() {
         return new TRespTec();
@@ -602,7 +534,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ConsNSU }
-     * 
      */
     public ConsNSU createConsNSU() {
         return new ConsNSU();
@@ -610,7 +541,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DistNSU }
-     * 
      */
     public DistNSU createDistNSU() {
         return new DistNSU();
@@ -618,7 +548,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DocZip }
-     * 
      */
     public DocZip createDocZip() {
         return new DocZip();
@@ -626,7 +555,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link LoteDistDFeInt }
-     * 
      */
     public LoteDistDFeInt createLoteDistDFeInt() {
         return new LoteDistDFeInt();
@@ -634,7 +562,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SignatureType }
-     * 
      */
     public SignatureType createSignatureType() {
         return new SignatureType();
@@ -642,7 +569,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SignatureValueType }
-     * 
      */
     public SignatureValueType createSignatureValueType() {
         return new SignatureValueType();
@@ -650,7 +576,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TransformsType }
-     * 
      */
     public TransformsType createTransformsType() {
         return new TransformsType();
@@ -658,7 +583,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TransformType }
-     * 
      */
     public TransformType createTransformType() {
         return new TransformType();
@@ -666,7 +590,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link KeyInfoType }
-     * 
      */
     public KeyInfoType createKeyInfoType() {
         return new KeyInfoType();
@@ -674,7 +597,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link X509DataType }
-     * 
      */
     public X509DataType createX509DataType() {
         return new X509DataType();
@@ -682,7 +604,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ReferenceType.DigestMethod }
-     * 
      */
     public ReferenceType.DigestMethod createReferenceTypeDigestMethod() {
         return new ReferenceType.DigestMethod();
@@ -690,7 +611,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SignedInfoType.CanonicalizationMethod }
-     * 
      */
     public SignedInfoType.CanonicalizationMethod createSignedInfoTypeCanonicalizationMethod() {
         return new SignedInfoType.CanonicalizationMethod();
@@ -698,7 +618,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SignedInfoType.SignatureMethod }
-     * 
      */
     public SignedInfoType.SignatureMethod createSignedInfoTypeSignatureMethod() {
         return new SignedInfoType.SignatureMethod();
@@ -706,7 +625,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TMDFeDFe.ProcMDFe }
-     * 
      */
     public TMDFeDFe.ProcMDFe createTMDFeDFeProcMDFe() {
         return new TMDFeDFe.ProcMDFe();
@@ -714,7 +632,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TMDFeDFe.ProcEventoMDFe }
-     * 
      */
     public TMDFeDFe.ProcEventoMDFe createTMDFeDFeProcEventoMDFe() {
         return new TMDFeDFe.ProcEventoMDFe();
@@ -722,7 +639,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TUnidCarga.LacUnidCarga }
-     * 
      */
     public TUnidCarga.LacUnidCarga createTUnidCargaLacUnidCarga() {
         return new TUnidCarga.LacUnidCarga();
@@ -730,7 +646,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TUnidadeTransp.LacUnidTransp }
-     * 
      */
     public TUnidadeTransp.LacUnidTransp createTUnidadeTranspLacUnidTransp() {
         return new TUnidadeTransp.LacUnidTransp();
@@ -738,7 +653,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TNFeNF.InfNFe }
-     * 
      */
     public TNFeNF.InfNFe createTNFeNFInfNFe() {
         return new TNFeNF.InfNFe();
@@ -746,7 +660,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TNFeNF.InfNF.Emi }
-     * 
      */
     public TNFeNF.InfNF.Emi createTNFeNFInfNFEmi() {
         return new TNFeNF.InfNF.Emi();
@@ -754,7 +667,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TNFeNF.InfNF.Dest }
-     * 
      */
     public TNFeNF.InfNF.Dest createTNFeNFInfNFDest() {
         return new TNFeNF.InfNF.Dest();
@@ -762,7 +674,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TRetEvento.InfEvento }
-     * 
      */
     public TRetEvento.InfEvento createTRetEventoInfEvento() {
         return new TRetEvento.InfEvento();
@@ -770,7 +681,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TRetEnviMDFe.InfRec }
-     * 
      */
     public TRetEnviMDFe.InfRec createTRetEnviMDFeInfRec() {
         return new TRetEnviMDFe.InfRec();
@@ -778,7 +688,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TRetConsSitMDFe.ProtMDFe }
-     * 
      */
     public TRetConsSitMDFe.ProtMDFe createTRetConsSitMDFeProtMDFe() {
         return new TRetConsSitMDFe.ProtMDFe();
@@ -786,7 +695,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TRetConsSitMDFe.ProcEventoMDFe }
-     * 
      */
     public TRetConsSitMDFe.ProcEventoMDFe createTRetConsSitMDFeProcEventoMDFe() {
         return new TRetConsSitMDFe.ProcEventoMDFe();
@@ -794,7 +702,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TRetConsMDFeNaoEnc.InfMDFe }
-     * 
      */
     public TRetConsMDFeNaoEnc.InfMDFe createTRetConsMDFeNaoEncInfMDFe() {
         return new TRetConsMDFeNaoEnc.InfMDFe();
@@ -802,7 +709,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TProtMDFe.InfProt }
-     * 
      */
     public TProtMDFe.InfProt createTProtMDFeInfProt() {
         return new TProtMDFe.InfProt();
@@ -810,7 +716,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TProtMDFe.InfFisco }
-     * 
      */
     public TProtMDFe.InfFisco createTProtMDFeInfFisco() {
         return new TProtMDFe.InfFisco();
@@ -818,7 +723,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TMDFe.InfMDFeSupl }
-     * 
      */
     public TMDFe.InfMDFeSupl createTMDFeInfMDFeSupl() {
         return new TMDFe.InfMDFeSupl();
@@ -826,7 +730,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TMDFe.InfMDFe.Emit }
-     * 
      */
     public TMDFe.InfMDFe.Emit createTMDFeInfMDFeEmit() {
         return new TMDFe.InfMDFe.Emit();
@@ -834,7 +737,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TMDFe.InfMDFe.InfModal }
-     * 
      */
     public TMDFe.InfMDFe.InfModal createTMDFeInfMDFeInfModal() {
         return new TMDFe.InfMDFe.InfModal();
@@ -842,7 +744,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TMDFe.InfMDFe.Tot }
-     * 
      */
     public TMDFe.InfMDFe.Tot createTMDFeInfMDFeTot() {
         return new TMDFe.InfMDFe.Tot();
@@ -850,7 +751,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TMDFe.InfMDFe.Lacres }
-     * 
      */
     public TMDFe.InfMDFe.Lacres createTMDFeInfMDFeLacres() {
         return new TMDFe.InfMDFe.Lacres();
@@ -858,7 +758,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TMDFe.InfMDFe.AutXML }
-     * 
      */
     public TMDFe.InfMDFe.AutXML createTMDFeInfMDFeAutXML() {
         return new TMDFe.InfMDFe.AutXML();
@@ -866,7 +765,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TMDFe.InfMDFe.InfAdic }
-     * 
      */
     public TMDFe.InfMDFe.InfAdic createTMDFeInfMDFeInfAdic() {
         return new TMDFe.InfMDFe.InfAdic();
@@ -874,7 +772,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TMDFe.InfMDFe.InfSolicNFF }
-     * 
      */
     public TMDFe.InfMDFe.InfSolicNFF createTMDFeInfMDFeInfSolicNFF() {
         return new TMDFe.InfMDFe.InfSolicNFF();
@@ -882,7 +779,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TMDFe.InfMDFe.ProdPred.InfLotacao.InfLocalCarrega }
-     * 
      */
     public TMDFe.InfMDFe.ProdPred.InfLotacao.InfLocalCarrega createTMDFeInfMDFeProdPredInfLotacaoInfLocalCarrega() {
         return new TMDFe.InfMDFe.ProdPred.InfLotacao.InfLocalCarrega();
@@ -890,7 +786,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TMDFe.InfMDFe.ProdPred.InfLotacao.InfLocalDescarrega }
-     * 
      */
     public TMDFe.InfMDFe.ProdPred.InfLotacao.InfLocalDescarrega createTMDFeInfMDFeProdPredInfLotacaoInfLocalDescarrega() {
         return new TMDFe.InfMDFe.ProdPred.InfLotacao.InfLocalDescarrega();
@@ -898,7 +793,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TMDFe.InfMDFe.Seg.InfResp }
-     * 
      */
     public TMDFe.InfMDFe.Seg.InfResp createTMDFeInfMDFeSegInfResp() {
         return new TMDFe.InfMDFe.Seg.InfResp();
@@ -906,7 +800,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TMDFe.InfMDFe.Seg.InfSeg }
-     * 
      */
     public TMDFe.InfMDFe.Seg.InfSeg createTMDFeInfMDFeSegInfSeg() {
         return new TMDFe.InfMDFe.Seg.InfSeg();
@@ -914,7 +807,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TMDFe.InfMDFe.InfDoc.InfMunDescarga.InfMDFeTransp.Peri }
-     * 
      */
     public TMDFe.InfMDFe.InfDoc.InfMunDescarga.InfMDFeTransp.Peri createTMDFeInfMDFeInfDocInfMunDescargaInfMDFeTranspPeri() {
         return new TMDFe.InfMDFe.InfDoc.InfMunDescarga.InfMDFeTransp.Peri();
@@ -922,7 +814,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TMDFe.InfMDFe.InfDoc.InfMunDescarga.InfNFe.Peri }
-     * 
      */
     public TMDFe.InfMDFe.InfDoc.InfMunDescarga.InfNFe.Peri createTMDFeInfMDFeInfDocInfMunDescargaInfNFePeri() {
         return new TMDFe.InfMDFe.InfDoc.InfMunDescarga.InfNFe.Peri();
@@ -930,7 +821,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TMDFe.InfMDFe.InfDoc.InfMunDescarga.InfCTe.Peri }
-     * 
      */
     public TMDFe.InfMDFe.InfDoc.InfMunDescarga.InfCTe.Peri createTMDFeInfMDFeInfDocInfMunDescargaInfCTePeri() {
         return new TMDFe.InfMDFe.InfDoc.InfMunDescarga.InfCTe.Peri();
@@ -938,7 +828,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TMDFe.InfMDFe.InfDoc.InfMunDescarga.InfCTe.InfEntregaParcial }
-     * 
      */
     public TMDFe.InfMDFe.InfDoc.InfMunDescarga.InfCTe.InfEntregaParcial createTMDFeInfMDFeInfDocInfMunDescargaInfCTeInfEntregaParcial() {
         return new TMDFe.InfMDFe.InfDoc.InfMunDescarga.InfCTe.InfEntregaParcial();
@@ -946,7 +835,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TMDFe.InfMDFe.Ide.InfMunCarrega }
-     * 
      */
     public TMDFe.InfMDFe.Ide.InfMunCarrega createTMDFeInfMDFeIdeInfMunCarrega() {
         return new TMDFe.InfMDFe.Ide.InfMunCarrega();
@@ -954,7 +842,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TMDFe.InfMDFe.Ide.InfPercurso }
-     * 
      */
     public TMDFe.InfMDFe.Ide.InfPercurso createTMDFeInfMDFeIdeInfPercurso() {
         return new TMDFe.InfMDFe.Ide.InfPercurso();
@@ -962,7 +849,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Rodo.LacRodo }
-     * 
      */
     public Rodo.LacRodo createRodoLacRodo() {
         return new Rodo.LacRodo();
@@ -970,7 +856,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Rodo.VeicReboque.Prop }
-     * 
      */
     public Rodo.VeicReboque.Prop createRodoVeicReboqueProp() {
         return new Rodo.VeicReboque.Prop();
@@ -978,7 +863,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Rodo.VeicTracao.Prop }
-     * 
      */
     public Rodo.VeicTracao.Prop createRodoVeicTracaoProp() {
         return new Rodo.VeicTracao.Prop();
@@ -986,7 +870,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Rodo.VeicTracao.Condutor }
-     * 
      */
     public Rodo.VeicTracao.Condutor createRodoVeicTracaoCondutor() {
         return new Rodo.VeicTracao.Condutor();
@@ -994,7 +877,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Rodo.InfANTT.InfCIOT }
-     * 
      */
     public Rodo.InfANTT.InfCIOT createRodoInfANTTInfCIOT() {
         return new Rodo.InfANTT.InfCIOT();
@@ -1002,7 +884,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Rodo.InfANTT.InfPag.Comp }
-     * 
      */
     public Rodo.InfANTT.InfPag.Comp createRodoInfANTTInfPagComp() {
         return new Rodo.InfANTT.InfPag.Comp();
@@ -1010,7 +891,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Rodo.InfANTT.InfPag.InfPrazo }
-     * 
      */
     public Rodo.InfANTT.InfPag.InfPrazo createRodoInfANTTInfPagInfPrazo() {
         return new Rodo.InfANTT.InfPag.InfPrazo();
@@ -1018,7 +898,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Rodo.InfANTT.InfPag.InfBanc }
-     * 
      */
     public Rodo.InfANTT.InfPag.InfBanc createRodoInfANTTInfPagInfBanc() {
         return new Rodo.InfANTT.InfPag.InfBanc();
@@ -1026,7 +905,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Rodo.InfANTT.InfContratante.InfContrato }
-     * 
      */
     public Rodo.InfANTT.InfContratante.InfContrato createRodoInfANTTInfContratanteInfContrato() {
         return new Rodo.InfANTT.InfContratante.InfContrato();
@@ -1034,7 +912,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Rodo.InfANTT.ValePed.Disp }
-     * 
      */
     public Rodo.InfANTT.ValePed.Disp createRodoInfANTTValePedDisp() {
         return new Rodo.InfANTT.ValePed.Disp();
@@ -1042,7 +919,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Ferrov.Trem }
-     * 
      */
     public Ferrov.Trem createFerrovTrem() {
         return new Ferrov.Trem();
@@ -1050,7 +926,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Ferrov.Vag }
-     * 
      */
     public Ferrov.Vag createFerrovVag() {
         return new Ferrov.Vag();
@@ -1058,7 +933,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Aquav.InfTermCarreg }
-     * 
      */
     public Aquav.InfTermCarreg createAquavInfTermCarreg() {
         return new Aquav.InfTermCarreg();
@@ -1066,7 +940,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Aquav.InfTermDescarreg }
-     * 
      */
     public Aquav.InfTermDescarreg createAquavInfTermDescarreg() {
         return new Aquav.InfTermDescarreg();
@@ -1074,7 +947,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Aquav.InfEmbComb }
-     * 
      */
     public Aquav.InfEmbComb createAquavInfEmbComb() {
         return new Aquav.InfEmbComb();
@@ -1082,7 +954,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Aquav.InfUnidCargaVazia }
-     * 
      */
     public Aquav.InfUnidCargaVazia createAquavInfUnidCargaVazia() {
         return new Aquav.InfUnidCargaVazia();
@@ -1090,7 +961,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Aquav.InfUnidTranspVazia }
-     * 
      */
     public Aquav.InfUnidTranspVazia createAquavInfUnidTranspVazia() {
         return new Aquav.InfUnidTranspVazia();
@@ -1098,7 +968,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TEvento.InfEvento.DetEvento }
-     * 
      */
     public TEvento.InfEvento.DetEvento createTEventoInfEventoDetEvento() {
         return new TEvento.InfEvento.DetEvento();
@@ -1106,7 +975,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link EvPagtoOperMDFe.InfViagens }
-     * 
      */
     public EvPagtoOperMDFe.InfViagens createEvPagtoOperMDFeInfViagens() {
         return new EvPagtoOperMDFe.InfViagens();
@@ -1114,7 +982,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link EvPagtoOperMDFe.InfPag.Comp }
-     * 
      */
     public EvPagtoOperMDFe.InfPag.Comp createEvPagtoOperMDFeInfPagComp() {
         return new EvPagtoOperMDFe.InfPag.Comp();
@@ -1122,7 +989,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link EvPagtoOperMDFe.InfPag.InfPrazo }
-     * 
      */
     public EvPagtoOperMDFe.InfPag.InfPrazo createEvPagtoOperMDFeInfPagInfPrazo() {
         return new EvPagtoOperMDFe.InfPag.InfPrazo();
@@ -1130,7 +996,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link EvPagtoOperMDFe.InfPag.InfBanc }
-     * 
      */
     public EvPagtoOperMDFe.InfPag.InfBanc createEvPagtoOperMDFeInfPagInfBanc() {
         return new EvPagtoOperMDFe.InfPag.InfBanc();
@@ -1138,7 +1003,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link EvIncDFeMDFe.InfDoc }
-     * 
      */
     public EvIncDFeMDFe.InfDoc createEvIncDFeMDFeInfDoc() {
         return new EvIncDFeMDFe.InfDoc();
@@ -1146,7 +1010,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link EvIncCondutorMDFe.Condutor }
-     * 
      */
     public EvIncCondutorMDFe.Condutor createEvIncCondutorMDFeCondutor() {
         return new EvIncCondutorMDFe.Condutor();
@@ -1154,7 +1017,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link EvAlteracaoPagtoServMDFe.InfPag.Comp }
-     * 
      */
     public EvAlteracaoPagtoServMDFe.InfPag.Comp createEvAlteracaoPagtoServMDFeInfPagComp() {
         return new EvAlteracaoPagtoServMDFe.InfPag.Comp();
@@ -1162,7 +1024,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link EvAlteracaoPagtoServMDFe.InfPag.InfPrazo }
-     * 
      */
     public EvAlteracaoPagtoServMDFe.InfPag.InfPrazo createEvAlteracaoPagtoServMDFeInfPagInfPrazo() {
         return new EvAlteracaoPagtoServMDFe.InfPag.InfPrazo();
@@ -1170,7 +1031,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link EvAlteracaoPagtoServMDFe.InfPag.InfBanc }
-     * 
      */
     public EvAlteracaoPagtoServMDFe.InfPag.InfBanc createEvAlteracaoPagtoServMDFeInfPagInfBanc() {
         return new EvAlteracaoPagtoServMDFe.InfPag.InfBanc();
@@ -1178,11 +1038,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TConsMDFeNaoEnc }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TConsMDFeNaoEnc }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TConsMDFeNaoEnc }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "consMDFeNaoEnc")
     public JAXBElement<TConsMDFeNaoEnc> createConsMDFeNaoEnc(TConsMDFeNaoEnc value) {
@@ -1191,11 +1049,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TConsReciMDFe }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TConsReciMDFe }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TConsReciMDFe }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "consReciMDFe")
     public JAXBElement<TConsReciMDFe> createConsReciMDFe(TConsReciMDFe value) {
@@ -1204,11 +1060,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TConsSitMDFe }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TConsSitMDFe }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TConsSitMDFe }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "consSitMDFe")
     public JAXBElement<TConsSitMDFe> createConsSitMDFe(TConsSitMDFe value) {
@@ -1217,11 +1071,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TConsStatServ }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TConsStatServ }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TConsStatServ }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "consStatServMDFe")
     public JAXBElement<TConsStatServ> createConsStatServMDFe(TConsStatServ value) {
@@ -1230,11 +1082,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link DistDFeInt }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link DistDFeInt }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link DistDFeInt }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "distDFeInt")
     public JAXBElement<DistDFeInt> createDistDFeInt(DistDFeInt value) {
@@ -1243,11 +1093,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TEnviMDFe }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TEnviMDFe }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TEnviMDFe }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "enviMDFe")
     public JAXBElement<TEnviMDFe> createEnviMDFe(TEnviMDFe value) {
@@ -1256,11 +1104,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link EvAlteracaoPagtoServMDFe }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link EvAlteracaoPagtoServMDFe }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link EvAlteracaoPagtoServMDFe }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "evAlteracaoPagtoServMDFe")
     public JAXBElement<EvAlteracaoPagtoServMDFe> createEvAlteracaoPagtoServMDFe(EvAlteracaoPagtoServMDFe value) {
@@ -1269,11 +1115,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link EvCancMDFe }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link EvCancMDFe }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link EvCancMDFe }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "evCancMDFe")
     public JAXBElement<EvCancMDFe> createEvCancMDFe(EvCancMDFe value) {
@@ -1282,11 +1126,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link EvConfirmaServMDFe }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link EvConfirmaServMDFe }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link EvConfirmaServMDFe }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "evConfirmaServMDFe")
     public JAXBElement<EvConfirmaServMDFe> createEvConfirmaServMDFe(EvConfirmaServMDFe value) {
@@ -1295,11 +1137,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link EvEncMDFe }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link EvEncMDFe }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link EvEncMDFe }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "evEncMDFe")
     public JAXBElement<EvEncMDFe> createEvEncMDFe(EvEncMDFe value) {
@@ -1308,11 +1148,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link EvIncCondutorMDFe }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link EvIncCondutorMDFe }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link EvIncCondutorMDFe }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "evIncCondutorMDFe")
     public JAXBElement<EvIncCondutorMDFe> createEvIncCondutorMDFe(EvIncCondutorMDFe value) {
@@ -1321,11 +1159,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link EvIncDFeMDFe }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link EvIncDFeMDFe }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link EvIncDFeMDFe }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "evIncDFeMDFe")
     public JAXBElement<EvIncDFeMDFe> createEvIncDFeMDFe(EvIncDFeMDFe value) {
@@ -1334,11 +1170,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link EvPagtoOperMDFe }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link EvPagtoOperMDFe }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link EvPagtoOperMDFe }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "evPagtoOperMDFe")
     public JAXBElement<EvPagtoOperMDFe> createEvPagtoOperMDFe(EvPagtoOperMDFe value) {
@@ -1347,11 +1181,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TEvento }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TEvento }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TEvento }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "eventoMDFe")
     public JAXBElement<TEvento> createEventoMDFe(TEvento value) {
@@ -1360,11 +1192,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TMDFeConsultaDFe }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TMDFeConsultaDFe }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TMDFeConsultaDFe }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "mdfeConsultaDFe")
     public JAXBElement<TMDFeConsultaDFe> createMdfeConsultaDFe(TMDFeConsultaDFe value) {
@@ -1373,11 +1203,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Aereo }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link Aereo }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link Aereo }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "aereo")
     public JAXBElement<Aereo> createAereo(Aereo value) {
@@ -1386,11 +1214,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Aquav }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link Aquav }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link Aquav }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "aquav")
     public JAXBElement<Aquav> createAquav(Aquav value) {
@@ -1399,11 +1225,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Ferrov }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link Ferrov }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link Ferrov }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "ferrov")
     public JAXBElement<Ferrov> createFerrov(Ferrov value) {
@@ -1412,11 +1236,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Rodo }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link Rodo }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link Rodo }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "rodo")
     public JAXBElement<Rodo> createRodo(Rodo value) {
@@ -1425,11 +1247,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TMDFe }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TMDFe }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TMDFe }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "MDFe")
     public JAXBElement<TMDFe> createMDFe(TMDFe value) {
@@ -1438,11 +1258,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TProcEvento }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TProcEvento }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TProcEvento }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "procEventoMDFe")
     public JAXBElement<TProcEvento> createProcEventoMDFe(TProcEvento value) {
@@ -1451,11 +1269,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TMdfeProc }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TMdfeProc }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TMdfeProc }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "mdfeProc")
     public JAXBElement<TMdfeProc> createMdfeProc(TMdfeProc value) {
@@ -1464,11 +1280,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TProtMDFe }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TProtMDFe }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TProtMDFe }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "protMDFe")
     public JAXBElement<TProtMDFe> createProtMDFe(TProtMDFe value) {
@@ -1477,11 +1291,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TRetConsMDFeNaoEnc }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TRetConsMDFeNaoEnc }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TRetConsMDFeNaoEnc }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "retConsMDFeNaoEnc")
     public JAXBElement<TRetConsMDFeNaoEnc> createRetConsMDFeNaoEnc(TRetConsMDFeNaoEnc value) {
@@ -1490,11 +1302,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TRetConsReciMDFe }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TRetConsReciMDFe }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TRetConsReciMDFe }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "retConsReciMDFe")
     public JAXBElement<TRetConsReciMDFe> createRetConsReciMDFe(TRetConsReciMDFe value) {
@@ -1503,11 +1313,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TRetConsSitMDFe }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TRetConsSitMDFe }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TRetConsSitMDFe }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "retConsSitMDFe")
     public JAXBElement<TRetConsSitMDFe> createRetConsSitMDFe(TRetConsSitMDFe value) {
@@ -1516,11 +1324,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TRetConsStatServ }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TRetConsStatServ }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TRetConsStatServ }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "retConsStatServMDFe")
     public JAXBElement<TRetConsStatServ> createRetConsStatServMDFe(TRetConsStatServ value) {
@@ -1529,11 +1335,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link RetDistDFeInt }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link RetDistDFeInt }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link RetDistDFeInt }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "retDistDFeInt")
     public JAXBElement<RetDistDFeInt> createRetDistDFeInt(RetDistDFeInt value) {
@@ -1542,11 +1346,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TRetEnviMDFe }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TRetEnviMDFe }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TRetEnviMDFe }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "retEnviMDFe")
     public JAXBElement<TRetEnviMDFe> createRetEnviMDFe(TRetEnviMDFe value) {
@@ -1555,11 +1357,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TRetEvento }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TRetEvento }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TRetEvento }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "retEventoMDFe")
     public JAXBElement<TRetEvento> createRetEventoMDFe(TRetEvento value) {
@@ -1568,11 +1368,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TRetMDFeConsultaDFe }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TRetMDFeConsultaDFe }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TRetMDFeConsultaDFe }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "retMDFeConsultaDFe")
     public JAXBElement<TRetMDFeConsultaDFe> createRetMDFeConsultaDFe(TRetMDFeConsultaDFe value) {
@@ -1581,11 +1379,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TRetMDFe }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link TRetMDFe }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link TRetMDFe }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "retMDFe")
     public JAXBElement<TRetMDFe> createRetMDFe(TRetMDFe value) {
@@ -1594,11 +1390,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link SignatureType }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link SignatureType }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link SignatureType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.w3.org/2000/09/xmldsig#", name = "Signature")
     public JAXBElement<SignatureType> createSignature(SignatureType value) {

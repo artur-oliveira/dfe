@@ -1,12 +1,12 @@
 package com.softart.dfe.components.process.nf.manifestation;
 
 import br.inf.portalfiscal.nfe.event_manifestation.TEnvEvento;
+import com.softart.dfe.components.internal.xml.marshaller.NfMarshaller;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.interfaces.process.BeforeRequest;
 import com.softart.dfe.interfaces.process.nf.manifestation.BeforeManifestation;
 import com.softart.dfe.interfaces.storage.nf.NfeManifestationStorage;
 import com.softart.dfe.models.internal.xml.XMLStore;
-import com.softart.dfe.components.internal.xml.marshaller.NfMarshaller;
 
 import java.util.Objects;
 

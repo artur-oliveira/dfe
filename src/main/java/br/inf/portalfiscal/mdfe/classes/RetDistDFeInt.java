@@ -8,19 +8,16 @@
 
 package br.inf.portalfiscal.mdfe.classes;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
+import com.softart.dfe.interfaces.xml.generic.XML;
+
+import javax.xml.bind.annotation.*;
 
 
 /**
  * <p>Classe Java de RetDistDFeInt complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="RetDistDFeInt"&gt;
  *   &lt;complexContent&gt;
@@ -47,23 +44,20 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "RetDistDFeInt", propOrder = {
-    "tpAmb",
-    "verAplic",
-    "cStat",
-    "xMotivo",
-    "dhResp",
-    "ultNSU",
-    "maxNSU",
-    "loteDistDFeInt"
+        "tpAmb",
+        "verAplic",
+        "cStat",
+        "xMotivo",
+        "dhResp",
+        "ultNSU",
+        "maxNSU",
+        "loteDistDFeInt"
 })
 public class RetDistDFeInt
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected String tpAmb;
@@ -85,11 +79,9 @@ public class RetDistDFeInt
 
     /**
      * Obtém o valor da propriedade tpAmb.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getTpAmb() {
         return tpAmb;
@@ -97,11 +89,9 @@ public class RetDistDFeInt
 
     /**
      * Define o valor da propriedade tpAmb.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setTpAmb(String value) {
         this.tpAmb = value;
@@ -109,11 +99,9 @@ public class RetDistDFeInt
 
     /**
      * Obtém o valor da propriedade verAplic.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVerAplic() {
         return verAplic;
@@ -121,11 +109,9 @@ public class RetDistDFeInt
 
     /**
      * Define o valor da propriedade verAplic.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVerAplic(String value) {
         this.verAplic = value;
@@ -133,11 +119,9 @@ public class RetDistDFeInt
 
     /**
      * Obtém o valor da propriedade cStat.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCStat() {
         return cStat;
@@ -145,11 +129,9 @@ public class RetDistDFeInt
 
     /**
      * Define o valor da propriedade cStat.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCStat(String value) {
         this.cStat = value;
@@ -157,11 +139,9 @@ public class RetDistDFeInt
 
     /**
      * Obtém o valor da propriedade xMotivo.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getXMotivo() {
         return xMotivo;
@@ -169,11 +149,9 @@ public class RetDistDFeInt
 
     /**
      * Define o valor da propriedade xMotivo.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setXMotivo(String value) {
         this.xMotivo = value;
@@ -181,11 +159,9 @@ public class RetDistDFeInt
 
     /**
      * Obtém o valor da propriedade dhResp.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getDhResp() {
         return dhResp;
@@ -193,11 +169,9 @@ public class RetDistDFeInt
 
     /**
      * Define o valor da propriedade dhResp.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setDhResp(String value) {
         this.dhResp = value;
@@ -205,11 +179,9 @@ public class RetDistDFeInt
 
     /**
      * Obtém o valor da propriedade ultNSU.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getUltNSU() {
         return ultNSU;
@@ -217,11 +189,9 @@ public class RetDistDFeInt
 
     /**
      * Define o valor da propriedade ultNSU.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setUltNSU(String value) {
         this.ultNSU = value;
@@ -229,11 +199,9 @@ public class RetDistDFeInt
 
     /**
      * Obtém o valor da propriedade maxNSU.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getMaxNSU() {
         return maxNSU;
@@ -241,11 +209,9 @@ public class RetDistDFeInt
 
     /**
      * Define o valor da propriedade maxNSU.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setMaxNSU(String value) {
         this.maxNSU = value;
@@ -253,11 +219,9 @@ public class RetDistDFeInt
 
     /**
      * Obtém o valor da propriedade loteDistDFeInt.
-     * 
-     * @return
-     *     possible object is
-     *     {@link LoteDistDFeInt }
-     *     
+     *
+     * @return possible object is
+     * {@link LoteDistDFeInt }
      */
     public LoteDistDFeInt getLoteDistDFeInt() {
         return loteDistDFeInt;
@@ -265,11 +229,9 @@ public class RetDistDFeInt
 
     /**
      * Define o valor da propriedade loteDistDFeInt.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link LoteDistDFeInt }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link LoteDistDFeInt }
      */
     public void setLoteDistDFeInt(LoteDistDFeInt value) {
         this.loteDistDFeInt = value;
@@ -277,11 +239,9 @@ public class RetDistDFeInt
 
     /**
      * Obtém o valor da propriedade versao.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVersao() {
         return versao;
@@ -289,11 +249,9 @@ public class RetDistDFeInt
 
     /**
      * Define o valor da propriedade versao.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVersao(String value) {
         this.versao = value;

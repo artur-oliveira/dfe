@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Classe Java de TUf.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
  * <p>
  * <pre>
@@ -52,7 +52,6 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/restriction&gt;
  * &lt;/simpleType&gt;
  * </pre>
- * 
  */
 @XmlType(name = "TUf")
 @XmlEnum
@@ -87,12 +86,12 @@ public enum TUf {
     TO,
     EX;
 
-    public String value() {
-        return name();
-    }
-
     public static TUf fromValue(String v) {
         return valueOf(v);
+    }
+
+    public String value() {
+        return name();
     }
 
 }

@@ -28,7 +28,7 @@ public interface MDFeStatusServicoSoap12 {
      */
     @WebMethod(action = "http://www.portalfiscal.inf.br/mdfe/wsdl/MDFeStatusServico/mdfeStatusServicoMDF")
     @WebResult(name = "mdfeStatusServicoMDFResult", targetNamespace = "http://www.portalfiscal.inf.br/mdfe/wsdl/MDFeStatusServico", partName = "mdfeStatusServicoMDFResult")
-    public MdfeStatusServicoMDFResult mdfeStatusServicoMDF(
+    MdfeStatusServicoMDFResult mdfeStatusServicoMDF(
             @WebParam(name = "mdfeDadosMsg", targetNamespace = "http://www.portalfiscal.inf.br/mdfe/wsdl/MDFeStatusServico", partName = "mdfeDadosMsg")
             MdfeDadosMsg mdfeDadosMsg,
             @WebParam(name = "mdfeCabecMsg", targetNamespace = "http://www.portalfiscal.inf.br/mdfe/wsdl/MDFeStatusServico", header = true, mode = WebParam.Mode.INOUT, partName = "mdfeCabecMsg")

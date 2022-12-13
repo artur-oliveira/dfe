@@ -17,29 +17,59 @@ public final class ReflectionUtils {
         throw new UnsupportedOperationException("No instances of " + this.getClass().getSimpleName());
     }
 
+    /**
+     * Create a new instance of the given class.
+     *
+     * @param cls The class to instantiate
+     * @return A new instance of the class.
+     */
     @SneakyThrows
     public static <T> T newInstance(Class<T> cls) {
         return cls.newInstance();
     }
 
+    /**
+     * If the class is null, return null, otherwise return a new instance of the class.
+     *
+     * @param cls The class to be instantiated.
+     * @return A new instance of the class passed in.
+     */
     public static <T> T safeNewInstance(Class<T> cls) {
         try {
             if (Objects.isNull(cls)) return null;
-            return cls.newInstance();
+            return newInstance(cls);
         } catch (Exception e) {
             log.error(e.getMessage());
             return null;
         }
     }
 
+    /**
+     * Find all classes in the given package.
+     *
+     * @param packageName The package name to search for classes in.
+     * @return A set of classes.
+     */
     public static Set<Class<?>> findAllClasses(String packageName) {
         return findAllClasses(PackageFinder.builder().packages(Collections.singletonList(packageName)).build());
     }
 
+    /**
+     * If the file ends with .class or .java, return true.
+     *
+     * @param file The file to check.
+     * @return The file extension of the file.
+     */
     private static boolean isClassFile(String file) {
         return file.endsWith(".class") || file.endsWith(".java");
     }
 
+    /**
+     * > Find all classes in the given package finder
+     *
+     * @param packageFinder This is the package finder object that we created earlier.
+     * @return A set of all classes in the packages specified in the packageFinder.
+     */
     @SneakyThrows
     public static Set<Class<?>> findAllClasses(PackageFinder packageFinder) {
         Set<Class<?>> allClasses = new HashSet<>();
@@ -62,6 +92,7 @@ public final class ReflectionUtils {
                                     .packages(Collections.singletonList(packageName + "." + line))
                                     .packageAntMatcher(packageFinder.getPackageAntMatcher())
                                     .packageMatchers(packageFinder.getPackageMatchers())
+                                    .excludeClasses(packageFinder.getExcludeClasses())
                                     .build()));
                         }
                     }
@@ -72,6 +103,13 @@ public final class ReflectionUtils {
         return Collections.unmodifiableSet(allClasses);
     }
 
+    /**
+     * It takes a class name and a package name, and returns the class object
+     *
+     * @param className   The name of the class to be loaded.
+     * @param packageName The package name of the class to be loaded.
+     * @return A Class object.
+     */
     private static Class<?> getClass(String className, String packageName) {
         try {
             return Class.forName(packageName + "."

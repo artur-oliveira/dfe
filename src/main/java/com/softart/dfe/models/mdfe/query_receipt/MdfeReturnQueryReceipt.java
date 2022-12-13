@@ -1,8 +1,8 @@
 package com.softart.dfe.models.mdfe.query_receipt;
 
 import br.inf.portalfiscal.mdfe.classes.TRetConsReciMDFe;
-import com.softart.dfe.interfaces.xml.DFObject;
 import com.softart.dfe.interfaces.xml.XMLAdapter;
+import com.softart.dfe.interfaces.xml.generic.DFObject;
 import com.softart.dfe.models.mdfe.reception_sync.MdfeProtocol;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

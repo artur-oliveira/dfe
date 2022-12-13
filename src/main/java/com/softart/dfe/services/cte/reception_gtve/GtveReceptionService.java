@@ -1,6 +1,7 @@
 package com.softart.dfe.services.cte.reception_gtve;
 
 import br.inf.portalfiscal.cte.send.TGTVe;
+import com.softart.dfe.components.internal.xml.unmarshaller.CteUnmarshaller;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.exceptions.ValidationException;
 import com.softart.dfe.exceptions.port.SoapServiceGeneralException;
@@ -13,6 +14,12 @@ import com.softart.dfe.models.cte.reception_gtve.GtveReturn;
 
 public interface GtveReceptionService extends CteSefazService {
 
+    /**
+     * A function that receives a TGTVe object and returns a GtveReturn object.
+     *
+     * @param tgtVe The object that will be sent to the SEFAZ.
+     * @return A GtveReturn object.
+     */
     default GtveReturn receptionGtve(TGTVe tgtVe) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return GtveReturn
                 .builder()
@@ -31,8 +38,24 @@ public interface GtveReceptionService extends CteSefazService {
                                 .build()));
     }
 
+    /**
+     * It converts a Gtve object to a GtveReturn object.
+     *
+     * @param gtve The object that contains the data to be sent to the server.
+     * @return A GtveReturn object.
+     */
     default GtveReturn receptionGtve(Gtve gtve) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return receptionGtve(gtve.toObject());
+    }
+
+    /**
+     * It unmarshalls the XML and then calls the function below.
+     *
+     * @param xml XML string to be sent to the service.
+     * @return A GtveReturn object.
+     */
+    default GtveReturn receptionGtve(String xml) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+        return receptionGtve(CteUnmarshaller.receptionGtve(xml).getValue());
     }
 
 }

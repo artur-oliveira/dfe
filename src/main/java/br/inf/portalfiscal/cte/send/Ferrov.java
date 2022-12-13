@@ -8,18 +8,19 @@
 
 package br.inf.portalfiscal.cte.send;
 
+import com.softart.dfe.interfaces.xml.generic.XML;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
 
 
 /**
  * <p>Classe Java de Ferrov complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="Ferrov"&gt;
  *   &lt;complexContent&gt;
@@ -50,18 +51,15 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Ferrov", propOrder = {
-    "tpTraf",
-    "trafMut",
-    "fluxo"
+        "tpTraf",
+        "trafMut",
+        "fluxo"
 })
 public class Ferrov
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected String tpTraf;
@@ -71,11 +69,9 @@ public class Ferrov
 
     /**
      * Obtém o valor da propriedade tpTraf.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getTpTraf() {
         return tpTraf;
@@ -83,11 +79,9 @@ public class Ferrov
 
     /**
      * Define o valor da propriedade tpTraf.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setTpTraf(String value) {
         this.tpTraf = value;
@@ -95,11 +89,9 @@ public class Ferrov
 
     /**
      * Obtém o valor da propriedade trafMut.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TrafMut }
-     *     
+     *
+     * @return possible object is
+     * {@link TrafMut }
      */
     public TrafMut getTrafMut() {
         return trafMut;
@@ -107,11 +99,9 @@ public class Ferrov
 
     /**
      * Define o valor da propriedade trafMut.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TrafMut }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link TrafMut }
      */
     public void setTrafMut(TrafMut value) {
         this.trafMut = value;
@@ -119,11 +109,9 @@ public class Ferrov
 
     /**
      * Obtém o valor da propriedade fluxo.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getFluxo() {
         return fluxo;
@@ -131,11 +119,9 @@ public class Ferrov
 
     /**
      * Define o valor da propriedade fluxo.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setFluxo(String value) {
         this.fluxo = value;

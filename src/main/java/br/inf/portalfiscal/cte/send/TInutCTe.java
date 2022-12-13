@@ -8,22 +8,19 @@
 
 package br.inf.portalfiscal.cte.send;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
+import com.softart.dfe.interfaces.xml.generic.XML;
+
+import javax.xml.bind.annotation.*;
 
 
 /**
  * Tipo Pedido de Inutilização de Numeração do Conhecimento de Transporte eletrônico
- *             
- * 
+ *
+ *
  * <p>Classe Java de TInutCTe complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="TInutCTe"&gt;
  *   &lt;complexContent&gt;
@@ -42,17 +39,14 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TInutCTe", propOrder = {
-    "infInut",
-    "signature"
+        "infInut",
+        "signature"
 })
 public class TInutCTe
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected InfInut infInut;
@@ -63,11 +57,9 @@ public class TInutCTe
 
     /**
      * Obtém o valor da propriedade infInut.
-     * 
-     * @return
-     *     possible object is
-     *     {@link InfInut }
-     *     
+     *
+     * @return possible object is
+     * {@link InfInut }
      */
     public InfInut getInfInut() {
         return infInut;
@@ -75,11 +67,9 @@ public class TInutCTe
 
     /**
      * Define o valor da propriedade infInut.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link InfInut }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link InfInut }
      */
     public void setInfInut(InfInut value) {
         this.infInut = value;
@@ -87,11 +77,9 @@ public class TInutCTe
 
     /**
      * Obtém o valor da propriedade signature.
-     * 
-     * @return
-     *     possible object is
-     *     {@link SignatureType }
-     *     
+     *
+     * @return possible object is
+     * {@link SignatureType }
      */
     public SignatureType getSignature() {
         return signature;
@@ -99,11 +87,9 @@ public class TInutCTe
 
     /**
      * Define o valor da propriedade signature.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link SignatureType }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link SignatureType }
      */
     public void setSignature(SignatureType value) {
         this.signature = value;
@@ -111,11 +97,9 @@ public class TInutCTe
 
     /**
      * Obtém o valor da propriedade versao.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVersao() {
         return versao;
@@ -123,11 +107,9 @@ public class TInutCTe
 
     /**
      * Define o valor da propriedade versao.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVersao(String value) {
         this.versao = value;

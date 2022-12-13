@@ -8,25 +8,22 @@
 
 package br.inf.portalfiscal.cte.send;
 
+import com.softart.dfe.interfaces.xml.generic.XML;
+
+import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
 
 
 /**
  * Tipo Retorno de Pedido de Consulta da Situação Atual do Conhecimento de Transporte
- *                 eletrônico
- *             
- * 
+ * eletrônico
+ *
+ *
  * <p>Classe Java de TRetConsSitCTe complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="TRetConsSitCTe"&gt;
  *   &lt;complexContent&gt;
@@ -45,22 +42,19 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TRetConsSitCTe", propOrder = {
-    "tpAmb",
-    "verAplic",
-    "cStat",
-    "xMotivo",
-    "cuf",
-    "protCTe",
-    "procEventoCTe"
+        "tpAmb",
+        "verAplic",
+        "cStat",
+        "xMotivo",
+        "cuf",
+        "protCTe",
+        "procEventoCTe"
 })
 public class TRetConsSitCTe
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected String tpAmb;
@@ -79,11 +73,9 @@ public class TRetConsSitCTe
 
     /**
      * Obtém o valor da propriedade tpAmb.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getTpAmb() {
         return tpAmb;
@@ -91,11 +83,9 @@ public class TRetConsSitCTe
 
     /**
      * Define o valor da propriedade tpAmb.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setTpAmb(String value) {
         this.tpAmb = value;
@@ -103,11 +93,9 @@ public class TRetConsSitCTe
 
     /**
      * Obtém o valor da propriedade verAplic.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVerAplic() {
         return verAplic;
@@ -115,11 +103,9 @@ public class TRetConsSitCTe
 
     /**
      * Define o valor da propriedade verAplic.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVerAplic(String value) {
         this.verAplic = value;
@@ -127,11 +113,9 @@ public class TRetConsSitCTe
 
     /**
      * Obtém o valor da propriedade cStat.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCStat() {
         return cStat;
@@ -139,11 +123,9 @@ public class TRetConsSitCTe
 
     /**
      * Define o valor da propriedade cStat.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCStat(String value) {
         this.cStat = value;
@@ -151,11 +133,9 @@ public class TRetConsSitCTe
 
     /**
      * Obtém o valor da propriedade xMotivo.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getXMotivo() {
         return xMotivo;
@@ -163,11 +143,9 @@ public class TRetConsSitCTe
 
     /**
      * Define o valor da propriedade xMotivo.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setXMotivo(String value) {
         this.xMotivo = value;
@@ -175,11 +153,9 @@ public class TRetConsSitCTe
 
     /**
      * Obtém o valor da propriedade cuf.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCUF() {
         return cuf;
@@ -187,11 +163,9 @@ public class TRetConsSitCTe
 
     /**
      * Define o valor da propriedade cuf.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCUF(String value) {
         this.cuf = value;
@@ -199,11 +173,9 @@ public class TRetConsSitCTe
 
     /**
      * Obtém o valor da propriedade protCTe.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ProtCTeAny }
-     *     
+     *
+     * @return possible object is
+     * {@link ProtCTeAny }
      */
     public ProtCTeAny getProtCTe() {
         return protCTe;
@@ -211,11 +183,9 @@ public class TRetConsSitCTe
 
     /**
      * Define o valor da propriedade protCTe.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link ProtCTeAny }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link ProtCTeAny }
      */
     public void setProtCTe(ProtCTeAny value) {
         this.protCTe = value;
@@ -223,25 +193,23 @@ public class TRetConsSitCTe
 
     /**
      * Gets the value of the procEventoCTe property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the procEventoCTe property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getProcEventoCTe().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link ProcEventoCTe }
-     * 
-     * 
      */
     public List<ProcEventoCTe> getProcEventoCTe() {
         if (procEventoCTe == null) {
@@ -252,11 +220,9 @@ public class TRetConsSitCTe
 
     /**
      * Obtém o valor da propriedade versao.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVersao() {
         return versao;
@@ -264,11 +230,9 @@ public class TRetConsSitCTe
 
     /**
      * Define o valor da propriedade versao.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVersao(String value) {
         this.versao = value;

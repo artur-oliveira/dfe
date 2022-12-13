@@ -101,6 +101,7 @@ public enum CityRJ implements DFEnum.Codeable {
     ;
     private final String code;
     private final String description;
+
     CityRJ(String code, String description) {
         this.code = code;
         this.description = description;

@@ -7,8 +7,8 @@ import com.softart.dfe.enums.general.Country;
 import com.softart.dfe.enums.internal.Model;
 import com.softart.dfe.enums.nf.identification.NFEmissionType;
 import com.softart.dfe.enums.nf.version.NFVersion;
-import com.softart.dfe.interfaces.xml.DFObject;
 import com.softart.dfe.interfaces.xml.XMLAdapter;
+import com.softart.dfe.interfaces.xml.generic.DFObject;
 import com.softart.dfe.util.DateUtils;
 import com.softart.dfe.util.StringUtils;
 import com.softart.dfe.util.XMLStringUtils;
@@ -16,7 +16,6 @@ import lombok.*;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.Properties;
 
 @Getter
 @Setter

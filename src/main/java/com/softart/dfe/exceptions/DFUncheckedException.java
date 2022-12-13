@@ -1,5 +1,8 @@
 package com.softart.dfe.exceptions;
 
+/**
+ * `DFUncheckedException` is a `RuntimeException` that can be thrown by a `DFProcessor` when it encounters an error
+ */
 public class DFUncheckedException extends RuntimeException {
 
     public DFUncheckedException() {

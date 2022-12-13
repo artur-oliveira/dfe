@@ -5,13 +5,10 @@ import br.inf.portalfiscal.cte.send.TRetCTeOS;
 import com.softart.dfe.interfaces.internal.config.Config;
 import com.softart.dfe.interfaces.process.cte.reception_os.AfterReceptionCteOs;
 import com.softart.dfe.interfaces.process.cte.reception_os.BeforeReceptionCteOs;
-import com.softart.dfe.interfaces.process.cte.reception_sync.AfterReceptionCteSync;
-import com.softart.dfe.interfaces.process.cte.reception_sync.BeforeReceptionCteSync;
 import com.softart.dfe.interfaces.sefaz.SefazRequest;
 import com.softart.dfe.interfaces.validation.cte.CteReceptionCteOsValidator;
-import com.softart.dfe.interfaces.validation.cte.CteReceptionCteSyncValidator;
 import com.softart.dfe.interfaces.wsdl.ConfigureProvider;
-import com.softart.dfe.interfaces.xml.XMLSigner;
+import com.softart.dfe.interfaces.xml.XMLSignerService;
 import lombok.*;
 
 import java.util.Collection;
@@ -25,7 +22,7 @@ import java.util.Collection;
 public final class CteOsRequest implements SefazRequest<TCTeOS, TRetCTeOS> {
     public TCTeOS data;
     public Config config;
-    public XMLSigner signer;
+    public XMLSignerService signer;
     public ConfigureProvider configureProvider;
     public Collection<CteReceptionCteOsValidator> validators;
     public Collection<BeforeReceptionCteOs> beforeRequest;

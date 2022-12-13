@@ -8,7 +8,7 @@ import com.softart.dfe.interfaces.process.nf.return_authorization.BeforeReturnAu
 import com.softart.dfe.interfaces.sefaz.SefazRequest;
 import com.softart.dfe.interfaces.validation.nf.common.NfReturnAuthorizationValidator;
 import com.softart.dfe.interfaces.wsdl.ConfigureProvider;
-import com.softart.dfe.interfaces.xml.XMLSigner;
+import com.softart.dfe.interfaces.xml.XMLSignerService;
 import lombok.*;
 
 import java.util.Collection;
@@ -23,7 +23,7 @@ public final class QueryReceiptNfeRequest implements SefazRequest<TConsReciNFe, 
 
     public TConsReciNFe data;
     public Config config;
-    public XMLSigner signer;
+    public XMLSignerService signer;
     public ConfigureProvider configureProvider;
     public Collection<NfReturnAuthorizationValidator> validators;
     public Collection<BeforeReturnAuthorization> beforeRequest;

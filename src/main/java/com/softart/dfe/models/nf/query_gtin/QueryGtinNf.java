@@ -2,8 +2,8 @@ package com.softart.dfe.models.nf.query_gtin;
 
 import br.inf.portalfiscal.nfe.gtin.TConsGTIN;
 import com.softart.dfe.enums.nf.version.NFGtinVersion;
-import com.softart.dfe.interfaces.xml.DFObject;
 import com.softart.dfe.interfaces.xml.XMLAdapter;
+import com.softart.dfe.interfaces.xml.generic.DFObject;
 import lombok.*;
 
 @Getter

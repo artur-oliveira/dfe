@@ -1,5 +1,8 @@
 package com.softart.dfe.exceptions.security;
 
+/**
+ * CertificateException is a subclass of SecurityException
+ */
 public class CertificateException extends SecurityException {
     public CertificateException() {
     }

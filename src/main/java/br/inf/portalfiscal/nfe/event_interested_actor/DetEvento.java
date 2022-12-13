@@ -8,16 +8,16 @@
 
 package br.inf.portalfiscal.nfe.event_interested_actor;
 
-import com.softart.dfe.interfaces.xml.XML;
+import com.softart.dfe.interfaces.xml.generic.XML;
 
 import javax.xml.bind.annotation.*;
 
 
 /**
  * <p>Classe Java de anonymous complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType&gt;
  *   &lt;complexContent&gt;
@@ -85,23 +85,20 @@ import javax.xml.bind.annotation.*;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "descEvento",
-    "cOrgaoAutor",
-    "tpAutor",
-    "verAplic",
-    "autXML",
-    "tpAutorizacao",
-    "xCondUso"
+        "descEvento",
+        "cOrgaoAutor",
+        "tpAutor",
+        "verAplic",
+        "autXML",
+        "tpAutorizacao",
+        "xCondUso"
 })
 @XmlRootElement(name = "detEvento", namespace = "http://www.portalfiscal.inf.br/nfe")
 public class DetEvento
-    implements XML
-{
+        implements XML {
 
     @XmlElement(namespace = "http://www.portalfiscal.inf.br/nfe", required = true)
     protected String descEvento;
@@ -122,11 +119,9 @@ public class DetEvento
 
     /**
      * Obtém o valor da propriedade descEvento.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getDescEvento() {
         return descEvento;
@@ -134,11 +129,9 @@ public class DetEvento
 
     /**
      * Define o valor da propriedade descEvento.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setDescEvento(String value) {
         this.descEvento = value;
@@ -146,11 +139,9 @@ public class DetEvento
 
     /**
      * Obtém o valor da propriedade cOrgaoAutor.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCOrgaoAutor() {
         return cOrgaoAutor;
@@ -158,11 +149,9 @@ public class DetEvento
 
     /**
      * Define o valor da propriedade cOrgaoAutor.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCOrgaoAutor(String value) {
         this.cOrgaoAutor = value;
@@ -170,11 +159,9 @@ public class DetEvento
 
     /**
      * Obtém o valor da propriedade tpAutor.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getTpAutor() {
         return tpAutor;
@@ -182,11 +169,9 @@ public class DetEvento
 
     /**
      * Define o valor da propriedade tpAutor.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setTpAutor(String value) {
         this.tpAutor = value;
@@ -194,11 +179,9 @@ public class DetEvento
 
     /**
      * Obtém o valor da propriedade verAplic.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVerAplic() {
         return verAplic;
@@ -206,11 +189,9 @@ public class DetEvento
 
     /**
      * Define o valor da propriedade verAplic.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVerAplic(String value) {
         this.verAplic = value;
@@ -218,11 +199,9 @@ public class DetEvento
 
     /**
      * Obtém o valor da propriedade autXML.
-     * 
-     * @return
-     *     possible object is
-     *     {@link DetEvento.AutXML }
-     *     
+     *
+     * @return possible object is
+     * {@link DetEvento.AutXML }
      */
     public DetEvento.AutXML getAutXML() {
         return autXML;
@@ -230,11 +209,9 @@ public class DetEvento
 
     /**
      * Define o valor da propriedade autXML.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link DetEvento.AutXML }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link DetEvento.AutXML }
      */
     public void setAutXML(DetEvento.AutXML value) {
         this.autXML = value;
@@ -242,11 +219,9 @@ public class DetEvento
 
     /**
      * Obtém o valor da propriedade tpAutorizacao.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getTpAutorizacao() {
         return tpAutorizacao;
@@ -254,11 +229,9 @@ public class DetEvento
 
     /**
      * Define o valor da propriedade tpAutorizacao.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setTpAutorizacao(String value) {
         this.tpAutorizacao = value;
@@ -266,11 +239,9 @@ public class DetEvento
 
     /**
      * Obtém o valor da propriedade xCondUso.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getXCondUso() {
         return xCondUso;
@@ -278,11 +249,9 @@ public class DetEvento
 
     /**
      * Define o valor da propriedade xCondUso.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setXCondUso(String value) {
         this.xCondUso = value;
@@ -290,11 +259,9 @@ public class DetEvento
 
     /**
      * Obtém o valor da propriedade versao.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVersao() {
         return versao;
@@ -302,11 +269,9 @@ public class DetEvento
 
     /**
      * Define o valor da propriedade versao.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVersao(String value) {
         this.versao = value;
@@ -315,9 +280,9 @@ public class DetEvento
 
     /**
      * <p>Classe Java de anonymous complex type.
-     * 
+     *
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     * 
+     *
      * <pre>
      * &lt;complexType&gt;
      *   &lt;complexContent&gt;
@@ -330,17 +295,14 @@ public class DetEvento
      *   &lt;/complexContent&gt;
      * &lt;/complexType&gt;
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "cnpj",
-        "cpf"
+            "cnpj",
+            "cpf"
     })
     public static class AutXML
-        implements XML
-    {
+            implements XML {
 
         @XmlElement(name = "CNPJ", namespace = "http://www.portalfiscal.inf.br/nfe")
         protected String cnpj;
@@ -349,11 +311,9 @@ public class DetEvento
 
         /**
          * Obtém o valor da propriedade cnpj.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getCNPJ() {
             return cnpj;
@@ -361,11 +321,9 @@ public class DetEvento
 
         /**
          * Define o valor da propriedade cnpj.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setCNPJ(String value) {
             this.cnpj = value;
@@ -373,11 +331,9 @@ public class DetEvento
 
         /**
          * Obtém o valor da propriedade cpf.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getCPF() {
             return cpf;
@@ -385,11 +341,9 @@ public class DetEvento
 
         /**
          * Define o valor da propriedade cpf.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setCPF(String value) {
             this.cpf = value;

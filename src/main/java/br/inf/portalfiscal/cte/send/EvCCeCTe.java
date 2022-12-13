@@ -8,20 +8,21 @@
 
 package br.inf.portalfiscal.cte.send;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.softart.dfe.interfaces.xml.generic.XML;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
  * <p>Classe Java de EvCCeCTe complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="EvCCeCTe"&gt;
  *   &lt;complexContent&gt;
@@ -51,18 +52,15 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "EvCCeCTe", propOrder = {
-    "descEvento",
-    "infCorrecao",
-    "xCondUso"
+        "descEvento",
+        "infCorrecao",
+        "xCondUso"
 })
 public class EvCCeCTe
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected String descEvento;
@@ -73,11 +71,9 @@ public class EvCCeCTe
 
     /**
      * Obtém o valor da propriedade descEvento.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getDescEvento() {
         return descEvento;
@@ -85,11 +81,9 @@ public class EvCCeCTe
 
     /**
      * Define o valor da propriedade descEvento.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setDescEvento(String value) {
         this.descEvento = value;
@@ -97,25 +91,23 @@ public class EvCCeCTe
 
     /**
      * Gets the value of the infCorrecao property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the infCorrecao property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getInfCorrecao().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link InfCorrecao }
-     * 
-     * 
      */
     public List<InfCorrecao> getInfCorrecao() {
         if (infCorrecao == null) {
@@ -126,11 +118,9 @@ public class EvCCeCTe
 
     /**
      * Obtém o valor da propriedade xCondUso.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getXCondUso() {
         return xCondUso;
@@ -138,11 +128,9 @@ public class EvCCeCTe
 
     /**
      * Define o valor da propriedade xCondUso.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setXCondUso(String value) {
         this.xCondUso = value;

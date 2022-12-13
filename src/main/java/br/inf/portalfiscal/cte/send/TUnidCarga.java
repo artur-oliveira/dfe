@@ -8,22 +8,23 @@
 
 package br.inf.portalfiscal.cte.send;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.softart.dfe.interfaces.xml.generic.XML;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
  * Tipo Dados Unidade de Carga
- * 
+ *
  * <p>Classe Java de TUnidCarga complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="TUnidCarga"&gt;
  *   &lt;complexContent&gt;
@@ -55,19 +56,16 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TUnidCarga", propOrder = {
-    "tpUnidCarga",
-    "idUnidCarga",
-    "lacUnidCarga",
-    "qtdRat"
+        "tpUnidCarga",
+        "idUnidCarga",
+        "lacUnidCarga",
+        "qtdRat"
 })
 public class TUnidCarga
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected String tpUnidCarga;
@@ -78,11 +76,9 @@ public class TUnidCarga
 
     /**
      * Obtém o valor da propriedade tpUnidCarga.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getTpUnidCarga() {
         return tpUnidCarga;
@@ -90,11 +86,9 @@ public class TUnidCarga
 
     /**
      * Define o valor da propriedade tpUnidCarga.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setTpUnidCarga(String value) {
         this.tpUnidCarga = value;
@@ -102,11 +96,9 @@ public class TUnidCarga
 
     /**
      * Obtém o valor da propriedade idUnidCarga.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getIdUnidCarga() {
         return idUnidCarga;
@@ -114,11 +106,9 @@ public class TUnidCarga
 
     /**
      * Define o valor da propriedade idUnidCarga.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setIdUnidCarga(String value) {
         this.idUnidCarga = value;
@@ -126,25 +116,23 @@ public class TUnidCarga
 
     /**
      * Gets the value of the lacUnidCarga property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the lacUnidCarga property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getLacUnidCarga().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link TUnidCarga.LacUnidCarga }
-     * 
-     * 
      */
     public List<TUnidCarga.LacUnidCarga> getLacUnidCarga() {
         if (lacUnidCarga == null) {
@@ -155,11 +143,9 @@ public class TUnidCarga
 
     /**
      * Obtém o valor da propriedade qtdRat.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getQtdRat() {
         return qtdRat;
@@ -167,11 +153,9 @@ public class TUnidCarga
 
     /**
      * Define o valor da propriedade qtdRat.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setQtdRat(String value) {
         this.qtdRat = value;
@@ -180,9 +164,9 @@ public class TUnidCarga
 
     /**
      * <p>Classe Java de anonymous complex type.
-     * 
+     *
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     * 
+     *
      * <pre>
      * &lt;complexType&gt;
      *   &lt;complexContent&gt;
@@ -201,27 +185,22 @@ public class TUnidCarga
      *   &lt;/complexContent&gt;
      * &lt;/complexType&gt;
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "nLacre"
+            "nLacre"
     })
     public static class LacUnidCarga
-        implements XML
-    {
+            implements XML {
 
         @XmlElement(required = true)
         protected String nLacre;
 
         /**
          * Obtém o valor da propriedade nLacre.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getNLacre() {
             return nLacre;
@@ -229,11 +208,9 @@ public class TUnidCarga
 
         /**
          * Define o valor da propriedade nLacre.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setNLacre(String value) {
             this.nLacre = value;

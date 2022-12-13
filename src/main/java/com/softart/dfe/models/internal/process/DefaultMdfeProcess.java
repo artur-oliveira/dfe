@@ -13,7 +13,7 @@ import java.util.List;
 @Getter
 @ToString
 @NoArgsConstructor
-public final class DefaultMdfeProcess extends AbstractMdfeProcess {
+final class DefaultMdfeProcess extends MdfeProcess {
 
     private final List<MdfeProcessFactory> processFactories = Arrays.asList(ProcessFactory.noStorageProcess().mdfe(), ProcessFactory.fileStorageProcess().mdfe());
 

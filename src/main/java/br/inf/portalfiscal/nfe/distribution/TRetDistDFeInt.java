@@ -8,7 +8,7 @@
 
 package br.inf.portalfiscal.nfe.distribution;
 
-import com.softart.dfe.interfaces.xml.XML;
+import com.softart.dfe.interfaces.xml.generic.XML;
 
 import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
@@ -19,9 +19,9 @@ import java.util.List;
 
 /**
  * <p>Classe Java de TRetDistDFeInt complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="TRetDistDFeInt"&gt;
  *   &lt;complexContent&gt;
@@ -60,23 +60,20 @@ import java.util.List;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TRetDistDFeInt", namespace = "http://www.portalfiscal.inf.br/nfe", propOrder = {
-    "tpAmb",
-    "verAplic",
-    "cStat",
-    "xMotivo",
-    "dhResp",
-    "ultNSU",
-    "maxNSU",
-    "loteDistDFeInt"
+        "tpAmb",
+        "verAplic",
+        "cStat",
+        "xMotivo",
+        "dhResp",
+        "ultNSU",
+        "maxNSU",
+        "loteDistDFeInt"
 })
 public class TRetDistDFeInt
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected String tpAmb;
@@ -102,11 +99,9 @@ public class TRetDistDFeInt
 
     /**
      * Obtém o valor da propriedade tpAmb.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getTpAmb() {
         return tpAmb;
@@ -114,11 +109,9 @@ public class TRetDistDFeInt
 
     /**
      * Define o valor da propriedade tpAmb.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setTpAmb(String value) {
         this.tpAmb = value;
@@ -126,11 +119,9 @@ public class TRetDistDFeInt
 
     /**
      * Obtém o valor da propriedade verAplic.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVerAplic() {
         return verAplic;
@@ -138,11 +129,9 @@ public class TRetDistDFeInt
 
     /**
      * Define o valor da propriedade verAplic.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVerAplic(String value) {
         this.verAplic = value;
@@ -150,11 +139,9 @@ public class TRetDistDFeInt
 
     /**
      * Obtém o valor da propriedade cStat.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCStat() {
         return cStat;
@@ -162,11 +149,9 @@ public class TRetDistDFeInt
 
     /**
      * Define o valor da propriedade cStat.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCStat(String value) {
         this.cStat = value;
@@ -174,11 +159,9 @@ public class TRetDistDFeInt
 
     /**
      * Obtém o valor da propriedade xMotivo.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getXMotivo() {
         return xMotivo;
@@ -186,11 +169,9 @@ public class TRetDistDFeInt
 
     /**
      * Define o valor da propriedade xMotivo.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setXMotivo(String value) {
         this.xMotivo = value;
@@ -198,11 +179,9 @@ public class TRetDistDFeInt
 
     /**
      * Obtém o valor da propriedade dhResp.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getDhResp() {
         return dhResp;
@@ -210,11 +189,9 @@ public class TRetDistDFeInt
 
     /**
      * Define o valor da propriedade dhResp.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setDhResp(String value) {
         this.dhResp = value;
@@ -222,11 +199,9 @@ public class TRetDistDFeInt
 
     /**
      * Obtém o valor da propriedade ultNSU.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getUltNSU() {
         return ultNSU;
@@ -234,11 +209,9 @@ public class TRetDistDFeInt
 
     /**
      * Define o valor da propriedade ultNSU.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setUltNSU(String value) {
         this.ultNSU = value;
@@ -246,11 +219,9 @@ public class TRetDistDFeInt
 
     /**
      * Obtém o valor da propriedade maxNSU.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getMaxNSU() {
         return maxNSU;
@@ -258,11 +229,9 @@ public class TRetDistDFeInt
 
     /**
      * Define o valor da propriedade maxNSU.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setMaxNSU(String value) {
         this.maxNSU = value;
@@ -270,11 +239,9 @@ public class TRetDistDFeInt
 
     /**
      * Obtém o valor da propriedade loteDistDFeInt.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TRetDistDFeInt.LoteDistDFeInt }
-     *     
+     *
+     * @return possible object is
+     * {@link TRetDistDFeInt.LoteDistDFeInt }
      */
     public TRetDistDFeInt.LoteDistDFeInt getLoteDistDFeInt() {
         return loteDistDFeInt;
@@ -282,11 +249,9 @@ public class TRetDistDFeInt
 
     /**
      * Define o valor da propriedade loteDistDFeInt.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TRetDistDFeInt.LoteDistDFeInt }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link TRetDistDFeInt.LoteDistDFeInt }
      */
     public void setLoteDistDFeInt(TRetDistDFeInt.LoteDistDFeInt value) {
         this.loteDistDFeInt = value;
@@ -294,11 +259,9 @@ public class TRetDistDFeInt
 
     /**
      * Obtém o valor da propriedade versao.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVersao() {
         return versao;
@@ -306,11 +269,9 @@ public class TRetDistDFeInt
 
     /**
      * Define o valor da propriedade versao.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVersao(String value) {
         this.versao = value;
@@ -319,9 +280,9 @@ public class TRetDistDFeInt
 
     /**
      * <p>Classe Java de anonymous complex type.
-     * 
+     *
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     * 
+     *
      * <pre>
      * &lt;complexType&gt;
      *   &lt;complexContent&gt;
@@ -342,41 +303,36 @@ public class TRetDistDFeInt
      *   &lt;/complexContent&gt;
      * &lt;/complexType&gt;
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "docZip"
+            "docZip"
     })
     public static class LoteDistDFeInt
-        implements XML
-    {
+            implements XML {
 
         @XmlElement(namespace = "http://www.portalfiscal.inf.br/nfe", required = true)
         protected List<TRetDistDFeInt.LoteDistDFeInt.DocZip> docZip;
 
         /**
          * Gets the value of the docZip property.
-         * 
+         *
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the docZip property.
-         * 
+         *
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getDocZip().add(newItem);
          * </pre>
-         * 
-         * 
+         *
+         *
          * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link TRetDistDFeInt.LoteDistDFeInt.DocZip }
-         * 
-         * 
          */
         public List<TRetDistDFeInt.LoteDistDFeInt.DocZip> getDocZip() {
             if (docZip == null) {
@@ -388,9 +344,9 @@ public class TRetDistDFeInt
 
         /**
          * <p>Classe Java de anonymous complex type.
-         * 
+         *
          * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-         * 
+         *
          * <pre>
          * &lt;complexType&gt;
          *   &lt;simpleContent&gt;
@@ -401,16 +357,13 @@ public class TRetDistDFeInt
          *   &lt;/simpleContent&gt;
          * &lt;/complexType&gt;
          * </pre>
-         * 
-         * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "value"
+                "value"
         })
         public static class DocZip
-            implements XML
-        {
+                implements XML {
 
             @XmlValue
             protected byte[] value;
@@ -422,10 +375,9 @@ public class TRetDistDFeInt
 
             /**
              * Obtém o valor da propriedade value.
-             * 
-             * @return
-             *     possible object is
-             *     byte[]
+             *
+             * @return possible object is
+             * byte[]
              */
             public byte[] getValue() {
                 return value;
@@ -433,10 +385,9 @@ public class TRetDistDFeInt
 
             /**
              * Define o valor da propriedade value.
-             * 
-             * @param value
-             *     allowed object is
-             *     byte[]
+             *
+             * @param value allowed object is
+             *              byte[]
              */
             public void setValue(byte[] value) {
                 this.value = value;
@@ -444,11 +395,9 @@ public class TRetDistDFeInt
 
             /**
              * Obtém o valor da propriedade nsu.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getNSU() {
                 return nsu;
@@ -456,11 +405,9 @@ public class TRetDistDFeInt
 
             /**
              * Define o valor da propriedade nsu.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setNSU(String value) {
                 this.nsu = value;
@@ -468,11 +415,9 @@ public class TRetDistDFeInt
 
             /**
              * Obtém o valor da propriedade schema.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getSchema() {
                 return schema;
@@ -480,11 +425,9 @@ public class TRetDistDFeInt
 
             /**
              * Define o valor da propriedade schema.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setSchema(String value) {
                 this.schema = value;

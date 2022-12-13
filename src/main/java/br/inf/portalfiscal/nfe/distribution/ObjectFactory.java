@@ -15,18 +15,17 @@ import javax.xml.namespace.QName;
 
 
 /**
- * This object contains factory methods for each 
- * Java content interface and Java element interface 
- * generated in the br.inf.portalfiscal.nfe.distribuicao package. 
- * <p>An ObjectFactory allows you to programatically 
- * construct new instances of the Java representation 
- * for XML content. The Java representation of XML 
- * content can consist of schema derived interfaces 
- * and classes representing the binding of schema 
- * type definitions, element declarations and model 
- * groups.  Factory methods for each of these are 
+ * This object contains factory methods for each
+ * Java content interface and Java element interface
+ * generated in the br.inf.portalfiscal.nfe.distribuicao package.
+ * <p>An ObjectFactory allows you to programatically
+ * construct new instances of the Java representation
+ * for XML content. The Java representation of XML
+ * content can consist of schema derived interfaces
+ * and classes representing the binding of schema
+ * type definitions, element declarations and model
+ * groups.  Factory methods for each of these are
  * provided in this class.
- * 
  */
 @XmlRegistry
 public class ObjectFactory {
@@ -39,14 +38,12 @@ public class ObjectFactory {
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: br.inf.portalfiscal.nfe.distribuicao
-     * 
      */
     public ObjectFactory() {
     }
 
     /**
      * Create an instance of {@link ReferenceType }
-     * 
      */
     public ReferenceType createReferenceType() {
         return new ReferenceType();
@@ -54,7 +51,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SignedInfoType }
-     * 
      */
     public SignedInfoType createSignedInfoType() {
         return new SignedInfoType();
@@ -62,7 +58,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TRetDistDFeInt }
-     * 
      */
     public TRetDistDFeInt createTRetDistDFeInt() {
         return new TRetDistDFeInt();
@@ -70,7 +65,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TRetDistDFeInt.LoteDistDFeInt }
-     * 
      */
     public TRetDistDFeInt.LoteDistDFeInt createTRetDistDFeIntLoteDistDFeInt() {
         return new TRetDistDFeInt.LoteDistDFeInt();
@@ -78,7 +72,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TDistDFeInt }
-     * 
      */
     public TDistDFeInt createTDistDFeInt() {
         return new TDistDFeInt();
@@ -86,7 +79,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TResEvento }
-     * 
      */
     public TResEvento createTResEvento() {
         return new TResEvento();
@@ -94,7 +86,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TResNFe }
-     * 
      */
     public TResNFe createTResNFe() {
         return new TResNFe();
@@ -102,7 +93,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SignatureType }
-     * 
      */
     public SignatureType createSignatureType() {
         return new SignatureType();
@@ -110,7 +100,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SignatureValueType }
-     * 
      */
     public SignatureValueType createSignatureValueType() {
         return new SignatureValueType();
@@ -118,7 +107,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TransformsType }
-     * 
      */
     public TransformsType createTransformsType() {
         return new TransformsType();
@@ -126,7 +114,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TransformType }
-     * 
      */
     public TransformType createTransformType() {
         return new TransformType();
@@ -134,7 +121,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link KeyInfoType }
-     * 
      */
     public KeyInfoType createKeyInfoType() {
         return new KeyInfoType();
@@ -142,7 +128,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link X509DataType }
-     * 
      */
     public X509DataType createX509DataType() {
         return new X509DataType();
@@ -150,7 +135,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ReferenceType.DigestMethod }
-     * 
      */
     public ReferenceType.DigestMethod createReferenceTypeDigestMethod() {
         return new ReferenceType.DigestMethod();
@@ -158,7 +142,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SignedInfoType.CanonicalizationMethod }
-     * 
      */
     public SignedInfoType.CanonicalizationMethod createSignedInfoTypeCanonicalizationMethod() {
         return new SignedInfoType.CanonicalizationMethod();
@@ -166,7 +149,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SignedInfoType.SignatureMethod }
-     * 
      */
     public SignedInfoType.SignatureMethod createSignedInfoTypeSignatureMethod() {
         return new SignedInfoType.SignatureMethod();
@@ -174,7 +156,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TRetDistDFeInt.LoteDistDFeInt.DocZip }
-     * 
      */
     public TRetDistDFeInt.LoteDistDFeInt.DocZip createTRetDistDFeIntLoteDistDFeIntDocZip() {
         return new TRetDistDFeInt.LoteDistDFeInt.DocZip();
@@ -182,7 +163,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TDistDFeInt.DistNSU }
-     * 
      */
     public TDistDFeInt.DistNSU createTDistDFeIntDistNSU() {
         return new TDistDFeInt.DistNSU();
@@ -190,7 +170,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TDistDFeInt.ConsNSU }
-     * 
      */
     public TDistDFeInt.ConsNSU createTDistDFeIntConsNSU() {
         return new TDistDFeInt.ConsNSU();
@@ -198,7 +177,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TDistDFeInt.ConsChNFe }
-     * 
      */
     public TDistDFeInt.ConsChNFe createTDistDFeIntConsChNFe() {
         return new TDistDFeInt.ConsChNFe();
@@ -206,7 +184,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TDistDFeInt }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/nfe", name = "distDFeInt")
     public JAXBElement<TDistDFeInt> createDistDFeInt(TDistDFeInt value) {
@@ -215,7 +192,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TResEvento }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/nfe", name = "resEvento")
     public JAXBElement<TResEvento> createResEvento(TResEvento value) {
@@ -224,7 +200,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TResNFe }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/nfe", name = "resNFe")
     public JAXBElement<TResNFe> createResNFe(TResNFe value) {
@@ -233,7 +208,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TRetDistDFeInt }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/nfe", name = "retDistDFeInt")
     public JAXBElement<TRetDistDFeInt> createRetDistDFeInt(TRetDistDFeInt value) {
@@ -242,7 +216,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link SignatureType }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "http://www.w3.org/2000/09/xmldsig#", name = "Signature")
     public JAXBElement<SignatureType> createSignature(SignatureType value) {

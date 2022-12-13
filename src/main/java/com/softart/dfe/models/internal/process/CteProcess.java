@@ -11,7 +11,7 @@ import com.softart.dfe.components.process.cte.reception_gtve.impl.GtveProcessFac
 import com.softart.dfe.components.process.cte.reception_os.impl.CteOsProcessFactory;
 import com.softart.dfe.components.process.cte.reception_sync.impl.CteSyncProcessFactory;
 import com.softart.dfe.components.process.cte.status_service.impl.StatusServiceCteProcessFactory;
-import com.softart.dfe.interfaces.process.cte.CteProcess;
+import com.softart.dfe.interfaces.process.cte.CteProcessService;
 import com.softart.dfe.interfaces.process.cte.distribution.AfterDistribution;
 import com.softart.dfe.interfaces.process.cte.distribution.BeforeDistribution;
 import com.softart.dfe.interfaces.process.cte.event.AfterEvent;
@@ -39,7 +39,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 
-public abstract class AbstractCteProcess implements CteProcess {
+public abstract class CteProcess implements CteProcessService {
+
+    public static CteProcess getInstance() {
+        return Holder.INSTANCE;
+    }
 
     public abstract List<CteProcessFactory> getProcessFactories();
 
@@ -82,7 +86,6 @@ public abstract class AbstractCteProcess implements CteProcess {
     public List<StatusServiceCteProcessFactory> statusServices() {
         return getProcessFactories().stream().map(CteProcessFactory::statusServiceCteProcessFactory).collect(Collectors.toList());
     }
-
 
     @Override
     public Collection<AfterInutilization> afterInutilization() {
@@ -182,5 +185,9 @@ public abstract class AbstractCteProcess implements CteProcess {
     @Override
     public Collection<AfterStatusService> afterStatusService() {
         return statusServices().stream().map(it -> new ArrayList<>(it.after())).flatMap(List::stream).collect(Collectors.toList());
+    }
+
+    static class Holder {
+        final static CteProcess INSTANCE = new DefaultCteProcess();
     }
 }

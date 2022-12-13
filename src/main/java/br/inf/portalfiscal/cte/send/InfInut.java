@@ -8,22 +8,18 @@
 
 package br.inf.portalfiscal.cte.send;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlID;
-import javax.xml.bind.annotation.XmlType;
+import com.softart.dfe.interfaces.xml.generic.XML;
+
+import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-import com.softart.dfe.interfaces.xml.XML;
 
 
 /**
  * <p>Classe Java de InfInut complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="InfInut"&gt;
  *   &lt;complexContent&gt;
@@ -57,25 +53,22 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "InfInut", propOrder = {
-    "tpAmb",
-    "xServ",
-    "cuf",
-    "ano",
-    "cnpj",
-    "mod",
-    "serie",
-    "nctIni",
-    "nctFin",
-    "xJust"
+        "tpAmb",
+        "xServ",
+        "cuf",
+        "ano",
+        "cnpj",
+        "mod",
+        "serie",
+        "nctIni",
+        "nctFin",
+        "xJust"
 })
 public class InfInut
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected String tpAmb;
@@ -103,11 +96,9 @@ public class InfInut
 
     /**
      * Obtém o valor da propriedade tpAmb.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getTpAmb() {
         return tpAmb;
@@ -115,11 +106,9 @@ public class InfInut
 
     /**
      * Define o valor da propriedade tpAmb.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setTpAmb(String value) {
         this.tpAmb = value;
@@ -127,11 +116,9 @@ public class InfInut
 
     /**
      * Obtém o valor da propriedade xServ.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getXServ() {
         return xServ;
@@ -139,11 +126,9 @@ public class InfInut
 
     /**
      * Define o valor da propriedade xServ.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setXServ(String value) {
         this.xServ = value;
@@ -151,11 +136,9 @@ public class InfInut
 
     /**
      * Obtém o valor da propriedade cuf.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCUF() {
         return cuf;
@@ -163,11 +146,9 @@ public class InfInut
 
     /**
      * Define o valor da propriedade cuf.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCUF(String value) {
         this.cuf = value;
@@ -175,7 +156,6 @@ public class InfInut
 
     /**
      * Obtém o valor da propriedade ano.
-     * 
      */
     public short getAno() {
         return ano;
@@ -183,7 +163,6 @@ public class InfInut
 
     /**
      * Define o valor da propriedade ano.
-     * 
      */
     public void setAno(short value) {
         this.ano = value;
@@ -191,11 +170,9 @@ public class InfInut
 
     /**
      * Obtém o valor da propriedade cnpj.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCNPJ() {
         return cnpj;
@@ -203,11 +180,9 @@ public class InfInut
 
     /**
      * Define o valor da propriedade cnpj.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCNPJ(String value) {
         this.cnpj = value;
@@ -215,11 +190,9 @@ public class InfInut
 
     /**
      * Obtém o valor da propriedade mod.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getMod() {
         return mod;
@@ -227,11 +200,9 @@ public class InfInut
 
     /**
      * Define o valor da propriedade mod.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setMod(String value) {
         this.mod = value;
@@ -239,11 +210,9 @@ public class InfInut
 
     /**
      * Obtém o valor da propriedade serie.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getSerie() {
         return serie;
@@ -251,11 +220,9 @@ public class InfInut
 
     /**
      * Define o valor da propriedade serie.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setSerie(String value) {
         this.serie = value;
@@ -263,11 +230,9 @@ public class InfInut
 
     /**
      * Obtém o valor da propriedade nctIni.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getNCTIni() {
         return nctIni;
@@ -275,11 +240,9 @@ public class InfInut
 
     /**
      * Define o valor da propriedade nctIni.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setNCTIni(String value) {
         this.nctIni = value;
@@ -287,11 +250,9 @@ public class InfInut
 
     /**
      * Obtém o valor da propriedade nctFin.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getNCTFin() {
         return nctFin;
@@ -299,11 +260,9 @@ public class InfInut
 
     /**
      * Define o valor da propriedade nctFin.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setNCTFin(String value) {
         this.nctFin = value;
@@ -311,11 +270,9 @@ public class InfInut
 
     /**
      * Obtém o valor da propriedade xJust.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getXJust() {
         return xJust;
@@ -323,11 +280,9 @@ public class InfInut
 
     /**
      * Define o valor da propriedade xJust.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setXJust(String value) {
         this.xJust = value;
@@ -335,11 +290,9 @@ public class InfInut
 
     /**
      * Obtém o valor da propriedade id.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getId() {
         return id;
@@ -347,11 +300,9 @@ public class InfInut
 
     /**
      * Define o valor da propriedade id.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setId(String value) {
         this.id = value;

@@ -11,6 +11,12 @@ import com.softart.dfe.interfaces.sefaz.SefazRequest;
 
 public interface MdfeQueryUnclosed {
 
+    /**
+     * It takes a SefazRequest object as input, and returns a pair of SefazRequest and SefazResponse objects
+     *
+     * @param data The request object.
+     * @return A pair of objects, the first is the request object, the second is the response object.
+     */
     <T extends SefazRequest<TConsMDFeNaoEnc, TRetConsMDFeNaoEnc>> Pair<TConsMDFeNaoEnc, TRetConsMDFeNaoEnc> queryUnclosed(T data) throws SecurityException, ValidationException, ProcessException;
 
 }

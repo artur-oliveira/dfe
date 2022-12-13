@@ -1,12 +1,12 @@
 package com.softart.dfe.models.internal;
 
-import com.softart.dfe.interfaces.xml.XML;
+import com.softart.dfe.interfaces.xml.generic.XML;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
 
 /**
- * It's a container for a value of type `T` and a string that represents the XML that was used to create the value
+ * Validation is a class that holds a value of type T and a String.
  */
 @Getter
 @AllArgsConstructor

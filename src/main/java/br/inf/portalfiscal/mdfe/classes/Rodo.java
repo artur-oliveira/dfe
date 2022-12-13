@@ -8,21 +8,18 @@
 
 package br.inf.portalfiscal.mdfe.classes;
 
+import com.softart.dfe.interfaces.xml.generic.XML;
+
+import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
 
 
 /**
  * <p>Classe Java de Rodo complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="Rodo"&gt;
  *   &lt;complexContent&gt;
@@ -616,20 +613,17 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Rodo", propOrder = {
-    "infANTT",
-    "veicTracao",
-    "veicReboque",
-    "codAgPorto",
-    "lacRodo"
+        "infANTT",
+        "veicTracao",
+        "veicReboque",
+        "codAgPorto",
+        "lacRodo"
 })
 public class Rodo
-    implements XML
-{
+        implements XML {
 
     protected Rodo.InfANTT infANTT;
     @XmlElement(required = true)
@@ -640,11 +634,9 @@ public class Rodo
 
     /**
      * Obtém o valor da propriedade infANTT.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Rodo.InfANTT }
-     *     
+     *
+     * @return possible object is
+     * {@link Rodo.InfANTT }
      */
     public Rodo.InfANTT getInfANTT() {
         return infANTT;
@@ -652,11 +644,9 @@ public class Rodo
 
     /**
      * Define o valor da propriedade infANTT.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Rodo.InfANTT }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Rodo.InfANTT }
      */
     public void setInfANTT(Rodo.InfANTT value) {
         this.infANTT = value;
@@ -664,11 +654,9 @@ public class Rodo
 
     /**
      * Obtém o valor da propriedade veicTracao.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Rodo.VeicTracao }
-     *     
+     *
+     * @return possible object is
+     * {@link Rodo.VeicTracao }
      */
     public Rodo.VeicTracao getVeicTracao() {
         return veicTracao;
@@ -676,11 +664,9 @@ public class Rodo
 
     /**
      * Define o valor da propriedade veicTracao.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Rodo.VeicTracao }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Rodo.VeicTracao }
      */
     public void setVeicTracao(Rodo.VeicTracao value) {
         this.veicTracao = value;
@@ -688,25 +674,23 @@ public class Rodo
 
     /**
      * Gets the value of the veicReboque property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the veicReboque property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getVeicReboque().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Rodo.VeicReboque }
-     * 
-     * 
      */
     public List<Rodo.VeicReboque> getVeicReboque() {
         if (veicReboque == null) {
@@ -717,11 +701,9 @@ public class Rodo
 
     /**
      * Obtém o valor da propriedade codAgPorto.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCodAgPorto() {
         return codAgPorto;
@@ -729,11 +711,9 @@ public class Rodo
 
     /**
      * Define o valor da propriedade codAgPorto.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCodAgPorto(String value) {
         this.codAgPorto = value;
@@ -741,25 +721,23 @@ public class Rodo
 
     /**
      * Gets the value of the lacRodo property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the lacRodo property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getLacRodo().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Rodo.LacRodo }
-     * 
-     * 
      */
     public List<Rodo.LacRodo> getLacRodo() {
         if (lacRodo == null) {
@@ -771,9 +749,9 @@ public class Rodo
 
     /**
      * <p>Classe Java de anonymous complex type.
-     * 
+     *
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     * 
+     *
      * <pre>
      * &lt;complexType&gt;
      *   &lt;complexContent&gt;
@@ -1075,20 +1053,17 @@ public class Rodo
      *   &lt;/complexContent&gt;
      * &lt;/complexType&gt;
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "rntrc",
-        "infCIOT",
-        "valePed",
-        "infContratante",
-        "infPag"
+            "rntrc",
+            "infCIOT",
+            "valePed",
+            "infContratante",
+            "infPag"
     })
     public static class InfANTT
-        implements XML
-    {
+            implements XML {
 
         @XmlElement(name = "RNTRC")
         protected String rntrc;
@@ -1099,11 +1074,9 @@ public class Rodo
 
         /**
          * Obtém o valor da propriedade rntrc.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getRNTRC() {
             return rntrc;
@@ -1111,11 +1084,9 @@ public class Rodo
 
         /**
          * Define o valor da propriedade rntrc.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setRNTRC(String value) {
             this.rntrc = value;
@@ -1123,25 +1094,23 @@ public class Rodo
 
         /**
          * Gets the value of the infCIOT property.
-         * 
+         *
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the infCIOT property.
-         * 
+         *
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getInfCIOT().add(newItem);
          * </pre>
-         * 
-         * 
+         *
+         *
          * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link Rodo.InfANTT.InfCIOT }
-         * 
-         * 
          */
         public List<Rodo.InfANTT.InfCIOT> getInfCIOT() {
             if (infCIOT == null) {
@@ -1152,11 +1121,9 @@ public class Rodo
 
         /**
          * Obtém o valor da propriedade valePed.
-         * 
-         * @return
-         *     possible object is
-         *     {@link Rodo.InfANTT.ValePed }
-         *     
+         *
+         * @return possible object is
+         * {@link Rodo.InfANTT.ValePed }
          */
         public Rodo.InfANTT.ValePed getValePed() {
             return valePed;
@@ -1164,11 +1131,9 @@ public class Rodo
 
         /**
          * Define o valor da propriedade valePed.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link Rodo.InfANTT.ValePed }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link Rodo.InfANTT.ValePed }
          */
         public void setValePed(Rodo.InfANTT.ValePed value) {
             this.valePed = value;
@@ -1176,25 +1141,23 @@ public class Rodo
 
         /**
          * Gets the value of the infContratante property.
-         * 
+         *
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the infContratante property.
-         * 
+         *
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getInfContratante().add(newItem);
          * </pre>
-         * 
-         * 
+         *
+         *
          * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link Rodo.InfANTT.InfContratante }
-         * 
-         * 
          */
         public List<Rodo.InfANTT.InfContratante> getInfContratante() {
             if (infContratante == null) {
@@ -1205,25 +1168,23 @@ public class Rodo
 
         /**
          * Gets the value of the infPag property.
-         * 
+         *
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the infPag property.
-         * 
+         *
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getInfPag().add(newItem);
          * </pre>
-         * 
-         * 
+         *
+         *
          * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link Rodo.InfANTT.InfPag }
-         * 
-         * 
          */
         public List<Rodo.InfANTT.InfPag> getInfPag() {
             if (infPag == null) {
@@ -1235,9 +1196,9 @@ public class Rodo
 
         /**
          * <p>Classe Java de anonymous complex type.
-         * 
+         *
          * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-         * 
+         *
          * <pre>
          * &lt;complexType&gt;
          *   &lt;complexContent&gt;
@@ -1258,18 +1219,15 @@ public class Rodo
          *   &lt;/complexContent&gt;
          * &lt;/complexType&gt;
          * </pre>
-         * 
-         * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "ciot",
-            "cpf",
-            "cnpj"
+                "ciot",
+                "cpf",
+                "cnpj"
         })
         public static class InfCIOT
-            implements XML
-        {
+                implements XML {
 
             @XmlElement(name = "CIOT", required = true)
             protected String ciot;
@@ -1280,11 +1238,9 @@ public class Rodo
 
             /**
              * Obtém o valor da propriedade ciot.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getCIOT() {
                 return ciot;
@@ -1292,11 +1248,9 @@ public class Rodo
 
             /**
              * Define o valor da propriedade ciot.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setCIOT(String value) {
                 this.ciot = value;
@@ -1304,11 +1258,9 @@ public class Rodo
 
             /**
              * Obtém o valor da propriedade cpf.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getCPF() {
                 return cpf;
@@ -1316,11 +1268,9 @@ public class Rodo
 
             /**
              * Define o valor da propriedade cpf.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setCPF(String value) {
                 this.cpf = value;
@@ -1328,11 +1278,9 @@ public class Rodo
 
             /**
              * Obtém o valor da propriedade cnpj.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getCNPJ() {
                 return cnpj;
@@ -1340,11 +1288,9 @@ public class Rodo
 
             /**
              * Define o valor da propriedade cnpj.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setCNPJ(String value) {
                 this.cnpj = value;
@@ -1355,9 +1301,9 @@ public class Rodo
 
         /**
          * <p>Classe Java de anonymous complex type.
-         * 
+         *
          * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-         * 
+         *
          * <pre>
          * &lt;complexType&gt;
          *   &lt;complexContent&gt;
@@ -1410,20 +1356,17 @@ public class Rodo
          *   &lt;/complexContent&gt;
          * &lt;/complexType&gt;
          * </pre>
-         * 
-         * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "xNome",
-            "cpf",
-            "cnpj",
-            "idEstrangeiro",
-            "infContrato"
+                "xNome",
+                "cpf",
+                "cnpj",
+                "idEstrangeiro",
+                "infContrato"
         })
         public static class InfContratante
-            implements XML
-        {
+                implements XML {
 
             protected String xNome;
             @XmlElement(name = "CPF")
@@ -1435,11 +1378,9 @@ public class Rodo
 
             /**
              * Obtém o valor da propriedade xNome.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getXNome() {
                 return xNome;
@@ -1447,11 +1388,9 @@ public class Rodo
 
             /**
              * Define o valor da propriedade xNome.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setXNome(String value) {
                 this.xNome = value;
@@ -1459,11 +1398,9 @@ public class Rodo
 
             /**
              * Obtém o valor da propriedade cpf.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getCPF() {
                 return cpf;
@@ -1471,11 +1408,9 @@ public class Rodo
 
             /**
              * Define o valor da propriedade cpf.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setCPF(String value) {
                 this.cpf = value;
@@ -1483,11 +1418,9 @@ public class Rodo
 
             /**
              * Obtém o valor da propriedade cnpj.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getCNPJ() {
                 return cnpj;
@@ -1495,11 +1428,9 @@ public class Rodo
 
             /**
              * Define o valor da propriedade cnpj.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setCNPJ(String value) {
                 this.cnpj = value;
@@ -1507,11 +1438,9 @@ public class Rodo
 
             /**
              * Obtém o valor da propriedade idEstrangeiro.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getIdEstrangeiro() {
                 return idEstrangeiro;
@@ -1519,11 +1448,9 @@ public class Rodo
 
             /**
              * Define o valor da propriedade idEstrangeiro.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setIdEstrangeiro(String value) {
                 this.idEstrangeiro = value;
@@ -1531,11 +1458,9 @@ public class Rodo
 
             /**
              * Obtém o valor da propriedade infContrato.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Rodo.InfANTT.InfContratante.InfContrato }
-             *     
+             *
+             * @return possible object is
+             * {@link Rodo.InfANTT.InfContratante.InfContrato }
              */
             public Rodo.InfANTT.InfContratante.InfContrato getInfContrato() {
                 return infContrato;
@@ -1543,11 +1468,9 @@ public class Rodo
 
             /**
              * Define o valor da propriedade infContrato.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Rodo.InfANTT.InfContratante.InfContrato }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link Rodo.InfANTT.InfContratante.InfContrato }
              */
             public void setInfContrato(Rodo.InfANTT.InfContratante.InfContrato value) {
                 this.infContrato = value;
@@ -1556,9 +1479,9 @@ public class Rodo
 
             /**
              * <p>Classe Java de anonymous complex type.
-             * 
+             *
              * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-             * 
+             *
              * <pre>
              * &lt;complexType&gt;
              *   &lt;complexContent&gt;
@@ -1579,17 +1502,14 @@ public class Rodo
              *   &lt;/complexContent&gt;
              * &lt;/complexType&gt;
              * </pre>
-             * 
-             * 
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
-                "nroContrato",
-                "vContratoGlobal"
+                    "nroContrato",
+                    "vContratoGlobal"
             })
             public static class InfContrato
-                implements XML
-            {
+                    implements XML {
 
                 @XmlElement(name = "NroContrato", required = true)
                 protected String nroContrato;
@@ -1598,11 +1518,9 @@ public class Rodo
 
                 /**
                  * Obtém o valor da propriedade nroContrato.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getNroContrato() {
                     return nroContrato;
@@ -1610,11 +1528,9 @@ public class Rodo
 
                 /**
                  * Define o valor da propriedade nroContrato.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setNroContrato(String value) {
                     this.nroContrato = value;
@@ -1622,11 +1538,9 @@ public class Rodo
 
                 /**
                  * Obtém o valor da propriedade vContratoGlobal.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getVContratoGlobal() {
                     return vContratoGlobal;
@@ -1634,11 +1548,9 @@ public class Rodo
 
                 /**
                  * Define o valor da propriedade vContratoGlobal.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setVContratoGlobal(String value) {
                     this.vContratoGlobal = value;
@@ -1651,9 +1563,9 @@ public class Rodo
 
         /**
          * <p>Classe Java de anonymous complex type.
-         * 
+         *
          * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-         * 
+         *
          * <pre>
          * &lt;complexType&gt;
          *   &lt;complexContent&gt;
@@ -1807,28 +1719,25 @@ public class Rodo
          *   &lt;/complexContent&gt;
          * &lt;/complexType&gt;
          * </pre>
-         * 
-         * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "xNome",
-            "cpf",
-            "cnpj",
-            "idEstrangeiro",
-            "comp",
-            "vContrato",
-            "indAltoDesemp",
-            "indPag",
-            "vAdiant",
-            "indAntecipaAdiant",
-            "infPrazo",
-            "tpAntecip",
-            "infBanc"
+                "xNome",
+                "cpf",
+                "cnpj",
+                "idEstrangeiro",
+                "comp",
+                "vContrato",
+                "indAltoDesemp",
+                "indPag",
+                "vAdiant",
+                "indAntecipaAdiant",
+                "infPrazo",
+                "tpAntecip",
+                "infBanc"
         })
         public static class InfPag
-            implements XML
-        {
+                implements XML {
 
             protected String xNome;
             @XmlElement(name = "CPF")
@@ -1852,11 +1761,9 @@ public class Rodo
 
             /**
              * Obtém o valor da propriedade xNome.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getXNome() {
                 return xNome;
@@ -1864,11 +1771,9 @@ public class Rodo
 
             /**
              * Define o valor da propriedade xNome.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setXNome(String value) {
                 this.xNome = value;
@@ -1876,11 +1781,9 @@ public class Rodo
 
             /**
              * Obtém o valor da propriedade cpf.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getCPF() {
                 return cpf;
@@ -1888,11 +1791,9 @@ public class Rodo
 
             /**
              * Define o valor da propriedade cpf.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setCPF(String value) {
                 this.cpf = value;
@@ -1900,11 +1801,9 @@ public class Rodo
 
             /**
              * Obtém o valor da propriedade cnpj.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getCNPJ() {
                 return cnpj;
@@ -1912,11 +1811,9 @@ public class Rodo
 
             /**
              * Define o valor da propriedade cnpj.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setCNPJ(String value) {
                 this.cnpj = value;
@@ -1924,11 +1821,9 @@ public class Rodo
 
             /**
              * Obtém o valor da propriedade idEstrangeiro.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getIdEstrangeiro() {
                 return idEstrangeiro;
@@ -1936,11 +1831,9 @@ public class Rodo
 
             /**
              * Define o valor da propriedade idEstrangeiro.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setIdEstrangeiro(String value) {
                 this.idEstrangeiro = value;
@@ -1948,25 +1841,23 @@ public class Rodo
 
             /**
              * Gets the value of the comp property.
-             * 
+             *
              * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the comp property.
-             * 
+             *
              * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getComp().add(newItem);
              * </pre>
-             * 
-             * 
+             *
+             *
              * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link Rodo.InfANTT.InfPag.Comp }
-             * 
-             * 
              */
             public List<Rodo.InfANTT.InfPag.Comp> getComp() {
                 if (comp == null) {
@@ -1977,11 +1868,9 @@ public class Rodo
 
             /**
              * Obtém o valor da propriedade vContrato.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getVContrato() {
                 return vContrato;
@@ -1989,11 +1878,9 @@ public class Rodo
 
             /**
              * Define o valor da propriedade vContrato.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setVContrato(String value) {
                 this.vContrato = value;
@@ -2001,11 +1888,9 @@ public class Rodo
 
             /**
              * Obtém o valor da propriedade indAltoDesemp.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getIndAltoDesemp() {
                 return indAltoDesemp;
@@ -2013,11 +1898,9 @@ public class Rodo
 
             /**
              * Define o valor da propriedade indAltoDesemp.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setIndAltoDesemp(String value) {
                 this.indAltoDesemp = value;
@@ -2025,11 +1908,9 @@ public class Rodo
 
             /**
              * Obtém o valor da propriedade indPag.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getIndPag() {
                 return indPag;
@@ -2037,11 +1918,9 @@ public class Rodo
 
             /**
              * Define o valor da propriedade indPag.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setIndPag(String value) {
                 this.indPag = value;
@@ -2049,11 +1928,9 @@ public class Rodo
 
             /**
              * Obtém o valor da propriedade vAdiant.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getVAdiant() {
                 return vAdiant;
@@ -2061,11 +1938,9 @@ public class Rodo
 
             /**
              * Define o valor da propriedade vAdiant.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setVAdiant(String value) {
                 this.vAdiant = value;
@@ -2073,11 +1948,9 @@ public class Rodo
 
             /**
              * Obtém o valor da propriedade indAntecipaAdiant.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getIndAntecipaAdiant() {
                 return indAntecipaAdiant;
@@ -2085,11 +1958,9 @@ public class Rodo
 
             /**
              * Define o valor da propriedade indAntecipaAdiant.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setIndAntecipaAdiant(String value) {
                 this.indAntecipaAdiant = value;
@@ -2097,25 +1968,23 @@ public class Rodo
 
             /**
              * Gets the value of the infPrazo property.
-             * 
+             *
              * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the infPrazo property.
-             * 
+             *
              * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getInfPrazo().add(newItem);
              * </pre>
-             * 
-             * 
+             *
+             *
              * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link Rodo.InfANTT.InfPag.InfPrazo }
-             * 
-             * 
              */
             public List<Rodo.InfANTT.InfPag.InfPrazo> getInfPrazo() {
                 if (infPrazo == null) {
@@ -2126,11 +1995,9 @@ public class Rodo
 
             /**
              * Obtém o valor da propriedade tpAntecip.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getTpAntecip() {
                 return tpAntecip;
@@ -2138,11 +2005,9 @@ public class Rodo
 
             /**
              * Define o valor da propriedade tpAntecip.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setTpAntecip(String value) {
                 this.tpAntecip = value;
@@ -2150,11 +2015,9 @@ public class Rodo
 
             /**
              * Obtém o valor da propriedade infBanc.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Rodo.InfANTT.InfPag.InfBanc }
-             *     
+             *
+             * @return possible object is
+             * {@link Rodo.InfANTT.InfPag.InfBanc }
              */
             public Rodo.InfANTT.InfPag.InfBanc getInfBanc() {
                 return infBanc;
@@ -2162,11 +2025,9 @@ public class Rodo
 
             /**
              * Define o valor da propriedade infBanc.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Rodo.InfANTT.InfPag.InfBanc }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link Rodo.InfANTT.InfPag.InfBanc }
              */
             public void setInfBanc(Rodo.InfANTT.InfPag.InfBanc value) {
                 this.infBanc = value;
@@ -2175,9 +2036,9 @@ public class Rodo
 
             /**
              * <p>Classe Java de anonymous complex type.
-             * 
+             *
              * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-             * 
+             *
              * <pre>
              * &lt;complexType&gt;
              *   &lt;complexContent&gt;
@@ -2208,18 +2069,15 @@ public class Rodo
              *   &lt;/complexContent&gt;
              * &lt;/complexType&gt;
              * </pre>
-             * 
-             * 
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
-                "tpComp",
-                "vComp",
-                "xComp"
+                    "tpComp",
+                    "vComp",
+                    "xComp"
             })
             public static class Comp
-                implements XML
-            {
+                    implements XML {
 
                 @XmlElement(required = true)
                 protected String tpComp;
@@ -2229,11 +2087,9 @@ public class Rodo
 
                 /**
                  * Obtém o valor da propriedade tpComp.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getTpComp() {
                     return tpComp;
@@ -2241,11 +2097,9 @@ public class Rodo
 
                 /**
                  * Define o valor da propriedade tpComp.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setTpComp(String value) {
                     this.tpComp = value;
@@ -2253,11 +2107,9 @@ public class Rodo
 
                 /**
                  * Obtém o valor da propriedade vComp.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getVComp() {
                     return vComp;
@@ -2265,11 +2117,9 @@ public class Rodo
 
                 /**
                  * Define o valor da propriedade vComp.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setVComp(String value) {
                     this.vComp = value;
@@ -2277,11 +2127,9 @@ public class Rodo
 
                 /**
                  * Obtém o valor da propriedade xComp.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getXComp() {
                     return xComp;
@@ -2289,11 +2137,9 @@ public class Rodo
 
                 /**
                  * Define o valor da propriedade xComp.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setXComp(String value) {
                     this.xComp = value;
@@ -2304,9 +2150,9 @@ public class Rodo
 
             /**
              * <p>Classe Java de anonymous complex type.
-             * 
+             *
              * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-             * 
+             *
              * <pre>
              * &lt;complexType&gt;
              *   &lt;complexContent&gt;
@@ -2344,19 +2190,16 @@ public class Rodo
              *   &lt;/complexContent&gt;
              * &lt;/complexType&gt;
              * </pre>
-             * 
-             * 
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
-                "codBanco",
-                "codAgencia",
-                "cnpjipef",
-                "pix"
+                    "codBanco",
+                    "codAgencia",
+                    "cnpjipef",
+                    "pix"
             })
             public static class InfBanc
-                implements XML
-            {
+                    implements XML {
 
                 protected String codBanco;
                 protected String codAgencia;
@@ -2367,11 +2210,9 @@ public class Rodo
 
                 /**
                  * Obtém o valor da propriedade codBanco.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getCodBanco() {
                     return codBanco;
@@ -2379,11 +2220,9 @@ public class Rodo
 
                 /**
                  * Define o valor da propriedade codBanco.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setCodBanco(String value) {
                     this.codBanco = value;
@@ -2391,11 +2230,9 @@ public class Rodo
 
                 /**
                  * Obtém o valor da propriedade codAgencia.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getCodAgencia() {
                     return codAgencia;
@@ -2403,11 +2240,9 @@ public class Rodo
 
                 /**
                  * Define o valor da propriedade codAgencia.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setCodAgencia(String value) {
                     this.codAgencia = value;
@@ -2415,11 +2250,9 @@ public class Rodo
 
                 /**
                  * Obtém o valor da propriedade cnpjipef.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getCNPJIPEF() {
                     return cnpjipef;
@@ -2427,11 +2260,9 @@ public class Rodo
 
                 /**
                  * Define o valor da propriedade cnpjipef.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setCNPJIPEF(String value) {
                     this.cnpjipef = value;
@@ -2439,11 +2270,9 @@ public class Rodo
 
                 /**
                  * Obtém o valor da propriedade pix.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getPIX() {
                     return pix;
@@ -2451,11 +2280,9 @@ public class Rodo
 
                 /**
                  * Define o valor da propriedade pix.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setPIX(String value) {
                     this.pix = value;
@@ -2466,9 +2293,9 @@ public class Rodo
 
             /**
              * <p>Classe Java de anonymous complex type.
-             * 
+             *
              * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-             * 
+             *
              * <pre>
              * &lt;complexType&gt;
              *   &lt;complexContent&gt;
@@ -2489,18 +2316,15 @@ public class Rodo
              *   &lt;/complexContent&gt;
              * &lt;/complexType&gt;
              * </pre>
-             * 
-             * 
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
-                "nParcela",
-                "dVenc",
-                "vParcela"
+                    "nParcela",
+                    "dVenc",
+                    "vParcela"
             })
             public static class InfPrazo
-                implements XML
-            {
+                    implements XML {
 
                 @XmlElement(required = true)
                 protected String nParcela;
@@ -2511,11 +2335,9 @@ public class Rodo
 
                 /**
                  * Obtém o valor da propriedade nParcela.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getNParcela() {
                     return nParcela;
@@ -2523,11 +2345,9 @@ public class Rodo
 
                 /**
                  * Define o valor da propriedade nParcela.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setNParcela(String value) {
                     this.nParcela = value;
@@ -2535,11 +2355,9 @@ public class Rodo
 
                 /**
                  * Obtém o valor da propriedade dVenc.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getDVenc() {
                     return dVenc;
@@ -2547,11 +2365,9 @@ public class Rodo
 
                 /**
                  * Define o valor da propriedade dVenc.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setDVenc(String value) {
                     this.dVenc = value;
@@ -2559,11 +2375,9 @@ public class Rodo
 
                 /**
                  * Obtém o valor da propriedade vParcela.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getVParcela() {
                     return vParcela;
@@ -2571,11 +2385,9 @@ public class Rodo
 
                 /**
                  * Define o valor da propriedade vParcela.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setVParcela(String value) {
                     this.vParcela = value;
@@ -2588,9 +2400,9 @@ public class Rodo
 
         /**
          * <p>Classe Java de anonymous complex type.
-         * 
+         *
          * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-         * 
+         *
          * <pre>
          * &lt;complexType&gt;
          *   &lt;complexContent&gt;
@@ -2656,17 +2468,14 @@ public class Rodo
          *   &lt;/complexContent&gt;
          * &lt;/complexType&gt;
          * </pre>
-         * 
-         * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "disp",
-            "categCombVeic"
+                "disp",
+                "categCombVeic"
         })
         public static class ValePed
-            implements XML
-        {
+                implements XML {
 
             @XmlElement(required = true)
             protected List<Rodo.InfANTT.ValePed.Disp> disp;
@@ -2674,25 +2483,23 @@ public class Rodo
 
             /**
              * Gets the value of the disp property.
-             * 
+             *
              * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the disp property.
-             * 
+             *
              * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getDisp().add(newItem);
              * </pre>
-             * 
-             * 
+             *
+             *
              * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link Rodo.InfANTT.ValePed.Disp }
-             * 
-             * 
              */
             public List<Rodo.InfANTT.ValePed.Disp> getDisp() {
                 if (disp == null) {
@@ -2703,11 +2510,9 @@ public class Rodo
 
             /**
              * Obtém o valor da propriedade categCombVeic.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getCategCombVeic() {
                 return categCombVeic;
@@ -2715,11 +2520,9 @@ public class Rodo
 
             /**
              * Define o valor da propriedade categCombVeic.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setCategCombVeic(String value) {
                 this.categCombVeic = value;
@@ -2728,9 +2531,9 @@ public class Rodo
 
             /**
              * <p>Classe Java de anonymous complex type.
-             * 
+             *
              * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-             * 
+             *
              * <pre>
              * &lt;complexType&gt;
              *   &lt;complexContent&gt;
@@ -2769,21 +2572,18 @@ public class Rodo
              *   &lt;/complexContent&gt;
              * &lt;/complexType&gt;
              * </pre>
-             * 
-             * 
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
-                "cnpjForn",
-                "cnpjPg",
-                "cpfPg",
-                "nCompra",
-                "vValePed",
-                "tpValePed"
+                    "cnpjForn",
+                    "cnpjPg",
+                    "cpfPg",
+                    "nCompra",
+                    "vValePed",
+                    "tpValePed"
             })
             public static class Disp
-                implements XML
-            {
+                    implements XML {
 
                 @XmlElement(name = "CNPJForn", required = true)
                 protected String cnpjForn;
@@ -2798,11 +2598,9 @@ public class Rodo
 
                 /**
                  * Obtém o valor da propriedade cnpjForn.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getCNPJForn() {
                     return cnpjForn;
@@ -2810,11 +2608,9 @@ public class Rodo
 
                 /**
                  * Define o valor da propriedade cnpjForn.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setCNPJForn(String value) {
                     this.cnpjForn = value;
@@ -2822,11 +2618,9 @@ public class Rodo
 
                 /**
                  * Obtém o valor da propriedade cnpjPg.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getCNPJPg() {
                     return cnpjPg;
@@ -2834,11 +2628,9 @@ public class Rodo
 
                 /**
                  * Define o valor da propriedade cnpjPg.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setCNPJPg(String value) {
                     this.cnpjPg = value;
@@ -2846,11 +2638,9 @@ public class Rodo
 
                 /**
                  * Obtém o valor da propriedade cpfPg.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getCPFPg() {
                     return cpfPg;
@@ -2858,11 +2648,9 @@ public class Rodo
 
                 /**
                  * Define o valor da propriedade cpfPg.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setCPFPg(String value) {
                     this.cpfPg = value;
@@ -2870,11 +2658,9 @@ public class Rodo
 
                 /**
                  * Obtém o valor da propriedade nCompra.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getNCompra() {
                     return nCompra;
@@ -2882,11 +2668,9 @@ public class Rodo
 
                 /**
                  * Define o valor da propriedade nCompra.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setNCompra(String value) {
                     this.nCompra = value;
@@ -2894,11 +2678,9 @@ public class Rodo
 
                 /**
                  * Obtém o valor da propriedade vValePed.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getVValePed() {
                     return vValePed;
@@ -2906,11 +2688,9 @@ public class Rodo
 
                 /**
                  * Define o valor da propriedade vValePed.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setVValePed(String value) {
                     this.vValePed = value;
@@ -2918,11 +2698,9 @@ public class Rodo
 
                 /**
                  * Obtém o valor da propriedade tpValePed.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getTpValePed() {
                     return tpValePed;
@@ -2930,11 +2708,9 @@ public class Rodo
 
                 /**
                  * Define o valor da propriedade tpValePed.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setTpValePed(String value) {
                     this.tpValePed = value;
@@ -2949,9 +2725,9 @@ public class Rodo
 
     /**
      * <p>Classe Java de anonymous complex type.
-     * 
+     *
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     * 
+     *
      * <pre>
      * &lt;complexType&gt;
      *   &lt;complexContent&gt;
@@ -2970,27 +2746,22 @@ public class Rodo
      *   &lt;/complexContent&gt;
      * &lt;/complexType&gt;
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "nLacre"
+            "nLacre"
     })
     public static class LacRodo
-        implements XML
-    {
+            implements XML {
 
         @XmlElement(required = true)
         protected String nLacre;
 
         /**
          * Obtém o valor da propriedade nLacre.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getNLacre() {
             return nLacre;
@@ -2998,11 +2769,9 @@ public class Rodo
 
         /**
          * Define o valor da propriedade nLacre.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setNLacre(String value) {
             this.nLacre = value;
@@ -3013,9 +2782,9 @@ public class Rodo
 
     /**
      * <p>Classe Java de anonymous complex type.
-     * 
+     *
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     * 
+     *
      * <pre>
      * &lt;complexType&gt;
      *   &lt;complexContent&gt;
@@ -3128,24 +2897,21 @@ public class Rodo
      *   &lt;/complexContent&gt;
      * &lt;/complexType&gt;
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "cInt",
-        "placa",
-        "renavam",
-        "tara",
-        "capKG",
-        "capM3",
-        "prop",
-        "tpCar",
-        "uf"
+            "cInt",
+            "placa",
+            "renavam",
+            "tara",
+            "capKG",
+            "capM3",
+            "prop",
+            "tpCar",
+            "uf"
     })
     public static class VeicReboque
-        implements XML
-    {
+            implements XML {
 
         protected String cInt;
         @XmlElement(required = true)
@@ -3166,11 +2932,9 @@ public class Rodo
 
         /**
          * Obtém o valor da propriedade cInt.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getCInt() {
             return cInt;
@@ -3178,11 +2942,9 @@ public class Rodo
 
         /**
          * Define o valor da propriedade cInt.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setCInt(String value) {
             this.cInt = value;
@@ -3190,11 +2952,9 @@ public class Rodo
 
         /**
          * Obtém o valor da propriedade placa.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getPlaca() {
             return placa;
@@ -3202,11 +2962,9 @@ public class Rodo
 
         /**
          * Define o valor da propriedade placa.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setPlaca(String value) {
             this.placa = value;
@@ -3214,11 +2972,9 @@ public class Rodo
 
         /**
          * Obtém o valor da propriedade renavam.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getRENAVAM() {
             return renavam;
@@ -3226,11 +2982,9 @@ public class Rodo
 
         /**
          * Define o valor da propriedade renavam.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setRENAVAM(String value) {
             this.renavam = value;
@@ -3238,11 +2992,9 @@ public class Rodo
 
         /**
          * Obtém o valor da propriedade tara.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getTara() {
             return tara;
@@ -3250,11 +3002,9 @@ public class Rodo
 
         /**
          * Define o valor da propriedade tara.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setTara(String value) {
             this.tara = value;
@@ -3262,11 +3012,9 @@ public class Rodo
 
         /**
          * Obtém o valor da propriedade capKG.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getCapKG() {
             return capKG;
@@ -3274,11 +3022,9 @@ public class Rodo
 
         /**
          * Define o valor da propriedade capKG.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setCapKG(String value) {
             this.capKG = value;
@@ -3286,11 +3032,9 @@ public class Rodo
 
         /**
          * Obtém o valor da propriedade capM3.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getCapM3() {
             return capM3;
@@ -3298,11 +3042,9 @@ public class Rodo
 
         /**
          * Define o valor da propriedade capM3.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setCapM3(String value) {
             this.capM3 = value;
@@ -3310,11 +3052,9 @@ public class Rodo
 
         /**
          * Obtém o valor da propriedade prop.
-         * 
-         * @return
-         *     possible object is
-         *     {@link Rodo.VeicReboque.Prop }
-         *     
+         *
+         * @return possible object is
+         * {@link Rodo.VeicReboque.Prop }
          */
         public Rodo.VeicReboque.Prop getProp() {
             return prop;
@@ -3322,11 +3062,9 @@ public class Rodo
 
         /**
          * Define o valor da propriedade prop.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link Rodo.VeicReboque.Prop }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link Rodo.VeicReboque.Prop }
          */
         public void setProp(Rodo.VeicReboque.Prop value) {
             this.prop = value;
@@ -3334,11 +3072,9 @@ public class Rodo
 
         /**
          * Obtém o valor da propriedade tpCar.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getTpCar() {
             return tpCar;
@@ -3346,11 +3082,9 @@ public class Rodo
 
         /**
          * Define o valor da propriedade tpCar.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setTpCar(String value) {
             this.tpCar = value;
@@ -3358,11 +3092,9 @@ public class Rodo
 
         /**
          * Obtém o valor da propriedade uf.
-         * 
-         * @return
-         *     possible object is
-         *     {@link TUf }
-         *     
+         *
+         * @return possible object is
+         * {@link TUf }
          */
         public TUf getUF() {
             return uf;
@@ -3370,11 +3102,9 @@ public class Rodo
 
         /**
          * Define o valor da propriedade uf.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link TUf }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link TUf }
          */
         public void setUF(TUf value) {
             this.uf = value;
@@ -3383,9 +3113,9 @@ public class Rodo
 
         /**
          * <p>Classe Java de anonymous complex type.
-         * 
+         *
          * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-         * 
+         *
          * <pre>
          * &lt;complexType&gt;
          *   &lt;complexContent&gt;
@@ -3428,22 +3158,19 @@ public class Rodo
          *   &lt;/complexContent&gt;
          * &lt;/complexType&gt;
          * </pre>
-         * 
-         * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "cpf",
-            "cnpj",
-            "rntrc",
-            "xNome",
-            "ie",
-            "uf",
-            "tpProp"
+                "cpf",
+                "cnpj",
+                "rntrc",
+                "xNome",
+                "ie",
+                "uf",
+                "tpProp"
         })
         public static class Prop
-            implements XML
-        {
+                implements XML {
 
             @XmlElement(name = "CPF")
             protected String cpf;
@@ -3463,11 +3190,9 @@ public class Rodo
 
             /**
              * Obtém o valor da propriedade cpf.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getCPF() {
                 return cpf;
@@ -3475,11 +3200,9 @@ public class Rodo
 
             /**
              * Define o valor da propriedade cpf.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setCPF(String value) {
                 this.cpf = value;
@@ -3487,11 +3210,9 @@ public class Rodo
 
             /**
              * Obtém o valor da propriedade cnpj.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getCNPJ() {
                 return cnpj;
@@ -3499,11 +3220,9 @@ public class Rodo
 
             /**
              * Define o valor da propriedade cnpj.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setCNPJ(String value) {
                 this.cnpj = value;
@@ -3511,11 +3230,9 @@ public class Rodo
 
             /**
              * Obtém o valor da propriedade rntrc.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getRNTRC() {
                 return rntrc;
@@ -3523,11 +3240,9 @@ public class Rodo
 
             /**
              * Define o valor da propriedade rntrc.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setRNTRC(String value) {
                 this.rntrc = value;
@@ -3535,11 +3250,9 @@ public class Rodo
 
             /**
              * Obtém o valor da propriedade xNome.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getXNome() {
                 return xNome;
@@ -3547,11 +3260,9 @@ public class Rodo
 
             /**
              * Define o valor da propriedade xNome.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setXNome(String value) {
                 this.xNome = value;
@@ -3559,11 +3270,9 @@ public class Rodo
 
             /**
              * Obtém o valor da propriedade ie.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getIE() {
                 return ie;
@@ -3571,11 +3280,9 @@ public class Rodo
 
             /**
              * Define o valor da propriedade ie.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setIE(String value) {
                 this.ie = value;
@@ -3583,11 +3290,9 @@ public class Rodo
 
             /**
              * Obtém o valor da propriedade uf.
-             * 
-             * @return
-             *     possible object is
-             *     {@link TUf }
-             *     
+             *
+             * @return possible object is
+             * {@link TUf }
              */
             public TUf getUF() {
                 return uf;
@@ -3595,11 +3300,9 @@ public class Rodo
 
             /**
              * Define o valor da propriedade uf.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link TUf }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link TUf }
              */
             public void setUF(TUf value) {
                 this.uf = value;
@@ -3607,11 +3310,9 @@ public class Rodo
 
             /**
              * Obtém o valor da propriedade tpProp.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getTpProp() {
                 return tpProp;
@@ -3619,11 +3320,9 @@ public class Rodo
 
             /**
              * Define o valor da propriedade tpProp.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setTpProp(String value) {
                 this.tpProp = value;
@@ -3636,9 +3335,9 @@ public class Rodo
 
     /**
      * <p>Classe Java de anonymous complex type.
-     * 
+     *
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     * 
+     *
      * <pre>
      * &lt;complexType&gt;
      *   &lt;complexContent&gt;
@@ -3783,26 +3482,23 @@ public class Rodo
      *   &lt;/complexContent&gt;
      * &lt;/complexType&gt;
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "cInt",
-        "placa",
-        "renavam",
-        "tara",
-        "capKG",
-        "capM3",
-        "prop",
-        "condutor",
-        "tpRod",
-        "tpCar",
-        "uf"
+            "cInt",
+            "placa",
+            "renavam",
+            "tara",
+            "capKG",
+            "capM3",
+            "prop",
+            "condutor",
+            "tpRod",
+            "tpCar",
+            "uf"
     })
     public static class VeicTracao
-        implements XML
-    {
+            implements XML {
 
         protected String cInt;
         @XmlElement(required = true)
@@ -3826,11 +3522,9 @@ public class Rodo
 
         /**
          * Obtém o valor da propriedade cInt.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getCInt() {
             return cInt;
@@ -3838,11 +3532,9 @@ public class Rodo
 
         /**
          * Define o valor da propriedade cInt.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setCInt(String value) {
             this.cInt = value;
@@ -3850,11 +3542,9 @@ public class Rodo
 
         /**
          * Obtém o valor da propriedade placa.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getPlaca() {
             return placa;
@@ -3862,11 +3552,9 @@ public class Rodo
 
         /**
          * Define o valor da propriedade placa.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setPlaca(String value) {
             this.placa = value;
@@ -3874,11 +3562,9 @@ public class Rodo
 
         /**
          * Obtém o valor da propriedade renavam.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getRENAVAM() {
             return renavam;
@@ -3886,11 +3572,9 @@ public class Rodo
 
         /**
          * Define o valor da propriedade renavam.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setRENAVAM(String value) {
             this.renavam = value;
@@ -3898,11 +3582,9 @@ public class Rodo
 
         /**
          * Obtém o valor da propriedade tara.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getTara() {
             return tara;
@@ -3910,11 +3592,9 @@ public class Rodo
 
         /**
          * Define o valor da propriedade tara.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setTara(String value) {
             this.tara = value;
@@ -3922,11 +3602,9 @@ public class Rodo
 
         /**
          * Obtém o valor da propriedade capKG.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getCapKG() {
             return capKG;
@@ -3934,11 +3612,9 @@ public class Rodo
 
         /**
          * Define o valor da propriedade capKG.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setCapKG(String value) {
             this.capKG = value;
@@ -3946,11 +3622,9 @@ public class Rodo
 
         /**
          * Obtém o valor da propriedade capM3.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getCapM3() {
             return capM3;
@@ -3958,11 +3632,9 @@ public class Rodo
 
         /**
          * Define o valor da propriedade capM3.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setCapM3(String value) {
             this.capM3 = value;
@@ -3970,11 +3642,9 @@ public class Rodo
 
         /**
          * Obtém o valor da propriedade prop.
-         * 
-         * @return
-         *     possible object is
-         *     {@link Rodo.VeicTracao.Prop }
-         *     
+         *
+         * @return possible object is
+         * {@link Rodo.VeicTracao.Prop }
          */
         public Rodo.VeicTracao.Prop getProp() {
             return prop;
@@ -3982,11 +3652,9 @@ public class Rodo
 
         /**
          * Define o valor da propriedade prop.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link Rodo.VeicTracao.Prop }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link Rodo.VeicTracao.Prop }
          */
         public void setProp(Rodo.VeicTracao.Prop value) {
             this.prop = value;
@@ -3994,25 +3662,23 @@ public class Rodo
 
         /**
          * Gets the value of the condutor property.
-         * 
+         *
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the condutor property.
-         * 
+         *
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getCondutor().add(newItem);
          * </pre>
-         * 
-         * 
+         *
+         *
          * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link Rodo.VeicTracao.Condutor }
-         * 
-         * 
          */
         public List<Rodo.VeicTracao.Condutor> getCondutor() {
             if (condutor == null) {
@@ -4023,11 +3689,9 @@ public class Rodo
 
         /**
          * Obtém o valor da propriedade tpRod.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getTpRod() {
             return tpRod;
@@ -4035,11 +3699,9 @@ public class Rodo
 
         /**
          * Define o valor da propriedade tpRod.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setTpRod(String value) {
             this.tpRod = value;
@@ -4047,11 +3709,9 @@ public class Rodo
 
         /**
          * Obtém o valor da propriedade tpCar.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getTpCar() {
             return tpCar;
@@ -4059,11 +3719,9 @@ public class Rodo
 
         /**
          * Define o valor da propriedade tpCar.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setTpCar(String value) {
             this.tpCar = value;
@@ -4071,11 +3729,9 @@ public class Rodo
 
         /**
          * Obtém o valor da propriedade uf.
-         * 
-         * @return
-         *     possible object is
-         *     {@link TUf }
-         *     
+         *
+         * @return possible object is
+         * {@link TUf }
          */
         public TUf getUF() {
             return uf;
@@ -4083,11 +3739,9 @@ public class Rodo
 
         /**
          * Define o valor da propriedade uf.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link TUf }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link TUf }
          */
         public void setUF(TUf value) {
             this.uf = value;
@@ -4096,9 +3750,9 @@ public class Rodo
 
         /**
          * <p>Classe Java de anonymous complex type.
-         * 
+         *
          * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-         * 
+         *
          * <pre>
          * &lt;complexType&gt;
          *   &lt;complexContent&gt;
@@ -4118,17 +3772,14 @@ public class Rodo
          *   &lt;/complexContent&gt;
          * &lt;/complexType&gt;
          * </pre>
-         * 
-         * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "xNome",
-            "cpf"
+                "xNome",
+                "cpf"
         })
         public static class Condutor
-            implements XML
-        {
+                implements XML {
 
             @XmlElement(required = true)
             protected String xNome;
@@ -4137,11 +3788,9 @@ public class Rodo
 
             /**
              * Obtém o valor da propriedade xNome.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getXNome() {
                 return xNome;
@@ -4149,11 +3798,9 @@ public class Rodo
 
             /**
              * Define o valor da propriedade xNome.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setXNome(String value) {
                 this.xNome = value;
@@ -4161,11 +3808,9 @@ public class Rodo
 
             /**
              * Obtém o valor da propriedade cpf.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getCPF() {
                 return cpf;
@@ -4173,11 +3818,9 @@ public class Rodo
 
             /**
              * Define o valor da propriedade cpf.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setCPF(String value) {
                 this.cpf = value;
@@ -4188,9 +3831,9 @@ public class Rodo
 
         /**
          * <p>Classe Java de anonymous complex type.
-         * 
+         *
          * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-         * 
+         *
          * <pre>
          * &lt;complexType&gt;
          *   &lt;complexContent&gt;
@@ -4233,22 +3876,19 @@ public class Rodo
          *   &lt;/complexContent&gt;
          * &lt;/complexType&gt;
          * </pre>
-         * 
-         * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "cpf",
-            "cnpj",
-            "rntrc",
-            "xNome",
-            "ie",
-            "uf",
-            "tpProp"
+                "cpf",
+                "cnpj",
+                "rntrc",
+                "xNome",
+                "ie",
+                "uf",
+                "tpProp"
         })
         public static class Prop
-            implements XML
-        {
+                implements XML {
 
             @XmlElement(name = "CPF")
             protected String cpf;
@@ -4268,11 +3908,9 @@ public class Rodo
 
             /**
              * Obtém o valor da propriedade cpf.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getCPF() {
                 return cpf;
@@ -4280,11 +3918,9 @@ public class Rodo
 
             /**
              * Define o valor da propriedade cpf.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setCPF(String value) {
                 this.cpf = value;
@@ -4292,11 +3928,9 @@ public class Rodo
 
             /**
              * Obtém o valor da propriedade cnpj.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getCNPJ() {
                 return cnpj;
@@ -4304,11 +3938,9 @@ public class Rodo
 
             /**
              * Define o valor da propriedade cnpj.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setCNPJ(String value) {
                 this.cnpj = value;
@@ -4316,11 +3948,9 @@ public class Rodo
 
             /**
              * Obtém o valor da propriedade rntrc.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getRNTRC() {
                 return rntrc;
@@ -4328,11 +3958,9 @@ public class Rodo
 
             /**
              * Define o valor da propriedade rntrc.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setRNTRC(String value) {
                 this.rntrc = value;
@@ -4340,11 +3968,9 @@ public class Rodo
 
             /**
              * Obtém o valor da propriedade xNome.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getXNome() {
                 return xNome;
@@ -4352,11 +3978,9 @@ public class Rodo
 
             /**
              * Define o valor da propriedade xNome.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setXNome(String value) {
                 this.xNome = value;
@@ -4364,11 +3988,9 @@ public class Rodo
 
             /**
              * Obtém o valor da propriedade ie.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getIE() {
                 return ie;
@@ -4376,11 +3998,9 @@ public class Rodo
 
             /**
              * Define o valor da propriedade ie.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setIE(String value) {
                 this.ie = value;
@@ -4388,11 +4008,9 @@ public class Rodo
 
             /**
              * Obtém o valor da propriedade uf.
-             * 
-             * @return
-             *     possible object is
-             *     {@link TUf }
-             *     
+             *
+             * @return possible object is
+             * {@link TUf }
              */
             public TUf getUF() {
                 return uf;
@@ -4400,11 +4018,9 @@ public class Rodo
 
             /**
              * Define o valor da propriedade uf.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link TUf }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link TUf }
              */
             public void setUF(TUf value) {
                 this.uf = value;
@@ -4412,11 +4028,9 @@ public class Rodo
 
             /**
              * Obtém o valor da propriedade tpProp.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getTpProp() {
                 return tpProp;
@@ -4424,11 +4038,9 @@ public class Rodo
 
             /**
              * Define o valor da propriedade tpProp.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setTpProp(String value) {
                 this.tpProp = value;

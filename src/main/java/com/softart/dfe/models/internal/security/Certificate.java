@@ -10,6 +10,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
+/**
+ * `Certificate` is a `CertificateChain` that is a `JKS` file
+ */
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder

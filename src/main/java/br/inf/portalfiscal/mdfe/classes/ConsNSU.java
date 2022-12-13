@@ -8,18 +8,19 @@
 
 package br.inf.portalfiscal.mdfe.classes;
 
+import com.softart.dfe.interfaces.xml.generic.XML;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
 
 
 /**
  * <p>Classe Java de ConsNSU complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="ConsNSU"&gt;
  *   &lt;complexContent&gt;
@@ -31,27 +32,22 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ConsNSU", propOrder = {
-    "nsu"
+        "nsu"
 })
 public class ConsNSU
-    implements XML
-{
+        implements XML {
 
     @XmlElement(name = "NSU", required = true)
     protected String nsu;
 
     /**
      * Obtém o valor da propriedade nsu.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getNSU() {
         return nsu;
@@ -59,11 +55,9 @@ public class ConsNSU
 
     /**
      * Define o valor da propriedade nsu.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setNSU(String value) {
         this.nsu = value;

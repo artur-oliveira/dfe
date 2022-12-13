@@ -9,10 +9,25 @@ import com.softart.dfe.interfaces.storage.Store;
 
 public interface NfeEpecStorage extends Storage {
 
+    /**
+     * It stores a TProcEvento object in the database.
+     *
+     * @param o The object to be stored.
+     */
     void storeProcEpec(Store<TProcEvento> o) throws StorageException;
 
+    /**
+     * It stores the return value of the function in the store.
+     *
+     * @param o The object to be stored.
+     */
     void storeRetEpec(Store<TRetEnvEvento> o) throws StorageException;
 
+    /**
+     * It stores an event in the database.
+     *
+     * @param o The object to be stored.
+     */
     void storeSendEpec(Store<TEnvEvento> o) throws StorageException;
 
 }

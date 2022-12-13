@@ -8,7 +8,7 @@
 
 package br.inf.portalfiscal.nfe.event_cancel;
 
-import com.softart.dfe.interfaces.xml.XML;
+import com.softart.dfe.interfaces.xml.generic.XML;
 
 import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
@@ -17,9 +17,9 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 /**
  * <p>Classe Java de SignatureType complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="SignatureType"&gt;
  *   &lt;complexContent&gt;
@@ -34,18 +34,15 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "SignatureType", namespace = "http://www.w3.org/2000/09/xmldsig#", propOrder = {
-    "signedInfo",
-    "signatureValue",
-    "keyInfo"
+        "signedInfo",
+        "signatureValue",
+        "keyInfo"
 })
 public class SignatureType
-    implements XML
-{
+        implements XML {
 
     @XmlElement(name = "SignedInfo", required = true)
     protected SignedInfoType signedInfo;
@@ -61,11 +58,9 @@ public class SignatureType
 
     /**
      * Obtém o valor da propriedade signedInfo.
-     * 
-     * @return
-     *     possible object is
-     *     {@link SignedInfoType }
-     *     
+     *
+     * @return possible object is
+     * {@link SignedInfoType }
      */
     public SignedInfoType getSignedInfo() {
         return signedInfo;
@@ -73,11 +68,9 @@ public class SignatureType
 
     /**
      * Define o valor da propriedade signedInfo.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link SignedInfoType }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link SignedInfoType }
      */
     public void setSignedInfo(SignedInfoType value) {
         this.signedInfo = value;
@@ -85,11 +78,9 @@ public class SignatureType
 
     /**
      * Obtém o valor da propriedade signatureValue.
-     * 
-     * @return
-     *     possible object is
-     *     {@link SignatureValueType }
-     *     
+     *
+     * @return possible object is
+     * {@link SignatureValueType }
      */
     public SignatureValueType getSignatureValue() {
         return signatureValue;
@@ -97,11 +88,9 @@ public class SignatureType
 
     /**
      * Define o valor da propriedade signatureValue.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link SignatureValueType }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link SignatureValueType }
      */
     public void setSignatureValue(SignatureValueType value) {
         this.signatureValue = value;
@@ -109,11 +98,9 @@ public class SignatureType
 
     /**
      * Obtém o valor da propriedade keyInfo.
-     * 
-     * @return
-     *     possible object is
-     *     {@link KeyInfoType }
-     *     
+     *
+     * @return possible object is
+     * {@link KeyInfoType }
      */
     public KeyInfoType getKeyInfo() {
         return keyInfo;
@@ -121,11 +108,9 @@ public class SignatureType
 
     /**
      * Define o valor da propriedade keyInfo.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link KeyInfoType }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link KeyInfoType }
      */
     public void setKeyInfo(KeyInfoType value) {
         this.keyInfo = value;
@@ -133,11 +118,9 @@ public class SignatureType
 
     /**
      * Obtém o valor da propriedade id.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getId() {
         return id;
@@ -145,11 +128,9 @@ public class SignatureType
 
     /**
      * Define o valor da propriedade id.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setId(String value) {
         this.id = value;

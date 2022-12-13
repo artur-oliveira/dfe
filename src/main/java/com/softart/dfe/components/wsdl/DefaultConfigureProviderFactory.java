@@ -4,6 +4,7 @@ import com.softart.dfe.components.internal.xml.handler.CustomSoapHandler;
 import com.softart.dfe.components.security.socket.SocketFactory;
 import com.softart.dfe.exceptions.security.SecurityException;
 import com.softart.dfe.interfaces.internal.config.Config;
+import com.softart.dfe.models.internal.wsdl.ProviderConfig;
 import lombok.AccessLevel;
 import lombok.Getter;
 
@@ -27,27 +28,50 @@ final class DefaultConfigureProviderFactory extends ConfigureProviderFactory {
     public DefaultConfigureProviderFactory() {
     }
 
+    /**
+     * > The function takes a BindingProvider and a Config object, and sets the socket factory of the BindingProvider to a
+     * socket factory that is configured with the Config object
+     *
+     * @param port   The port object that is used to invoke the web service.
+     * @param config The configuration object that contains the keystore and truststore information.
+     */
     private void context(BindingProvider port, Config config) throws SecurityException {
         port.getRequestContext().put(SOCKET_FACTORY, SocketFactory.getInstance().context(config).getSocketFactory());
     }
 
+    /**
+     * If the endpoint address is http, replace it with https
+     *
+     * @param port The port object that you're using to call the web service.
+     */
     private void useHttps(BindingProvider port) {
         port.getRequestContext().put(ENDPOINT_ADDRESS, port.getRequestContext().get(ENDPOINT_ADDRESS).toString().replace("http://", "https://"));
     }
 
+    /**
+     * > Set the timeout for the request to the value of the `DefaultConfigureProviderFactory.TIMEOUT_IN_SECS` constant
+     *
+     * @param port the port of the web service
+     */
     private void timeout(BindingProvider port) {
         port.getRequestContext().put(CONNECT_TIMEOUT, DefaultConfigureProviderFactory.TIMEOUT_IN_SECS * 1000);
         port.getRequestContext().put(REQUEST_TIMEOUT, DefaultConfigureProviderFactory.TIMEOUT_IN_SECS * 1000);
     }
 
+    /**
+     * Set the handler chain for the binding to the list of handlers.
+     *
+     * @param ws The web service client object
+     */
     private void handler(BindingProvider ws) {
         ws.getBinding().setHandlerChain(new ArrayList<>(getHandlers()));
     }
 
-    public void configure(BindingProvider port, Config config) throws SecurityException {
-        context(port, config);
-        timeout(port);
-        handler(port);
-        useHttps(port);
+    @Override
+    public void configure(ProviderConfig config) throws SecurityException {
+        context(config.getPort(), config.getConfig());
+        timeout(config.getPort());
+        handler(config.getPort());
+        useHttps(config.getPort());
     }
 }

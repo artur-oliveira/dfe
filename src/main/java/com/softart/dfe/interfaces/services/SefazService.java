@@ -1,24 +1,54 @@
 package com.softart.dfe.interfaces.services;
 
-import com.softart.dfe.components.sefaz.DfeFactory;
+import com.softart.dfe.components.sefaz.DfeService;
 import com.softart.dfe.components.validation.ValidatorFactory;
 import com.softart.dfe.components.wsdl.ConfigureProviderFactory;
 import com.softart.dfe.interfaces.internal.config.Config;
 import com.softart.dfe.interfaces.process.DfProcess;
-import com.softart.dfe.interfaces.xml.XMLSigner;
+import com.softart.dfe.interfaces.xml.XMLSignerService;
 
 public interface SefazService {
 
+    /**
+     * Get the config object.
+     *
+     * @return The config object.
+     */
     Config getConfig();
 
-    XMLSigner getXmlSigner();
+    /**
+     * > This function returns an instance of the XMLSignerService class
+     *
+     * @return The XMLSignerService object.
+     */
+    XMLSignerService getXmlSigner();
 
+    /**
+     * Returns the process instance
+     *
+     * @return The process that is being returned is the process that is being used to run the current thread.
+     */
     DfProcess getProcess();
 
-    DfeFactory getProviderFactory();
+    /**
+     * It returns a DfeService object that can be used to make requests to the Google Play Developer API
+     *
+     * @return A ProviderFactory object.
+     */
+    DfeService getProviderFactory();
 
+    /**
+     * Returns the ValidatorFactory instance that this ValidatorContext is bound to.
+     *
+     * @return A ValidatorFactory object.
+     */
     ValidatorFactory getValidatorFactory();
 
+    /**
+     * > Returns the ConfigureProviderFactory instance
+     *
+     * @return The ConfigureProviderFactory is being returned.
+     */
     ConfigureProviderFactory getConfigureProviderFactory();
 
 }

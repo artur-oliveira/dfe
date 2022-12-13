@@ -10,6 +10,13 @@ import com.softart.dfe.interfaces.sefaz.SefazRequest;
 
 public interface NfAuthorization {
 
+    /**
+     * It takes a SefazRequest object, and returns a pair of objects, one of type TEnviNFe and the other of type
+     * TRetEnviNFe
+     *
+     * @param data The request object.
+     * @return A pair of objects, the first one is the request object and the second one is the response object.
+     */
     <T extends SefazRequest<TEnviNFe, TRetEnviNFe>> Pair<TEnviNFe, TRetEnviNFe> authorize(T data) throws SecurityException, ValidationException, ProcessException;
 
 }

@@ -10,6 +10,12 @@ import com.softart.dfe.interfaces.sefaz.SefazRequest;
 
 public interface NfQueryStatusService {
 
+    /**
+     * It takes a SefazRequest object, and returns a Pair of the request and response objects
+     *
+     * @param data The request object.
+     * @return A pair of objects, the first is the request object and the second is the response object.
+     */
     <T extends SefazRequest<TConsStatServ, TRetConsStatServ>> Pair<TConsStatServ, TRetConsStatServ> queryStatusService(T data) throws SecurityException, ValidationException, ProcessException;
 
 }

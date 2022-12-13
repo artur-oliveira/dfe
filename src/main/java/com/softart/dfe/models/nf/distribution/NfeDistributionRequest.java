@@ -8,7 +8,7 @@ import com.softart.dfe.interfaces.process.nf.distribution.BeforeDistribution;
 import com.softart.dfe.interfaces.sefaz.SefazRequest;
 import com.softart.dfe.interfaces.validation.nf.NfeDistributionValidator;
 import com.softart.dfe.interfaces.wsdl.ConfigureProvider;
-import com.softart.dfe.interfaces.xml.XMLSigner;
+import com.softart.dfe.interfaces.xml.XMLSignerService;
 import lombok.*;
 
 import java.util.Collection;
@@ -21,7 +21,7 @@ import java.util.Collection;
 public final class NfeDistributionRequest implements SefazRequest<TDistDFeInt, TRetDistDFeInt> {
     public TDistDFeInt data;
     public Config config;
-    public XMLSigner signer;
+    public XMLSignerService signer;
     public ConfigureProvider configureProvider;
     public Collection<NfeDistributionValidator> validators;
     public Collection<BeforeDistribution> beforeRequest;

@@ -8,23 +8,20 @@
 
 package br.inf.portalfiscal.mdfe.classes;
 
+import com.softart.dfe.interfaces.xml.generic.XML;
+
+import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
 
 
 /**
  * Tipo Retorno de Pedido de Consulta MDF-e não Encerrados
- * 
+ *
  * <p>Classe Java de TRetConsMDFeNaoEnc complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="TRetConsMDFeNaoEnc"&gt;
  *   &lt;complexContent&gt;
@@ -53,21 +50,18 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TRetConsMDFeNaoEnc", propOrder = {
-    "tpAmb",
-    "verAplic",
-    "cStat",
-    "xMotivo",
-    "cuf",
-    "infMDFe"
+        "tpAmb",
+        "verAplic",
+        "cStat",
+        "xMotivo",
+        "cuf",
+        "infMDFe"
 })
 public class TRetConsMDFeNaoEnc
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected String tpAmb;
@@ -85,11 +79,9 @@ public class TRetConsMDFeNaoEnc
 
     /**
      * Obtém o valor da propriedade tpAmb.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getTpAmb() {
         return tpAmb;
@@ -97,11 +89,9 @@ public class TRetConsMDFeNaoEnc
 
     /**
      * Define o valor da propriedade tpAmb.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setTpAmb(String value) {
         this.tpAmb = value;
@@ -109,11 +99,9 @@ public class TRetConsMDFeNaoEnc
 
     /**
      * Obtém o valor da propriedade verAplic.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVerAplic() {
         return verAplic;
@@ -121,11 +109,9 @@ public class TRetConsMDFeNaoEnc
 
     /**
      * Define o valor da propriedade verAplic.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVerAplic(String value) {
         this.verAplic = value;
@@ -133,11 +119,9 @@ public class TRetConsMDFeNaoEnc
 
     /**
      * Obtém o valor da propriedade cStat.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCStat() {
         return cStat;
@@ -145,11 +129,9 @@ public class TRetConsMDFeNaoEnc
 
     /**
      * Define o valor da propriedade cStat.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCStat(String value) {
         this.cStat = value;
@@ -157,11 +139,9 @@ public class TRetConsMDFeNaoEnc
 
     /**
      * Obtém o valor da propriedade xMotivo.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getXMotivo() {
         return xMotivo;
@@ -169,11 +149,9 @@ public class TRetConsMDFeNaoEnc
 
     /**
      * Define o valor da propriedade xMotivo.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setXMotivo(String value) {
         this.xMotivo = value;
@@ -181,11 +159,9 @@ public class TRetConsMDFeNaoEnc
 
     /**
      * Obtém o valor da propriedade cuf.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCUF() {
         return cuf;
@@ -193,11 +169,9 @@ public class TRetConsMDFeNaoEnc
 
     /**
      * Define o valor da propriedade cuf.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCUF(String value) {
         this.cuf = value;
@@ -205,25 +179,23 @@ public class TRetConsMDFeNaoEnc
 
     /**
      * Gets the value of the infMDFe property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the infMDFe property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getInfMDFe().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link TRetConsMDFeNaoEnc.InfMDFe }
-     * 
-     * 
      */
     public List<TRetConsMDFeNaoEnc.InfMDFe> getInfMDFe() {
         if (infMDFe == null) {
@@ -234,11 +206,9 @@ public class TRetConsMDFeNaoEnc
 
     /**
      * Obtém o valor da propriedade versao.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVersao() {
         return versao;
@@ -246,11 +216,9 @@ public class TRetConsMDFeNaoEnc
 
     /**
      * Define o valor da propriedade versao.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVersao(String value) {
         this.versao = value;
@@ -259,9 +227,9 @@ public class TRetConsMDFeNaoEnc
 
     /**
      * <p>Classe Java de anonymous complex type.
-     * 
+     *
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     * 
+     *
      * <pre>
      * &lt;complexType&gt;
      *   &lt;complexContent&gt;
@@ -274,17 +242,14 @@ public class TRetConsMDFeNaoEnc
      *   &lt;/complexContent&gt;
      * &lt;/complexType&gt;
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "chMDFe",
-        "nProt"
+            "chMDFe",
+            "nProt"
     })
     public static class InfMDFe
-        implements XML
-    {
+            implements XML {
 
         @XmlElement(required = true)
         protected String chMDFe;
@@ -293,11 +258,9 @@ public class TRetConsMDFeNaoEnc
 
         /**
          * Obtém o valor da propriedade chMDFe.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getChMDFe() {
             return chMDFe;
@@ -305,11 +268,9 @@ public class TRetConsMDFeNaoEnc
 
         /**
          * Define o valor da propriedade chMDFe.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setChMDFe(String value) {
             this.chMDFe = value;
@@ -317,11 +278,9 @@ public class TRetConsMDFeNaoEnc
 
         /**
          * Obtém o valor da propriedade nProt.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getNProt() {
             return nProt;
@@ -329,11 +288,9 @@ public class TRetConsMDFeNaoEnc
 
         /**
          * Define o valor da propriedade nProt.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setNProt(String value) {
             this.nProt = value;

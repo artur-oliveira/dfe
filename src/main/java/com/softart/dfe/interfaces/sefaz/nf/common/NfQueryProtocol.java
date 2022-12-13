@@ -10,6 +10,13 @@ import com.softart.dfe.interfaces.sefaz.SefazRequest;
 
 public interface NfQueryProtocol {
 
+    /**
+     * It takes a SefazRequest object, and returns a pair of objects, one of which is a SefazRequest object, and the other
+     * is a SefazResponse object
+     *
+     * @param data The request object.
+     * @return A pair of objects, the first is the request object and the second is the response object.
+     */
     <T extends SefazRequest<TConsSitNFe, TRetConsSitNFe>> Pair<TConsSitNFe, TRetConsSitNFe> queryProtocol(T data) throws SecurityException, ValidationException, ProcessException;
 
 }

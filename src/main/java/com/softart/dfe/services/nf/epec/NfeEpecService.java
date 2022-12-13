@@ -1,8 +1,8 @@
 package com.softart.dfe.services.nf.epec;
 
+import br.inf.portalfiscal.nfe.event_epec.TEnvEvento;
 import br.inf.portalfiscal.nfe.event_epec.TUf;
-import br.inf.portalfiscal.nfe.send.TNFe;
-import com.softart.dfe.components.internal.parser.AccessKeyParserFactory;
+import com.softart.dfe.components.internal.xml.unmarshaller.NfUnmarshaller;
 import com.softart.dfe.enums.nf.identification.NFType;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.exceptions.ValidationException;
@@ -10,26 +10,150 @@ import com.softart.dfe.exceptions.port.SoapServiceGeneralException;
 import com.softart.dfe.exceptions.security.SecurityException;
 import com.softart.dfe.exceptions.services.NoProviderFound;
 import com.softart.dfe.interfaces.services.NfSefazService;
+import com.softart.dfe.interfaces.xml.XMLTransformer;
 import com.softart.dfe.models.nf.authorization.Nf;
 import com.softart.dfe.models.nf.epec.NfeEpec;
+import com.softart.dfe.models.nf.epec.NfeEpecRequest;
 import com.softart.dfe.models.nf.epec.ReturnNfeEpec;
 import com.softart.dfe.models.nf.epec.SendNfeEpec;
 
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public interface NfeEpecService extends NfSefazService {
 
-    ReturnNfeEpec epec(SendNfeEpec sendNfeEpec) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException;
+    /**
+     * A function that sends an event to the Sefaz.
+     *
+     * @param tEnvEvento The object that contains the data to be sent to the SEFAZ.
+     * @return A ReturnNfeEpec object.
+     */
+    default ReturnNfeEpec epec(TEnvEvento tEnvEvento) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+        return ReturnNfeEpec.builder().build().fromObject(getProviderFactory()
+                .getNfeService(getConfig())
+                .epec(NfeEpecRequest
+                        .builder()
+                        .data(tEnvEvento)
+                        .config(getConfig())
+                        .signer(getXmlSigner())
+                        .validators(getValidatorFactory().nfeValidator().epecValidators())
+                        .afterRequest(getProcess().afterEpec())
+                        .beforeRequest(getProcess().beforeEpec())
+                        .configureProvider(getConfigureProviderFactory())
+                        .build()).second());
+    }
 
+    /**
+     * It converts the SendNfeEpec object to an object and then calls the epec function.
+     *
+     * @param sendNfeEpec Object of type SendNfeEpec, which contains the data to be sent to the Epec service.
+     * @return ReturnNfeEpec
+     */
+    default ReturnNfeEpec epec(SendNfeEpec sendNfeEpec) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+        return epec(sendNfeEpec.toObject());
+    }
+
+    /**
+     * Send a NfeEpec object to the Sefaz and return a ReturnNfeEpec object
+     *
+     * @param nfeEpec NfeEpec object with the data to be sent.
+     * @return ReturnNfeEpec
+     */
+    default ReturnNfeEpec epec(NfeEpec nfeEpec) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+        return epec(SendNfeEpec.build(nfeEpec));
+    }
+
+    /**
+     * A function that sends an event to the Sefaz.
+     *
+     * @param infEvento The event information.
+     * @return ReturnNfeEpec
+     */
+    default ReturnNfeEpec epec(NfeEpec.InfEvento infEvento) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+        return epec(SendNfeEpec.build(infEvento));
+    }
+
+    /**
+     * A function that sends an event to the NF-e.
+     *
+     * @param accessKey The access key of the NF-e.
+     * @param detEvento The event to be sent.
+     * @return ReturnNfeEpec
+     */
     default ReturnNfeEpec epec(String accessKey, NfeEpec.InfEvento.DetEvento detEvento) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
-        return epec(SendNfeEpec.epec(accessKey, detEvento, getConfig()));
+        return epec(SendNfeEpec.build(accessKey, detEvento, getConfig()));
     }
 
+    /**
+     * It sends an Epec to the Sefaz.
+     *
+     * @param accessKey                  The access key of the NFe.
+     * @param emissionDate               Date of emission of the document in the format yyyy-MM-dd
+     * @param type                       NFType.NF_TYPE_ENTRADA or NFType.NF_TYPE_SAIDA
+     * @param stateRegistration          State registration of the company that is sending the document.
+     * @param uf                         The state of the sender.
+     * @param cnpj                       CNPJ of the company that will receive the NFe.
+     * @param cpf                        CPF of the recipient
+     * @param foreignId                  The foreignId is the number of the foreign document that is being replaced.
+     * @param recipientStateRegistration State registration of the recipient.
+     * @param totalValue                 Total value of the invoice
+     * @param totalIcms                  Total ICMS value
+     * @param totalIcmsSt                Total ICMS ST
+     * @return ReturnNfeEpec
+     */
     default ReturnNfeEpec epec(String accessKey, String emissionDate, NFType type, String stateRegistration, TUf uf, String cnpj, String cpf, String foreignId, String recipientStateRegistration, String totalValue, String totalIcms, String totalIcmsSt) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
-        return epec(accessKey, NfeEpec.InfEvento.DetEvento.builder().dhEmi(emissionDate).tpNF(type.getCode()).cOrgaoAutor(getConfig().uf().getCode()).ie(stateRegistration).dest(NfeEpec.InfEvento.DetEvento.Dest.builder().cnpj(cnpj).uf(uf).cpf(cpf).idEstrangeiro(foreignId).ie(recipientStateRegistration).vnf(totalValue).vicms(totalIcms).vst(totalIcmsSt).build()).build());
+        return epec(SendNfeEpec.build(accessKey, emissionDate, type, stateRegistration, uf, cnpj, cpf, foreignId, recipientStateRegistration, totalValue, totalIcms, totalIcmsSt, getConfig()));
     }
 
-
+    /**
+     * A function that receives a parameter of type Nf and returns a ReturnNfeEpec.
+     *
+     * @param n The NF object to be sent.
+     * @return ReturnNfeEpec
+     */
     default ReturnNfeEpec epec(Nf n) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
-        TNFe tnFe = n.toObject();
-        return epec(AccessKeyParserFactory.nfe().fromId(tnFe.getInfNFe().getId()), n.getInfNFe().getIde().getDhEmi(), NFType.valueOfCode(n.getInfNFe().getIde().getTpNF()), n.getInfNFe().getEmit().getIe(), TUf.valueOf(n.getInfNFe().getEmit().getEnderEmit().getUf().name()), n.getInfNFe().getEmit().getCnpj(), n.getInfNFe().getEmit().getCpf(), n.getInfNFe().getDest().getIdEstrangeiro(), n.getInfNFe().getDest().getIe(), n.getInfNFe().getTotal().getIcmsTot().getVnf(), n.getInfNFe().getTotal().getIcmsTot().getVicms(), n.getInfNFe().getTotal().getIcmsTot().getVst());
+        return epec(Collections.singletonList(n));
+    }
+
+    /**
+     * "Send a list of invoices to the Epec service and return the result."
+     *
+     * @param nfs List of NF objects
+     * @return ReturnNfeEpec
+     */
+    default ReturnNfeEpec epec(List<Nf> nfs) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+        return epec(SendNfeEpec.build(nfs, getConfig()));
+    }
+
+    /**
+     * It sends an Epec to the Sefaz
+     *
+     * @param transformer The transformer that will be used to transform the XML into a Nf object.
+     * @param xml         The XML of the NF-e to be sent.
+     * @return ReturnNfeEpec
+     */
+    default ReturnNfeEpec epec(XMLTransformer<Nf> transformer, String xml) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+        return epec(transformer.transform(xml));
+    }
+
+    /**
+     * Given an XML string, return an Epec object
+     *
+     * @param xml The XML of the NF-e to be converted to Epec.
+     * @return ReturnNfeEpec
+     */
+    default ReturnNfeEpec epecFromNfe(String xml) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+        return epec((o) -> Nf.builder().build().fromObject(NfUnmarshaller.nfe(o).getValue()), xml);
+    }
+
+    /**
+     * It receives an XML string, converts it to a list of NF objects, and then calls the epec function
+     *
+     * @param xml XML of the NF-e to be canceled.
+     * @return ReturnNfeEpec
+     */
+    default ReturnNfeEpec epecFromEnviNfe(String xml) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+        return epec(NfUnmarshaller.enviNfe(xml).getValue().getNFe().stream().map(it -> Nf.builder().build().fromObject(it)).collect(Collectors.toList()));
     }
 }

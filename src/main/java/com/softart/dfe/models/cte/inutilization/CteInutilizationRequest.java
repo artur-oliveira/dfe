@@ -8,7 +8,7 @@ import com.softart.dfe.interfaces.process.cte.inutilization.BeforeInutilization;
 import com.softart.dfe.interfaces.sefaz.SefazRequest;
 import com.softart.dfe.interfaces.validation.cte.CteInutilizationValidator;
 import com.softart.dfe.interfaces.wsdl.ConfigureProvider;
-import com.softart.dfe.interfaces.xml.XMLSigner;
+import com.softart.dfe.interfaces.xml.XMLSignerService;
 import lombok.*;
 
 import java.util.Collection;
@@ -22,7 +22,7 @@ import java.util.Collection;
 public final class CteInutilizationRequest implements SefazRequest<TInutCTe, TRetInutCTe> {
     public TInutCTe data;
     public Config config;
-    public XMLSigner signer;
+    public XMLSignerService signer;
     public ConfigureProvider configureProvider;
     public Collection<CteInutilizationValidator> validators;
     public Collection<BeforeInutilization> beforeRequest;

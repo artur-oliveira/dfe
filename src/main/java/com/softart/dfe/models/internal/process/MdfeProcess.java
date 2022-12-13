@@ -9,7 +9,7 @@ import com.softart.dfe.components.process.mdfe.query_unclosed.impl.QueryUnclosed
 import com.softart.dfe.components.process.mdfe.reception.impl.ReceptionMdfeProcessFactory;
 import com.softart.dfe.components.process.mdfe.reception_sync.impl.ReceptionSyncMdfeProcessFactory;
 import com.softart.dfe.components.process.mdfe.status_service.impl.StatusServiceMdfeProcessFactory;
-import com.softart.dfe.interfaces.process.mdfe.MdfeProcess;
+import com.softart.dfe.interfaces.process.mdfe.MdfeProcessService;
 import com.softart.dfe.interfaces.process.mdfe.distribution.AfterDistribution;
 import com.softart.dfe.interfaces.process.mdfe.distribution.BeforeDistribution;
 import com.softart.dfe.interfaces.process.mdfe.event.AfterEvent;
@@ -32,7 +32,11 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public abstract class AbstractMdfeProcess implements MdfeProcess {
+public abstract class MdfeProcess implements MdfeProcessService {
+
+    public static MdfeProcess getInstance() {
+        return Holder.INSTANCE;
+    }
 
     public abstract List<MdfeProcessFactory> getProcessFactories();
 
@@ -146,5 +150,9 @@ public abstract class AbstractMdfeProcess implements MdfeProcess {
     @Override
     public Collection<AfterReceptionSync> afterReceptionSync() {
         return receptionSyncFactory().stream().map(it -> new ArrayList<>(it.after())).flatMap(List::stream).collect(Collectors.toList());
+    }
+
+    final static class Holder {
+        final static MdfeProcess INSTANCE = new DefaultMdfeProcess();
     }
 }

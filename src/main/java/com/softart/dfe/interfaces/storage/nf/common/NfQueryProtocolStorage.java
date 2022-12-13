@@ -8,7 +8,17 @@ import com.softart.dfe.interfaces.storage.Store;
 
 public interface NfQueryProtocolStorage extends Storage {
 
+    /**
+     * It stores the return of the query protocol.
+     *
+     * @param o The object to be stored.
+     */
     void storeRetQueryProtocol(Store<TRetConsSitNFe> o) throws StorageException;
 
+    /**
+     * It stores the environment query protocol.
+     *
+     * @param o The object to be stored.
+     */
     void storeEnvQueryProtocol(Store<TConsSitNFe> o) throws StorageException;
 }

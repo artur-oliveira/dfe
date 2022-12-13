@@ -10,6 +10,13 @@ import com.softart.dfe.interfaces.sefaz.SefazRequest;
 
 public interface NfeDistribution {
 
+    /**
+     * It takes a SefazRequest object as input, and returns a Pair object containing a TDistDFeInt object and a
+     * TRetDistDFeInt object
+     *
+     * @param data The request object.
+     * @return A pair of objects.
+     */
     <T extends SefazRequest<TDistDFeInt, TRetDistDFeInt>> Pair<TDistDFeInt, TRetDistDFeInt> distribution(T data) throws SecurityException, ValidationException, ProcessException;
 
 }

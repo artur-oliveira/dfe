@@ -8,20 +8,21 @@
 
 package br.inf.portalfiscal.cte.send;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.softart.dfe.interfaces.xml.generic.XML;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
  * <p>Classe Java de Aereo complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="Aereo"&gt;
  *   &lt;complexContent&gt;
@@ -52,21 +53,18 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Aereo", propOrder = {
-    "nMinu",
-    "noca",
-    "dPrevAereo",
-    "natCarga",
-    "tarifa",
-    "peri"
+        "nMinu",
+        "noca",
+        "dPrevAereo",
+        "natCarga",
+        "tarifa",
+        "peri"
 })
 public class Aereo
-    implements XML
-{
+        implements XML {
 
     protected String nMinu;
     @XmlElement(name = "nOCA")
@@ -81,11 +79,9 @@ public class Aereo
 
     /**
      * Obtém o valor da propriedade nMinu.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getNMinu() {
         return nMinu;
@@ -93,11 +89,9 @@ public class Aereo
 
     /**
      * Define o valor da propriedade nMinu.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setNMinu(String value) {
         this.nMinu = value;
@@ -105,11 +99,9 @@ public class Aereo
 
     /**
      * Obtém o valor da propriedade noca.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getNOCA() {
         return noca;
@@ -117,11 +109,9 @@ public class Aereo
 
     /**
      * Define o valor da propriedade noca.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setNOCA(String value) {
         this.noca = value;
@@ -129,11 +119,9 @@ public class Aereo
 
     /**
      * Obtém o valor da propriedade dPrevAereo.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getDPrevAereo() {
         return dPrevAereo;
@@ -141,11 +129,9 @@ public class Aereo
 
     /**
      * Define o valor da propriedade dPrevAereo.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setDPrevAereo(String value) {
         this.dPrevAereo = value;
@@ -153,11 +139,9 @@ public class Aereo
 
     /**
      * Obtém o valor da propriedade natCarga.
-     * 
-     * @return
-     *     possible object is
-     *     {@link NatCarga }
-     *     
+     *
+     * @return possible object is
+     * {@link NatCarga }
      */
     public NatCarga getNatCarga() {
         return natCarga;
@@ -165,11 +149,9 @@ public class Aereo
 
     /**
      * Define o valor da propriedade natCarga.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link NatCarga }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link NatCarga }
      */
     public void setNatCarga(NatCarga value) {
         this.natCarga = value;
@@ -177,11 +159,9 @@ public class Aereo
 
     /**
      * Obtém o valor da propriedade tarifa.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Tarifa }
-     *     
+     *
+     * @return possible object is
+     * {@link Tarifa }
      */
     public Tarifa getTarifa() {
         return tarifa;
@@ -189,11 +169,9 @@ public class Aereo
 
     /**
      * Define o valor da propriedade tarifa.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Tarifa }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Tarifa }
      */
     public void setTarifa(Tarifa value) {
         this.tarifa = value;
@@ -201,25 +179,23 @@ public class Aereo
 
     /**
      * Gets the value of the peri property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the peri property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getPeri().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Peri }
-     * 
-     * 
      */
     public List<Peri> getPeri() {
         if (peri == null) {

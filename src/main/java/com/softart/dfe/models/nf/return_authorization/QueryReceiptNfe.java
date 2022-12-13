@@ -2,8 +2,8 @@ package com.softart.dfe.models.nf.return_authorization;
 
 import br.inf.portalfiscal.nfe.send.TConsReciNFe;
 import com.softart.dfe.enums.nf.version.NFVersion;
-import com.softart.dfe.interfaces.xml.DFObject;
 import com.softart.dfe.interfaces.xml.XMLAdapter;
+import com.softart.dfe.interfaces.xml.generic.DFObject;
 import lombok.*;
 
 @Getter

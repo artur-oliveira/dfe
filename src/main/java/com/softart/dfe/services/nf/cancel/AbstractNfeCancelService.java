@@ -27,8 +27,8 @@ public abstract class AbstractNfeCancelService implements NfCancelService {
     }
 
     @Override
-    public ReturnNfeCancel cancelar(String accessKey) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
-        return cancelar(accessKey, String.valueOf(getNfQueryProtocolService().queryProtocol(accessKey).getProtNFe().getInfProt().getNProt()));
+    public ReturnNfeCancel cancel(String accessKey) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+        return cancel(accessKey, String.valueOf(getNfQueryProtocolService().queryProtocol(accessKey).getProtNFe().getInfProt().getNProt()));
     }
 
     protected abstract NfQueryProtocolService getNfQueryProtocolService();

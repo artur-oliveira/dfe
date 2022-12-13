@@ -8,7 +8,7 @@
 
 package br.inf.portalfiscal.nfe.distribution;
 
-import com.softart.dfe.interfaces.xml.XML;
+import com.softart.dfe.interfaces.xml.generic.XML;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -18,9 +18,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Classe Java de X509DataType complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="X509DataType"&gt;
  *   &lt;complexContent&gt;
@@ -32,26 +32,22 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "X509DataType", propOrder = {
-    "x509Certificate"
+        "x509Certificate"
 })
 public class X509DataType
-    implements XML
-{
+        implements XML {
 
     @XmlElement(name = "X509Certificate", required = true)
     protected byte[] x509Certificate;
 
     /**
      * Obtém o valor da propriedade x509Certificate.
-     * 
-     * @return
-     *     possible object is
-     *     byte[]
+     *
+     * @return possible object is
+     * byte[]
      */
     public byte[] getX509Certificate() {
         return x509Certificate;
@@ -59,10 +55,9 @@ public class X509DataType
 
     /**
      * Define o valor da propriedade x509Certificate.
-     * 
-     * @param value
-     *     allowed object is
-     *     byte[]
+     *
+     * @param value allowed object is
+     *              byte[]
      */
     public void setX509Certificate(byte[] value) {
         this.x509Certificate = value;

@@ -8,21 +8,18 @@
 
 package br.inf.portalfiscal.cte.send;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
+import com.softart.dfe.interfaces.xml.generic.XML;
+
+import javax.xml.bind.annotation.*;
 
 
 /**
  * Tipo Evento
- * 
+ *
  * <p>Classe Java de TEvento complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="TEvento"&gt;
  *   &lt;complexContent&gt;
@@ -36,17 +33,14 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TEvento", propOrder = {
-    "infEvento",
-    "signature"
+        "infEvento",
+        "signature"
 })
 public class TEvento
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected InfEvento infEvento;
@@ -57,11 +51,9 @@ public class TEvento
 
     /**
      * Obtém o valor da propriedade infEvento.
-     * 
-     * @return
-     *     possible object is
-     *     {@link InfEvento }
-     *     
+     *
+     * @return possible object is
+     * {@link InfEvento }
      */
     public InfEvento getInfEvento() {
         return infEvento;
@@ -69,11 +61,9 @@ public class TEvento
 
     /**
      * Define o valor da propriedade infEvento.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link InfEvento }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link InfEvento }
      */
     public void setInfEvento(InfEvento value) {
         this.infEvento = value;
@@ -81,11 +71,9 @@ public class TEvento
 
     /**
      * Obtém o valor da propriedade signature.
-     * 
-     * @return
-     *     possible object is
-     *     {@link SignatureType }
-     *     
+     *
+     * @return possible object is
+     * {@link SignatureType }
      */
     public SignatureType getSignature() {
         return signature;
@@ -93,11 +81,9 @@ public class TEvento
 
     /**
      * Define o valor da propriedade signature.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link SignatureType }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link SignatureType }
      */
     public void setSignature(SignatureType value) {
         this.signature = value;
@@ -105,11 +91,9 @@ public class TEvento
 
     /**
      * Obtém o valor da propriedade versao.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVersao() {
         return versao;
@@ -117,11 +101,9 @@ public class TEvento
 
     /**
      * Define o valor da propriedade versao.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVersao(String value) {
         this.versao = value;

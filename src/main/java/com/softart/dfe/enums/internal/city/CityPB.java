@@ -232,6 +232,7 @@ public enum CityPB implements DFEnum.Codeable {
     ;
     private final String code;
     private final String description;
+
     CityPB(String code, String description) {
         this.code = code;
         this.description = description;

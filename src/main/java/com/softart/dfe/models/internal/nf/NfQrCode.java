@@ -1,7 +1,7 @@
 package com.softart.dfe.models.internal.nf;
 
 import com.softart.dfe.interfaces.internal.config.NfConfig;
-import com.softart.dfe.interfaces.xml.XMLSigner;
+import com.softart.dfe.interfaces.xml.XMLSignerService;
 import com.softart.dfe.models.nf.authorization.Nf;
 import lombok.*;
 
@@ -13,5 +13,5 @@ import lombok.*;
 public class NfQrCode {
     private Nf nf;
     private NfConfig config;
-    private XMLSigner xmlSigner;
+    private XMLSignerService xmlSigner;
 }

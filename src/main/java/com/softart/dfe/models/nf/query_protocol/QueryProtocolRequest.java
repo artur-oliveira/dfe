@@ -8,7 +8,7 @@ import com.softart.dfe.interfaces.process.nf.query_protocol.BeforeQueryProtocol;
 import com.softart.dfe.interfaces.sefaz.SefazRequest;
 import com.softart.dfe.interfaces.validation.nf.common.NfQueryProtocolValidator;
 import com.softart.dfe.interfaces.wsdl.ConfigureProvider;
-import com.softart.dfe.interfaces.xml.XMLSigner;
+import com.softart.dfe.interfaces.xml.XMLSignerService;
 import lombok.*;
 
 import java.util.Collection;
@@ -23,7 +23,7 @@ public final class QueryProtocolRequest implements SefazRequest<TConsSitNFe, TRe
 
     public TConsSitNFe data;
     public Config config;
-    public XMLSigner signer;
+    public XMLSignerService signer;
     public ConfigureProvider configureProvider;
     public Collection<NfQueryProtocolValidator> validators;
     public Collection<BeforeQueryProtocol> beforeRequest;

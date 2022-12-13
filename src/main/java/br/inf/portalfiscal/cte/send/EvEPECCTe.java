@@ -8,19 +8,16 @@
 
 package br.inf.portalfiscal.cte.send;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
+import com.softart.dfe.interfaces.xml.generic.XML;
+
+import javax.xml.bind.annotation.*;
 
 
 /**
  * <p>Classe Java de EvEPECCTe complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="EvEPECCTe"&gt;
  *   &lt;complexContent&gt;
@@ -90,27 +87,24 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "EvEPECCTe", propOrder = {
-    "descEvento",
-    "xJust",
-    "vicms",
-    "vicmsst",
-    "vtPrest",
-    "vCarga",
-    "toma4",
-    "modal",
-    "ufIni",
-    "ufFim",
-    "tpCTe",
-    "dhEmi"
+        "descEvento",
+        "xJust",
+        "vicms",
+        "vicmsst",
+        "vtPrest",
+        "vCarga",
+        "toma4",
+        "modal",
+        "ufIni",
+        "ufFim",
+        "tpCTe",
+        "dhEmi"
 })
 public class EvEPECCTe
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected String descEvento;
@@ -141,11 +135,9 @@ public class EvEPECCTe
 
     /**
      * Obtém o valor da propriedade descEvento.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getDescEvento() {
         return descEvento;
@@ -153,11 +145,9 @@ public class EvEPECCTe
 
     /**
      * Define o valor da propriedade descEvento.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setDescEvento(String value) {
         this.descEvento = value;
@@ -165,11 +155,9 @@ public class EvEPECCTe
 
     /**
      * Obtém o valor da propriedade xJust.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getXJust() {
         return xJust;
@@ -177,11 +165,9 @@ public class EvEPECCTe
 
     /**
      * Define o valor da propriedade xJust.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setXJust(String value) {
         this.xJust = value;
@@ -189,11 +175,9 @@ public class EvEPECCTe
 
     /**
      * Obtém o valor da propriedade vicms.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVICMS() {
         return vicms;
@@ -201,11 +185,9 @@ public class EvEPECCTe
 
     /**
      * Define o valor da propriedade vicms.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVICMS(String value) {
         this.vicms = value;
@@ -213,11 +195,9 @@ public class EvEPECCTe
 
     /**
      * Obtém o valor da propriedade vicmsst.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVICMSST() {
         return vicmsst;
@@ -225,11 +205,9 @@ public class EvEPECCTe
 
     /**
      * Define o valor da propriedade vicmsst.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVICMSST(String value) {
         this.vicmsst = value;
@@ -237,11 +215,9 @@ public class EvEPECCTe
 
     /**
      * Obtém o valor da propriedade vtPrest.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVTPrest() {
         return vtPrest;
@@ -249,11 +225,9 @@ public class EvEPECCTe
 
     /**
      * Define o valor da propriedade vtPrest.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVTPrest(String value) {
         this.vtPrest = value;
@@ -261,11 +235,9 @@ public class EvEPECCTe
 
     /**
      * Obtém o valor da propriedade vCarga.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVCarga() {
         return vCarga;
@@ -273,11 +245,9 @@ public class EvEPECCTe
 
     /**
      * Define o valor da propriedade vCarga.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVCarga(String value) {
         this.vCarga = value;
@@ -285,11 +255,9 @@ public class EvEPECCTe
 
     /**
      * Obtém o valor da propriedade toma4.
-     * 
-     * @return
-     *     possible object is
-     *     {@link EvEPECCTe.Toma4 }
-     *     
+     *
+     * @return possible object is
+     * {@link EvEPECCTe.Toma4 }
      */
     public EvEPECCTe.Toma4 getToma4() {
         return toma4;
@@ -297,11 +265,9 @@ public class EvEPECCTe
 
     /**
      * Define o valor da propriedade toma4.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link EvEPECCTe.Toma4 }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link EvEPECCTe.Toma4 }
      */
     public void setToma4(EvEPECCTe.Toma4 value) {
         this.toma4 = value;
@@ -309,11 +275,9 @@ public class EvEPECCTe
 
     /**
      * Obtém o valor da propriedade modal.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getModal() {
         return modal;
@@ -321,11 +285,9 @@ public class EvEPECCTe
 
     /**
      * Define o valor da propriedade modal.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setModal(String value) {
         this.modal = value;
@@ -333,11 +295,9 @@ public class EvEPECCTe
 
     /**
      * Obtém o valor da propriedade ufIni.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TUf }
-     *     
+     *
+     * @return possible object is
+     * {@link TUf }
      */
     public TUf getUFIni() {
         return ufIni;
@@ -345,11 +305,9 @@ public class EvEPECCTe
 
     /**
      * Define o valor da propriedade ufIni.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TUf }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link TUf }
      */
     public void setUFIni(TUf value) {
         this.ufIni = value;
@@ -357,11 +315,9 @@ public class EvEPECCTe
 
     /**
      * Obtém o valor da propriedade ufFim.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TUf }
-     *     
+     *
+     * @return possible object is
+     * {@link TUf }
      */
     public TUf getUFFim() {
         return ufFim;
@@ -369,11 +325,9 @@ public class EvEPECCTe
 
     /**
      * Define o valor da propriedade ufFim.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TUf }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link TUf }
      */
     public void setUFFim(TUf value) {
         this.ufFim = value;
@@ -381,11 +335,9 @@ public class EvEPECCTe
 
     /**
      * Obtém o valor da propriedade tpCTe.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getTpCTe() {
         return tpCTe;
@@ -393,11 +345,9 @@ public class EvEPECCTe
 
     /**
      * Define o valor da propriedade tpCTe.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setTpCTe(String value) {
         this.tpCTe = value;
@@ -405,11 +355,9 @@ public class EvEPECCTe
 
     /**
      * Obtém o valor da propriedade dhEmi.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getDhEmi() {
         return dhEmi;
@@ -417,11 +365,9 @@ public class EvEPECCTe
 
     /**
      * Define o valor da propriedade dhEmi.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setDhEmi(String value) {
         this.dhEmi = value;
@@ -430,9 +376,9 @@ public class EvEPECCTe
 
     /**
      * <p>Classe Java de anonymous complex type.
-     * 
+     *
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     * 
+     *
      * <pre>
      * &lt;complexType&gt;
      *   &lt;complexContent&gt;
@@ -461,20 +407,17 @@ public class EvEPECCTe
      *   &lt;/complexContent&gt;
      * &lt;/complexType&gt;
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "toma",
-        "uf",
-        "cnpj",
-        "cpf",
-        "ie"
+            "toma",
+            "uf",
+            "cnpj",
+            "cpf",
+            "ie"
     })
     public static class Toma4
-        implements XML
-    {
+            implements XML {
 
         @XmlElement(required = true)
         protected String toma;
@@ -490,11 +433,9 @@ public class EvEPECCTe
 
         /**
          * Obtém o valor da propriedade toma.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getToma() {
             return toma;
@@ -502,11 +443,9 @@ public class EvEPECCTe
 
         /**
          * Define o valor da propriedade toma.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setToma(String value) {
             this.toma = value;
@@ -514,11 +453,9 @@ public class EvEPECCTe
 
         /**
          * Obtém o valor da propriedade uf.
-         * 
-         * @return
-         *     possible object is
-         *     {@link TUf }
-         *     
+         *
+         * @return possible object is
+         * {@link TUf }
          */
         public TUf getUF() {
             return uf;
@@ -526,11 +463,9 @@ public class EvEPECCTe
 
         /**
          * Define o valor da propriedade uf.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link TUf }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link TUf }
          */
         public void setUF(TUf value) {
             this.uf = value;
@@ -538,11 +473,9 @@ public class EvEPECCTe
 
         /**
          * Obtém o valor da propriedade cnpj.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getCNPJ() {
             return cnpj;
@@ -550,11 +483,9 @@ public class EvEPECCTe
 
         /**
          * Define o valor da propriedade cnpj.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setCNPJ(String value) {
             this.cnpj = value;
@@ -562,11 +493,9 @@ public class EvEPECCTe
 
         /**
          * Obtém o valor da propriedade cpf.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getCPF() {
             return cpf;
@@ -574,11 +503,9 @@ public class EvEPECCTe
 
         /**
          * Define o valor da propriedade cpf.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setCPF(String value) {
             this.cpf = value;
@@ -586,11 +513,9 @@ public class EvEPECCTe
 
         /**
          * Obtém o valor da propriedade ie.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getIE() {
             return ie;
@@ -598,11 +523,9 @@ public class EvEPECCTe
 
         /**
          * Define o valor da propriedade ie.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setIE(String value) {
             this.ie = value;

@@ -8,7 +8,7 @@ import com.softart.dfe.components.process.mdfe.query_unclosed.impl.QueryUnclosed
 import com.softart.dfe.components.process.mdfe.reception.impl.ReceptionMdfeProcessFactory;
 import com.softart.dfe.components.process.mdfe.reception_sync.impl.ReceptionSyncMdfeProcessFactory;
 import com.softart.dfe.components.process.mdfe.status_service.impl.StatusServiceMdfeProcessFactory;
-import com.softart.dfe.interfaces.process.mdfe.MdfeProcess;
+import com.softart.dfe.interfaces.process.mdfe.MdfeProcessService;
 import com.softart.dfe.interfaces.process.mdfe.distribution.AfterDistribution;
 import com.softart.dfe.interfaces.process.mdfe.distribution.BeforeDistribution;
 import com.softart.dfe.interfaces.process.mdfe.event.AfterEvent;
@@ -28,7 +28,7 @@ import com.softart.dfe.interfaces.process.mdfe.status_service.BeforeStatusServic
 
 import java.util.Collection;
 
-public abstract class MdfeProcessFactory implements MdfeProcess {
+public abstract class MdfeProcessFactory implements MdfeProcessService {
 
     public static MdfeProcessFactory noStorageProcess() {
         return Holder.NO_STORAGE_INSTANCE;

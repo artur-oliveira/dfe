@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Classe Java de TUF_sem_EX.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
  * <p>
  * <pre>
@@ -51,7 +51,6 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/restriction&gt;
  * &lt;/simpleType&gt;
  * </pre>
- * 
  */
 @XmlType(name = "TUF_sem_EX")
 @XmlEnum
@@ -85,12 +84,12 @@ public enum TUFSemEX {
     SP,
     TO;
 
-    public String value() {
-        return name();
-    }
-
     public static TUFSemEX fromValue(String v) {
         return valueOf(v);
+    }
+
+    public String value() {
+        return name();
     }
 
 }

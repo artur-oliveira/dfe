@@ -8,20 +8,21 @@
 
 package br.inf.portalfiscal.cte.send;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.softart.dfe.interfaces.xml.generic.XML;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
  * <p>Classe Java de DetCont complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="DetCont"&gt;
  *   &lt;complexContent&gt;
@@ -35,18 +36,15 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "DetCont", propOrder = {
-    "nCont",
-    "lacre",
-    "infDoc"
+        "nCont",
+        "lacre",
+        "infDoc"
 })
 public class DetCont
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected String nCont;
@@ -55,11 +53,9 @@ public class DetCont
 
     /**
      * Obtém o valor da propriedade nCont.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getNCont() {
         return nCont;
@@ -67,11 +63,9 @@ public class DetCont
 
     /**
      * Define o valor da propriedade nCont.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setNCont(String value) {
         this.nCont = value;
@@ -79,25 +73,23 @@ public class DetCont
 
     /**
      * Gets the value of the lacre property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the lacre property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getLacre().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Lacre }
-     * 
-     * 
      */
     public List<Lacre> getLacre() {
         if (lacre == null) {
@@ -108,11 +100,9 @@ public class DetCont
 
     /**
      * Obtém o valor da propriedade infDoc.
-     * 
-     * @return
-     *     possible object is
-     *     {@link InfDoc }
-     *     
+     *
+     * @return possible object is
+     * {@link InfDoc }
      */
     public InfDoc getInfDoc() {
         return infDoc;
@@ -120,11 +110,9 @@ public class DetCont
 
     /**
      * Define o valor da propriedade infDoc.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link InfDoc }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link InfDoc }
      */
     public void setInfDoc(InfDoc value) {
         this.infDoc = value;

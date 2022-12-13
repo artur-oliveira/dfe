@@ -8,19 +8,16 @@
 
 package br.inf.portalfiscal.mdfe.classes;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.XmlValue;
-import com.softart.dfe.interfaces.xml.XML;
+import com.softart.dfe.interfaces.xml.generic.XML;
+
+import javax.xml.bind.annotation.*;
 
 
 /**
  * <p>Classe Java de DocZip complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="DocZip"&gt;
  *   &lt;simpleContent&gt;
@@ -31,16 +28,13 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/simpleContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "DocZip", propOrder = {
-    "value"
+        "value"
 })
 public class DocZip
-    implements XML
-{
+        implements XML {
 
     @XmlValue
     protected byte[] value;
@@ -51,10 +45,9 @@ public class DocZip
 
     /**
      * Obtém o valor da propriedade value.
-     * 
-     * @return
-     *     possible object is
-     *     byte[]
+     *
+     * @return possible object is
+     * byte[]
      */
     public byte[] getValue() {
         return value;
@@ -62,10 +55,9 @@ public class DocZip
 
     /**
      * Define o valor da propriedade value.
-     * 
-     * @param value
-     *     allowed object is
-     *     byte[]
+     *
+     * @param value allowed object is
+     *              byte[]
      */
     public void setValue(byte[] value) {
         this.value = value;
@@ -73,11 +65,9 @@ public class DocZip
 
     /**
      * Obtém o valor da propriedade nsu.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getNSU() {
         return nsu;
@@ -85,11 +75,9 @@ public class DocZip
 
     /**
      * Define o valor da propriedade nsu.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setNSU(String value) {
         this.nsu = value;
@@ -97,11 +85,9 @@ public class DocZip
 
     /**
      * Obtém o valor da propriedade schema.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getSchema() {
         return schema;
@@ -109,11 +95,9 @@ public class DocZip
 
     /**
      * Define o valor da propriedade schema.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setSchema(String value) {
         this.schema = value;

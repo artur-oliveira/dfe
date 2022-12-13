@@ -3,7 +3,7 @@ package com.softart.dfe.interfaces.xml;
 import com.softart.dfe.exceptions.security.XMLSignException;
 import com.softart.dfe.interfaces.internal.config.Config;
 
-public interface XMLSigner {
+public interface XMLSignerService {
 
     /**
      * It signs the XML document passed as a parameter and returns the signed XML document

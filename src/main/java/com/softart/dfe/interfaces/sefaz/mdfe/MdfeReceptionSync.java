@@ -11,6 +11,13 @@ import com.softart.dfe.interfaces.sefaz.SefazRequest;
 
 public interface MdfeReceptionSync {
 
+    /**
+     * It receives a SefazRequest object, which is a generic type that extends the SefazRequest class, and returns a Pair
+     * object, which is a generic type that extends the Pair class
+     *
+     * @param data The request object.
+     * @return A pair of objects, the first is the request object and the second is the response object.
+     */
     <T extends SefazRequest<TMDFe, TRetMDFe>> Pair<TMDFe, TRetMDFe> receptionSync(T data) throws SecurityException, ValidationException, ProcessException;
 
 }

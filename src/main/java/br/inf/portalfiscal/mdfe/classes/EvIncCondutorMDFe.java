@@ -8,18 +8,19 @@
 
 package br.inf.portalfiscal.mdfe.classes;
 
+import com.softart.dfe.interfaces.xml.generic.XML;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
 
 
 /**
  * <p>Classe Java de EvIncCondutorMDFe complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="EvIncCondutorMDFe"&gt;
  *   &lt;complexContent&gt;
@@ -57,17 +58,14 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "EvIncCondutorMDFe", propOrder = {
-    "descEvento",
-    "condutor"
+        "descEvento",
+        "condutor"
 })
 public class EvIncCondutorMDFe
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected String descEvento;
@@ -76,11 +74,9 @@ public class EvIncCondutorMDFe
 
     /**
      * Obtém o valor da propriedade descEvento.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getDescEvento() {
         return descEvento;
@@ -88,11 +84,9 @@ public class EvIncCondutorMDFe
 
     /**
      * Define o valor da propriedade descEvento.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setDescEvento(String value) {
         this.descEvento = value;
@@ -100,11 +94,9 @@ public class EvIncCondutorMDFe
 
     /**
      * Obtém o valor da propriedade condutor.
-     * 
-     * @return
-     *     possible object is
-     *     {@link EvIncCondutorMDFe.Condutor }
-     *     
+     *
+     * @return possible object is
+     * {@link EvIncCondutorMDFe.Condutor }
      */
     public EvIncCondutorMDFe.Condutor getCondutor() {
         return condutor;
@@ -112,11 +104,9 @@ public class EvIncCondutorMDFe
 
     /**
      * Define o valor da propriedade condutor.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link EvIncCondutorMDFe.Condutor }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link EvIncCondutorMDFe.Condutor }
      */
     public void setCondutor(EvIncCondutorMDFe.Condutor value) {
         this.condutor = value;
@@ -125,9 +115,9 @@ public class EvIncCondutorMDFe
 
     /**
      * <p>Classe Java de anonymous complex type.
-     * 
+     *
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     * 
+     *
      * <pre>
      * &lt;complexType&gt;
      *   &lt;complexContent&gt;
@@ -147,17 +137,14 @@ public class EvIncCondutorMDFe
      *   &lt;/complexContent&gt;
      * &lt;/complexType&gt;
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "xNome",
-        "cpf"
+            "xNome",
+            "cpf"
     })
     public static class Condutor
-        implements XML
-    {
+            implements XML {
 
         @XmlElement(required = true)
         protected String xNome;
@@ -166,11 +153,9 @@ public class EvIncCondutorMDFe
 
         /**
          * Obtém o valor da propriedade xNome.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getXNome() {
             return xNome;
@@ -178,11 +163,9 @@ public class EvIncCondutorMDFe
 
         /**
          * Define o valor da propriedade xNome.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setXNome(String value) {
             this.xNome = value;
@@ -190,11 +173,9 @@ public class EvIncCondutorMDFe
 
         /**
          * Obtém o valor da propriedade cpf.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getCPF() {
             return cpf;
@@ -202,11 +183,9 @@ public class EvIncCondutorMDFe
 
         /**
          * Define o valor da propriedade cpf.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setCPF(String value) {
             this.cpf = value;

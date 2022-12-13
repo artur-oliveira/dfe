@@ -8,29 +8,23 @@
 
 package br.inf.portalfiscal.cte.send;
 
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAnyElement;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlID;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
+import com.softart.dfe.interfaces.xml.generic.XML;
+import org.w3c.dom.Element;
+
+import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-import com.softart.dfe.interfaces.xml.XML;
-import org.w3c.dom.Element;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
  * Tipo Conhecimento de Transporte Eletrônico Outros Serviços (Modelo 67)
- * 
+ *
  * <p>Classe Java de TCTeOS complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="TCTeOS"&gt;
  *   &lt;complexContent&gt;
@@ -862,18 +856,15 @@ import org.w3c.dom.Element;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TCTeOS", propOrder = {
-    "infCte",
-    "infCTeSupl",
-    "signature"
+        "infCte",
+        "infCTeSupl",
+        "signature"
 })
 public class TCTeOS
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected TCTeOS.InfCte infCte;
@@ -885,11 +876,9 @@ public class TCTeOS
 
     /**
      * Obtém o valor da propriedade infCte.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TCTeOS.InfCte }
-     *     
+     *
+     * @return possible object is
+     * {@link TCTeOS.InfCte }
      */
     public TCTeOS.InfCte getInfCte() {
         return infCte;
@@ -897,11 +886,9 @@ public class TCTeOS
 
     /**
      * Define o valor da propriedade infCte.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TCTeOS.InfCte }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link TCTeOS.InfCte }
      */
     public void setInfCte(TCTeOS.InfCte value) {
         this.infCte = value;
@@ -909,11 +896,9 @@ public class TCTeOS
 
     /**
      * Obtém o valor da propriedade infCTeSupl.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TCTeOS.InfCTeSupl }
-     *     
+     *
+     * @return possible object is
+     * {@link TCTeOS.InfCTeSupl }
      */
     public TCTeOS.InfCTeSupl getInfCTeSupl() {
         return infCTeSupl;
@@ -921,11 +906,9 @@ public class TCTeOS
 
     /**
      * Define o valor da propriedade infCTeSupl.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TCTeOS.InfCTeSupl }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link TCTeOS.InfCTeSupl }
      */
     public void setInfCTeSupl(TCTeOS.InfCTeSupl value) {
         this.infCTeSupl = value;
@@ -933,11 +916,9 @@ public class TCTeOS
 
     /**
      * Obtém o valor da propriedade signature.
-     * 
-     * @return
-     *     possible object is
-     *     {@link SignatureType }
-     *     
+     *
+     * @return possible object is
+     * {@link SignatureType }
      */
     public SignatureType getSignature() {
         return signature;
@@ -945,11 +926,9 @@ public class TCTeOS
 
     /**
      * Define o valor da propriedade signature.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link SignatureType }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link SignatureType }
      */
     public void setSignature(SignatureType value) {
         this.signature = value;
@@ -957,11 +936,9 @@ public class TCTeOS
 
     /**
      * Obtém o valor da propriedade versao.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVersao() {
         return versao;
@@ -969,11 +946,9 @@ public class TCTeOS
 
     /**
      * Define o valor da propriedade versao.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVersao(String value) {
         this.versao = value;
@@ -982,9 +957,9 @@ public class TCTeOS
 
     /**
      * <p>Classe Java de anonymous complex type.
-     * 
+     *
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     * 
+     *
      * <pre>
      * &lt;complexType&gt;
      *   &lt;complexContent&gt;
@@ -1779,26 +1754,23 @@ public class TCTeOS
      *   &lt;/complexContent&gt;
      * &lt;/complexType&gt;
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "ide",
-        "compl",
-        "emit",
-        "toma",
-        "vPrest",
-        "imp",
-        "infCTeNorm",
-        "infCteComp",
-        "infCteAnu",
-        "autXML",
-        "infRespTec"
+            "ide",
+            "compl",
+            "emit",
+            "toma",
+            "vPrest",
+            "imp",
+            "infCTeNorm",
+            "infCteComp",
+            "infCteAnu",
+            "autXML",
+            "infRespTec"
     })
     public static class InfCte
-        implements XML
-    {
+            implements XML {
 
         @XmlElement(required = true)
         protected TCTeOS.InfCte.Ide ide;
@@ -1824,11 +1796,9 @@ public class TCTeOS
 
         /**
          * Obtém o valor da propriedade ide.
-         * 
-         * @return
-         *     possible object is
-         *     {@link TCTeOS.InfCte.Ide }
-         *     
+         *
+         * @return possible object is
+         * {@link TCTeOS.InfCte.Ide }
          */
         public TCTeOS.InfCte.Ide getIde() {
             return ide;
@@ -1836,11 +1806,9 @@ public class TCTeOS
 
         /**
          * Define o valor da propriedade ide.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link TCTeOS.InfCte.Ide }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link TCTeOS.InfCte.Ide }
          */
         public void setIde(TCTeOS.InfCte.Ide value) {
             this.ide = value;
@@ -1848,11 +1816,9 @@ public class TCTeOS
 
         /**
          * Obtém o valor da propriedade compl.
-         * 
-         * @return
-         *     possible object is
-         *     {@link TCTeOS.InfCte.Compl }
-         *     
+         *
+         * @return possible object is
+         * {@link TCTeOS.InfCte.Compl }
          */
         public TCTeOS.InfCte.Compl getCompl() {
             return compl;
@@ -1860,11 +1826,9 @@ public class TCTeOS
 
         /**
          * Define o valor da propriedade compl.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link TCTeOS.InfCte.Compl }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link TCTeOS.InfCte.Compl }
          */
         public void setCompl(TCTeOS.InfCte.Compl value) {
             this.compl = value;
@@ -1872,11 +1836,9 @@ public class TCTeOS
 
         /**
          * Obtém o valor da propriedade emit.
-         * 
-         * @return
-         *     possible object is
-         *     {@link TCTeOS.InfCte.Emit }
-         *     
+         *
+         * @return possible object is
+         * {@link TCTeOS.InfCte.Emit }
          */
         public TCTeOS.InfCte.Emit getEmit() {
             return emit;
@@ -1884,11 +1846,9 @@ public class TCTeOS
 
         /**
          * Define o valor da propriedade emit.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link TCTeOS.InfCte.Emit }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link TCTeOS.InfCte.Emit }
          */
         public void setEmit(TCTeOS.InfCte.Emit value) {
             this.emit = value;
@@ -1896,11 +1856,9 @@ public class TCTeOS
 
         /**
          * Obtém o valor da propriedade toma.
-         * 
-         * @return
-         *     possible object is
-         *     {@link TCTeOS.InfCte.Toma }
-         *     
+         *
+         * @return possible object is
+         * {@link TCTeOS.InfCte.Toma }
          */
         public TCTeOS.InfCte.Toma getToma() {
             return toma;
@@ -1908,11 +1866,9 @@ public class TCTeOS
 
         /**
          * Define o valor da propriedade toma.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link TCTeOS.InfCte.Toma }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link TCTeOS.InfCte.Toma }
          */
         public void setToma(TCTeOS.InfCte.Toma value) {
             this.toma = value;
@@ -1920,11 +1876,9 @@ public class TCTeOS
 
         /**
          * Obtém o valor da propriedade vPrest.
-         * 
-         * @return
-         *     possible object is
-         *     {@link TCTeOS.InfCte.VPrest }
-         *     
+         *
+         * @return possible object is
+         * {@link TCTeOS.InfCte.VPrest }
          */
         public TCTeOS.InfCte.VPrest getVPrest() {
             return vPrest;
@@ -1932,11 +1886,9 @@ public class TCTeOS
 
         /**
          * Define o valor da propriedade vPrest.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link TCTeOS.InfCte.VPrest }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link TCTeOS.InfCte.VPrest }
          */
         public void setVPrest(TCTeOS.InfCte.VPrest value) {
             this.vPrest = value;
@@ -1944,11 +1896,9 @@ public class TCTeOS
 
         /**
          * Obtém o valor da propriedade imp.
-         * 
-         * @return
-         *     possible object is
-         *     {@link TCTeOS.InfCte.Imp }
-         *     
+         *
+         * @return possible object is
+         * {@link TCTeOS.InfCte.Imp }
          */
         public TCTeOS.InfCte.Imp getImp() {
             return imp;
@@ -1956,11 +1906,9 @@ public class TCTeOS
 
         /**
          * Define o valor da propriedade imp.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link TCTeOS.InfCte.Imp }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link TCTeOS.InfCte.Imp }
          */
         public void setImp(TCTeOS.InfCte.Imp value) {
             this.imp = value;
@@ -1968,11 +1916,9 @@ public class TCTeOS
 
         /**
          * Obtém o valor da propriedade infCTeNorm.
-         * 
-         * @return
-         *     possible object is
-         *     {@link TCTeOS.InfCte.InfCTeNorm }
-         *     
+         *
+         * @return possible object is
+         * {@link TCTeOS.InfCte.InfCTeNorm }
          */
         public TCTeOS.InfCte.InfCTeNorm getInfCTeNorm() {
             return infCTeNorm;
@@ -1980,11 +1926,9 @@ public class TCTeOS
 
         /**
          * Define o valor da propriedade infCTeNorm.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link TCTeOS.InfCte.InfCTeNorm }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link TCTeOS.InfCte.InfCTeNorm }
          */
         public void setInfCTeNorm(TCTeOS.InfCte.InfCTeNorm value) {
             this.infCTeNorm = value;
@@ -1992,11 +1936,9 @@ public class TCTeOS
 
         /**
          * Obtém o valor da propriedade infCteComp.
-         * 
-         * @return
-         *     possible object is
-         *     {@link TCTeOS.InfCte.InfCteComp }
-         *     
+         *
+         * @return possible object is
+         * {@link TCTeOS.InfCte.InfCteComp }
          */
         public TCTeOS.InfCte.InfCteComp getInfCteComp() {
             return infCteComp;
@@ -2004,11 +1946,9 @@ public class TCTeOS
 
         /**
          * Define o valor da propriedade infCteComp.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link TCTeOS.InfCte.InfCteComp }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link TCTeOS.InfCte.InfCteComp }
          */
         public void setInfCteComp(TCTeOS.InfCte.InfCteComp value) {
             this.infCteComp = value;
@@ -2016,11 +1956,9 @@ public class TCTeOS
 
         /**
          * Obtém o valor da propriedade infCteAnu.
-         * 
-         * @return
-         *     possible object is
-         *     {@link TCTeOS.InfCte.InfCteAnu }
-         *     
+         *
+         * @return possible object is
+         * {@link TCTeOS.InfCte.InfCteAnu }
          */
         public TCTeOS.InfCte.InfCteAnu getInfCteAnu() {
             return infCteAnu;
@@ -2028,11 +1966,9 @@ public class TCTeOS
 
         /**
          * Define o valor da propriedade infCteAnu.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link TCTeOS.InfCte.InfCteAnu }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link TCTeOS.InfCte.InfCteAnu }
          */
         public void setInfCteAnu(TCTeOS.InfCte.InfCteAnu value) {
             this.infCteAnu = value;
@@ -2040,25 +1976,23 @@ public class TCTeOS
 
         /**
          * Gets the value of the autXML property.
-         * 
+         *
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the autXML property.
-         * 
+         *
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getAutXML().add(newItem);
          * </pre>
-         * 
-         * 
+         *
+         *
          * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link TCTeOS.InfCte.AutXML }
-         * 
-         * 
          */
         public List<TCTeOS.InfCte.AutXML> getAutXML() {
             if (autXML == null) {
@@ -2069,11 +2003,9 @@ public class TCTeOS
 
         /**
          * Obtém o valor da propriedade infRespTec.
-         * 
-         * @return
-         *     possible object is
-         *     {@link TRespTec }
-         *     
+         *
+         * @return possible object is
+         * {@link TRespTec }
          */
         public TRespTec getInfRespTec() {
             return infRespTec;
@@ -2081,11 +2013,9 @@ public class TCTeOS
 
         /**
          * Define o valor da propriedade infRespTec.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link TRespTec }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link TRespTec }
          */
         public void setInfRespTec(TRespTec value) {
             this.infRespTec = value;
@@ -2093,11 +2023,9 @@ public class TCTeOS
 
         /**
          * Obtém o valor da propriedade versao.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getVersao() {
             return versao;
@@ -2105,11 +2033,9 @@ public class TCTeOS
 
         /**
          * Define o valor da propriedade versao.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setVersao(String value) {
             this.versao = value;
@@ -2117,11 +2043,9 @@ public class TCTeOS
 
         /**
          * Obtém o valor da propriedade id.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getId() {
             return id;
@@ -2129,11 +2053,9 @@ public class TCTeOS
 
         /**
          * Define o valor da propriedade id.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setId(String value) {
             this.id = value;
@@ -2142,9 +2064,9 @@ public class TCTeOS
 
         /**
          * <p>Classe Java de anonymous complex type.
-         * 
+         *
          * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-         * 
+         *
          * <pre>
          * &lt;complexType&gt;
          *   &lt;complexContent&gt;
@@ -2159,17 +2081,14 @@ public class TCTeOS
          *   &lt;/complexContent&gt;
          * &lt;/complexType&gt;
          * </pre>
-         * 
-         * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "cnpj",
-            "cpf"
+                "cnpj",
+                "cpf"
         })
         public static class AutXML
-            implements XML
-        {
+                implements XML {
 
             @XmlElement(name = "CNPJ")
             protected String cnpj;
@@ -2178,11 +2097,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade cnpj.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getCNPJ() {
                 return cnpj;
@@ -2190,11 +2107,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade cnpj.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setCNPJ(String value) {
                 this.cnpj = value;
@@ -2202,11 +2117,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade cpf.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getCPF() {
                 return cpf;
@@ -2214,11 +2127,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade cpf.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setCPF(String value) {
                 this.cpf = value;
@@ -2229,9 +2140,9 @@ public class TCTeOS
 
         /**
          * <p>Classe Java de anonymous complex type.
-         * 
+         *
          * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-         * 
+         *
          * <pre>
          * &lt;complexType&gt;
          *   &lt;complexContent&gt;
@@ -2326,21 +2237,18 @@ public class TCTeOS
          *   &lt;/complexContent&gt;
          * &lt;/complexType&gt;
          * </pre>
-         * 
-         * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "xCaracAd",
-            "xCaracSer",
-            "xEmi",
-            "xObs",
-            "obsCont",
-            "obsFisco"
+                "xCaracAd",
+                "xCaracSer",
+                "xEmi",
+                "xObs",
+                "obsCont",
+                "obsFisco"
         })
         public static class Compl
-            implements XML
-        {
+                implements XML {
 
             protected String xCaracAd;
             protected String xCaracSer;
@@ -2353,11 +2261,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade xCaracAd.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getXCaracAd() {
                 return xCaracAd;
@@ -2365,11 +2271,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade xCaracAd.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setXCaracAd(String value) {
                 this.xCaracAd = value;
@@ -2377,11 +2281,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade xCaracSer.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getXCaracSer() {
                 return xCaracSer;
@@ -2389,11 +2291,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade xCaracSer.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setXCaracSer(String value) {
                 this.xCaracSer = value;
@@ -2401,11 +2301,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade xEmi.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getXEmi() {
                 return xEmi;
@@ -2413,11 +2311,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade xEmi.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setXEmi(String value) {
                 this.xEmi = value;
@@ -2425,11 +2321,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade xObs.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getXObs() {
                 return xObs;
@@ -2437,11 +2331,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade xObs.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setXObs(String value) {
                 this.xObs = value;
@@ -2449,25 +2341,23 @@ public class TCTeOS
 
             /**
              * Gets the value of the obsCont property.
-             * 
+             *
              * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the obsCont property.
-             * 
+             *
              * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getObsCont().add(newItem);
              * </pre>
-             * 
-             * 
+             *
+             *
              * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link TCTeOS.InfCte.Compl.ObsCont }
-             * 
-             * 
              */
             public List<TCTeOS.InfCte.Compl.ObsCont> getObsCont() {
                 if (obsCont == null) {
@@ -2478,25 +2368,23 @@ public class TCTeOS
 
             /**
              * Gets the value of the obsFisco property.
-             * 
+             *
              * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the obsFisco property.
-             * 
+             *
              * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getObsFisco().add(newItem);
              * </pre>
-             * 
-             * 
+             *
+             *
              * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link TCTeOS.InfCte.Compl.ObsFisco }
-             * 
-             * 
              */
             public List<TCTeOS.InfCte.Compl.ObsFisco> getObsFisco() {
                 if (obsFisco == null) {
@@ -2508,9 +2396,9 @@ public class TCTeOS
 
             /**
              * <p>Classe Java de anonymous complex type.
-             * 
+             *
              * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-             * 
+             *
              * <pre>
              * &lt;complexType&gt;
              *   &lt;complexContent&gt;
@@ -2537,16 +2425,13 @@ public class TCTeOS
              *   &lt;/complexContent&gt;
              * &lt;/complexType&gt;
              * </pre>
-             * 
-             * 
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
-                "xTexto"
+                    "xTexto"
             })
             public static class ObsCont
-                implements XML
-            {
+                    implements XML {
 
                 @XmlElement(required = true)
                 protected String xTexto;
@@ -2555,11 +2440,9 @@ public class TCTeOS
 
                 /**
                  * Obtém o valor da propriedade xTexto.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getXTexto() {
                     return xTexto;
@@ -2567,11 +2450,9 @@ public class TCTeOS
 
                 /**
                  * Define o valor da propriedade xTexto.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setXTexto(String value) {
                     this.xTexto = value;
@@ -2579,11 +2460,9 @@ public class TCTeOS
 
                 /**
                  * Obtém o valor da propriedade xCampo.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getXCampo() {
                     return xCampo;
@@ -2591,11 +2470,9 @@ public class TCTeOS
 
                 /**
                  * Define o valor da propriedade xCampo.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setXCampo(String value) {
                     this.xCampo = value;
@@ -2606,9 +2483,9 @@ public class TCTeOS
 
             /**
              * <p>Classe Java de anonymous complex type.
-             * 
+             *
              * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-             * 
+             *
              * <pre>
              * &lt;complexType&gt;
              *   &lt;complexContent&gt;
@@ -2635,16 +2512,13 @@ public class TCTeOS
              *   &lt;/complexContent&gt;
              * &lt;/complexType&gt;
              * </pre>
-             * 
-             * 
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
-                "xTexto"
+                    "xTexto"
             })
             public static class ObsFisco
-                implements XML
-            {
+                    implements XML {
 
                 @XmlElement(required = true)
                 protected String xTexto;
@@ -2653,11 +2527,9 @@ public class TCTeOS
 
                 /**
                  * Obtém o valor da propriedade xTexto.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getXTexto() {
                     return xTexto;
@@ -2665,11 +2537,9 @@ public class TCTeOS
 
                 /**
                  * Define o valor da propriedade xTexto.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setXTexto(String value) {
                     this.xTexto = value;
@@ -2677,11 +2547,9 @@ public class TCTeOS
 
                 /**
                  * Obtém o valor da propriedade xCampo.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getXCampo() {
                     return xCampo;
@@ -2689,11 +2557,9 @@ public class TCTeOS
 
                 /**
                  * Define o valor da propriedade xCampo.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setXCampo(String value) {
                     this.xCampo = value;
@@ -2706,9 +2572,9 @@ public class TCTeOS
 
         /**
          * <p>Classe Java de anonymous complex type.
-         * 
+         *
          * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-         * 
+         *
          * <pre>
          * &lt;complexType&gt;
          *   &lt;complexContent&gt;
@@ -2750,22 +2616,19 @@ public class TCTeOS
          *   &lt;/complexContent&gt;
          * &lt;/complexType&gt;
          * </pre>
-         * 
-         * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "cnpj",
-            "ie",
-            "iest",
-            "xNome",
-            "xFant",
-            "enderEmit",
-            "crt"
+                "cnpj",
+                "ie",
+                "iest",
+                "xNome",
+                "xFant",
+                "enderEmit",
+                "crt"
         })
         public static class Emit
-            implements XML
-        {
+                implements XML {
 
             @XmlElement(name = "CNPJ", required = true)
             protected String cnpj;
@@ -2783,11 +2646,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade cnpj.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getCNPJ() {
                 return cnpj;
@@ -2795,11 +2656,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade cnpj.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setCNPJ(String value) {
                 this.cnpj = value;
@@ -2807,11 +2666,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade ie.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getIE() {
                 return ie;
@@ -2819,11 +2676,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade ie.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setIE(String value) {
                 this.ie = value;
@@ -2831,11 +2686,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade iest.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getIEST() {
                 return iest;
@@ -2843,11 +2696,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade iest.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setIEST(String value) {
                 this.iest = value;
@@ -2855,11 +2706,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade xNome.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getXNome() {
                 return xNome;
@@ -2867,11 +2716,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade xNome.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setXNome(String value) {
                 this.xNome = value;
@@ -2879,11 +2726,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade xFant.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getXFant() {
                 return xFant;
@@ -2891,11 +2736,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade xFant.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setXFant(String value) {
                 this.xFant = value;
@@ -2903,11 +2746,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade enderEmit.
-             * 
-             * @return
-             *     possible object is
-             *     {@link TEndeEmi }
-             *     
+             *
+             * @return possible object is
+             * {@link TEndeEmi }
              */
             public TEndeEmi getEnderEmit() {
                 return enderEmit;
@@ -2915,11 +2756,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade enderEmit.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link TEndeEmi }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link TEndeEmi }
              */
             public void setEnderEmit(TEndeEmi value) {
                 this.enderEmit = value;
@@ -2927,11 +2766,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade crt.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getCRT() {
                 return crt;
@@ -2939,11 +2776,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade crt.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setCRT(String value) {
                 this.crt = value;
@@ -2954,9 +2789,9 @@ public class TCTeOS
 
         /**
          * <p>Classe Java de anonymous complex type.
-         * 
+         *
          * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-         * 
+         *
          * <pre>
          * &lt;complexType&gt;
          *   &lt;complexContent&gt;
@@ -3111,45 +2946,42 @@ public class TCTeOS
          *   &lt;/complexContent&gt;
          * &lt;/complexType&gt;
          * </pre>
-         * 
-         * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "cuf",
-            "cct",
-            "cfop",
-            "natOp",
-            "mod",
-            "serie",
-            "nct",
-            "dhEmi",
-            "tpImp",
-            "tpEmis",
-            "cdv",
-            "tpAmb",
-            "tpCTe",
-            "procEmi",
-            "verProc",
-            "cMunEnv",
-            "xMunEnv",
-            "ufEnv",
-            "modal",
-            "tpServ",
-            "indIEToma",
-            "cMunIni",
-            "xMunIni",
-            "ufIni",
-            "cMunFim",
-            "xMunFim",
-            "ufFim",
-            "infPercurso",
-            "dhCont",
-            "xJust"
+                "cuf",
+                "cct",
+                "cfop",
+                "natOp",
+                "mod",
+                "serie",
+                "nct",
+                "dhEmi",
+                "tpImp",
+                "tpEmis",
+                "cdv",
+                "tpAmb",
+                "tpCTe",
+                "procEmi",
+                "verProc",
+                "cMunEnv",
+                "xMunEnv",
+                "ufEnv",
+                "modal",
+                "tpServ",
+                "indIEToma",
+                "cMunIni",
+                "xMunIni",
+                "ufIni",
+                "cMunFim",
+                "xMunFim",
+                "ufFim",
+                "infPercurso",
+                "dhCont",
+                "xJust"
         })
         public static class Ide
-            implements XML
-        {
+                implements XML {
 
             @XmlElement(name = "cUF", required = true)
             protected String cuf;
@@ -3210,11 +3042,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade cuf.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getCUF() {
                 return cuf;
@@ -3222,11 +3052,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade cuf.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setCUF(String value) {
                 this.cuf = value;
@@ -3234,11 +3062,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade cct.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getCCT() {
                 return cct;
@@ -3246,11 +3072,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade cct.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setCCT(String value) {
                 this.cct = value;
@@ -3258,11 +3082,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade cfop.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getCFOP() {
                 return cfop;
@@ -3270,11 +3092,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade cfop.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setCFOP(String value) {
                 this.cfop = value;
@@ -3282,11 +3102,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade natOp.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getNatOp() {
                 return natOp;
@@ -3294,11 +3112,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade natOp.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setNatOp(String value) {
                 this.natOp = value;
@@ -3306,11 +3122,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade mod.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getMod() {
                 return mod;
@@ -3318,11 +3132,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade mod.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setMod(String value) {
                 this.mod = value;
@@ -3330,11 +3142,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade serie.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getSerie() {
                 return serie;
@@ -3342,11 +3152,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade serie.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setSerie(String value) {
                 this.serie = value;
@@ -3354,11 +3162,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade nct.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getNCT() {
                 return nct;
@@ -3366,11 +3172,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade nct.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setNCT(String value) {
                 this.nct = value;
@@ -3378,11 +3182,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade dhEmi.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getDhEmi() {
                 return dhEmi;
@@ -3390,11 +3192,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade dhEmi.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setDhEmi(String value) {
                 this.dhEmi = value;
@@ -3402,11 +3202,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade tpImp.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getTpImp() {
                 return tpImp;
@@ -3414,11 +3212,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade tpImp.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setTpImp(String value) {
                 this.tpImp = value;
@@ -3426,11 +3222,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade tpEmis.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getTpEmis() {
                 return tpEmis;
@@ -3438,11 +3232,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade tpEmis.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setTpEmis(String value) {
                 this.tpEmis = value;
@@ -3450,11 +3242,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade cdv.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getCDV() {
                 return cdv;
@@ -3462,11 +3252,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade cdv.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setCDV(String value) {
                 this.cdv = value;
@@ -3474,11 +3262,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade tpAmb.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getTpAmb() {
                 return tpAmb;
@@ -3486,11 +3272,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade tpAmb.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setTpAmb(String value) {
                 this.tpAmb = value;
@@ -3498,11 +3282,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade tpCTe.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getTpCTe() {
                 return tpCTe;
@@ -3510,11 +3292,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade tpCTe.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setTpCTe(String value) {
                 this.tpCTe = value;
@@ -3522,11 +3302,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade procEmi.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getProcEmi() {
                 return procEmi;
@@ -3534,11 +3312,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade procEmi.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setProcEmi(String value) {
                 this.procEmi = value;
@@ -3546,11 +3322,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade verProc.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getVerProc() {
                 return verProc;
@@ -3558,11 +3332,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade verProc.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setVerProc(String value) {
                 this.verProc = value;
@@ -3570,11 +3342,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade cMunEnv.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getCMunEnv() {
                 return cMunEnv;
@@ -3582,11 +3352,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade cMunEnv.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setCMunEnv(String value) {
                 this.cMunEnv = value;
@@ -3594,11 +3362,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade xMunEnv.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getXMunEnv() {
                 return xMunEnv;
@@ -3606,11 +3372,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade xMunEnv.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setXMunEnv(String value) {
                 this.xMunEnv = value;
@@ -3618,11 +3382,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade ufEnv.
-             * 
-             * @return
-             *     possible object is
-             *     {@link TUf }
-             *     
+             *
+             * @return possible object is
+             * {@link TUf }
              */
             public TUf getUFEnv() {
                 return ufEnv;
@@ -3630,11 +3392,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade ufEnv.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link TUf }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link TUf }
              */
             public void setUFEnv(TUf value) {
                 this.ufEnv = value;
@@ -3642,11 +3402,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade modal.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getModal() {
                 return modal;
@@ -3654,11 +3412,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade modal.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setModal(String value) {
                 this.modal = value;
@@ -3666,11 +3422,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade tpServ.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getTpServ() {
                 return tpServ;
@@ -3678,11 +3432,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade tpServ.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setTpServ(String value) {
                 this.tpServ = value;
@@ -3690,11 +3442,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade indIEToma.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getIndIEToma() {
                 return indIEToma;
@@ -3702,11 +3452,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade indIEToma.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setIndIEToma(String value) {
                 this.indIEToma = value;
@@ -3714,11 +3462,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade cMunIni.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getCMunIni() {
                 return cMunIni;
@@ -3726,11 +3472,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade cMunIni.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setCMunIni(String value) {
                 this.cMunIni = value;
@@ -3738,11 +3482,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade xMunIni.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getXMunIni() {
                 return xMunIni;
@@ -3750,11 +3492,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade xMunIni.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setXMunIni(String value) {
                 this.xMunIni = value;
@@ -3762,11 +3502,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade ufIni.
-             * 
-             * @return
-             *     possible object is
-             *     {@link TUf }
-             *     
+             *
+             * @return possible object is
+             * {@link TUf }
              */
             public TUf getUFIni() {
                 return ufIni;
@@ -3774,11 +3512,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade ufIni.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link TUf }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link TUf }
              */
             public void setUFIni(TUf value) {
                 this.ufIni = value;
@@ -3786,11 +3522,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade cMunFim.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getCMunFim() {
                 return cMunFim;
@@ -3798,11 +3532,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade cMunFim.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setCMunFim(String value) {
                 this.cMunFim = value;
@@ -3810,11 +3542,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade xMunFim.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getXMunFim() {
                 return xMunFim;
@@ -3822,11 +3552,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade xMunFim.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setXMunFim(String value) {
                 this.xMunFim = value;
@@ -3834,11 +3562,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade ufFim.
-             * 
-             * @return
-             *     possible object is
-             *     {@link TUf }
-             *     
+             *
+             * @return possible object is
+             * {@link TUf }
              */
             public TUf getUFFim() {
                 return ufFim;
@@ -3846,11 +3572,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade ufFim.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link TUf }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link TUf }
              */
             public void setUFFim(TUf value) {
                 this.ufFim = value;
@@ -3858,25 +3582,23 @@ public class TCTeOS
 
             /**
              * Gets the value of the infPercurso property.
-             * 
+             *
              * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the infPercurso property.
-             * 
+             *
              * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getInfPercurso().add(newItem);
              * </pre>
-             * 
-             * 
+             *
+             *
              * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link TCTeOS.InfCte.Ide.InfPercurso }
-             * 
-             * 
              */
             public List<TCTeOS.InfCte.Ide.InfPercurso> getInfPercurso() {
                 if (infPercurso == null) {
@@ -3887,11 +3609,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade dhCont.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getDhCont() {
                 return dhCont;
@@ -3899,11 +3619,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade dhCont.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setDhCont(String value) {
                 this.dhCont = value;
@@ -3911,11 +3629,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade xJust.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getXJust() {
                 return xJust;
@@ -3923,11 +3639,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade xJust.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setXJust(String value) {
                 this.xJust = value;
@@ -3936,9 +3650,9 @@ public class TCTeOS
 
             /**
              * <p>Classe Java de anonymous complex type.
-             * 
+             *
              * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-             * 
+             *
              * <pre>
              * &lt;complexType&gt;
              *   &lt;complexContent&gt;
@@ -3950,16 +3664,13 @@ public class TCTeOS
              *   &lt;/complexContent&gt;
              * &lt;/complexType&gt;
              * </pre>
-             * 
-             * 
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
-                "ufPer"
+                    "ufPer"
             })
             public static class InfPercurso
-                implements XML
-            {
+                    implements XML {
 
                 @XmlElement(name = "UFPer", required = true)
                 @XmlSchemaType(name = "string")
@@ -3967,11 +3678,9 @@ public class TCTeOS
 
                 /**
                  * Obtém o valor da propriedade ufPer.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link TUf }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link TUf }
                  */
                 public TUf getUFPer() {
                     return ufPer;
@@ -3979,11 +3688,9 @@ public class TCTeOS
 
                 /**
                  * Define o valor da propriedade ufPer.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link TUf }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link TUf }
                  */
                 public void setUFPer(TUf value) {
                     this.ufPer = value;
@@ -3996,9 +3703,9 @@ public class TCTeOS
 
         /**
          * <p>Classe Java de anonymous complex type.
-         * 
+         *
          * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-         * 
+         *
          * <pre>
          * &lt;complexType&gt;
          *   &lt;complexContent&gt;
@@ -4051,20 +3758,17 @@ public class TCTeOS
          *   &lt;/complexContent&gt;
          * &lt;/complexType&gt;
          * </pre>
-         * 
-         * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "icms",
-            "vTotTrib",
-            "infAdFisco",
-            "icmsufFim",
-            "infTribFed"
+                "icms",
+                "vTotTrib",
+                "infAdFisco",
+                "icmsufFim",
+                "infTribFed"
         })
         public static class Imp
-            implements XML
-        {
+                implements XML {
 
             @XmlElement(name = "ICMS", required = true)
             protected TImpOS icms;
@@ -4076,11 +3780,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade icms.
-             * 
-             * @return
-             *     possible object is
-             *     {@link TImpOS }
-             *     
+             *
+             * @return possible object is
+             * {@link TImpOS }
              */
             public TImpOS getICMS() {
                 return icms;
@@ -4088,11 +3790,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade icms.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link TImpOS }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link TImpOS }
              */
             public void setICMS(TImpOS value) {
                 this.icms = value;
@@ -4100,11 +3800,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade vTotTrib.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getVTotTrib() {
                 return vTotTrib;
@@ -4112,11 +3810,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade vTotTrib.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setVTotTrib(String value) {
                 this.vTotTrib = value;
@@ -4124,11 +3820,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade infAdFisco.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getInfAdFisco() {
                 return infAdFisco;
@@ -4136,11 +3830,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade infAdFisco.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setInfAdFisco(String value) {
                 this.infAdFisco = value;
@@ -4148,11 +3840,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade icmsufFim.
-             * 
-             * @return
-             *     possible object is
-             *     {@link TCTeOS.InfCte.Imp.ICMSUFFim }
-             *     
+             *
+             * @return possible object is
+             * {@link TCTeOS.InfCte.Imp.ICMSUFFim }
              */
             public TCTeOS.InfCte.Imp.ICMSUFFim getICMSUFFim() {
                 return icmsufFim;
@@ -4160,11 +3850,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade icmsufFim.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link TCTeOS.InfCte.Imp.ICMSUFFim }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link TCTeOS.InfCte.Imp.ICMSUFFim }
              */
             public void setICMSUFFim(TCTeOS.InfCte.Imp.ICMSUFFim value) {
                 this.icmsufFim = value;
@@ -4172,11 +3860,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade infTribFed.
-             * 
-             * @return
-             *     possible object is
-             *     {@link TCTeOS.InfCte.Imp.InfTribFed }
-             *     
+             *
+             * @return possible object is
+             * {@link TCTeOS.InfCte.Imp.InfTribFed }
              */
             public TCTeOS.InfCte.Imp.InfTribFed getInfTribFed() {
                 return infTribFed;
@@ -4184,11 +3870,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade infTribFed.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link TCTeOS.InfCte.Imp.InfTribFed }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link TCTeOS.InfCte.Imp.InfTribFed }
              */
             public void setInfTribFed(TCTeOS.InfCte.Imp.InfTribFed value) {
                 this.infTribFed = value;
@@ -4197,9 +3881,9 @@ public class TCTeOS
 
             /**
              * <p>Classe Java de anonymous complex type.
-             * 
+             *
              * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-             * 
+             *
              * <pre>
              * &lt;complexType&gt;
              *   &lt;complexContent&gt;
@@ -4217,22 +3901,19 @@ public class TCTeOS
              *   &lt;/complexContent&gt;
              * &lt;/complexType&gt;
              * </pre>
-             * 
-             * 
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
-                "vbcufFim",
-                "pfcpufFim",
-                "picmsufFim",
-                "picmsInter",
-                "vfcpufFim",
-                "vicmsufFim",
-                "vicmsufIni"
+                    "vbcufFim",
+                    "pfcpufFim",
+                    "picmsufFim",
+                    "picmsInter",
+                    "vfcpufFim",
+                    "vicmsufFim",
+                    "vicmsufIni"
             })
             public static class ICMSUFFim
-                implements XML
-            {
+                    implements XML {
 
                 @XmlElement(name = "vBCUFFim", required = true)
                 protected String vbcufFim;
@@ -4251,11 +3932,9 @@ public class TCTeOS
 
                 /**
                  * Obtém o valor da propriedade vbcufFim.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getVBCUFFim() {
                     return vbcufFim;
@@ -4263,11 +3942,9 @@ public class TCTeOS
 
                 /**
                  * Define o valor da propriedade vbcufFim.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setVBCUFFim(String value) {
                     this.vbcufFim = value;
@@ -4275,11 +3952,9 @@ public class TCTeOS
 
                 /**
                  * Obtém o valor da propriedade pfcpufFim.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getPFCPUFFim() {
                     return pfcpufFim;
@@ -4287,11 +3962,9 @@ public class TCTeOS
 
                 /**
                  * Define o valor da propriedade pfcpufFim.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setPFCPUFFim(String value) {
                     this.pfcpufFim = value;
@@ -4299,11 +3972,9 @@ public class TCTeOS
 
                 /**
                  * Obtém o valor da propriedade picmsufFim.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getPICMSUFFim() {
                     return picmsufFim;
@@ -4311,11 +3982,9 @@ public class TCTeOS
 
                 /**
                  * Define o valor da propriedade picmsufFim.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setPICMSUFFim(String value) {
                     this.picmsufFim = value;
@@ -4323,11 +3992,9 @@ public class TCTeOS
 
                 /**
                  * Obtém o valor da propriedade picmsInter.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getPICMSInter() {
                     return picmsInter;
@@ -4335,11 +4002,9 @@ public class TCTeOS
 
                 /**
                  * Define o valor da propriedade picmsInter.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setPICMSInter(String value) {
                     this.picmsInter = value;
@@ -4347,11 +4012,9 @@ public class TCTeOS
 
                 /**
                  * Obtém o valor da propriedade vfcpufFim.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getVFCPUFFim() {
                     return vfcpufFim;
@@ -4359,11 +4022,9 @@ public class TCTeOS
 
                 /**
                  * Define o valor da propriedade vfcpufFim.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setVFCPUFFim(String value) {
                     this.vfcpufFim = value;
@@ -4371,11 +4032,9 @@ public class TCTeOS
 
                 /**
                  * Obtém o valor da propriedade vicmsufFim.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getVICMSUFFim() {
                     return vicmsufFim;
@@ -4383,11 +4042,9 @@ public class TCTeOS
 
                 /**
                  * Define o valor da propriedade vicmsufFim.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setVICMSUFFim(String value) {
                     this.vicmsufFim = value;
@@ -4395,11 +4052,9 @@ public class TCTeOS
 
                 /**
                  * Obtém o valor da propriedade vicmsufIni.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getVICMSUFIni() {
                     return vicmsufIni;
@@ -4407,11 +4062,9 @@ public class TCTeOS
 
                 /**
                  * Define o valor da propriedade vicmsufIni.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setVICMSUFIni(String value) {
                     this.vicmsufIni = value;
@@ -4422,9 +4075,9 @@ public class TCTeOS
 
             /**
              * <p>Classe Java de anonymous complex type.
-             * 
+             *
              * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-             * 
+             *
              * <pre>
              * &lt;complexType&gt;
              *   &lt;complexContent&gt;
@@ -4440,20 +4093,17 @@ public class TCTeOS
              *   &lt;/complexContent&gt;
              * &lt;/complexType&gt;
              * </pre>
-             * 
-             * 
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
-                "vpis",
-                "vcofins",
-                "vir",
-                "vinss",
-                "vcsll"
+                    "vpis",
+                    "vcofins",
+                    "vir",
+                    "vinss",
+                    "vcsll"
             })
             public static class InfTribFed
-                implements XML
-            {
+                    implements XML {
 
                 @XmlElement(name = "vPIS")
                 protected String vpis;
@@ -4468,11 +4118,9 @@ public class TCTeOS
 
                 /**
                  * Obtém o valor da propriedade vpis.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getVPIS() {
                     return vpis;
@@ -4480,11 +4128,9 @@ public class TCTeOS
 
                 /**
                  * Define o valor da propriedade vpis.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setVPIS(String value) {
                     this.vpis = value;
@@ -4492,11 +4138,9 @@ public class TCTeOS
 
                 /**
                  * Obtém o valor da propriedade vcofins.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getVCOFINS() {
                     return vcofins;
@@ -4504,11 +4148,9 @@ public class TCTeOS
 
                 /**
                  * Define o valor da propriedade vcofins.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setVCOFINS(String value) {
                     this.vcofins = value;
@@ -4516,11 +4158,9 @@ public class TCTeOS
 
                 /**
                  * Obtém o valor da propriedade vir.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getVIR() {
                     return vir;
@@ -4528,11 +4168,9 @@ public class TCTeOS
 
                 /**
                  * Define o valor da propriedade vir.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setVIR(String value) {
                     this.vir = value;
@@ -4540,11 +4178,9 @@ public class TCTeOS
 
                 /**
                  * Obtém o valor da propriedade vinss.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getVINSS() {
                     return vinss;
@@ -4552,11 +4188,9 @@ public class TCTeOS
 
                 /**
                  * Define o valor da propriedade vinss.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setVINSS(String value) {
                     this.vinss = value;
@@ -4564,11 +4198,9 @@ public class TCTeOS
 
                 /**
                  * Obtém o valor da propriedade vcsll.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getVCSLL() {
                     return vcsll;
@@ -4576,11 +4208,9 @@ public class TCTeOS
 
                 /**
                  * Define o valor da propriedade vcsll.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setVCSLL(String value) {
                     this.vcsll = value;
@@ -4593,9 +4223,9 @@ public class TCTeOS
 
         /**
          * <p>Classe Java de anonymous complex type.
-         * 
+         *
          * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-         * 
+         *
          * <pre>
          * &lt;complexType&gt;
          *   &lt;complexContent&gt;
@@ -4614,17 +4244,14 @@ public class TCTeOS
          *   &lt;/complexContent&gt;
          * &lt;/complexType&gt;
          * </pre>
-         * 
-         * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "chCte",
-            "dEmi"
+                "chCte",
+                "dEmi"
         })
         public static class InfCteAnu
-            implements XML
-        {
+                implements XML {
 
             @XmlElement(required = true)
             protected String chCte;
@@ -4633,11 +4260,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade chCte.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getChCte() {
                 return chCte;
@@ -4645,11 +4270,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade chCte.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setChCte(String value) {
                 this.chCte = value;
@@ -4657,11 +4280,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade dEmi.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getDEmi() {
                 return dEmi;
@@ -4669,11 +4290,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade dEmi.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setDEmi(String value) {
                 this.dEmi = value;
@@ -4684,9 +4303,9 @@ public class TCTeOS
 
         /**
          * <p>Classe Java de anonymous complex type.
-         * 
+         *
          * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-         * 
+         *
          * <pre>
          * &lt;complexType&gt;
          *   &lt;complexContent&gt;
@@ -4698,27 +4317,22 @@ public class TCTeOS
          *   &lt;/complexContent&gt;
          * &lt;/complexType&gt;
          * </pre>
-         * 
-         * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "chCTe"
+                "chCTe"
         })
         public static class InfCteComp
-            implements XML
-        {
+                implements XML {
 
             @XmlElement(required = true)
             protected String chCTe;
 
             /**
              * Obtém o valor da propriedade chCTe.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getChCTe() {
                 return chCTe;
@@ -4726,11 +4340,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade chCTe.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setChCTe(String value) {
                 this.chCTe = value;
@@ -4741,9 +4353,9 @@ public class TCTeOS
 
         /**
          * <p>Classe Java de anonymous complex type.
-         * 
+         *
          * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-         * 
+         *
          * <pre>
          * &lt;complexType&gt;
          *   &lt;complexContent&gt;
@@ -5053,23 +4665,20 @@ public class TCTeOS
          *   &lt;/complexContent&gt;
          * &lt;/complexType&gt;
          * </pre>
-         * 
-         * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "infServico",
-            "infDocRef",
-            "seg",
-            "infModal",
-            "infCteSub",
-            "refCTeCanc",
-            "cobr",
-            "infGTVe"
+                "infServico",
+                "infDocRef",
+                "seg",
+                "infModal",
+                "infCteSub",
+                "refCTeCanc",
+                "cobr",
+                "infGTVe"
         })
         public static class InfCTeNorm
-            implements XML
-        {
+                implements XML {
 
             @XmlElement(required = true)
             protected TCTeOS.InfCte.InfCTeNorm.InfServico infServico;
@@ -5083,11 +4692,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade infServico.
-             * 
-             * @return
-             *     possible object is
-             *     {@link TCTeOS.InfCte.InfCTeNorm.InfServico }
-             *     
+             *
+             * @return possible object is
+             * {@link TCTeOS.InfCte.InfCTeNorm.InfServico }
              */
             public TCTeOS.InfCte.InfCTeNorm.InfServico getInfServico() {
                 return infServico;
@@ -5095,11 +4702,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade infServico.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link TCTeOS.InfCte.InfCTeNorm.InfServico }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link TCTeOS.InfCte.InfCTeNorm.InfServico }
              */
             public void setInfServico(TCTeOS.InfCte.InfCTeNorm.InfServico value) {
                 this.infServico = value;
@@ -5107,25 +4712,23 @@ public class TCTeOS
 
             /**
              * Gets the value of the infDocRef property.
-             * 
+             *
              * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the infDocRef property.
-             * 
+             *
              * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getInfDocRef().add(newItem);
              * </pre>
-             * 
-             * 
+             *
+             *
              * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link TCTeOS.InfCte.InfCTeNorm.InfDocRef }
-             * 
-             * 
              */
             public List<TCTeOS.InfCte.InfCTeNorm.InfDocRef> getInfDocRef() {
                 if (infDocRef == null) {
@@ -5136,25 +4739,23 @@ public class TCTeOS
 
             /**
              * Gets the value of the seg property.
-             * 
+             *
              * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the seg property.
-             * 
+             *
              * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getSeg().add(newItem);
              * </pre>
-             * 
-             * 
+             *
+             *
              * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link TCTeOS.InfCte.InfCTeNorm.Seg }
-             * 
-             * 
              */
             public List<TCTeOS.InfCte.InfCTeNorm.Seg> getSeg() {
                 if (seg == null) {
@@ -5165,11 +4766,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade infModal.
-             * 
-             * @return
-             *     possible object is
-             *     {@link TCTeOS.InfCte.InfCTeNorm.InfModal }
-             *     
+             *
+             * @return possible object is
+             * {@link TCTeOS.InfCte.InfCTeNorm.InfModal }
              */
             public TCTeOS.InfCte.InfCTeNorm.InfModal getInfModal() {
                 return infModal;
@@ -5177,11 +4776,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade infModal.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link TCTeOS.InfCte.InfCTeNorm.InfModal }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link TCTeOS.InfCte.InfCTeNorm.InfModal }
              */
             public void setInfModal(TCTeOS.InfCte.InfCTeNorm.InfModal value) {
                 this.infModal = value;
@@ -5189,11 +4786,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade infCteSub.
-             * 
-             * @return
-             *     possible object is
-             *     {@link TCTeOS.InfCte.InfCTeNorm.InfCteSub }
-             *     
+             *
+             * @return possible object is
+             * {@link TCTeOS.InfCte.InfCTeNorm.InfCteSub }
              */
             public TCTeOS.InfCte.InfCTeNorm.InfCteSub getInfCteSub() {
                 return infCteSub;
@@ -5201,11 +4796,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade infCteSub.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link TCTeOS.InfCte.InfCTeNorm.InfCteSub }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link TCTeOS.InfCte.InfCTeNorm.InfCteSub }
              */
             public void setInfCteSub(TCTeOS.InfCte.InfCTeNorm.InfCteSub value) {
                 this.infCteSub = value;
@@ -5213,11 +4806,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade refCTeCanc.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getRefCTeCanc() {
                 return refCTeCanc;
@@ -5225,11 +4816,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade refCTeCanc.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setRefCTeCanc(String value) {
                 this.refCTeCanc = value;
@@ -5237,11 +4826,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade cobr.
-             * 
-             * @return
-             *     possible object is
-             *     {@link TCTeOS.InfCte.InfCTeNorm.Cobr }
-             *     
+             *
+             * @return possible object is
+             * {@link TCTeOS.InfCte.InfCTeNorm.Cobr }
              */
             public TCTeOS.InfCte.InfCTeNorm.Cobr getCobr() {
                 return cobr;
@@ -5249,11 +4836,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade cobr.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link TCTeOS.InfCte.InfCTeNorm.Cobr }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link TCTeOS.InfCte.InfCTeNorm.Cobr }
              */
             public void setCobr(TCTeOS.InfCte.InfCTeNorm.Cobr value) {
                 this.cobr = value;
@@ -5261,25 +4846,23 @@ public class TCTeOS
 
             /**
              * Gets the value of the infGTVe property.
-             * 
+             *
              * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the infGTVe property.
-             * 
+             *
              * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getInfGTVe().add(newItem);
              * </pre>
-             * 
-             * 
+             *
+             *
              * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link TCTeOS.InfCte.InfCTeNorm.InfGTVe }
-             * 
-             * 
              */
             public List<TCTeOS.InfCte.InfCTeNorm.InfGTVe> getInfGTVe() {
                 if (infGTVe == null) {
@@ -5291,9 +4874,9 @@ public class TCTeOS
 
             /**
              * <p>Classe Java de anonymous complex type.
-             * 
+             *
              * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-             * 
+             *
              * <pre>
              * &lt;complexType&gt;
              *   &lt;complexContent&gt;
@@ -5345,28 +4928,23 @@ public class TCTeOS
              *   &lt;/complexContent&gt;
              * &lt;/complexType&gt;
              * </pre>
-             * 
-             * 
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
-                "fat",
-                "dup"
+                    "fat",
+                    "dup"
             })
             public static class Cobr
-                implements XML
-            {
+                    implements XML {
 
                 protected TCTeOS.InfCte.InfCTeNorm.Cobr.Fat fat;
                 protected List<TCTeOS.InfCte.InfCTeNorm.Cobr.Dup> dup;
 
                 /**
                  * Obtém o valor da propriedade fat.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link TCTeOS.InfCte.InfCTeNorm.Cobr.Fat }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link TCTeOS.InfCte.InfCTeNorm.Cobr.Fat }
                  */
                 public TCTeOS.InfCte.InfCTeNorm.Cobr.Fat getFat() {
                     return fat;
@@ -5374,11 +4952,9 @@ public class TCTeOS
 
                 /**
                  * Define o valor da propriedade fat.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link TCTeOS.InfCte.InfCTeNorm.Cobr.Fat }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link TCTeOS.InfCte.InfCTeNorm.Cobr.Fat }
                  */
                 public void setFat(TCTeOS.InfCte.InfCTeNorm.Cobr.Fat value) {
                     this.fat = value;
@@ -5386,25 +4962,23 @@ public class TCTeOS
 
                 /**
                  * Gets the value of the dup property.
-                 * 
+                 *
                  * <p>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
                  * returned list will be present inside the JAXB object.
                  * This is why there is not a <CODE>set</CODE> method for the dup property.
-                 * 
+                 *
                  * <p>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getDup().add(newItem);
                  * </pre>
-                 * 
-                 * 
+                 *
+                 *
                  * <p>
                  * Objects of the following type(s) are allowed in the list
                  * {@link TCTeOS.InfCte.InfCTeNorm.Cobr.Dup }
-                 * 
-                 * 
                  */
                 public List<TCTeOS.InfCte.InfCTeNorm.Cobr.Dup> getDup() {
                     if (dup == null) {
@@ -5416,9 +4990,9 @@ public class TCTeOS
 
                 /**
                  * <p>Classe Java de anonymous complex type.
-                 * 
+                 *
                  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-                 * 
+                 *
                  * <pre>
                  * &lt;complexType&gt;
                  *   &lt;complexContent&gt;
@@ -5439,18 +5013,15 @@ public class TCTeOS
                  *   &lt;/complexContent&gt;
                  * &lt;/complexType&gt;
                  * </pre>
-                 * 
-                 * 
                  */
                 @XmlAccessorType(XmlAccessType.FIELD)
                 @XmlType(name = "", propOrder = {
-                    "nDup",
-                    "dVenc",
-                    "vDup"
+                        "nDup",
+                        "dVenc",
+                        "vDup"
                 })
                 public static class Dup
-                    implements XML
-                {
+                        implements XML {
 
                     protected String nDup;
                     protected String dVenc;
@@ -5458,11 +5029,9 @@ public class TCTeOS
 
                     /**
                      * Obtém o valor da propriedade nDup.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is
+                     * {@link String }
                      */
                     public String getNDup() {
                         return nDup;
@@ -5470,11 +5039,9 @@ public class TCTeOS
 
                     /**
                      * Define o valor da propriedade nDup.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is
+                     *              {@link String }
                      */
                     public void setNDup(String value) {
                         this.nDup = value;
@@ -5482,11 +5049,9 @@ public class TCTeOS
 
                     /**
                      * Obtém o valor da propriedade dVenc.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is
+                     * {@link String }
                      */
                     public String getDVenc() {
                         return dVenc;
@@ -5494,11 +5059,9 @@ public class TCTeOS
 
                     /**
                      * Define o valor da propriedade dVenc.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is
+                     *              {@link String }
                      */
                     public void setDVenc(String value) {
                         this.dVenc = value;
@@ -5506,11 +5069,9 @@ public class TCTeOS
 
                     /**
                      * Obtém o valor da propriedade vDup.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is
+                     * {@link String }
                      */
                     public String getVDup() {
                         return vDup;
@@ -5518,11 +5079,9 @@ public class TCTeOS
 
                     /**
                      * Define o valor da propriedade vDup.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is
+                     *              {@link String }
                      */
                     public void setVDup(String value) {
                         this.vDup = value;
@@ -5533,9 +5092,9 @@ public class TCTeOS
 
                 /**
                  * <p>Classe Java de anonymous complex type.
-                 * 
+                 *
                  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-                 * 
+                 *
                  * <pre>
                  * &lt;complexType&gt;
                  *   &lt;complexContent&gt;
@@ -5557,19 +5116,16 @@ public class TCTeOS
                  *   &lt;/complexContent&gt;
                  * &lt;/complexType&gt;
                  * </pre>
-                 * 
-                 * 
                  */
                 @XmlAccessorType(XmlAccessType.FIELD)
                 @XmlType(name = "", propOrder = {
-                    "nFat",
-                    "vOrig",
-                    "vDesc",
-                    "vLiq"
+                        "nFat",
+                        "vOrig",
+                        "vDesc",
+                        "vLiq"
                 })
                 public static class Fat
-                    implements XML
-                {
+                        implements XML {
 
                     protected String nFat;
                     protected String vOrig;
@@ -5578,11 +5134,9 @@ public class TCTeOS
 
                     /**
                      * Obtém o valor da propriedade nFat.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is
+                     * {@link String }
                      */
                     public String getNFat() {
                         return nFat;
@@ -5590,11 +5144,9 @@ public class TCTeOS
 
                     /**
                      * Define o valor da propriedade nFat.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is
+                     *              {@link String }
                      */
                     public void setNFat(String value) {
                         this.nFat = value;
@@ -5602,11 +5154,9 @@ public class TCTeOS
 
                     /**
                      * Obtém o valor da propriedade vOrig.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is
+                     * {@link String }
                      */
                     public String getVOrig() {
                         return vOrig;
@@ -5614,11 +5164,9 @@ public class TCTeOS
 
                     /**
                      * Define o valor da propriedade vOrig.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is
+                     *              {@link String }
                      */
                     public void setVOrig(String value) {
                         this.vOrig = value;
@@ -5626,11 +5174,9 @@ public class TCTeOS
 
                     /**
                      * Obtém o valor da propriedade vDesc.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is
+                     * {@link String }
                      */
                     public String getVDesc() {
                         return vDesc;
@@ -5638,11 +5184,9 @@ public class TCTeOS
 
                     /**
                      * Define o valor da propriedade vDesc.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is
+                     *              {@link String }
                      */
                     public void setVDesc(String value) {
                         this.vDesc = value;
@@ -5650,11 +5194,9 @@ public class TCTeOS
 
                     /**
                      * Obtém o valor da propriedade vLiq.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is
+                     * {@link String }
                      */
                     public String getVLiq() {
                         return vLiq;
@@ -5662,11 +5204,9 @@ public class TCTeOS
 
                     /**
                      * Define o valor da propriedade vLiq.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is
+                     *              {@link String }
                      */
                     public void setVLiq(String value) {
                         this.vLiq = value;
@@ -5679,9 +5219,9 @@ public class TCTeOS
 
             /**
              * <p>Classe Java de anonymous complex type.
-             * 
+             *
              * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-             * 
+             *
              * <pre>
              * &lt;complexType&gt;
              *   &lt;complexContent&gt;
@@ -5746,18 +5286,15 @@ public class TCTeOS
              *   &lt;/complexContent&gt;
              * &lt;/complexType&gt;
              * </pre>
-             * 
-             * 
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
-                "chCte",
-                "refCteAnu",
-                "tomaICMS"
+                    "chCte",
+                    "refCteAnu",
+                    "tomaICMS"
             })
             public static class InfCteSub
-                implements XML
-            {
+                    implements XML {
 
                 @XmlElement(required = true)
                 protected String chCte;
@@ -5766,11 +5303,9 @@ public class TCTeOS
 
                 /**
                  * Obtém o valor da propriedade chCte.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getChCte() {
                     return chCte;
@@ -5778,11 +5313,9 @@ public class TCTeOS
 
                 /**
                  * Define o valor da propriedade chCte.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setChCte(String value) {
                     this.chCte = value;
@@ -5790,11 +5323,9 @@ public class TCTeOS
 
                 /**
                  * Obtém o valor da propriedade refCteAnu.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getRefCteAnu() {
                     return refCteAnu;
@@ -5802,11 +5333,9 @@ public class TCTeOS
 
                 /**
                  * Define o valor da propriedade refCteAnu.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setRefCteAnu(String value) {
                     this.refCteAnu = value;
@@ -5814,11 +5343,9 @@ public class TCTeOS
 
                 /**
                  * Obtém o valor da propriedade tomaICMS.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link TCTeOS.InfCte.InfCTeNorm.InfCteSub.TomaICMS }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link TCTeOS.InfCte.InfCTeNorm.InfCteSub.TomaICMS }
                  */
                 public TCTeOS.InfCte.InfCTeNorm.InfCteSub.TomaICMS getTomaICMS() {
                     return tomaICMS;
@@ -5826,11 +5353,9 @@ public class TCTeOS
 
                 /**
                  * Define o valor da propriedade tomaICMS.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link TCTeOS.InfCte.InfCTeNorm.InfCteSub.TomaICMS }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link TCTeOS.InfCte.InfCTeNorm.InfCteSub.TomaICMS }
                  */
                 public void setTomaICMS(TCTeOS.InfCte.InfCTeNorm.InfCteSub.TomaICMS value) {
                     this.tomaICMS = value;
@@ -5839,9 +5364,9 @@ public class TCTeOS
 
                 /**
                  * <p>Classe Java de anonymous complex type.
-                 * 
+                 *
                  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-                 * 
+                 *
                  * <pre>
                  * &lt;complexType&gt;
                  *   &lt;complexContent&gt;
@@ -5881,18 +5406,15 @@ public class TCTeOS
                  *   &lt;/complexContent&gt;
                  * &lt;/complexType&gt;
                  * </pre>
-                 * 
-                 * 
                  */
                 @XmlAccessorType(XmlAccessType.FIELD)
                 @XmlType(name = "", propOrder = {
-                    "refNFe",
-                    "refNF",
-                    "refCte"
+                        "refNFe",
+                        "refNF",
+                        "refCte"
                 })
                 public static class TomaICMS
-                    implements XML
-                {
+                        implements XML {
 
                     protected String refNFe;
                     protected TCTeOS.InfCte.InfCTeNorm.InfCteSub.TomaICMS.RefNF refNF;
@@ -5900,11 +5422,9 @@ public class TCTeOS
 
                     /**
                      * Obtém o valor da propriedade refNFe.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is
+                     * {@link String }
                      */
                     public String getRefNFe() {
                         return refNFe;
@@ -5912,11 +5432,9 @@ public class TCTeOS
 
                     /**
                      * Define o valor da propriedade refNFe.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is
+                     *              {@link String }
                      */
                     public void setRefNFe(String value) {
                         this.refNFe = value;
@@ -5924,11 +5442,9 @@ public class TCTeOS
 
                     /**
                      * Obtém o valor da propriedade refNF.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link TCTeOS.InfCte.InfCTeNorm.InfCteSub.TomaICMS.RefNF }
-                     *     
+                     *
+                     * @return possible object is
+                     * {@link TCTeOS.InfCte.InfCTeNorm.InfCteSub.TomaICMS.RefNF }
                      */
                     public TCTeOS.InfCte.InfCTeNorm.InfCteSub.TomaICMS.RefNF getRefNF() {
                         return refNF;
@@ -5936,11 +5452,9 @@ public class TCTeOS
 
                     /**
                      * Define o valor da propriedade refNF.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link TCTeOS.InfCte.InfCTeNorm.InfCteSub.TomaICMS.RefNF }
-                     *     
+                     *
+                     * @param value allowed object is
+                     *              {@link TCTeOS.InfCte.InfCTeNorm.InfCteSub.TomaICMS.RefNF }
                      */
                     public void setRefNF(TCTeOS.InfCte.InfCTeNorm.InfCteSub.TomaICMS.RefNF value) {
                         this.refNF = value;
@@ -5948,11 +5462,9 @@ public class TCTeOS
 
                     /**
                      * Obtém o valor da propriedade refCte.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is
+                     * {@link String }
                      */
                     public String getRefCte() {
                         return refCte;
@@ -5960,11 +5472,9 @@ public class TCTeOS
 
                     /**
                      * Define o valor da propriedade refCte.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is
+                     *              {@link String }
                      */
                     public void setRefCte(String value) {
                         this.refCte = value;
@@ -5973,9 +5483,9 @@ public class TCTeOS
 
                     /**
                      * <p>Classe Java de anonymous complex type.
-                     * 
+                     *
                      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-                     * 
+                     *
                      * <pre>
                      * &lt;complexType&gt;
                      *   &lt;complexContent&gt;
@@ -6003,23 +5513,20 @@ public class TCTeOS
                      *   &lt;/complexContent&gt;
                      * &lt;/complexType&gt;
                      * </pre>
-                     * 
-                     * 
                      */
                     @XmlAccessorType(XmlAccessType.FIELD)
                     @XmlType(name = "", propOrder = {
-                        "cnpj",
-                        "cpf",
-                        "mod",
-                        "serie",
-                        "subserie",
-                        "nro",
-                        "valor",
-                        "dEmi"
+                            "cnpj",
+                            "cpf",
+                            "mod",
+                            "serie",
+                            "subserie",
+                            "nro",
+                            "valor",
+                            "dEmi"
                     })
                     public static class RefNF
-                        implements XML
-                    {
+                            implements XML {
 
                         @XmlElement(name = "CNPJ")
                         protected String cnpj;
@@ -6039,11 +5546,9 @@ public class TCTeOS
 
                         /**
                          * Obtém o valor da propriedade cnpj.
-                         * 
-                         * @return
-                         *     possible object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @return possible object is
+                         * {@link String }
                          */
                         public String getCNPJ() {
                             return cnpj;
@@ -6051,11 +5556,9 @@ public class TCTeOS
 
                         /**
                          * Define o valor da propriedade cnpj.
-                         * 
-                         * @param value
-                         *     allowed object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @param value allowed object is
+                         *              {@link String }
                          */
                         public void setCNPJ(String value) {
                             this.cnpj = value;
@@ -6063,11 +5566,9 @@ public class TCTeOS
 
                         /**
                          * Obtém o valor da propriedade cpf.
-                         * 
-                         * @return
-                         *     possible object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @return possible object is
+                         * {@link String }
                          */
                         public String getCPF() {
                             return cpf;
@@ -6075,11 +5576,9 @@ public class TCTeOS
 
                         /**
                          * Define o valor da propriedade cpf.
-                         * 
-                         * @param value
-                         *     allowed object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @param value allowed object is
+                         *              {@link String }
                          */
                         public void setCPF(String value) {
                             this.cpf = value;
@@ -6087,11 +5586,9 @@ public class TCTeOS
 
                         /**
                          * Obtém o valor da propriedade mod.
-                         * 
-                         * @return
-                         *     possible object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @return possible object is
+                         * {@link String }
                          */
                         public String getMod() {
                             return mod;
@@ -6099,11 +5596,9 @@ public class TCTeOS
 
                         /**
                          * Define o valor da propriedade mod.
-                         * 
-                         * @param value
-                         *     allowed object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @param value allowed object is
+                         *              {@link String }
                          */
                         public void setMod(String value) {
                             this.mod = value;
@@ -6111,11 +5606,9 @@ public class TCTeOS
 
                         /**
                          * Obtém o valor da propriedade serie.
-                         * 
-                         * @return
-                         *     possible object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @return possible object is
+                         * {@link String }
                          */
                         public String getSerie() {
                             return serie;
@@ -6123,11 +5616,9 @@ public class TCTeOS
 
                         /**
                          * Define o valor da propriedade serie.
-                         * 
-                         * @param value
-                         *     allowed object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @param value allowed object is
+                         *              {@link String }
                          */
                         public void setSerie(String value) {
                             this.serie = value;
@@ -6135,11 +5626,9 @@ public class TCTeOS
 
                         /**
                          * Obtém o valor da propriedade subserie.
-                         * 
-                         * @return
-                         *     possible object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @return possible object is
+                         * {@link String }
                          */
                         public String getSubserie() {
                             return subserie;
@@ -6147,11 +5636,9 @@ public class TCTeOS
 
                         /**
                          * Define o valor da propriedade subserie.
-                         * 
-                         * @param value
-                         *     allowed object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @param value allowed object is
+                         *              {@link String }
                          */
                         public void setSubserie(String value) {
                             this.subserie = value;
@@ -6159,11 +5646,9 @@ public class TCTeOS
 
                         /**
                          * Obtém o valor da propriedade nro.
-                         * 
-                         * @return
-                         *     possible object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @return possible object is
+                         * {@link String }
                          */
                         public String getNro() {
                             return nro;
@@ -6171,11 +5656,9 @@ public class TCTeOS
 
                         /**
                          * Define o valor da propriedade nro.
-                         * 
-                         * @param value
-                         *     allowed object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @param value allowed object is
+                         *              {@link String }
                          */
                         public void setNro(String value) {
                             this.nro = value;
@@ -6183,11 +5666,9 @@ public class TCTeOS
 
                         /**
                          * Obtém o valor da propriedade valor.
-                         * 
-                         * @return
-                         *     possible object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @return possible object is
+                         * {@link String }
                          */
                         public String getValor() {
                             return valor;
@@ -6195,11 +5676,9 @@ public class TCTeOS
 
                         /**
                          * Define o valor da propriedade valor.
-                         * 
-                         * @param value
-                         *     allowed object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @param value allowed object is
+                         *              {@link String }
                          */
                         public void setValor(String value) {
                             this.valor = value;
@@ -6207,11 +5686,9 @@ public class TCTeOS
 
                         /**
                          * Obtém o valor da propriedade dEmi.
-                         * 
-                         * @return
-                         *     possible object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @return possible object is
+                         * {@link String }
                          */
                         public String getDEmi() {
                             return dEmi;
@@ -6219,11 +5696,9 @@ public class TCTeOS
 
                         /**
                          * Define o valor da propriedade dEmi.
-                         * 
-                         * @param value
-                         *     allowed object is
-                         *     {@link String }
-                         *     
+                         *
+                         * @param value allowed object is
+                         *              {@link String }
                          */
                         public void setDEmi(String value) {
                             this.dEmi = value;
@@ -6238,9 +5713,9 @@ public class TCTeOS
 
             /**
              * <p>Classe Java de anonymous complex type.
-             * 
+             *
              * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-             * 
+             *
              * <pre>
              * &lt;complexType&gt;
              *   &lt;complexContent&gt;
@@ -6285,21 +5760,18 @@ public class TCTeOS
              *   &lt;/complexContent&gt;
              * &lt;/complexType&gt;
              * </pre>
-             * 
-             * 
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
-                "nDoc",
-                "serie",
-                "subserie",
-                "dEmi",
-                "vDoc",
-                "chBPe"
+                    "nDoc",
+                    "serie",
+                    "subserie",
+                    "dEmi",
+                    "vDoc",
+                    "chBPe"
             })
             public static class InfDocRef
-                implements XML
-            {
+                    implements XML {
 
                 protected String nDoc;
                 protected String serie;
@@ -6310,11 +5782,9 @@ public class TCTeOS
 
                 /**
                  * Obtém o valor da propriedade nDoc.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getNDoc() {
                     return nDoc;
@@ -6322,11 +5792,9 @@ public class TCTeOS
 
                 /**
                  * Define o valor da propriedade nDoc.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setNDoc(String value) {
                     this.nDoc = value;
@@ -6334,11 +5802,9 @@ public class TCTeOS
 
                 /**
                  * Obtém o valor da propriedade serie.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getSerie() {
                     return serie;
@@ -6346,11 +5812,9 @@ public class TCTeOS
 
                 /**
                  * Define o valor da propriedade serie.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setSerie(String value) {
                     this.serie = value;
@@ -6358,11 +5822,9 @@ public class TCTeOS
 
                 /**
                  * Obtém o valor da propriedade subserie.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getSubserie() {
                     return subserie;
@@ -6370,11 +5832,9 @@ public class TCTeOS
 
                 /**
                  * Define o valor da propriedade subserie.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setSubserie(String value) {
                     this.subserie = value;
@@ -6382,11 +5842,9 @@ public class TCTeOS
 
                 /**
                  * Obtém o valor da propriedade dEmi.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getDEmi() {
                     return dEmi;
@@ -6394,11 +5852,9 @@ public class TCTeOS
 
                 /**
                  * Define o valor da propriedade dEmi.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setDEmi(String value) {
                     this.dEmi = value;
@@ -6406,11 +5862,9 @@ public class TCTeOS
 
                 /**
                  * Obtém o valor da propriedade vDoc.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getVDoc() {
                     return vDoc;
@@ -6418,11 +5872,9 @@ public class TCTeOS
 
                 /**
                  * Define o valor da propriedade vDoc.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setVDoc(String value) {
                     this.vDoc = value;
@@ -6430,11 +5882,9 @@ public class TCTeOS
 
                 /**
                  * Obtém o valor da propriedade chBPe.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getChBPe() {
                     return chBPe;
@@ -6442,11 +5892,9 @@ public class TCTeOS
 
                 /**
                  * Define o valor da propriedade chBPe.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setChBPe(String value) {
                     this.chBPe = value;
@@ -6457,9 +5905,9 @@ public class TCTeOS
 
             /**
              * <p>Classe Java de anonymous complex type.
-             * 
+             *
              * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-             * 
+             *
              * <pre>
              * &lt;complexType&gt;
              *   &lt;complexContent&gt;
@@ -6509,17 +5957,14 @@ public class TCTeOS
              *   &lt;/complexContent&gt;
              * &lt;/complexType&gt;
              * </pre>
-             * 
-             * 
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
-                "chCTe",
-                "comp"
+                    "chCTe",
+                    "comp"
             })
             public static class InfGTVe
-                implements XML
-            {
+                    implements XML {
 
                 @XmlElement(required = true)
                 protected String chCTe;
@@ -6528,11 +5973,9 @@ public class TCTeOS
 
                 /**
                  * Obtém o valor da propriedade chCTe.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getChCTe() {
                     return chCTe;
@@ -6540,11 +5983,9 @@ public class TCTeOS
 
                 /**
                  * Define o valor da propriedade chCTe.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setChCTe(String value) {
                     this.chCTe = value;
@@ -6552,25 +5993,23 @@ public class TCTeOS
 
                 /**
                  * Gets the value of the comp property.
-                 * 
+                 *
                  * <p>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
                  * returned list will be present inside the JAXB object.
                  * This is why there is not a <CODE>set</CODE> method for the comp property.
-                 * 
+                 *
                  * <p>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getComp().add(newItem);
                  * </pre>
-                 * 
-                 * 
+                 *
+                 *
                  * <p>
                  * Objects of the following type(s) are allowed in the list
                  * {@link TCTeOS.InfCte.InfCTeNorm.InfGTVe.Comp }
-                 * 
-                 * 
                  */
                 public List<TCTeOS.InfCte.InfCTeNorm.InfGTVe.Comp> getComp() {
                     if (comp == null) {
@@ -6582,9 +6021,9 @@ public class TCTeOS
 
                 /**
                  * <p>Classe Java de anonymous complex type.
-                 * 
+                 *
                  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-                 * 
+                 *
                  * <pre>
                  * &lt;complexType&gt;
                  *   &lt;complexContent&gt;
@@ -6617,18 +6056,15 @@ public class TCTeOS
                  *   &lt;/complexContent&gt;
                  * &lt;/complexType&gt;
                  * </pre>
-                 * 
-                 * 
                  */
                 @XmlAccessorType(XmlAccessType.FIELD)
                 @XmlType(name = "", propOrder = {
-                    "tpComp",
-                    "vComp",
-                    "xComp"
+                        "tpComp",
+                        "vComp",
+                        "xComp"
                 })
                 public static class Comp
-                    implements XML
-                {
+                        implements XML {
 
                     @XmlElement(required = true)
                     protected String tpComp;
@@ -6638,11 +6074,9 @@ public class TCTeOS
 
                     /**
                      * Obtém o valor da propriedade tpComp.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is
+                     * {@link String }
                      */
                     public String getTpComp() {
                         return tpComp;
@@ -6650,11 +6084,9 @@ public class TCTeOS
 
                     /**
                      * Define o valor da propriedade tpComp.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is
+                     *              {@link String }
                      */
                     public void setTpComp(String value) {
                         this.tpComp = value;
@@ -6662,11 +6094,9 @@ public class TCTeOS
 
                     /**
                      * Obtém o valor da propriedade vComp.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is
+                     * {@link String }
                      */
                     public String getVComp() {
                         return vComp;
@@ -6674,11 +6104,9 @@ public class TCTeOS
 
                     /**
                      * Define o valor da propriedade vComp.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is
+                     *              {@link String }
                      */
                     public void setVComp(String value) {
                         this.vComp = value;
@@ -6686,11 +6114,9 @@ public class TCTeOS
 
                     /**
                      * Obtém o valor da propriedade xComp.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is
+                     * {@link String }
                      */
                     public String getXComp() {
                         return xComp;
@@ -6698,11 +6124,9 @@ public class TCTeOS
 
                     /**
                      * Define o valor da propriedade xComp.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is
+                     *              {@link String }
                      */
                     public void setXComp(String value) {
                         this.xComp = value;
@@ -6715,9 +6139,9 @@ public class TCTeOS
 
             /**
              * <p>Classe Java de anonymous complex type.
-             * 
+             *
              * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-             * 
+             *
              * <pre>
              * &lt;complexType&gt;
              *   &lt;complexContent&gt;
@@ -6737,16 +6161,13 @@ public class TCTeOS
              *   &lt;/complexContent&gt;
              * &lt;/complexType&gt;
              * </pre>
-             * 
-             * 
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
-                "any"
+                    "any"
             })
             public static class InfModal
-                implements XML
-            {
+                    implements XML {
 
                 @XmlAnyElement
                 protected Element any;
@@ -6755,11 +6176,9 @@ public class TCTeOS
 
                 /**
                  * Obtém o valor da propriedade any.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link Element }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link Element }
                  */
                 public Element getAny() {
                     return any;
@@ -6767,11 +6186,9 @@ public class TCTeOS
 
                 /**
                  * Define o valor da propriedade any.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link Element }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link Element }
                  */
                 public void setAny(Element value) {
                     this.any = value;
@@ -6779,11 +6196,9 @@ public class TCTeOS
 
                 /**
                  * Obtém o valor da propriedade versaoModal.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getVersaoModal() {
                     return versaoModal;
@@ -6791,11 +6206,9 @@ public class TCTeOS
 
                 /**
                  * Define o valor da propriedade versaoModal.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setVersaoModal(String value) {
                     this.versaoModal = value;
@@ -6806,9 +6219,9 @@ public class TCTeOS
 
             /**
              * <p>Classe Java de anonymous complex type.
-             * 
+             *
              * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-             * 
+             *
              * <pre>
              * &lt;complexType&gt;
              *   &lt;complexContent&gt;
@@ -6838,17 +6251,14 @@ public class TCTeOS
              *   &lt;/complexContent&gt;
              * &lt;/complexType&gt;
              * </pre>
-             * 
-             * 
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
-                "xDescServ",
-                "infQ"
+                    "xDescServ",
+                    "infQ"
             })
             public static class InfServico
-                implements XML
-            {
+                    implements XML {
 
                 @XmlElement(required = true)
                 protected String xDescServ;
@@ -6856,11 +6266,9 @@ public class TCTeOS
 
                 /**
                  * Obtém o valor da propriedade xDescServ.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getXDescServ() {
                     return xDescServ;
@@ -6868,11 +6276,9 @@ public class TCTeOS
 
                 /**
                  * Define o valor da propriedade xDescServ.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setXDescServ(String value) {
                     this.xDescServ = value;
@@ -6880,11 +6286,9 @@ public class TCTeOS
 
                 /**
                  * Obtém o valor da propriedade infQ.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link TCTeOS.InfCte.InfCTeNorm.InfServico.InfQ }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link TCTeOS.InfCte.InfCTeNorm.InfServico.InfQ }
                  */
                 public TCTeOS.InfCte.InfCTeNorm.InfServico.InfQ getInfQ() {
                     return infQ;
@@ -6892,11 +6296,9 @@ public class TCTeOS
 
                 /**
                  * Define o valor da propriedade infQ.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link TCTeOS.InfCte.InfCTeNorm.InfServico.InfQ }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link TCTeOS.InfCte.InfCTeNorm.InfServico.InfQ }
                  */
                 public void setInfQ(TCTeOS.InfCte.InfCTeNorm.InfServico.InfQ value) {
                     this.infQ = value;
@@ -6905,9 +6307,9 @@ public class TCTeOS
 
                 /**
                  * <p>Classe Java de anonymous complex type.
-                 * 
+                 *
                  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-                 * 
+                 *
                  * <pre>
                  * &lt;complexType&gt;
                  *   &lt;complexContent&gt;
@@ -6919,27 +6321,22 @@ public class TCTeOS
                  *   &lt;/complexContent&gt;
                  * &lt;/complexType&gt;
                  * </pre>
-                 * 
-                 * 
                  */
                 @XmlAccessorType(XmlAccessType.FIELD)
                 @XmlType(name = "", propOrder = {
-                    "qCarga"
+                        "qCarga"
                 })
                 public static class InfQ
-                    implements XML
-                {
+                        implements XML {
 
                     @XmlElement(required = true)
                     protected String qCarga;
 
                     /**
                      * Obtém o valor da propriedade qCarga.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is
+                     * {@link String }
                      */
                     public String getQCarga() {
                         return qCarga;
@@ -6947,11 +6344,9 @@ public class TCTeOS
 
                     /**
                      * Define o valor da propriedade qCarga.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is
+                     *              {@link String }
                      */
                     public void setQCarga(String value) {
                         this.qCarga = value;
@@ -6964,9 +6359,9 @@ public class TCTeOS
 
             /**
              * <p>Classe Java de anonymous complex type.
-             * 
+             *
              * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-             * 
+             *
              * <pre>
              * &lt;complexType&gt;
              *   &lt;complexContent&gt;
@@ -7004,18 +6399,15 @@ public class TCTeOS
              *   &lt;/complexContent&gt;
              * &lt;/complexType&gt;
              * </pre>
-             * 
-             * 
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
-                "respSeg",
-                "xSeg",
-                "nApol"
+                    "respSeg",
+                    "xSeg",
+                    "nApol"
             })
             public static class Seg
-                implements XML
-            {
+                    implements XML {
 
                 @XmlElement(required = true)
                 protected String respSeg;
@@ -7024,11 +6416,9 @@ public class TCTeOS
 
                 /**
                  * Obtém o valor da propriedade respSeg.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getRespSeg() {
                     return respSeg;
@@ -7036,11 +6426,9 @@ public class TCTeOS
 
                 /**
                  * Define o valor da propriedade respSeg.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setRespSeg(String value) {
                     this.respSeg = value;
@@ -7048,11 +6436,9 @@ public class TCTeOS
 
                 /**
                  * Obtém o valor da propriedade xSeg.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getXSeg() {
                     return xSeg;
@@ -7060,11 +6446,9 @@ public class TCTeOS
 
                 /**
                  * Define o valor da propriedade xSeg.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setXSeg(String value) {
                     this.xSeg = value;
@@ -7072,11 +6456,9 @@ public class TCTeOS
 
                 /**
                  * Obtém o valor da propriedade nApol.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getNApol() {
                     return nApol;
@@ -7084,11 +6466,9 @@ public class TCTeOS
 
                 /**
                  * Define o valor da propriedade nApol.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setNApol(String value) {
                     this.nApol = value;
@@ -7101,9 +6481,9 @@ public class TCTeOS
 
         /**
          * <p>Classe Java de anonymous complex type.
-         * 
+         *
          * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-         * 
+         *
          * <pre>
          * &lt;complexType&gt;
          *   &lt;complexContent&gt;
@@ -7148,23 +6528,20 @@ public class TCTeOS
          *   &lt;/complexContent&gt;
          * &lt;/complexType&gt;
          * </pre>
-         * 
-         * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "cnpj",
-            "cpf",
-            "ie",
-            "xNome",
-            "xFant",
-            "fone",
-            "enderToma",
-            "email"
+                "cnpj",
+                "cpf",
+                "ie",
+                "xNome",
+                "xFant",
+                "fone",
+                "enderToma",
+                "email"
         })
         public static class Toma
-            implements XML
-        {
+                implements XML {
 
             @XmlElement(name = "CNPJ")
             protected String cnpj;
@@ -7182,11 +6559,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade cnpj.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getCNPJ() {
                 return cnpj;
@@ -7194,11 +6569,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade cnpj.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setCNPJ(String value) {
                 this.cnpj = value;
@@ -7206,11 +6579,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade cpf.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getCPF() {
                 return cpf;
@@ -7218,11 +6589,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade cpf.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setCPF(String value) {
                 this.cpf = value;
@@ -7230,11 +6599,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade ie.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getIE() {
                 return ie;
@@ -7242,11 +6609,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade ie.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setIE(String value) {
                 this.ie = value;
@@ -7254,11 +6619,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade xNome.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getXNome() {
                 return xNome;
@@ -7266,11 +6629,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade xNome.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setXNome(String value) {
                 this.xNome = value;
@@ -7278,11 +6639,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade xFant.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getXFant() {
                 return xFant;
@@ -7290,11 +6649,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade xFant.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setXFant(String value) {
                 this.xFant = value;
@@ -7302,11 +6659,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade fone.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getFone() {
                 return fone;
@@ -7314,11 +6669,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade fone.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setFone(String value) {
                 this.fone = value;
@@ -7326,11 +6679,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade enderToma.
-             * 
-             * @return
-             *     possible object is
-             *     {@link TEndereco }
-             *     
+             *
+             * @return possible object is
+             * {@link TEndereco }
              */
             public TEndereco getEnderToma() {
                 return enderToma;
@@ -7338,11 +6689,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade enderToma.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link TEndereco }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link TEndereco }
              */
             public void setEnderToma(TEndereco value) {
                 this.enderToma = value;
@@ -7350,11 +6699,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade email.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getEmail() {
                 return email;
@@ -7362,11 +6709,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade email.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setEmail(String value) {
                 this.email = value;
@@ -7377,9 +6722,9 @@ public class TCTeOS
 
         /**
          * <p>Classe Java de anonymous complex type.
-         * 
+         *
          * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-         * 
+         *
          * <pre>
          * &lt;complexType&gt;
          *   &lt;complexContent&gt;
@@ -7411,18 +6756,15 @@ public class TCTeOS
          *   &lt;/complexContent&gt;
          * &lt;/complexType&gt;
          * </pre>
-         * 
-         * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "vtPrest",
-            "vRec",
-            "comp"
+                "vtPrest",
+                "vRec",
+                "comp"
         })
         public static class VPrest
-            implements XML
-        {
+                implements XML {
 
             @XmlElement(name = "vTPrest", required = true)
             protected String vtPrest;
@@ -7433,11 +6775,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade vtPrest.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getVTPrest() {
                 return vtPrest;
@@ -7445,11 +6785,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade vtPrest.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setVTPrest(String value) {
                 this.vtPrest = value;
@@ -7457,11 +6795,9 @@ public class TCTeOS
 
             /**
              * Obtém o valor da propriedade vRec.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is
+             * {@link String }
              */
             public String getVRec() {
                 return vRec;
@@ -7469,11 +6805,9 @@ public class TCTeOS
 
             /**
              * Define o valor da propriedade vRec.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is
+             *              {@link String }
              */
             public void setVRec(String value) {
                 this.vRec = value;
@@ -7481,25 +6815,23 @@ public class TCTeOS
 
             /**
              * Gets the value of the comp property.
-             * 
+             *
              * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the comp property.
-             * 
+             *
              * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getComp().add(newItem);
              * </pre>
-             * 
-             * 
+             *
+             *
              * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link TCTeOS.InfCte.VPrest.Comp }
-             * 
-             * 
              */
             public List<TCTeOS.InfCte.VPrest.Comp> getComp() {
                 if (comp == null) {
@@ -7511,9 +6843,9 @@ public class TCTeOS
 
             /**
              * <p>Classe Java de anonymous complex type.
-             * 
+             *
              * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-             * 
+             *
              * <pre>
              * &lt;complexType&gt;
              *   &lt;complexContent&gt;
@@ -7533,17 +6865,14 @@ public class TCTeOS
              *   &lt;/complexContent&gt;
              * &lt;/complexType&gt;
              * </pre>
-             * 
-             * 
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
-                "xNome",
-                "vComp"
+                    "xNome",
+                    "vComp"
             })
             public static class Comp
-                implements XML
-            {
+                    implements XML {
 
                 @XmlElement(required = true)
                 protected String xNome;
@@ -7552,11 +6881,9 @@ public class TCTeOS
 
                 /**
                  * Obtém o valor da propriedade xNome.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getXNome() {
                     return xNome;
@@ -7564,11 +6891,9 @@ public class TCTeOS
 
                 /**
                  * Define o valor da propriedade xNome.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setXNome(String value) {
                     this.xNome = value;
@@ -7576,11 +6901,9 @@ public class TCTeOS
 
                 /**
                  * Obtém o valor da propriedade vComp.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @return possible object is
+                 * {@link String }
                  */
                 public String getVComp() {
                     return vComp;
@@ -7588,11 +6911,9 @@ public class TCTeOS
 
                 /**
                  * Define o valor da propriedade vComp.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
+                 *
+                 * @param value allowed object is
+                 *              {@link String }
                  */
                 public void setVComp(String value) {
                     this.vComp = value;
@@ -7607,9 +6928,9 @@ public class TCTeOS
 
     /**
      * <p>Classe Java de anonymous complex type.
-     * 
+     *
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     * 
+     *
      * <pre>
      * &lt;complexType&gt;
      *   &lt;complexContent&gt;
@@ -7630,27 +6951,22 @@ public class TCTeOS
      *   &lt;/complexContent&gt;
      * &lt;/complexType&gt;
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "qrCodCTe"
+            "qrCodCTe"
     })
     public static class InfCTeSupl
-        implements XML
-    {
+            implements XML {
 
         @XmlElement(required = true)
         protected String qrCodCTe;
 
         /**
          * Obtém o valor da propriedade qrCodCTe.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getQrCodCTe() {
             return qrCodCTe;
@@ -7658,11 +6974,9 @@ public class TCTeOS
 
         /**
          * Define o valor da propriedade qrCodCTe.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setQrCodCTe(String value) {
             this.qrCodCTe = value;

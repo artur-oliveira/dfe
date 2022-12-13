@@ -8,18 +8,19 @@
 
 package br.inf.portalfiscal.cte.send;
 
+import com.softart.dfe.interfaces.xml.generic.XML;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
 
 
 /**
  * <p>Classe Java de Tarifa complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="Tarifa"&gt;
  *   &lt;complexContent&gt;
@@ -50,18 +51,15 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Tarifa", propOrder = {
-    "cl",
-    "cTar",
-    "vTar"
+        "cl",
+        "cTar",
+        "vTar"
 })
 public class Tarifa
-    implements XML
-{
+        implements XML {
 
     @XmlElement(name = "CL", required = true)
     protected String cl;
@@ -71,11 +69,9 @@ public class Tarifa
 
     /**
      * Obtém o valor da propriedade cl.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCL() {
         return cl;
@@ -83,11 +79,9 @@ public class Tarifa
 
     /**
      * Define o valor da propriedade cl.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCL(String value) {
         this.cl = value;
@@ -95,11 +89,9 @@ public class Tarifa
 
     /**
      * Obtém o valor da propriedade cTar.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCTar() {
         return cTar;
@@ -107,11 +99,9 @@ public class Tarifa
 
     /**
      * Define o valor da propriedade cTar.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCTar(String value) {
         this.cTar = value;
@@ -119,11 +109,9 @@ public class Tarifa
 
     /**
      * Obtém o valor da propriedade vTar.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVTar() {
         return vTar;
@@ -131,11 +119,9 @@ public class Tarifa
 
     /**
      * Define o valor da propriedade vTar.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVTar(String value) {
         this.vTar = value;

@@ -1,7 +1,6 @@
 package com.softart.dfe.components.sefaz.port.mdfe.initializer;
 
 import com.softart.dfe.components.sefaz.port.SoapServiceInitializer;
-import com.softart.dfe.components.sefaz.port.cte.AbstractCteSoapService;
 import com.softart.dfe.components.sefaz.port.mdfe.AbstractMdfeSoapService;
 import com.softart.dfe.exceptions.port.SoapServiceInitializationException;
 import com.softart.dfe.exceptions.security.SSLContextException;

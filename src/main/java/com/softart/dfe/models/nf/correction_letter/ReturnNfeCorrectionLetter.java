@@ -3,8 +3,8 @@ package com.softart.dfe.models.nf.correction_letter;
 import br.inf.portalfiscal.nfe.event_correction_letter.SignatureType;
 import br.inf.portalfiscal.nfe.event_correction_letter.TRetEnvEvento;
 import br.inf.portalfiscal.nfe.event_correction_letter.TretEvento;
-import com.softart.dfe.interfaces.xml.DFObject;
 import com.softart.dfe.interfaces.xml.XMLAdapter;
+import com.softart.dfe.interfaces.xml.generic.DFObject;
 import lombok.*;
 
 import java.util.List;

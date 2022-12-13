@@ -111,14 +111,6 @@ public final class ClassUtils {
      * It takes a method, an instance of the class that the method belongs to, and a value, and it sets the value of the
      * method on the instance
      *
-     * @param method The method to invoke
-     * @param thisInstance The instance of the class you want to set the field on.
-     * @param val The value to set the field to.
-     */
-    /**
-     * It takes a method, an instance of the class that the method belongs to, and a value, and it sets the value of the
-     * method on the instance
-     *
      * @param method       The method to invoke
      * @param thisInstance The instance of the class you want to set the field on.
      * @param val          The value to set the field to.

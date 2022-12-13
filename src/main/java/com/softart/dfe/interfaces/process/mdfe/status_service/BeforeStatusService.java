@@ -1,6 +1,5 @@
 package com.softart.dfe.interfaces.process.mdfe.status_service;
 
-import br.inf.portalfiscal.mdfe.classes.TConsReciMDFe;
 import br.inf.portalfiscal.mdfe.classes.TConsStatServ;
 import com.softart.dfe.interfaces.process.BeforeWebServiceRequest;
 

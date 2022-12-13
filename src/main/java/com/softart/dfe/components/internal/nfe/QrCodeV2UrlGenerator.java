@@ -1,6 +1,8 @@
 package com.softart.dfe.components.internal.nfe;
 
 import com.softart.dfe.components.internal.parser.AccessKeyParserFactory;
+import com.softart.dfe.components.internal.xml.marshaller.NfMarshaller;
+import com.softart.dfe.components.internal.xml.unmarshaller.NfUnmarshaller;
 import com.softart.dfe.enums.internal.nf.QrCodeNfceURL;
 import com.softart.dfe.exceptions.security.XMLSignException;
 import com.softart.dfe.exceptions.services.NoProviderFound;
@@ -9,8 +11,6 @@ import com.softart.dfe.util.Base64Utils;
 import com.softart.dfe.util.DateUtils;
 import com.softart.dfe.util.HashUtils;
 import com.softart.dfe.util.StringUtils;
-import com.softart.dfe.components.internal.xml.marshaller.NfMarshaller;
-import com.softart.dfe.components.internal.xml.unmarshaller.NfUnmarshaller;
 
 import java.security.GeneralSecurityException;
 import java.util.Objects;

@@ -8,18 +8,19 @@
 
 package br.inf.portalfiscal.cte.send;
 
+import com.softart.dfe.interfaces.xml.generic.XML;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
 
 
 /**
  * <p>Classe Java de InfNF complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="InfNF"&gt;
  *   &lt;complexContent&gt;
@@ -47,18 +48,15 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "InfNF", propOrder = {
-    "serie",
-    "nDoc",
-    "unidRat"
+        "serie",
+        "nDoc",
+        "unidRat"
 })
 public class InfNF
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected String serie;
@@ -68,11 +66,9 @@ public class InfNF
 
     /**
      * Obtém o valor da propriedade serie.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getSerie() {
         return serie;
@@ -80,11 +76,9 @@ public class InfNF
 
     /**
      * Define o valor da propriedade serie.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setSerie(String value) {
         this.serie = value;
@@ -92,11 +86,9 @@ public class InfNF
 
     /**
      * Obtém o valor da propriedade nDoc.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getNDoc() {
         return nDoc;
@@ -104,11 +96,9 @@ public class InfNF
 
     /**
      * Define o valor da propriedade nDoc.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setNDoc(String value) {
         this.nDoc = value;
@@ -116,11 +106,9 @@ public class InfNF
 
     /**
      * Obtém o valor da propriedade unidRat.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getUnidRat() {
         return unidRat;
@@ -128,11 +116,9 @@ public class InfNF
 
     /**
      * Define o valor da propriedade unidRat.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setUnidRat(String value) {
         this.unidRat = value;

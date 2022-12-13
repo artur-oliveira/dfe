@@ -8,20 +8,21 @@
 
 package br.inf.portalfiscal.mdfe.classes;
 
+import com.softart.dfe.interfaces.xml.generic.XML;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
 
 
 /**
  * Tipo Dados da Responsável Técnico
- * 
+ *
  * <p>Classe Java de TRespTec complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="TRespTec"&gt;
  *   &lt;complexContent&gt;
@@ -66,21 +67,18 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TRespTec", propOrder = {
-    "cnpj",
-    "xContato",
-    "email",
-    "fone",
-    "idCSRT",
-    "hashCSRT"
+        "cnpj",
+        "xContato",
+        "email",
+        "fone",
+        "idCSRT",
+        "hashCSRT"
 })
 public class TRespTec
-    implements XML
-{
+        implements XML {
 
     @XmlElement(name = "CNPJ", required = true)
     protected String cnpj;
@@ -95,11 +93,9 @@ public class TRespTec
 
     /**
      * Obtém o valor da propriedade cnpj.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCNPJ() {
         return cnpj;
@@ -107,11 +103,9 @@ public class TRespTec
 
     /**
      * Define o valor da propriedade cnpj.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCNPJ(String value) {
         this.cnpj = value;
@@ -119,11 +113,9 @@ public class TRespTec
 
     /**
      * Obtém o valor da propriedade xContato.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getXContato() {
         return xContato;
@@ -131,11 +123,9 @@ public class TRespTec
 
     /**
      * Define o valor da propriedade xContato.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setXContato(String value) {
         this.xContato = value;
@@ -143,11 +133,9 @@ public class TRespTec
 
     /**
      * Obtém o valor da propriedade email.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getEmail() {
         return email;
@@ -155,11 +143,9 @@ public class TRespTec
 
     /**
      * Define o valor da propriedade email.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setEmail(String value) {
         this.email = value;
@@ -167,11 +153,9 @@ public class TRespTec
 
     /**
      * Obtém o valor da propriedade fone.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getFone() {
         return fone;
@@ -179,11 +163,9 @@ public class TRespTec
 
     /**
      * Define o valor da propriedade fone.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setFone(String value) {
         this.fone = value;
@@ -191,11 +173,9 @@ public class TRespTec
 
     /**
      * Obtém o valor da propriedade idCSRT.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getIdCSRT() {
         return idCSRT;
@@ -203,11 +183,9 @@ public class TRespTec
 
     /**
      * Define o valor da propriedade idCSRT.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setIdCSRT(String value) {
         this.idCSRT = value;
@@ -215,10 +193,9 @@ public class TRespTec
 
     /**
      * Obtém o valor da propriedade hashCSRT.
-     * 
-     * @return
-     *     possible object is
-     *     byte[]
+     *
+     * @return possible object is
+     * byte[]
      */
     public byte[] getHashCSRT() {
         return hashCSRT;
@@ -226,10 +203,9 @@ public class TRespTec
 
     /**
      * Define o valor da propriedade hashCSRT.
-     * 
-     * @param value
-     *     allowed object is
-     *     byte[]
+     *
+     * @param value allowed object is
+     *              byte[]
      */
     public void setHashCSRT(byte[] value) {
         this.hashCSRT = value;

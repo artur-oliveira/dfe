@@ -15,7 +15,6 @@ public enum CteOtherDocType implements DFEnum.Codeable {
     private final String code;
 
     private final String description;
-    ;
 
     public static CteOtherDocType valueOfCode(String code) {
         return DFEnum.valueOfCode(values(), code);

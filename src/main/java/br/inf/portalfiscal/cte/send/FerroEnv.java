@@ -8,18 +8,19 @@
 
 package br.inf.portalfiscal.cte.send;
 
+import com.softart.dfe.interfaces.xml.generic.XML;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
 
 
 /**
  * <p>Classe Java de FerroEnv complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="FerroEnv"&gt;
  *   &lt;complexContent&gt;
@@ -49,20 +50,17 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "FerroEnv", propOrder = {
-    "cnpj",
-    "cInt",
-    "ie",
-    "xNome",
-    "enderFerro"
+        "cnpj",
+        "cInt",
+        "ie",
+        "xNome",
+        "enderFerro"
 })
 public class FerroEnv
-    implements XML
-{
+        implements XML {
 
     @XmlElement(name = "CNPJ", required = true)
     protected String cnpj;
@@ -76,11 +74,9 @@ public class FerroEnv
 
     /**
      * Obtém o valor da propriedade cnpj.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCNPJ() {
         return cnpj;
@@ -88,11 +84,9 @@ public class FerroEnv
 
     /**
      * Define o valor da propriedade cnpj.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCNPJ(String value) {
         this.cnpj = value;
@@ -100,11 +94,9 @@ public class FerroEnv
 
     /**
      * Obtém o valor da propriedade cInt.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCInt() {
         return cInt;
@@ -112,11 +104,9 @@ public class FerroEnv
 
     /**
      * Define o valor da propriedade cInt.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCInt(String value) {
         this.cInt = value;
@@ -124,11 +114,9 @@ public class FerroEnv
 
     /**
      * Obtém o valor da propriedade ie.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getIE() {
         return ie;
@@ -136,11 +124,9 @@ public class FerroEnv
 
     /**
      * Define o valor da propriedade ie.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setIE(String value) {
         this.ie = value;
@@ -148,11 +134,9 @@ public class FerroEnv
 
     /**
      * Obtém o valor da propriedade xNome.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getXNome() {
         return xNome;
@@ -160,11 +144,9 @@ public class FerroEnv
 
     /**
      * Define o valor da propriedade xNome.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setXNome(String value) {
         this.xNome = value;
@@ -172,11 +154,9 @@ public class FerroEnv
 
     /**
      * Obtém o valor da propriedade enderFerro.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TEnderFer }
-     *     
+     *
+     * @return possible object is
+     * {@link TEnderFer }
      */
     public TEnderFer getEnderFerro() {
         return enderFerro;
@@ -184,11 +164,9 @@ public class FerroEnv
 
     /**
      * Define o valor da propriedade enderFerro.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TEnderFer }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link TEnderFer }
      */
     public void setEnderFerro(TEnderFer value) {
         this.enderFerro = value;

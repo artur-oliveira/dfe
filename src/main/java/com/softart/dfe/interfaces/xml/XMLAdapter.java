@@ -1,8 +1,10 @@
 package com.softart.dfe.interfaces.xml;
 
 import com.softart.dfe.interfaces.internal.Pair;
+import com.softart.dfe.interfaces.xml.generic.XML;
 import com.softart.dfe.util.ClassUtils;
 
+import javax.xml.bind.JAXBElement;
 import java.beans.PropertyDescriptor;
 import java.lang.reflect.ParameterizedType;
 import java.util.Arrays;
@@ -104,6 +106,10 @@ public interface XMLAdapter<T extends XML, I extends XML> {
      * @param o The object to be converted
      * @return The instance of the class that is being converted.
      */
+    default T fromObject(JAXBElement<I> o) {
+        return fromObject(o.getValue());
+    }
+
     default T fromObject(I o) {
         Class<T> instanceClass = firstClass();
         Class<I> fromClass = secondClass();

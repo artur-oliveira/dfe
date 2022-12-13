@@ -8,7 +8,7 @@
 
 package br.inf.portalfiscal.nfe.distribution;
 
-import com.softart.dfe.interfaces.xml.XML;
+import com.softart.dfe.interfaces.xml.generic.XML;
 
 import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
@@ -17,9 +17,9 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 /**
  * <p>Classe Java de TDistDFeInt complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="TDistDFeInt"&gt;
  *   &lt;complexContent&gt;
@@ -72,22 +72,19 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TDistDFeInt", namespace = "http://www.portalfiscal.inf.br/nfe", propOrder = {
-    "tpAmb",
-    "cufAutor",
-    "cnpj",
-    "cpf",
-    "distNSU",
-    "consNSU",
-    "consChNFe"
+        "tpAmb",
+        "cufAutor",
+        "cnpj",
+        "cpf",
+        "distNSU",
+        "consNSU",
+        "consChNFe"
 })
 public class TDistDFeInt
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected String tpAmb;
@@ -105,11 +102,9 @@ public class TDistDFeInt
 
     /**
      * Obtém o valor da propriedade tpAmb.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getTpAmb() {
         return tpAmb;
@@ -117,11 +112,9 @@ public class TDistDFeInt
 
     /**
      * Define o valor da propriedade tpAmb.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setTpAmb(String value) {
         this.tpAmb = value;
@@ -129,11 +122,9 @@ public class TDistDFeInt
 
     /**
      * Obtém o valor da propriedade cufAutor.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCUFAutor() {
         return cufAutor;
@@ -141,11 +132,9 @@ public class TDistDFeInt
 
     /**
      * Define o valor da propriedade cufAutor.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCUFAutor(String value) {
         this.cufAutor = value;
@@ -153,11 +142,9 @@ public class TDistDFeInt
 
     /**
      * Obtém o valor da propriedade cnpj.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCNPJ() {
         return cnpj;
@@ -165,11 +152,9 @@ public class TDistDFeInt
 
     /**
      * Define o valor da propriedade cnpj.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCNPJ(String value) {
         this.cnpj = value;
@@ -177,11 +162,9 @@ public class TDistDFeInt
 
     /**
      * Obtém o valor da propriedade cpf.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCPF() {
         return cpf;
@@ -189,11 +172,9 @@ public class TDistDFeInt
 
     /**
      * Define o valor da propriedade cpf.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCPF(String value) {
         this.cpf = value;
@@ -201,11 +182,9 @@ public class TDistDFeInt
 
     /**
      * Obtém o valor da propriedade distNSU.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TDistDFeInt.DistNSU }
-     *     
+     *
+     * @return possible object is
+     * {@link TDistDFeInt.DistNSU }
      */
     public TDistDFeInt.DistNSU getDistNSU() {
         return distNSU;
@@ -213,11 +192,9 @@ public class TDistDFeInt
 
     /**
      * Define o valor da propriedade distNSU.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TDistDFeInt.DistNSU }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link TDistDFeInt.DistNSU }
      */
     public void setDistNSU(TDistDFeInt.DistNSU value) {
         this.distNSU = value;
@@ -225,11 +202,9 @@ public class TDistDFeInt
 
     /**
      * Obtém o valor da propriedade consNSU.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TDistDFeInt.ConsNSU }
-     *     
+     *
+     * @return possible object is
+     * {@link TDistDFeInt.ConsNSU }
      */
     public TDistDFeInt.ConsNSU getConsNSU() {
         return consNSU;
@@ -237,11 +212,9 @@ public class TDistDFeInt
 
     /**
      * Define o valor da propriedade consNSU.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TDistDFeInt.ConsNSU }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link TDistDFeInt.ConsNSU }
      */
     public void setConsNSU(TDistDFeInt.ConsNSU value) {
         this.consNSU = value;
@@ -249,11 +222,9 @@ public class TDistDFeInt
 
     /**
      * Obtém o valor da propriedade consChNFe.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TDistDFeInt.ConsChNFe }
-     *     
+     *
+     * @return possible object is
+     * {@link TDistDFeInt.ConsChNFe }
      */
     public TDistDFeInt.ConsChNFe getConsChNFe() {
         return consChNFe;
@@ -261,11 +232,9 @@ public class TDistDFeInt
 
     /**
      * Define o valor da propriedade consChNFe.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TDistDFeInt.ConsChNFe }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link TDistDFeInt.ConsChNFe }
      */
     public void setConsChNFe(TDistDFeInt.ConsChNFe value) {
         this.consChNFe = value;
@@ -273,11 +242,9 @@ public class TDistDFeInt
 
     /**
      * Obtém o valor da propriedade versao.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVersao() {
         return versao;
@@ -285,11 +252,9 @@ public class TDistDFeInt
 
     /**
      * Define o valor da propriedade versao.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVersao(String value) {
         this.versao = value;
@@ -298,9 +263,9 @@ public class TDistDFeInt
 
     /**
      * <p>Classe Java de anonymous complex type.
-     * 
+     *
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     * 
+     *
      * <pre>
      * &lt;complexType&gt;
      *   &lt;complexContent&gt;
@@ -312,27 +277,22 @@ public class TDistDFeInt
      *   &lt;/complexContent&gt;
      * &lt;/complexType&gt;
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "chNFe"
+            "chNFe"
     })
     public static class ConsChNFe
-        implements XML
-    {
+            implements XML {
 
         @XmlElement(namespace = "http://www.portalfiscal.inf.br/nfe", required = true)
         protected String chNFe;
 
         /**
          * Obtém o valor da propriedade chNFe.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getChNFe() {
             return chNFe;
@@ -340,11 +300,9 @@ public class TDistDFeInt
 
         /**
          * Define o valor da propriedade chNFe.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setChNFe(String value) {
             this.chNFe = value;
@@ -355,9 +313,9 @@ public class TDistDFeInt
 
     /**
      * <p>Classe Java de anonymous complex type.
-     * 
+     *
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     * 
+     *
      * <pre>
      * &lt;complexType&gt;
      *   &lt;complexContent&gt;
@@ -369,16 +327,13 @@ public class TDistDFeInt
      *   &lt;/complexContent&gt;
      * &lt;/complexType&gt;
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "nsu"
+            "nsu"
     })
     public static class ConsNSU
-        implements XML
-    {
+            implements XML {
 
         @XmlElement(name = "NSU", namespace = "http://www.portalfiscal.inf.br/nfe", required = true)
         @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
@@ -387,11 +342,9 @@ public class TDistDFeInt
 
         /**
          * Obtém o valor da propriedade nsu.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getNSU() {
             return nsu;
@@ -399,11 +352,9 @@ public class TDistDFeInt
 
         /**
          * Define o valor da propriedade nsu.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setNSU(String value) {
             this.nsu = value;
@@ -414,9 +365,9 @@ public class TDistDFeInt
 
     /**
      * <p>Classe Java de anonymous complex type.
-     * 
+     *
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     * 
+     *
      * <pre>
      * &lt;complexType&gt;
      *   &lt;complexContent&gt;
@@ -428,16 +379,13 @@ public class TDistDFeInt
      *   &lt;/complexContent&gt;
      * &lt;/complexType&gt;
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "ultNSU"
+            "ultNSU"
     })
     public static class DistNSU
-        implements XML
-    {
+            implements XML {
 
         @XmlElement(namespace = "http://www.portalfiscal.inf.br/nfe", required = true)
         @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
@@ -446,11 +394,9 @@ public class TDistDFeInt
 
         /**
          * Obtém o valor da propriedade ultNSU.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getUltNSU() {
             return ultNSU;
@@ -458,11 +404,9 @@ public class TDistDFeInt
 
         /**
          * Define o valor da propriedade ultNSU.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setUltNSU(String value) {
             this.ultNSU = value;

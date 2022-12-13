@@ -34,7 +34,7 @@ import java.util.List;
 
 @Getter
 @Setter
-public final class DefaultXmlSigner extends XmlSignerFactory {
+public final class DefaultXmlSigner extends XmlSigner {
 
     private static final String C14NEXC = "http://www.w3.org/TR/2001/REC-xml-c14n-20010315";
 
@@ -128,7 +128,7 @@ public final class DefaultXmlSigner extends XmlSignerFactory {
 
     public String signMdfe(String evento, Config config) throws XMLSignException {
         try {
-            return DefaultXmlSigner.sign(evento, config.info(), "infMdfe");
+            return DefaultXmlSigner.sign(evento, config.info(), "infMDFe");
         } catch (XMLSignException e) {
             throw e;
         } catch (Exception e) {

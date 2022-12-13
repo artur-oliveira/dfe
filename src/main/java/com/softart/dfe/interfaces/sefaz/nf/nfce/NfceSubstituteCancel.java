@@ -10,6 +10,12 @@ import com.softart.dfe.interfaces.sefaz.SefazRequest;
 
 public interface NfceSubstituteCancel {
 
+    /**
+     * It takes a SefazRequest object, and returns a Pair of SefazRequest and SefazResponse objects
+     *
+     * @param data The request object that will be sent to the Sefaz.
+     * @return Pair<TEnvEvento, TRetEnvEvento>
+     */
     <T extends SefazRequest<TEnvEvento, TRetEnvEvento>> Pair<TEnvEvento, TRetEnvEvento> substituteCancel(T data) throws SecurityException, ValidationException, ProcessException;
 
 }

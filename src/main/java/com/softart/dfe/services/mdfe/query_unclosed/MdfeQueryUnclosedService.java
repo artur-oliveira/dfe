@@ -13,6 +13,12 @@ import com.softart.dfe.models.mdfe.query_unclosed.MdfeReturnQueryUnclosed;
 
 public interface MdfeQueryUnclosedService extends MdfeSefazService {
 
+    /**
+     * It queries the unclosed MDF-e.
+     *
+     * @param tConsMDFeNaoEnc The object that contains the parameters for the query.
+     * @return A MdfeReturnQueryUnclosed object.
+     */
     default MdfeReturnQueryUnclosed queryUnclosed(TConsMDFeNaoEnc tConsMDFeNaoEnc) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return MdfeReturnQueryUnclosed
                 .builder()
@@ -31,10 +37,21 @@ public interface MdfeQueryUnclosedService extends MdfeSefazService {
                                 .build()));
     }
 
+    /**
+     * It queries the unclosed MDF-e's
+     *
+     * @param queryUnclosed The queryUnclosed object.
+     * @return The return is a MdfeReturnQueryUnclosed object.
+     */
     default MdfeReturnQueryUnclosed queryUnclosed(MdfeQueryUnclosed queryUnclosed) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return queryUnclosed(queryUnclosed.toObject());
     }
 
+    /**
+     * It queries the MDF-e's that are not closed
+     *
+     * @return The return is a MdfeReturnQueryUnclosed object.
+     */
     default MdfeReturnQueryUnclosed queryUnclosed() throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return queryUnclosed(MdfeQueryUnclosed.build(getConfig()));
     }

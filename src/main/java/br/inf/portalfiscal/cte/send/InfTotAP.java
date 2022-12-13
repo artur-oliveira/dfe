@@ -8,18 +8,19 @@
 
 package br.inf.portalfiscal.cte.send;
 
+import com.softart.dfe.interfaces.xml.generic.XML;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
 
 
 /**
  * <p>Classe Java de InfTotAP complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="InfTotAP"&gt;
  *   &lt;complexContent&gt;
@@ -44,17 +45,14 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "InfTotAP", propOrder = {
-    "qTotProd",
-    "uniAP"
+        "qTotProd",
+        "uniAP"
 })
 public class InfTotAP
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected String qTotProd;
@@ -63,11 +61,9 @@ public class InfTotAP
 
     /**
      * Obtém o valor da propriedade qTotProd.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getQTotProd() {
         return qTotProd;
@@ -75,11 +71,9 @@ public class InfTotAP
 
     /**
      * Define o valor da propriedade qTotProd.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setQTotProd(String value) {
         this.qTotProd = value;
@@ -87,11 +81,9 @@ public class InfTotAP
 
     /**
      * Obtém o valor da propriedade uniAP.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getUniAP() {
         return uniAP;
@@ -99,11 +91,9 @@ public class InfTotAP
 
     /**
      * Define o valor da propriedade uniAP.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setUniAP(String value) {
         this.uniAP = value;

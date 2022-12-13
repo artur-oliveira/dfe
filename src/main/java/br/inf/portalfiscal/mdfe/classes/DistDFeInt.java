@@ -8,19 +8,16 @@
 
 package br.inf.portalfiscal.mdfe.classes;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
+import com.softart.dfe.interfaces.xml.generic.XML;
+
+import javax.xml.bind.annotation.*;
 
 
 /**
  * <p>Classe Java de DistDFeInt complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="DistDFeInt"&gt;
  *   &lt;complexContent&gt;
@@ -42,21 +39,18 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "DistDFeInt", propOrder = {
-    "tpAmb",
-    "cufAutor",
-    "cnpj",
-    "cpf",
-    "distNSU",
-    "consNSU"
+        "tpAmb",
+        "cufAutor",
+        "cnpj",
+        "cpf",
+        "distNSU",
+        "consNSU"
 })
 public class DistDFeInt
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected String tpAmb;
@@ -73,11 +67,9 @@ public class DistDFeInt
 
     /**
      * Obtém o valor da propriedade tpAmb.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getTpAmb() {
         return tpAmb;
@@ -85,11 +77,9 @@ public class DistDFeInt
 
     /**
      * Define o valor da propriedade tpAmb.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setTpAmb(String value) {
         this.tpAmb = value;
@@ -97,11 +87,9 @@ public class DistDFeInt
 
     /**
      * Obtém o valor da propriedade cufAutor.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCUFAutor() {
         return cufAutor;
@@ -109,11 +97,9 @@ public class DistDFeInt
 
     /**
      * Define o valor da propriedade cufAutor.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCUFAutor(String value) {
         this.cufAutor = value;
@@ -121,11 +107,9 @@ public class DistDFeInt
 
     /**
      * Obtém o valor da propriedade cnpj.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCNPJ() {
         return cnpj;
@@ -133,11 +117,9 @@ public class DistDFeInt
 
     /**
      * Define o valor da propriedade cnpj.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCNPJ(String value) {
         this.cnpj = value;
@@ -145,11 +127,9 @@ public class DistDFeInt
 
     /**
      * Obtém o valor da propriedade cpf.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCPF() {
         return cpf;
@@ -157,11 +137,9 @@ public class DistDFeInt
 
     /**
      * Define o valor da propriedade cpf.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCPF(String value) {
         this.cpf = value;
@@ -169,11 +147,9 @@ public class DistDFeInt
 
     /**
      * Obtém o valor da propriedade distNSU.
-     * 
-     * @return
-     *     possible object is
-     *     {@link DistNSU }
-     *     
+     *
+     * @return possible object is
+     * {@link DistNSU }
      */
     public DistNSU getDistNSU() {
         return distNSU;
@@ -181,11 +157,9 @@ public class DistDFeInt
 
     /**
      * Define o valor da propriedade distNSU.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link DistNSU }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link DistNSU }
      */
     public void setDistNSU(DistNSU value) {
         this.distNSU = value;
@@ -193,11 +167,9 @@ public class DistDFeInt
 
     /**
      * Obtém o valor da propriedade consNSU.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ConsNSU }
-     *     
+     *
+     * @return possible object is
+     * {@link ConsNSU }
      */
     public ConsNSU getConsNSU() {
         return consNSU;
@@ -205,11 +177,9 @@ public class DistDFeInt
 
     /**
      * Define o valor da propriedade consNSU.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link ConsNSU }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link ConsNSU }
      */
     public void setConsNSU(ConsNSU value) {
         this.consNSU = value;
@@ -217,11 +187,9 @@ public class DistDFeInt
 
     /**
      * Obtém o valor da propriedade versao.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVersao() {
         return versao;
@@ -229,11 +197,9 @@ public class DistDFeInt
 
     /**
      * Define o valor da propriedade versao.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVersao(String value) {
         this.versao = value;

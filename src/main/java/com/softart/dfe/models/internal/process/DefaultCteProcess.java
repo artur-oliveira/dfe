@@ -13,7 +13,7 @@ import java.util.List;
 @Getter
 @ToString
 @NoArgsConstructor
-public final class DefaultCteProcess extends AbstractCteProcess {
+final class DefaultCteProcess extends CteProcess {
 
     private final List<CteProcessFactory> processFactories = Arrays.asList(ProcessFactory.noStorageProcess().cte(), ProcessFactory.fileStorageProcess().cte());
 

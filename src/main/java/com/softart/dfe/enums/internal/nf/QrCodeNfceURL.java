@@ -7,7 +7,7 @@ import com.softart.dfe.exceptions.security.XMLSignException;
 import com.softart.dfe.exceptions.services.NoProviderFound;
 import com.softart.dfe.interfaces.internal.allow.AllowUF;
 import com.softart.dfe.interfaces.internal.config.NfConfig;
-import com.softart.dfe.interfaces.xml.XMLSigner;
+import com.softart.dfe.interfaces.xml.XMLSignerService;
 import com.softart.dfe.models.internal.nf.NfQrCode;
 import com.softart.dfe.models.nf.authorization.Nf;
 
@@ -301,7 +301,7 @@ public enum QrCodeNfceURL implements AllowUF {
         return environment.production() ? serviceURL.production() : serviceURL.homologation();
     }
 
-    public static String generate(Nf nf, NfConfig config, XMLSigner xmlSigner) throws NoProviderFound, GeneralSecurityException, XMLSignException {
+    public static String generate(Nf nf, NfConfig config, XMLSignerService xmlSigner) throws NoProviderFound, GeneralSecurityException, XMLSignException {
         return QrCodeGeneratorFactory.getInstance().generate(NfQrCode.builder().nf(nf).config(config).xmlSigner(xmlSigner).build());
     }
 

@@ -1,12 +1,12 @@
 package com.softart.dfe.components.process.nf.distribution;
 
 import br.inf.portalfiscal.nfe.distribution.TDistDFeInt;
+import com.softart.dfe.components.internal.xml.marshaller.NfMarshaller;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.interfaces.process.BeforeRequest;
 import com.softart.dfe.interfaces.process.nf.distribution.BeforeDistribution;
 import com.softart.dfe.interfaces.storage.nf.NfeDistributionStorage;
 import com.softart.dfe.models.internal.xml.XMLStore;
-import com.softart.dfe.components.internal.xml.marshaller.NfMarshaller;
 
 import java.util.Objects;
 

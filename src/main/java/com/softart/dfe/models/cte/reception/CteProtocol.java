@@ -2,8 +2,8 @@ package com.softart.dfe.models.cte.reception;
 
 import br.inf.portalfiscal.cte.send.SignatureType;
 import br.inf.portalfiscal.cte.send.TProtCTe;
-import com.softart.dfe.interfaces.xml.DFObject;
 import com.softart.dfe.interfaces.xml.XMLAdapter;
+import com.softart.dfe.interfaces.xml.generic.DFObject;
 import lombok.*;
 
 @Getter

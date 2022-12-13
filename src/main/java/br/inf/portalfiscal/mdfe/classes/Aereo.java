@@ -8,18 +8,19 @@
 
 package br.inf.portalfiscal.mdfe.classes;
 
+import com.softart.dfe.interfaces.xml.generic.XML;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-import com.softart.dfe.interfaces.xml.XML;
 
 
 /**
  * <p>Classe Java de Aereo complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="Aereo"&gt;
  *   &lt;complexContent&gt;
@@ -75,21 +76,18 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Aereo", propOrder = {
-    "nac",
-    "matr",
-    "nVoo",
-    "cAerEmb",
-    "cAerDes",
-    "dVoo"
+        "nac",
+        "matr",
+        "nVoo",
+        "cAerEmb",
+        "cAerDes",
+        "dVoo"
 })
 public class Aereo
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected String nac;
@@ -106,11 +104,9 @@ public class Aereo
 
     /**
      * Obtém o valor da propriedade nac.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getNac() {
         return nac;
@@ -118,11 +114,9 @@ public class Aereo
 
     /**
      * Define o valor da propriedade nac.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setNac(String value) {
         this.nac = value;
@@ -130,11 +124,9 @@ public class Aereo
 
     /**
      * Obtém o valor da propriedade matr.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getMatr() {
         return matr;
@@ -142,11 +134,9 @@ public class Aereo
 
     /**
      * Define o valor da propriedade matr.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setMatr(String value) {
         this.matr = value;
@@ -154,11 +144,9 @@ public class Aereo
 
     /**
      * Obtém o valor da propriedade nVoo.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getNVoo() {
         return nVoo;
@@ -166,11 +154,9 @@ public class Aereo
 
     /**
      * Define o valor da propriedade nVoo.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setNVoo(String value) {
         this.nVoo = value;
@@ -178,11 +164,9 @@ public class Aereo
 
     /**
      * Obtém o valor da propriedade cAerEmb.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCAerEmb() {
         return cAerEmb;
@@ -190,11 +174,9 @@ public class Aereo
 
     /**
      * Define o valor da propriedade cAerEmb.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCAerEmb(String value) {
         this.cAerEmb = value;
@@ -202,11 +184,9 @@ public class Aereo
 
     /**
      * Obtém o valor da propriedade cAerDes.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCAerDes() {
         return cAerDes;
@@ -214,11 +194,9 @@ public class Aereo
 
     /**
      * Define o valor da propriedade cAerDes.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCAerDes(String value) {
         this.cAerDes = value;
@@ -226,11 +204,9 @@ public class Aereo
 
     /**
      * Obtém o valor da propriedade dVoo.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getDVoo() {
         return dVoo;
@@ -238,11 +214,9 @@ public class Aereo
 
     /**
      * Define o valor da propriedade dVoo.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setDVoo(String value) {
         this.dVoo = value;

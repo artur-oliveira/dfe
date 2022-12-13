@@ -10,11 +10,13 @@ import com.softart.dfe.interfaces.sefaz.SefazRequest;
 
 public interface NfeManifestation {
 
+    /**
+     * It takes a SefazRequest object, and returns a Pair of TEnvEvento and TRetEnvEvento objects
+     *
+     * @param data The object that contains the data to be sent to the Sefaz.
+     * @return Pair<TEnvEvento, TRetEnvEvento>
+     */
     <T extends SefazRequest<TEnvEvento, TRetEnvEvento>> Pair<TEnvEvento, TRetEnvEvento> manifestation(T data) throws SecurityException, ValidationException, ProcessException;
 
-    interface NfeCorrectionLetter {
 
-        <T extends SefazRequest<br.inf.portalfiscal.nfe.event_correction_letter.TEnvEvento, br.inf.portalfiscal.nfe.event_correction_letter.TRetEnvEvento>> Pair<br.inf.portalfiscal.nfe.event_correction_letter.TEnvEvento, br.inf.portalfiscal.nfe.event_correction_letter.TRetEnvEvento> correctionLetter(T data) throws SecurityException, ValidationException, ProcessException;
-
-    }
 }

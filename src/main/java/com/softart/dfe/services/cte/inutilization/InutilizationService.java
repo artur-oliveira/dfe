@@ -17,7 +17,18 @@ import java.time.temporal.ChronoField;
 
 public interface InutilizationService extends CteSefazService {
 
-    default CteReturnInutilization inutilizar(Model model, int ano, int serie, int start, int end, String motive) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    /**
+     * A function that inutilizes a range of CTe numbers.
+     *
+     * @param model  The model of the CTe.
+     * @param ano    The year of the series to be canceled
+     * @param serie  The series of the CTe to be canceled.
+     * @param start  The first number of the series to be canceled
+     * @param end    The last number of the sequence to be canceled.
+     * @param motive The reason for the cancellation.
+     * @return A CteReturnInutilization object.
+     */
+    default CteReturnInutilization inutilizar(Model model, Number ano, Number serie, Number start, Number end, String motive) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return CteReturnInutilization
                 .builder()
                 .build()
@@ -33,14 +44,47 @@ public interface InutilizationService extends CteSefazService {
                                 .build()).second());
     }
 
-    default CteReturnInutilization inutilizar(int serie, int start, int end, String motive) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    /**
+     * A function that inutilizes a Cte.
+     *
+     * @param serie  The series of the CTe to be inutilized.
+     * @param start  The first number of the series to be canceled.
+     * @param end    The last number of the series to be canceled.
+     * @param motive The reason for the inutilization.
+     * @return The CteReturnInutilization object.
+     */
+    default CteReturnInutilization inutilizar(Number serie, Number start, Number end, String motive) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return inutilizar(getModel(), Year.now().get(ChronoField.YEAR), serie, start, end, motive);
     }
 
-    default CteReturnInutilization inutilizar(int serie, int start, int end) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
-        return inutilizar(getModel(), Year.now().get(ChronoField.YEAR), serie, start, end, CteEvent.INUTILIZATION.getDefaultMessage());
+    /**
+     * A function that inutilizes a CTe.
+     *
+     * @param serie The series of the CTe to be inutilized.
+     * @param start The first number of the series to be canceled.
+     * @param end   The last number of the series to be canceled.
+     * @return The CteReturnInutilization object.
+     */
+    default CteReturnInutilization inutilizar(Number serie, Number start, Number end) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+        return inutilizar(serie, start, end, CteEvent.INUTILIZATION.getDefaultMessage());
     }
 
+    /**
+     * A function that inutilizar the CteReturnInutilization.
+     *
+     * @param serie  The series of the CTe to be inutilized.
+     * @param number The number of the first CTe to be canceled.
+     * @return The CteReturnInutilization object.
+     */
+    default CteReturnInutilization inutilizar(Number serie, Number number) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+        return inutilizar(serie, number, number);
+    }
+
+    /**
+     * Returns the model that this view is associated with
+     *
+     * @return The model is being returned.
+     */
     Model getModel();
 
 }

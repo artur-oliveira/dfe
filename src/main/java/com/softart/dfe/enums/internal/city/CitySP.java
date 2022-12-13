@@ -654,6 +654,7 @@ public enum CitySP implements DFEnum.Codeable {
     ;
     private final String code;
     private final String description;
+
     CitySP(String code, String description) {
         this.code = code;
         this.description = description;

@@ -14,7 +14,7 @@ import com.softart.dfe.components.process.nf.query_protocol.impl.QueryProtocolPr
 import com.softart.dfe.components.process.nf.query_status_service.impl.QueryStatusServiceProcessFactory;
 import com.softart.dfe.components.process.nf.return_authorization.impl.ReturnAuthorizationProcessFactory;
 import com.softart.dfe.components.process.nf.substitute_cancel.impl.SubstituteCancelProcessFactory;
-import com.softart.dfe.interfaces.process.nf.NfProcess;
+import com.softart.dfe.interfaces.process.nf.NfProcessService;
 import com.softart.dfe.interfaces.process.nf.authorization.AfterAuthorization;
 import com.softart.dfe.interfaces.process.nf.authorization.BeforeAuthorization;
 import com.softart.dfe.interfaces.process.nf.cancel.AfterCancel;
@@ -48,7 +48,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 
-public abstract class AbstractNfProcess implements NfProcess {
+public abstract class NfProcess implements NfProcessService {
+
+    public static NfProcess getInstance() {
+        return Holder.INSTANCE;
+    }
 
     public abstract List<NfProcessFactory> getProcessFactories();
 
@@ -232,5 +236,9 @@ public abstract class AbstractNfProcess implements NfProcess {
     @Override
     public Collection<BeforeQueryGtin> beforeQueryGtin() {
         return queryGtins().stream().map(it -> new ArrayList<>(it.before())).flatMap(List::stream).collect(Collectors.toList());
+    }
+
+    static final class Holder {
+        final static NfProcess INSTANCE = new DefaultNfProcess();
     }
 }

@@ -13,7 +13,7 @@ import com.softart.dfe.components.process.nf.query_protocol.impl.QueryProtocolPr
 import com.softart.dfe.components.process.nf.query_status_service.impl.QueryStatusServiceProcessFactory;
 import com.softart.dfe.components.process.nf.return_authorization.impl.ReturnAuthorizationProcessFactory;
 import com.softart.dfe.components.process.nf.substitute_cancel.impl.SubstituteCancelProcessFactory;
-import com.softart.dfe.interfaces.process.nf.NfProcess;
+import com.softart.dfe.interfaces.process.nf.NfProcessService;
 import com.softart.dfe.interfaces.process.nf.authorization.AfterAuthorization;
 import com.softart.dfe.interfaces.process.nf.authorization.BeforeAuthorization;
 import com.softart.dfe.interfaces.process.nf.cancel.AfterCancel;
@@ -43,7 +43,7 @@ import com.softart.dfe.interfaces.process.nf.substitute_cancel.BeforeSubstituteC
 
 import java.util.Collection;
 
-public abstract class NfProcessFactory implements NfProcess {
+public abstract class NfProcessFactory implements NfProcessService {
 
     public static NfProcessFactory noStorageProcess() {
         return NfProcessFactoryHolder.NO_STORAGE_INSTANCE;

@@ -8,22 +8,18 @@
 
 package br.inf.portalfiscal.cte.send;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlID;
-import javax.xml.bind.annotation.XmlType;
+import com.softart.dfe.interfaces.xml.generic.XML;
+
+import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-import com.softart.dfe.interfaces.xml.XML;
 
 
 /**
  * <p>Classe Java de InfEvento complex type.
- * 
+ *
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- * 
+ *
  * <pre>
  * &lt;complexType name="InfEvento"&gt;
  *   &lt;complexContent&gt;
@@ -67,25 +63,22 @@ import com.softart.dfe.interfaces.xml.XML;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "InfEvento", propOrder = {
-    "cOrgao",
-    "tpAmb",
-    "cnpj",
-    "cpf",
-    "chCTe",
-    "dhEvento",
-    "tpEvento",
-    "nSeqEvento",
-    "detEvento",
-    "infSolicNFF"
+        "cOrgao",
+        "tpAmb",
+        "cnpj",
+        "cpf",
+        "chCTe",
+        "dhEvento",
+        "tpEvento",
+        "nSeqEvento",
+        "detEvento",
+        "infSolicNFF"
 })
 public class InfEvento
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected String cOrgao;
@@ -113,11 +106,9 @@ public class InfEvento
 
     /**
      * Obtém o valor da propriedade cOrgao.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCOrgao() {
         return cOrgao;
@@ -125,11 +116,9 @@ public class InfEvento
 
     /**
      * Define o valor da propriedade cOrgao.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCOrgao(String value) {
         this.cOrgao = value;
@@ -137,11 +126,9 @@ public class InfEvento
 
     /**
      * Obtém o valor da propriedade tpAmb.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getTpAmb() {
         return tpAmb;
@@ -149,11 +136,9 @@ public class InfEvento
 
     /**
      * Define o valor da propriedade tpAmb.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setTpAmb(String value) {
         this.tpAmb = value;
@@ -161,11 +146,9 @@ public class InfEvento
 
     /**
      * Obtém o valor da propriedade cnpj.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCNPJ() {
         return cnpj;
@@ -173,11 +156,9 @@ public class InfEvento
 
     /**
      * Define o valor da propriedade cnpj.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCNPJ(String value) {
         this.cnpj = value;
@@ -185,11 +166,9 @@ public class InfEvento
 
     /**
      * Obtém o valor da propriedade cpf.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCPF() {
         return cpf;
@@ -197,11 +176,9 @@ public class InfEvento
 
     /**
      * Define o valor da propriedade cpf.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCPF(String value) {
         this.cpf = value;
@@ -209,11 +186,9 @@ public class InfEvento
 
     /**
      * Obtém o valor da propriedade chCTe.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getChCTe() {
         return chCTe;
@@ -221,11 +196,9 @@ public class InfEvento
 
     /**
      * Define o valor da propriedade chCTe.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setChCTe(String value) {
         this.chCTe = value;
@@ -233,11 +206,9 @@ public class InfEvento
 
     /**
      * Obtém o valor da propriedade dhEvento.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getDhEvento() {
         return dhEvento;
@@ -245,11 +216,9 @@ public class InfEvento
 
     /**
      * Define o valor da propriedade dhEvento.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setDhEvento(String value) {
         this.dhEvento = value;
@@ -257,11 +226,9 @@ public class InfEvento
 
     /**
      * Obtém o valor da propriedade tpEvento.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getTpEvento() {
         return tpEvento;
@@ -269,11 +236,9 @@ public class InfEvento
 
     /**
      * Define o valor da propriedade tpEvento.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setTpEvento(String value) {
         this.tpEvento = value;
@@ -281,11 +246,9 @@ public class InfEvento
 
     /**
      * Obtém o valor da propriedade nSeqEvento.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getNSeqEvento() {
         return nSeqEvento;
@@ -293,11 +256,9 @@ public class InfEvento
 
     /**
      * Define o valor da propriedade nSeqEvento.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setNSeqEvento(String value) {
         this.nSeqEvento = value;
@@ -305,11 +266,9 @@ public class InfEvento
 
     /**
      * Obtém o valor da propriedade detEvento.
-     * 
-     * @return
-     *     possible object is
-     *     {@link DetEvento }
-     *     
+     *
+     * @return possible object is
+     * {@link DetEvento }
      */
     public DetEvento getDetEvento() {
         return detEvento;
@@ -317,11 +276,9 @@ public class InfEvento
 
     /**
      * Define o valor da propriedade detEvento.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link DetEvento }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link DetEvento }
      */
     public void setDetEvento(DetEvento value) {
         this.detEvento = value;
@@ -329,11 +286,9 @@ public class InfEvento
 
     /**
      * Obtém o valor da propriedade infSolicNFF.
-     * 
-     * @return
-     *     possible object is
-     *     {@link InfSolicNFF }
-     *     
+     *
+     * @return possible object is
+     * {@link InfSolicNFF }
      */
     public InfSolicNFF getInfSolicNFF() {
         return infSolicNFF;
@@ -341,11 +296,9 @@ public class InfEvento
 
     /**
      * Define o valor da propriedade infSolicNFF.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link InfSolicNFF }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link InfSolicNFF }
      */
     public void setInfSolicNFF(InfSolicNFF value) {
         this.infSolicNFF = value;
@@ -353,11 +306,9 @@ public class InfEvento
 
     /**
      * Obtém o valor da propriedade id.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getId() {
         return id;
@@ -365,11 +316,9 @@ public class InfEvento
 
     /**
      * Define o valor da propriedade id.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setId(String value) {
         this.id = value;

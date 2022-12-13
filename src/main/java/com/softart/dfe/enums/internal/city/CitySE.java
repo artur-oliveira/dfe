@@ -84,6 +84,7 @@ public enum CitySE implements DFEnum.Codeable {
     ;
     private final String code;
     private final String description;
+
     CitySE(String code, String description) {
         this.code = code;
         this.description = description;

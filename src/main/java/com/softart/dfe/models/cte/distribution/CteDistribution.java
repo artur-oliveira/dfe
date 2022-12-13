@@ -2,8 +2,8 @@ package com.softart.dfe.models.cte.distribution;
 
 import br.inf.portalfiscal.cte.distribution.DistDFeInt;
 import com.softart.dfe.enums.cte.version.CteDistributionVersion;
-import com.softart.dfe.interfaces.xml.DFObject;
 import com.softart.dfe.interfaces.xml.XMLAdapter;
+import com.softart.dfe.interfaces.xml.generic.DFObject;
 import lombok.*;
 
 

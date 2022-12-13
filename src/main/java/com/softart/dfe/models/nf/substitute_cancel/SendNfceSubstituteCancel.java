@@ -3,8 +3,8 @@ package com.softart.dfe.models.nf.substitute_cancel;
 import br.inf.portalfiscal.nfe.event_substitute_cancel.TEnvEvento;
 import com.softart.dfe.enums.nf.version.NFEventVersion;
 import com.softart.dfe.interfaces.internal.config.Config;
-import com.softart.dfe.interfaces.xml.DFObject;
 import com.softart.dfe.interfaces.xml.XMLAdapter;
+import com.softart.dfe.interfaces.xml.generic.DFObject;
 import com.softart.dfe.util.StringUtils;
 import lombok.*;
 

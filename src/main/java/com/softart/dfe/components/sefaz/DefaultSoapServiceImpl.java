@@ -23,7 +23,7 @@ import java.util.Collections;
 import java.util.stream.Collectors;
 
 @Getter(AccessLevel.PRIVATE)
-final class SoapServiceLocatorImpl extends SoapServiceFactory {
+final class DefaultSoapServiceImpl extends SoapService {
 
     private final Collection<AbstractNfeSoapService> nfeSoapServices = ReflectionUtils.findAllClasses(PackageFinder
                     .builder()
