@@ -1,0 +1,12 @@
+<jxb:bindings
+        xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+        xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+        version="2.1">
+
+    <jxb:bindings>
+        <jxb:globalBindings typesafeEnumMaxMembers="1000">
+            <xjc:superInterface name="com.softart.dfe.interfaces.xml.generic.XML"/>
+        </jxb:globalBindings>
+    </jxb:bindings>
+
+</jxb:bindings>
