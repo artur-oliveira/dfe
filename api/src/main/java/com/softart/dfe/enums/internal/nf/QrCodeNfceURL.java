@@ -260,6 +260,17 @@ public enum QrCodeNfceURL implements AllowUF {
             return "http://200.174.88.103:8080/nfce/servlet/qrcode";
         }
     },
+    SC {
+        @Override
+        public String production() {
+            return "https://sat.sef.sc.gov.br/nfce/consulta";
+        }
+
+        @Override
+        public String homologation() {
+            return "https://hom.sat.sef.sc.gov.br/nfce/consulta";
+        }
+    },
     SP {
         @Override
         public String production() {

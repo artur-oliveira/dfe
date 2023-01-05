@@ -311,6 +311,16 @@ public enum QueryNfceURL implements AllowUF {
         public String homologation() {
             return url();
         }
+    }, SC {
+        @Override
+        public String production() {
+            return "https://sat.sef.sc.gov.br/nfce/consulta";
+        }
+
+        @Override
+        public String homologation() {
+            return "https://hom.sat.sef.sc.gov.br/nfce/consulta";
+        }
     }, SP {
         @Override
         public String production() {

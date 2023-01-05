@@ -19,7 +19,7 @@
         </dependency>
         <dependency>
             <groupId>com.softart</groupId>
-            <artifactId>utils</artifactId>
+            <artifactId>dfe-utils</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>

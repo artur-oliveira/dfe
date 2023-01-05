@@ -38,7 +38,7 @@ public final class NfceSvrsService implements NfceService {
     private NfceSoapService soapService;
 
     public Collection<UF> ufs() {
-        return Arrays.asList(UF.AC, UF.AL, UF.AP, UF.BA, UF.DF, UF.ES, UF.MA, UF.PA, UF.PB, UF.PE, UF.PI, UF.RJ, UF.RN, UF.RO, UF.RR, UF.SE, UF.TO);
+        return Arrays.asList(UF.AC, UF.AL, UF.AP, UF.BA, UF.DF, UF.ES, UF.MA, UF.PA, UF.PB, UF.PE, UF.PI, UF.RJ, UF.RN, UF.RO, UF.RR, UF.SC, UF.SE, UF.TO);
     }
 
     @Override
