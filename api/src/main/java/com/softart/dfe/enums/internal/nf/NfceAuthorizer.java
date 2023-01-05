@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 public enum NfceAuthorizer implements AllowUF, NfceURL {
     SVRS {
         public Collection<UF> ufs() {
-            return Arrays.asList(UF.AC, UF.AL, UF.AP, UF.BA, UF.DF, UF.ES, UF.MA, UF.PA, UF.PB, UF.PE, UF.PI, UF.RJ, UF.RN, UF.RO, UF.RR, UF.SE, UF.TO);
+            return Arrays.asList(UF.AC, UF.AL, UF.AP, UF.BA, UF.DF, UF.ES, UF.MA, UF.PA, UF.PB, UF.PE, UF.PI, UF.RJ, UF.RN, UF.RO, UF.RR, UF.SC, UF.SE, UF.TO);
         }
 
         @Override

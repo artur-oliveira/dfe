@@ -74,7 +74,7 @@ public final class App {
 //        substituteCancelNfc("22220911520224000140650010000046851087679555", "22220911520224000140650010000046869703887050");
 //        queryGtin("7891249061166");
 //        all();
-//        autorizarNfc();
+        autorizarNfc();
 //        consultarLoteNfce("223065113228925");
 //        consultarLote("291100011499320");
 //        consultarProtocoloNfe("");
@@ -84,7 +84,7 @@ public final class App {
 //        distributionNfAccessKey();
 //        distributionNfUniqueNsu();
 //        distributionNf();
-        operationScienceNf();
+//        operationScienceNf();
 //        correctionLetterNf();
 //        queryStatusServiceNf();
 //        queryStatusServiceNfc();
@@ -239,7 +239,7 @@ public final class App {
     private static void autorizarNfc() throws Exception {
         KeyStoreInfo info = new PfxKeyStoreInfoImpl(InputStreamUtils.newFileInputStream("/home/artur/Documentos/Certificate/tartigrado.pfx"), "22Rev", InputStreamUtils.newByteArrayInputStream(CertificateChainFactory.getInstance().generate(Certificate.builder().build())), CertificateChainFactory.getInstance().getPassword());
 
-        NfConfig config = new PfxNfConfigImpl(UF.PI, "11520224000140", Environment.HOMOLOGATION, info, NFEmissionType.NORMAL, "1", "115202241607220426225340");
+        NfConfig config = new PfxNfConfigImpl(UF.SC, "11520224000140", Environment.HOMOLOGATION, info, NFEmissionType.NORMAL, "1", "115202241607220426225340");
         XMLSignerService signer = new DefaultXmlSigner();
         NfAuthorizationService service = new NfceAuthorizationServiceImpl(config);
 
