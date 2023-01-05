@@ -1817,21 +1817,6 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
                 protected String vDed;
             }
         }
-
-        @Getter
-        @Setter
-        @Builder
-        @ToString
-        @AllArgsConstructor
-        @NoArgsConstructor
-        public static class InfRespTec implements DFObject, XMLAdapter<InfRespTec, TInfRespTec> {
-            protected String cnpj;
-            protected String xContato;
-            protected String email;
-            protected String fone;
-            protected String idCSRT;
-        }
-
         @Getter
         @Setter
         @Builder
@@ -1841,6 +1826,20 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
         public static class InfSolicNFF implements DFObject, XMLAdapter<InfSolicNFF, TNFe.InfNFe.InfSolicNFF> {
             protected String xSolic;
         }
+        @Getter
+        @Setter
+        @Builder
+        @ToString
+        @AllArgsConstructor
+        @NoArgsConstructor
+        public static class TInfRespTec implements DFObject, XMLAdapter<TInfRespTec, br.inf.portalfiscal.nfe.send.TInfRespTec> {
+            protected String cnpj;
+            protected String xContato;
+            protected String email;
+            protected String fone;
+            protected String idCSRT;
+        }
+
     }
 
 }

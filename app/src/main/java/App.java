@@ -243,9 +243,7 @@ public final class App {
         XMLSignerService signer = new DefaultXmlSigner();
         NfAuthorizationService service = new NfceAuthorizationServiceImpl(config);
 
-        System.out.println(service.authorization(Collections.singletonList(getNfe(config, 4681, Model.NFCE))));
-        System.out.println(service.authorization(Collections.singletonList(getNfe(config, 4682, Model.NFCE))));
-        System.out.println(service.authorization(Collections.singletonList(getNfe(config, 4683, Model.NFCE))));
+        System.out.println(service.authorization(Collections.singletonList(getNfe(config, 1, Model.NFCE))));
     }
 
     private static void consultarLote(String lote) throws Exception {
@@ -360,6 +358,12 @@ public final class App {
         infNFe.setTransp(Nf.InfNFe.Transp.builder().modFrete("9").build());
         infNFe.setPag(Nf.InfNFe.Pag.builder().detPag(Collections.singletonList(Nf.InfNFe.Pag.DetPag.builder().indPag(NFPaymentIndicative.IN_CASH.getCode()).tPag(NFPaymentType.MONEY.getCode()).vPag("70.00").build())).build());
         infNFe.setIde(ide);
+        infNFe.setInfRespTec(Nf.InfNFe.TInfRespTec.builder()
+                .cnpj("11520224000140")
+                .xContato("TARTIGRADO TECNOLOGIA TLDA")
+                .email("falecom@tartigrado.com")
+                .fone("86988033430")
+                .build());
         nfe.setInfNFe(infNFe);
 
         return nfe;
