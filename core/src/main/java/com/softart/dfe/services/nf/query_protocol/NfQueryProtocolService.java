@@ -1,5 +1,9 @@
 package com.softart.dfe.services.nf.query_protocol;
 
+import br.inf.portalfiscal.nfe.send.TEnviNFe;
+import br.inf.portalfiscal.nfe.send.TNfeProc;
+import com.softart.dfe.components.internal.parser.AccessKeyParserFactory;
+import com.softart.dfe.components.internal.xml.unmarshaller.NfUnmarshaller;
 import com.softart.dfe.enums.nf.NFEvent;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.exceptions.ValidationException;
@@ -9,9 +13,14 @@ import com.softart.dfe.exceptions.services.NoProviderFound;
 import com.softart.dfe.interfaces.sefaz.nf.common.NfCommonService;
 import com.softart.dfe.interfaces.services.NfSefazService;
 import com.softart.dfe.interfaces.validation.nf.common.NfCommonValidator;
+import com.softart.dfe.models.nf.authorization.NfProcessed;
+import com.softart.dfe.models.nf.authorization.SendNf;
 import com.softart.dfe.models.nf.query_protocol.QueryProtocolNfe;
 import com.softart.dfe.models.nf.query_protocol.QueryProtocolRequest;
 import com.softart.dfe.models.nf.query_protocol.ReturnQueryProtocolNfe;
+
+import java.util.Collection;
+import java.util.stream.Collectors;
 
 public interface NfQueryProtocolService extends NfSefazService {
 
@@ -36,6 +45,25 @@ public interface NfQueryProtocolService extends NfSefazService {
                                 .configureProvider(getConfigureProviderFactory())
                                 .build())
                         .second());
+    }
+
+    default Collection<TNfeProc> getProcessed(TEnviNFe sendNf) {
+        return sendNf.getNFe().stream().map(it -> {
+            try {
+                TNfeProc tNfeProc = new TNfeProc();
+                tNfeProc.setNFe(it);
+                tNfeProc.setVersao(it.getInfNFe().getVersao());
+                tNfeProc.setProtNFe(queryProtocol(AccessKeyParserFactory.nfe().fromId(it.getInfNFe().getId())).getProtNFe().toObject());
+                return tNfeProc;
+            } catch (NoProviderFound | SecurityException | ProcessException | ValidationException |
+                     SoapServiceGeneralException e) {
+                throw new RuntimeException(e);
+            }
+        }).collect(Collectors.toList());
+    }
+
+    default Collection<TNfeProc> getProcessed(String sendNf) {
+        return getProcessed(NfUnmarshaller.enviNfe(sendNf).getValue());
     }
 
     /**
