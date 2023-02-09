@@ -10,9 +10,7 @@ import lombok.Getter;
 
 import javax.xml.ws.BindingProvider;
 import javax.xml.ws.handler.soap.SOAPHandler;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 @Getter(AccessLevel.PRIVATE)
 final class DefaultConfigureProviderFactory extends ConfigureProviderFactory {
@@ -42,10 +40,10 @@ final class DefaultConfigureProviderFactory extends ConfigureProviderFactory {
     /**
      * If the endpoint address is http, replace it with https
      *
-     * @param port The port object that you're using to call the web service.
+     * @param config The provider config
      */
-    private void useHttps(BindingProvider port) {
-        port.getRequestContext().put(ENDPOINT_ADDRESS, port.getRequestContext().get(ENDPOINT_ADDRESS).toString().replace("http://", "https://"));
+    private void useHttps(ProviderConfig config) {
+        config.getPort().getRequestContext().put(ENDPOINT_ADDRESS, Optional.ofNullable(config.getReplacePortAddress()).orElseGet(() -> config.getPort().getRequestContext().get(ENDPOINT_ADDRESS).toString().replace("http://", "https://")));
     }
 
     /**
@@ -72,6 +70,6 @@ final class DefaultConfigureProviderFactory extends ConfigureProviderFactory {
         context(config.getPort(), config.getConfig());
         timeout(config.getPort());
         handler(config.getPort());
-        useHttps(config.getPort());
+        useHttps(config);
     }
 }

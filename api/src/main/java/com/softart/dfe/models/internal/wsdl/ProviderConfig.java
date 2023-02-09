@@ -15,4 +15,5 @@ import javax.xml.ws.BindingProvider;
 public final class ProviderConfig {
     private BindingProvider port;
     private Config config;
+    private String replacePortAddress;
 }

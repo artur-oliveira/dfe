@@ -355,8 +355,8 @@ public final class CteMtService extends CteAnService {
 
         if (data.getConfig().production()) {
             br.inf.portalfiscal.cte.wsdl.reception_sync.mt.prod.CteRecepcaoSincSoap12 ws = ((br.inf.portalfiscal.cte.wsdl.reception_sync.mt.prod.CteRecepcaoSinc) getSoapService().prodReceptionSync()).getCteRecepcaoSincSoap12();
+            data.getConfigureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.getConfig()).replacePortAddress("https://cte.sefaz.mt.gov.br/ctews2/services/CteRecepcaoSinc").build());
 
-            data.getConfigureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.getConfig()).build());
             try {
                 CteRecepcaoSincResult resultMsg = ws.cteRecepcaoSinc(GZIPUtils.compressToString(xml));
 
@@ -369,7 +369,7 @@ public final class CteMtService extends CteAnService {
 
         } else {
             br.inf.portalfiscal.cte.wsdl.reception_sync.mt.hom.CteRecepcaoSincSoap12 ws = ((br.inf.portalfiscal.cte.wsdl.reception_sync.mt.hom.CteRecepcaoSinc) getSoapService().homReceptionSync()).getCteRecepcaoSincSoap12();
-            data.getConfigureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.getConfig()).build());
+            data.getConfigureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.getConfig()).replacePortAddress("https://homologacao.sefaz.mt.gov.br/ctews2/services/CteRecepcaoSinc").build());
 
             try {
                 br.inf.portalfiscal.cte.wsdl.reception_sync.mt.hom.CteRecepcaoSincResult resultMsg = ws.cteRecepcaoSinc(GZIPUtils.compressToString(xml));

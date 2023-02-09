@@ -108,7 +108,7 @@ public final class AppCte {
     private static void receptionSync() throws Exception {
         try {
             KeyStoreInfo info = new PfxKeyStoreInfoImpl(InputStreamUtils.newFileInputStream("/home/artur/Documentos/Certificate/tartigrado.pfx"), "22Rev", InputStreamUtils.newByteArrayInputStream(CertificateChainFactory.getInstance().generate(Certificate.builder().build())), CertificateChainFactory.getInstance().getPassword());
-            CteReceptionSyncService service = new CteReceptionSyncServiceImpl(new PfxCteConfigImpl(UF.SP, "11520224000140", Environment.HOMOLOGATION, info));
+            CteReceptionSyncService service = new CteReceptionSyncServiceImpl(new PfxCteConfigImpl(UF.MT, "11520224000140", Environment.HOMOLOGATION, info));
 
             System.out.println(service.receptionSync(getCte(service.getConfig(), 1, Model.CTE)));
         } catch (Exception e) {

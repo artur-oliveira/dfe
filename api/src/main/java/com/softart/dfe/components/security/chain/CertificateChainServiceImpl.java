@@ -32,7 +32,7 @@ import java.util.stream.Collectors;
 @Log4j2
 final class CertificateChainServiceImpl extends CertificateChainFactory {
 
-    private static final String DEFAULT_PASSWORD = System.getProperty("CERTIFICATE_CHAIN_PASSWORD", "1234");
+    private static final String DEFAULT_PASSWORD = System.getProperty("CERTIFICATE_CHAIN_PASSWORD", "123456");
     private static final int PORT = 443;
     private static final String PROTOCOL = "TLSv1.2";
     private static final int SOCKET_TIMEOUT = Math.min(Integer.parseInt(System.getProperty("SOCKET_TIMEOUT", "10000")), 5000);
