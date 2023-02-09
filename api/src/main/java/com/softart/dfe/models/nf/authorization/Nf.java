@@ -159,7 +159,8 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
             protected String mod;
             protected String serie;
             protected String nnf;
-            protected String dhEmi;
+            @Builder.Default
+            private String dhEmi = DateUtils.nowString();
             protected String dhSaiEnt;
             protected String tpNF;
             protected String idDest;

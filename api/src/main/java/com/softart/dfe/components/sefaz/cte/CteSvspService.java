@@ -345,7 +345,48 @@ public final class CteSvspService extends CteAnService {
 
     @Override
     public <T extends SefazRequest<TCTe, TRetCTe>> Pair<TCTe, TRetCTe> receptionSync(T data) throws SecurityException, ValidationException, ProcessException {
-        throw new UnsupportedOperationException("not implemented");
+        String xml = data.getSigner().signCte(CteMarshaller.receptionCteSync(data.getData()), data.getConfig());
+        JAXBElement<TCTe> envio = CteUnmarshaller.receptionCteSync(xml);
+
+        for (Validator<TCTe> it : data.getValidators())
+            it.valid(new Validation<>(envio.getValue(), xml));
+        for (BeforeWebServiceRequest<TCTe> it : data.getBeforeRequest())
+            it.process(new Before<>(envio.getValue(), data.getConfig()));
+
+        TRetCTe retorno = null;
+
+        if (data.getConfig().production()) {
+            br.inf.portalfiscal.cte.wsdl.reception_sync.svsp.prod.CTeRecepcaoSincSoap12 ws = ((br.inf.portalfiscal.cte.wsdl.reception_sync.svsp.prod.CTeRecepcaoSinc) getSoapService().prodReceptionSync()).getCTeRecepcaoSincSoap12();
+
+            data.getConfigureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.getConfig()).build());
+            try {
+                br.inf.portalfiscal.cte.wsdl.reception_sync.svsp.prod.CteRecepcaoSincResult resultMsg = ws.cteRecepcaoSinc(GZIPUtils.compressToString(xml));
+
+                if (!resultMsg.getContent().isEmpty())
+                    retorno = (TRetCTe) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+
+
+        } else {
+            br.inf.portalfiscal.cte.wsdl.reception_sync.svsp.hom.CTeRecepcaoSincSoap12 ws = ((br.inf.portalfiscal.cte.wsdl.reception_sync.svsp.hom.CTeRecepcaoSinc) getSoapService().homReceptionSync()).getCTeRecepcaoSincSoap12();
+            data.getConfigureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.getConfig()).build());
+
+            try {
+                br.inf.portalfiscal.cte.wsdl.reception_sync.svsp.hom.CteRecepcaoSincResult resultMsg = ws.cteRecepcaoSinc(GZIPUtils.compressToString(xml));
+                if (!resultMsg.getContent().isEmpty())
+                    retorno = (TRetCTe) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+
+        }
+
+        for (AfterWebServiceRequest<TCTe, TRetCTe> it : data.getAfterRequest())
+            it.process(new After<>(envio.getValue(), retorno, data.getConfig()));
+
+        return new PairImpl<>(envio.getValue(), retorno);
     }
 
     @Override

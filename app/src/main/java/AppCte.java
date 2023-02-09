@@ -58,7 +58,7 @@ public final class AppCte {
 //        System.setProperty("com.sun.xml.internal.ws.transport.http.HttpAdapter.dumpTreshold", "999999");
 //        statusServico(Arrays.asList(UF.PR, UF.BA, UF.RS));
 //        distribution();
-        querySituation("22221011520224000140570010000002881903321274");
+//        querySituation("22221011520224000140570010000002881903321274");
 //        cancelar("22221011520224000140570010000002881903321274");
 //        cartaCorrecao("22221011520224000140570010000002881903321274");
 //        comprovanteEntrega("22221011520224000140570010000002881903321274");
@@ -66,13 +66,13 @@ public final class AppCte {
 //        gtv("22221011520224000140570010000002881903321274");
 //        provisionInDisagreement("22221211520224000140570010000003191604007441", "QUERO TESTAR ISSO AQUI");
 //        multimodal("22221211520224000140570010000003191604007441", "QUERO TESTAR ISSO AQUI", "1");
-        reception();
-        receptionOs();
-        receptionGtve();
+//        reception();
+//        receptionOs();
+//        receptionGtve();
         receptionSync();
-        queryReceipt("223000019361172");
-//        inutilizarCte();
-        inutilizarCteOs();
+//        queryReceipt("223000019361172");
+////        inutilizarCte();
+//        inutilizarCteOs();
     }
 
     private static void queryReceipt(String receipt) throws Exception {
@@ -91,7 +91,7 @@ public final class AppCte {
 
     private static void reception() throws Exception {
         KeyStoreInfo info = new PfxKeyStoreInfoImpl(InputStreamUtils.newFileInputStream("/home/artur/Documentos/Certificate/tartigrado.pfx"), "22Rev", InputStreamUtils.newByteArrayInputStream(CertificateChainFactory.getInstance().generate(Certificate.builder().build())), CertificateChainFactory.getInstance().getPassword());
-        CteReceptionService service = new CteReceptionServiceImpl(new PfxCteConfigImpl(UF.PR, "11520224000140", Environment.HOMOLOGATION, info));
+        CteReceptionService service = new CteReceptionServiceImpl(new PfxCteConfigImpl(UF.SP, "11520224000140", Environment.HOMOLOGATION, info));
 
         CteReturnSend send = service.reception(getCte(service.getConfig(), 1, Model.CTE));
         System.out.println(send);
@@ -108,7 +108,7 @@ public final class AppCte {
     private static void receptionSync() throws Exception {
         try {
             KeyStoreInfo info = new PfxKeyStoreInfoImpl(InputStreamUtils.newFileInputStream("/home/artur/Documentos/Certificate/tartigrado.pfx"), "22Rev", InputStreamUtils.newByteArrayInputStream(CertificateChainFactory.getInstance().generate(Certificate.builder().build())), CertificateChainFactory.getInstance().getPassword());
-            CteReceptionSyncService service = new CteReceptionSyncServiceImpl(new PfxCteConfigImpl(UF.PR, "11520224000140", Environment.HOMOLOGATION, info));
+            CteReceptionSyncService service = new CteReceptionSyncServiceImpl(new PfxCteConfigImpl(UF.SP, "11520224000140", Environment.HOMOLOGATION, info));
 
             System.out.println(service.receptionSync(getCte(service.getConfig(), 1, Model.CTE)));
         } catch (Exception e) {
@@ -250,7 +250,7 @@ public final class AppCte {
                                 .Ide
                                 .builder()
                                 .cuf(config.uf().getCode())
-                                .cfop("5353")
+                                .cfop("5932")
                                 .natOp("TESTE")
                                 .mod(model.getCode())
                                 .serie("1")

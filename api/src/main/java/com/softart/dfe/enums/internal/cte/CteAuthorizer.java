@@ -691,12 +691,12 @@ public enum CteAuthorizer implements CteURL, AllowUF {
 
         @Override
         public String receptionSyncProd() {
-            return null;
+            return "https://nfe.fazenda.sp.gov.br/cteWEB/services/CTeRecepcaoSinc.asmx";
         }
 
         @Override
         public String receptionSyncHom() {
-            return null;
+            return "https://homologacao.nfe.fazenda.sp.gov.br/cteWEB/services/CTeRecepcaoSinc.asmx";
         }
 
         @Override

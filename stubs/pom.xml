@@ -77,7 +77,8 @@
                                 <xjbSource>src/main/resources/binding.xjb</xjbSource>
                             </xjbSources>
                             <sources>
-                                <source>${basedir}/src/main/resources/xsds/nfe/Evento_CancSubst_v1.01_NT_2018_004</source>
+                                <source>${basedir}/src/main/resources/xsds/nfe/Evento_CancSubst_v1.01_NT_2018_004
+                                </source>
                             </sources>
                             <outputDirectory>${basedir}/src/generated</outputDirectory>
                             <packageName>br.inf.portalfiscal.nfe.event_substitute_cancel</packageName>
@@ -339,7 +340,8 @@
                                 https://nfe.svrs.rs.gov.br/ws/NfeConsulta/NfeConsulta4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/svrs/prod/query_protocol.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/svrs/prod/query_protocol.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.query_protocol.svrs.prod</packageName>
@@ -427,7 +429,9 @@
                                 https://nfe.svrs.rs.gov.br/ws/recepcaoevento/recepcaoevento4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/svrs/prod/event_correction_letter.wsdl</wsdlFile>
+                                <wsdlFile>
+                                    ${basedir}/src/main/resources/wsdl/nfe/svrs/prod/event_correction_letter.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_correction_letter.svrs.prod</packageName>
@@ -449,7 +453,8 @@
                                 https://nfe-homologacao.svrs.rs.gov.br/ws/recepcaoevento/recepcaoevento4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/svrs/hom/event_correction_letter.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/svrs/hom/event_correction_letter.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_correction_letter.svrs.hom</packageName>
@@ -471,7 +476,8 @@
                                 https://nfe.svrs.rs.gov.br/ws/recepcaoevento/recepcaoevento4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/svrs/prod/event_interested_actor.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/svrs/prod/event_interested_actor.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_interested_actor.svrs.prod</packageName>
@@ -493,7 +499,8 @@
                                 https://nfe-homologacao.svrs.rs.gov.br/ws/recepcaoevento/recepcaoevento4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/svrs/hom/event_interested_actor.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/svrs/hom/event_interested_actor.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_interested_actor.svrs.hom</packageName>
@@ -515,7 +522,8 @@
                                 https://nfe.svrs.rs.gov.br/ws/NfeRetAutorizacao/NFeRetAutorizacao4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/svrs/prod/return_authorization.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/svrs/prod/return_authorization.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.return_authorization.svrs.prod</packageName>
@@ -537,7 +545,8 @@
                                 https://nfe-homologacao.svrs.rs.gov.br/ws/NfeRetAutorizacao/NFeRetAutorizacao4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/svrs/hom/return_authorization.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/svrs/hom/return_authorization.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.return_authorization.svrs.hom</packageName>
@@ -603,7 +612,8 @@
                                 https://nfe.svrs.rs.gov.br/ws/NfeStatusServico/NfeStatusServico4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/svrs/prod/status_service.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/svrs/prod/status_service.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.status_service.svrs.prod</packageName>
@@ -803,7 +813,8 @@
                                 https://nfe.sefaz.am.gov.br/services2/services/RecepcaoEvento4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/am/prod/event_correction_letter.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/am/prod/event_correction_letter.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_correction_letter.am.prod</packageName>
@@ -825,7 +836,8 @@
                                 https://nfe-homologacao.svrs.rs.gov.br/ws/recepcaoevento/recepcaoevento4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/am/hom/event_correction_letter.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/am/hom/event_correction_letter.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_correction_letter.am.hom</packageName>
@@ -847,7 +859,8 @@
                                 https://nfe.sefaz.am.gov.br/services2/services/RecepcaoEvento4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/am/prod/event_interested_actor.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/am/prod/event_interested_actor.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_interested_actor.am.prod</packageName>
@@ -869,7 +882,8 @@
                                 https://nfe-homologacao.svrs.rs.gov.br/ws/recepcaoevento/recepcaoevento4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/am/hom/event_interested_actor.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/am/hom/event_interested_actor.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_interested_actor.am.hom</packageName>
@@ -891,7 +905,8 @@
                                 https://nfe.sefaz.am.gov.br/services2/services/NfeRetAutorizacao4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/am/prod/return_authorization.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/am/prod/return_authorization.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.return_authorization.am.prod</packageName>
@@ -913,7 +928,8 @@
                                 https://nfe-homologacao.svrs.rs.gov.br/ws/NfeRetAutorizacao/NFeRetAutorizacao4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/am/hom/return_authorization.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/am/hom/return_authorization.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.return_authorization.am.hom</packageName>
@@ -1158,7 +1174,8 @@
                                 https://nfe.sefaz.ba.gov.br/webservices/NFeRecepcaoEvento4/NFeRecepcaoEvento4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/ba/prod/event_correction_letter.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/ba/prod/event_correction_letter.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_correction_letter.ba.prod</packageName>
@@ -1180,7 +1197,8 @@
                                 https://hnfe.sefaz.ba.gov.br/webservices/NFeRecepcaoEvento4/NFeRecepcaoEvento4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/ba/hom/event_correction_letter.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/ba/hom/event_correction_letter.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_correction_letter.ba.hom</packageName>
@@ -1202,7 +1220,8 @@
                                 https://nfe.sefaz.ba.gov.br/webservices/NFeRecepcaoEvento4/NFeRecepcaoEvento4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/ba/prod/event_interested_actor.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/ba/prod/event_interested_actor.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_interested_actor.ba.prod</packageName>
@@ -1224,7 +1243,8 @@
                                 https://hnfe.sefaz.ba.gov.br/webservices/NFeRecepcaoEvento4/NFeRecepcaoEvento4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/ba/hom/event_interested_actor.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/ba/hom/event_interested_actor.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_interested_actor.ba.hom</packageName>
@@ -1246,7 +1266,8 @@
                                 https://nfe.sefaz.ba.gov.br/webservices/NFeRetAutorizacao4/NFeRetAutorizacao4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/ba/prod/return_authorization.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/ba/prod/return_authorization.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.return_authorization.ba.prod</packageName>
@@ -1268,7 +1289,8 @@
                                 https://hnfe.sefaz.ba.gov.br/webservices/NFeRetAutorizacao4/NFeRetAutorizacao4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/ba/hom/return_authorization.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/ba/hom/return_authorization.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.return_authorization.ba.hom</packageName>
@@ -1513,7 +1535,8 @@
                                 https://nfe.sefaz.go.gov.br/nfe/services/NFeRecepcaoEvento4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/go/prod/event_correction_letter.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/go/prod/event_correction_letter.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_correction_letter.go.prod</packageName>
@@ -1535,7 +1558,8 @@
                                 https://homolog.sefaz.go.gov.br/nfe/services/NFeRecepcaoEvento4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/go/hom/event_correction_letter.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/go/hom/event_correction_letter.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_correction_letter.go.hom</packageName>
@@ -1557,7 +1581,8 @@
                                 https://nfe.sefaz.go.gov.br/nfe/services/NFeRecepcaoEvento4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/go/prod/event_interested_actor.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/go/prod/event_interested_actor.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_interested_actor.go.prod</packageName>
@@ -1579,7 +1604,8 @@
                                 https://homolog.sefaz.go.gov.br/nfe/services/NFeRecepcaoEvento4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/go/hom/event_interested_actor.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/go/hom/event_interested_actor.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_interested_actor.go.hom</packageName>
@@ -1601,7 +1627,8 @@
                                 https://nfe.sefaz.go.gov.br/nfe/services/NFeRetAutorizacao4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/go/prod/return_authorization.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/go/prod/return_authorization.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.return_authorization.go.prod</packageName>
@@ -1623,7 +1650,8 @@
                                 https://homolog.sefaz.go.gov.br/nfe/services/NFeRetAutorizacao4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/go/hom/return_authorization.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/go/hom/return_authorization.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.return_authorization.go.hom</packageName>
@@ -1868,7 +1896,8 @@
                                 https://nfe.fazenda.mg.gov.br/nfe2/services/NFeRecepcaoEvento4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/mg/prod/event_correction_letter.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/mg/prod/event_correction_letter.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_correction_letter.mg.prod</packageName>
@@ -1890,7 +1919,8 @@
                                 https://hnfe.fazenda.mg.gov.br/nfe2/services/NFeRecepcaoEvento4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/mg/hom/event_correction_letter.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/mg/hom/event_correction_letter.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_correction_letter.mg.hom</packageName>
@@ -1912,7 +1942,8 @@
                                 https://nfe.fazenda.mg.gov.br/nfe2/services/NFeRecepcaoEvento4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/mg/prod/event_interested_actor.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/mg/prod/event_interested_actor.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_interested_actor.mg.prod</packageName>
@@ -1934,7 +1965,8 @@
                                 https://hnfe.fazenda.mg.gov.br/nfe2/services/NFeRecepcaoEvento4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/mg/hom/event_interested_actor.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/mg/hom/event_interested_actor.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_interested_actor.mg.hom</packageName>
@@ -1956,7 +1988,8 @@
                                 https://nfe.fazenda.mg.gov.br/nfe2/services/NFeRetAutorizacao4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/mg/prod/return_authorization.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/mg/prod/return_authorization.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.return_authorization.mg.prod</packageName>
@@ -1978,7 +2011,8 @@
                                 https://hnfe.fazenda.mg.gov.br/nfe2/services/NFeRetAutorizacao4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/mg/hom/return_authorization.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/mg/hom/return_authorization.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.return_authorization.mg.hom</packageName>
@@ -2223,7 +2257,8 @@
                                 https://nfe.sefaz.ms.gov.br/ws/NFeRecepcaoEvento4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/ms/prod/event_correction_letter.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/ms/prod/event_correction_letter.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_correction_letter.ms.prod</packageName>
@@ -2245,7 +2280,8 @@
                                 https://hom.nfe.sefaz.ms.gov.br/ws/NFeRecepcaoEvento4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/ms/hom/event_correction_letter.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/ms/hom/event_correction_letter.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_correction_letter.ms.hom</packageName>
@@ -2267,7 +2303,8 @@
                                 https://nfe.sefaz.ms.gov.br/ws/NFeRecepcaoEvento4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/ms/prod/event_interested_actor.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/ms/prod/event_interested_actor.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_interested_actor.ms.prod</packageName>
@@ -2289,7 +2326,8 @@
                                 https://hom.nfe.sefaz.ms.gov.br/ws/NFeRecepcaoEvento4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/ms/hom/event_interested_actor.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/ms/hom/event_interested_actor.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_interested_actor.ms.hom</packageName>
@@ -2311,7 +2349,8 @@
                                 https://nfe.sefaz.ms.gov.br/ws/NFeRetAutorizacao4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/ms/prod/return_authorization.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/ms/prod/return_authorization.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.return_authorization.ms.prod</packageName>
@@ -2333,7 +2372,8 @@
                                 https://hom.nfe.sefaz.ms.gov.br/ws/NFeRetAutorizacao4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/ms/hom/return_authorization.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/ms/hom/return_authorization.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.return_authorization.ms.hom</packageName>
@@ -2578,7 +2618,8 @@
                                 https://nfe.sefaz.mt.gov.br/nfews/v2/services/RecepcaoEvento4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/mt/prod/event_correction_letter.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/mt/prod/event_correction_letter.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_correction_letter.mt.prod</packageName>
@@ -2600,7 +2641,8 @@
                                 https://homologacao.sefaz.mt.gov.br/nfews/v2/services/RecepcaoEvento4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/mt/hom/event_correction_letter.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/mt/hom/event_correction_letter.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_correction_letter.mt.hom</packageName>
@@ -2622,7 +2664,8 @@
                                 https://nfe.sefaz.mt.gov.br/nfews/v2/services/RecepcaoEvento4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/mt/prod/event_interested_actor.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/mt/prod/event_interested_actor.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_interested_actor.mt.prod</packageName>
@@ -2644,7 +2687,8 @@
                                 https://homologacao.sefaz.mt.gov.br/nfews/v2/services/RecepcaoEvento4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/mt/hom/event_interested_actor.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/mt/hom/event_interested_actor.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_interested_actor.mt.hom</packageName>
@@ -2666,7 +2710,8 @@
                                 https://nfe.sefaz.mt.gov.br/nfews/v2/services/NfeRetAutorizacao4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/mt/prod/return_authorization.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/mt/prod/return_authorization.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.return_authorization.mt.prod</packageName>
@@ -2688,7 +2733,8 @@
                                 https://homologacao.sefaz.mt.gov.br/nfews/v2/services/NfeRetAutorizacao4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/mt/hom/return_authorization.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/mt/hom/return_authorization.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.return_authorization.mt.hom</packageName>
@@ -2933,7 +2979,8 @@
                                 https://nfe.sefaz.pe.gov.br/nfe-service/services/NFeRecepcaoEvento4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/pe/prod/event_correction_letter.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/pe/prod/event_correction_letter.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_correction_letter.pe.prod</packageName>
@@ -2955,7 +3002,8 @@
                                 https://nfehomolog.sefaz.pe.gov.br/nfe-service/services/NFeRecepcaoEvento4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/pe/hom/event_correction_letter.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/pe/hom/event_correction_letter.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_correction_letter.pe.hom</packageName>
@@ -2977,7 +3025,8 @@
                                 https://nfe.sefaz.pe.gov.br/nfe-service/services/NFeRecepcaoEvento4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/pe/prod/event_interested_actor.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/pe/prod/event_interested_actor.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_interested_actor.pe.prod</packageName>
@@ -2999,7 +3048,8 @@
                                 https://nfehomolog.sefaz.pe.gov.br/nfe-service/services/NFeRecepcaoEvento4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/pe/hom/event_interested_actor.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/pe/hom/event_interested_actor.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_interested_actor.pe.hom</packageName>
@@ -3021,7 +3071,8 @@
                                 https://nfe.sefaz.pe.gov.br/nfe-service/services/NFeRetAutorizacao4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/pe/prod/return_authorization.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/pe/prod/return_authorization.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.return_authorization.pe.prod</packageName>
@@ -3043,7 +3094,8 @@
                                 https://nfehomolog.sefaz.pe.gov.br/nfe-service/services/NFeRetAutorizacao4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/pe/hom/return_authorization.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/pe/hom/return_authorization.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.return_authorization.pe.hom</packageName>
@@ -3288,7 +3340,8 @@
                                 https://nfe.sefa.pr.gov.br/nfe/NFeRecepcaoEvento4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/pr/prod/event_correction_letter.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/pr/prod/event_correction_letter.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_correction_letter.pr.prod</packageName>
@@ -3310,7 +3363,8 @@
                                 https://homologacao.nfe.sefa.pr.gov.br/nfe/NFeRecepcaoEvento4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/pr/hom/event_correction_letter.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/pr/hom/event_correction_letter.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_correction_letter.pr.hom</packageName>
@@ -3332,7 +3386,8 @@
                                 https://nfe.sefa.pr.gov.br/nfe/NFeRecepcaoEvento4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/pr/prod/event_interested_actor.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/pr/prod/event_interested_actor.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_interested_actor.pr.prod</packageName>
@@ -3354,7 +3409,8 @@
                                 https://homologacao.nfe.sefa.pr.gov.br/nfe/NFeRecepcaoEvento4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/pr/hom/event_interested_actor.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/pr/hom/event_interested_actor.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_interested_actor.pr.hom</packageName>
@@ -3376,7 +3432,8 @@
                                 https://nfe.sefa.pr.gov.br/nfe/NFeRetAutorizacao4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/pr/prod/return_authorization.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/pr/prod/return_authorization.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.return_authorization.pr.prod</packageName>
@@ -3398,7 +3455,8 @@
                                 https://homologacao.nfe.sefa.pr.gov.br/nfe/NFeRetAutorizacao4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/pr/hom/return_authorization.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/pr/hom/return_authorization.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.return_authorization.pr.hom</packageName>
@@ -3643,7 +3701,8 @@
                                 https://nfe.sefazrs.rs.gov.br/ws/recepcaoevento/recepcaoevento4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/rs/prod/event_correction_letter.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/rs/prod/event_correction_letter.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_correction_letter.rs.prod</packageName>
@@ -3665,7 +3724,8 @@
                                 https://nfe-homologacao.sefazrs.rs.gov.br/ws/recepcaoevento/recepcaoevento4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/rs/hom/event_correction_letter.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/rs/hom/event_correction_letter.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_correction_letter.rs.hom</packageName>
@@ -3687,7 +3747,8 @@
                                 https://nfe.sefazrs.rs.gov.br/ws/recepcaoevento/recepcaoevento4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/rs/prod/event_interested_actor.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/rs/prod/event_interested_actor.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_interested_actor.rs.prod</packageName>
@@ -3709,7 +3770,8 @@
                                 https://nfe-homologacao.sefazrs.rs.gov.br/ws/recepcaoevento/recepcaoevento4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/rs/hom/event_interested_actor.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/rs/hom/event_interested_actor.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_interested_actor.rs.hom</packageName>
@@ -3731,7 +3793,8 @@
                                 https://nfe.sefazrs.rs.gov.br/ws/NfeRetAutorizacao/NFeRetAutorizacao4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/rs/prod/return_authorization.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/rs/prod/return_authorization.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.return_authorization.rs.prod</packageName>
@@ -3753,7 +3816,8 @@
                                 https://nfe-homologacao.sefazrs.rs.gov.br/ws/NfeRetAutorizacao/NFeRetAutorizacao4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/rs/hom/return_authorization.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/rs/hom/return_authorization.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.return_authorization.rs.hom</packageName>
@@ -3998,7 +4062,8 @@
                                 https://nfe.fazenda.sp.gov.br/ws/nferecepcaoevento4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/sp/prod/event_correction_letter.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/sp/prod/event_correction_letter.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_correction_letter.sp.prod</packageName>
@@ -4020,7 +4085,8 @@
                                 https://homologacao.nfe.fazenda.sp.gov.br/ws/nferecepcaoevento4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/sp/hom/event_correction_letter.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/sp/hom/event_correction_letter.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_correction_letter.sp.hom</packageName>
@@ -4042,7 +4108,8 @@
                                 https://nfe.fazenda.sp.gov.br/ws/nferecepcaoevento4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/sp/prod/event_interested_actor.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/sp/prod/event_interested_actor.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_interested_actor.sp.prod</packageName>
@@ -4064,7 +4131,8 @@
                                 https://homologacao.nfe.fazenda.sp.gov.br/ws/nferecepcaoevento4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/sp/hom/event_interested_actor.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/sp/hom/event_interested_actor.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_interested_actor.sp.hom</packageName>
@@ -4086,7 +4154,8 @@
                                 https://nfe.fazenda.sp.gov.br/ws/nferetautorizacao4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/sp/prod/return_authorization.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/sp/prod/return_authorization.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.return_authorization.sp.prod</packageName>
@@ -4108,7 +4177,8 @@
                                 https://homologacao.nfe.fazenda.sp.gov.br/ws/nferetautorizacao4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/sp/hom/return_authorization.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/sp/hom/return_authorization.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.return_authorization.sp.hom</packageName>
@@ -4265,7 +4335,8 @@
                                 https://www.sefazvirtual.fazenda.gov.br/NFeConsultaProtocolo4/NFeConsultaProtocolo4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/svan/prod/query_protocol.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/svan/prod/query_protocol.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.query_protocol.svan.prod</packageName>
@@ -4353,7 +4424,9 @@
                                 https://www.sefazvirtual.fazenda.gov.br/NFeRecepcaoEvento4/NFeRecepcaoEvento4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/svan/prod/event_correction_letter.wsdl</wsdlFile>
+                                <wsdlFile>
+                                    ${basedir}/src/main/resources/wsdl/nfe/svan/prod/event_correction_letter.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_correction_letter.svan.prod</packageName>
@@ -4375,7 +4448,8 @@
                                 https://hom.sefazvirtual.fazenda.gov.br/NFeRecepcaoEvento4/NFeRecepcaoEvento4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/svan/hom/event_correction_letter.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/svan/hom/event_correction_letter.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_correction_letter.svan.hom</packageName>
@@ -4397,7 +4471,8 @@
                                 https://www.sefazvirtual.fazenda.gov.br/NFeRecepcaoEvento4/NFeRecepcaoEvento4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/svan/prod/event_interested_actor.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/svan/prod/event_interested_actor.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_interested_actor.svan.prod</packageName>
@@ -4419,7 +4494,8 @@
                                 https://hom.sefazvirtual.fazenda.gov.br/NFeRecepcaoEvento4/NFeRecepcaoEvento4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/svan/hom/event_interested_actor.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/svan/hom/event_interested_actor.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_interested_actor.svan.hom</packageName>
@@ -4441,7 +4517,8 @@
                                 https://www.sefazvirtual.fazenda.gov.br/NFeRetAutorizacao4/NFeRetAutorizacao4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/svan/prod/return_authorization.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/svan/prod/return_authorization.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.return_authorization.svan.prod</packageName>
@@ -4463,7 +4540,8 @@
                                 https://hom.sefazvirtual.fazenda.gov.br/NFeRetAutorizacao4/NFeRetAutorizacao4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/svan/hom/return_authorization.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/svan/hom/return_authorization.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.return_authorization.svan.hom</packageName>
@@ -4529,7 +4607,8 @@
                                 https://www.sefazvirtual.fazenda.gov.br/NFeStatusServico4/NFeStatusServico4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/svan/prod/status_service.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/svan/prod/status_service.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.status_service.svan.prod</packageName>
@@ -4573,7 +4652,8 @@
                         <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/svcan/prod/authorization.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/svcan/prod/authorization.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <wsdlLocation>
                                 https://www.svc.fazenda.gov.br/NFeAutorizacao4/NFeAutorizacao4.asmx?wsdl
@@ -4620,7 +4700,8 @@
                                 https://www.svc.fazenda.gov.br/NFeConsultaProtocolo4/NFeConsultaProtocolo4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/svcan/prod/query_protocol.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/svcan/prod/query_protocol.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.query_protocol.svcan.prod</packageName>
@@ -4642,7 +4723,8 @@
                                 https://hom.svc.fazenda.gov.br/NFeConsultaProtocolo4/NFeConsultaProtocolo4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/svcan/hom/query_protocol.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/svcan/hom/query_protocol.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.query_protocol.svcan.hom</packageName>
@@ -4708,7 +4790,9 @@
                                 https://www.svc.fazenda.gov.br/NFeRecepcaoEvento4/NFeRecepcaoEvento4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/svcan/prod/event_correction_letter.wsdl</wsdlFile>
+                                <wsdlFile>
+                                    ${basedir}/src/main/resources/wsdl/nfe/svcan/prod/event_correction_letter.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_correction_letter.svcan.prod</packageName>
@@ -4730,7 +4814,9 @@
                                 https://hom.svc.fazenda.gov.br/NFeRecepcaoEvento4/NFeRecepcaoEvento4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/svcan/hom/event_correction_letter.wsdl</wsdlFile>
+                                <wsdlFile>
+                                    ${basedir}/src/main/resources/wsdl/nfe/svcan/hom/event_correction_letter.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_correction_letter.svcan.hom</packageName>
@@ -4752,7 +4838,9 @@
                                 https://www.svc.fazenda.gov.br/NFeRecepcaoEvento4/NFeRecepcaoEvento4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/svcan/prod/event_interested_actor.wsdl</wsdlFile>
+                                <wsdlFile>
+                                    ${basedir}/src/main/resources/wsdl/nfe/svcan/prod/event_interested_actor.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_interested_actor.svcan.prod</packageName>
@@ -4774,7 +4862,8 @@
                                 https://hom.svc.fazenda.gov.br/NFeRecepcaoEvento4/NFeRecepcaoEvento4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/svcan/hom/event_interested_actor.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/svcan/hom/event_interested_actor.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_interested_actor.svcan.hom</packageName>
@@ -4796,7 +4885,8 @@
                                 https://www.svc.fazenda.gov.br/NFeRetAutorizacao4/NFeRetAutorizacao4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/svcan/prod/return_authorization.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/svcan/prod/return_authorization.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.return_authorization.svcan.prod</packageName>
@@ -4818,7 +4908,8 @@
                                 https://hom.svc.fazenda.gov.br/NFeRetAutorizacao4/NFeRetAutorizacao4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/svcan/hom/return_authorization.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/svcan/hom/return_authorization.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.return_authorization.svcan.hom</packageName>
@@ -4840,7 +4931,8 @@
                                 https://www.svc.fazenda.gov.br/NFeInutilizacao4/NFeInutilizacao4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/svcan/prod/inutilization.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/svcan/prod/inutilization.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.inutilization.svcan.prod</packageName>
@@ -4884,7 +4976,8 @@
                                 https://www.svc.fazenda.gov.br/NFeStatusServico4/NFeStatusServico4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/svcan/prod/status_service.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/svcan/prod/status_service.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.status_service.svcan.prod</packageName>
@@ -4906,7 +4999,8 @@
                                 https://hom.svc.fazenda.gov.br/NFeStatusServico4/NFeStatusServico4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/svcan/hom/status_service.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/svcan/hom/status_service.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.status_service.svcan.hom</packageName>
@@ -5019,7 +5113,8 @@
                                 https://www.nfe.fazenda.gov.br/NFeRecepcaoEvento4/NFeRecepcaoEvento4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/an/prod/event_manifestation.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/an/prod/event_manifestation.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_manifestation.an.prod</packageName>
@@ -5041,7 +5136,8 @@
                                 https://hom1.nfe.fazenda.gov.br/NFeRecepcaoEvento4/NFeRecepcaoEvento4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/an/hom/event_manifestation.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/an/hom/event_manifestation.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_manifestation.an.hom</packageName>
@@ -5064,7 +5160,8 @@
                         <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/svrs/prod/authorization.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/svrs/prod/authorization.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <wsdlLocation>
                                 https://nfce.svrs.rs.gov.br/ws/NfeAutorizacao/NFeAutorizacao4.asmx?wsdl
@@ -5112,7 +5209,8 @@
                                 https://nfce.svrs.rs.gov.br/ws/NfeRetAutorizacao/NFeRetAutorizacao4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/svrs/prod/return_authorization.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/svrs/prod/return_authorization.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.return_authorization.svrs.nfce.prod</packageName>
@@ -5134,7 +5232,8 @@
                                 https://nfce-homologacao.svrs.rs.gov.br/ws/NfeRetAutorizacao/NFeRetAutorizacao4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/svrs/hom/return_authorization.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/svrs/hom/return_authorization.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.return_authorization.svrs.nfce.hom</packageName>
@@ -5157,7 +5256,8 @@
                                 https://nfce.svrs.rs.gov.br/ws/NfeStatusServico/NfeStatusServico4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/svrs/prod/status_service.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/svrs/prod/status_service.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.status_service.svrs.nfce.prod</packageName>
@@ -5179,7 +5279,8 @@
                                 https://nfce-homologacao.svrs.rs.gov.br/ws/NfeStatusServico/NfeStatusServico4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/svrs/hom/status_service.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/svrs/hom/status_service.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.status_service.svrs.nfce.hom</packageName>
@@ -5202,7 +5303,8 @@
                                 https://nfce.svrs.rs.gov.br/ws/NfeConsulta/NfeConsulta4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/svrs/prod/query_protocol.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/svrs/prod/query_protocol.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.query_protocol.svrs.nfce.prod</packageName>
@@ -5224,7 +5326,8 @@
                                 https://nfce-homologacao.svrs.rs.gov.br/ws/NfeConsulta/NfeConsulta4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/svrs/hom/query_protocol.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/svrs/hom/query_protocol.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.query_protocol.svrs.nfce.hom</packageName>
@@ -5246,7 +5349,8 @@
                                 https://nfce.svrs.rs.gov.br/ws/nfeinutilizacao/nfeinutilizacao4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/svrs/prod/inutilization.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/svrs/prod/inutilization.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.inutilization.svrs.nfce.prod</packageName>
@@ -5334,7 +5438,9 @@
                                 https://nfce.svrs.rs.gov.br/ws/recepcaoevento/recepcaoevento4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/svrs/prod/event_substitute_cancel.wsdl</wsdlFile>
+                                <wsdlFile>
+                                    ${basedir}/src/main/resources/wsdl/nfce/svrs/prod/event_substitute_cancel.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_substitute_cancel.svrs.nfce.prod
@@ -5357,7 +5463,9 @@
                                 https://nfce-homologacao.svrs.rs.gov.br/ws/recepcaoevento/recepcaoevento4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/svrs/hom/event_substitute_cancel.wsdl</wsdlFile>
+                                <wsdlFile>
+                                    ${basedir}/src/main/resources/wsdl/nfce/svrs/hom/event_substitute_cancel.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_substitute_cancel.svrs.nfce.hom
@@ -5514,7 +5622,8 @@
                                 https://nfce.sefaz.am.gov.br/nfce-services/services/RecepcaoEvento4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/am/prod/event_substitute_cancel.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/am/prod/event_substitute_cancel.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_substitute_cancel.am.nfce.prod</packageName>
@@ -5536,7 +5645,8 @@
                                 https://homnfce.sefaz.am.gov.br/nfce-services/services/RecepcaoEvento4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/am/hom/event_substitute_cancel.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/am/hom/event_substitute_cancel.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_substitute_cancel.am.nfce.hom</packageName>
@@ -5558,7 +5668,8 @@
                                 https://nfce.sefaz.am.gov.br/nfce-services/services/NfeRetAutorizacao4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/am/prod/return_authorization.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/am/prod/return_authorization.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.return_authorization.am.nfce.prod</packageName>
@@ -5580,7 +5691,8 @@
                                 https://homnfce.sefaz.am.gov.br/nfce-services/services/NfeRetAutorizacao4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/am/hom/return_authorization.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/am/hom/return_authorization.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.return_authorization.am.nfce.hom</packageName>
@@ -5825,7 +5937,8 @@
                                 https://nfe.sefaz.go.gov.br/nfe/services/NFeRecepcaoEvento4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/go/prod/event_substitute_cancel.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/go/prod/event_substitute_cancel.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_substitute_cancel.go.nfce.prod</packageName>
@@ -5847,7 +5960,8 @@
                                 https://homolog.sefaz.go.gov.br/nfe/services/NFeRecepcaoEvento4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/go/hom/event_substitute_cancel.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/go/hom/event_substitute_cancel.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_substitute_cancel.go.nfce.hom</packageName>
@@ -5869,7 +5983,8 @@
                                 https://nfe.sefaz.go.gov.br/nfe/services/NFeRetAutorizacao4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/go/prod/return_authorization.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/go/prod/return_authorization.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.return_authorization.go.nfce.prod</packageName>
@@ -5891,7 +6006,8 @@
                                 https://homolog.sefaz.go.gov.br/nfe/services/NFeRetAutorizacao4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/go/hom/return_authorization.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/go/hom/return_authorization.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.return_authorization.go.nfce.hom</packageName>
@@ -6136,7 +6252,8 @@
                                 https://nfce.fazenda.mg.gov.br/nfce/services/NFeRecepcaoEvento4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/mg/prod/event_substitute_cancel.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/mg/prod/event_substitute_cancel.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_substitute_cancel.mg.nfce.prod</packageName>
@@ -6158,7 +6275,8 @@
                                 https://hnfce.fazenda.mg.gov.br/nfce/services/NFeRecepcaoEvento4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/mg/hom/event_substitute_cancel.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/mg/hom/event_substitute_cancel.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_substitute_cancel.mg.nfce.hom</packageName>
@@ -6180,7 +6298,8 @@
                                 https://nfce.fazenda.mg.gov.br/nfce/services/NFeRetAutorizacao4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/mg/prod/return_authorization.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/mg/prod/return_authorization.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.return_authorization.mg.nfce.prod</packageName>
@@ -6202,7 +6321,8 @@
                                 https://hnfce.fazenda.mg.gov.br/nfce/services/NFeRetAutorizacao4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/mg/hom/return_authorization.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/mg/hom/return_authorization.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.return_authorization.mg.nfce.hom</packageName>
@@ -6447,7 +6567,8 @@
                                 https://nfce.sefaz.ms.gov.br/ws/NFeRecepcaoEvento4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/ms/prod/event_substitute_cancel.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/ms/prod/event_substitute_cancel.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_substitute_cancel.ms.nfce.prod</packageName>
@@ -6469,7 +6590,8 @@
                                 https://hom.nfce.sefaz.ms.gov.br/ws/NFeRecepcaoEvento4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/ms/hom/event_substitute_cancel.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/ms/hom/event_substitute_cancel.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_substitute_cancel.ms.nfce.hom</packageName>
@@ -6491,7 +6613,8 @@
                                 https://nfce.sefaz.ms.gov.br/ws/NFeRetAutorizacao4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/ms/prod/return_authorization.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/ms/prod/return_authorization.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.return_authorization.ms.nfce.prod</packageName>
@@ -6513,7 +6636,8 @@
                                 https://hom.nfce.sefaz.ms.gov.br/ws/NFeRetAutorizacao4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/ms/hom/return_authorization.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/ms/hom/return_authorization.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.return_authorization.ms.nfce.hom</packageName>
@@ -6758,7 +6882,8 @@
                                 https://nfce.sefaz.mt.gov.br/nfcews/services/RecepcaoEvento4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/mt/prod/event_substitute_cancel.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/mt/prod/event_substitute_cancel.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_substitute_cancel.mt.nfce.prod</packageName>
@@ -6780,7 +6905,8 @@
                                 https://homologacao.sefaz.mt.gov.br/nfcews/services/RecepcaoEvento4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/mt/hom/event_substitute_cancel.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/mt/hom/event_substitute_cancel.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_substitute_cancel.mt.nfce.hom</packageName>
@@ -6802,7 +6928,8 @@
                                 https://nfce.sefaz.mt.gov.br/nfcews/services/NfeRetAutorizacao4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/mt/prod/return_authorization.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/mt/prod/return_authorization.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.return_authorization.mt.nfce.prod</packageName>
@@ -6824,7 +6951,8 @@
                                 https://homologacao.sefaz.mt.gov.br/nfcews/services/NfeRetAutorizacao4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/mt/hom/return_authorization.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/mt/hom/return_authorization.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.return_authorization.mt.nfce.hom</packageName>
@@ -7069,7 +7197,8 @@
                                 https://nfce.sefa.pr.gov.br/nfce/NFeRecepcaoEvento4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/pr/prod/event_substitute_cancel.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/pr/prod/event_substitute_cancel.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_substitute_cancel.pr.nfce.prod</packageName>
@@ -7091,7 +7220,8 @@
                                 https://homologacao.nfce.sefa.pr.gov.br/nfce/NFeRecepcaoEvento4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/pr/hom/event_substitute_cancel.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/pr/hom/event_substitute_cancel.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_substitute_cancel.pr.nfce.hom</packageName>
@@ -7113,7 +7243,8 @@
                                 https://nfce.sefa.pr.gov.br/nfce/NFeRetAutorizacao4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/pr/prod/return_authorization.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/pr/prod/return_authorization.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.return_authorization.pr.nfce.prod</packageName>
@@ -7135,7 +7266,8 @@
                                 https://homologacao.nfce.sefa.pr.gov.br/nfce/NFeRetAutorizacao4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/pr/hom/return_authorization.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/pr/hom/return_authorization.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.return_authorization.pr.nfce.hom</packageName>
@@ -7380,7 +7512,8 @@
                                 https://nfce.sefazrs.rs.gov.br/ws/recepcaoevento/recepcaoevento4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/rs/prod/event_substitute_cancel.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/rs/prod/event_substitute_cancel.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_substitute_cancel.rs.nfce.prod</packageName>
@@ -7402,7 +7535,8 @@
                                 https://nfce-homologacao.sefazrs.rs.gov.br/ws/recepcaoevento/recepcaoevento4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/rs/hom/event_substitute_cancel.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/rs/hom/event_substitute_cancel.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_substitute_cancel.rs.nfce.hom</packageName>
@@ -7424,7 +7558,8 @@
                                 https://nfce.sefazrs.rs.gov.br/ws/NfeRetAutorizacao/NFeRetAutorizacao4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/rs/prod/return_authorization.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/rs/prod/return_authorization.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.return_authorization.rs.nfce.prod</packageName>
@@ -7446,7 +7581,8 @@
                                 https://nfce-homologacao.sefazrs.rs.gov.br/ws/NfeRetAutorizacao/NFeRetAutorizacao4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/rs/hom/return_authorization.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/rs/hom/return_authorization.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.return_authorization.rs.nfce.hom</packageName>
@@ -7691,7 +7827,8 @@
                                 https://nfce.fazenda.sp.gov.br/ws/NFeRecepcaoEvento4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/sp/prod/event_substitute_cancel.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/sp/prod/event_substitute_cancel.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_substitute_cancel.sp.nfce.prod</packageName>
@@ -7713,7 +7850,8 @@
                                 https://homologacao.nfce.fazenda.sp.gov.br/ws/NFeRecepcaoEvento4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/sp/hom/event_substitute_cancel.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/sp/hom/event_substitute_cancel.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.event_substitute_cancel.sp.nfce.hom</packageName>
@@ -7735,7 +7873,8 @@
                                 https://nfce.fazenda.sp.gov.br/ws/NFeRetAutorizacao4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/sp/prod/return_authorization.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/sp/prod/return_authorization.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.return_authorization.sp.nfce.prod</packageName>
@@ -7757,7 +7896,8 @@
                                 https://homologacao.nfce.fazenda.sp.gov.br/ws/NFeRetAutorizacao4.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/sp/hom/return_authorization.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/nfce/sp/hom/return_authorization.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.return_authorization.sp.nfce.hom</packageName>
@@ -7912,7 +8052,8 @@
                         <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/cte/mg/prod/return_reception.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/cte/mg/prod/return_reception.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <wsdlLocation>
                                 https://cte.fazenda.mg.gov.br/cte/services/CteRetRecepcao?wsdl
@@ -8222,7 +8363,8 @@
                         <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/cte/ms/prod/return_reception.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/cte/ms/prod/return_reception.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <wsdlLocation>
                                 https://producao.cte.ms.gov.br/ws/CteRetRecepcao?wsdl
@@ -8576,7 +8718,8 @@
                         <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/cte/mt/prod/return_reception.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/cte/mt/prod/return_reception.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <wsdlLocation>
                                 https://cte.sefaz.mt.gov.br/ctews/services/CteRetRecepcao?wsdl
@@ -8974,7 +9117,8 @@
                         <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/cte/pr/prod/return_reception.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/cte/pr/prod/return_reception.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <wsdlLocation>
                                 https://cte.fazenda.pr.gov.br/cte/CteRetRecepcao?wsdl
@@ -9372,7 +9516,8 @@
                         <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/cte/svrs/prod/return_reception.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/cte/svrs/prod/return_reception.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <wsdlLocation>
                                 https://cte.svrs.rs.gov.br/ws/cteretrecepcao/cteRetRecepcao.asmx?wsdl
@@ -9394,7 +9539,8 @@
                         <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/cte/svrs/hom/return_reception.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/cte/svrs/hom/return_reception.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <wsdlLocation>
                                 https://cte-homologacao.svrs.rs.gov.br/ws/cteretrecepcao/cteRetRecepcao.asmx?wsdl
@@ -9460,7 +9606,8 @@
                         <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/cte/svrs/prod/query_situation.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/cte/svrs/prod/query_situation.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <wsdlLocation>
                                 https://cte.svrs.rs.gov.br/ws/cteconsulta/CteConsulta.asmx?wsdl
@@ -9482,7 +9629,8 @@
                         <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/cte/svrs/hom/query_situation.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/cte/svrs/hom/query_situation.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <wsdlLocation>
                                 https://cte-homologacao.svrs.rs.gov.br/ws/cteconsulta/CteConsulta.asmx?wsdl
@@ -9504,7 +9652,8 @@
                         <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/cte/svrs/prod/status_service.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/cte/svrs/prod/status_service.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <wsdlLocation>
                                 https://cte.svrs.rs.gov.br/ws/ctestatusservico/CteStatusServico.asmx?wsdl
@@ -9637,7 +9786,8 @@
                         <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/cte/svrs/prod/reception_sync.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/cte/svrs/prod/reception_sync.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <wsdlLocation>
                                 https://cte.svrs.rs.gov.br/ws/CTeRecepcaoSinc/CTeRecepcaoSinc.asmx?wsdl
@@ -9681,7 +9831,8 @@
                         <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/cte/svrs/prod/reception_gtve.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/cte/svrs/prod/reception_gtve.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <wsdlLocation>
                                 https://cte.svrs.rs.gov.br/ws/CTeRecepcaoGTVe/CTeRecepcaoGTVe.asmx?wsdl
@@ -9761,6 +9912,51 @@
                         </configuration>
                     </execution>
 
+                    <!-- CTE SVSP RECEPTION SYNC PRODUCTION -->
+                    <execution>
+                        <id>cte_reception_sync_svsp_prod</id>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <phase>none</phase>
+                        <configuration>
+                            <wsdlFiles>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/cte/svsp/prod/reception_sync.wsdl
+                                </wsdlFile>
+                            </wsdlFiles>
+                            <wsdlLocation>
+                                https://homologacao.nfe.fazenda.sp.gov.br/cteWEB/services/CTeRecepcaoSinc.asmx?wsdl
+                            </wsdlLocation>
+                            <sourceDestDir>${basedir}/src/generated</sourceDestDir>
+                            <packageName>br.inf.portalfiscal.cte.wsdl.reception_sync.svsp.prod</packageName>
+                            <args>
+                                <arg>-extension</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
+                    <!-- CTE SVSP RECEPTION SYNC HOMOLOGATION -->
+                    <execution>
+                        <id>cte_reception_sync_svsp_hom</id>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <phase>none</phase>
+                        <configuration>
+                            <wsdlFiles>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/cte/svsp/hom/reception_sync.wsdl</wsdlFile>
+                            </wsdlFiles>
+                            <wsdlLocation>
+                                https://homologacao.nfe.fazenda.sp.gov.br/cteWEB/services/CTeRecepcaoSinc.asmx?wsdl
+                            </wsdlLocation>
+                            <sourceDestDir>${basedir}/src/generated</sourceDestDir>
+                            <packageName>br.inf.portalfiscal.cte.wsdl.reception_sync.svsp.hom</packageName>
+                            <args>
+                                <arg>-extension</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+
                     <!-- CTE SVSP RETURN RECEPTION PRODUCTION -->
                     <execution>
                         <id>cte_return_reception_svsp_prod</id>
@@ -9770,7 +9966,8 @@
                         <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/cte/svsp/prod/return_reception.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/cte/svsp/prod/return_reception.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <wsdlLocation>
                                 https://nfe.fazenda.sp.gov.br/cteWEB/services/cteRetRecepcao.asmx?wsdl
@@ -9792,7 +9989,8 @@
                         <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/cte/svsp/hom/return_reception.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/cte/svsp/hom/return_reception.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <wsdlLocation>
                                 https://homologacao.nfe.fazenda.sp.gov.br/cteWEB/services/cteRetRecepcao.asmx?wsdl
@@ -9858,7 +10056,8 @@
                         <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/cte/svsp/prod/query_situation.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/cte/svsp/prod/query_situation.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <wsdlLocation>
                                 https://nfe.fazenda.sp.gov.br/cteWEB/services/cteConsulta.asmx?wsdl
@@ -9880,7 +10079,8 @@
                         <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/cte/svsp/hom/query_situation.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/cte/svsp/hom/query_situation.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <wsdlLocation>
                                 https://homologacao.nfe.fazenda.sp.gov.br/cteWEB/services/cteConsulta.asmx?wsdl
@@ -9902,7 +10102,8 @@
                         <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/cte/svsp/prod/status_service.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/cte/svsp/prod/status_service.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <wsdlLocation>
                                 https://nfe.fazenda.sp.gov.br/cteWEB/services/cteStatusServico.asmx?wsdl
@@ -10035,7 +10236,8 @@
                         <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/cte/svsp/prod/reception_gtve.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/cte/svsp/prod/reception_gtve.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <wsdlLocation>
                                 https://nfe.fazenda.sp.gov.br/cteWEB/services/cteRecepcaoGTVe.asmx?wsdl
@@ -10199,7 +10401,8 @@
                                 https://mdfe-homologacao.svrs.rs.gov.br/ws/MDFeConsulta/MDFeConsulta.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/mdfe/svrs/hom/query_situation.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/mdfe/svrs/hom/query_situation.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.mdfe.wsdl.query_situation.svrs.hom</packageName>
@@ -10221,7 +10424,8 @@
                                 https://mdfe-homologacao.svrs.rs.gov.br/ws/MDFeConsNaoEnc/MDFeConsNaoEnc.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/mdfe/svrs/hom/query_unclosed.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/mdfe/svrs/hom/query_unclosed.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.mdfe.wsdl.query_unclosed.svrs.hom</packageName>
@@ -10265,7 +10469,8 @@
                                 https://mdfe-homologacao.svrs.rs.gov.br/ws/MDFeRecepcaoSinc/MDFeRecepcaoSinc.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/mdfe/svrs/hom/reception_sync.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/mdfe/svrs/hom/reception_sync.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.mdfe.wsdl.reception_sync.svrs.hom</packageName>
@@ -10287,7 +10492,8 @@
                                 https://mdfe-homologacao.svrs.rs.gov.br/ws/MDFeStatusServico/MDFeStatusServico.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/mdfe/svrs/hom/status_service.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/mdfe/svrs/hom/status_service.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.mdfe.wsdl.status_service.svrs.hom</packageName>
@@ -10353,7 +10559,8 @@
                                 https://mdfe.svrs.rs.gov.br/ws/MDFeRetRecepcao/MDFeRetRecepcao.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/mdfe/svrs/prod/query_receipt.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/mdfe/svrs/prod/query_receipt.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.mdfe.wsdl.query_receipt.svrs.prod</packageName>
@@ -10375,7 +10582,8 @@
                                 https://mdfe.svrs.rs.gov.br/ws/MDFeConsulta/MDFeConsulta.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/mdfe/svrs/prod/query_situation.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/mdfe/svrs/prod/query_situation.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.mdfe.wsdl.query_situation.svrs.prod</packageName>
@@ -10397,7 +10605,8 @@
                                 https://mdfe.svrs.rs.gov.br/ws/MDFeConsNaoEnc/MDFeConsNaoEnc.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/mdfe/svrs/prod/query_unclosed.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/mdfe/svrs/prod/query_unclosed.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.mdfe.wsdl.query_unclosed.svrs.prod</packageName>
@@ -10441,7 +10650,8 @@
                                 https://mdfe.svrs.rs.gov.br/ws/MDFeRecepcaoSinc/MDFeRecepcaoSinc.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/mdfe/svrs/prod/reception_sync.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/mdfe/svrs/prod/reception_sync.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.mdfe.wsdl.reception_sync.svrs.prod</packageName>
@@ -10463,7 +10673,8 @@
                                 https://mdfe.svrs.rs.gov.br/ws/MDFeStatusServico/MDFeStatusServico.asmx?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
-                                <wsdlFile>${basedir}/src/main/resources/wsdl/mdfe/svrs/prod/status_service.wsdl</wsdlFile>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/mdfe/svrs/prod/status_service.wsdl
+                                </wsdlFile>
                             </wsdlFiles>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.mdfe.wsdl.status_service.svrs.prod</packageName>
