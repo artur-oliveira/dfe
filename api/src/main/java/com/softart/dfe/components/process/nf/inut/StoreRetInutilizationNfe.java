@@ -2,7 +2,7 @@ package com.softart.dfe.components.process.nf.inut;
 
 import br.inf.portalfiscal.nfe.send.TInutNFe;
 import br.inf.portalfiscal.nfe.send.TRetInutNFe;
-import com.softart.dfe.components.internal.xml.marshaller.NfMarshaller;
+import com.softart.dfe.components.internal.xml.marshaller.NfMarshallerFactory;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.interfaces.process.AfterRequest;
 import com.softart.dfe.interfaces.process.nf.inut.AfterInut;
@@ -19,7 +19,7 @@ public abstract class StoreRetInutilizationNfe implements AfterInut {
     public <T extends AfterRequest<TInutNFe, TRetInutNFe>> void process(T data) throws ProcessException {
         if (Objects.nonNull(data.getResponse()) && Objects.nonNull(data.getResponse().getInfInut())) {
             if (Objects.nonNull(getStorage()))
-                getStorage().storeRetInut(new XMLStore<>(data.getResponse(), data.getConfig(), NfMarshaller.retInutNfe(data.getResponse())));
+                getStorage().storeRetInut(new XMLStore<>(data.getResponse(), data.getConfig(), NfMarshallerFactory.getInstance().returnInutNfe(data.getResponse())));
         } else {
             log.warn(Objects.requireNonNull(data.getResponse()).getInfInut().getXMotivo());
         }

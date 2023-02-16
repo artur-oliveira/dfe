@@ -1,7 +1,7 @@
 package com.softart.dfe.components.process.nf.manifestation;
 
 import br.inf.portalfiscal.nfe.event_manifestation.TEnvEvento;
-import com.softart.dfe.components.internal.xml.marshaller.NfMarshaller;
+import com.softart.dfe.components.internal.xml.marshaller.NfMarshallerFactory;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.interfaces.process.BeforeRequest;
 import com.softart.dfe.interfaces.process.nf.manifestation.BeforeManifestation;
@@ -16,7 +16,7 @@ public abstract class StoreSendManifestationNfe implements BeforeManifestation {
     public <T extends BeforeRequest<TEnvEvento>> void process(T data) throws ProcessException {
         if (Objects.nonNull(data.getRequest()) && !data.getRequest().getEvento().isEmpty())
             if (Objects.nonNull(getStorage()))
-                getStorage().storeSendManifestation(new XMLStore<>(data.getRequest(), data.getConfig(), NfMarshaller.manifestationNfe(data.getRequest())));
+                getStorage().storeSendManifestation(new XMLStore<>(data.getRequest(), data.getConfig(), NfMarshallerFactory.getInstance().manifestationNfe(data.getRequest())));
 
     }
 

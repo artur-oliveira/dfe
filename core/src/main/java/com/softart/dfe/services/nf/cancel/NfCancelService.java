@@ -2,7 +2,7 @@ package com.softart.dfe.services.nf.cancel;
 
 import br.inf.portalfiscal.nfe.event_cancel.TEnvEvento;
 import br.inf.portalfiscal.nfe.event_cancel.TRetEnvEvento;
-import com.softart.dfe.components.internal.xml.unmarshaller.NfUnmarshaller;
+import com.softart.dfe.components.internal.xml.unmarshaller.NfUnmarshallerFactory;
 import com.softart.dfe.enums.nf.NFEvent;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.exceptions.ValidationException;
@@ -109,7 +109,7 @@ public interface NfCancelService extends NfSefazService {
      * @return A ReturnNfeCancel object.
      */
     default ReturnNfeCancel cancelXmlProc(Collection<String> xmlProcs, String motive) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
-        return cancelProcessed(xmlProcs.stream().map(xmlProc -> NfProcessed.builder().build().fromObject(NfUnmarshaller.nfeProc(xmlProc).getValue())).collect(Collectors.toList()), motive);
+        return cancelProcessed(xmlProcs.stream().map(xmlProc -> NfProcessed.builder().build().fromObject(NfUnmarshallerFactory.getInstance().nfeProc(xmlProc).getValue())).collect(Collectors.toList()), motive);
     }
 
     /**

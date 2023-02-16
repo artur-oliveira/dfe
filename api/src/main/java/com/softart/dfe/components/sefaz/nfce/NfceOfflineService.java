@@ -4,8 +4,8 @@ import br.inf.portalfiscal.nfe.event_substitute_cancel.TEnvEvento;
 import br.inf.portalfiscal.nfe.event_substitute_cancel.TRetEnvEvento;
 import br.inf.portalfiscal.nfe.send.*;
 import com.softart.dfe.components.internal.PairImpl;
-import com.softart.dfe.components.internal.xml.marshaller.NfMarshaller;
-import com.softart.dfe.components.internal.xml.unmarshaller.NfUnmarshaller;
+import com.softart.dfe.components.internal.xml.marshaller.NfMarshallerFactory;
+import com.softart.dfe.components.internal.xml.unmarshaller.NfUnmarshallerFactory;
 import com.softart.dfe.enums.internal.Environment;
 import com.softart.dfe.enums.internal.UF;
 import com.softart.dfe.enums.nf.identification.NFEmissionType;
@@ -61,8 +61,8 @@ public final class NfceOfflineService implements NfceService {
 
     @Override
     public <T extends SefazRequest<TEnviNFe, TRetEnviNFe>> Pair<TEnviNFe, TRetEnviNFe> authorize(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = data.getSigner().signNfe(NfMarshaller.sendNfe(data.getData()), data.getConfig());
-        JAXBElement<TEnviNFe> envio = NfUnmarshaller.enviNfe(xml);
+        String xml = data.getSigner().signNfe(NfMarshallerFactory.getInstance().sendNfe(data.getData()), data.getConfig());
+        JAXBElement<TEnviNFe> envio = NfUnmarshallerFactory.getInstance().enviNfe(xml);
 
         for (Validator<TEnviNFe> it : data.getValidators()) it.valid(new Validation<>(envio.getValue(), xml));
 

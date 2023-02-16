@@ -1,7 +1,7 @@
 package com.softart.dfe.components.process.nf.query_protocol;
 
 import br.inf.portalfiscal.nfe.send.TConsSitNFe;
-import com.softart.dfe.components.internal.xml.marshaller.NfMarshaller;
+import com.softart.dfe.components.internal.xml.marshaller.NfMarshallerFactory;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.interfaces.process.BeforeRequest;
 import com.softart.dfe.interfaces.process.nf.query_protocol.BeforeQueryProtocol;
@@ -17,7 +17,7 @@ public abstract class StoreQueryProtocolNfe implements BeforeQueryProtocol {
     @Override
     public <T extends BeforeRequest<TConsSitNFe>> void process(T data) throws ProcessException {
         if (Objects.nonNull(data.getRequest())) if (Objects.nonNull(getStorage()))
-            getStorage().storeEnvQueryProtocol(new XMLStore<>(data.getRequest(), data.getConfig(), NfMarshaller.queryProcotolNfe(data.getRequest())));
+            getStorage().storeEnvQueryProtocol(new XMLStore<>(data.getRequest(), data.getConfig(), NfMarshallerFactory.getInstance().queryProcotolNfe(data.getRequest())));
     }
 
     public abstract NfQueryProtocolStorage getStorage();

@@ -1,7 +1,7 @@
 package com.softart.dfe.components.process.nf.authorization;
 
 import br.inf.portalfiscal.nfe.send.TEnviNFe;
-import com.softart.dfe.components.internal.xml.marshaller.NfMarshaller;
+import com.softart.dfe.components.internal.xml.marshaller.NfMarshallerFactory;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.interfaces.process.BeforeRequest;
 import com.softart.dfe.interfaces.process.nf.authorization.BeforeAuthorization;
@@ -18,7 +18,7 @@ public abstract class StoreAuthorizationNfe implements BeforeAuthorization {
     public <T extends BeforeRequest<TEnviNFe>> void process(T data) throws ProcessException {
         if (Objects.nonNull(data.getRequest()))
             if (Objects.nonNull(getStorage()))
-                getStorage().storeEnvNfe(new XMLStore<>(data.getRequest(), data.getConfig(), NfMarshaller.sendNfe(data.getRequest())));
+                getStorage().storeEnvNfe(new XMLStore<>(data.getRequest(), data.getConfig(), NfMarshallerFactory.getInstance().sendNfe(data.getRequest())));
     }
 
     public abstract NfAuthorizationStorage getStorage();

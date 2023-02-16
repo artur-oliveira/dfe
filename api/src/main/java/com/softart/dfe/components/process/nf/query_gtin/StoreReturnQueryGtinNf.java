@@ -2,7 +2,7 @@ package com.softart.dfe.components.process.nf.query_gtin;
 
 import br.inf.portalfiscal.nfe.gtin.TConsGTIN;
 import br.inf.portalfiscal.nfe.gtin.TRetConsGTIN;
-import com.softart.dfe.components.internal.xml.marshaller.NfMarshaller;
+import com.softart.dfe.components.internal.xml.marshaller.NfMarshallerFactory;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.interfaces.process.AfterRequest;
 import com.softart.dfe.interfaces.process.nf.query_gtin.AfterQueryGtin;
@@ -19,7 +19,7 @@ public abstract class StoreReturnQueryGtinNf implements AfterQueryGtin {
     public <T extends AfterRequest<TConsGTIN, TRetConsGTIN>> void process(T data) throws ProcessException {
         if (Objects.nonNull(data.getResponse())) {
             if (Objects.nonNull(getStorage()))
-                getStorage().storeReturnQueryGtin(new XMLStore<>(data.getResponse(), data.getConfig(), NfMarshaller.returnQueryGtinNf(data.getResponse())));
+                getStorage().storeReturnQueryGtin(new XMLStore<>(data.getResponse(), data.getConfig(), NfMarshallerFactory.getInstance().returnQueryGtinNf(data.getResponse())));
         } else {
             log.warn(Objects.requireNonNull(data.getResponse()).getXMotivo());
         }

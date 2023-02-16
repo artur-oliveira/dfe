@@ -1,7 +1,7 @@
 package com.softart.dfe.components.process.nf.substitute_cancel;
 
 import br.inf.portalfiscal.nfe.event_substitute_cancel.TEnvEvento;
-import com.softart.dfe.components.internal.xml.marshaller.NfMarshaller;
+import com.softart.dfe.components.internal.xml.marshaller.NfMarshallerFactory;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.interfaces.process.BeforeRequest;
 import com.softart.dfe.interfaces.process.nf.substitute_cancel.BeforeSubstituteCancel;
@@ -16,7 +16,7 @@ public abstract class StoreSendSubstituteCancelNfe implements BeforeSubstituteCa
     public <T extends BeforeRequest<TEnvEvento>> void process(T data) throws ProcessException {
         if (Objects.nonNull(data.getRequest()) && !data.getRequest().getEvento().isEmpty())
             if (Objects.nonNull(getStorage()))
-                getStorage().storeSendSubstituteCancel(new XMLStore<>(data.getRequest(), data.getConfig(), NfMarshaller.substituteCancelNfe(data.getRequest())));
+                getStorage().storeSendSubstituteCancel(new XMLStore<>(data.getRequest(), data.getConfig(), NfMarshallerFactory.getInstance().substituteCancelNfe(data.getRequest())));
 
     }
 

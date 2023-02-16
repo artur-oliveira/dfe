@@ -1,7 +1,7 @@
 package com.softart.dfe.components.process.nf.inut;
 
 import br.inf.portalfiscal.nfe.send.TInutNFe;
-import com.softart.dfe.components.internal.xml.marshaller.NfMarshaller;
+import com.softart.dfe.components.internal.xml.marshaller.NfMarshallerFactory;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.interfaces.process.BeforeRequest;
 import com.softart.dfe.interfaces.process.nf.inut.BeforeInut;
@@ -17,7 +17,7 @@ public abstract class StoreSendInutilizationNfe implements BeforeInut {
     @Override
     public <T extends BeforeRequest<TInutNFe>> void process(T data) throws ProcessException {
         if (Objects.nonNull(data.getRequest())) if (Objects.nonNull(getStorage()))
-            getStorage().storeEnvInut(new XMLStore<>(data.getRequest(), data.getConfig(), NfMarshaller.inutNfe(data.getRequest())));
+            getStorage().storeEnvInut(new XMLStore<>(data.getRequest(), data.getConfig(), NfMarshallerFactory.getInstance().inutNfe(data.getRequest())));
 
     }
 

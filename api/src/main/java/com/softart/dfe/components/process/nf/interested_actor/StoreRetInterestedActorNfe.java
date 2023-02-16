@@ -2,7 +2,7 @@ package com.softart.dfe.components.process.nf.interested_actor;
 
 import br.inf.portalfiscal.nfe.event_interested_actor.TEnvEvento;
 import br.inf.portalfiscal.nfe.event_interested_actor.TRetEnvEvento;
-import com.softart.dfe.components.internal.xml.marshaller.NfMarshaller;
+import com.softart.dfe.components.internal.xml.marshaller.NfMarshallerFactory;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.interfaces.process.AfterRequest;
 import com.softart.dfe.interfaces.process.nf.interested_actor.AfterInterestedActor;
@@ -19,7 +19,7 @@ public abstract class StoreRetInterestedActorNfe implements AfterInterestedActor
     public <T extends AfterRequest<TEnvEvento, TRetEnvEvento>> void process(T data) throws ProcessException {
         if (Objects.nonNull(data.getResponse()) && !data.getResponse().getRetEvento().isEmpty()) {
             if (Objects.nonNull(getStorage()))
-                getStorage().storeRetInterestedActor(new XMLStore<>(data.getResponse(), data.getConfig(), NfMarshaller.retInterestedActorNfe(data.getResponse())));
+                getStorage().storeRetInterestedActor(new XMLStore<>(data.getResponse(), data.getConfig(), NfMarshallerFactory.getInstance().returnInterestedActorNfe(data.getResponse())));
         } else if (Objects.nonNull(data.getResponse())) {
             log.warn(data.getResponse().getXMotivo());
         }

@@ -3,7 +3,7 @@ package com.softart.dfe.components.process.nf.correction_letter;
 import br.inf.portalfiscal.nfe.event_correction_letter.TEnvEvento;
 import br.inf.portalfiscal.nfe.event_correction_letter.TProcEvento;
 import br.inf.portalfiscal.nfe.event_correction_letter.TRetEnvEvento;
-import com.softart.dfe.components.internal.xml.marshaller.NfMarshaller;
+import com.softart.dfe.components.internal.xml.marshaller.NfMarshallerFactory;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.interfaces.process.AfterRequest;
 import com.softart.dfe.interfaces.process.nf.correction_letter.AfterCorrectionLetter;
@@ -25,7 +25,7 @@ public abstract class StoreProcCorrectionLetterNfe implements AfterCorrectionLet
             procEvento.setVersao(procEvento.getRetEvento().getVersao());
 
             if (Objects.nonNull(getStorage()))
-                getStorage().storeProcCorrectionLetter(new XMLStore<>(procEvento, data.getConfig(), NfMarshaller.procCorrectionLetterNfe(procEvento)));
+                getStorage().storeProcCorrectionLetter(new XMLStore<>(procEvento, data.getConfig(), NfMarshallerFactory.getInstance().procCorrectionLetterNfe(procEvento)));
         } else if (Objects.nonNull(data.getResponse())) {
             log.warn(data.getResponse().getXMotivo());
         }

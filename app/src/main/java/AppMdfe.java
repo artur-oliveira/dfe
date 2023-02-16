@@ -45,7 +45,7 @@ public final class AppMdfe {
 //        statusService();
 //        querySituation("22221211520224000140580010000005611194025753");
 //        queryReceipt("222212115202240");
-//        distribution();
+        distribution();
 //        transportConfirmation("22221211520224000140580010000005611194025753");
 //        driverInclusion("22221211520224000140580010000005611194025753", "Artur Oliveira", "05213730345");
 //        paymentOperation("22221211520224000140580010000005611194025753");
@@ -53,7 +53,7 @@ public final class AppMdfe {
 //        paymentModification("22221211520224000140580010000005611194025753");
 //        close("22221211520224000140580010000005611194025753");
 //        cancel("22221211520224000140580010000005611194025753");
-        receptionSync();
+//        receptionSync();
     }
 
     public static Mdfe getMdfe(int number, MdfeConfig config) {

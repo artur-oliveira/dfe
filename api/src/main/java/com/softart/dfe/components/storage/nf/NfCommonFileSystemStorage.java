@@ -4,8 +4,8 @@ import br.inf.portalfiscal.nfe.gtin.TConsGTIN;
 import br.inf.portalfiscal.nfe.gtin.TRetConsGTIN;
 import br.inf.portalfiscal.nfe.send.*;
 import com.softart.dfe.components.internal.parser.AccessKeyParserFactory;
-import com.softart.dfe.components.internal.xml.marshaller.NfMarshaller;
-import com.softart.dfe.components.internal.xml.unmarshaller.NfUnmarshaller;
+import com.softart.dfe.components.internal.xml.marshaller.NfMarshallerFactory;
+import com.softart.dfe.components.internal.xml.unmarshaller.NfUnmarshallerFactory;
 import com.softart.dfe.components.storage.common.CommonFileSystemStorage;
 import com.softart.dfe.enums.internal.nf.NFStorageKey;
 import com.softart.dfe.enums.nf.NFReturnCode;
@@ -137,7 +137,7 @@ public class NfCommonFileSystemStorage extends CommonFileSystemStorage implement
 
         if (Objects.isNull(xml)) return;
 
-        TEnviNFe tEnviNFe = NfUnmarshaller.enviNfe(xml).getValue();
+        TEnviNFe tEnviNFe = NfUnmarshallerFactory.getInstance().enviNfe(xml).getValue();
 
         for (TProtNFe protNFe : o.getData().getProtNFe()) {
             TNfeProc proc = new ObjectFactory().createTNfeProc();
@@ -145,7 +145,7 @@ public class NfCommonFileSystemStorage extends CommonFileSystemStorage implement
             proc.setNFe(tEnviNFe.getNFe().stream().filter(it -> it.getInfNFe().getId().contains(protNFe.getInfProt().getChNFe())).findFirst().orElse(null));
             proc.setVersao(tEnviNFe.getNFe().get(0).getInfNFe().getVersao());
 
-            storeProcNfe(new XMLStore<>(proc, o.getConfig(), NfMarshaller.procNfe(proc)));
+            storeProcNfe(new XMLStore<>(proc, o.getConfig(), NfMarshallerFactory.getInstance().procNfe(proc)));
         }
     }
 

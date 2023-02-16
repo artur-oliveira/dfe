@@ -5,8 +5,8 @@ import br.inf.portalfiscal.nfe.distribution.TRetDistDFeInt;
 import br.inf.portalfiscal.nfe.event_manifestation.TEnvEvento;
 import br.inf.portalfiscal.nfe.event_manifestation.TRetEnvEvento;
 import com.softart.dfe.components.internal.PairImpl;
-import com.softart.dfe.components.internal.xml.marshaller.NfMarshaller;
-import com.softart.dfe.components.internal.xml.unmarshaller.NfUnmarshaller;
+import com.softart.dfe.components.internal.xml.marshaller.NfMarshallerFactory;
+import com.softart.dfe.components.internal.xml.unmarshaller.NfUnmarshallerFactory;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.exceptions.ValidationException;
 import com.softart.dfe.exceptions.security.SecurityException;
@@ -29,8 +29,8 @@ public abstract class NfeAnService implements NfeService {
 
     @Override
     public <T extends SefazRequest<TDistDFeInt, TRetDistDFeInt>> Pair<TDistDFeInt, TRetDistDFeInt> distribution(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = NfMarshaller.distributionNfe(data.getData());
-        JAXBElement<TDistDFeInt> envio = NfUnmarshaller.distributionNfe(xml);
+        String xml = NfMarshallerFactory.getInstance().distributionNfe(data.getData());
+        JAXBElement<TDistDFeInt> envio = NfUnmarshallerFactory.getInstance().distributionNfe(xml);
 
         for (Validator<TDistDFeInt> it : data.getValidators()) it.valid(new Validation<>(envio.getValue(), xml));
         for (BeforeWebServiceRequest<TDistDFeInt> it : data.getBeforeRequest())
@@ -70,8 +70,8 @@ public abstract class NfeAnService implements NfeService {
 
     @Override
     public <T extends SefazRequest<TEnvEvento, TRetEnvEvento>> Pair<TEnvEvento, TRetEnvEvento> manifestation(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = data.getSigner().signEvent(NfMarshaller.manifestationNfe(data.getData()), data.getConfig());
-        JAXBElement<TEnvEvento> envio = NfUnmarshaller.manifestationNfe(xml);
+        String xml = data.getSigner().signEvent(NfMarshallerFactory.getInstance().manifestationNfe(data.getData()), data.getConfig());
+        JAXBElement<TEnvEvento> envio = NfUnmarshallerFactory.getInstance().manifestationNfe(xml);
 
         for (Validator<TEnvEvento> it : data.getValidators()) it.valid(new Validation<>(envio.getValue(), xml));
         for (BeforeWebServiceRequest<TEnvEvento> it : data.getBeforeRequest())
@@ -110,8 +110,8 @@ public abstract class NfeAnService implements NfeService {
 
     @Override
     public <T extends SefazRequest<br.inf.portalfiscal.nfe.event_epec.TEnvEvento, br.inf.portalfiscal.nfe.event_epec.TRetEnvEvento>> Pair<br.inf.portalfiscal.nfe.event_epec.TEnvEvento, br.inf.portalfiscal.nfe.event_epec.TRetEnvEvento> epec(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = data.getSigner().signEvent(NfMarshaller.epecNfe(data.getData()), data.getConfig());
-        JAXBElement<br.inf.portalfiscal.nfe.event_epec.TEnvEvento> envio = NfUnmarshaller.epectNfe(xml);
+        String xml = data.getSigner().signEvent(NfMarshallerFactory.getInstance().epecNfe(data.getData()), data.getConfig());
+        JAXBElement<br.inf.portalfiscal.nfe.event_epec.TEnvEvento> envio = NfUnmarshallerFactory.getInstance().epecNfe(xml);
 
         for (Validator<br.inf.portalfiscal.nfe.event_epec.TEnvEvento> it : data.getValidators())
             it.valid(new Validation<>(envio.getValue(), xml));

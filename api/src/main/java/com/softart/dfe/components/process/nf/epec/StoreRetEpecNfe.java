@@ -2,7 +2,7 @@ package com.softart.dfe.components.process.nf.epec;
 
 import br.inf.portalfiscal.nfe.event_epec.TEnvEvento;
 import br.inf.portalfiscal.nfe.event_epec.TRetEnvEvento;
-import com.softart.dfe.components.internal.xml.marshaller.NfMarshaller;
+import com.softart.dfe.components.internal.xml.marshaller.NfMarshallerFactory;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.interfaces.process.AfterRequest;
 import com.softart.dfe.interfaces.process.nf.epec.AfterEpec;
@@ -19,7 +19,7 @@ public abstract class StoreRetEpecNfe implements AfterEpec {
     public <T extends AfterRequest<TEnvEvento, TRetEnvEvento>> void process(T data) throws ProcessException {
         if (Objects.nonNull(data.getResponse()) && !data.getResponse().getRetEvento().isEmpty()) {
             if (Objects.nonNull(getStorage()))
-                getStorage().storeRetEpec(new XMLStore<>(data.getResponse(), data.getConfig(), NfMarshaller.retEpecNfe(data.getResponse())));
+                getStorage().storeRetEpec(new XMLStore<>(data.getResponse(), data.getConfig(), NfMarshallerFactory.getInstance().returnEpecNfe(data.getResponse())));
         } else if (Objects.nonNull(data.getResponse())) {
             log.warn(data.getResponse().getXMotivo());
         }

@@ -1,7 +1,7 @@
 package com.softart.dfe.components.process.nf.return_authorization;
 
 import br.inf.portalfiscal.nfe.send.TConsReciNFe;
-import com.softart.dfe.components.internal.xml.marshaller.NfMarshaller;
+import com.softart.dfe.components.internal.xml.marshaller.NfMarshallerFactory;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.interfaces.process.BeforeRequest;
 import com.softart.dfe.interfaces.process.nf.return_authorization.BeforeReturnAuthorization;
@@ -17,7 +17,7 @@ public abstract class StoreSendQueryReceiptNfe implements BeforeReturnAuthorizat
     @Override
     public <T extends BeforeRequest<TConsReciNFe>> void process(T data) throws ProcessException {
         if (Objects.nonNull(data.getRequest())) if (Objects.nonNull(getStorage()))
-            getStorage().storeEnvReturnAuthorization(new XMLStore<>(data.getRequest(), data.getConfig(), NfMarshaller.queryReceiptNfe(data.getRequest())));
+            getStorage().storeEnvReturnAuthorization(new XMLStore<>(data.getRequest(), data.getConfig(), NfMarshallerFactory.getInstance().queryReceiptNfe(data.getRequest())));
 
     }
 

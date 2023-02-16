@@ -1,7 +1,7 @@
 package com.softart.dfe.services.nf.authorization;
 
 import br.inf.portalfiscal.nfe.send.TEnviNFe;
-import com.softart.dfe.components.internal.xml.unmarshaller.NfUnmarshaller;
+import com.softart.dfe.components.internal.xml.unmarshaller.NfUnmarshallerFactory;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.exceptions.ValidationException;
 import com.softart.dfe.exceptions.port.SoapServiceGeneralException;
@@ -93,7 +93,7 @@ public interface NfAuthorizationService extends NfSefazService {
      * @return ReturnSendNf
      */
     default ReturnSendNf authorizationFromEnviNfe(String xml) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
-        return authorization(NfUnmarshaller.enviNfe(xml).getValue());
+        return authorization(NfUnmarshallerFactory.getInstance().enviNfe(xml).getValue());
     }
 
     /**
@@ -106,7 +106,7 @@ public interface NfAuthorizationService extends NfSefazService {
      * @return ReturnSendNf
      */
     default ReturnSendNf authorizationFromNfe(String xml) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
-        return authorization(xml, x -> Nf.builder().build().fromObject(NfUnmarshaller.nfe(xml).getValue()));
+        return authorization(xml, x -> Nf.builder().build().fromObject(NfUnmarshallerFactory.getInstance().nfe(xml).getValue()));
     }
 
     NfCommonService getService() throws NoProviderFound, SoapServiceGeneralException;

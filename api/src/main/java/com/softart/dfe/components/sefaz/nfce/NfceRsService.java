@@ -4,8 +4,8 @@ import br.inf.portalfiscal.nfe.event_substitute_cancel.TEnvEvento;
 import br.inf.portalfiscal.nfe.event_substitute_cancel.TRetEnvEvento;
 import br.inf.portalfiscal.nfe.send.*;
 import com.softart.dfe.components.internal.PairImpl;
-import com.softart.dfe.components.internal.xml.marshaller.NfMarshaller;
-import com.softart.dfe.components.internal.xml.unmarshaller.NfUnmarshaller;
+import com.softart.dfe.components.internal.xml.marshaller.NfMarshallerFactory;
+import com.softart.dfe.components.internal.xml.unmarshaller.NfUnmarshallerFactory;
 import com.softart.dfe.enums.internal.Environment;
 import com.softart.dfe.enums.internal.UF;
 import com.softart.dfe.enums.nf.identification.NFEmissionType;
@@ -59,8 +59,8 @@ public final class NfceRsService implements NfceService {
 
     @Override
     public <T extends SefazRequest<TEnviNFe, TRetEnviNFe>> Pair<TEnviNFe, TRetEnviNFe> authorize(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = data.getSigner().signNfe(NfMarshaller.sendNfe(data.getData()), data.getConfig());
-        JAXBElement<TEnviNFe> envio = NfUnmarshaller.enviNfe(xml);
+        String xml = data.getSigner().signNfe(NfMarshallerFactory.getInstance().sendNfe(data.getData()), data.getConfig());
+        JAXBElement<TEnviNFe> envio = NfUnmarshallerFactory.getInstance().enviNfe(xml);
 
         for (Validator<TEnviNFe> it : data.getValidators()) it.valid(new Validation<>(envio.getValue(), xml));
         for (BeforeWebServiceRequest<TEnviNFe> it : data.getBeforeRequest())
@@ -96,8 +96,8 @@ public final class NfceRsService implements NfceService {
 
     @Override
     public <T extends SefazRequest<br.inf.portalfiscal.nfe.event_cancel.TEnvEvento, br.inf.portalfiscal.nfe.event_cancel.TRetEnvEvento>> Pair<br.inf.portalfiscal.nfe.event_cancel.TEnvEvento, br.inf.portalfiscal.nfe.event_cancel.TRetEnvEvento> cancel(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = data.getSigner().signEvent(NfMarshaller.cancelNfe(data.getData()), data.getConfig());
-        JAXBElement<br.inf.portalfiscal.nfe.event_cancel.TEnvEvento> envio = NfUnmarshaller.cancelNfe(xml);
+        String xml = data.getSigner().signEvent(NfMarshallerFactory.getInstance().cancelNfe(data.getData()), data.getConfig());
+        JAXBElement<br.inf.portalfiscal.nfe.event_cancel.TEnvEvento> envio = NfUnmarshallerFactory.getInstance().cancelNfe(xml);
 
         for (Validator<br.inf.portalfiscal.nfe.event_cancel.TEnvEvento> it : data.getValidators())
             it.valid(new Validation<>(envio.getValue(), xml));
@@ -138,8 +138,8 @@ public final class NfceRsService implements NfceService {
 
     @Override
     public <T extends SefazRequest<TInutNFe, TRetInutNFe>> Pair<TInutNFe, TRetInutNFe> inutilization(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = data.getSigner().signInut(NfMarshaller.inutNfe(data.getData()), data.getConfig());
-        JAXBElement<TInutNFe> envio = NfUnmarshaller.inutNfe(xml);
+        String xml = data.getSigner().signInut(NfMarshallerFactory.getInstance().inutNfe(data.getData()), data.getConfig());
+        JAXBElement<TInutNFe> envio = NfUnmarshallerFactory.getInstance().inutNfe(xml);
 
         for (Validator<TInutNFe> it : data.getValidators()) it.valid(new Validation<>(envio.getValue(), xml));
         for (BeforeWebServiceRequest<TInutNFe> it : data.getBeforeRequest())
@@ -176,8 +176,8 @@ public final class NfceRsService implements NfceService {
 
     @Override
     public <T extends SefazRequest<TConsSitNFe, TRetConsSitNFe>> Pair<TConsSitNFe, TRetConsSitNFe> queryProtocol(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = NfMarshaller.queryProcotolNfe(data.getData());
-        JAXBElement<TConsSitNFe> envio = NfUnmarshaller.queryProtocolNfe(xml);
+        String xml = NfMarshallerFactory.getInstance().queryProcotolNfe(data.getData());
+        JAXBElement<TConsSitNFe> envio = NfUnmarshallerFactory.getInstance().queryProtocolNfe(xml);
 
         for (Validator<TConsSitNFe> it : data.getValidators()) it.valid(new Validation<>(envio.getValue(), xml));
 
@@ -216,8 +216,8 @@ public final class NfceRsService implements NfceService {
 
     @Override
     public <T extends SefazRequest<TConsReciNFe, TRetConsReciNFe>> Pair<TConsReciNFe, TRetConsReciNFe> queryReceipt(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = NfMarshaller.queryReceiptNfe(data.getData());
-        JAXBElement<TConsReciNFe> envio = NfUnmarshaller.queryReceiptNfe(xml);
+        String xml = NfMarshallerFactory.getInstance().queryReceiptNfe(data.getData());
+        JAXBElement<TConsReciNFe> envio = NfUnmarshallerFactory.getInstance().queryReceiptNfe(xml);
 
         for (Validator<TConsReciNFe> it : data.getValidators()) it.valid(new Validation<>(envio.getValue(), xml));
 
@@ -257,7 +257,7 @@ public final class NfceRsService implements NfceService {
 
     @Override
     public <T extends SefazRequest<TConsStatServ, TRetConsStatServ>> Pair<TConsStatServ, TRetConsStatServ> queryStatusService(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = NfMarshaller.queryStatusServiceNfe(data.getData());
+        String xml = NfMarshallerFactory.getInstance().queryStatusServiceNfe(data.getData());
         JAXBElement<TConsStatServ> envio = new ObjectFactory().createConsStatServ(data.getData());
 
         for (Validator<TConsStatServ> it : data.getValidators())
@@ -300,8 +300,8 @@ public final class NfceRsService implements NfceService {
 
     @Override
     public <T extends SefazRequest<TEnvEvento, TRetEnvEvento>> Pair<TEnvEvento, TRetEnvEvento> substituteCancel(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = data.getSigner().signEvent(NfMarshaller.substituteCancelNfe(data.getData()), data.getConfig());
-        JAXBElement<TEnvEvento> envio = NfUnmarshaller.substituteCancelNfe(xml);
+        String xml = data.getSigner().signEvent(NfMarshallerFactory.getInstance().substituteCancelNfe(data.getData()), data.getConfig());
+        JAXBElement<TEnvEvento> envio = NfUnmarshallerFactory.getInstance().substituteCancelNfe(xml);
 
         for (Validator<TEnvEvento> it : data.getValidators())
             it.valid(new Validation<>(envio.getValue(), xml));

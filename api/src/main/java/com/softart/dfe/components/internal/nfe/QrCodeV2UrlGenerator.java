@@ -1,8 +1,8 @@
 package com.softart.dfe.components.internal.nfe;
 
 import com.softart.dfe.components.internal.parser.AccessKeyParserFactory;
-import com.softart.dfe.components.internal.xml.marshaller.NfMarshaller;
-import com.softart.dfe.components.internal.xml.unmarshaller.NfUnmarshaller;
+import com.softart.dfe.components.internal.xml.marshaller.NfMarshallerFactory;
+import com.softart.dfe.components.internal.xml.unmarshaller.NfUnmarshallerFactory;
 import com.softart.dfe.enums.internal.nf.QrCodeNfceURL;
 import com.softart.dfe.exceptions.security.XMLSignException;
 import com.softart.dfe.exceptions.services.NoProviderFound;
@@ -43,7 +43,7 @@ final class QrCodeV2UrlGenerator extends QrCodeGeneratorFactory {
                     .append("|")
                     .append(nfQrCode.getNf().VNF())
                     .append("|")
-                    .append(HashUtils.hex(Base64Utils.decodeBinary(NfUnmarshaller.nfe(nfQrCode.getXmlSigner().signNfe(NfMarshaller.nfe(nfQrCode.getNf().toObject()), nfQrCode.getConfig())).getValue().getSignature().getSignedInfo().getReference().getDigestValue())))
+                    .append(HashUtils.hex(Base64Utils.decodeBinary(NfUnmarshallerFactory.getInstance().nfe(nfQrCode.getXmlSigner().signNfe(NfMarshallerFactory.getInstance().nfe(nfQrCode.getNf().toObject()), nfQrCode.getConfig())).getValue().getSignature().getSignedInfo().getReference().getDigestValue())))
                     .append("|");
         }
 

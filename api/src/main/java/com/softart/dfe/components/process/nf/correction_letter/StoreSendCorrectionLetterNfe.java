@@ -1,7 +1,7 @@
 package com.softart.dfe.components.process.nf.correction_letter;
 
 import br.inf.portalfiscal.nfe.event_correction_letter.TEnvEvento;
-import com.softart.dfe.components.internal.xml.marshaller.NfMarshaller;
+import com.softart.dfe.components.internal.xml.marshaller.NfMarshallerFactory;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.interfaces.process.BeforeRequest;
 import com.softart.dfe.interfaces.process.nf.correction_letter.BeforeCorrectionLetter;
@@ -16,7 +16,7 @@ public abstract class StoreSendCorrectionLetterNfe implements BeforeCorrectionLe
     public <T extends BeforeRequest<TEnvEvento>> void process(T data) throws ProcessException {
         if (Objects.nonNull(data.getRequest()) && !data.getRequest().getEvento().isEmpty())
             if (Objects.nonNull(getStorage()))
-                getStorage().storeSendCorrectionLetter(new XMLStore<>(data.getRequest(), data.getConfig(), NfMarshaller.correctionLetterNfe(data.getRequest())));
+                getStorage().storeSendCorrectionLetter(new XMLStore<>(data.getRequest(), data.getConfig(), NfMarshallerFactory.getInstance().correctionLetterNfe(data.getRequest())));
 
     }
 

@@ -1,7 +1,7 @@
 package com.softart.dfe.components.process.nf.interested_actor;
 
 import br.inf.portalfiscal.nfe.event_interested_actor.TEnvEvento;
-import com.softart.dfe.components.internal.xml.marshaller.NfMarshaller;
+import com.softart.dfe.components.internal.xml.marshaller.NfMarshallerFactory;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.interfaces.process.BeforeRequest;
 import com.softart.dfe.interfaces.process.nf.interested_actor.BeforeInterestedActor;
@@ -16,7 +16,7 @@ public abstract class StoreSendInterestedActorNfe implements BeforeInterestedAct
     public <T extends BeforeRequest<TEnvEvento>> void process(T data) throws ProcessException {
         if (Objects.nonNull(data.getRequest()) && !data.getRequest().getEvento().isEmpty())
             if (Objects.nonNull(getStorage()))
-                getStorage().storeSendInterestedActor(new XMLStore<>(data.getRequest(), data.getConfig(), NfMarshaller.interestedActorNfe(data.getRequest())));
+                getStorage().storeSendInterestedActor(new XMLStore<>(data.getRequest(), data.getConfig(), NfMarshallerFactory.getInstance().interestedActorNfe(data.getRequest())));
 
     }
 

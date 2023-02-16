@@ -1,7 +1,7 @@
 package com.softart.dfe.components.process.nf.cancel;
 
 import br.inf.portalfiscal.nfe.event_cancel.TEnvEvento;
-import com.softart.dfe.components.internal.xml.marshaller.NfMarshaller;
+import com.softart.dfe.components.internal.xml.marshaller.NfMarshallerFactory;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.interfaces.process.BeforeRequest;
 import com.softart.dfe.interfaces.process.nf.cancel.BeforeCancel;
@@ -16,7 +16,7 @@ public abstract class StoreSendCancelNfe implements BeforeCancel {
     public <T extends BeforeRequest<TEnvEvento>> void process(T data) throws ProcessException {
         if (Objects.nonNull(data.getRequest()) && !data.getRequest().getEvento().isEmpty())
             if (Objects.nonNull(getStorage()))
-                getStorage().storeSendCancel(new XMLStore<>(data.getRequest(), data.getConfig(), NfMarshaller.cancelNfe(data.getRequest())));
+                getStorage().storeSendCancel(new XMLStore<>(data.getRequest(), data.getConfig(), NfMarshallerFactory.getInstance().cancelNfe(data.getRequest())));
 
     }
 

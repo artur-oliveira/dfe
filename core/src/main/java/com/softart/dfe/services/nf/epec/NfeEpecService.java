@@ -2,7 +2,7 @@ package com.softart.dfe.services.nf.epec;
 
 import br.inf.portalfiscal.nfe.event_epec.TEnvEvento;
 import br.inf.portalfiscal.nfe.event_epec.TUf;
-import com.softart.dfe.components.internal.xml.unmarshaller.NfUnmarshaller;
+import com.softart.dfe.components.internal.xml.unmarshaller.NfUnmarshallerFactory;
 import com.softart.dfe.enums.nf.identification.NFType;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.exceptions.ValidationException;
@@ -144,7 +144,7 @@ public interface NfeEpecService extends NfSefazService {
      * @return ReturnNfeEpec
      */
     default ReturnNfeEpec epecFromNfe(String xml) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
-        return epec((o) -> Nf.builder().build().fromObject(NfUnmarshaller.nfe(o).getValue()), xml);
+        return epec((o) -> Nf.builder().build().fromObject(NfUnmarshallerFactory.getInstance().nfe(o).getValue()), xml);
     }
 
     /**
@@ -154,6 +154,6 @@ public interface NfeEpecService extends NfSefazService {
      * @return ReturnNfeEpec
      */
     default ReturnNfeEpec epecFromEnviNfe(String xml) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
-        return epec(NfUnmarshaller.enviNfe(xml).getValue().getNFe().stream().map(it -> Nf.builder().build().fromObject(it)).collect(Collectors.toList()));
+        return epec(NfUnmarshallerFactory.getInstance().enviNfe(xml).getValue().getNFe().stream().map(it -> Nf.builder().build().fromObject(it)).collect(Collectors.toList()));
     }
 }

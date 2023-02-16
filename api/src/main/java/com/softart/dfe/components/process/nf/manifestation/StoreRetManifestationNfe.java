@@ -2,7 +2,7 @@ package com.softart.dfe.components.process.nf.manifestation;
 
 import br.inf.portalfiscal.nfe.event_manifestation.TEnvEvento;
 import br.inf.portalfiscal.nfe.event_manifestation.TRetEnvEvento;
-import com.softart.dfe.components.internal.xml.marshaller.NfMarshaller;
+import com.softart.dfe.components.internal.xml.marshaller.NfMarshallerFactory;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.interfaces.process.AfterRequest;
 import com.softart.dfe.interfaces.process.nf.manifestation.AfterManifestation;
@@ -19,7 +19,7 @@ public abstract class StoreRetManifestationNfe implements AfterManifestation {
     public <T extends AfterRequest<TEnvEvento, TRetEnvEvento>> void process(T data) throws ProcessException {
         if (Objects.nonNull(data.getResponse()) && !data.getResponse().getRetEvento().isEmpty()) {
             if (Objects.nonNull(getStorage()))
-                getStorage().storeRetManifestation(new XMLStore<>(data.getResponse(), data.getConfig(), NfMarshaller.retManifestationNfe(data.getResponse())));
+                getStorage().storeRetManifestation(new XMLStore<>(data.getResponse(), data.getConfig(), NfMarshallerFactory.getInstance().returnManifestationNfe(data.getResponse())));
         } else {
             log.warn(data.getResponse().getXMotivo());
         }

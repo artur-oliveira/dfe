@@ -3,7 +3,7 @@ package com.softart.dfe.components.process.nf.substitute_cancel;
 import br.inf.portalfiscal.nfe.event_substitute_cancel.TEnvEvento;
 import br.inf.portalfiscal.nfe.event_substitute_cancel.TProcEvento;
 import br.inf.portalfiscal.nfe.event_substitute_cancel.TRetEnvEvento;
-import com.softart.dfe.components.internal.xml.marshaller.NfMarshaller;
+import com.softart.dfe.components.internal.xml.marshaller.NfMarshallerFactory;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.interfaces.process.AfterRequest;
 import com.softart.dfe.interfaces.process.nf.substitute_cancel.AfterSubstituteCancel;
@@ -25,7 +25,7 @@ public abstract class StoreProcSubstituteCancelNfe implements AfterSubstituteCan
             procEvento.setVersao(procEvento.getRetEvento().getVersao());
 
             if (Objects.nonNull(getStorage()))
-                getStorage().storeProcSubstituteCancel(new XMLStore<>(procEvento, data.getConfig(), NfMarshaller.procSubstituteCancelNfe(procEvento)));
+                getStorage().storeProcSubstituteCancel(new XMLStore<>(procEvento, data.getConfig(), NfMarshallerFactory.getInstance().procSubstituteCancelNfe(procEvento)));
         } else if (Objects.nonNull(data.getResponse())) {
             log.warn(data.getResponse().getXMotivo());
         }

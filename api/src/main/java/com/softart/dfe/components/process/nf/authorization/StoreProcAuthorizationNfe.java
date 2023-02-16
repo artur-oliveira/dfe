@@ -2,7 +2,7 @@ package com.softart.dfe.components.process.nf.authorization;
 
 import br.inf.portalfiscal.nfe.send.TEnviNFe;
 import br.inf.portalfiscal.nfe.send.TRetEnviNFe;
-import com.softart.dfe.components.internal.xml.marshaller.NfMarshaller;
+import com.softart.dfe.components.internal.xml.marshaller.NfMarshallerFactory;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.interfaces.process.AfterRequest;
 import com.softart.dfe.interfaces.process.nf.authorization.AfterAuthorization;
@@ -23,7 +23,7 @@ public abstract class StoreProcAuthorizationNfe implements AfterAuthorization {
                 proc.setNFe(data.getRequest().getNFe().get(0));
                 proc.setProtNFe(data.getResponse().getProtNFe());
                 proc.setVersao(data.getRequest().getNFe().get(0).getInfNFe().getVersao());
-                getStorage().storeProcNfe(new XMLStore<>(proc, data.getConfig(), NfMarshaller.procNfe(proc)));
+                getStorage().storeProcNfe(new XMLStore<>(proc, data.getConfig(), NfMarshallerFactory.getInstance().procNfe(proc)));
             }
         } else {
             log.warn(Objects.requireNonNull(data.getResponse()).getXMotivo());

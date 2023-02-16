@@ -2,7 +2,7 @@ package com.softart.dfe.components.process.nf.query_protocol;
 
 import br.inf.portalfiscal.nfe.send.TConsSitNFe;
 import br.inf.portalfiscal.nfe.send.TRetConsSitNFe;
-import com.softart.dfe.components.internal.xml.marshaller.NfMarshaller;
+import com.softart.dfe.components.internal.xml.marshaller.NfMarshallerFactory;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.interfaces.process.AfterRequest;
 import com.softart.dfe.interfaces.process.nf.query_protocol.AfterQueryProtocol;
@@ -19,7 +19,7 @@ public abstract class StoreReturnQueryProtocolNfe implements AfterQueryProtocol 
     public <T extends AfterRequest<TConsSitNFe, TRetConsSitNFe>> void process(T data) throws ProcessException {
         if (Objects.nonNull(data.getResponse())) {
             if (Objects.nonNull(getStorage()))
-                getStorage().storeRetQueryProtocol(new XMLStore<>(data.getResponse(), data.getConfig(), NfMarshaller.retQueryProtocolNfe(data.getResponse())));
+                getStorage().storeRetQueryProtocol(new XMLStore<>(data.getResponse(), data.getConfig(), NfMarshallerFactory.getInstance().returnQueryProtocolNfe(data.getResponse())));
         } else {
             log.warn(Objects.requireNonNull(data.getResponse()).getXMotivo());
         }

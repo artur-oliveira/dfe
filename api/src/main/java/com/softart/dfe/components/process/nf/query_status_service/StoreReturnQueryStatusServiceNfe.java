@@ -2,7 +2,7 @@ package com.softart.dfe.components.process.nf.query_status_service;
 
 import br.inf.portalfiscal.nfe.send.TConsStatServ;
 import br.inf.portalfiscal.nfe.send.TRetConsStatServ;
-import com.softart.dfe.components.internal.xml.marshaller.NfMarshaller;
+import com.softart.dfe.components.internal.xml.marshaller.NfMarshallerFactory;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.interfaces.process.AfterRequest;
 import com.softart.dfe.interfaces.process.nf.query_status_service.AfterQueryStatusService;
@@ -19,7 +19,7 @@ public abstract class StoreReturnQueryStatusServiceNfe implements AfterQueryStat
     public <T extends AfterRequest<TConsStatServ, TRetConsStatServ>> void process(T data) throws ProcessException {
         if (Objects.nonNull(data.getResponse())) {
             if (Objects.nonNull(getStorage()))
-                getStorage().storeReturnQueryStatusService(new XMLStore<>(data.getResponse(), data.getConfig(), NfMarshaller.retQueryStatusServiceNfe(data.getResponse())));
+                getStorage().storeReturnQueryStatusService(new XMLStore<>(data.getResponse(), data.getConfig(), NfMarshallerFactory.getInstance().returnQueryStatusServiceNfe(data.getResponse())));
         } else {
             log.warn(Objects.requireNonNull(data.getResponse()).getXMotivo());
         }
