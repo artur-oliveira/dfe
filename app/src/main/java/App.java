@@ -274,7 +274,7 @@ public final class App {
     private static void queryStatusServiceNf() throws Exception {
         KeyStoreInfo info = KeyStoreFactory.getInstance();
 
-        NfConfig config = new PfxNfConfigImpl(UF.PI, "11520224000140", Environment.HOMOLOGATION, info, NFEmissionType.NORMAL, null, null);
+        NfConfig config = new PfxNfConfigImpl(UF.PE, "11520224000140", Environment.HOMOLOGATION, info, NFEmissionType.NORMAL, null, null);
         NfQueryStatusService service = new NfeQueryStatusServiceImpl(config);
 
         System.out.println(service.queryStatusService());
@@ -283,7 +283,7 @@ public final class App {
     private static void queryStatusServiceNfc() throws Exception {
         KeyStoreInfo info = KeyStoreFactory.getInstance();
 
-        NfConfig config = new PfxNfConfigImpl(UF.PI, "11520224000140", Environment.HOMOLOGATION, info, NFEmissionType.NORMAL, null, null);
+        NfConfig config = new PfxNfConfigImpl(UF.PE, "11520224000140", Environment.HOMOLOGATION, info, NFEmissionType.NORMAL, null, null);
         NfQueryStatusService service = new NfceQueryStatusServiceImpl(config);
 
         System.out.println(service.queryStatusService());

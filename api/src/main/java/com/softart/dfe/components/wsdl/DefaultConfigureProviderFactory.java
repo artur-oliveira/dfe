@@ -5,6 +5,7 @@ import com.softart.dfe.components.security.socket.SocketFactory;
 import com.softart.dfe.exceptions.security.SecurityException;
 import com.softart.dfe.interfaces.internal.config.Config;
 import com.softart.dfe.models.internal.wsdl.ProviderConfig;
+import com.sun.xml.internal.ws.client.BindingProviderProperties;
 import lombok.AccessLevel;
 import lombok.Getter;
 
@@ -15,13 +16,18 @@ import java.util.*;
 @Getter(AccessLevel.PRIVATE)
 final class DefaultConfigureProviderFactory extends ConfigureProviderFactory {
 
-    public static final int TIMEOUT_IN_SECS = Integer.parseInt(System.getProperty("com.softart.dfe.ws.timeout", "30"));
+    public static final int TIMEOUT_IN_SECS = Integer.parseInt(System.getProperty("com.softart.dfe.ws.timeout", "3"));
     private static final String SOCKET_FACTORY = "com.sun.xml.internal.ws.transport.https.client.SSLSocketFactory";
     private static final String ENDPOINT_ADDRESS = "javax.xml.ws.service.endpoint.address";
     private static final String CONNECT_TIMEOUT = "com.sun.xml.internal.ws.connect.timeout";
     private static final String REQUEST_TIMEOUT = "com.sun.xml.internal.ws.request.timeout";
 
     private final List<SOAPHandler<?>> handlers = Collections.singletonList(new CustomSoapHandler());
+
+    static {
+        System.setProperty("sun.net.client.defaultReadTimeout", Objects.toString(TIMEOUT_IN_SECS * 1000));
+        System.setProperty("sun.net.client.defaultConnectTimeout", Objects.toString(TIMEOUT_IN_SECS * 1000));
+    }
 
     public DefaultConfigureProviderFactory() {
     }
