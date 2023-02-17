@@ -15,6 +15,7 @@ public final class XMLStringUtils {
     private static final Collection<String> CURRENT_NAMESPACES = Arrays.asList("http://www.portalfiscal.inf.br/nfe", "http://www.portalfiscal.inf.br/cte", "http://www.portalfiscal.inf.br/mdfe", "http://www.w3.org/2000/09/xmldsig#");
 
     private XMLStringUtils() {
+        throw new UnsupportedOperationException("No instances of " + this.getClass().getSimpleName());
     }
 
     /**

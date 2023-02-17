@@ -10,13 +10,14 @@ import java.time.temporal.ChronoField;
 import java.time.temporal.Temporal;
 import java.time.temporal.TemporalAccessor;
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 public final class DateUtils {
 
     public final static String yyMM = "yyMM";
     public final static String ISO = "yyyy-MM-dd'T'HH:mm:ssXXX";
     public final static String ISO_DATE = "yyyy-MM-dd";
-    private final static Map<String, DateTimeFormatter> formatters = new HashMap<>();
+    private final static Map<String, DateTimeFormatter> formatters = new ConcurrentHashMap<>();
 
     static {
         formatters.put(yyMM, DateTimeFormatter.ofPattern(yyMM));

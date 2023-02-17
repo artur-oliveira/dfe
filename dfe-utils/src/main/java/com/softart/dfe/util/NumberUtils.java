@@ -5,7 +5,7 @@ import java.util.Random;
 
 public final class NumberUtils {
 
-    public final static int DEFAULT_RANDOM_DIGIT = Integer.parseInt(System.getProperty("DEFAULT_RANDOM_DIGIT", "15"));
+    public final static int DEFAULT_RANDOM_DIGIT = 15;
 
     private NumberUtils() {
         throw new UnsupportedOperationException("No instances of " + this.getClass().getSimpleName());
