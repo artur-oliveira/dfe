@@ -180,8 +180,8 @@ Under Brazilian law, XML's must be kept for up to five years.
   is **distMdfe**
 - _com.softart.dfe.storage.key.mdfe.return_distribution_: Prefix of the path where the MDF-e XML will be saved. Default
   value is **retDistMdfe**
-- _com.softart.dfe.storage.key.mdfe.event_: Prefix of the path where the MDF-e XML will be saved. Default value is **
-  eventoMdfe**
+- _com.softart.dfe.storage.key.mdfe.event_: Prefix of the path where the MDF-e XML will be saved.
+  Default value is **eventoMdfe**
 - _com.softart.dfe.storage.key.mdfe.return_event_: Prefix of the path where the MDF-e XML will be saved. Default value
   is **retEventoMdfe**
 - _com.softart.dfe.storage.key.mdfe.proc_event_: Prefix of the path where the MDF-e XML will be saved. Default value
@@ -208,8 +208,6 @@ Under Brazilian law, XML's must be kept for up to five years.
   is **mdfe**
 - _com.softart.dfe.storage.key.mdfe.return_reception_sync_: Prefix of the path where the MDF-e XML will be saved.
   Default value is **retMdfe**
-- _com.softart.dfe.storage.key.mdfe.proc_: Prefix of the path where the MDF-e XML will be saved. Default value is **
-  procMdfe**
 - _com.softart.dfe.storage.key.mdfe.status_service_: Prefix of the path where the MDF-e XML will be saved. Default value
   is **consStatServMdfe**
 - _com.softart.dfe.storage.key.mdfe.return_status_service_: Prefix of the path where the MDF-e XML will be saved.
