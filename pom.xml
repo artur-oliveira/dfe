@@ -15,6 +15,7 @@
         <module>nfe-services</module>
         <module>api</module>
         <module>core</module>
+        <module>storage-extras</module>
         <module>dfe-utils</module>
         <module>app</module>
     </modules>

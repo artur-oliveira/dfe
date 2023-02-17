@@ -7,9 +7,11 @@
         <groupId>com.softart</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
 
+    <modelVersion>4.0.0</modelVersion>
     <artifactId>cte-services</artifactId>
+    <name>CT-e Services</name>
+    <description>Contains all WebServices related to CT-e</description>
 
     <dependencies>
         <dependency>

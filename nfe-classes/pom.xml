@@ -7,8 +7,11 @@
         <groupId>com.softart</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
+
     <modelVersion>4.0.0</modelVersion>
     <artifactId>nfe-classes</artifactId>
+    <name>NF-e Classes</name>
+    <description>Contains all POJO classes related to NF-e/NFC-e</description>
 
     <dependencies>
         <dependency>

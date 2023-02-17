@@ -7,9 +7,13 @@
         <groupId>com.softart</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
 
+    <modelVersion>4.0.0</modelVersion>
     <artifactId>stubs</artifactId>
+    <name>DF-e Stubs</name>
+    <description>Root of all dfe project. Contains all WSDL / XSD info to generate the stubs (WebServices classes and
+        POJO models)
+    </description>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
