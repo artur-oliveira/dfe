@@ -83,7 +83,10 @@ final class CertificateChainServiceImpl extends CertificateChainFactory {
 
                 log.info(urls.size() + " HOSTS FOR GENERATING CERTIFICATES CHAIN");
 
-                for (String url : urls) get(keyStore, url);
+                for (String url : urls) {
+                    get(keyStore, url);
+                    log.debug("GENERATED FOR HOST: " + url);
+                }
                 keyStore.store(out, DEFAULT_PASSWORD.toCharArray());
                 return out.toByteArray();
             }

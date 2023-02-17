@@ -17,6 +17,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.net.ssl.HttpsURLConnection;
+import java.util.Objects;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
@@ -94,82 +95,146 @@ public abstract class AbstractMdfeSoapService extends AbstractSoapService implem
 
     @Override
     public <T> T receptionHom() {
-        return (T) this.receptionHom;
+        if (Objects.nonNull(getReceptionHom())) {
+            return (T) getReceptionHom();
+        }
+        setReceptionHom(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.RECEPTION).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
+        return (T) getReceptionHom();
     }
 
     @Override
     public <T> T queryReceiptHom() {
-        return (T) this.queryReceiptHom;
+        if (Objects.nonNull(getQueryReceiptHom())) {
+            return (T) getQueryReceiptHom();
+        }
+        setQueryReceiptHom(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.QUERY_RECEIPT).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
+        return (T) getQueryReceiptHom();
     }
 
     @Override
     public <T> T eventHom() {
-        return (T) this.eventHom;
+        if (Objects.nonNull(getEventHom())) {
+            return (T) getEventHom();
+        }
+        setEventHom(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.EVENT).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
+        return (T) getEventHom();
     }
 
     @Override
     public <T> T querySituationHom() {
-        return (T) this.querySituationHom;
+        if (Objects.nonNull(getQuerySituationHom())) {
+            return (T) getQuerySituationHom();
+        }
+        setQuerySituationHom(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.QUERY_SITUATION).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
+        return (T) getQuerySituationHom();
     }
 
     @Override
     public <T> T statusServiceHom() {
-        return (T) this.statusServiceHom;
+        if (Objects.nonNull(getStatusServiceHom())) {
+            return (T) getStatusServiceHom();
+        }
+        setStatusServiceHom(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.STATUS_SERVICE).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
+        return (T) getStatusServiceHom();
     }
 
     @Override
     public <T> T queryUnclosedHom() {
-        return (T) this.queryUnclosedHom;
+        if (Objects.nonNull(getQueryUnclosedHom())) {
+            return (T) getQueryUnclosedHom();
+        }
+        setQueryUnclosedHom(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.QUERY_UNCLOSED).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
+        return (T) getQueryUnclosedHom();
     }
 
     @Override
     public <T> T distributionHom() {
-        return (T) this.distributionHom;
+        if (Objects.nonNull(getDistributionHom())) {
+            return (T) getDistributionHom();
+        }
+        setDistributionHom(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.DISTRIBUTION).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
+        return (T) getDistributionHom();
     }
 
     @Override
     public <T> T receptionSyncHom() {
-        return (T) this.receptionSyncHom;
+        if (Objects.nonNull(getReceptionSyncHom())) {
+            return (T) getReceptionSyncHom();
+        }
+        setReceptionSyncHom(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.RECEPTION_SYNC).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
+        return (T) getReceptionSyncHom();
     }
 
     @Override
     public <T> T receptionProd() {
-        return (T) this.receptionProd;
+        if (Objects.nonNull(getReceptionProd())) {
+            return (T) getReceptionProd();
+        }
+        setReceptionProd(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.RECEPTION).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
+        return (T) getReceptionProd();
     }
 
     @Override
     public <T> T queryReceiptProd() {
-        return (T) this.queryReceiptProd;
+        if (Objects.nonNull(getQueryReceiptProd())) {
+            return (T) getQueryReceiptProd();
+        }
+        setQueryReceiptProd(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.QUERY_RECEIPT).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
+        return (T) getQueryReceiptProd();
     }
 
     @Override
     public <T> T eventProd() {
-        return (T) this.eventProd;
+        if (Objects.nonNull(getEventProd())) {
+            return (T) getEventProd();
+        }
+        setEventProd(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.EVENT).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
+        return (T) getEventProd();
     }
 
     @Override
     public <T> T querySituationProd() {
-        return (T) this.querySituationProd;
+        if (Objects.nonNull(getQuerySituationProd())) {
+            return (T) getQuerySituationProd();
+        }
+        setQuerySituationProd(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.QUERY_SITUATION).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
+        return (T) getQuerySituationProd();
     }
 
     @Override
     public <T> T statusServiceProd() {
-        return (T) this.statusServiceProd;
+        if (Objects.nonNull(getStatusServiceProd())) {
+            return (T) getStatusServiceProd();
+        }
+        setStatusServiceProd(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.STATUS_SERVICE).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
+        return (T) getStatusServiceProd();
     }
 
     @Override
     public <T> T queryUnclosedProd() {
-        return (T) this.queryUnclosedProd;
+        if (Objects.nonNull(getQueryUnclosedProd())) {
+            return (T) getQueryUnclosedProd();
+        }
+        setQueryUnclosedProd(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.QUERY_UNCLOSED).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
+        return (T) getQueryUnclosedProd();
     }
 
     @Override
     public <T> T distributionProd() {
-        return (T) this.distributionProd;
+        if (Objects.nonNull(getDistributionProd())) {
+            return (T) getDistributionProd();
+        }
+        setDistributionProd(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.DISTRIBUTION).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
+        return (T) getDistributionProd();
     }
 
     @Override
     public <T> T receptionSyncProd() {
-        return (T) this.receptionSyncProd;
+        if (Objects.nonNull(getReceptionSyncProd())) {
+            return (T) getReceptionSyncProd();
+        }
+        setReceptionSyncProd(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.RECEPTION_SYNC).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
+        return (T) getReceptionSyncProd();
     }
 
     public abstract MdfeAuthorizer getAuthorizer();

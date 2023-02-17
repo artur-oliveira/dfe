@@ -7,18 +7,17 @@ import com.softart.dfe.components.sefaz.port.SoapServiceProxy;
 import com.softart.dfe.enums.internal.Environment;
 import com.softart.dfe.enums.internal.cte.CteAuthorizer;
 import com.softart.dfe.enums.internal.cte.CtePathEndpoint;
-import com.softart.dfe.exceptions.RequiredException;
 import com.softart.dfe.exceptions.security.SSLContextException;
 import com.softart.dfe.interfaces.internal.config.Config;
 import com.softart.dfe.interfaces.internal.config.CteConfig;
 import com.softart.dfe.interfaces.sefaz.port.CteSoapService;
 import com.softart.dfe.models.internal.port.CteServiceFinder;
 import com.softart.dfe.util.ReflectionUtils;
-import com.softart.dfe.util.RequireUtils;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.net.ssl.HttpsURLConnection;
+import java.util.Objects;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
@@ -54,86 +53,26 @@ public abstract class AbstractCteSoapService extends AbstractSoapService impleme
     public void initialize(CteSoapService cached) {
         this.config = cached.getConfig();
 
-        try {
-            this.prodDistribution = cached.prodDistribution();
-        } catch (RequiredException ignored) {
-        }
-        try {
-            this.homDistribution = cached.homDistribution();
-        } catch (RequiredException ignored) {
-        }
-        try {
-            this.prodEvent = cached.prodEvent();
-        } catch (RequiredException ignored) {
-        }
-        try {
-            this.homEvent = cached.homEvent();
-        } catch (RequiredException ignored) {
-        }
-        try {
-            this.prodInutilization = cached.prodInutilization();
-        } catch (RequiredException ignored) {
-        }
-        try {
-            this.homInutilization = cached.homInutilization();
-        } catch (RequiredException ignored) {
-        }
-        try {
-            this.prodQueryReceipt = cached.prodQueryReceipt();
-        } catch (RequiredException ignored) {
-        }
-        try {
-            this.homQueryReceipt = cached.homQueryReceipt();
-        } catch (RequiredException ignored) {
-        }
-        try {
-            this.prodQuerySituation = cached.prodQuerySituation();
-        } catch (RequiredException ignored) {
-        }
-        try {
-            this.homQuerySituation = cached.homQuerySituation();
-        } catch (RequiredException ignored) {
-        }
-        try {
-            this.prodReception = cached.prodReception();
-        } catch (RequiredException ignored) {
-        }
-        try {
-            this.homReception = cached.homReception();
-        } catch (RequiredException ignored) {
-        }
-        try {
-            this.prodReceptionGtve = cached.prodReceptionGtve();
-        } catch (RequiredException ignored) {
-        }
-        try {
-            this.homReceptionGtve = cached.homReceptionGtve();
-        } catch (RequiredException ignored) {
-        }
-        try {
-            this.prodReceptionOs = cached.prodReceptionOs();
-        } catch (RequiredException ignored) {
-        }
-        try {
-            this.homReceptionOs = cached.homReceptionOs();
-        } catch (RequiredException ignored) {
-        }
-        try {
-            this.prodReceptionSync = cached.prodReceptionSync();
-        } catch (RequiredException ignored) {
-        }
-        try {
-            this.homReceptionSync = cached.homReceptionSync();
-        } catch (RequiredException ignored) {
-        }
-        try {
-            this.prodStatusService = cached.prodStatusService();
-        } catch (RequiredException ignored) {
-        }
-        try {
-            this.homStatusService = cached.homStatusService();
-        } catch (RequiredException ignored) {
-        }
+        this.prodDistribution = cached.prodDistribution();
+        this.homDistribution = cached.homDistribution();
+        this.prodEvent = cached.prodEvent();
+        this.homEvent = cached.homEvent();
+        this.prodInutilization = cached.prodInutilization();
+        this.homInutilization = cached.homInutilization();
+        this.prodQueryReceipt = cached.prodQueryReceipt();
+        this.homQueryReceipt = cached.homQueryReceipt();
+        this.prodQuerySituation = cached.prodQuerySituation();
+        this.homQuerySituation = cached.homQuerySituation();
+        this.prodReception = cached.prodReception();
+        this.homReception = cached.homReception();
+        this.prodReceptionGtve = cached.prodReceptionGtve();
+        this.homReceptionGtve = cached.homReceptionGtve();
+        this.prodReceptionOs = cached.prodReceptionOs();
+        this.homReceptionOs = cached.homReceptionOs();
+        this.prodReceptionSync = cached.prodReceptionSync();
+        this.homReceptionSync = cached.homReceptionSync();
+        this.prodStatusService = cached.prodStatusService();
+        this.homStatusService = cached.homStatusService();
 
         this.initialized = true;
     }
@@ -169,102 +108,182 @@ public abstract class AbstractCteSoapService extends AbstractSoapService impleme
 
     @Override
     public <T> T prodDistribution() {
-        return (T) RequireUtils.nonNull(this.prodDistribution, "prodDistribution() cannot be null");
+        if (Objects.nonNull(getProdDistribution())) {
+            return (T) getProdDistribution();
+        }
+        setProdDistribution(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.DISTRIBUTION).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
+        return (T) getProdDistribution();
     }
 
     @Override
     public <T> T homDistribution() {
-        return (T) RequireUtils.nonNull(this.homDistribution, "homDistribution() cannot be null");
+        if (Objects.nonNull(getHomDistribution())) {
+            return (T) getHomDistribution();
+        }
+        setHomDistribution(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.DISTRIBUTION).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
+        return (T) getHomDistribution();
     }
 
     @Override
     public <T> T prodEvent() {
-        return (T) RequireUtils.nonNull(this.prodEvent, "prodEvent() cannot be null");
+        if (Objects.nonNull(getProdEvent())) {
+            return (T) getProdEvent();
+        }
+        setProdEvent(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.EVENT).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
+        return (T) getProdEvent();
     }
 
     @Override
     public <T> T homEvent() {
-        return (T) RequireUtils.nonNull(this.homEvent, "homEvent() cannot be null");
+        if (Objects.nonNull(getHomEvent())) {
+            return (T) getHomEvent();
+        }
+        setHomEvent(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.EVENT).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
+        return (T) getHomEvent();
     }
 
     @Override
     public <T> T prodInutilization() {
-        return (T) RequireUtils.nonNull(this.prodInutilization, "prodInutilization() cannot be null");
+        if (Objects.nonNull(getProdInutilization())) {
+            return (T) getProdInutilization();
+        }
+        setProdInutilization(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.INUTILIZATION).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
+        return (T) getProdInutilization();
     }
 
     @Override
     public <T> T homInutilization() {
-        return (T) RequireUtils.nonNull(this.homInutilization, "homInutilization() cannot be null");
+        if (Objects.nonNull(getHomInutilization())) {
+            return (T) getHomInutilization();
+        }
+        setHomInutilization(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.INUTILIZATION).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
+        return (T) getHomInutilization();
     }
 
     @Override
     public <T> T prodQueryReceipt() {
-        return (T) RequireUtils.nonNull(this.prodQueryReceipt, "prodQueryReceipt() cannot be null");
+        if (Objects.nonNull(getProdQueryReceipt())) {
+            return (T) getProdQueryReceipt();
+        }
+        setProdQueryReceipt(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.QUERY_RECEIPT).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
+        return (T) getProdQueryReceipt();
     }
 
     @Override
     public <T> T homQueryReceipt() {
-        return (T) RequireUtils.nonNull(this.homQueryReceipt, "homQueryReceipt() cannot be null");
+        if (Objects.nonNull(getHomQueryReceipt())) {
+            return (T) getHomQueryReceipt();
+        }
+        setHomQueryReceipt(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.QUERY_RECEIPT).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
+        return (T) getHomQueryReceipt();
     }
 
     @Override
     public <T> T prodQuerySituation() {
-        return (T) RequireUtils.nonNull(this.prodQuerySituation, "prodQuerySituation() cannot be null");
+        if (Objects.nonNull(getProdQuerySituation())) {
+            return (T) getProdQuerySituation();
+        }
+        setProdQuerySituation(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.QUERY_SITUATION).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
+        return (T) getProdQuerySituation();
     }
 
     @Override
     public <T> T homQuerySituation() {
-        return (T) RequireUtils.nonNull(this.homQuerySituation, "homQuerySituation() cannot be null");
+        if (Objects.nonNull(getHomQuerySituation())) {
+            return (T) getHomQuerySituation();
+        }
+        setHomQuerySituation(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.QUERY_SITUATION).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
+        return (T) getHomQuerySituation();
     }
 
     @Override
     public <T> T prodReception() {
-        return (T) RequireUtils.nonNull(this.prodReception, "prodReception() cannot be null");
+        if (Objects.nonNull(getProdReception())) {
+            return (T) getProdReception();
+        }
+        setProdReception(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.RECEPTION).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
+        return (T) getProdReception();
     }
 
     @Override
     public <T> T homReception() {
-        return (T) RequireUtils.nonNull(this.homReception, "homReception() cannot be null");
+        if (Objects.nonNull(getHomReception())) {
+            return (T) getHomReception();
+        }
+        setHomReception(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.RECEPTION).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
+        return (T) getHomReception();
     }
 
     @Override
     public <T> T prodReceptionGtve() {
-        return (T) RequireUtils.nonNull(this.prodReceptionGtve, "prodReceptionGtve() cannot be null");
+        if (Objects.nonNull(getProdReceptionGtve())) {
+            return (T) getProdReceptionGtve();
+        }
+        setProdReceptionGtve(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.RECEPTION_GTVE).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
+        return (T) getProdReceptionGtve();
     }
 
     @Override
     public <T> T homReceptionGtve() {
-        return (T) RequireUtils.nonNull(this.homReceptionGtve, "homReceptionGtve() cannot be null");
+        if (Objects.nonNull(getHomReceptionGtve())) {
+            return (T) getHomReceptionGtve();
+        }
+        setHomReceptionGtve(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.RECEPTION_GTVE).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
+        return (T) getHomReceptionGtve();
     }
 
     @Override
     public <T> T prodReceptionOs() {
-        return (T) RequireUtils.nonNull(this.prodReceptionOs, "prodReceptionOs() cannot be null");
+        if (Objects.nonNull(getProdReceptionOs())) {
+            return (T) getProdReceptionOs();
+        }
+        setProdReceptionOs(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.RECEPTION_OS).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
+        return (T) getProdReceptionOs();
     }
 
     @Override
     public <T> T homReceptionOs() {
-        return (T) RequireUtils.nonNull(this.homReceptionOs, "homReceptionOs() cannot be null");
+        if (Objects.nonNull(getHomReceptionOs())) {
+            return (T) getHomReceptionOs();
+        }
+        setHomReceptionOs(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.RECEPTION_OS).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
+        return (T) getHomReceptionOs();
     }
 
     @Override
     public <T> T prodReceptionSync() {
-        return (T) RequireUtils.nonNull(this.prodReceptionSync, "prodReceptionSync() cannot be null");
+        if (Objects.nonNull(getProdReceptionSync())) {
+            return (T) getProdReceptionSync();
+        }
+        setProdReceptionSync(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.RECEPTION_SYNC).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
+        return (T) getProdReceptionSync();
     }
 
     @Override
     public <T> T homReceptionSync() {
-        return (T) RequireUtils.nonNull(this.homReceptionSync, "homReceptionSync() cannot be null");
+        if (Objects.nonNull(getHomReceptionSync())) {
+            return (T) getHomReceptionSync();
+        }
+        setHomReceptionSync(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.RECEPTION_SYNC).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
+        return (T) getHomReceptionSync();
     }
 
     @Override
     public <T> T prodStatusService() {
-        return (T) RequireUtils.nonNull(this.prodStatusService, "prodStatusService() cannot be null");
+        if (Objects.nonNull(getProdStatusService())) {
+            return (T) getProdStatusService();
+        }
+        setProdStatusService(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.STATUS_SERVICE).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
+        return (T) getProdStatusService();
     }
 
     @Override
     public <T> T homStatusService() {
-        return (T) RequireUtils.nonNull(this.homStatusService, "homStatusService() cannot be null");
+        if (Objects.nonNull(getHomStatusService())) {
+            return (T) getHomStatusService();
+        }
+        setHomStatusService(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.STATUS_SERVICE).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
+        return (T) getHomStatusService();
     }
 
     public abstract CteAuthorizer getAuthorizer();

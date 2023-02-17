@@ -64,8 +64,6 @@ import java.util.Objects;
 public final class App {
 
     public static void main(String[] args) throws Exception {
-        System.setProperty("com.softart.dfe.certificate.path", "/home/artur/Documentos/Certificate/tartigrado.pfx");
-        System.setProperty("com.softart.dfe.certificate.password", "22Rev");
         System.setProperty("com.softart.dfe.storage.mdfe.logxml", "false");
         System.setProperty("com.softart.dfe.handler.log.request", "false");
         System.setProperty("com.softart.dfe.handler.log.response", "false");
@@ -274,7 +272,7 @@ public final class App {
     private static void queryStatusServiceNf() throws Exception {
         KeyStoreInfo info = KeyStoreFactory.getInstance();
 
-        NfConfig config = new PfxNfConfigImpl(UF.PE, "11520224000140", Environment.HOMOLOGATION, info, NFEmissionType.NORMAL, null, null);
+        NfConfig config = new PfxNfConfigImpl(UF.PE, "11520224000140", Environment.PRODUCTION, info, NFEmissionType.NORMAL, null, null);
         NfQueryStatusService service = new NfeQueryStatusServiceImpl(config);
 
         System.out.println(service.queryStatusService());
@@ -283,7 +281,7 @@ public final class App {
     private static void queryStatusServiceNfc() throws Exception {
         KeyStoreInfo info = KeyStoreFactory.getInstance();
 
-        NfConfig config = new PfxNfConfigImpl(UF.PE, "11520224000140", Environment.HOMOLOGATION, info, NFEmissionType.NORMAL, null, null);
+        NfConfig config = new PfxNfConfigImpl(UF.PE, "11520224000140", Environment.PRODUCTION, info, NFEmissionType.NORMAL, null, null);
         NfQueryStatusService service = new NfceQueryStatusServiceImpl(config);
 
         System.out.println(service.queryStatusService());

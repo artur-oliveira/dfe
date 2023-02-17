@@ -18,6 +18,7 @@ import lombok.EqualsAndHashCode;
 import lombok.SneakyThrows;
 
 import javax.net.ssl.HttpsURLConnection;
+import java.util.Objects;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
@@ -89,72 +90,128 @@ public abstract class AbstractNfceSoapService extends AbstractSoapService implem
 
     @Override
     public <T> T prodAuthorization() {
-        return (T) prodAuthorization;
+        if (Objects.nonNull(getProdAuthorization())) {
+            return (T) getProdAuthorization();
+        }
+        setProdAuthorization(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getNfceServiceClassFor(NfceServiceFinder.builder().authorizer(getAuthorizer()).environment(Environment.PRODUCTION).endpoint(NfcePathEndpoint.AUTHORIZATION).build())));
+        return (T) getProdAuthorization();
     }
 
     @Override
     public <T> T homAuthorization() {
-        return (T) homAuthorization;
+        if (Objects.nonNull(getHomAuthorization())) {
+            return (T) getHomAuthorization();
+        }
+        setHomAuthorization(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getNfceServiceClassFor(NfceServiceFinder.builder().authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).endpoint(NfcePathEndpoint.AUTHORIZATION).build())));
+        return (T) getHomAuthorization();
     }
 
     @Override
     public <T> T prodCancel() {
-        return (T) prodCancel;
+        if (Objects.nonNull(getProdCancel())) {
+            return (T) getProdCancel();
+        }
+        setProdCancel(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getNfceServiceClassFor(NfceServiceFinder.builder().authorizer(getAuthorizer()).environment(Environment.PRODUCTION).endpoint(NfcePathEndpoint.EVENT_CANCEL).build())));
+        return (T) getProdCancel();
     }
 
     @Override
     public <T> T homCancel() {
-        return (T) homCancel;
+        if (Objects.nonNull(getHomCancel())) {
+            return (T) getHomCancel();
+        }
+        setHomCancel(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getNfceServiceClassFor(NfceServiceFinder.builder().authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).endpoint(NfcePathEndpoint.EVENT_CANCEL).build())));
+        return (T) getHomCancel();
     }
 
     @Override
     public <T> T prodInutilization() {
-        return (T) prodInutilization;
+        if (Objects.nonNull(getProdInutilization())) {
+            return (T) getProdInutilization();
+        }
+        setProdInutilization(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getNfceServiceClassFor(NfceServiceFinder.builder().authorizer(getAuthorizer()).environment(Environment.PRODUCTION).endpoint(NfcePathEndpoint.INUTILIZATION).build())));
+        return (T) getProdInutilization();
     }
 
     @Override
     public <T> T homInutilization() {
-        return (T) homInutilization;
+        if (Objects.nonNull(getHomInutilization())) {
+            return (T) getHomInutilization();
+        }
+        setHomInutilization(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getNfceServiceClassFor(NfceServiceFinder.builder().authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).endpoint(NfcePathEndpoint.INUTILIZATION).build())));
+        return (T) getHomInutilization();
     }
 
     @Override
     public <T> T prodQueryProtocol() {
-        return (T) prodQueryProtocol;
+        if (Objects.nonNull(getProdQueryProtocol())) {
+            return (T) getProdQueryProtocol();
+        }
+        setProdQueryProtocol(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getNfceServiceClassFor(NfceServiceFinder.builder().authorizer(getAuthorizer()).environment(Environment.PRODUCTION).endpoint(NfcePathEndpoint.QUERY_PROTOCOL).build())));
+        return (T) getProdQueryProtocol();
     }
 
     @Override
     public <T> T homQueryProtocol() {
-        return (T) homQueryProtocol;
+        if (Objects.nonNull(getHomQueryProtocol())) {
+            return (T) getHomQueryProtocol();
+        }
+        setHomQueryProtocol(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getNfceServiceClassFor(NfceServiceFinder.builder().authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).endpoint(NfcePathEndpoint.QUERY_PROTOCOL).build())));
+        return (T) getHomQueryProtocol();
     }
 
     @Override
     public <T> T prodQueryStatusService() {
-        return (T) prodQueryStatusService;
+        if (Objects.nonNull(getProdQueryStatusService())) {
+            return (T) getProdQueryStatusService();
+        }
+        setProdQueryStatusService(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getNfceServiceClassFor(NfceServiceFinder.builder().authorizer(getAuthorizer()).environment(Environment.PRODUCTION).endpoint(NfcePathEndpoint.STATUS_SERVICE).build())));
+        return (T) getProdQueryStatusService();
     }
 
     @Override
     public <T> T homQueryStatusService() {
-        return (T) homQueryStatusService;
+        if (Objects.nonNull(getHomQueryStatusService())) {
+            return (T) getHomQueryStatusService();
+        }
+        setHomQueryStatusService(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getNfceServiceClassFor(NfceServiceFinder.builder().authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).endpoint(NfcePathEndpoint.STATUS_SERVICE).build())));
+        return (T) getHomQueryStatusService();
     }
 
     @Override
     public <T> T prodReturnAuthorization() {
-        return (T) prodReturnAuthorization;
+        if (Objects.nonNull(getProdReturnAuthorization())) {
+            return (T) getProdReturnAuthorization();
+        }
+        setProdReturnAuthorization(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getNfceServiceClassFor(NfceServiceFinder.builder().authorizer(getAuthorizer()).environment(Environment.PRODUCTION).endpoint(NfcePathEndpoint.RETURN_AUTHORIZATION).build())));
+        return (T) getProdReturnAuthorization();
     }
 
     @Override
     public <T> T homReturnAuthorization() {
-        return (T) homReturnAuthorization;
+        if (Objects.nonNull(getHomReturnAuthorization())) {
+            return (T) getHomReturnAuthorization();
+        }
+        setHomReturnAuthorization(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getNfceServiceClassFor(NfceServiceFinder.builder().authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).endpoint(NfcePathEndpoint.RETURN_AUTHORIZATION).build())));
+        return (T) getHomReturnAuthorization();
     }
 
     @Override
     public <T> T prodSubstituteCancel() {
-        return (T) prodSubstituteCancel;
+        if (Objects.nonNull(getProdSubstituteCancel())) {
+            return (T) getProdSubstituteCancel();
+        }
+        setProdSubstituteCancel(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getNfceServiceClassFor(NfceServiceFinder.builder().authorizer(getAuthorizer()).environment(Environment.PRODUCTION).endpoint(NfcePathEndpoint.EVENT_SUBSTITUTE_CANCEL).build())));
+        return (T) getProdSubstituteCancel();
     }
 
     @Override
     public <T> T homSubstituteCancel() {
-        return (T) homSubstituteCancel;
+        if (Objects.nonNull(getHomSubstituteCancel())) {
+            return (T) getHomSubstituteCancel();
+        }
+        setHomSubstituteCancel(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getNfceServiceClassFor(NfceServiceFinder.builder().authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).endpoint(NfcePathEndpoint.EVENT_SUBSTITUTE_CANCEL).build())));
+        return (T) getHomSubstituteCancel();
     }
 
     public abstract NfceAuthorizer getAuthorizer();
