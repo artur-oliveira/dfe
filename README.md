@@ -202,8 +202,8 @@ Under Brazilian law, XML's must be kept for up to five years.
   is **enviMdfe**
 - _com.softart.dfe.storage.key.mdfe.return_reception_: Prefix of the path where the MDF-e XML will be saved. Default
   value is **retEnviMdfe**
-- _com.softart.dfe.storage.key.mdfe.proc_: Prefix of the path where the MDF-e XML will be saved. Default value is **
-  procMdfe**
+- _com.softart.dfe.storage.key.mdfe.proc_: Prefix of the path where the MDF-e XML will be saved.
+  Default value is **procMdfe**
 - _com.softart.dfe.storage.key.mdfe.reception_sync_: Prefix of the path where the MDF-e XML will be saved. Default value
   is **mdfe**
 - _com.softart.dfe.storage.key.mdfe.return_reception_sync_: Prefix of the path where the MDF-e XML will be saved.
