@@ -8,6 +8,7 @@ import java.security.MessageDigest;
 
 public final class HashUtils {
     public static final String SHA1 = "SHA1";
+    public static final String MD5 = "MD5";
 
     private HashUtils() {
         throw new UnsupportedOperationException("No instances of " + this.getClass().getSimpleName());
@@ -57,5 +58,18 @@ public final class HashUtils {
             sb.append(Integer.toString((element & 0xff) + 0x100, 16).substring(1));
         }
         return sb.toString();
+    }
+
+    /**
+     * It takes a string, converts it to bytes, and then uses the MessageDigest class to hash the bytes
+     *
+     * @param text The text to hash
+     * @return A string of the hexadecimal representation of the MD5 hash of the input string.
+     */
+    public static String md5(String text) throws GeneralSecurityException {
+        MessageDigest md = MessageDigest.getInstance(HashUtils.MD5);
+        md.update(text.getBytes());
+        byte[] digest = md.digest();
+        return DatatypeConverter.printHexBinary(digest).toUpperCase();
     }
 }

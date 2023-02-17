@@ -6,13 +6,10 @@ import br.inf.portalfiscal.cte.send.*;
 import com.softart.dfe.components.internal.xml.context.CteContextFactory;
 import com.softart.dfe.exceptions.xml.MarshallException;
 import com.softart.dfe.util.XMLStringUtils;
+import com.softart.dfe.util.XMLUtils;
 import org.w3c.dom.Element;
 
 import javax.xml.bind.JAXBException;
-import javax.xml.transform.OutputKeys;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerConfigurationException;
-import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.IOException;
@@ -333,17 +330,11 @@ final class DefaultCteMarshaller extends CteMarshallerFactory {
         }
     }
 
-    private Transformer getTransformer() throws TransformerConfigurationException {
-        Transformer transformer = TransformerFactory.newInstance().newTransformer();
-        transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
-        return transformer;
-    }
-
     @Override
     public String protCte(Element element) {
         try {
             try (StringWriter sw = new StringWriter()) {
-                getTransformer().transform(new DOMSource(element), new StreamResult(sw));
+                XMLUtils.getTransformer().transform(new DOMSource(element), new StreamResult(sw));
                 return XMLStringUtils.cleanNamespace("<protCTe xmlns=\"http://www.portalfiscal.inf.br/cte\">" + sw.toString().replace(" xmlns=\"http://www.portalfiscal.inf.br/cte\"", "") + "</protCTe>");
             }
         } catch (Exception e) {
@@ -355,7 +346,7 @@ final class DefaultCteMarshaller extends CteMarshallerFactory {
     public String any(Element element) {
         try {
             try (StringWriter sw = new StringWriter()) {
-                getTransformer().transform(new DOMSource(element), new StreamResult(sw));
+                XMLUtils.getTransformer().transform(new DOMSource(element), new StreamResult(sw));
                 return XMLStringUtils.cleanNamespace(sw.toString());
             }
         } catch (Exception e) {
@@ -367,7 +358,7 @@ final class DefaultCteMarshaller extends CteMarshallerFactory {
     public String protCteOs(Element element) {
         try {
             try (StringWriter sw = new StringWriter()) {
-                getTransformer().transform(new DOMSource(element), new StreamResult(sw));
+                XMLUtils.getTransformer().transform(new DOMSource(element), new StreamResult(sw));
                 return XMLStringUtils.cleanNamespace("<protCTeOS xmlns=\"http://www.portalfiscal.inf.br/cte\">" + sw.toString().replace(" xmlns=\"http://www.portalfiscal.inf.br/cte\"", "") + "</protCTeOS>");
             }
         } catch (Exception e) {
@@ -379,7 +370,7 @@ final class DefaultCteMarshaller extends CteMarshallerFactory {
     public String protGtve(Element element) {
         try {
             try (StringWriter sw = new StringWriter()) {
-                getTransformer().transform(new DOMSource(element), new StreamResult(sw));
+                XMLUtils.getTransformer().transform(new DOMSource(element), new StreamResult(sw));
                 return XMLStringUtils.cleanNamespace("<protGTVe xmlns=\"http://www.portalfiscal.inf.br/cte\">" + sw.toString().replace(" xmlns=\"http://www.portalfiscal.inf.br/cte\"", "") + "</protGTVe>");
             }
         } catch (Exception e) {

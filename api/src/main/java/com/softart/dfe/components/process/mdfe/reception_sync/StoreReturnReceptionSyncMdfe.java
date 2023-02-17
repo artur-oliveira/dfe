@@ -3,7 +3,7 @@ package com.softart.dfe.components.process.mdfe.reception_sync;
 
 import br.inf.portalfiscal.mdfe.classes.TMDFe;
 import br.inf.portalfiscal.mdfe.classes.TRetMDFe;
-import com.softart.dfe.components.internal.xml.marshaller.MdfeMarshaller;
+import com.softart.dfe.components.internal.xml.marshaller.MdfeMarshallerFactory;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.interfaces.process.AfterRequest;
 import com.softart.dfe.interfaces.process.mdfe.reception_sync.AfterReceptionSync;
@@ -17,7 +17,7 @@ public abstract class StoreReturnReceptionSyncMdfe implements AfterReceptionSync
     @Override
     public <T extends AfterRequest<TMDFe, TRetMDFe>> void process(T o) throws ProcessException {
         if (Objects.nonNull(getStorage()) && Objects.nonNull(o.getResponse())) {
-            getStorage().storeReturnMdfe(new XMLStore<>(o.getResponse(), o.getConfig(), MdfeMarshaller.returnReceptionSync(o.getResponse())));
+            getStorage().storeReturnMdfe(new XMLStore<>(o.getResponse(), o.getConfig(), MdfeMarshallerFactory.getInstance().returnReceptionSync(o.getResponse())));
         }
     }
 

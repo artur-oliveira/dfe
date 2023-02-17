@@ -1,7 +1,7 @@
 package com.softart.dfe.components.process.mdfe.query_situation;
 
 import br.inf.portalfiscal.mdfe.classes.TConsSitMDFe;
-import com.softart.dfe.components.internal.xml.marshaller.MdfeMarshaller;
+import com.softart.dfe.components.internal.xml.marshaller.MdfeMarshallerFactory;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.interfaces.process.BeforeRequest;
 import com.softart.dfe.interfaces.process.mdfe.query_situation.BeforeQuerySituation;
@@ -15,7 +15,7 @@ public abstract class StoreQuerySituationMdfe implements BeforeQuerySituation {
     @Override
     public <T extends BeforeRequest<TConsSitMDFe>> void process(T o) throws ProcessException {
         if (Objects.nonNull(o.getConfig()) && Objects.nonNull(o.getRequest())) {
-            getStorage().storeSendQuerySituation(new XMLStore<>(o.getRequest(), o.getConfig(), MdfeMarshaller.sendQuerySituation(o.getRequest())));
+            getStorage().storeSendQuerySituation(new XMLStore<>(o.getRequest(), o.getConfig(), MdfeMarshallerFactory.getInstance().sendQuerySituation(o.getRequest())));
         }
     }
 

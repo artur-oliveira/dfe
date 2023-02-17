@@ -40,7 +40,9 @@ final class DefaultXMLValidator extends XMLValidatorFactory {
                 schema = getSchemaMapping().get(validation.getXsd());
                 schema = Optional.ofNullable(schema).orElseGet(() -> getSchema(validation.getXsd()));
             }
-            schema.newValidator().validate(new StreamSource(new StringReader(validation.getXml())));
+            try (StringReader reader = new StringReader(validation.getXml())) {
+                schema.newValidator().validate(new StreamSource(reader));
+            }
         } catch (Exception e) {
             throw new XSDValidationException(e, validation.getXml());
         }
@@ -51,11 +53,11 @@ final class DefaultXMLValidator extends XMLValidatorFactory {
         final SchemaFactory factory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
         factory.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, Boolean.FALSE);
         factory.setResourceResolver(new ResourceResolver(xsd));
-        Schema schema = factory.newSchema(new StreamSource(Objects.requireNonNull(DefaultXMLValidator.class.getClassLoader().getResourceAsStream(xsd))));
-
-        getSchemaMapping().put(xsd, schema);
-
-        return schema;
+        try (InputStream is = Objects.requireNonNull(DefaultXMLValidator.class.getClassLoader().getResourceAsStream(xsd))) {
+            Schema schema = factory.newSchema(new StreamSource(is));
+            getSchemaMapping().put(xsd, schema);
+            return schema;
+        }
     }
 
     /**

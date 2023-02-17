@@ -4,7 +4,7 @@ import br.inf.portalfiscal.mdfe.classes.TMDFe;
 import br.inf.portalfiscal.mdfe.classes.TUf;
 import com.softart.dfe.components.internal.AccessKeyGenerator;
 import com.softart.dfe.components.internal.ProjectProperties;
-import com.softart.dfe.components.internal.xml.unmarshaller.MdfeUnmarshaller;
+import com.softart.dfe.components.internal.xml.unmarshaller.MdfeUnmarshallerFactory;
 import com.softart.dfe.enums.internal.Model;
 import com.softart.dfe.enums.internal.mdfe.QrCodeMdfeURL;
 import com.softart.dfe.enums.mdfe.identification.MdfeProcessEmissionType;
@@ -200,13 +200,13 @@ public final class Mdfe implements DFObject, XMLAdapter<Mdfe, TMDFe> {
             public TMDFe.InfMDFe.InfModal toObject() {
                 TMDFe.InfMDFe.InfModal infModal = new TMDFe.InfMDFe.InfModal();
                 if (Objects.nonNull(getRodo())) {
-                    infModal.setAny(MdfeUnmarshaller.toElement(getRodo().toObject()));
+                    infModal.setAny(MdfeUnmarshallerFactory.getInstance().toElement(getRodo().toObject()));
                 } else if (Objects.nonNull(getAereo())) {
-                    infModal.setAny(MdfeUnmarshaller.toElement(getAereo().toObject()));
+                    infModal.setAny(MdfeUnmarshallerFactory.getInstance().toElement(getAereo().toObject()));
                 } else if (Objects.nonNull(getAquav())) {
-                    infModal.setAny(MdfeUnmarshaller.toElement(getAquav().toObject()));
+                    infModal.setAny(MdfeUnmarshallerFactory.getInstance().toElement(getAquav().toObject()));
                 } else if (Objects.nonNull(getFerrov())) {
-                    infModal.setAny(MdfeUnmarshaller.toElement(getFerrov().toObject()));
+                    infModal.setAny(MdfeUnmarshallerFactory.getInstance().toElement(getFerrov().toObject()));
                 }
                 infModal.setVersaoModal(getVersaoModal());
                 return infModal;
@@ -214,7 +214,7 @@ public final class Mdfe implements DFObject, XMLAdapter<Mdfe, TMDFe> {
 
             @Override
             public InfModal fromObject(TMDFe.InfMDFe.InfModal o) {
-                Object el = MdfeUnmarshaller.any(o.getAny()).getValue();
+                Object el = MdfeUnmarshallerFactory.getInstance().any(o.getAny()).getValue();
 
                 if (el instanceof br.inf.portalfiscal.mdfe.classes.Rodo) {
                     setRodo(Rodo.builder().build().fromObject((br.inf.portalfiscal.mdfe.classes.Rodo) el));

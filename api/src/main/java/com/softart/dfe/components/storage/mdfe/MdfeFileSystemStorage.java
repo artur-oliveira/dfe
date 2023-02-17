@@ -2,8 +2,8 @@ package com.softart.dfe.components.storage.mdfe;
 
 import br.inf.portalfiscal.mdfe.classes.*;
 import com.softart.dfe.components.internal.parser.AccessKeyParserFactory;
-import com.softart.dfe.components.internal.xml.marshaller.MdfeMarshaller;
-import com.softart.dfe.components.internal.xml.unmarshaller.MdfeUnmarshaller;
+import com.softart.dfe.components.internal.xml.marshaller.MdfeMarshallerFactory;
+import com.softart.dfe.components.internal.xml.unmarshaller.MdfeUnmarshallerFactory;
 import com.softart.dfe.components.storage.common.CommonFileSystemStorage;
 import com.softart.dfe.enums.internal.mdfe.MdfeStorageKey;
 import com.softart.dfe.enums.mdfe.MdfeReturnCode;
@@ -96,13 +96,13 @@ public class MdfeFileSystemStorage extends CommonFileSystemStorage implements Md
 
         if (Objects.isNull(xml)) return;
 
-        TEnviMDFe envi = MdfeUnmarshaller.sendReception(xml).getValue();
+        TEnviMDFe envi = MdfeUnmarshallerFactory.getInstance().sendReception(xml).getValue();
         TMdfeProc proc = new ObjectFactory().createTMdfeProc();
         proc.setProtMDFe(prot);
         proc.setMDFe(envi.getMDFe());
         proc.setVersao(envi.getVersao());
 
-        storeProcMdfe(new XMLStore<>(proc, o.getConfig(), MdfeMarshaller.procMdfe(proc)));
+        storeProcMdfe(new XMLStore<>(proc, o.getConfig(), MdfeMarshallerFactory.getInstance().procMdfe(proc)));
     }
 
     @Override
@@ -123,7 +123,7 @@ public class MdfeFileSystemStorage extends CommonFileSystemStorage implements Md
                 String accessKey = "";
 
                 if (Objects.nonNull(o.getData().getProtMDFe())) {
-                    accessKey = MdfeUnmarshaller.protMdfe(o.getData().getProtMDFe().getAny()).getValue().getInfProt().getChMDFe();
+                    accessKey = MdfeUnmarshallerFactory.getInstance().protMdfe(o.getData().getProtMDFe().getAny()).getValue().getInfProt().getChMDFe();
                 }
 
                 writeReturn(o, MdfeStorageKey.MDFE_QUERY_SITUATION, xmlNameWithTime(accessKey));

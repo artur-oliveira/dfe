@@ -4,7 +4,7 @@ package com.softart.dfe.components.process.mdfe.reception_sync;
 import br.inf.portalfiscal.mdfe.classes.TMDFe;
 import br.inf.portalfiscal.mdfe.classes.TMdfeProc;
 import br.inf.portalfiscal.mdfe.classes.TRetMDFe;
-import com.softart.dfe.components.internal.xml.marshaller.MdfeMarshaller;
+import com.softart.dfe.components.internal.xml.marshaller.MdfeMarshallerFactory;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.interfaces.process.AfterRequest;
 import com.softart.dfe.interfaces.process.mdfe.reception_sync.AfterReceptionSync;
@@ -22,7 +22,7 @@ public abstract class StoreProcMdfe implements AfterReceptionSync {
             procMdfe.setMDFe(o.getRequest());
             procMdfe.setProtMDFe(o.getResponse().getProtMDFe());
             procMdfe.setVersao(o.getResponse().getVersao());
-            getStorage().storeProcMdfeSync(new XMLStore<>(procMdfe, o.getConfig(), MdfeMarshaller.procMdfe(procMdfe)));
+            getStorage().storeProcMdfeSync(new XMLStore<>(procMdfe, o.getConfig(), MdfeMarshallerFactory.getInstance().procMdfe(procMdfe)));
         }
     }
 

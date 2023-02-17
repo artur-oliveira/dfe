@@ -3,7 +3,7 @@ package com.softart.dfe.components.process.mdfe.reception;
 
 import br.inf.portalfiscal.mdfe.classes.TEnviMDFe;
 import br.inf.portalfiscal.mdfe.classes.TRetEnviMDFe;
-import com.softart.dfe.components.internal.xml.marshaller.MdfeMarshaller;
+import com.softart.dfe.components.internal.xml.marshaller.MdfeMarshallerFactory;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.interfaces.process.AfterRequest;
 import com.softart.dfe.interfaces.process.mdfe.reception.AfterReception;
@@ -17,7 +17,7 @@ public abstract class StoreReturnReceptionMdfe implements AfterReception {
     @Override
     public <T extends AfterRequest<TEnviMDFe, TRetEnviMDFe>> void process(T o) throws ProcessException {
         if (Objects.nonNull(getStorage()) && Objects.nonNull(o.getResponse())) {
-            getStorage().storeReturnSendMdfe(new XMLStore<>(o.getResponse(), o.getConfig(), MdfeMarshaller.returnReception(o.getResponse())));
+            getStorage().storeReturnSendMdfe(new XMLStore<>(o.getResponse(), o.getConfig(), MdfeMarshallerFactory.getInstance().returnReception(o.getResponse())));
         }
     }
 

@@ -4,6 +4,7 @@ import com.softart.dfe.exceptions.security.XMLSignException;
 import com.softart.dfe.interfaces.internal.KeyStoreInfo;
 import com.softart.dfe.interfaces.internal.config.Config;
 import com.softart.dfe.util.XMLStringUtils;
+import com.softart.dfe.util.XMLUtils;
 import lombok.Getter;
 import lombok.Setter;
 import org.w3c.dom.Document;
@@ -19,9 +20,6 @@ import javax.xml.crypto.dsig.keyinfo.X509Data;
 import javax.xml.crypto.dsig.spec.C14NMethodParameterSpec;
 import javax.xml.crypto.dsig.spec.TransformParameterSpec;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.transform.OutputKeys;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.StringReader;
@@ -73,11 +71,7 @@ public final class DefaultXmlSigner extends XmlSigner {
                     final XMLSignature signature = signatureFactory.newXMLSignature(signedInfo, keyInfo);
                     signature.sign(new DOMSignContext(keyEntry.getPrivateKey(), element.getParentNode()));
                 }
-
-                final Transformer transformer = TransformerFactory.newInstance().newTransformer();
-                transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
-                transformer.transform(new DOMSource(document), new StreamResult(writer));
-
+                XMLUtils.getTransformer().transform(new DOMSource(document), new StreamResult(writer));
                 return writer.toString();
             }
         } catch (Exception e) {

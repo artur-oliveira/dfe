@@ -2,8 +2,8 @@ package com.softart.dfe.components.sefaz.mdfe;
 
 import br.inf.portalfiscal.mdfe.classes.*;
 import com.softart.dfe.components.internal.PairImpl;
-import com.softart.dfe.components.internal.xml.marshaller.MdfeMarshaller;
-import com.softart.dfe.components.internal.xml.unmarshaller.MdfeUnmarshaller;
+import com.softart.dfe.components.internal.xml.marshaller.MdfeMarshallerFactory;
+import com.softart.dfe.components.internal.xml.unmarshaller.MdfeUnmarshallerFactory;
 import com.softart.dfe.enums.internal.Environment;
 import com.softart.dfe.enums.internal.UF;
 import com.softart.dfe.enums.mdfe.identification.MdfeEmissionType;
@@ -83,8 +83,8 @@ public final class MdfeOfflineService implements MdfeService {
 
     @Override
     public <T extends SefazRequest<TEnviMDFe, TRetEnviMDFe>> Pair<TEnviMDFe, TRetEnviMDFe> reception(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = data.getSigner().signMdfe(MdfeMarshaller.sendReception(data.getData()), data.getConfig());
-        JAXBElement<TEnviMDFe> envio = MdfeUnmarshaller.sendReception(xml);
+        String xml = data.getSigner().signMdfe(MdfeMarshallerFactory.getInstance().sendReception(data.getData()), data.getConfig());
+        JAXBElement<TEnviMDFe> envio = MdfeUnmarshallerFactory.getInstance().sendReception(xml);
         for (Validator<TEnviMDFe> validator : data.getValidators()) {
             validator.valid(new Validation<>(envio.getValue(), xml));
         }
@@ -102,8 +102,8 @@ public final class MdfeOfflineService implements MdfeService {
 
     @Override
     public <T extends SefazRequest<TMDFe, TRetMDFe>> Pair<TMDFe, TRetMDFe> receptionSync(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = data.getSigner().signMdfe(MdfeMarshaller.sendReceptionSync(data.getData()), data.getConfig());
-        JAXBElement<TMDFe> envio = MdfeUnmarshaller.sendReceptionSync(xml);
+        String xml = data.getSigner().signMdfe(MdfeMarshallerFactory.getInstance().sendReceptionSync(data.getData()), data.getConfig());
+        JAXBElement<TMDFe> envio = MdfeUnmarshallerFactory.getInstance().sendReceptionSync(xml);
         for (Validator<TMDFe> validator : data.getValidators()) {
             validator.valid(new Validation<>(envio.getValue(), xml));
         }

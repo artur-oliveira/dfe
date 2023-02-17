@@ -43,7 +43,6 @@ public interface CteUnmarshaller {
     Element toElement(Duto o) throws JAXBException;
     Element toElement(Ferrov o) throws JAXBException;
     Element toElement(Multimodal o) throws JAXBException;
-    Element toElement(JAXBElement<?> o) throws JAXBException;
     JAXBElement<TProtCTeOS> protCTeOS(Element element);
     JAXBElement<TProtGTVe> protGTVe(Element element);
     JAXBElement<TEnviCTe> enviCte(String xml);

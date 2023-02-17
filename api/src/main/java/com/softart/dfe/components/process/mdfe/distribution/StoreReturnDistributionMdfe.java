@@ -2,7 +2,7 @@ package com.softart.dfe.components.process.mdfe.distribution;
 
 import br.inf.portalfiscal.mdfe.classes.DistDFeInt;
 import br.inf.portalfiscal.mdfe.classes.RetDistDFeInt;
-import com.softart.dfe.components.internal.xml.marshaller.MdfeMarshaller;
+import com.softart.dfe.components.internal.xml.marshaller.MdfeMarshallerFactory;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.interfaces.process.AfterRequest;
 import com.softart.dfe.interfaces.process.mdfe.distribution.AfterDistribution;
@@ -16,7 +16,7 @@ public abstract class StoreReturnDistributionMdfe implements AfterDistribution {
     @Override
     public <T extends AfterRequest<DistDFeInt, RetDistDFeInt>> void process(T o) throws ProcessException {
         if (Objects.nonNull(o.getConfig()) && Objects.nonNull(o.getRequest())) {
-            getStorage().storeRetDistribution(new XMLStore<>(o.getResponse(), o.getConfig(), MdfeMarshaller.returnDistribution(o.getResponse())));
+            getStorage().storeRetDistribution(new XMLStore<>(o.getResponse(), o.getConfig(), MdfeMarshallerFactory.getInstance().returnDistribution(o.getResponse())));
         }
     }
 

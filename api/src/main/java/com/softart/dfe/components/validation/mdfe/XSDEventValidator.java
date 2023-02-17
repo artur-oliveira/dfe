@@ -1,7 +1,7 @@
 package com.softart.dfe.components.validation.mdfe;
 
 import br.inf.portalfiscal.mdfe.classes.TEvento;
-import com.softart.dfe.components.internal.xml.marshaller.MdfeMarshaller;
+import com.softart.dfe.components.internal.xml.marshaller.MdfeMarshallerFactory;
 import com.softart.dfe.components.internal.xml.validation.XMLValidatorFactory;
 import com.softart.dfe.enums.mdfe.MdfeEvent;
 import com.softart.dfe.exceptions.ValidationException;
@@ -13,6 +13,6 @@ public final class XSDEventValidator implements MdfeEventValidator {
     @Override
     public void valid(Validation<TEvento> o) throws ValidationException {
         XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/mdfe/PL_MDFe_300a_NT012022/eventoMDFe_v3.00.xsd", o.getXml()));
-        XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/mdfe/PL_MDFe_300a_NT012022/" + MdfeEvent.valueOfCode(o.getValue().getInfEvento().getTpEvento()).getXsdName(), MdfeMarshaller.any(o.getValue().getInfEvento().getDetEvento().getAny())));
+        XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/mdfe/PL_MDFe_300a_NT012022/" + MdfeEvent.valueOfCode(o.getValue().getInfEvento().getTpEvento()).getXsdName(), MdfeMarshallerFactory.getInstance().any(o.getValue().getInfEvento().getDetEvento().getAny())));
     }
 }

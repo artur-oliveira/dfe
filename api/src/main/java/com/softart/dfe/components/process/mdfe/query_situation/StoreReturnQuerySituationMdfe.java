@@ -2,7 +2,7 @@ package com.softart.dfe.components.process.mdfe.query_situation;
 
 import br.inf.portalfiscal.mdfe.classes.TConsSitMDFe;
 import br.inf.portalfiscal.mdfe.classes.TRetConsSitMDFe;
-import com.softart.dfe.components.internal.xml.marshaller.MdfeMarshaller;
+import com.softart.dfe.components.internal.xml.marshaller.MdfeMarshallerFactory;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.interfaces.process.AfterRequest;
 import com.softart.dfe.interfaces.process.mdfe.query_situation.AfterQuerySituation;
@@ -16,7 +16,7 @@ public abstract class StoreReturnQuerySituationMdfe implements AfterQuerySituati
     @Override
     public <T extends AfterRequest<TConsSitMDFe, TRetConsSitMDFe>> void process(T o) throws ProcessException {
         if (Objects.nonNull(o.getConfig()) && Objects.nonNull(o.getRequest())) {
-            getStorage().storeRetQuerySituation(new XMLStore<>(o.getResponse(), o.getConfig(), MdfeMarshaller.returnQuerySituation(o.getResponse())));
+            getStorage().storeRetQuerySituation(new XMLStore<>(o.getResponse(), o.getConfig(), MdfeMarshallerFactory.getInstance().returnQuerySituation(o.getResponse())));
         }
     }
 

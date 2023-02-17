@@ -1,10 +1,10 @@
 package com.softart.dfe.components.internal.xml.handler;
 
 import com.softart.dfe.components.internal.xml.namespace.NameSpaceCleanerFactory;
+import com.softart.dfe.util.XMLUtils;
 import lombok.extern.log4j.Log4j2;
 
 import javax.xml.namespace.QName;
-import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.ws.handler.MessageContext;
@@ -35,7 +35,7 @@ public final class CustomSoapHandler implements SOAPHandler<SOAPMessageContext> 
 
                 if (LOG_REQUEST) {
                     try (StringWriter xml = new StringWriter()) {
-                        TransformerFactory.newInstance().newTransformer().transform(new DOMSource(context.getMessage().getSOAPPart().getEnvelope().getBody().getFirstChild().getFirstChild()), new StreamResult(xml));
+                        XMLUtils.getTransformer().transform(new DOMSource(context.getMessage().getSOAPPart().getEnvelope().getBody().getFirstChild().getFirstChild()), new StreamResult(xml));
                         log.info(xml);
                     }
                 }
@@ -47,7 +47,7 @@ public final class CustomSoapHandler implements SOAPHandler<SOAPMessageContext> 
             try {
                 if (LOG_RESPONSE) {
                     try (StringWriter xml = new StringWriter()) {
-                        TransformerFactory.newInstance().newTransformer().transform(new DOMSource(context.getMessage().getSOAPPart().getEnvelope().getBody().getFirstChild().getFirstChild()), new StreamResult(xml));
+                        XMLUtils.getTransformer().transform(new DOMSource(context.getMessage().getSOAPPart().getEnvelope().getBody().getFirstChild().getFirstChild()), new StreamResult(xml));
                         log.info(xml);
                     }
                 }

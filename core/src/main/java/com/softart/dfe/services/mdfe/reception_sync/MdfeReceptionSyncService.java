@@ -1,7 +1,7 @@
 package com.softart.dfe.services.mdfe.reception_sync;
 
 import br.inf.portalfiscal.mdfe.classes.TMDFe;
-import com.softart.dfe.components.internal.xml.unmarshaller.MdfeUnmarshaller;
+import com.softart.dfe.components.internal.xml.unmarshaller.MdfeUnmarshallerFactory;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.exceptions.ValidationException;
 import com.softart.dfe.exceptions.port.SoapServiceGeneralException;
@@ -49,7 +49,7 @@ public interface MdfeReceptionSyncService extends MdfeSefazService {
     }
 
     default MdfeReturn receptionSync(String xml) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
-        return receptionSync(MdfeUnmarshaller.sendReceptionSync(xml).getValue());
+        return receptionSync(MdfeUnmarshallerFactory.getInstance().sendReceptionSync(xml).getValue());
     }
 }
 

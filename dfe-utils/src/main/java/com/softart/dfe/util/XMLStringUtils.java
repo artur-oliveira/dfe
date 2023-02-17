@@ -3,13 +3,13 @@ package com.softart.dfe.util;
 import java.util.Arrays;
 import java.util.Collection;
 
-public class XMLStringUtils {
+public final class XMLStringUtils {
     public static final String ID_ATTRIBUTE = "Id";
     public static final String ID_PREFIX = "ID";
     public static final String ID_NFE_PREFIX = "NFe";
     public static final String ID_CTE_PREFIX = "CTe";
     public static final String ID_MDFE_PREFIX = "MDFe";
-    private static final int MAX_NAMESPACE_REPLACING = Integer.parseInt(System.getProperty("MAX_NAMESPACE_REPLACING", "3"));
+    private static final int MAX_NAMESPACE_REPLACING = 3;
     private static final String SIGNATURE_PREFIX = "<Signature xmlns=\"http://www.w3.org/2000/09/xmldsig#\">";
     private static final Collection<String> DFE_NAMESPACES = Arrays.asList("http://www.portalfiscal.inf.br/nfe", "http://www.portalfiscal.inf.br/cte", "http://www.portalfiscal.inf.br/mdfe");
     private static final Collection<String> CURRENT_NAMESPACES = Arrays.asList("http://www.portalfiscal.inf.br/nfe", "http://www.portalfiscal.inf.br/cte", "http://www.portalfiscal.inf.br/mdfe", "http://www.w3.org/2000/09/xmldsig#");

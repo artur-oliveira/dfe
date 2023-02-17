@@ -1,7 +1,7 @@
 package com.softart.dfe.models.mdfe.query_situation;
 
 import br.inf.portalfiscal.mdfe.classes.TRetConsSitMDFe;
-import com.softart.dfe.components.internal.xml.unmarshaller.MdfeUnmarshaller;
+import com.softart.dfe.components.internal.xml.unmarshaller.MdfeUnmarshallerFactory;
 import com.softart.dfe.interfaces.xml.XMLAdapter;
 import com.softart.dfe.interfaces.xml.generic.DFObject;
 import com.softart.dfe.models.mdfe.event.MdfeReturnEvent;
@@ -58,7 +58,7 @@ public final class MdfeReturnQuerySituation implements DFObject, XMLAdapter<Mdfe
         @Override
         public ProtMDFe fromObject(TRetConsSitMDFe.ProtMDFe o) {
             this.setVersao(o.getVersao());
-            this.setProt(MdfeProtocol.builder().build().fromObject(MdfeUnmarshaller.protMdfe(o.getAny()).getValue()));
+            this.setProt(MdfeProtocol.builder().build().fromObject(MdfeUnmarshallerFactory.getInstance().protMdfe(o.getAny()).getValue()));
             return this;
         }
 
@@ -81,7 +81,7 @@ public final class MdfeReturnQuerySituation implements DFObject, XMLAdapter<Mdfe
         @Override
         public MdfeProcEvent fromObject(TRetConsSitMDFe.ProcEventoMDFe o) {
             setVersao(o.getVersao());
-            setRetEvento(MdfeReturnEvent.builder().build().fromObject(MdfeUnmarshaller.returnEvent(o.getAny()).getValue()));
+            setRetEvento(MdfeReturnEvent.builder().build().fromObject(MdfeUnmarshallerFactory.getInstance().returnEvent(o.getAny()).getValue()));
             return this;
         }
 

@@ -4,7 +4,7 @@ package com.softart.dfe.components.process.mdfe.event;
 import br.inf.portalfiscal.mdfe.classes.TEvento;
 import br.inf.portalfiscal.mdfe.classes.TProcEvento;
 import br.inf.portalfiscal.mdfe.classes.TRetEvento;
-import com.softart.dfe.components.internal.xml.marshaller.MdfeMarshaller;
+import com.softart.dfe.components.internal.xml.marshaller.MdfeMarshallerFactory;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.interfaces.process.AfterRequest;
 import com.softart.dfe.interfaces.process.mdfe.event.AfterEvent;
@@ -22,7 +22,7 @@ public abstract class StoreProcEventMdfe implements AfterEvent {
             procEvento.setEventoMDFe(o.getRequest());
             procEvento.setRetEventoMDFe(o.getResponse());
             procEvento.setVersao(o.getResponse().getVersao());
-            getStorage().storeProcEvent(new XMLStore<>(procEvento, o.getConfig(), MdfeMarshaller.procEvent(procEvento)));
+            getStorage().storeProcEvent(new XMLStore<>(procEvento, o.getConfig(), MdfeMarshallerFactory.getInstance().procEvent(procEvento)));
         }
     }
 

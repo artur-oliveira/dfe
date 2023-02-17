@@ -1,7 +1,7 @@
 package com.softart.dfe.services.mdfe.reception;
 
 import br.inf.portalfiscal.mdfe.classes.TEnviMDFe;
-import com.softart.dfe.components.internal.xml.unmarshaller.MdfeUnmarshaller;
+import com.softart.dfe.components.internal.xml.unmarshaller.MdfeUnmarshallerFactory;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.exceptions.ValidationException;
 import com.softart.dfe.exceptions.port.SoapServiceGeneralException;
@@ -66,7 +66,7 @@ public interface MdfeReceptionService extends MdfeSefazService {
      * @return The return is the object SendMdfeReturn, which is the object that contains the response from the SEFAZ.
      */
     default SendMdfeReturn reception(String xml) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
-        return reception(MdfeUnmarshaller.sendReception(xml).getValue());
+        return reception(MdfeUnmarshallerFactory.getInstance().sendReception(xml).getValue());
     }
 }
 

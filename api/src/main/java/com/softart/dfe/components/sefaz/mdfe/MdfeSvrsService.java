@@ -2,8 +2,8 @@ package com.softart.dfe.components.sefaz.mdfe;
 
 import br.inf.portalfiscal.mdfe.classes.*;
 import com.softart.dfe.components.internal.PairImpl;
-import com.softart.dfe.components.internal.xml.marshaller.MdfeMarshaller;
-import com.softart.dfe.components.internal.xml.unmarshaller.MdfeUnmarshaller;
+import com.softart.dfe.components.internal.xml.marshaller.MdfeMarshallerFactory;
+import com.softart.dfe.components.internal.xml.unmarshaller.MdfeUnmarshallerFactory;
 import com.softart.dfe.enums.internal.Environment;
 import com.softart.dfe.enums.internal.UF;
 import com.softart.dfe.enums.mdfe.identification.MdfeEmissionType;
@@ -63,8 +63,8 @@ public final class MdfeSvrsService implements MdfeService {
 
     @Override
     public <T extends SefazRequest<DistDFeInt, RetDistDFeInt>> Pair<DistDFeInt, RetDistDFeInt> distribution(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = MdfeMarshaller.sendDistribution(data.getData());
-        JAXBElement<DistDFeInt> envio = MdfeUnmarshaller.sendDistribution(xml);
+        String xml = MdfeMarshallerFactory.getInstance().sendDistribution(data.getData());
+        JAXBElement<DistDFeInt> envio = MdfeUnmarshallerFactory.getInstance().sendDistribution(xml);
         for (Validator<DistDFeInt> validator : data.getValidators()) {
             validator.valid(new Validation<>(envio.getValue(), xml));
         }
@@ -125,8 +125,8 @@ public final class MdfeSvrsService implements MdfeService {
 
     @Override
     public <T extends SefazRequest<TEvento, TRetEvento>> Pair<TEvento, TRetEvento> event(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = data.getSigner().signEvent(MdfeMarshaller.sendEvent(data.getData()), data.getConfig());
-        JAXBElement<TEvento> envio = MdfeUnmarshaller.sendEvent(xml);
+        String xml = data.getSigner().signEvent(MdfeMarshallerFactory.getInstance().sendEvent(data.getData()), data.getConfig());
+        JAXBElement<TEvento> envio = MdfeUnmarshallerFactory.getInstance().sendEvent(xml);
         for (Validator<TEvento> validator : data.getValidators()) {
             validator.valid(new Validation<>(envio.getValue(), xml));
         }
@@ -187,8 +187,8 @@ public final class MdfeSvrsService implements MdfeService {
 
     @Override
     public <T extends SefazRequest<TConsReciMDFe, TRetConsReciMDFe>> Pair<TConsReciMDFe, TRetConsReciMDFe> queryReceipt(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = MdfeMarshaller.sendQueryReceipt(data.getData());
-        JAXBElement<TConsReciMDFe> envio = MdfeUnmarshaller.sendQueryReceipt(xml);
+        String xml = MdfeMarshallerFactory.getInstance().sendQueryReceipt(data.getData());
+        JAXBElement<TConsReciMDFe> envio = MdfeUnmarshallerFactory.getInstance().sendQueryReceipt(xml);
         for (Validator<TConsReciMDFe> validator : data.getValidators()) {
             validator.valid(new Validation<>(envio.getValue(), xml));
         }
@@ -249,8 +249,8 @@ public final class MdfeSvrsService implements MdfeService {
 
     @Override
     public <T extends SefazRequest<TConsSitMDFe, TRetConsSitMDFe>> Pair<TConsSitMDFe, TRetConsSitMDFe> querySituation(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = MdfeMarshaller.sendQuerySituation(data.getData());
-        JAXBElement<TConsSitMDFe> envio = MdfeUnmarshaller.sendQuerySituation(xml);
+        String xml = MdfeMarshallerFactory.getInstance().sendQuerySituation(data.getData());
+        JAXBElement<TConsSitMDFe> envio = MdfeUnmarshallerFactory.getInstance().sendQuerySituation(xml);
         for (Validator<TConsSitMDFe> validator : data.getValidators()) {
             validator.valid(new Validation<>(envio.getValue(), xml));
         }
@@ -311,8 +311,8 @@ public final class MdfeSvrsService implements MdfeService {
 
     @Override
     public <T extends SefazRequest<TConsMDFeNaoEnc, TRetConsMDFeNaoEnc>> Pair<TConsMDFeNaoEnc, TRetConsMDFeNaoEnc> queryUnclosed(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = MdfeMarshaller.sendQueryUnclosed(data.getData());
-        JAXBElement<TConsMDFeNaoEnc> envio = MdfeUnmarshaller.sendQueryUnclosed(xml);
+        String xml = MdfeMarshallerFactory.getInstance().sendQueryUnclosed(data.getData());
+        JAXBElement<TConsMDFeNaoEnc> envio = MdfeUnmarshallerFactory.getInstance().sendQueryUnclosed(xml);
         for (Validator<TConsMDFeNaoEnc> validator : data.getValidators()) {
             validator.valid(new Validation<>(envio.getValue(), xml));
         }
@@ -373,8 +373,8 @@ public final class MdfeSvrsService implements MdfeService {
 
     @Override
     public <T extends SefazRequest<TEnviMDFe, TRetEnviMDFe>> Pair<TEnviMDFe, TRetEnviMDFe> reception(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = data.getSigner().signMdfe(MdfeMarshaller.sendReception(data.getData()), data.getConfig());
-        JAXBElement<TEnviMDFe> envio = MdfeUnmarshaller.sendReception(xml);
+        String xml = data.getSigner().signMdfe(MdfeMarshallerFactory.getInstance().sendReception(data.getData()), data.getConfig());
+        JAXBElement<TEnviMDFe> envio = MdfeUnmarshallerFactory.getInstance().sendReception(xml);
         for (Validator<TEnviMDFe> validator : data.getValidators()) {
             validator.valid(new Validation<>(envio.getValue(), xml));
         }
@@ -435,8 +435,8 @@ public final class MdfeSvrsService implements MdfeService {
 
     @Override
     public <T extends SefazRequest<TMDFe, TRetMDFe>> Pair<TMDFe, TRetMDFe> receptionSync(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = data.getSigner().signMdfe(MdfeMarshaller.sendReceptionSync(data.getData()), data.getConfig());
-        JAXBElement<TMDFe> envio = MdfeUnmarshaller.sendReceptionSync(xml);
+        String xml = data.getSigner().signMdfe(MdfeMarshallerFactory.getInstance().sendReceptionSync(data.getData()), data.getConfig());
+        JAXBElement<TMDFe> envio = MdfeUnmarshallerFactory.getInstance().sendReceptionSync(xml);
         for (Validator<TMDFe> validator : data.getValidators()) {
             validator.valid(new Validation<>(envio.getValue(), xml));
         }
@@ -491,8 +491,8 @@ public final class MdfeSvrsService implements MdfeService {
 
     @Override
     public <T extends SefazRequest<TConsStatServ, TRetConsStatServ>> Pair<TConsStatServ, TRetConsStatServ> statusService(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = MdfeMarshaller.sendStatusService(data.getData());
-        JAXBElement<TConsStatServ> envio = MdfeUnmarshaller.sendStatusService(xml);
+        String xml = MdfeMarshallerFactory.getInstance().sendStatusService(data.getData());
+        JAXBElement<TConsStatServ> envio = MdfeUnmarshallerFactory.getInstance().sendStatusService(xml);
         for (Validator<TConsStatServ> validator : data.getValidators()) {
             validator.valid(new Validation<>(envio.getValue(), xml));
         }
