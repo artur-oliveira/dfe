@@ -35,6 +35,11 @@ import java.util.List;
 public final class DefaultXmlSigner extends XmlSigner {
 
     private static final String C14NEXC = "http://www.w3.org/TR/2001/REC-xml-c14n-20010315";
+    private static final String SIGN_INUTILIZATION = "infInut";
+    private static final String SIGN_EVENT = "infEvento";
+    private static final String SIGN_CTE = "infCte";
+    private static final String SIGN_MDFE = "infMDFe";
+    private static final String SIGN_NFE = "infNFe";
 
     /**
      * It takes an XML string, a KeyStoreInfo object and an element name, and returns the signed XML string
@@ -82,7 +87,7 @@ public final class DefaultXmlSigner extends XmlSigner {
     @Override
     public String signInut(String evento, Config config) throws XMLSignException {
         try {
-            return DefaultXmlSigner.sign(evento, config.info(), "infInut");
+            return DefaultXmlSigner.sign(evento, config.info(), SIGN_INUTILIZATION);
         } catch (XMLSignException e) {
             throw e;
         } catch (Exception e) {
@@ -92,7 +97,7 @@ public final class DefaultXmlSigner extends XmlSigner {
 
     public String signEvent(String evento, Config config) throws XMLSignException {
         try {
-            return DefaultXmlSigner.sign(evento, config.info(), "infEvento");
+            return DefaultXmlSigner.sign(evento, config.info(), SIGN_EVENT);
         } catch (XMLSignException e) {
             throw e;
         } catch (Exception e) {
@@ -102,7 +107,7 @@ public final class DefaultXmlSigner extends XmlSigner {
 
     public String signNfe(String evento, Config config) throws XMLSignException {
         try {
-            return DefaultXmlSigner.sign(evento, config.info(), "infNFe");
+            return DefaultXmlSigner.sign(evento, config.info(), SIGN_NFE);
         } catch (XMLSignException e) {
             throw e;
         } catch (Exception e) {
@@ -112,7 +117,7 @@ public final class DefaultXmlSigner extends XmlSigner {
 
     public String signCte(String evento, Config config) throws XMLSignException {
         try {
-            return DefaultXmlSigner.sign(evento, config.info(), "infCte");
+            return DefaultXmlSigner.sign(evento, config.info(), SIGN_CTE);
         } catch (XMLSignException e) {
             throw e;
         } catch (Exception e) {
@@ -122,7 +127,7 @@ public final class DefaultXmlSigner extends XmlSigner {
 
     public String signMdfe(String evento, Config config) throws XMLSignException {
         try {
-            return DefaultXmlSigner.sign(evento, config.info(), "infMDFe");
+            return DefaultXmlSigner.sign(evento, config.info(), SIGN_MDFE);
         } catch (XMLSignException e) {
             throw e;
         } catch (Exception e) {
