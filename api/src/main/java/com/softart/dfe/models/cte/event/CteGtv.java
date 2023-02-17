@@ -3,7 +3,7 @@ package com.softart.dfe.models.cte.event;
 import br.inf.portalfiscal.cte.send.TEvento;
 import br.inf.portalfiscal.cte.send.TUf;
 import com.softart.dfe.components.internal.parser.AccessKeyParserFactory;
-import com.softart.dfe.components.internal.xml.unmarshaller.CteUnmarshaller;
+import com.softart.dfe.components.internal.xml.unmarshaller.CteUnmarshallerFactory;
 import com.softart.dfe.enums.cte.CteEvent;
 import com.softart.dfe.enums.cte.version.CteEventVersion;
 import com.softart.dfe.interfaces.internal.config.CteConfig;
@@ -93,7 +93,7 @@ public final class CteGtv implements DFObject, XMLAdapter<CteGtv, TEvento> {
             public br.inf.portalfiscal.cte.send.DetEvento toObject() {
                 br.inf.portalfiscal.cte.send.DetEvento evento = new br.inf.portalfiscal.cte.send.DetEvento();
                 evento.setVersaoEvento(getVersaoEvento());
-                evento.setAny(CteUnmarshaller.toElement(getEvent().toObject()));
+                evento.setAny(CteUnmarshallerFactory.getInstance().toElement(getEvent().toObject()));
                 return evento;
             }
 
@@ -101,7 +101,7 @@ public final class CteGtv implements DFObject, XMLAdapter<CteGtv, TEvento> {
             public DetEvento fromObject(br.inf.portalfiscal.cte.send.DetEvento o) {
                 DetEvento evento = DetEvento.builder().build();
                 evento.setVersaoEvento(evento.getVersaoEvento());
-                evento.setEvent(EvGTV.builder().build().fromObject(CteUnmarshaller.evGTV(o.getAny()).getValue()));
+                evento.setEvent(EvGTV.builder().build().fromObject(CteUnmarshallerFactory.getInstance().evGTV(o.getAny()).getValue()));
                 return evento;
             }
 

@@ -1,7 +1,7 @@
 package com.softart.dfe.components.process.cte.event;
 
 import br.inf.portalfiscal.cte.send.TEvento;
-import com.softart.dfe.components.internal.xml.marshaller.CteMarshaller;
+import com.softart.dfe.components.internal.xml.marshaller.CteMarshallerFactory;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.interfaces.process.BeforeRequest;
 import com.softart.dfe.interfaces.process.cte.event.BeforeEvent;
@@ -15,7 +15,7 @@ public abstract class StoreEventCte implements BeforeEvent {
     @Override
     public <T extends BeforeRequest<TEvento>> void process(T o) throws ProcessException {
         if (Objects.nonNull(o.getRequest()) && Objects.nonNull(getStorage())) {
-            getStorage().storeEvent(new XMLStore<>(o.getRequest(), o.getConfig(), CteMarshaller.eventCte(o.getRequest())));
+            getStorage().storeEvent(new XMLStore<>(o.getRequest(), o.getConfig(), CteMarshallerFactory.getInstance().eventCte(o.getRequest())));
         }
     }
 

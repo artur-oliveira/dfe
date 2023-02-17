@@ -4,8 +4,8 @@ import br.inf.portalfiscal.cte.distribution.DistDFeInt;
 import br.inf.portalfiscal.cte.distribution.RetDistDFeInt;
 import br.inf.portalfiscal.cte.send.*;
 import com.softart.dfe.components.internal.parser.AccessKeyParserFactory;
-import com.softart.dfe.components.internal.xml.marshaller.CteMarshaller;
-import com.softart.dfe.components.internal.xml.unmarshaller.CteUnmarshaller;
+import com.softart.dfe.components.internal.xml.marshaller.CteMarshallerFactory;
+import com.softart.dfe.components.internal.xml.unmarshaller.CteUnmarshallerFactory;
 import com.softart.dfe.components.storage.common.CommonFileSystemStorage;
 import com.softart.dfe.enums.cte.CteReturnCode;
 import com.softart.dfe.enums.internal.cte.CteStorageKey;
@@ -138,7 +138,7 @@ public final class CteFileSystemStorage extends CommonFileSystemStorage implemen
 
         if (Objects.isNull(xml)) return;
 
-        TEnviCTe tEnviNFe = CteUnmarshaller.enviCte(xml).getValue();
+        TEnviCTe tEnviNFe = CteUnmarshallerFactory.getInstance().enviCte(xml).getValue();
 
         for (TProtCTe protCTe : o.getData().getProtCTe()) {
             TCteProc proc = new ObjectFactory().createTCteProc();
@@ -146,7 +146,7 @@ public final class CteFileSystemStorage extends CommonFileSystemStorage implemen
             proc.setCTe(tEnviNFe.getCTe().stream().filter(it -> it.getInfCte().getId().contains(protCTe.getInfProt().getChCTe())).findFirst().orElse(null));
             proc.setVersao(proc.getCTe().getInfCte().getVersao());
 
-            storeProcCte(new XMLStore<>(proc, o.getConfig(), CteMarshaller.cteProc(proc)));
+            storeProcCte(new XMLStore<>(proc, o.getConfig(), CteMarshallerFactory.getInstance().cteProc(proc)));
         }
     }
 
@@ -181,12 +181,12 @@ public final class CteFileSystemStorage extends CommonFileSystemStorage implemen
 
                 if (Objects.nonNull(o.getData().getProtCTe())) {
                     try {
-                        accessKey = CteUnmarshaller.protCTe(o.getData().getProtCTe().getAny()).getValue().getInfProt().getChCTe();
+                        accessKey = CteUnmarshallerFactory.getInstance().protCTe(o.getData().getProtCTe().getAny()).getValue().getInfProt().getChCTe();
                     } catch (MarshallException e1) {
                         try {
-                            accessKey = CteUnmarshaller.protCTeOS(o.getData().getProtCTe().getAny()).getValue().getInfProt().getChCTe();
+                            accessKey = CteUnmarshallerFactory.getInstance().protCTeOS(o.getData().getProtCTe().getAny()).getValue().getInfProt().getChCTe();
                         } catch (MarshallException e2) {
-                            accessKey = CteUnmarshaller.protGTVe(o.getData().getProtCTe().getAny()).getValue().getInfProt().getChCTe();
+                            accessKey = CteUnmarshallerFactory.getInstance().protGTVe(o.getData().getProtCTe().getAny()).getValue().getInfProt().getChCTe();
                         }
                     }
                 }

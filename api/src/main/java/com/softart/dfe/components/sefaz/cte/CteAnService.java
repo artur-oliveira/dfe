@@ -3,8 +3,8 @@ package com.softart.dfe.components.sefaz.cte;
 import br.inf.portalfiscal.cte.distribution.DistDFeInt;
 import br.inf.portalfiscal.cte.distribution.RetDistDFeInt;
 import com.softart.dfe.components.internal.PairImpl;
-import com.softart.dfe.components.internal.xml.marshaller.CteMarshaller;
-import com.softart.dfe.components.internal.xml.unmarshaller.CteUnmarshaller;
+import com.softart.dfe.components.internal.xml.marshaller.CteMarshallerFactory;
+import com.softart.dfe.components.internal.xml.unmarshaller.CteUnmarshallerFactory;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.exceptions.ValidationException;
 import com.softart.dfe.exceptions.security.SecurityException;
@@ -40,8 +40,8 @@ public abstract class CteAnService implements CteService {
 
     @Override
     public <T extends SefazRequest<DistDFeInt, RetDistDFeInt>> Pair<DistDFeInt, RetDistDFeInt> distribution(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = CteMarshaller.distributionCte(data.getData());
-        JAXBElement<DistDFeInt> envio = CteUnmarshaller.distributionCte(xml);
+        String xml = CteMarshallerFactory.getInstance().distributionCte(data.getData());
+        JAXBElement<DistDFeInt> envio = CteUnmarshallerFactory.getInstance().distributionCte(xml);
 
         for (Validator<DistDFeInt> it : data.getValidators()) it.valid(new Validation<>(envio.getValue(), xml));
         for (BeforeWebServiceRequest<DistDFeInt> it : data.getBeforeRequest())

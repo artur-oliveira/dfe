@@ -2,7 +2,7 @@ package com.softart.dfe.models.cte.event;
 
 import br.inf.portalfiscal.cte.send.TEvento;
 import com.softart.dfe.components.internal.parser.AccessKeyParserFactory;
-import com.softart.dfe.components.internal.xml.unmarshaller.CteUnmarshaller;
+import com.softart.dfe.components.internal.xml.unmarshaller.CteUnmarshallerFactory;
 import com.softart.dfe.enums.cte.CteEvent;
 import com.softart.dfe.enums.cte.version.CteEventVersion;
 import com.softart.dfe.interfaces.internal.config.CteConfig;
@@ -91,7 +91,7 @@ public final class CteMultiModal implements DFObject, XMLAdapter<CteMultiModal, 
             public br.inf.portalfiscal.cte.send.DetEvento toObject() {
                 br.inf.portalfiscal.cte.send.DetEvento evento = new br.inf.portalfiscal.cte.send.DetEvento();
                 evento.setVersaoEvento(getVersaoEvento());
-                evento.setAny(CteUnmarshaller.toElement(getEvent().toObject()));
+                evento.setAny(CteUnmarshallerFactory.getInstance().toElement(getEvent().toObject()));
                 return evento;
             }
 
@@ -99,7 +99,7 @@ public final class CteMultiModal implements DFObject, XMLAdapter<CteMultiModal, 
             public DetEvento fromObject(br.inf.portalfiscal.cte.send.DetEvento o) {
                 DetEvento evento = DetEvento.builder().build();
                 evento.setVersaoEvento(evento.getVersaoEvento());
-                evento.setEvent(EvRegMultimodal.builder().build().fromObject(CteUnmarshaller.evRegMultimodal(o.getAny()).getValue()));
+                evento.setEvent(EvRegMultimodal.builder().build().fromObject(CteUnmarshallerFactory.getInstance().evRegMultimodal(o.getAny()).getValue()));
                 return evento;
             }
 

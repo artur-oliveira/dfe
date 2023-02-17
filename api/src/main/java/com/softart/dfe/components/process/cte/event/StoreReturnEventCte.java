@@ -3,7 +3,7 @@ package com.softart.dfe.components.process.cte.event;
 
 import br.inf.portalfiscal.cte.send.TEvento;
 import br.inf.portalfiscal.cte.send.TRetEvento;
-import com.softart.dfe.components.internal.xml.marshaller.CteMarshaller;
+import com.softart.dfe.components.internal.xml.marshaller.CteMarshallerFactory;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.interfaces.process.AfterRequest;
 import com.softart.dfe.interfaces.process.cte.event.AfterEvent;
@@ -17,7 +17,7 @@ public abstract class StoreReturnEventCte implements AfterEvent {
     @Override
     public <T extends AfterRequest<TEvento, TRetEvento>> void process(T o) throws ProcessException {
         if (Objects.nonNull(getStorage()) && Objects.nonNull(o.getResponse())) {
-            getStorage().storeReturnEvent(new XMLStore<>(o.getResponse(), o.getConfig(), CteMarshaller.returnEventCte(o.getResponse())));
+            getStorage().storeReturnEvent(new XMLStore<>(o.getResponse(), o.getConfig(), CteMarshallerFactory.getInstance().returnEventCte(o.getResponse())));
         }
     }
 

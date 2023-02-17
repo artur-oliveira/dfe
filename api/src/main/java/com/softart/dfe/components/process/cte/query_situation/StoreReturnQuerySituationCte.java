@@ -2,7 +2,7 @@ package com.softart.dfe.components.process.cte.query_situation;
 
 import br.inf.portalfiscal.cte.send.TConsSitCTe;
 import br.inf.portalfiscal.cte.send.TRetConsSitCTe;
-import com.softart.dfe.components.internal.xml.marshaller.CteMarshaller;
+import com.softart.dfe.components.internal.xml.marshaller.CteMarshallerFactory;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.interfaces.process.AfterRequest;
 import com.softart.dfe.interfaces.process.cte.query_situation.AfterQuerySituation;
@@ -16,7 +16,7 @@ public abstract class StoreReturnQuerySituationCte implements AfterQuerySituatio
     @Override
     public <T extends AfterRequest<TConsSitCTe, TRetConsSitCTe>> void process(T o) throws ProcessException {
         if (Objects.nonNull(o.getResponse()) && Objects.nonNull(getStorage())) {
-            getStorage().storeReturnQuerySituation(new XMLStore<>(o.getResponse(), o.getConfig(), CteMarshaller.returnQuerySituationCte(o.getResponse())));
+            getStorage().storeReturnQuerySituation(new XMLStore<>(o.getResponse(), o.getConfig(), CteMarshallerFactory.getInstance().returnQuerySituationCte(o.getResponse())));
         }
     }
 

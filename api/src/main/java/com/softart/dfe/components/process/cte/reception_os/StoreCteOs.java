@@ -1,7 +1,7 @@
 package com.softart.dfe.components.process.cte.reception_os;
 
 import br.inf.portalfiscal.cte.send.TCTeOS;
-import com.softart.dfe.components.internal.xml.marshaller.CteMarshaller;
+import com.softart.dfe.components.internal.xml.marshaller.CteMarshallerFactory;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.interfaces.process.BeforeRequest;
 import com.softart.dfe.interfaces.process.cte.reception_os.BeforeReceptionCteOs;
@@ -15,7 +15,7 @@ public abstract class StoreCteOs implements BeforeReceptionCteOs {
     @Override
     public <T extends BeforeRequest<TCTeOS>> void process(T o) throws ProcessException {
         if (Objects.nonNull(o.getRequest()) && Objects.nonNull(getStorage())) {
-            getStorage().storeCteOs(new XMLStore<>(o.getRequest(), o.getConfig(), CteMarshaller.receptionCteOs(o.getRequest())));
+            getStorage().storeCteOs(new XMLStore<>(o.getRequest(), o.getConfig(), CteMarshallerFactory.getInstance().receptionCteOs(o.getRequest())));
         }
     }
 

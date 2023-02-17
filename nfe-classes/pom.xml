@@ -16,6 +16,11 @@
             <artifactId>stubs</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.softart</groupId>
+            <artifactId>dfe-utils</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 
     <properties>

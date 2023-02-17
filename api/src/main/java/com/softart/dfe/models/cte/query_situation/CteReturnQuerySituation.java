@@ -1,7 +1,7 @@
 package com.softart.dfe.models.cte.query_situation;
 
 import br.inf.portalfiscal.cte.send.*;
-import com.softart.dfe.components.internal.xml.unmarshaller.CteUnmarshaller;
+import com.softart.dfe.components.internal.xml.unmarshaller.CteUnmarshallerFactory;
 import com.softart.dfe.exceptions.xml.MarshallException;
 import com.softart.dfe.interfaces.xml.XMLAdapter;
 import com.softart.dfe.interfaces.xml.generic.DFObject;
@@ -74,12 +74,12 @@ public class CteReturnQuerySituation implements DFObject, XMLAdapter<CteReturnQu
             protCte.setVersao(o.getVersao());
 
             try {
-                protCte.setInfProt(InfProtCte.builder().build().fromObject(CteUnmarshaller.protCTe(o.getAny()).getValue().getInfProt()));
+                protCte.setInfProt(InfProtCte.builder().build().fromObject(CteUnmarshallerFactory.getInstance().protCTe(o.getAny()).getValue().getInfProt()));
             } catch (MarshallException e1) {
                 try {
-                    setInfProtOs(InfProtCteOs.builder().build().fromObject(CteUnmarshaller.protCTeOS(o.getAny()).getValue().getInfProt()));
+                    setInfProtOs(InfProtCteOs.builder().build().fromObject(CteUnmarshallerFactory.getInstance().protCTeOS(o.getAny()).getValue().getInfProt()));
                 } catch (MarshallException e2) {
-                    setInfProtGtve(InfProtGtve.builder().build().fromObject(CteUnmarshaller.protGTVe(o.getAny()).getValue().getInfProt()));
+                    setInfProtGtve(InfProtGtve.builder().build().fromObject(CteUnmarshallerFactory.getInstance().protGTVe(o.getAny()).getValue().getInfProt()));
                 }
             }
 

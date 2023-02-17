@@ -2,10 +2,8 @@ package com.softart.dfe.components.internal.xml.unmarshaller;
 
 import br.inf.portalfiscal.cte.distribution.DistDFeInt;
 import br.inf.portalfiscal.cte.send.*;
-import com.softart.dfe.components.internal.parser.AccessKeyParserFactory;
 import com.softart.dfe.components.internal.xml.context.CteContextFactory;
-import com.softart.dfe.components.internal.xml.marshaller.CteMarshaller;
-import com.softart.dfe.enums.internal.Model;
+import com.softart.dfe.components.internal.xml.marshaller.CteMarshallerFactory;
 import com.softart.dfe.exceptions.xml.MarshallException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -16,13 +14,10 @@ import javax.xml.transform.dom.DOMResult;
 import java.io.StringReader;
 import java.util.Objects;
 
-public final class CteUnmarshaller {
+final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
-    private CteUnmarshaller() {
-        throw new RuntimeException("No CteUnmarshaller for you");
-    }
-
-    public static JAXBElement<DistDFeInt> distributionCte(String xml) {
+    @Override
+    public JAXBElement<DistDFeInt> distributionCte(String xml) {
         try {
             javax.xml.bind.Unmarshaller unmarshaller = CteContextFactory.getInstance().getCteDistributionContext().createUnmarshaller();
             StringReader reader = new StringReader(xml);
@@ -35,7 +30,8 @@ public final class CteUnmarshaller {
         }
     }
 
-    public static JAXBElement<TEvento> eventCte(String xml) {
+    @Override
+    public JAXBElement<TEvento> eventCte(String xml) {
         try {
             javax.xml.bind.Unmarshaller unmarshaller = CteContextFactory.getInstance().getCteSendContext().createUnmarshaller();
             StringReader reader = new StringReader(xml);
@@ -48,7 +44,8 @@ public final class CteUnmarshaller {
         }
     }
 
-    public static JAXBElement<TInutCTe> inutCte(String xml) {
+    @Override
+    public JAXBElement<TInutCTe> inutCte(String xml) {
         try {
             javax.xml.bind.Unmarshaller unmarshaller = CteContextFactory.getInstance().getCteSendContext().createUnmarshaller();
             StringReader reader = new StringReader(xml);
@@ -61,7 +58,8 @@ public final class CteUnmarshaller {
         }
     }
 
-    public static JAXBElement<TConsSitCTe> querySituationCte(String xml) {
+    @Override
+    public JAXBElement<TConsSitCTe> querySituationCte(String xml) {
         try {
             javax.xml.bind.Unmarshaller unmarshaller = CteContextFactory.getInstance().getCteSendContext().createUnmarshaller();
             StringReader reader = new StringReader(xml);
@@ -74,7 +72,8 @@ public final class CteUnmarshaller {
         }
     }
 
-    public static JAXBElement<TEnviCTe> receptionCte(String xml) {
+    @Override
+    public JAXBElement<TEnviCTe> receptionCte(String xml) {
         try {
             javax.xml.bind.Unmarshaller unmarshaller = CteContextFactory.getInstance().getCteSendContext().createUnmarshaller();
             StringReader reader = new StringReader(xml);
@@ -87,7 +86,8 @@ public final class CteUnmarshaller {
         }
     }
 
-    public static JAXBElement<TGTVe> receptionGtve(String xml) {
+    @Override
+    public JAXBElement<TGTVe> receptionGtve(String xml) {
         try {
             javax.xml.bind.Unmarshaller unmarshaller = CteContextFactory.getInstance().getCteSendContext().createUnmarshaller();
             StringReader reader = new StringReader(xml);
@@ -100,7 +100,8 @@ public final class CteUnmarshaller {
         }
     }
 
-    public static JAXBElement<TCTeOS> receptionCteOs(String xml) {
+    @Override
+    public JAXBElement<TCTeOS> receptionCteOs(String xml) {
         try {
             javax.xml.bind.Unmarshaller unmarshaller = CteContextFactory.getInstance().getCteSendContext().createUnmarshaller();
             StringReader reader = new StringReader(xml);
@@ -113,7 +114,8 @@ public final class CteUnmarshaller {
         }
     }
 
-    public static JAXBElement<TCTe> receptionCteSync(String xml) {
+    @Override
+    public JAXBElement<TCTe> receptionCteSync(String xml) {
         try {
             javax.xml.bind.Unmarshaller unmarshaller = CteContextFactory.getInstance().getCteSendContext().createUnmarshaller();
             StringReader reader = new StringReader(xml);
@@ -126,7 +128,8 @@ public final class CteUnmarshaller {
         }
     }
 
-    public static JAXBElement<TConsReciCTe> queryReceipt(String xml) {
+    @Override
+    public JAXBElement<TConsReciCTe> queryReceipt(String xml) {
         try {
             javax.xml.bind.Unmarshaller unmarshaller = CteContextFactory.getInstance().getCteSendContext().createUnmarshaller();
             StringReader reader = new StringReader(xml);
@@ -139,7 +142,8 @@ public final class CteUnmarshaller {
         }
     }
 
-    public static JAXBElement<TConsStatServ> statusService(String xml) {
+    @Override
+    public JAXBElement<TConsStatServ> statusService(String xml) {
         try {
             javax.xml.bind.Unmarshaller unmarshaller = CteContextFactory.getInstance().getCteSendContext().createUnmarshaller();
             StringReader reader = new StringReader(xml);
@@ -154,15 +158,16 @@ public final class CteUnmarshaller {
     }
 
 
-    public static JAXBElement<TProtCTe> protCTe(Element element) {
+    @Override
+    public JAXBElement<TProtCTe> protCTe(Element element) {
         try {
             javax.xml.bind.Unmarshaller unmarshaller = CteContextFactory.getInstance().getCteSendContext().createUnmarshaller();
-            Object o = unmarshaller.unmarshal(new StringReader(CteMarshaller.protCte(element)));
+            Object o = unmarshaller.unmarshal(new StringReader(CteMarshallerFactory.getInstance().protCte(element)));
             ObjectFactory fc = new ObjectFactory();
             JAXBElement<TProtCTe> prot;
             if (o instanceof JAXBElement) prot = fc.createProtCTe((TProtCTe) ((JAXBElement<?>) o).getValue());
             else prot = fc.createProtCTe((TProtCTe) o);
-            if (Objects.equals(Model.CTE, AccessKeyParserFactory.cte().model(prot.getValue().getInfProt().getChCTe())))
+            if (Objects.equals("57", prot.getValue().getInfProt().getChCTe().substring(20, 22)))
                 return prot;
             throw new RuntimeException();
         } catch (Exception e) {
@@ -170,10 +175,11 @@ public final class CteUnmarshaller {
         }
     }
 
-    public static JAXBElement<?> any(Element element) {
+    @Override
+    public JAXBElement<?> any(Element element) {
         try {
             javax.xml.bind.Unmarshaller unmarshaller = CteContextFactory.getInstance().getCteSendContext().createUnmarshaller();
-            Object o = unmarshaller.unmarshal(new StringReader(CteMarshaller.any(element)));
+            Object o = unmarshaller.unmarshal(new StringReader(CteMarshallerFactory.getInstance().any(element)));
             if (o instanceof JAXBElement) return (JAXBElement<?>) o;
             throw new RuntimeException("Object " + o + " of unknown type");
         } catch (Exception e) {
@@ -182,10 +188,11 @@ public final class CteUnmarshaller {
     }
 
 
-    public static JAXBElement<EvCancCTe> evCancCTe(Element element) {
+    @Override
+    public JAXBElement<EvCancCTe> evCancCTe(Element element) {
         try {
             javax.xml.bind.Unmarshaller unmarshaller = CteContextFactory.getInstance().getCteSendContext().createUnmarshaller();
-            Object o = unmarshaller.unmarshal(new StringReader(CteMarshaller.any(element)));
+            Object o = unmarshaller.unmarshal(new StringReader(CteMarshallerFactory.getInstance().any(element)));
             ObjectFactory fc = new ObjectFactory();
             JAXBElement<EvCancCTe> prot;
             if (o instanceof JAXBElement) prot = fc.createEvCancCTe((EvCancCTe) ((JAXBElement<?>) o).getValue());
@@ -196,10 +203,11 @@ public final class CteUnmarshaller {
         }
     }
 
-    public static JAXBElement<EvCancCECTe> evCancCECTe(Element element) {
+    @Override
+    public JAXBElement<EvCancCECTe> evCancCECTe(Element element) {
         try {
             javax.xml.bind.Unmarshaller unmarshaller = CteContextFactory.getInstance().getCteSendContext().createUnmarshaller();
-            Object o = unmarshaller.unmarshal(new StringReader(CteMarshaller.any(element)));
+            Object o = unmarshaller.unmarshal(new StringReader(CteMarshallerFactory.getInstance().any(element)));
             ObjectFactory fc = new ObjectFactory();
             JAXBElement<EvCancCECTe> prot;
             if (o instanceof JAXBElement) prot = fc.createEvCancCECTe((EvCancCECTe) ((JAXBElement<?>) o).getValue());
@@ -210,10 +218,11 @@ public final class CteUnmarshaller {
         }
     }
 
-    public static JAXBElement<EvCCeCTe> evCCeCTe(Element element) {
+    @Override
+    public JAXBElement<EvCCeCTe> evCCeCTe(Element element) {
         try {
             javax.xml.bind.Unmarshaller unmarshaller = CteContextFactory.getInstance().getCteSendContext().createUnmarshaller();
-            Object o = unmarshaller.unmarshal(new StringReader(CteMarshaller.any(element)));
+            Object o = unmarshaller.unmarshal(new StringReader(CteMarshallerFactory.getInstance().any(element)));
             ObjectFactory fc = new ObjectFactory();
             JAXBElement<EvCCeCTe> prot;
             if (o instanceof JAXBElement) prot = fc.createEvCCeCTe((EvCCeCTe) ((JAXBElement<?>) o).getValue());
@@ -224,10 +233,11 @@ public final class CteUnmarshaller {
         }
     }
 
-    public static JAXBElement<EvCECTe> evCECTe(Element element) {
+    @Override
+    public JAXBElement<EvCECTe> evCECTe(Element element) {
         try {
             javax.xml.bind.Unmarshaller unmarshaller = CteContextFactory.getInstance().getCteSendContext().createUnmarshaller();
-            Object o = unmarshaller.unmarshal(new StringReader(CteMarshaller.any(element)));
+            Object o = unmarshaller.unmarshal(new StringReader(CteMarshallerFactory.getInstance().any(element)));
             ObjectFactory fc = new ObjectFactory();
             JAXBElement<EvCECTe> prot;
             if (o instanceof JAXBElement) prot = fc.createEvCECTe((EvCECTe) ((JAXBElement<?>) o).getValue());
@@ -238,10 +248,11 @@ public final class CteUnmarshaller {
         }
     }
 
-    public static JAXBElement<EvEPECCTe> evEPECCTe(Element element) {
+    @Override
+    public JAXBElement<EvEPECCTe> evEPECCTe(Element element) {
         try {
             javax.xml.bind.Unmarshaller unmarshaller = CteContextFactory.getInstance().getCteSendContext().createUnmarshaller();
-            Object o = unmarshaller.unmarshal(new StringReader(CteMarshaller.any(element)));
+            Object o = unmarshaller.unmarshal(new StringReader(CteMarshallerFactory.getInstance().any(element)));
             ObjectFactory fc = new ObjectFactory();
             JAXBElement<EvEPECCTe> prot;
             if (o instanceof JAXBElement) prot = fc.createEvEPECCTe((EvEPECCTe) ((JAXBElement<?>) o).getValue());
@@ -252,10 +263,11 @@ public final class CteUnmarshaller {
         }
     }
 
-    public static JAXBElement<EvGTV> evGTV(Element element) {
+    @Override
+    public JAXBElement<EvGTV> evGTV(Element element) {
         try {
             javax.xml.bind.Unmarshaller unmarshaller = CteContextFactory.getInstance().getCteSendContext().createUnmarshaller();
-            Object o = unmarshaller.unmarshal(new StringReader(CteMarshaller.any(element)));
+            Object o = unmarshaller.unmarshal(new StringReader(CteMarshallerFactory.getInstance().any(element)));
             ObjectFactory fc = new ObjectFactory();
             JAXBElement<EvGTV> prot;
             if (o instanceof JAXBElement) prot = fc.createEvGTV((EvGTV) ((JAXBElement<?>) o).getValue());
@@ -266,10 +278,11 @@ public final class CteUnmarshaller {
         }
     }
 
-    public static JAXBElement<EvPrestDesacordo> evPrestDesacordo(Element element) {
+    @Override
+    public JAXBElement<EvPrestDesacordo> evPrestDesacordo(Element element) {
         try {
             javax.xml.bind.Unmarshaller unmarshaller = CteContextFactory.getInstance().getCteSendContext().createUnmarshaller();
-            Object o = unmarshaller.unmarshal(new StringReader(CteMarshaller.any(element)));
+            Object o = unmarshaller.unmarshal(new StringReader(CteMarshallerFactory.getInstance().any(element)));
             ObjectFactory fc = new ObjectFactory();
             JAXBElement<EvPrestDesacordo> prot;
             if (o instanceof JAXBElement)
@@ -281,10 +294,11 @@ public final class CteUnmarshaller {
         }
     }
 
-    public static JAXBElement<EvRegMultimodal> evRegMultimodal(Element element) {
+    @Override
+    public JAXBElement<EvRegMultimodal> evRegMultimodal(Element element) {
         try {
             javax.xml.bind.Unmarshaller unmarshaller = CteContextFactory.getInstance().getCteSendContext().createUnmarshaller();
-            Object o = unmarshaller.unmarshal(new StringReader(CteMarshaller.any(element)));
+            Object o = unmarshaller.unmarshal(new StringReader(CteMarshallerFactory.getInstance().any(element)));
             ObjectFactory fc = new ObjectFactory();
             JAXBElement<EvRegMultimodal> prot;
             if (o instanceof JAXBElement)
@@ -296,81 +310,98 @@ public final class CteUnmarshaller {
         }
     }
 
-    public static Element toElement(EvCancCTe o) throws JAXBException {
+    @Override
+    public Element toElement(EvCancCTe o) throws JAXBException {
         return toElement(new ObjectFactory().createEvCancCTe(o));
     }
 
-    public static Element toElement(RodoOS o) throws JAXBException {
+    @Override
+    public Element toElement(RodoOS o) throws JAXBException {
         return toElement(new ObjectFactory().createRodoOS(o));
     }
 
-    public static Element toElement(EvCCeCTe o) throws JAXBException {
+    @Override
+    public Element toElement(EvCCeCTe o) throws JAXBException {
         return toElement(new ObjectFactory().createEvCCeCTe(o));
     }
 
-    public static Element toElement(EvCECTe o) throws JAXBException {
+    @Override
+    public Element toElement(EvCECTe o) throws JAXBException {
         return toElement(new ObjectFactory().createEvCECTe(o));
     }
 
-    public static Element toElement(EvCancCECTe o) throws JAXBException {
+    @Override
+    public Element toElement(EvCancCECTe o) throws JAXBException {
         return toElement(new ObjectFactory().createEvCancCECTe(o));
     }
 
-    public static Element toElement(EvEPECCTe o) throws JAXBException {
+    @Override
+    public Element toElement(EvEPECCTe o) throws JAXBException {
         return toElement(new ObjectFactory().createEvEPECCTe(o));
     }
 
-    public static Element toElement(EvGTV o) throws JAXBException {
+    @Override
+    public Element toElement(EvGTV o) throws JAXBException {
         return toElement(new ObjectFactory().createEvGTV(o));
     }
 
-    public static Element toElement(EvRegMultimodal o) throws JAXBException {
+    @Override
+    public Element toElement(EvRegMultimodal o) throws JAXBException {
         return toElement(new ObjectFactory().createEvRegMultimodal(o));
     }
 
-    public static Element toElement(EvPrestDesacordo o) throws JAXBException {
+    @Override
+    public Element toElement(EvPrestDesacordo o) throws JAXBException {
         return toElement(new ObjectFactory().createEvPrestDesacordo(o));
     }
 
-    public static Element toElement(Rodo o) throws JAXBException {
+    @Override
+    public Element toElement(Rodo o) throws JAXBException {
         return toElement(new ObjectFactory().createRodo(o));
     }
 
-    public static Element toElement(Aereo o) throws JAXBException {
+    @Override
+    public Element toElement(Aereo o) throws JAXBException {
         return toElement(new ObjectFactory().createAereo(o));
     }
 
-    public static Element toElement(Aquav o) throws JAXBException {
+    @Override
+    public Element toElement(Aquav o) throws JAXBException {
         return toElement(new ObjectFactory().createAquav(o));
     }
 
-    public static Element toElement(Duto o) throws JAXBException {
+    @Override
+    public Element toElement(Duto o) throws JAXBException {
         return toElement(new ObjectFactory().createDuto(o));
     }
 
-    public static Element toElement(Ferrov o) throws JAXBException {
+    @Override
+    public Element toElement(Ferrov o) throws JAXBException {
         return toElement(new ObjectFactory().createFerrov(o));
     }
 
-    public static Element toElement(Multimodal o) throws JAXBException {
+    @Override
+    public Element toElement(Multimodal o) throws JAXBException {
         return toElement(new ObjectFactory().createMultimodal(o));
     }
 
-    public static Element toElement(JAXBElement<?> o) throws JAXBException {
+    @Override
+    public Element toElement(JAXBElement<?> o) throws JAXBException {
         DOMResult res = new DOMResult();
         CteContextFactory.getInstance().getCteSendContext().createMarshaller().marshal(o, res);
         return ((Document) res.getNode()).getDocumentElement();
     }
 
-    public static JAXBElement<TProtCTeOS> protCTeOS(Element element) {
+    @Override
+    public JAXBElement<TProtCTeOS> protCTeOS(Element element) {
         try {
             javax.xml.bind.Unmarshaller unmarshaller = CteContextFactory.getInstance().getCteSendContext().createUnmarshaller();
-            Object o = unmarshaller.unmarshal(new StringReader(CteMarshaller.protCteOs(element)));
+            Object o = unmarshaller.unmarshal(new StringReader(CteMarshallerFactory.getInstance().protCteOs(element)));
             ObjectFactory fc = new ObjectFactory();
             JAXBElement<TProtCTeOS> prot;
             if (o instanceof JAXBElement) prot = fc.createProtCTeOS((TProtCTeOS) ((JAXBElement<?>) o).getValue());
             else prot = fc.createProtCTeOS((TProtCTeOS) o);
-            if (Objects.equals(Model.CTE_OS, AccessKeyParserFactory.cte().model(prot.getValue().getInfProt().getChCTe())))
+            if (Objects.equals("67", prot.getValue().getInfProt().getChCTe().substring(20, 22)))
                 return prot;
             throw new RuntimeException();
         } catch (Exception e) {
@@ -378,15 +409,16 @@ public final class CteUnmarshaller {
         }
     }
 
-    public static JAXBElement<TProtGTVe> protGTVe(Element element) {
+    @Override
+    public JAXBElement<TProtGTVe> protGTVe(Element element) {
         try {
             javax.xml.bind.Unmarshaller unmarshaller = CteContextFactory.getInstance().getCteSendContext().createUnmarshaller();
-            Object o = unmarshaller.unmarshal(new StringReader(CteMarshaller.protGtve(element)));
+            Object o = unmarshaller.unmarshal(new StringReader(CteMarshallerFactory.getInstance().protGtve(element)));
             ObjectFactory fc = new ObjectFactory();
             JAXBElement<TProtGTVe> prot;
             if (o instanceof JAXBElement) prot = fc.createProtGTVe((TProtGTVe) ((JAXBElement<?>) o).getValue());
             else prot = fc.createProtGTVe((TProtGTVe) o);
-            if (Objects.equals(Model.GTVE, AccessKeyParserFactory.cte().model(prot.getValue().getInfProt().getChCTe())))
+            if (Objects.equals("64", prot.getValue().getInfProt().getChCTe().substring(20, 22)))
                 return prot;
             throw new RuntimeException();
         } catch (Exception e) {
@@ -394,7 +426,8 @@ public final class CteUnmarshaller {
         }
     }
 
-    public static JAXBElement<TEnviCTe> enviCte(String xml) {
+    @Override
+    public JAXBElement<TEnviCTe> enviCte(String xml) {
         try {
             javax.xml.bind.Unmarshaller unmarshaller = CteContextFactory.getInstance().getCteSendContext().createUnmarshaller();
             StringReader reader = new StringReader(xml);

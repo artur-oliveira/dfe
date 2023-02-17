@@ -1,7 +1,7 @@
 package com.softart.dfe.services.cte.reception_os;
 
 import br.inf.portalfiscal.cte.send.TCTeOS;
-import com.softart.dfe.components.internal.xml.unmarshaller.CteUnmarshaller;
+import com.softart.dfe.components.internal.xml.unmarshaller.CteUnmarshallerFactory;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.exceptions.ValidationException;
 import com.softart.dfe.exceptions.port.SoapServiceGeneralException;
@@ -55,7 +55,7 @@ public interface CteOsReceptionService extends CteSefazService {
      * @return The CteOsReturn object.
      */
     default CteOsReturn receptionOs(String xml) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
-        return receptionOs(CteUnmarshaller.receptionCteOs(xml).getValue());
+        return receptionOs(CteUnmarshallerFactory.getInstance().receptionCteOs(xml).getValue());
     }
 
 }

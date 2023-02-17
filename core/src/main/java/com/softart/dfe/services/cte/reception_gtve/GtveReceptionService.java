@@ -1,7 +1,7 @@
 package com.softart.dfe.services.cte.reception_gtve;
 
 import br.inf.portalfiscal.cte.send.TGTVe;
-import com.softart.dfe.components.internal.xml.unmarshaller.CteUnmarshaller;
+import com.softart.dfe.components.internal.xml.unmarshaller.CteUnmarshallerFactory;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.exceptions.ValidationException;
 import com.softart.dfe.exceptions.port.SoapServiceGeneralException;
@@ -55,7 +55,7 @@ public interface GtveReceptionService extends CteSefazService {
      * @return A GtveReturn object.
      */
     default GtveReturn receptionGtve(String xml) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
-        return receptionGtve(CteUnmarshaller.receptionGtve(xml).getValue());
+        return receptionGtve(CteUnmarshallerFactory.getInstance().receptionGtve(xml).getValue());
     }
 
 }

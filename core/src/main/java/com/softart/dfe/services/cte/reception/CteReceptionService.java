@@ -1,7 +1,7 @@
 package com.softart.dfe.services.cte.reception;
 
 import br.inf.portalfiscal.cte.send.TEnviCTe;
-import com.softart.dfe.components.internal.xml.unmarshaller.CteUnmarshaller;
+import com.softart.dfe.components.internal.xml.unmarshaller.CteUnmarshallerFactory;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.exceptions.ValidationException;
 import com.softart.dfe.exceptions.port.SoapServiceGeneralException;
@@ -80,6 +80,6 @@ public interface CteReceptionService extends CteSefazService {
      * @return The CteReturnSend object.
      */
     default CteReturnSend reception(String xml) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
-        return reception(CteUnmarshaller.enviCte(xml).getValue());
+        return reception(CteUnmarshallerFactory.getInstance().enviCte(xml).getValue());
     }
 }

@@ -1,7 +1,7 @@
 package com.softart.dfe.components.process.cte.distribution;
 
 import br.inf.portalfiscal.cte.distribution.DistDFeInt;
-import com.softart.dfe.components.internal.xml.marshaller.CteMarshaller;
+import com.softart.dfe.components.internal.xml.marshaller.CteMarshallerFactory;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.interfaces.process.BeforeRequest;
 import com.softart.dfe.interfaces.process.cte.distribution.BeforeDistribution;
@@ -15,7 +15,7 @@ public abstract class StoreDistributionCte implements BeforeDistribution {
     @Override
     public <T extends BeforeRequest<DistDFeInt>> void process(T o) throws ProcessException {
         if (Objects.nonNull(o.getRequest()) && Objects.nonNull(getStorage())) {
-            getStorage().storeDistribution(new XMLStore<>(o.getRequest(), o.getConfig(), CteMarshaller.distributionCte(o.getRequest())));
+            getStorage().storeDistribution(new XMLStore<>(o.getRequest(), o.getConfig(), CteMarshallerFactory.getInstance().distributionCte(o.getRequest())));
         }
     }
 

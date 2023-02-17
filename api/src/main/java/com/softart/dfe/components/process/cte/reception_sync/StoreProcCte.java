@@ -4,7 +4,7 @@ package com.softart.dfe.components.process.cte.reception_sync;
 import br.inf.portalfiscal.cte.send.TCTe;
 import br.inf.portalfiscal.cte.send.TCteProc;
 import br.inf.portalfiscal.cte.send.TRetCTe;
-import com.softart.dfe.components.internal.xml.marshaller.CteMarshaller;
+import com.softart.dfe.components.internal.xml.marshaller.CteMarshallerFactory;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.interfaces.process.AfterRequest;
 import com.softart.dfe.interfaces.process.cte.reception_sync.AfterReceptionCteSync;
@@ -22,7 +22,7 @@ public abstract class StoreProcCte implements AfterReceptionCteSync {
             procCte.setCTe(o.getRequest());
             procCte.setProtCTe(o.getResponse().getProtCTe());
             procCte.setVersao(o.getResponse().getVersao());
-            getStorage().storeProcCteSync(new XMLStore<>(procCte, o.getConfig(), CteMarshaller.cteProc(procCte)));
+            getStorage().storeProcCteSync(new XMLStore<>(procCte, o.getConfig(), CteMarshallerFactory.getInstance().cteProc(procCte)));
         }
     }
 

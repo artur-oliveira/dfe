@@ -4,7 +4,7 @@ package com.softart.dfe.components.process.cte.inutilization;
 import br.inf.portalfiscal.cte.send.TInutCTe;
 import br.inf.portalfiscal.cte.send.TProcInutCTe;
 import br.inf.portalfiscal.cte.send.TRetInutCTe;
-import com.softart.dfe.components.internal.xml.marshaller.CteMarshaller;
+import com.softart.dfe.components.internal.xml.marshaller.CteMarshallerFactory;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.interfaces.process.AfterRequest;
 import com.softart.dfe.interfaces.process.cte.inutilization.AfterInutilization;
@@ -22,7 +22,7 @@ public abstract class StoreProcInutilizationCte implements AfterInutilization {
             procInutCTe.setInutCTe(o.getRequest());
             procInutCTe.setRetInutCTe(o.getResponse());
             procInutCTe.setVersao(o.getResponse().getVersao());
-            getStorage().storeProcInutilization(new XMLStore<>(procInutCTe, o.getConfig(), CteMarshaller.procInutilizationCte(procInutCTe)));
+            getStorage().storeProcInutilization(new XMLStore<>(procInutCTe, o.getConfig(), CteMarshallerFactory.getInstance().procInutilizationCte(procInutCTe)));
         }
     }
 

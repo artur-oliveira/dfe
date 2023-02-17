@@ -3,8 +3,8 @@ package com.softart.dfe.components.sefaz.cte;
 import br.inf.portalfiscal.cte.send.*;
 import com.softart.dfe.components.internal.PairImpl;
 import com.softart.dfe.components.internal.parser.AccessKeyParserFactory;
-import com.softart.dfe.components.internal.xml.marshaller.CteMarshaller;
-import com.softart.dfe.components.internal.xml.unmarshaller.CteUnmarshaller;
+import com.softart.dfe.components.internal.xml.marshaller.CteMarshallerFactory;
+import com.softart.dfe.components.internal.xml.unmarshaller.CteUnmarshallerFactory;
 import com.softart.dfe.enums.cte.identification.CteEmissionType;
 import com.softart.dfe.enums.internal.Environment;
 import com.softart.dfe.enums.internal.UF;
@@ -34,8 +34,8 @@ public final class CteSvspService extends CteAnService {
 
     @Override
     public <T extends SefazRequest<TEvento, TRetEvento>> Pair<TEvento, TRetEvento> event(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = data.getSigner().signEvent(CteMarshaller.eventCte(data.getData()), data.getConfig());
-        JAXBElement<TEvento> envio = CteUnmarshaller.eventCte(xml);
+        String xml = data.getSigner().signEvent(CteMarshallerFactory.getInstance().eventCte(data.getData()), data.getConfig());
+        JAXBElement<TEvento> envio = CteUnmarshallerFactory.getInstance().eventCte(xml);
 
         for (Validator<TEvento> it : data.getValidators())
             it.valid(new Validation<>(envio.getValue(), xml));
@@ -85,8 +85,8 @@ public final class CteSvspService extends CteAnService {
 
     @Override
     public <T extends SefazRequest<TInutCTe, TRetInutCTe>> Pair<TInutCTe, TRetInutCTe> inutilization(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = data.getSigner().signInut(CteMarshaller.inutilizationCte(data.getData()), data.getConfig());
-        JAXBElement<TInutCTe> envio = CteUnmarshaller.inutCte(xml);
+        String xml = data.getSigner().signInut(CteMarshallerFactory.getInstance().inutilizationCte(data.getData()), data.getConfig());
+        JAXBElement<TInutCTe> envio = CteUnmarshallerFactory.getInstance().inutCte(xml);
 
         for (Validator<TInutCTe> it : data.getValidators())
             it.valid(new Validation<>(envio.getValue(), xml));
@@ -134,8 +134,8 @@ public final class CteSvspService extends CteAnService {
 
     @Override
     public <T extends SefazRequest<TConsSitCTe, TRetConsSitCTe>> Pair<TConsSitCTe, TRetConsSitCTe> querySituation(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = CteMarshaller.querySituationCte(data.getData());
-        JAXBElement<TConsSitCTe> envio = CteUnmarshaller.querySituationCte(xml);
+        String xml = CteMarshallerFactory.getInstance().querySituationCte(data.getData());
+        JAXBElement<TConsSitCTe> envio = CteUnmarshallerFactory.getInstance().querySituationCte(xml);
 
         for (Validator<TConsSitCTe> it : data.getValidators())
             it.valid(new Validation<>(envio.getValue(), xml));
@@ -187,8 +187,8 @@ public final class CteSvspService extends CteAnService {
 
     @Override
     public <T extends SefazRequest<TEnviCTe, TRetEnviCTe>> Pair<TEnviCTe, TRetEnviCTe> reception(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = data.getSigner().signCte(CteMarshaller.receptionCte(data.getData()), data.getConfig());
-        JAXBElement<TEnviCTe> envio = CteUnmarshaller.receptionCte(xml);
+        String xml = data.getSigner().signCte(CteMarshallerFactory.getInstance().receptionCte(data.getData()), data.getConfig());
+        JAXBElement<TEnviCTe> envio = CteUnmarshallerFactory.getInstance().receptionCte(xml);
 
         for (Validator<TEnviCTe> it : data.getValidators())
             it.valid(new Validation<>(envio.getValue(), xml));
@@ -240,8 +240,8 @@ public final class CteSvspService extends CteAnService {
 
     @Override
     public <T extends SefazRequest<TGTVe, TRetGTVe>> Pair<TGTVe, TRetGTVe> receptionGtve(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = data.getSigner().signCte(CteMarshaller.receptionGtve(data.getData()), data.getConfig());
-        JAXBElement<TGTVe> envio = CteUnmarshaller.receptionGtve(xml);
+        String xml = data.getSigner().signCte(CteMarshallerFactory.getInstance().receptionGtve(data.getData()), data.getConfig());
+        JAXBElement<TGTVe> envio = CteUnmarshallerFactory.getInstance().receptionGtve(xml);
 
         for (Validator<TGTVe> it : data.getValidators())
             it.valid(new Validation<>(envio.getValue(), xml));
@@ -285,8 +285,8 @@ public final class CteSvspService extends CteAnService {
 
     @Override
     public <T extends SefazRequest<TCTeOS, TRetCTeOS>> Pair<TCTeOS, TRetCTeOS> receptionOs(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = data.getSigner().signCte(CteMarshaller.receptionCteOs(data.getData()), data.getConfig());
-        JAXBElement<TCTeOS> envio = CteUnmarshaller.receptionCteOs(xml);
+        String xml = data.getSigner().signCte(CteMarshallerFactory.getInstance().receptionCteOs(data.getData()), data.getConfig());
+        JAXBElement<TCTeOS> envio = CteUnmarshallerFactory.getInstance().receptionCteOs(xml);
 
         for (Validator<TCTeOS> it : data.getValidators())
             it.valid(new Validation<>(envio.getValue(), xml));
@@ -345,8 +345,8 @@ public final class CteSvspService extends CteAnService {
 
     @Override
     public <T extends SefazRequest<TCTe, TRetCTe>> Pair<TCTe, TRetCTe> receptionSync(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = data.getSigner().signCte(CteMarshaller.receptionCteSync(data.getData()), data.getConfig());
-        JAXBElement<TCTe> envio = CteUnmarshaller.receptionCteSync(xml);
+        String xml = data.getSigner().signCte(CteMarshallerFactory.getInstance().receptionCteSync(data.getData()), data.getConfig());
+        JAXBElement<TCTe> envio = CteUnmarshallerFactory.getInstance().receptionCteSync(xml);
 
         for (Validator<TCTe> it : data.getValidators())
             it.valid(new Validation<>(envio.getValue(), xml));
@@ -391,8 +391,8 @@ public final class CteSvspService extends CteAnService {
 
     @Override
     public <T extends SefazRequest<TConsReciCTe, TRetConsReciCTe>> Pair<TConsReciCTe, TRetConsReciCTe> queryReceipt(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = CteMarshaller.queryReceipt(data.getData());
-        JAXBElement<TConsReciCTe> envio = CteUnmarshaller.queryReceipt(xml);
+        String xml = CteMarshallerFactory.getInstance().queryReceipt(data.getData());
+        JAXBElement<TConsReciCTe> envio = CteUnmarshallerFactory.getInstance().queryReceipt(xml);
 
         for (Validator<TConsReciCTe> it : data.getValidators())
             it.valid(new Validation<>(envio.getValue(), xml));
@@ -444,8 +444,8 @@ public final class CteSvspService extends CteAnService {
 
     @Override
     public <T extends SefazRequest<TConsStatServ, TRetConsStatServ>> Pair<TConsStatServ, TRetConsStatServ> statusService(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = CteMarshaller.statusService(data.getData());
-        JAXBElement<TConsStatServ> envio = CteUnmarshaller.statusService(xml);
+        String xml = CteMarshallerFactory.getInstance().statusService(data.getData());
+        JAXBElement<TConsStatServ> envio = CteUnmarshallerFactory.getInstance().statusService(xml);
 
         for (Validator<TConsStatServ> it : data.getValidators())
             it.valid(new Validation<>(envio.getValue(), xml));

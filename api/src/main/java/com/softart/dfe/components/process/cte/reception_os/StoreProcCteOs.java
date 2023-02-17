@@ -4,7 +4,7 @@ package com.softart.dfe.components.process.cte.reception_os;
 import br.inf.portalfiscal.cte.send.TCTeOS;
 import br.inf.portalfiscal.cte.send.TCteOSProc;
 import br.inf.portalfiscal.cte.send.TRetCTeOS;
-import com.softart.dfe.components.internal.xml.marshaller.CteMarshaller;
+import com.softart.dfe.components.internal.xml.marshaller.CteMarshallerFactory;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.interfaces.process.AfterRequest;
 import com.softart.dfe.interfaces.process.cte.reception_os.AfterReceptionCteOs;
@@ -22,7 +22,7 @@ public abstract class StoreProcCteOs implements AfterReceptionCteOs {
             procCteOS.setCTeOS(o.getRequest());
             procCteOS.setProtCTe(o.getResponse().getProtCTe());
             procCteOS.setVersao(o.getResponse().getVersao());
-            getStorage().storeProcCteOs(new XMLStore<>(procCteOS, o.getConfig(), CteMarshaller.cteOsProc(procCteOS)));
+            getStorage().storeProcCteOs(new XMLStore<>(procCteOS, o.getConfig(), CteMarshallerFactory.getInstance().cteOsProc(procCteOS)));
         }
     }
 

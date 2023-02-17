@@ -4,7 +4,7 @@ package com.softart.dfe.components.process.cte.event;
 import br.inf.portalfiscal.cte.send.TEvento;
 import br.inf.portalfiscal.cte.send.TProcEvento;
 import br.inf.portalfiscal.cte.send.TRetEvento;
-import com.softart.dfe.components.internal.xml.marshaller.CteMarshaller;
+import com.softart.dfe.components.internal.xml.marshaller.CteMarshallerFactory;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.interfaces.process.AfterRequest;
 import com.softart.dfe.interfaces.process.cte.event.AfterEvent;
@@ -22,7 +22,7 @@ public abstract class StoreProcEventCte implements AfterEvent {
             procEvento.setEventoCTe(o.getRequest());
             procEvento.setRetEventoCTe(o.getResponse());
             procEvento.setVersao(o.getResponse().getVersao());
-            getStorage().storeProcEvent(new XMLStore<>(procEvento, o.getConfig(), CteMarshaller.procEventCte(procEvento)));
+            getStorage().storeProcEvent(new XMLStore<>(procEvento, o.getConfig(), CteMarshallerFactory.getInstance().procEventCte(procEvento)));
         }
     }
 

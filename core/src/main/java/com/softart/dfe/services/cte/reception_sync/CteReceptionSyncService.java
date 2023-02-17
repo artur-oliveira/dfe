@@ -1,7 +1,7 @@
 package com.softart.dfe.services.cte.reception_sync;
 
 import br.inf.portalfiscal.cte.send.TCTe;
-import com.softart.dfe.components.internal.xml.unmarshaller.CteUnmarshaller;
+import com.softart.dfe.components.internal.xml.unmarshaller.CteUnmarshallerFactory;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.exceptions.ValidationException;
 import com.softart.dfe.exceptions.port.SoapServiceGeneralException;
@@ -54,6 +54,6 @@ public interface CteReceptionSyncService extends CteSefazService {
      * @return The CteReturn object.
      */
     default CteReturn receptionSync(String xml) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
-        return receptionSync(CteUnmarshaller.receptionCteSync(xml).getValue());
+        return receptionSync(CteUnmarshallerFactory.getInstance().receptionCteSync(xml).getValue());
     }
 }

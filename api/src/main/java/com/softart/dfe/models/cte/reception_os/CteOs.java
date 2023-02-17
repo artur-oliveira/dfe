@@ -5,7 +5,7 @@ import br.inf.portalfiscal.cte.send.TUFSemEX;
 import br.inf.portalfiscal.cte.send.TUf;
 import com.softart.dfe.components.internal.AccessKeyGenerator;
 import com.softart.dfe.components.internal.ProjectProperties;
-import com.softart.dfe.components.internal.xml.unmarshaller.CteUnmarshaller;
+import com.softart.dfe.components.internal.xml.unmarshaller.CteUnmarshallerFactory;
 import com.softart.dfe.enums.cte.identification.CteType;
 import com.softart.dfe.enums.cte.tax.CteICMS;
 import com.softart.dfe.enums.cte.version.CteVersion;
@@ -526,7 +526,7 @@ public final class CteOs implements DFObject, XMLAdapter<CteOs, TCTeOS> {
                     infModal.setVersaoModal(getVersaoModal());
 
                     if (Objects.nonNull(getRodoOs())) {
-                        infModal.setAny(CteUnmarshaller.toElement(getRodoOs().toObject()));
+                        infModal.setAny(CteUnmarshallerFactory.getInstance().toElement(getRodoOs().toObject()));
                     }
 
                     return infModal;
@@ -534,7 +534,7 @@ public final class CteOs implements DFObject, XMLAdapter<CteOs, TCTeOS> {
 
                 @Override
                 public InfModal fromObject(TCTeOS.InfCte.InfCTeNorm.InfModal o) {
-                    Object el = CteUnmarshaller.any(o.getAny()).getValue();
+                    Object el = CteUnmarshallerFactory.getInstance().any(o.getAny()).getValue();
 
                     if (el instanceof br.inf.portalfiscal.cte.send.RodoOS) {
                         setRodoOs(RodoOS.builder().build().fromObject((br.inf.portalfiscal.cte.send.RodoOS) el));

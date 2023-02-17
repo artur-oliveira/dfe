@@ -93,10 +93,10 @@ public final class App {
 //        distributionNf();
 //        operationScienceNf();
 //        correctionLetterNf();
-//        queryStatusServiceNf();
-//        queryStatusServiceNfc();
+        queryStatusServiceNf();
+        queryStatusServiceNfc();
 //        epec();
-        interestedActor();
+//        interestedActor();
     }
 
     private static void all() throws Exception {

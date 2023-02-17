@@ -2,7 +2,7 @@ package com.softart.dfe.components.process.cte.reception;
 
 import br.inf.portalfiscal.cte.send.TEnviCTe;
 import br.inf.portalfiscal.cte.send.TRetEnviCTe;
-import com.softart.dfe.components.internal.xml.marshaller.CteMarshaller;
+import com.softart.dfe.components.internal.xml.marshaller.CteMarshallerFactory;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.interfaces.process.AfterRequest;
 import com.softart.dfe.interfaces.process.cte.reception.AfterReception;
@@ -16,7 +16,7 @@ public abstract class StoreReturnReceptionCte implements AfterReception {
     @Override
     public <T extends AfterRequest<TEnviCTe, TRetEnviCTe>> void process(T o) throws ProcessException {
         if (Objects.nonNull(o.getResponse()) && Objects.nonNull(getStorage())) {
-            getStorage().storeReturnCte(new XMLStore<>(o.getResponse(), o.getConfig(), CteMarshaller.returnReceptionCte(o.getResponse())));
+            getStorage().storeReturnCte(new XMLStore<>(o.getResponse(), o.getConfig(), CteMarshallerFactory.getInstance().returnReceptionCte(o.getResponse())));
         }
     }
 
