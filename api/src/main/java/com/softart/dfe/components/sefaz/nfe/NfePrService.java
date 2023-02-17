@@ -304,48 +304,6 @@ public final class NfePrService extends NfeAnService {
     }
 
     @Override
-    public <T extends SefazRequest<br.inf.portalfiscal.nfe.event_interested_actor.TEnvEvento, br.inf.portalfiscal.nfe.event_interested_actor.TRetEnvEvento>> Pair<br.inf.portalfiscal.nfe.event_interested_actor.TEnvEvento, br.inf.portalfiscal.nfe.event_interested_actor.TRetEnvEvento> interestedActor(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = data.getSigner().signEvent(NfMarshallerFactory.getInstance().interestedActorNfe(data.getData()), data.getConfig());
-        JAXBElement<br.inf.portalfiscal.nfe.event_interested_actor.TEnvEvento> envio = NfUnmarshallerFactory.getInstance().interestedActorNfe(xml);
-
-        for (Validator<br.inf.portalfiscal.nfe.event_interested_actor.TEnvEvento> it : data.getValidators())
-            it.valid(new Validation<>(envio.getValue(), xml));
-        for (BeforeWebServiceRequest<br.inf.portalfiscal.nfe.event_interested_actor.TEnvEvento> it : data.getBeforeRequest())
-            it.process(new Before<>(envio.getValue(), data.getConfig()));
-
-        br.inf.portalfiscal.nfe.event_interested_actor.TRetEnvEvento retorno = null;
-
-        if (data.getConfig().production()) {
-            br.inf.portalfiscal.nfe.wsdl.event_interested_actor.pr.prod.NFeRecepcaoEvento4Soap12 ws = ((br.inf.portalfiscal.nfe.wsdl.event_interested_actor.pr.prod.NFeRecepcaoEvento4) getSoapService().prodInterestedActor()).getNFeRecepcaoEvento4ServicePort();
-
-            data.getConfigureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.getConfig()).build());
-
-            br.inf.portalfiscal.nfe.wsdl.event_interested_actor.pr.prod.NfeDadosMsg msg = new br.inf.portalfiscal.nfe.wsdl.event_interested_actor.pr.prod.ObjectFactory().createNfeDadosMsg();
-            msg.getContent().add(envio);
-            br.inf.portalfiscal.nfe.wsdl.event_interested_actor.pr.prod.NfeResultMsg resultMsg = ws.nfeRecepcaoEventoNF(msg);
-
-            if (!resultMsg.getContent().isEmpty())
-                retorno = ((JAXBElement<br.inf.portalfiscal.nfe.event_interested_actor.TRetEnvEvento>) resultMsg.getContent().get(0)).getValue();
-        } else {
-            br.inf.portalfiscal.nfe.wsdl.event_interested_actor.pr.hom.NFeRecepcaoEvento4Soap12 ws = ((br.inf.portalfiscal.nfe.wsdl.event_interested_actor.pr.hom.NFeRecepcaoEvento4) getSoapService().homInterestedActor()).getNFeRecepcaoEvento4ServicePort();
-            data.getConfigureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.getConfig()).build());
-
-            br.inf.portalfiscal.nfe.wsdl.event_interested_actor.pr.hom.NfeDadosMsg msg = new br.inf.portalfiscal.nfe.wsdl.event_interested_actor.pr.hom.ObjectFactory().createNfeDadosMsg();
-            msg.getContent().add(envio);
-
-            br.inf.portalfiscal.nfe.wsdl.event_interested_actor.pr.hom.NfeResultMsg resultMsg = ws.nfeRecepcaoEventoNF(msg);
-
-            if (!resultMsg.getContent().isEmpty())
-                retorno = ((JAXBElement<br.inf.portalfiscal.nfe.event_interested_actor.TRetEnvEvento>) resultMsg.getContent().get(0)).getValue();
-        }
-
-        for (AfterWebServiceRequest<br.inf.portalfiscal.nfe.event_interested_actor.TEnvEvento, br.inf.portalfiscal.nfe.event_interested_actor.TRetEnvEvento> it : data.getAfterRequest())
-            it.process(new After<>(envio.getValue(), retorno, data.getConfig()));
-
-        return new PairImpl<>(envio.getValue(), retorno);
-    }
-
-    @Override
     public <T extends SefazRequest<TConsStatServ, TRetConsStatServ>> Pair<TConsStatServ, TRetConsStatServ> queryStatusService(T data) throws SecurityException, ValidationException, ProcessException {
         String xml = NfMarshallerFactory.getInstance().queryStatusServiceNfe(data.getData());
         JAXBElement<TConsStatServ> envio = new ObjectFactory().createConsStatServ(data.getData());

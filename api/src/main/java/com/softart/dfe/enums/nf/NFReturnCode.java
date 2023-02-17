@@ -266,6 +266,7 @@ public enum NFReturnCode implements ReturnCode {
     CODE_488("488", "Rejeição: Vendas do Emitente incompatíveis com o Porte da Empresa"),
     CODE_489("489", "Rejeição: CNPJ informado inválido (DV ou zeros)"),
     CODE_490("490", "Rejeição: CPF informado inválido (DV ou zeros)"),
+    CODE_491("491", "Rejeicao: O tpEvento informado invalido"),
     CODE_494("494", "Rejeição: Chave de Acesso inexistente [chNFe:99999999999999999999999999999999999999999999]"),
     CODE_495("495", "Rejeição: CPF do Emitente com Série incompatível"),
     CODE_501("501", "Rejeição: Prazo de cancelamento superior ao previsto na Legislação"),

@@ -52,11 +52,11 @@ import java.util.Objects;
 public final class AppCte {
 
     public static void main(String[] args) throws Exception {
-        System.setProperty("com.softart.certificate.path", "/home/artur/Documentos/Certificate/tartigrado.pfx");
-        System.setProperty("com.softart.certificate.password", "22Rev");
-        System.setProperty("com.softart.storage.mdfe.logxml", "false");
-        System.setProperty("com.softart.handler.log.request", "false");
-        System.setProperty("com.softart.handler.log.response", "false");
+        System.setProperty("com.softart.dfe.certificate.path", "/home/artur/Documentos/Certificate/tartigrado.pfx");
+        System.setProperty("com.softart.dfe.certificate.password", "22Rev");
+        System.setProperty("com.softart.dfe.storage.mdfe.logxml", "false");
+        System.setProperty("com.softart.dfe.handler.log.request", "false");
+        System.setProperty("com.softart.dfe.handler.log.response", "false");
 //        System.setProperty("com.sun.xml.ws.transport.http.client.HttpTransportPipe.dump", "true");
 //        System.setProperty("com.sun.xml.internal.ws.transport.http.client.HttpTransportPipe.dump", "true");
 //        System.setProperty("com.sun.xml.ws.transport.http.HttpAdapter.dump", "true");
