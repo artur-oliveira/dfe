@@ -32,10 +32,10 @@ import java.util.stream.Collectors;
 @Log4j2
 final class CertificateChainServiceImpl extends CertificateChainFactory {
 
-    private static final String DEFAULT_PASSWORD = System.getProperty("CERTIFICATE_CHAIN_PASSWORD", "123456");
+    private static final String DEFAULT_PASSWORD = System.getProperty("com.softart.dfe.security.chain.password", "123456");
     private static final int PORT = 443;
     private static final String PROTOCOL = "TLSv1.2";
-    private static final int SOCKET_TIMEOUT = Math.min(Integer.parseInt(System.getProperty("SOCKET_TIMEOUT", "10000")), 5000);
+    private static final int SOCKET_TIMEOUT = Math.min(Integer.parseInt(System.getProperty("com.softart.dfe.security.chain.socket.timeout", "5000")), 5000);
 
     private static void get(final KeyStore keyStore, final String host) throws NoSuchAlgorithmException, KeyStoreException, KeyManagementException, CertificateEncodingException {
         final TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
@@ -45,7 +45,7 @@ final class CertificateChainServiceImpl extends CertificateChainFactory {
         final DFTrustManager savingTrustManager = new DFTrustManager(defaultTrustManager);
 
         final SSLContext sslContext = SSLContext.getInstance(PROTOCOL);
-        sslContext.init(null, new TrustManager[] {savingTrustManager}, null);
+        sslContext.init(null, new TrustManager[]{savingTrustManager}, null);
 
         try (SSLSocket sslSocket = (SSLSocket) sslContext.getSocketFactory().createSocket(host, PORT)) {
             sslSocket.setSoTimeout(CertificateChainServiceImpl.SOCKET_TIMEOUT);

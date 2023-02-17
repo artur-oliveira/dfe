@@ -10,7 +10,7 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 public class NfCommonNoStorage implements NfCommonStorage {
 
-    protected static final Boolean LOG_XML = Boolean.parseBoolean(System.getProperty("com.softart.storage.nf.logxml", "true"));
+    protected static final Boolean LOG_XML = Boolean.parseBoolean(System.getProperty("com.softart.dfe.storage.nf.logxml", "true"));
 
     @Override
     public void storeProcNfe(Store<TNfeProc> o) {

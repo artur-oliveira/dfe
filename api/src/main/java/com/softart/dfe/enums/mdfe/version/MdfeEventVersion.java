@@ -19,6 +19,6 @@ public enum MdfeEventVersion {
     }
 
     public static MdfeEventVersion getDefault() {
-        return valueOfVersion(System.getProperty("com.softart.mdfe.event.version", "3.00"));
+        return valueOfVersion(System.getProperty("com.softart.dfe.mdfe.event.version", "3.00"));
     }
 }

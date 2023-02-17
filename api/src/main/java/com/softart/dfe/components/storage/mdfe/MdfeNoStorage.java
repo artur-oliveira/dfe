@@ -8,7 +8,7 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 public final class MdfeNoStorage implements MdfeStorage {
 
-    private static final Boolean LOG = Boolean.parseBoolean(System.getProperty("com.softart.storage.mdfe.logxml", "true"));
+    private static final Boolean LOG = Boolean.parseBoolean(System.getProperty("com.softart.dfe.storage.mdfe.logxml", "true"));
 
 
     @Override

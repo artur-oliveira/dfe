@@ -19,6 +19,6 @@ public enum MdfeDistributionVersion {
     }
 
     public static MdfeDistributionVersion getDefault() {
-        return valueOfVersion(System.getProperty("com.softart.mdfe.distribution.version", "1.00"));
+        return valueOfVersion(System.getProperty("com.softart.dfe.mdfe.distribution.version", "1.00"));
     }
 }

@@ -7,14 +7,14 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum MdfeStorageKey implements StorageKey {
-    MDFE_DISTRIBUTION(System.getProperty("STORAGE_KEY_MDFE_DISTRIBUTION", "distMdfe"), System.getProperty("STORAGE_KEY_MDFE_RETURN_DISTRIBUTION", "retDistMdfe"), null),
-    MDFE_EVENT(System.getProperty("STORAGE_KEY_MDFE_EVENT", "eventoMdfe"), System.getProperty("STORAGE_KEY_MDFE_RETURN_EVENT", "retEventoMdfe"), System.getProperty("STORAGE_KEY_MDFE_PROC_EVENT", "procEventoMdfe")),
-    MDFE_QUERY_RECEIPT(System.getProperty("STORAGE_KEY_MDFE_QUERY_RECEIPT", "consReciMdfe"), System.getProperty("STORAGE_KEY_MDFE_RETURN_QUERY_RECEIPT", "retConsReciMdfe"), null),
-    MDFE_QUERY_UNCLOSED(System.getProperty("STORAGE_KEY_MDFE_QUERY_UNCLOSED", "consReciMdfe"), System.getProperty("STORAGE_KEY_MDFE_RETURN_QUERY_UNCLOSED", "retConsReciMdfe"), null),
-    MDFE_QUERY_SITUATION(System.getProperty("STORAGE_KEY_MDFE_QUERY_SITUATION", "consSitMdfe"), System.getProperty("STORAGE_KEY_MDFE_RETURN_QUERY_SITUATION", "retConsSitMdfe"), null),
-    MDFE_RECEPTION(System.getProperty("STORAGE_KEY_MDFE_RECEPTION", "enviMdfe"), System.getProperty("STORAGE_KEY_MDFE_RETURN_RECEPTION", "retEnviMdfe"), System.getProperty("STORAGE_KEY_MDFE_PROC", "procMdfe")),
-    MDFE_RECEPTION_SYNC(System.getProperty("STORAGE_KEY_MDFE_RECEPTION_SYNC", "mdfe"), System.getProperty("STORAGE_KEY_MDFE_RETURN_RECEPTION_SYNC", "retMdfe"), System.getProperty("STORAGE_KEY_MDFE_PROC", "procMdfe")),
-    MDFE_STATUS_SERVICE(System.getProperty("STORAGE_KEY_MDFE_STATUS_SERVICE", "consStatServMdfe"), System.getProperty("STORAGE_KEY_MDFE_RETURN_STATUS_SERVICE", "retConsStatServMdfe"), null),
+    MDFE_DISTRIBUTION(System.getProperty("com.softart.dfe.storage.key.mdfe.distribution", "distMdfe"), System.getProperty("com.softart.dfe.storage.key.mdfe.return_distribution", "retDistMdfe"), null),
+    MDFE_EVENT(System.getProperty("com.softart.dfe.storage.key.mdfe.event", "eventoMdfe"), System.getProperty("com.softart.dfe.storage.key.mdfe.return_event", "retEventoMdfe"), System.getProperty("com.softart.dfe.storage.key.mdfe.proc_event", "procEventoMdfe")),
+    MDFE_QUERY_RECEIPT(System.getProperty("com.softart.dfe.storage.key.mdfe.query_receipt", "consReciMdfe"), System.getProperty("com.softart.dfe.storage.key.mdfe.return_query_receipt", "retConsReciMdfe"), null),
+    MDFE_QUERY_UNCLOSED(System.getProperty("com.softart.dfe.storage.key.mdfe.query_unclosed", "consReciMdfe"), System.getProperty("com.softart.dfe.storage.key.mdfe.return_query_unclosed", "retConsReciMdfe"), null),
+    MDFE_QUERY_SITUATION(System.getProperty("com.softart.dfe.storage.key.mdfe.query_situation", "consSitMdfe"), System.getProperty("com.softart.dfe.storage.key.mdfe.return_query_situation", "retConsSitMdfe"), null),
+    MDFE_RECEPTION(System.getProperty("com.softart.dfe.storage.key.mdfe.reception", "enviMdfe"), System.getProperty("com.softart.dfe.storage.key.mdfe.return_reception", "retEnviMdfe"), System.getProperty("com.softart.dfe.storage.key.mdfe.proc", "procMdfe")),
+    MDFE_RECEPTION_SYNC(System.getProperty("com.softart.dfe.storage.key.mdfe.reception_sync", "mdfe"), System.getProperty("com.softart.dfe.storage.key.mdfe.return_reception_sync", "retMdfe"), System.getProperty("com.softart.dfe.storage.key.mdfe.proc", "procMdfe")),
+    MDFE_STATUS_SERVICE(System.getProperty("com.softart.dfe.storage.key.mdfe.status_service", "consStatServMdfe"), System.getProperty("com.softart.dfe.storage.key.mdfe.return_status_service", "retConsStatServMdfe"), null),
     ;
 
     private final String forSend;

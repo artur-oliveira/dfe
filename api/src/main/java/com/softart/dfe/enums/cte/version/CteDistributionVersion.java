@@ -21,6 +21,6 @@ public enum CteDistributionVersion {
     }
 
     public static CteDistributionVersion getDefault() {
-        return valueOfVersion(System.getProperty("com.softart.cte.distribution.version", "1.00"));
+        return valueOfVersion(System.getProperty("com.softart.dfe.cte.distribution.version", "1.00"));
     }
 }

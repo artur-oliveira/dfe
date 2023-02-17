@@ -21,6 +21,6 @@ public enum NFDistributionVersion {
     }
 
     public static NFDistributionVersion getDefault() {
-        return valueOfVersion(System.getProperty("com.softart.nfe.distribution.version", "1.01"));
+        return valueOfVersion(System.getProperty("com.softart.dfe.nf.distribution.version", "1.01"));
     }
 }

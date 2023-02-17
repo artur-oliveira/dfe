@@ -16,8 +16,8 @@ import java.util.Set;
 @Log4j2
 public final class CustomSoapHandler implements SOAPHandler<SOAPMessageContext> {
 
-    private static final boolean LOG_REQUEST = Boolean.parseBoolean(System.getProperty("com.softart.handler.log.request", "true"));
-    private static final boolean LOG_RESPONSE = Boolean.parseBoolean(System.getProperty("com.softart.handler.log.response", "true"));
+    private static final boolean LOG_REQUEST = Boolean.parseBoolean(System.getProperty("com.softart.dfe.handler.log.request", "true"));
+    private static final boolean LOG_RESPONSE = Boolean.parseBoolean(System.getProperty("com.softart.dfe.handler.log.response", "true"));
 
     @Override
     public Set<QName> getHeaders() {

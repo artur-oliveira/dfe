@@ -9,7 +9,7 @@ import java.time.YearMonth;
 
 public abstract class AccessKeyParserFactory implements AccessKeyParser {
 
-    private static final int YEAR_OFFSET = Integer.parseInt(System.getProperty("YEAR_OFFSET", "2000"));
+    private static final int YEAR_OFFSET = 2000;
 
     protected AccessKeyParserFactory() {
     }

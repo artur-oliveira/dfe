@@ -21,6 +21,6 @@ public enum CteEventVersion {
     }
 
     public static CteEventVersion getDefault() {
-        return valueOfVersion(System.getProperty("com.softart.cte.event.version", "3.00"));
+        return valueOfVersion(System.getProperty("com.softart.dfe.cte.event.version", "3.00"));
     }
 }

@@ -5,16 +5,16 @@ import lombok.Getter;
 
 @Getter
 public enum CteStorageKey implements StorageKey {
-    CTE_DISTRIBUTION(System.getProperty("STORAGE_KEY_CTE_DISTRIBUTION", "distCte"), System.getProperty("STORAGE_KEY_CTE_RETURN_DISTRIBUTION", "retDistCte"), null),
-    CTE_EVENT(System.getProperty("STORAGE_KEY_CTE_EVENT", "eventoCte"), System.getProperty("STORAGE_KEY_CTE_RETURN_EVENT", "retEventoCte"), System.getProperty("STORAGE_KEY_CTE_PROC_EVENT", "procEventoCte")),
-    CTE_INUTILIZATION(System.getProperty("STORAGE_KEY_CTE_INUTILIZATION", "inutCte"), System.getProperty("STORAGE_KEY_CTE_RETURN_INUTILIZATION", "retInutCte"), System.getProperty("STORAGE_KEY_CTE_PROC_INUTILIZATION", "procInutCte")),
-    CTE_QUERY_RECEIPT(System.getProperty("STORAGE_KEY_CTE_QUERY_RECEIPT", "consReciCte"), System.getProperty("STORAGE_KEY_CTE_RETURN_QUERY_RECEIPT", "retConsReciCte"), null),
-    CTE_QUERY_SITUATION(System.getProperty("STORAGE_KEY_CTE_QUERY_SITUATION", "consSitCte"), System.getProperty("STORAGE_KEY_CTE_RETURN_QUERY_SITUATION", "retConsSitCte"), null),
-    CTE_RECEPTION(System.getProperty("STORAGE_KEY_CTE_RECEPTION", "enviCte"), System.getProperty("STORAGE_KEY_CTE_RETURN_RECEPTION", "retEnviCte"), System.getProperty("STORAGE_KEY_CTE_PROC", "procCte")),
-    CTE_RECEPTION_GTVE(System.getProperty("STORAGE_KEY_CTE_RECEPTION_GTVE", "gtve"), System.getProperty("STORAGE_KEY_CTE_RETURN_RECEPTION_GTVE", "retGtve"), System.getProperty("STORAGE_KEY_CTE_PROC_GTVE", "procGtve")),
-    CTE_RECEPTION_OS(System.getProperty("STORAGE_KEY_CTE_RECEPTION_OS", "cteOS"), System.getProperty("STORAGE_KEY_CTE_RETURN_RECEPTION_OS", "retCteOS"), System.getProperty("STORAGE_KEY_CTE_PROC_OS", "procCteOS")),
-    CTE_RECEPTION_SYNC(System.getProperty("STORAGE_KEY_CTE_RECEPTION_SYNC", "cte"), System.getProperty("STORAGE_KEY_CTE_RETURN_RECEPTION_SYNC", "retCte"), System.getProperty("STORAGE_KEY_CTE_PROC", "procCte")),
-    CTE_STATUS_SERVICE(System.getProperty("STORAGE_KEY_CTE_STATUS_SERVICE", "consStatServCte"), System.getProperty("STORAGE_KEY_CTE_RETURN_STATUS_SERVICE", "retConsStatServCte"), null),
+    CTE_DISTRIBUTION(System.getProperty("com.softart.dfe.storage.key.cte.distribution", "distCte"), System.getProperty("com.softart.dfe.storage.key.cte.return_distribution", "retDistCte"), null),
+    CTE_EVENT(System.getProperty("com.softart.dfe.storage.key.cte.event", "eventoCte"), System.getProperty("com.softart.dfe.storage.key.cte.return_event", "retEventoCte"), System.getProperty("com.softart.dfe.storage.key.cte.proc_event", "procEventoCte")),
+    CTE_INUTILIZATION(System.getProperty("com.softart.dfe.storage.key.cte.inutilization", "inutCte"), System.getProperty("com.softart.dfe.storage.key.cte.return_inutilization", "retInutCte"), System.getProperty("com.softart.dfe.storage.key.cte.proc_inutilization", "procInutCte")),
+    CTE_QUERY_RECEIPT(System.getProperty("com.softart.dfe.storage.key.cte.query_receipt", "consReciCte"), System.getProperty("com.softart.dfe.storage.key.cte.return_query_receipt", "retConsReciCte"), null),
+    CTE_QUERY_SITUATION(System.getProperty("com.softart.dfe.storage.key.cte.query_situation", "consSitCte"), System.getProperty("com.softart.dfe.storage.key.cte.return_query_situation", "retConsSitCte"), null),
+    CTE_RECEPTION(System.getProperty("com.softart.dfe.storage.key.cte.reception", "enviCte"), System.getProperty("com.softart.dfe.storage.key.cte.return_reception", "retEnviCte"), System.getProperty("com.softart.dfe.storage.key.cte.proc", "procCte")),
+    CTE_RECEPTION_GTVE(System.getProperty("com.softart.dfe.storage.key.cte.reception_gtve", "gtve"), System.getProperty("com.softart.dfe.storage.key.cte.return_reception_gtve", "retGtve"), System.getProperty("com.softart.dfe.storage.key.cte.proc_gtve", "procGtve")),
+    CTE_RECEPTION_OS(System.getProperty("com.softart.dfe.storage.key.cte.reception_os", "cteOS"), System.getProperty("com.softart.dfe.storage.key.cte.return_reception_os", "retCteOS"), System.getProperty("com.softart.dfe.storage.key.cte.proc_os", "procCteOS")),
+    CTE_RECEPTION_SYNC(System.getProperty("com.softart.dfe.storage.key.cte.reception_sync", "cte"), System.getProperty("com.softart.dfe.storage.key.cte.return_reception_sync", "retCte"), System.getProperty("com.softart.dfe.storage.key.cte.proc", "procCte")),
+    CTE_STATUS_SERVICE(System.getProperty("com.softart.dfe.storage.key.cte.status_service", "consStatServCte"), System.getProperty("com.softart.dfe.storage.key.cte.return_status_service", "retConsStatServCte"), null),
     ;
     private final String forSend;
     private final String forReturn;

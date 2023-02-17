@@ -19,6 +19,6 @@ public enum MdfeModalVersion {
     }
 
     public static MdfeModalVersion getDefault() {
-        return valueOfVersion(System.getProperty("com.softart.mdfe.modal.version", "3.00"));
+        return valueOfVersion(System.getProperty("com.softart.dfe.mdfe.modal.version", "3.00"));
     }
 }
