@@ -28,6 +28,12 @@ public final class ReflectionUtils {
         return cls.newInstance();
     }
 
+    @SneakyThrows
+    @SuppressWarnings("unchecked")
+    public static <T> T newInstance(String className) {
+        return (T) newInstance(findAllClasses(className.substring(0, className.lastIndexOf('.') - 1)).stream().filter(it -> Objects.equals(it.getSimpleName(), className.substring(className.lastIndexOf(".") + 1))).findFirst().orElseThrow(() -> new ClassNotFoundException("cannot find class of name " + className)));
+    }
+
     /**
      * If the class is null, return null, otherwise return a new instance of the class.
      *

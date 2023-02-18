@@ -6,42 +6,68 @@ import br.inf.portalfiscal.nfe.event_substitute_cancel.TRetEnvEvento;
 import com.softart.dfe.enums.internal.nf.NFStorageKey;
 import com.softart.dfe.enums.nf.NFReturnCode;
 import com.softart.dfe.exceptions.storage.StorageException;
+import com.softart.dfe.interfaces.internal.StorageKey;
+import com.softart.dfe.interfaces.internal.config.Config;
 import com.softart.dfe.interfaces.storage.Store;
 import com.softart.dfe.interfaces.storage.nf.NfceStorage;
+import com.softart.dfe.models.internal.storage.StorageResult;
+import com.softart.dfe.util.DateUtils;
+import com.softart.dfe.util.IOUtils;
+import com.softart.dfe.util.StringUtils;
 
+import java.io.IOException;
 import java.util.Objects;
 
-public final class NfceFileSystemStorage extends NfCommonFileSystemStorage implements NfceStorage {
+import static java.nio.charset.StandardCharsets.UTF_8;
+
+public final class NfceFileSystemStorage extends GenericNfceStorage {
+    /**
+     * It returns a string with the path to the directory where the XML files are stored
+     *
+     * @param config The config object that contains the environment, cnpj and other information.
+     * @return The root path of the XMLs
+     */
     @Override
-    public void storeProcSubstituteCancel(Store<TProcEvento> o) throws StorageException {
-        try {
-            if (Objects.nonNull(o.getData()) && Objects.nonNull(o.getData().getEvento()) && Objects.nonNull(o.getData().getRetEvento()) && Objects.nonNull(o.getXml()) && NFReturnCode.generateProc(o.getData().getRetEvento().getInfEvento().getCStat())) {
-                writeProc(o, NFStorageKey.NF_EVENT, xmlNameWithTime(o.getData().getEvento().getInfEvento().getChNFe() + "-" + o.getData().getEvento().getInfEvento().getTpEvento() + "-" + o.getData().getEvento().getInfEvento().getNSeqEvento()));
-            }
-        } catch (Exception e) {
-            throw new StorageException(e);
-        }
+    public String rootPath(Config config) {
+        return String.join(IOUtils.separator(), IOUtils.homeDir(), "xmls", config.environment().getRootPath(), config.cnpj(), DateUtils.currentyear(), StringUtils.padZeroStart(DateUtils.currentMonth(), 2));
     }
 
+    /**
+     * "Write the XML content to the file system."
+     *
+     * @param conf       The configuration object that contains the root path of the storage.
+     * @param key        The key of the file to be written.
+     * @param xmlName    The name of the file to be written.
+     * @param xmlContent The XML content to be written to the file.
+     */
     @Override
-    public void storeReturnSubstituteCancel(Store<TRetEnvEvento> o) throws StorageException {
-        try {
-            if (Objects.nonNull(o.getData()) && Objects.nonNull(o.getXml())) {
-                writeReturn(o, NFStorageKey.NF_EVENT, xmlNameWithTime(o.getData().getRetEvento().get(0).getInfEvento().getChNFe() + "-" + o.getData().getRetEvento().get(0).getInfEvento().getTpEvento()));
-            }
-        } catch (Exception e) {
-            throw new StorageException(e);
-        }
+    public StorageResult writeSend(Config conf, StorageKey key, String xmlName, String xmlContent) throws IOException {
+        return StorageResult.builder().file(IOUtils.write(String.join(IOUtils.separator(), rootPath(conf), key.getForSend(), xmlName), xmlContent.getBytes(UTF_8))).build();
     }
 
+    /**
+     * Write the XML content to the file system.
+     *
+     * @param conf       The configuration object.
+     * @param key        The key of the file to be written.
+     * @param xmlName    the name of the file to be written
+     * @param xmlContent The XML content to be written to the file.
+     */
     @Override
-    public void storeSendSubstituteCancel(Store<TEnvEvento> o) throws StorageException {
-        try {
-            if (Objects.nonNull(o.getData()) && !o.getData().getEvento().isEmpty() && Objects.nonNull(o.getXml())) {
-                writeSend(o, NFStorageKey.NF_EVENT, xmlNameWithTime(o.getData().getEvento().get(0).getInfEvento().getChNFe() + "-" + o.getData().getEvento().get(0).getInfEvento().getTpEvento()));
-            }
-        } catch (Exception e) {
-            throw new StorageException(e);
-        }
+    public StorageResult writeReturn(Config conf, StorageKey key, String xmlName, String xmlContent) throws IOException {
+        return StorageResult.builder().file(IOUtils.write(String.join(IOUtils.separator(), rootPath(conf), key.getForReturn(), xmlName), xmlContent.getBytes(UTF_8))).build();
+    }
+
+    /**
+     * > This function writes the XML content to a file in the processed directory
+     *
+     * @param conf       The configuration object
+     * @param key        The key of the file to be written.
+     * @param xmlName    the name of the file to be written
+     * @param xmlContent The XML content to be written to the file.
+     */
+    @Override
+    public StorageResult writeProc(Config conf, StorageKey key, String xmlName, String xmlContent) throws IOException {
+        return StorageResult.builder().file(IOUtils.write(String.join(IOUtils.separator(), rootPath(conf), key.getForProcessed(), xmlName), xmlContent.getBytes(UTF_8))).build();
     }
 }

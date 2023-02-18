@@ -6,10 +6,11 @@ import br.inf.portalfiscal.nfe.send.*;
 import com.softart.dfe.components.internal.parser.AccessKeyParserFactory;
 import com.softart.dfe.components.internal.xml.marshaller.NfMarshallerFactory;
 import com.softart.dfe.components.internal.xml.unmarshaller.NfUnmarshallerFactory;
-import com.softart.dfe.components.storage.common.CommonFileSystemStorage;
+import com.softart.dfe.components.storage.common.CommonStorage;
 import com.softart.dfe.enums.internal.nf.NFStorageKey;
 import com.softart.dfe.enums.nf.NFReturnCode;
 import com.softart.dfe.exceptions.storage.StorageException;
+import com.softart.dfe.interfaces.storage.StorageService;
 import com.softart.dfe.interfaces.storage.Store;
 import com.softart.dfe.interfaces.storage.nf.common.NfCommonStorage;
 import com.softart.dfe.models.internal.xml.XMLStore;
@@ -20,7 +21,7 @@ import java.util.Objects;
 
 import static java.io.File.separator;
 
-public class NfCommonFileSystemStorage extends CommonFileSystemStorage implements NfCommonStorage {
+public abstract class GenericNfCommonStorage extends CommonStorage implements NfCommonStorage, StorageService {
 
     @Override
     public void storeProcCancel(Store<br.inf.portalfiscal.nfe.event_cancel.TProcEvento> o) throws StorageException {

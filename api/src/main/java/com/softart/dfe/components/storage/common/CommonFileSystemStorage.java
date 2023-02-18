@@ -3,6 +3,7 @@ package com.softart.dfe.components.storage.common;
 import com.softart.dfe.interfaces.internal.StorageKey;
 import com.softart.dfe.interfaces.internal.config.Config;
 import com.softart.dfe.interfaces.storage.StorageService;
+import com.softart.dfe.models.internal.storage.StorageResult;
 import com.softart.dfe.util.DateUtils;
 import com.softart.dfe.util.IOUtils;
 import com.softart.dfe.util.StringUtils;
@@ -40,8 +41,8 @@ public abstract class CommonFileSystemStorage extends CommonStorage implements S
      * @param xmlContent The XML content to be written to the file.
      */
     @Override
-    public File writeSend(Config conf, StorageKey key, String xmlName, String xmlContent) throws IOException {
-        return IOUtils.write(String.join(IOUtils.separator(), rootPath(conf), key.getForSend(), xmlName), xmlContent.getBytes(UTF_8));
+    public StorageResult writeSend(Config conf, StorageKey key, String xmlName, String xmlContent) throws IOException {
+        return StorageResult.builder().file(IOUtils.write(String.join(IOUtils.separator(), rootPath(conf), key.getForSend(), xmlName), xmlContent.getBytes(UTF_8))).build();
     }
 
     /**
@@ -53,8 +54,8 @@ public abstract class CommonFileSystemStorage extends CommonStorage implements S
      * @param xmlContent The XML content to be written to the file.
      */
     @Override
-    public File writeReturn(Config conf, StorageKey key, String xmlName, String xmlContent) throws IOException {
-        return IOUtils.write(String.join(IOUtils.separator(), rootPath(conf), key.getForReturn(), xmlName), xmlContent.getBytes(UTF_8));
+    public StorageResult writeReturn(Config conf, StorageKey key, String xmlName, String xmlContent) throws IOException {
+        return StorageResult.builder().file(IOUtils.write(String.join(IOUtils.separator(), rootPath(conf), key.getForReturn(), xmlName), xmlContent.getBytes(UTF_8))).build();
     }
 
     /**
@@ -66,8 +67,8 @@ public abstract class CommonFileSystemStorage extends CommonStorage implements S
      * @param xmlContent The XML content to be written to the file.
      */
     @Override
-    public File writeProc(Config conf, StorageKey key, String xmlName, String xmlContent) throws IOException {
-        return IOUtils.write(String.join(IOUtils.separator(), rootPath(conf), key.getForProcessed(), xmlName), xmlContent.getBytes(UTF_8));
+    public StorageResult writeProc(Config conf, StorageKey key, String xmlName, String xmlContent) throws IOException {
+        return StorageResult.builder().file(IOUtils.write(String.join(IOUtils.separator(), rootPath(conf), key.getForProcessed(), xmlName), xmlContent.getBytes(UTF_8))).build();
     }
 
 

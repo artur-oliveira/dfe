@@ -70,6 +70,15 @@ public final class IOUtils {
         return Files.write(path, bytes, StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING).toFile();
     }
 
+    public static File writeTemp(String fileName, byte[] bytes) throws IOException {
+        final Path path = Files.createTempFile(fileName.substring(0, fileName.indexOf(".") - 1), fileName.substring(fileName.indexOf(".")));
+
+        if (!path.getParent().toFile().exists()) Files.createDirectories(path.getParent());
+        if (!path.toFile().exists()) Files.createFile(path);
+
+        return Files.write(path, bytes, StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING).toFile();
+    }
+
     /**
      * "Given a base path, find all files in the same folder that start with the same name."
      * <p>

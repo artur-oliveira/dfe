@@ -1,170 +1,66 @@
 package com.softart.dfe.components.storage.nf;
 
-import br.inf.portalfiscal.nfe.distribution.TDistDFeInt;
-import br.inf.portalfiscal.nfe.distribution.TRetDistDFeInt;
-import br.inf.portalfiscal.nfe.event_correction_letter.TEnvEvento;
-import br.inf.portalfiscal.nfe.event_correction_letter.TRetEnvEvento;
-import com.softart.dfe.enums.internal.nf.NFStorageKey;
-import com.softart.dfe.enums.nf.NFReturnCode;
-import com.softart.dfe.exceptions.storage.StorageException;
-import com.softart.dfe.interfaces.storage.Store;
+import com.softart.dfe.interfaces.internal.StorageKey;
+import com.softart.dfe.interfaces.internal.config.Config;
 import com.softart.dfe.interfaces.storage.nf.NfeStorage;
+import com.softart.dfe.models.internal.storage.StorageResult;
+import com.softart.dfe.util.DateUtils;
+import com.softart.dfe.util.IOUtils;
+import com.softart.dfe.util.StringUtils;
 
-import java.util.Objects;
+import java.io.IOException;
 
-public final class NfeFileSystemStorage extends NfCommonFileSystemStorage implements NfeStorage {
+import static java.nio.charset.StandardCharsets.UTF_8;
 
+public final class NfeFileSystemStorage extends GenericNfeStorage implements NfeStorage {
+
+    /**
+     * It returns a string with the path to the directory where the XML files are stored
+     *
+     * @param config The config object that contains the environment, cnpj and other information.
+     * @return The root path of the XMLs
+     */
     @Override
-    public void storeRetDistribution(Store<TRetDistDFeInt> o) throws StorageException {
-        try {
-            if (Objects.nonNull(o.getData()) && Objects.nonNull(o.getXml())) {
-                writeReturn(o, NFStorageKey.NF_DISTRIBUTION, xmlNameWithTime(System.currentTimeMillis()));
-            }
-        } catch (Exception e) {
-            throw new StorageException(e);
-        }
+    public String rootPath(Config config) {
+        return String.join(IOUtils.separator(), IOUtils.homeDir(), "xmls", config.environment().getRootPath(), config.cnpj(), DateUtils.currentyear(), StringUtils.padZeroStart(DateUtils.currentMonth(), 2));
     }
 
+    /**
+     * "Write the XML content to the file system."
+     *
+     * @param conf       The configuration object that contains the root path of the storage.
+     * @param key        The key of the file to be written.
+     * @param xmlName    The name of the file to be written.
+     * @param xmlContent The XML content to be written to the file.
+     */
     @Override
-    public void storeEnvDistribution(Store<TDistDFeInt> o) throws StorageException {
-        try {
-            if (Objects.nonNull(o.getData()) && Objects.nonNull(o.getXml())) {
-                writeSend(o, NFStorageKey.NF_DISTRIBUTION, xmlNameWithTime(System.currentTimeMillis()));
-            }
-        } catch (Exception e) {
-            throw new StorageException(e);
-        }
+    public StorageResult writeSend(Config conf, StorageKey key, String xmlName, String xmlContent) throws IOException {
+        return StorageResult.builder().file(IOUtils.write(String.join(IOUtils.separator(), rootPath(conf), key.getForSend(), xmlName), xmlContent.getBytes(UTF_8))).build();
     }
 
+    /**
+     * Write the XML content to the file system.
+     *
+     * @param conf       The configuration object.
+     * @param key        The key of the file to be written.
+     * @param xmlName    the name of the file to be written
+     * @param xmlContent The XML content to be written to the file.
+     */
     @Override
-    public void storeProcManifestation(Store<br.inf.portalfiscal.nfe.event_manifestation.TProcEvento> o) throws StorageException {
-        try {
-            if (Objects.nonNull(o.getData()) && Objects.nonNull(o.getData().getEvento()) && Objects.nonNull(o.getData().getRetEvento()) && Objects.nonNull(o.getXml()) && NFReturnCode.generateProc(o.getData().getRetEvento().getInfEvento().getCStat())) {
-                writeProc(o, NFStorageKey.NF_EVENT, xmlNameWithTime(o.getData().getEvento().getInfEvento().getChNFe() + "-" + o.getData().getEvento().getInfEvento().getTpEvento() + "-" + o.getData().getEvento().getInfEvento().getNSeqEvento()));
-            }
-        } catch (Exception e) {
-            throw new StorageException(e);
-        }
+    public StorageResult writeReturn(Config conf, StorageKey key, String xmlName, String xmlContent) throws IOException {
+        return StorageResult.builder().file(IOUtils.write(String.join(IOUtils.separator(), rootPath(conf), key.getForReturn(), xmlName), xmlContent.getBytes(UTF_8))).build();
     }
 
+    /**
+     * > This function writes the XML content to a file in the processed directory
+     *
+     * @param conf       The configuration object
+     * @param key        The key of the file to be written.
+     * @param xmlName    the name of the file to be written
+     * @param xmlContent The XML content to be written to the file.
+     */
     @Override
-    public void storeRetManifestation(Store<br.inf.portalfiscal.nfe.event_manifestation.TRetEnvEvento> o) throws StorageException {
-        try {
-            if (Objects.nonNull(o.getData()) && Objects.nonNull(o.getXml())) {
-                writeReturn(o, NFStorageKey.NF_EVENT, xmlNameWithTime(o.getData().getRetEvento().get(0).getInfEvento().getChNFe() + "-" + o.getData().getRetEvento().get(0).getInfEvento().getTpEvento()));
-            }
-        } catch (Exception e) {
-            throw new StorageException(e);
-        }
-    }
-
-    @Override
-    public void storeSendManifestation(Store<br.inf.portalfiscal.nfe.event_manifestation.TEnvEvento> o) throws StorageException {
-        try {
-            if (Objects.nonNull(o.getData()) && !o.getData().getEvento().isEmpty() && Objects.nonNull(o.getXml())) {
-                writeSend(o, NFStorageKey.NF_EVENT, xmlNameWithTime(o.getData().getEvento().get(0).getInfEvento().getChNFe() + "-" + o.getData().getEvento().get(0).getInfEvento().getTpEvento()));
-            }
-        } catch (Exception e) {
-            throw new StorageException(e);
-        }
-    }
-
-    @Override
-    public void storeProcCorrectionLetter(Store<br.inf.portalfiscal.nfe.event_correction_letter.TProcEvento> o) throws StorageException {
-        try {
-            if (Objects.nonNull(o.getData()) && Objects.nonNull(o.getData().getEvento()) && Objects.nonNull(o.getData().getRetEvento()) && Objects.nonNull(o.getXml()) && NFReturnCode.generateProc(o.getData().getRetEvento().getInfEvento().getCStat())) {
-                writeProc(o, NFStorageKey.NF_EVENT, xmlNameWithTime(o.getData().getEvento().getInfEvento().getChNFe() + "-" + o.getData().getEvento().getInfEvento().getTpEvento() + "-" + o.getData().getEvento().getInfEvento().getNSeqEvento()));
-            }
-        } catch (Exception e) {
-            throw new StorageException(e);
-        }
-    }
-
-    @Override
-    public void storeRetCorrectionLetter(Store<TRetEnvEvento> o) throws StorageException {
-        try {
-            if (Objects.nonNull(o.getData()) && Objects.nonNull(o.getXml())) {
-                writeReturn(o, NFStorageKey.NF_EVENT, xmlNameWithTime(o.getData().getRetEvento().get(0).getInfEvento().getChNFe() + "-" + o.getData().getRetEvento().get(0).getInfEvento().getTpEvento()));
-            }
-        } catch (Exception e) {
-            throw new StorageException(e);
-        }
-    }
-
-    @Override
-    public void storeSendCorrectionLetter(Store<TEnvEvento> o) throws StorageException {
-        try {
-            if (Objects.nonNull(o.getData()) && !o.getData().getEvento().isEmpty() && Objects.nonNull(o.getXml())) {
-                writeSend(o, NFStorageKey.NF_EVENT, xmlNameWithTime(o.getData().getEvento().get(0).getInfEvento().getChNFe() + "-" + o.getData().getEvento().get(0).getInfEvento().getTpEvento()));
-            }
-        } catch (Exception e) {
-            throw new StorageException(e);
-        }
-    }
-
-    @Override
-    public void storeProcEpec(Store<br.inf.portalfiscal.nfe.event_epec.TProcEvento> o) throws StorageException {
-        try {
-            if (Objects.nonNull(o.getData()) && Objects.nonNull(o.getData().getEvento()) && Objects.nonNull(o.getData().getRetEvento()) && Objects.nonNull(o.getXml()) && NFReturnCode.generateProc(o.getData().getRetEvento().getInfEvento().getCStat())) {
-                writeProc(o, NFStorageKey.NF_EVENT, xmlNameWithTime(o.getData().getEvento().getInfEvento().getChNFe() + "-" + o.getData().getEvento().getInfEvento().getTpEvento() + "-" + o.getData().getEvento().getInfEvento().getNSeqEvento()));
-            }
-        } catch (Exception e) {
-            throw new StorageException(e);
-        }
-    }
-
-    @Override
-    public void storeRetEpec(Store<br.inf.portalfiscal.nfe.event_epec.TRetEnvEvento> o) throws StorageException {
-        try {
-            if (Objects.nonNull(o.getData()) && Objects.nonNull(o.getXml())) {
-                writeReturn(o, NFStorageKey.NF_EVENT, xmlNameWithTime(o.getData().getRetEvento().get(0).getInfEvento().getChNFe() + "-" + o.getData().getRetEvento().get(0).getInfEvento().getTpEvento()));
-            }
-        } catch (Exception e) {
-            throw new StorageException(e);
-        }
-    }
-
-    @Override
-    public void storeSendEpec(Store<br.inf.portalfiscal.nfe.event_epec.TEnvEvento> o) throws StorageException {
-        try {
-            if (Objects.nonNull(o.getData()) && !o.getData().getEvento().isEmpty() && Objects.nonNull(o.getXml())) {
-                writeSend(o, NFStorageKey.NF_EVENT, xmlNameWithTime(o.getData().getEvento().get(0).getInfEvento().getChNFe() + "-" + o.getData().getEvento().get(0).getInfEvento().getTpEvento()));
-            }
-        } catch (Exception e) {
-            throw new StorageException(e);
-        }
-    }
-
-    @Override
-    public void storeProcInterestedActor(Store<br.inf.portalfiscal.nfe.event_interested_actor.TProcEvento> o) throws StorageException {
-        try {
-            if (Objects.nonNull(o.getData()) && Objects.nonNull(o.getData().getEvento()) && Objects.nonNull(o.getData().getRetEvento()) && Objects.nonNull(o.getXml()) && NFReturnCode.generateProc(o.getData().getRetEvento().getInfEvento().getCStat())) {
-                writeProc(o, NFStorageKey.NF_EVENT, xmlNameWithTime(o.getData().getEvento().getInfEvento().getChNFe() + "-" + o.getData().getEvento().getInfEvento().getTpEvento() + "-" + o.getData().getEvento().getInfEvento().getNSeqEvento()));
-            }
-        } catch (Exception e) {
-            throw new StorageException(e);
-        }
-    }
-
-    @Override
-    public void storeRetInterestedActor(Store<br.inf.portalfiscal.nfe.event_interested_actor.TRetEnvEvento> o) throws StorageException {
-        try {
-            if (Objects.nonNull(o.getData()) && Objects.nonNull(o.getXml())) {
-                writeReturn(o, NFStorageKey.NF_EVENT, xmlNameWithTime(o.getData().getRetEvento().get(0).getInfEvento().getChNFe() + "-" + o.getData().getRetEvento().get(0).getInfEvento().getTpEvento()));
-            }
-        } catch (Exception e) {
-            throw new StorageException(e);
-        }
-    }
-
-    @Override
-    public void storeSendInterestedActor(Store<br.inf.portalfiscal.nfe.event_interested_actor.TEnvEvento> o) throws StorageException {
-        try {
-            if (Objects.nonNull(o.getData()) && !o.getData().getEvento().isEmpty() && Objects.nonNull(o.getXml())) {
-                writeSend(o, NFStorageKey.NF_EVENT, xmlNameWithTime(o.getData().getEvento().get(0).getInfEvento().getChNFe() + "-" + o.getData().getEvento().get(0).getInfEvento().getTpEvento()));
-            }
-        } catch (Exception e) {
-            throw new StorageException(e);
-        }
+    public StorageResult writeProc(Config conf, StorageKey key, String xmlName, String xmlContent) throws IOException {
+        return StorageResult.builder().file(IOUtils.write(String.join(IOUtils.separator(), rootPath(conf), key.getForProcessed(), xmlName), xmlContent.getBytes(UTF_8))).build();
     }
 }
