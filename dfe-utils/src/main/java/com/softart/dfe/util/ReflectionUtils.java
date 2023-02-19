@@ -34,6 +34,15 @@ public final class ReflectionUtils {
         return (T) newInstance(findAllClasses(className.substring(0, className.lastIndexOf('.') - 1)).stream().filter(it -> Objects.equals(it.getSimpleName(), className.substring(className.lastIndexOf(".") + 1))).findFirst().orElseThrow(() -> new ClassNotFoundException("cannot find class of name " + className)));
     }
 
+    @SneakyThrows
+    public static <T> T safeNewInstance(String className) {
+        try {
+            return newInstance(className);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
     /**
      * If the class is null, return null, otherwise return a new instance of the class.
      *
