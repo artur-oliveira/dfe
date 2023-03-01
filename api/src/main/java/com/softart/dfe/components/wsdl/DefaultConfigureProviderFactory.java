@@ -5,7 +5,6 @@ import com.softart.dfe.components.security.socket.SocketFactory;
 import com.softart.dfe.exceptions.security.SecurityException;
 import com.softart.dfe.interfaces.internal.config.Config;
 import com.softart.dfe.models.internal.wsdl.ProviderConfig;
-import com.sun.xml.internal.ws.client.BindingProviderProperties;
 import lombok.AccessLevel;
 import lombok.Getter;
 

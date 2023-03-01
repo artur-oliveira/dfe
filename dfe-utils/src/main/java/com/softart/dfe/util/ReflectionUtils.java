@@ -7,6 +7,7 @@ import lombok.extern.log4j.Log4j2;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.URL;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -28,21 +29,6 @@ public final class ReflectionUtils {
         return cls.newInstance();
     }
 
-    @SneakyThrows
-    @SuppressWarnings("unchecked")
-    public static <T> T newInstance(String className) {
-        return (T) newInstance(findAllClasses(className.substring(0, className.lastIndexOf('.') - 1)).stream().filter(it -> Objects.equals(it.getSimpleName(), className.substring(className.lastIndexOf(".") + 1))).findFirst().orElseThrow(() -> new ClassNotFoundException("cannot find class of name " + className)));
-    }
-
-    @SneakyThrows
-    public static <T> T safeNewInstance(String className) {
-        try {
-            return newInstance(className);
-        } catch (Exception e) {
-            return null;
-        }
-    }
-
     /**
      * If the class is null, return null, otherwise return a new instance of the class.
      *
@@ -54,7 +40,6 @@ public final class ReflectionUtils {
             if (Objects.isNull(cls)) return null;
             return newInstance(cls);
         } catch (Exception e) {
-            log.error(e.getMessage());
             return null;
         }
     }
@@ -90,7 +75,7 @@ public final class ReflectionUtils {
         Set<Class<?>> allClasses = new HashSet<>();
 
         for (String packageName : packageFinder.getPackages()) {
-            try (InputStream is = RequireUtils.nonNull(ReflectionUtils.class.getClassLoader().getResourceAsStream(packageName.replaceAll("[.]", "/")), packageName)) {
+            try (InputStream is = RequireUtils.nonNull(Thread.currentThread().getContextClassLoader().getResourceAsStream(packageName.replaceAll("[.]", "/")), packageName)) {
                 try (BufferedReader reader = new BufferedReader(new InputStreamReader(is))) {
                     Collection<String> lines = reader.lines().collect(Collectors.toList());
 

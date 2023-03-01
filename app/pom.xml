@@ -16,6 +16,12 @@
     <dependencies>
         <dependency>
             <groupId>com.softart</groupId>
+            <artifactId>storage-extras</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.softart</groupId>
             <artifactId>core</artifactId>
             <version>${project.version}</version>
         </dependency>
