@@ -24,7 +24,7 @@ Feel free to implement your own classes.
   value is **false**
 - _com.softart.dfe.handler.log.response_: **true** if you want to log the responses **false** otherwise. The default
   value is **false**
-- _com.softart.dfe.security.chain.cache.days_: The days that .jks file must be cached. The default value is **7**
+- _com.softart.dfe.security.chain.cache.days_: The days that .jks file must be cached. The default value is **14**
 
 ### DF-e versions
 

@@ -34,7 +34,7 @@ final class CertificateChainServiceImpl extends CertificateChainFactory {
 
     private static final String DEFAULT_PASSWORD = System.getProperty("com.softart.dfe.security.chain.password", "123456");
     private static final int PORT = 443;
-    private static final long DAYS_IN_CACHE = Long.parseLong(System.getProperty("com.softart.dfe.security.chain.cache.days", "7"));
+    private static final long DAYS_IN_CACHE = Long.parseLong(System.getProperty("com.softart.dfe.security.chain.cache.days", "14"));
     private static final String PROTOCOL = "TLSv1.2";
     private static final int SOCKET_TIMEOUT = Math.min(Integer.parseInt(System.getProperty("com.softart.dfe.security.chain.socket.timeout", "5000")), 5000);
 
