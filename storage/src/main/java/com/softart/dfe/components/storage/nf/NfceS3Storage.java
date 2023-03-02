@@ -19,7 +19,7 @@ public final class NfceS3Storage extends GenericNfceStorage {
     private final static String S3_BUCKET = System.getProperty("com.softart.dfe.s3.bucket");
 
     public NfceS3Storage() {
-        this.client = AmazonS3ClientBuilder.standard().build();
+        this.client = S3Utils.newClient();
     }
 
     /**

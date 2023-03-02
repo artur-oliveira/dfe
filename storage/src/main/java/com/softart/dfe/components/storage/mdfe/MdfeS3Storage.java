@@ -19,7 +19,7 @@ public final class MdfeS3Storage extends GenericMdfeStorage {
     private final static String S3_BUCKET = System.getProperty("com.softart.dfe.s3.bucket");
 
     public MdfeS3Storage() {
-        this.client = AmazonS3ClientBuilder.standard().build();
+        this.client = S3Utils.newClient();
     }
 
     /**

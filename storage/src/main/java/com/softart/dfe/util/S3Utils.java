@@ -1,6 +1,7 @@
 package com.softart.dfe.util;
 
 import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.amazonaws.services.s3.model.PutObjectResult;
@@ -14,6 +15,14 @@ import static java.nio.charset.StandardCharsets.UTF_8;
 public final class S3Utils {
     private S3Utils() {
         throw new UnsupportedOperationException("No instances of " + this.getClass().getSimpleName());
+    }
+
+    public static AmazonS3 newClient() {
+        try {
+            return AmazonS3ClientBuilder.standard().defaultClient();
+        } catch (Exception ignored) {
+            return null;
+        }
     }
 
     public static PutObjectResult putObject(AmazonS3 client, String bucket, String fileName, String content) throws IOException {
