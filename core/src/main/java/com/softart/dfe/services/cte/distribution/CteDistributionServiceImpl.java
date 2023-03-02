@@ -15,7 +15,7 @@ import lombok.Setter;
 @RequiredArgsConstructor
 @Getter
 @Setter
-public final class CteDistributionServiceImpl extends AbstractCteDistributionService {
+public final class CteDistributionServiceImpl implements CteDistributionService {
     private final CteConfig config;
     private final XMLSignerService xmlSigner = XmlSigner.getInstance();
     private final CteProcessService process = CteProcess.getInstance();

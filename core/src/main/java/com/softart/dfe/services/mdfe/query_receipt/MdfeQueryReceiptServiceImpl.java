@@ -15,7 +15,7 @@ import lombok.Setter;
 @RequiredArgsConstructor
 @Getter
 @Setter
-public final class MdfeQueryReceiptServiceImpl extends AbstractMdfeQueryReceiptService {
+public final class MdfeQueryReceiptServiceImpl implements MdfeQueryReceiptService {
     private final MdfeConfig config;
     private final XMLSignerService xmlSigner = XmlSigner.getInstance();
     private final MdfeProcessService process = MdfeProcess.getInstance();

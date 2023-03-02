@@ -15,7 +15,7 @@ import lombok.Setter;
 @RequiredArgsConstructor
 @Getter
 @Setter
-public final class NfceQueryProtocolServiceImpl extends AbstractNfceQueryProtocolService {
+public final class NfceQueryProtocolServiceImpl implements NfceQueryProtocolService {
     private final NfConfig config;
     private final XMLSignerService xmlSigner = XmlSigner.getInstance();
     private final NfProcessService process = NfProcess.getInstance();

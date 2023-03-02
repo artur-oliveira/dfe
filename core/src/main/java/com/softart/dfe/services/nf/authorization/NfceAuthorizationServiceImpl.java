@@ -15,7 +15,7 @@ import lombok.Setter;
 @RequiredArgsConstructor
 @Getter
 @Setter
-public final class NfceAuthorizationServiceImpl extends AbstractNfceAuthorizationService {
+public final class NfceAuthorizationServiceImpl implements NfceAuthorizationService {
     private final NfConfig config;
     private final XMLSignerService xmlSigner = XmlSigner.getInstance();
     private final NfProcessService process = NfProcess.getInstance();

@@ -15,7 +15,7 @@ import lombok.Setter;
 @RequiredArgsConstructor
 @Getter
 @Setter
-public final class NfQueryGtinServiceImpl extends AbstractNfQueryGtinService {
+public final class NfQueryGtinServiceImpl implements NfQueryGtinService {
     private final NfConfig config;
     private final XMLSignerService xmlSigner = XmlSigner.getInstance();
     private final NfProcessService process = NfProcess.getInstance();

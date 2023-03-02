@@ -7,6 +7,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <modules>
         <module>stubs</module>
+        <module>dfe-utils</module>
         <module>nfe-classes</module>
         <module>cte-classes</module>
         <module>mdfe-classes</module>
@@ -14,9 +15,9 @@
         <module>mdfe-services</module>
         <module>nfe-services</module>
         <module>api</module>
+        <module>storage</module>
+        <module>validation</module>
         <module>core</module>
-        <module>storage-extras</module>
-        <module>dfe-utils</module>
         <module>app</module>
     </modules>
     <packaging>pom</packaging>

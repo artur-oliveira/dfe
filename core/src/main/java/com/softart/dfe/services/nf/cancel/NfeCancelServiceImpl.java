@@ -9,6 +9,7 @@ import com.softart.dfe.interfaces.process.nf.NfProcessService;
 import com.softart.dfe.interfaces.xml.XMLSignerService;
 import com.softart.dfe.models.internal.process.NfProcess;
 import com.softart.dfe.services.nf.query_protocol.NfQueryProtocolService;
+import com.softart.dfe.services.nf.query_protocol.NfeQueryProtocolService;
 import com.softart.dfe.services.nf.query_protocol.NfeQueryProtocolServiceImpl;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -19,16 +20,17 @@ import java.util.Objects;
 @RequiredArgsConstructor
 @Getter
 @Setter
-public final class NfeCancelServiceImpl extends AbstractNfeCancelService {
+public final class NfeCancelServiceImpl implements NfeCancelService {
     private final NfConfig config;
     private final XMLSignerService xmlSigner = XmlSigner.getInstance();
     private final NfProcessService process = NfProcess.getInstance();
     private final DfeService providerFactory = DfeService.getInstance();
     private final ValidatorFactory validatorFactory = ValidatorFactory.getInstance();
     private final ConfigureProviderFactory configureProviderFactory = ConfigureProviderFactory.getInstance();
-    private NfQueryProtocolService nfQueryProtocolService;
+    private NfeQueryProtocolService nfQueryProtocolService;
 
-    public NfQueryProtocolService getNfQueryProtocolService() {
+    @Override
+    public NfeQueryProtocolService getNfQueryProtocolService() {
         if (Objects.isNull(nfQueryProtocolService))
             setNfQueryProtocolService(new NfeQueryProtocolServiceImpl(getConfig()));
         return nfQueryProtocolService;

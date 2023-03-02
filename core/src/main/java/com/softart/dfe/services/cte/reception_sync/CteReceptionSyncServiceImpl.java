@@ -13,7 +13,7 @@ import lombok.RequiredArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor
-public final class CteReceptionSyncServiceImpl extends AbstractCteReceptionSyncService {
+public final class CteReceptionSyncServiceImpl implements CteReceptionSyncService {
     private final CteConfig config;
     private final XMLSignerService xmlSigner = XmlSigner.getInstance();
     private final CteProcessService process = CteProcess.getInstance();

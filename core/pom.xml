@@ -21,14 +21,13 @@
         </dependency>
         <dependency>
             <groupId>com.softart</groupId>
-            <artifactId>storage-extras</artifactId>
+            <artifactId>storage</artifactId>
             <version>${project.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.softart</groupId>
-                    <artifactId>api</artifactId>
-                </exclusion>
-            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.softart</groupId>
+            <artifactId>validation</artifactId>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 

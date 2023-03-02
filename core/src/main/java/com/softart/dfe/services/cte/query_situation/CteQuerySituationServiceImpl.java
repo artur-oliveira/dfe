@@ -15,7 +15,7 @@ import lombok.Setter;
 @RequiredArgsConstructor
 @Getter
 @Setter
-public final class CteQuerySituationServiceImpl extends AbstractCteQuerySituationService {
+public final class CteQuerySituationServiceImpl implements CteQuerySituationService {
     private final CteConfig config;
     private final XMLSignerService xmlSigner = XmlSigner.getInstance();
     private final CteProcessService process = CteProcess.getInstance();

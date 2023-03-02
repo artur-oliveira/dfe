@@ -19,7 +19,7 @@ import java.util.Objects;
 @RequiredArgsConstructor
 @Getter
 @Setter
-public final class MdfeEventServiceImpl extends AbstractMdfeEventService {
+public final class MdfeEventServiceImpl implements MdfeEventService {
     private final MdfeConfig config;
     private final XMLSignerService xmlSigner = XmlSigner.getInstance();
     private final MdfeProcessService process = MdfeProcess.getInstance();

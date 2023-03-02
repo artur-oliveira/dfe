@@ -50,7 +50,7 @@ import com.softart.dfe.services.nf.query_status_service.NfeQueryStatusServiceImp
 import com.softart.dfe.services.nf.return_authorization.NfReturnAuthorizationService;
 import com.softart.dfe.services.nf.return_authorization.NfceReturnAuthorizationServiceImpl;
 import com.softart.dfe.services.nf.return_authorization.NfeReturnAuthorizationServiceImpl;
-import com.softart.dfe.services.nf.substitute_cancel.NfSubstituteCancelService;
+import com.softart.dfe.services.nf.substitute_cancel.NfceSubstituteCancelService;
 import com.softart.dfe.services.nf.substitute_cancel.NfceSubstituteCancelServiceImpl;
 import com.softart.dfe.util.DateUtils;
 import lombok.extern.log4j.Log4j2;
@@ -413,7 +413,7 @@ public final class App {
         NfConfig config = new PfxNfConfigImpl(UF.PI, "11520224000140", Environment.HOMOLOGATION, info, NFEmissionType.NORMAL, null, null);
 
         XMLSignerService signer = new DefaultXmlSigner();
-        NfSubstituteCancelService service = new NfceSubstituteCancelServiceImpl(config);
+        NfceSubstituteCancelService service = new NfceSubstituteCancelServiceImpl(config);
         System.out.println(service.substituteCancel(accessKey, accessKeyRef));
     }
 }

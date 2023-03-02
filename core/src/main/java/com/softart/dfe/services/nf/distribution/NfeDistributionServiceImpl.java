@@ -15,7 +15,7 @@ import lombok.Setter;
 @RequiredArgsConstructor
 @Getter
 @Setter
-public final class NfeDistributionServiceImpl extends AbstractNfeDistributionService {
+public final class NfeDistributionServiceImpl implements NfeDistributionService {
     private final NfConfig config;
     private final XMLSignerService xmlSigner = XmlSigner.getInstance();
     private final NfProcessService process = NfProcess.getInstance();

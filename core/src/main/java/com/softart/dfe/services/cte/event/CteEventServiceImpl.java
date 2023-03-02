@@ -19,7 +19,7 @@ import java.util.Objects;
 @RequiredArgsConstructor
 @Getter
 @Setter
-public final class CteEventServiceImpl extends AbstractCteEventService {
+public final class CteEventServiceImpl implements CteEventService {
     private final CteConfig config;
     private final XMLSignerService xmlSigner = XmlSigner.getInstance();
     private final CteProcessService process = CteProcess.getInstance();

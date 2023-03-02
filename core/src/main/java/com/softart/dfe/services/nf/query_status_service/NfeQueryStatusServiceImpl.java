@@ -15,7 +15,7 @@ import lombok.Setter;
 @RequiredArgsConstructor
 @Getter
 @Setter
-public final class NfeQueryStatusServiceImpl extends AbstractNfeQueryStatusService {
+public final class NfeQueryStatusServiceImpl implements NfeQueryStatusService {
     private final NfConfig config;
     private final XMLSignerService xmlSigner = XmlSigner.getInstance();
     private final NfProcessService process = NfProcess.getInstance();

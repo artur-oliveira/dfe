@@ -1,10 +1,10 @@
 package com.softart.dfe.interfaces.services;
 
 import com.softart.dfe.components.sefaz.DfeService;
-import com.softart.dfe.components.validation.ValidatorFactory;
-import com.softart.dfe.components.wsdl.ConfigureProviderFactory;
 import com.softart.dfe.interfaces.internal.config.Config;
 import com.softart.dfe.interfaces.process.DfProcess;
+import com.softart.dfe.interfaces.validation.ValidationService;
+import com.softart.dfe.interfaces.wsdl.ConfigureProvider;
 import com.softart.dfe.interfaces.xml.XMLSignerService;
 
 public interface SefazService {
@@ -42,13 +42,13 @@ public interface SefazService {
      *
      * @return A ValidatorFactory object.
      */
-    ValidatorFactory getValidatorFactory();
+    ValidationService getValidatorFactory();
 
     /**
      * > Returns the ConfigureProviderFactory instance
      *
      * @return The ConfigureProviderFactory is being returned.
      */
-    ConfigureProviderFactory getConfigureProviderFactory();
+    ConfigureProvider getConfigureProviderFactory();
 
 }

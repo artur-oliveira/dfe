@@ -15,7 +15,7 @@ import lombok.Setter;
 @RequiredArgsConstructor
 @Getter
 @Setter
-public final class MdfeStatusServiceServiceImpl extends AbstractMdfeStatusServiceService {
+public final class MdfeStatusServiceServiceImpl implements MdfeStatusServiceService {
     private final MdfeConfig config;
     private final XMLSignerService xmlSigner = XmlSigner.getInstance();
     private final MdfeProcessService process = MdfeProcess.getInstance();

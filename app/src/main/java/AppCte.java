@@ -3,7 +3,6 @@ import br.inf.portalfiscal.cte.send.TUf;
 import com.softart.dfe.components.internal.certificate.KeyStoreFactory;
 import com.softart.dfe.components.internal.certificate.PfxKeyStoreInfoImpl;
 import com.softart.dfe.components.internal.config.PfxCteConfigImpl;
-import com.softart.dfe.components.security.chain.CertificateChainFactory;
 import com.softart.dfe.components.security.signer.DefaultXmlSigner;
 import com.softart.dfe.enums.cte.identification.*;
 import com.softart.dfe.enums.cte.info.charge.CteChargeUnid;

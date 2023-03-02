@@ -15,7 +15,7 @@ import lombok.Setter;
 @RequiredArgsConstructor
 @Getter
 @Setter
-public final class NfeReturnAuthorizationServiceImpl extends AbstractNfeReturnAuthorizationService {
+public final class NfeReturnAuthorizationServiceImpl implements NfeReturnAuthorizationService {
     private final NfConfig config;
     private final XMLSignerService xmlSigner = XmlSigner.getInstance();
     private final NfProcessService process = NfProcess.getInstance();

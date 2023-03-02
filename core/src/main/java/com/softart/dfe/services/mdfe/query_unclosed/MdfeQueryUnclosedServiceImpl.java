@@ -15,7 +15,7 @@ import lombok.Setter;
 @RequiredArgsConstructor
 @Getter
 @Setter
-public final class MdfeQueryUnclosedServiceImpl extends AbstractMdfeQueryUnclosedService {
+public final class MdfeQueryUnclosedServiceImpl implements MdfeQueryUnclosedService {
     private final MdfeConfig config;
     private final XMLSignerService xmlSigner = XmlSigner.getInstance();
     private final MdfeProcessService process = MdfeProcess.getInstance();
