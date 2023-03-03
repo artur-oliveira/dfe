@@ -4,7 +4,6 @@ import com.softart.dfe.interfaces.internal.StorageKey;
 import com.softart.dfe.interfaces.internal.config.Config;
 import com.softart.dfe.models.internal.storage.StorageResult;
 
-import java.io.File;
 import java.io.IOException;
 
 public interface StorageService {

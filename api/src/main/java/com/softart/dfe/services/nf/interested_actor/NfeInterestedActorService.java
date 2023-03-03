@@ -14,7 +14,6 @@ import com.softart.dfe.interfaces.services.NfSefazService;
 import com.softart.dfe.models.nf.interested_actor.NfeInterestedActorRequest;
 import com.softart.dfe.models.nf.interested_actor.ReturnNfeInterestedActor;
 import com.softart.dfe.models.nf.interested_actor.SendNfeInterestedActor;
-import com.softart.dfe.services.nf.query_protocol.NfQueryProtocolService;
 import com.softart.dfe.services.nf.query_protocol.NfeQueryProtocolService;
 
 public interface NfeInterestedActorService extends NfSefazService {

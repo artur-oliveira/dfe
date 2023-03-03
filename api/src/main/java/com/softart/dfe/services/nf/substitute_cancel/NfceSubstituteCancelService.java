@@ -13,7 +13,6 @@ import com.softart.dfe.interfaces.services.NfSefazService;
 import com.softart.dfe.models.nf.substitute_cancel.NfceSubstituteCancelRequest;
 import com.softart.dfe.models.nf.substitute_cancel.ReturnNfceSubstituteCancel;
 import com.softart.dfe.models.nf.substitute_cancel.SendNfceSubstituteCancel;
-import com.softart.dfe.services.nf.query_protocol.NfQueryProtocolService;
 import com.softart.dfe.services.nf.query_protocol.NfceQueryProtocolService;
 
 public interface NfceSubstituteCancelService extends NfSefazService {

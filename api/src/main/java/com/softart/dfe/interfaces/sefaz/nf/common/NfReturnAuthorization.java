@@ -4,9 +4,9 @@ import br.inf.portalfiscal.nfe.send.TConsReciNFe;
 import br.inf.portalfiscal.nfe.send.TRetConsReciNFe;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.exceptions.ValidationException;
+import com.softart.dfe.exceptions.security.SecurityException;
 import com.softart.dfe.interfaces.internal.Pair;
 import com.softart.dfe.interfaces.sefaz.SefazRequest;
-import com.softart.dfe.exceptions.security.SecurityException;
 
 public interface NfReturnAuthorization {
 

@@ -16,7 +16,7 @@ public abstract class GenericNfceStorage extends GenericNfCommonStorage implemen
     public void storeProcSubstituteCancel(Store<TProcEvento> o) throws StorageException {
         try {
             if (Objects.nonNull(o.getData()) && Objects.nonNull(o.getData().getEvento()) && Objects.nonNull(o.getData().getRetEvento()) && Objects.nonNull(o.getXml()) && NFReturnCode.generateProc(o.getData().getRetEvento().getInfEvento().getCStat())) {
-                writeProc(o, NFStorageKey.NF_EVENT, xmlNameWithTime(o.getData().getEvento().getInfEvento().getChNFe() + "-" + o.getData().getEvento().getInfEvento().getTpEvento() + "-" + o.getData().getEvento().getInfEvento().getNSeqEvento()));
+                getStorageService().writeProc(o, NFStorageKey.NF_EVENT, xmlNameWithTime(o.getData().getEvento().getInfEvento().getChNFe() + "-" + o.getData().getEvento().getInfEvento().getTpEvento() + "-" + o.getData().getEvento().getInfEvento().getNSeqEvento()));
             }
         } catch (Exception e) {
             throw new StorageException(e);
@@ -27,7 +27,7 @@ public abstract class GenericNfceStorage extends GenericNfCommonStorage implemen
     public void storeReturnSubstituteCancel(Store<TRetEnvEvento> o) throws StorageException {
         try {
             if (Objects.nonNull(o.getData()) && Objects.nonNull(o.getXml())) {
-                writeReturn(o, NFStorageKey.NF_EVENT, xmlNameWithTime(o.getData().getRetEvento().get(0).getInfEvento().getChNFe() + "-" + o.getData().getRetEvento().get(0).getInfEvento().getTpEvento()));
+                getStorageService().writeReturn(o, NFStorageKey.NF_EVENT, xmlNameWithTime(o.getData().getRetEvento().get(0).getInfEvento().getChNFe() + "-" + o.getData().getRetEvento().get(0).getInfEvento().getTpEvento()));
             }
         } catch (Exception e) {
             throw new StorageException(e);
@@ -38,7 +38,7 @@ public abstract class GenericNfceStorage extends GenericNfCommonStorage implemen
     public void storeSendSubstituteCancel(Store<TEnvEvento> o) throws StorageException {
         try {
             if (Objects.nonNull(o.getData()) && !o.getData().getEvento().isEmpty() && Objects.nonNull(o.getXml())) {
-                writeSend(o, NFStorageKey.NF_EVENT, xmlNameWithTime(o.getData().getEvento().get(0).getInfEvento().getChNFe() + "-" + o.getData().getEvento().get(0).getInfEvento().getTpEvento()));
+                getStorageService().writeSend(o, NFStorageKey.NF_EVENT, xmlNameWithTime(o.getData().getEvento().get(0).getInfEvento().getChNFe() + "-" + o.getData().getEvento().get(0).getInfEvento().getTpEvento()));
             }
         } catch (Exception e) {
             throw new StorageException(e);

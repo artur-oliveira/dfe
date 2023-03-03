@@ -4,9 +4,9 @@ import br.inf.portalfiscal.nfe.event_correction_letter.TEnvEvento;
 import br.inf.portalfiscal.nfe.event_correction_letter.TRetEnvEvento;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.exceptions.ValidationException;
+import com.softart.dfe.exceptions.security.SecurityException;
 import com.softart.dfe.interfaces.internal.Pair;
 import com.softart.dfe.interfaces.sefaz.SefazRequest;
-import com.softart.dfe.exceptions.security.SecurityException;
 
 interface NfeCorrectionLetter {
 

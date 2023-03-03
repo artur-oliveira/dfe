@@ -5,10 +5,9 @@ import br.inf.portalfiscal.cte.send.TGTVe;
 import br.inf.portalfiscal.cte.send.TRetGTVe;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.exceptions.ValidationException;
+import com.softart.dfe.exceptions.security.SecurityException;
 import com.softart.dfe.interfaces.internal.Pair;
 import com.softart.dfe.interfaces.sefaz.SefazRequest;
-import com.softart.dfe.exceptions.security.SecurityException;
-import com.softart.dfe.exceptions.security.SecurityException;
 
 public interface CteReceptionGtve {
 

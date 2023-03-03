@@ -1,5 +1,7 @@
 package com.softart.dfe.components.storage.common;
 
+import com.softart.dfe.interfaces.storage.StorageService;
+
 import java.util.UUID;
 
 public abstract class CommonStorage {
@@ -21,4 +23,11 @@ public abstract class CommonStorage {
     protected String xmlNameWithTime() {
         return System.currentTimeMillis() + "-" + UUID.randomUUID() + ".xml";
     }
+
+    /**
+     * This function returns a StorageService object that can be used to access the storage service.
+     *
+     * @return The StorageService object.
+     */
+    protected abstract StorageService getStorageService();
 }

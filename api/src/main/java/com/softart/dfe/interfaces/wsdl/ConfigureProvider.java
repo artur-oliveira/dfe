@@ -1,10 +1,10 @@
 package com.softart.dfe.interfaces.wsdl;
 
+import com.softart.dfe.exceptions.security.SecurityException;
 import com.softart.dfe.interfaces.internal.config.Config;
 import com.softart.dfe.models.internal.wsdl.ProviderConfig;
 
 import javax.xml.ws.BindingProvider;
-import com.softart.dfe.exceptions.security.SecurityException;
 
 public interface ConfigureProvider {
 

@@ -1,7 +1,6 @@
 import br.inf.portalfiscal.cte.send.TUFSemEX;
 import br.inf.portalfiscal.cte.send.TUf;
 import com.softart.dfe.components.internal.certificate.KeyStoreFactory;
-import com.softart.dfe.components.internal.certificate.PfxKeyStoreInfoImpl;
 import com.softart.dfe.components.internal.config.PfxCteConfigImpl;
 import com.softart.dfe.components.security.signer.DefaultXmlSigner;
 import com.softart.dfe.enums.cte.identification.*;
@@ -22,7 +21,6 @@ import com.softart.dfe.models.cte.reception.Cte;
 import com.softart.dfe.models.cte.reception.CteReturnSend;
 import com.softart.dfe.models.cte.reception_gtve.Gtve;
 import com.softart.dfe.models.cte.reception_os.CteOs;
-import com.softart.dfe.models.internal.security.Certificate;
 import com.softart.dfe.services.cte.distribution.CteDistributionServiceImpl;
 import com.softart.dfe.services.cte.event.CteEventService;
 import com.softart.dfe.services.cte.event.CteEventServiceImpl;
@@ -42,7 +40,6 @@ import com.softart.dfe.services.cte.reception_sync.CteReceptionSyncService;
 import com.softart.dfe.services.cte.reception_sync.CteReceptionSyncServiceImpl;
 import com.softart.dfe.services.cte.status_service.CteStatusServiceServiceImpl;
 import com.softart.dfe.util.DateUtils;
-import com.softart.dfe.util.InputStreamUtils;
 
 import java.util.Collection;
 import java.util.Collections;

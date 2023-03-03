@@ -13,7 +13,7 @@ public abstract class StorageFactory {
     public static StorageFactory getInstance() {
         switch (DEFAULT_STORAGE_FACTORY) {
             case "s3":
-                return RequireUtils.nonNull(Holder.S3, "com.softart.dfe.components.storage.S3StorageFactory is not initialized");
+                return HolderS3.S3;
             case "nostorage":
                 return Holder.NO_STORAGE;
             case "filesystem":
@@ -31,7 +31,7 @@ public abstract class StorageFactory {
     }
 
     public static StorageFactory s3() {
-        return RequireUtils.nonNull(Holder.S3, "com.softart.dfe.components.storage.S3StorageFactory is not initialized");
+        return HolderS3.S3;
     }
 
     public abstract NfeStorage getNfeStorage();
@@ -42,10 +42,13 @@ public abstract class StorageFactory {
 
     public abstract MdfeStorage getMdfeStorage();
 
+    private static final class HolderS3 {
+        static final StorageFactory S3 = new S3StorageFactory();
+    }
+
     private static final class Holder {
         static final StorageFactory NO_STORAGE = new NoStorageFactory();
         static final StorageFactory FILE_SYSTEM = new FileSystemStorageFactory();
-        static final StorageFactory S3 = ReflectionUtils.safeNewInstance(S3StorageFactory.class);
     }
 
 }

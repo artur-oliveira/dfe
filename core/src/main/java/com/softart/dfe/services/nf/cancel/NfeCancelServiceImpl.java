@@ -8,7 +8,6 @@ import com.softart.dfe.interfaces.internal.config.NfConfig;
 import com.softart.dfe.interfaces.process.nf.NfProcessService;
 import com.softart.dfe.interfaces.xml.XMLSignerService;
 import com.softart.dfe.models.internal.process.NfProcess;
-import com.softart.dfe.services.nf.query_protocol.NfQueryProtocolService;
 import com.softart.dfe.services.nf.query_protocol.NfeQueryProtocolService;
 import com.softart.dfe.services.nf.query_protocol.NfeQueryProtocolServiceImpl;
 import lombok.Getter;

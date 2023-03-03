@@ -13,7 +13,6 @@ import com.softart.dfe.interfaces.services.NfSefazService;
 import com.softart.dfe.models.nf.correction_letter.NfeCorrectionLetterRequest;
 import com.softart.dfe.models.nf.correction_letter.ReturnNfeCorrectionLetter;
 import com.softart.dfe.models.nf.correction_letter.SendNfeCorrectionLetter;
-import com.softart.dfe.services.nf.query_protocol.NfQueryProtocolService;
 import com.softart.dfe.services.nf.query_protocol.NfeQueryProtocolService;
 
 public interface NfeCorrectionLetterService extends NfSefazService {

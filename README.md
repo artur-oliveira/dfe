@@ -26,6 +26,17 @@ Feel free to implement your own classes.
   value is **false**
 - _com.softart.dfe.security.chain.cache.days_: The days that .jks file must be cached. The default value is **14**
 
+### Process
+
+- _com.softart.dfe.process.nf_: The default process of NF-e / NFC-e. Available values are **default**, **s3**. The
+  default value is **default**
+
+- _com.softart.dfe.process.cte_: The default process of CT-e. Available values are **default**, **s3**. The
+  default value is **default**
+
+- _com.softart.dfe.process.mdfe_: The default process of MDF-e. Available values are **default**, **s3**. The
+  default value is **default**
+
 ### DF-e versions
 
 - _com.softart.dfe.nf.version_: Layout version of NF-e. The current and default version is **4.00**
