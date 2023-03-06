@@ -1,7 +1,7 @@
 package com.softart.dfe.services.cte.reception_gtve;
 
 import com.softart.dfe.components.security.signer.XmlSigner;
-import com.softart.dfe.components.sefaz.DfeService;
+import com.softart.dfe.components.sefaz.DfeServiceFactory;
 import com.softart.dfe.components.validation.ValidatorFactory;
 import com.softart.dfe.components.wsdl.ConfigureProviderFactory;
 import com.softart.dfe.interfaces.internal.config.CteConfig;
@@ -17,7 +17,7 @@ public final class GtveReceptionServiceImpl implements GtveReceptionService {
     private final CteConfig config;
     private final XMLSignerService xmlSigner = XmlSigner.getInstance();
     private final CteProcessService process = CteProcess.getInstance();
-    private final DfeService providerFactory = DfeService.getInstance();
+    private final DfeServiceFactory providerFactory = DfeServiceFactory.getInstance();
     private final ValidatorFactory validatorFactory = ValidatorFactory.getInstance();
     private final ConfigureProviderFactory configureProviderFactory = ConfigureProviderFactory.getInstance();
 }

@@ -37,7 +37,6 @@ public class SendNf implements DFObject, XMLAdapter<SendNf, TEnviNFe> {
     protected String versao = NFVersion.getDefault().getVersion();
 
     public static SendNf build(Collection<Nf> nfs, NfConfig config, XMLSignerService xmlSigner) {
-
         nfs.stream().filter(Nf::isNfce).forEach(it -> {
             try {
                 it.setInfNFeSupl(Nf.InfNFeSupl

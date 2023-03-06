@@ -1,6 +1,5 @@
 package com.softart.dfe.interfaces.services;
 
-import com.softart.dfe.components.sefaz.DfeService;
 import com.softart.dfe.interfaces.internal.config.Config;
 import com.softart.dfe.interfaces.process.DfProcess;
 import com.softart.dfe.interfaces.validation.ValidationService;

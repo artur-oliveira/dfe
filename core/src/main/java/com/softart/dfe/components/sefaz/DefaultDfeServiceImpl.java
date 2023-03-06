@@ -20,7 +20,7 @@ import java.util.Collections;
 import java.util.stream.Collectors;
 
 @Getter
-final class DefaultDfeServiceImpl extends DfeService {
+final class DefaultDfeServiceImpl extends DfeServiceFactory {
 
     private final Collection<NfeService> nfeServices = ReflectionUtils.findAllClasses(PackageFinder.builder().packages(Collections.singleton("com.softart.dfe.components.sefaz.nfe")).assignables(Collections.singleton(NfeService.class)).excludeClasses(Collections.singleton(NfeAnService.class)).build()).stream().map(it -> (NfeService) ReflectionUtils.newInstance(it)).collect(Collectors.toList());
     private final Collection<NfceService> nfceServices = ReflectionUtils.findAllClasses(PackageFinder.builder().packages(Collections.singleton("com.softart.dfe.components.sefaz.nfce")).assignables(Collections.singleton(NfceService.class)).build()).stream().map(it -> (NfceService) ReflectionUtils.newInstance(it)).collect(Collectors.toList());
