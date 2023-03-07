@@ -20,7 +20,6 @@ public class XSDValidationException extends ValidationException {
 
     public XSDValidationException(Exception e, String xml) {
         super(e);
-        log.info(xml);
         this.xml = xml;
     }
 

@@ -77,7 +77,8 @@ public final class App {
 //        cancelarNfc("22220911520224000140650010000046781605558739");
 //        substituteCancelNfc("22220911520224000140650010000046851087679555", "22220911520224000140650010000046869703887050");
 //        queryGtin("7891249061166");
-        all();
+//        all();
+        autorizarNf();
 //        autorizarNfc();
 //        consultarLoteNfce("223065113228925");
 //        consultarLote("291100011499320");

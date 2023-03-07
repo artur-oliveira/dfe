@@ -15,6 +15,7 @@
     <description>dfe-rest-api</description>
     <properties>
         <java.version>1.8</java.version>
+        <springdoc-openapi-ui.version>1.6.14</springdoc-openapi-ui.version>
     </properties>
     <dependencies>
         <dependency>
@@ -64,12 +65,13 @@
         <dependency>
             <groupId>com.softart</groupId>
             <artifactId>core</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>${project.version}</version>
+            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-ui</artifactId>
-            <version>1.6.14</version>
+            <version>${springdoc-openapi-ui.version}</version>
         </dependency>
     </dependencies>
 

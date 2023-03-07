@@ -142,6 +142,9 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
                     infNFe.getIde().getCNF(),
                     infNFe.getIde().getCDV()
             ));
+
+            infNFe.getDet().forEach(it -> it.setNItem(String.valueOf(infNFe.getDet().indexOf(it) + 1)));
+
             return infNFe;
         }
 
@@ -1818,6 +1821,7 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
                 protected String vDed;
             }
         }
+
         @Getter
         @Setter
         @Builder
@@ -1827,6 +1831,7 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
         public static class InfSolicNFF implements DFObject, XMLAdapter<InfSolicNFF, TNFe.InfNFe.InfSolicNFF> {
             protected String xSolic;
         }
+
         @Getter
         @Setter
         @Builder
