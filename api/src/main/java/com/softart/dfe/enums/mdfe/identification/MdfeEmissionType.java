@@ -11,4 +11,9 @@ public enum MdfeEmissionType implements DFEnum.Codeable {
     CONTINGENCY("2", "Contingência");
     private final String code;
     private final String description;
+    
+    
+    public static MdfeEmissionType valueOfCode(String code) {
+        return DFEnum.valueOfCode(values(), code);
+    }
 }

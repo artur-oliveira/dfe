@@ -14,7 +14,7 @@ public final class DFEnum {
      * @return A stream of the values array.
      */
     public static <T extends Codeable> T valueOfCode(T[] values, String code) {
-        return Arrays.stream(values).filter(it -> it.getCode().equals(code)).findFirst().orElseThrow(() -> new NoEnumException(code, values));
+        return Arrays.stream(values).filter(it -> it.getCode().equals(code) || it.name().equals(code)).findFirst().orElseThrow(() -> new NoEnumException(code, values));
     }
 
     public interface Codeable {

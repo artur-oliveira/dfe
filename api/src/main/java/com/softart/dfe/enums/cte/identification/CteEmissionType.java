@@ -18,4 +18,8 @@ public enum CteEmissionType implements DFEnum.Codeable {
         this.code = code;
         this.description = description;
     }
+
+    public static CteEmissionType valueOfCode(String code) {
+        return DFEnum.valueOfCode(values(), code);
+    }
 }
