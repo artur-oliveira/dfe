@@ -14,6 +14,8 @@ import org.springframework.stereotype.Service;
 
 import java.nio.charset.StandardCharsets;
 import java.security.Key;
+import java.time.LocalTime;
+import java.time.ZonedDateTime;
 import java.util.Date;
 
 @Service
@@ -23,7 +25,6 @@ import java.util.Date;
 @Log4j2
 public final class JwtServiceImpl implements JwtService {
     private String secret;
-    private Long expirationMs;
 
     private Key getKey() {
         return Keys.hmacShaKeyFor(getSecret().getBytes(StandardCharsets.UTF_8));
@@ -32,12 +33,12 @@ public final class JwtServiceImpl implements JwtService {
     @Override
     public String generateToken(Authentication authentication) {
         User userPrincipal = (User) authentication.getPrincipal();
-        Date timestamp = Date.from(DateUtils.now().toInstant());
+        ZonedDateTime now = DateUtils.now();
         return Jwts
                 .builder()
                 .setSubject((userPrincipal.getUsername()))
-                .setIssuedAt(timestamp)
-                .setExpiration(new Date(timestamp.getTime() + getExpirationMs()))
+                .setIssuedAt(Date.from(now.toInstant()))
+                .setExpiration(Date.from(now.with(LocalTime.MAX).toInstant()))
                 .signWith(getKey())
                 .compact();
     }

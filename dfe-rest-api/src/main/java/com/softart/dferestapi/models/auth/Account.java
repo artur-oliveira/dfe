@@ -2,7 +2,6 @@ package com.softart.dferestapi.models.auth;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
@@ -19,6 +18,12 @@ import java.util.Set;
         @UniqueConstraint(name = "unique_username", columnNames = {"username"}),
         @UniqueConstraint(name = "unique_email", columnNames = {"email"})
 })
+@NamedEntityGraphs({
+        @NamedEntityGraph(
+                name = "fetch.fullAccount",
+                includeAllAttributes = true
+        )
+})
 @DynamicUpdate
 @DynamicInsert
 @Getter
@@ -26,7 +31,7 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Account {
+public final class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

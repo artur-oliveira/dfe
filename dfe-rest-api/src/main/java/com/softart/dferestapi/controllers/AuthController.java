@@ -13,6 +13,7 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.security.SecurityRequirements;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -50,6 +51,7 @@ public final class AuthController {
             @ApiResponse(responseCode = "422", description = "Unprocessable entity", content = {@Content(mediaType = "application/json", schema = @Schema(implementation = ValidationError.class))}),
             @ApiResponse(responseCode = "200", description = "Ok", content = {@Content(mediaType = "application/json", schema = @Schema(implementation = JwtResponse.class))})
     })
+    @SecurityRequirements
     @PostMapping(consumes = {"application/json"}, produces = {"application/json"})
     public ResponseEntity<JwtResponse> authenticate(@Valid @RequestBody LoginRequest authRequest) {
         Authentication authentication = getAuthenticationManager().authenticate(new UsernamePasswordAuthenticationToken(authRequest.getLogin(), authRequest.getPassword()));
@@ -65,6 +67,7 @@ public final class AuthController {
             @ApiResponse(responseCode = "422", description = "Unprocessable entity", content = {@Content(mediaType = "application/json", schema = @Schema(implementation = ValidationError.class))}),
             @ApiResponse(responseCode = "200", description = "Ok", content = {@Content(mediaType = "application/json", schema = @Schema(implementation = Account.class))})
     })
+    @SecurityRequirements
     @PostMapping(value = "/register", consumes = {"application/json"}, produces = {"application/json"})
     public ResponseEntity<Account> register(@Valid @RequestBody RegisterRequest request) {
         return ResponseEntity.ok().body(getAccountService().createAccount(request));

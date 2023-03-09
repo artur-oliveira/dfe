@@ -18,7 +18,7 @@ public final class GlobalExceptionHandler {
                 .status(HttpStatus.BAD_REQUEST)
                 .body(CommonError
                         .builder()
-                        .error(e.getClass().getName())
+                        .error(e.getClass().getSimpleName())
                         .message(e.getMessage())
                         .build());
     }
@@ -29,7 +29,7 @@ public final class GlobalExceptionHandler {
                 .status(HttpStatus.BAD_REQUEST)
                 .body(CommonError
                         .builder()
-                        .error(e.getClass().getName())
+                        .error(e.getClass().getSimpleName())
                         .message(e.getMessage())
                         .build());
     }
