@@ -46,7 +46,7 @@ public final class UserDetailsServiceImpl implements UserDetailsService {
                 .accountExpired(account.getExpired())
                 .accountLocked(account.getLocked())
                 .credentialsExpired(account.getCredentialsExpired())
-                .authorities(account.getRoles().stream().map(it -> it.getName().name()).collect(Collectors.toList()).toArray(new String[] {}))
+                .authorities(account.getRoles().stream().map(it -> "ROLE_" + it.getName().name()).collect(Collectors.toList()).toArray(new String[] {}))
                 .password(account.getPassword())
                 .build();
     }

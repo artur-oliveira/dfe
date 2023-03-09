@@ -7,7 +7,7 @@ import com.softart.dfe.exceptions.security.SecurityException;
 import com.softart.dfe.exceptions.services.NoProviderFound;
 import com.softart.dfe.models.nf.authorization.ReturnSendNf;
 import com.softart.dfe.models.nf.authorization.SendNf;
-import com.softart.dferestapi.models.Error;
+import com.softart.dferestapi.models.error.CommonError;
 import com.softart.dferestapi.services.nfe.NfeService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -36,8 +36,8 @@ public final class NfeController {
 
     @Operation(summary = "Autorização NF-e", tags = "NF-e", description = "Endpoint de autorização de NF-e")
     @ApiResponses({
-            @ApiResponse(responseCode = "500", description = "Internal server error", content = {@Content(mediaType = "application/json", schema = @Schema(implementation = Error.class))}),
-            @ApiResponse(responseCode = "400", description = "Bad request", content = {@Content(mediaType = "application/json", schema = @Schema(implementation = Error.class))}),
+            @ApiResponse(responseCode = "500", description = "Internal server error", content = {@Content(mediaType = "application/json", schema = @Schema(implementation = CommonError.class))}),
+            @ApiResponse(responseCode = "400", description = "Bad request", content = {@Content(mediaType = "application/json", schema = @Schema(implementation = CommonError.class))}),
             @ApiResponse(responseCode = "200", description = "Ok", content = {@Content(mediaType = "application/json", schema = @Schema(implementation = ReturnSendNf.class))})
     })
     @PostMapping(value = "", consumes = {"application/json", "application/xml"}, produces = {"application/json", "application/xml"})

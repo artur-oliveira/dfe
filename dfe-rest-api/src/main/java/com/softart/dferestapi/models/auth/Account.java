@@ -1,10 +1,9 @@
 package com.softart.dferestapi.models.auth;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.*;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
@@ -26,6 +25,7 @@ import java.util.Set;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,12 +39,14 @@ public class Account {
     @Size(max = 255)
     @Column(nullable = false)
     private String email;
+    @JsonIgnore
     @NotBlank
     @Size(max = 255)
     @Column(nullable = false)
     private String password;
     @Column(nullable = false, columnDefinition = "BIT DEFAULT 1")
     private Boolean enabled = Boolean.TRUE;
+    @Column(nullable = false, columnDefinition = "BIT DEFAULT 0")
     private Boolean locked = Boolean.FALSE;
     @Column(nullable = false, columnDefinition = "BIT DEFAULT 0")
     private Boolean expired = Boolean.FALSE;

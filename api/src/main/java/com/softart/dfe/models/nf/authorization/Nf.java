@@ -116,7 +116,7 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
             Objects.requireNonNull(getEmit(), "Nfe.InfNfe.Emit cannot be null in generation of ID");
             if (Objects.isNull(getIde().getCnf())) getIde().setCnf(StringUtils.random(8));
 
-            if (Objects.isNull(getIde().getCdv())) getIde().setCdv(
+            getIde().setCdv(
                     AccessKeyGenerator.digit(
                             getIde().getCuf(),
                             getIde().getDhEmi(),

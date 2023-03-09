@@ -45,10 +45,10 @@ public class StartupConfig {
     @PostConstruct
     public void startupSoapService() throws SoapServiceGeneralException {
         log.info("initializing soap services");
-        SoapService.getInstance().getCteSoapService(getCteConfig());
-        SoapService.getInstance().getNfceSoapService(getNfConfig());
-        SoapService.getInstance().getNfeSoapService(getNfConfig());
-        SoapService.getInstance().getMdfeSoapService(getMdfeConfig());
+//        SoapService.getInstance().getCteSoapService(getCteConfig());
+//        SoapService.getInstance().getNfceSoapService(getNfConfig());
+//        SoapService.getInstance().getNfeSoapService(getNfConfig());
+//        SoapService.getInstance().getMdfeSoapService(getMdfeConfig());
         log.info("finishing soap services");
     }
 

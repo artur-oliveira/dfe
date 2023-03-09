@@ -1,4 +1,4 @@
-package com.softart.dferestapi.models.auth;
+package com.softart.dferestapi.models.error;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public final class JwtResponse {
-    private String accessToken;
+public final class CommonError {
+    private String error;
+    private String message;
 }
