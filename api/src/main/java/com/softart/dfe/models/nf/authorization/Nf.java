@@ -277,9 +277,9 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
                 protected TUfEmi uf;
                 protected String cep;
                 @Builder.Default
-                protected String cPais = Country.BRAZIL.getCode();
+                protected String cPais = Country.BRASIL.getCode();
                 @Builder.Default
-                protected String xPais = Country.BRAZIL.getDescription();
+                protected String xPais = Country.BRASIL.getDescription();
                 protected String fone;
             }
         }

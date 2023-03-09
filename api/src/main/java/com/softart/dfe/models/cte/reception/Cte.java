@@ -586,9 +586,9 @@ public final class Cte implements DFObject, XMLAdapter<Cte, TCTe> {
             private String cep;
             private TUf uf;
             @Builder.Default
-            private String cPais = Country.BRAZIL.getCode();
+            private String cPais = Country.BRASIL.getCode();
             @Builder.Default
-            private String xPais = Country.BRAZIL.getDescription();
+            private String xPais = Country.BRASIL.getDescription();
         }
 
         @AllArgsConstructor
