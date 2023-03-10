@@ -1,7 +1,9 @@
 package com.softart.dfe.util;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -37,6 +39,21 @@ public final class IOUtils {
     public static byte[] readAllBytes(File f) throws IOException {
         if (Objects.isNull(f) || !f.exists()) return null;
         return Files.readAllBytes(f.toPath());
+    }
+
+    public static byte[] readAllBytes(InputStream is) throws IOException {
+        try (ByteArrayOutputStream bao = OutputStreamUtils.newByteArrayOutputStream()) {
+            try (InputStream ois = is) {
+                final byte[] dataBytes = new byte[2098];
+
+                int nread;
+                while ((nread = ois.read(dataBytes)) != -1) {
+                    bao.write(dataBytes, 0, nread);
+                }
+
+                return bao.toByteArray();
+            }
+        }
     }
 
     /**

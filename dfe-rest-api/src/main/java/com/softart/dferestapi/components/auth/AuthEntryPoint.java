@@ -1,4 +1,4 @@
-package com.softart.dferestapi.components;
+package com.softart.dferestapi.components.auth;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.softart.dferestapi.models.response.error.CommonError;

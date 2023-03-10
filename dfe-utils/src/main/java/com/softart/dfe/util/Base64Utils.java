@@ -83,4 +83,14 @@ public final class Base64Utils {
     public static String decodeBinary(byte[] bytes) {
         return DatatypeConverter.printBase64Binary(bytes);
     }
+
+    /**
+     * Decode the given string using the Base64 decoder.
+     *
+     * @param string The string to be decoded.
+     * @return A byte array
+     */
+    public static byte[] decode(String string) {
+        return Base64.getDecoder().decode(string);
+    }
 }

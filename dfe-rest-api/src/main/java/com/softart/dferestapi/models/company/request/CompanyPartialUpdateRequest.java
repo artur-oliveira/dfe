@@ -1,5 +1,6 @@
 package com.softart.dferestapi.models.company.request;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.softart.dferestapi.models.fiscalconfiguration.CteConfiguration;
 import com.softart.dferestapi.models.fiscalconfiguration.MdfeConfiguration;
 import com.softart.dferestapi.models.fiscalconfiguration.NfceConfiguration;
@@ -18,6 +19,7 @@ import javax.validation.constraints.NotNull;
 @Builder
 public final class CompanyPartialUpdateRequest {
     private Long id;
+    private Long certificateId;
     @Valid
     private BasicInfo info;
 
@@ -36,16 +38,29 @@ public final class CompanyPartialUpdateRequest {
     @Valid
     private MdfeConfiguration mdfeConfiguration;
 
+    @JsonIgnore
+    private boolean setCertificateIdCalled = false;
+    @JsonIgnore
     private boolean setInfoCalled = false;
+    @JsonIgnore
     private boolean setAddressCalled = false;
+    @JsonIgnore
     private boolean setNfeConfigurationCalled = false;
+    @JsonIgnore
     private boolean setNfceConfigurationCalled = false;
+    @JsonIgnore
     private boolean setCteConfigurationCalled = false;
+    @JsonIgnore
     private boolean setMdfeConfigurationCalled = false;
 
     public void setInfo(@Valid @NotNull BasicInfo info) {
         this.info = info;
         setSetInfoCalled(true);
+    }
+
+    public void setCertificateId(Long certificateId) {
+        this.certificateId = certificateId;
+        setSetCertificateIdCalled(true);
     }
 
     public void setAddress(@Valid @NotNull Address address) {

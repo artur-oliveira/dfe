@@ -1,5 +1,6 @@
 package com.softart.dferestapi.controllers;
 
+import com.softart.dferestapi.constants.AuthControllerConstants;
 import com.softart.dferestapi.models.response.error.CommonError;
 import com.softart.dferestapi.models.auth.Account;
 import com.softart.dferestapi.models.auth.request.LoginRequest;
@@ -8,6 +9,7 @@ import com.softart.dferestapi.models.auth.response.JwtResponse;
 import com.softart.dferestapi.models.response.error.ValidationError;
 import com.softart.dferestapi.services.auth.AccountService;
 import com.softart.dferestapi.services.auth.JwtService;
+import com.softart.dferestapi.constants.HttpStatusCode;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -16,6 +18,8 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.security.SecurityRequirements;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -29,7 +33,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/api/v1/auth")
+@RequestMapping(AuthControllerConstants.BASE_PATH)
 @Getter
 public final class AuthController {
 
@@ -44,15 +48,15 @@ public final class AuthController {
         this.jwtService = jwtService;
     }
 
-    @Operation(summary = "JWT Token", tags = "Autenticação", description = "Endpoint de autenticação")
+    @Operation(summary = AuthControllerConstants.OPENAPI_LOGIN_SUMMARY, tags = AuthControllerConstants.OPEN_API_TAG, description = AuthControllerConstants.OPENAPI_LOGIN_DESCRIPTION)
     @ApiResponses({
-            @ApiResponse(responseCode = "500", description = "Internal server error", content = {@Content(mediaType = "application/json", schema = @Schema(implementation = CommonError.class))}),
-            @ApiResponse(responseCode = "400", description = "Bad request", content = {@Content(mediaType = "application/json", schema = @Schema(implementation = CommonError.class))}),
-            @ApiResponse(responseCode = "422", description = "Unprocessable entity", content = {@Content(mediaType = "application/json", schema = @Schema(implementation = ValidationError.class))}),
-            @ApiResponse(responseCode = "200", description = "Ok", content = {@Content(mediaType = "application/json", schema = @Schema(implementation = JwtResponse.class))})
+            @ApiResponse(responseCode = HttpStatusCode.INTERNAL_SERVER_ERROR, description = HttpStatusCode.INTERNAL_SERVER_ERROR_DESCRIPTION, content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = CommonError.class))}),
+            @ApiResponse(responseCode = HttpStatusCode.BAD_REQUEST, description = HttpStatusCode.BAD_REQUEST_DESCRIPTION, content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = CommonError.class))}),
+            @ApiResponse(responseCode = HttpStatusCode.UNPROCESSABLE_ENTITY, description = HttpStatusCode.UNPROCESSABLE_ENTITY_DESCRIPTION, content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = ValidationError.class))}),
+            @ApiResponse(responseCode = HttpStatusCode.OK, description = HttpStatusCode.OK_DESCRIPTION, content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = JwtResponse.class))})
     })
     @SecurityRequirements
-    @PostMapping(consumes = {"application/json"}, produces = {"application/json"})
+    @PostMapping(value = AuthControllerConstants.LOGIN_PATH, consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<JwtResponse> authenticate(@Valid @RequestBody LoginRequest authRequest) {
         Authentication authentication = getAuthenticationManager().authenticate(new UsernamePasswordAuthenticationToken(authRequest.getLogin(), authRequest.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authentication);
@@ -60,16 +64,17 @@ public final class AuthController {
         return ResponseEntity.ok(JwtResponse.builder().accessToken(jwt).build());
     }
 
-    @Operation(summary = "Criar conta", tags = "Autenticação", description = "Endpoint de criação de conta")
+    @Operation(summary = AuthControllerConstants.OPENAPI_REGISTER_SUMMARY, tags = AuthControllerConstants.OPEN_API_TAG, description = AuthControllerConstants.OPENAPI_REGISTER_DESCRIPTION)
     @ApiResponses({
-            @ApiResponse(responseCode = "500", description = "Internal server error", content = {@Content(mediaType = "application/json", schema = @Schema(implementation = CommonError.class))}),
-            @ApiResponse(responseCode = "400", description = "Bad request", content = {@Content(mediaType = "application/json", schema = @Schema(implementation = CommonError.class))}),
-            @ApiResponse(responseCode = "422", description = "Unprocessable entity", content = {@Content(mediaType = "application/json", schema = @Schema(implementation = ValidationError.class))}),
-            @ApiResponse(responseCode = "200", description = "Ok", content = {@Content(mediaType = "application/json", schema = @Schema(implementation = Account.class))})
+            @ApiResponse(responseCode = HttpStatusCode.INTERNAL_SERVER_ERROR, description = HttpStatusCode.INTERNAL_SERVER_ERROR_DESCRIPTION, content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = CommonError.class))}),
+            @ApiResponse(responseCode = HttpStatusCode.BAD_REQUEST, description = HttpStatusCode.BAD_REQUEST_DESCRIPTION, content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = CommonError.class))}),
+            @ApiResponse(responseCode = HttpStatusCode.CONFLICT, description = HttpStatusCode.CONFLICT_DESCRIPTION, content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = CommonError.class))}),
+            @ApiResponse(responseCode = HttpStatusCode.UNPROCESSABLE_ENTITY, description = HttpStatusCode.UNPROCESSABLE_ENTITY_DESCRIPTION, content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = ValidationError.class))}),
+            @ApiResponse(responseCode = HttpStatusCode.CREATED, description = HttpStatusCode.CREATED_DESCRIPTION, content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = Account.class))})
     })
     @SecurityRequirements
-    @PostMapping(value = "/register", consumes = {"application/json"}, produces = {"application/json"})
+    @PostMapping(value = AuthControllerConstants.REGISTER_PATH, consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<Account> register(@Valid @RequestBody RegisterRequest request) {
-        return ResponseEntity.ok().body(getAccountService().createAccount(request));
+        return ResponseEntity.status(HttpStatus.CREATED).body(getAccountService().createAccount(request));
     }
 }

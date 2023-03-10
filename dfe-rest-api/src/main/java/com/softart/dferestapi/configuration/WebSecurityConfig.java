@@ -1,6 +1,8 @@
 package com.softart.dferestapi.configuration;
 
-import com.softart.dferestapi.components.AuthTokenFilter;
+import com.softart.dferestapi.components.auth.AuthTokenFilter;
+import com.softart.dferestapi.constants.AuthControllerConstants;
+import com.softart.dferestapi.constants.NfeControllerConstants;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -70,8 +72,8 @@ public class WebSecurityConfig {
                 .antMatchers("/api-docs/**").permitAll()
                 .antMatchers("/docs/**").permitAll()
                 .antMatchers("/swagger-ui/**").permitAll()
-                .antMatchers("/api/v1/auth/**").permitAll()
-                .antMatchers("/api/v1/nfe/**").hasAnyRole("NFE", "ADMIN")
+                .antMatchers(AuthControllerConstants.BASE_PATH + "/**").permitAll()
+                .antMatchers(NfeControllerConstants.BASE_PATH + "/**").hasAnyRole("NFE", "ADMIN")
                 .antMatchers("/api/v1/nfce/**").hasAnyRole("NFCE", "ADMIN")
                 .antMatchers("/api/v1/cte/**").hasAnyRole("CTE", "ADMIN")
                 .antMatchers("/api/v1/mdfe/**").hasAnyRole("CTE", "ADMIN")

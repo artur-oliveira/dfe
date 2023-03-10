@@ -3,6 +3,7 @@ package com.softart.dferestapi.models.company;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.softart.dferestapi.models.auth.Account;
 import com.softart.dferestapi.models.auth.RoleType;
+import com.softart.dferestapi.models.certificate.Certificate;
 import com.softart.dferestapi.models.fiscalconfiguration.CteConfiguration;
 import com.softart.dferestapi.models.fiscalconfiguration.MdfeConfiguration;
 import com.softart.dferestapi.models.fiscalconfiguration.NfceConfiguration;
@@ -13,14 +14,19 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import javax.validation.Valid;
 import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.NotNull;
+import java.util.Date;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(
@@ -54,6 +60,11 @@ public final class Company {
     @JoinColumn(name = "account_id", nullable = false)
     private Account account;
 
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "certificate_id")
+    private Certificate certificate;
+
     @Valid
     @NotNull
     @Embedded
@@ -79,6 +90,20 @@ public final class Company {
     @Valid
     @Embedded
     private MdfeConfiguration mdfeConfiguration;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "account")
+    @Builder.Default
+    private Set<Certificate> certificates = new HashSet<>();
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @CreationTimestamp
+    @Column(name = "created_at", nullable = false)
+    private Date createdAt;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @UpdateTimestamp
+    @Column(name = "updated_at", nullable = false)
+    private Date updatedAt;
 
     @JsonIgnore
     @AssertTrue

@@ -1,6 +1,8 @@
 package com.softart.dfe.util;
 
 import javax.xml.bind.DatatypeConverter;
+import java.io.IOException;
+import java.io.InputStream;
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.GeneralSecurityException;
@@ -67,8 +69,16 @@ public final class HashUtils {
      * @return A string of the hexadecimal representation of the MD5 hash of the input string.
      */
     public static String md5(String text) throws GeneralSecurityException {
+        return md5(text.getBytes());
+    }
+
+    public static String md5(InputStream is) throws GeneralSecurityException, IOException {
+        return md5(IOUtils.readAllBytes(is));
+    }
+
+    public static String md5(final byte[] bytes) throws GeneralSecurityException {
         MessageDigest md = MessageDigest.getInstance(HashUtils.MD5);
-        md.update(text.getBytes());
+        md.update(bytes);
         byte[] digest = md.digest();
         return DatatypeConverter.printHexBinary(digest).toUpperCase();
     }

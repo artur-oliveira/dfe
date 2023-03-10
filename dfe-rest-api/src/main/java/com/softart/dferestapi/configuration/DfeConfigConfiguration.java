@@ -14,14 +14,15 @@ import com.softart.dfe.interfaces.internal.KeyStoreInfo;
 import com.softart.dfe.interfaces.internal.config.CteConfig;
 import com.softart.dfe.interfaces.internal.config.MdfeConfig;
 import com.softart.dfe.interfaces.internal.config.NfConfig;
+import com.softart.dferestapi.components.config.NoOpCteConfig;
+import com.softart.dferestapi.components.config.NoOpMdfeConfig;
+import com.softart.dferestapi.components.config.NoOpNfConfig;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.Scope;
 
 @Configuration
 @ConfigurationProperties("dfe.config")
@@ -46,38 +47,29 @@ public class DfeConfigConfiguration {
     }
 
     @Bean("defaultCteConfig")
-    public CteConfig defaultCteConfig() throws SSLContextException {
-        return new PfxCteConfigImpl(UF.valueOfCode(getDefaultUf()), getDefaultCnpj(), Environment.valueOfCode(getDefaultEnvironment()), getDefaultKeyStore(), CteEmissionType.valueOfCode(getDefaultCteEmissionType()));
+    public CteConfig defaultCteConfig() {
+        try {
+            return new PfxCteConfigImpl(UF.valueOfCode(getDefaultUf()), getDefaultCnpj(), Environment.valueOfCode(getDefaultEnvironment()), getDefaultKeyStore(), CteEmissionType.valueOfCode(getDefaultCteEmissionType()));
+        } catch (Exception e) {
+            return new NoOpCteConfig();
+        }
     }
 
     @Bean("defaultNfConfig")
-    public NfConfig defaultNfeConfig() throws SSLContextException {
-        return new PfxNfConfigImpl(UF.valueOfCode(getDefaultUf()), getDefaultCnpj(), Environment.valueOfCode(getDefaultEnvironment()), getDefaultKeyStore(), NFEmissionType.valueOfCode(getDefaultNfeEmissionType()), NFSend.valueOfCode(getDefaultNfeSend()), getCsc(), getCscId());
+    public NfConfig defaultNfeConfig() {
+        try {
+            return new PfxNfConfigImpl(UF.valueOfCode(getDefaultUf()), getDefaultCnpj(), Environment.valueOfCode(getDefaultEnvironment()), getDefaultKeyStore(), NFEmissionType.valueOfCode(getDefaultNfeEmissionType()), NFSend.valueOfCode(getDefaultNfeSend()), getCsc(), getCscId());
+        } catch (Exception e) {
+            return new NoOpNfConfig();
+        }
     }
 
     @Bean("defaultMdfeConfig")
-    public MdfeConfig defaultMdfeConfig() throws SSLContextException {
-        return new PfxMdfeConfigImpl(UF.valueOfCode(getDefaultUf()), getDefaultCnpj(), Environment.valueOfCode(getDefaultEnvironment()), getDefaultKeyStore(), MdfeEmissionType.valueOfCode(getDefaultMdfeEmissionType()));
-    }
-
-    @Bean
-    @Scope("prototype")
-    @Primary
-    public CteConfig cteConfig() throws SSLContextException {
-        return null;
-    }
-
-    @Bean
-    @Scope("prototype")
-    @Primary
-    public NfConfig nfConfig() throws SSLContextException {
-        return null;
-    }
-
-    @Bean
-    @Scope("prototype")
-    @Primary
-    public MdfeConfig mdfeConfig() throws SSLContextException {
-        return null;
+    public MdfeConfig defaultMdfeConfig() {
+        try {
+            return new PfxMdfeConfigImpl(UF.valueOfCode(getDefaultUf()), getDefaultCnpj(), Environment.valueOfCode(getDefaultEnvironment()), getDefaultKeyStore(), MdfeEmissionType.valueOfCode(getDefaultMdfeEmissionType()));
+        } catch (Exception e) {
+            return new NoOpMdfeConfig();
+        }
     }
 }

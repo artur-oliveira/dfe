@@ -26,19 +26,19 @@ public final class NfceConfiguration {
     @NotNull
     @Builder.Default
     @Min(0)
-    @Column(name = "nfce_serie", columnDefinition = "TINYINT UNSIGNED DEFAULT 0", nullable = false)
+    @Column(name = "nfce_serie", columnDefinition = "TINYINT DEFAULT 0", nullable = false)
     private Short serie = 0;
 
     @Builder.Default
     @NotNull
     @Min(0)
-    @Column(name = "nfce_number_production", columnDefinition = "INT UNSIGNED DEFAULT 0", nullable = false)
+    @Column(name = "nfce_number_production", columnDefinition = "INT DEFAULT 0", nullable = false)
     private Integer numberProduction = 0;
 
     @Builder.Default
     @NotNull
     @Min(0)
-    @Column(name = "nfce_number_homologation", columnDefinition = "INT UNSIGNED DEFAULT 0", nullable = false)
+    @Column(name = "nfce_number_homologation", columnDefinition = "INT DEFAULT 0", nullable = false)
     private Integer numberHomologation = 0;
 
     @Builder.Default

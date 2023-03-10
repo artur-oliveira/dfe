@@ -21,6 +21,8 @@ import javax.validation.constraints.NotNull;
 @Builder
 public final class CompanyRequest {
 
+    private Long certificateId;
+
     @Valid
     @NotNull
     private BasicInfo info;

@@ -1,4 +1,4 @@
-package com.softart.dferestapi.components;
+package com.softart.dferestapi.components.auth;
 
 import com.softart.dferestapi.services.auth.JwtService;
 import lombok.Getter;

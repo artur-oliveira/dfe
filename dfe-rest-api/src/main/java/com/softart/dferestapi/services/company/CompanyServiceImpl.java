@@ -9,6 +9,7 @@ import com.softart.dferestapi.models.company.request.CompanyRequest;
 import com.softart.dferestapi.models.company.request.CompanyUpdateRequest;
 import com.softart.dferestapi.repository.CompanyRepository;
 import com.softart.dferestapi.services.auth.AccountService;
+import com.softart.dferestapi.services.certificate.CertificateService;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,17 +17,20 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Service
 @Getter
 public class CompanyServiceImpl implements CompanyService {
 
     protected final AccountService accountService;
+    protected final CertificateService certificateService;
     protected final CompanyRepository companyRepository;
 
     @Autowired
-    public CompanyServiceImpl(AccountService accountService, CompanyRepository companyRepository) {
+    public CompanyServiceImpl(AccountService accountService, CertificateService certificateService, CompanyRepository companyRepository) {
         this.accountService = accountService;
+        this.certificateService = certificateService;
         this.companyRepository = companyRepository;
     }
 
@@ -67,6 +71,7 @@ public class CompanyServiceImpl implements CompanyService {
         return getCompanyRepository().save(Company.builder()
                 .account(getAccountService().getLoggedAccount())
                 .address(companyRequest.getAddress())
+                .certificate(Optional.ofNullable(companyRequest.getCertificateId()).map((cert) -> getCertificateService().findById(companyRequest.getCertificateId())).orElse(null))
                 .nfeConfiguration(companyRequest.getNfeConfiguration())
                 .cteConfiguration(companyRequest.getCteConfiguration())
                 .nfceConfiguration(companyRequest.getNfceConfiguration())
@@ -86,6 +91,7 @@ public class CompanyServiceImpl implements CompanyService {
         company.setCteConfiguration(updateRequest.getCteConfiguration());
         company.setNfceConfiguration(updateRequest.getNfceConfiguration());
         company.setNfeConfiguration(updateRequest.getNfeConfiguration());
+        company.setCertificate(Optional.ofNullable(updateRequest.getCertificateId()).map((cert) -> getCertificateService().findById(updateRequest.getCertificateId())).orElse(null));
 
         return getCompanyRepository().save(company);
     }
@@ -101,6 +107,7 @@ public class CompanyServiceImpl implements CompanyService {
         company.setCteConfiguration(partialUpdateRequest.isSetCteConfigurationCalled() ? partialUpdateRequest.getCteConfiguration() : company.getCteConfiguration());
         company.setNfceConfiguration(partialUpdateRequest.isSetNfceConfigurationCalled() ? partialUpdateRequest.getNfceConfiguration() : company.getNfceConfiguration());
         company.setNfeConfiguration(partialUpdateRequest.isSetNfeConfigurationCalled() ? partialUpdateRequest.getNfeConfiguration() : company.getNfeConfiguration());
+        company.setCertificate(partialUpdateRequest.isSetCertificateIdCalled() ? Optional.ofNullable(partialUpdateRequest.getCertificateId()).map((cert) -> getCertificateService().findById(partialUpdateRequest.getCertificateId())).orElse(null) : company.getCertificate());
 
         return getCompanyRepository().save(company);
     }

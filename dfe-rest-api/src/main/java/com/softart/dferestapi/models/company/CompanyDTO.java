@@ -1,5 +1,6 @@
 package com.softart.dferestapi.models.company;
 
+import com.softart.dferestapi.models.certificate.Certificate;
 import com.softart.dferestapi.models.fiscalconfiguration.CteConfiguration;
 import com.softart.dferestapi.models.fiscalconfiguration.MdfeConfiguration;
 import com.softart.dferestapi.models.fiscalconfiguration.NfceConfiguration;
@@ -7,6 +8,8 @@ import com.softart.dferestapi.models.fiscalconfiguration.NfeConfiguration;
 import com.softart.dferestapi.models.info.Address;
 import com.softart.dferestapi.models.info.BasicInfo;
 import lombok.*;
+
+import java.util.Optional;
 
 
 @Data
@@ -17,6 +20,7 @@ import lombok.*;
 public final class CompanyDTO {
     private Long id;
     private Long accountId;
+    private Long certificateId;
     private BasicInfo info;
 
     private Address address;
@@ -32,6 +36,7 @@ public final class CompanyDTO {
     public CompanyDTO(Company company) {
         setId(company.getId());
         setAccountId(company.getAccount().getId());
+        setCertificateId(Optional.ofNullable(company.getCertificate()).map(Certificate::getId).orElse(null));
         setAddress(company.getAddress());
         setInfo(company.getInfo());
         setNfeConfiguration(company.getNfeConfiguration());
