@@ -1,5 +1,6 @@
 package com.softart.dferestapi.models.info;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.softart.dfe.enums.nf.emitter.CRT;
 import com.softart.dfe.enums.nf.recipient.NFRecipientIndicative;
 import com.softart.dfe.util.Functions;
@@ -70,12 +71,14 @@ public final class BasicInfo {
 
     @Transient
     @AssertTrue
+    @JsonIgnore
     public boolean hasCpfOrCnpj() {
         return !Functions.isNullOrEmpty(getCnpj()) || !Functions.isNullOrEmpty(getCpf());
     }
 
     @Transient
     @AssertTrue
+    @JsonIgnore
     public boolean isOnlyCpfOrCnpj() {
         return Functions.isNullOrEmpty(getCnpj()) != Functions.isNullOrEmpty(getCpf());
     }

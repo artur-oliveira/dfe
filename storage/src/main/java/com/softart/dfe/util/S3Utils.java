@@ -13,11 +13,16 @@ import static java.nio.charset.StandardCharsets.UTF_8;
 
 @SuppressWarnings("all")
 public final class S3Utils {
+
     private S3Utils() {
         throw new UnsupportedOperationException("No instances of " + this.getClass().getSimpleName());
     }
 
-    public static AmazonS3 newClient() {
+    public static AmazonS3 clientInstance() {
+        return Holder.CLIENT_INSTANCE;
+    }
+
+    protected static AmazonS3 newClient() {
         try {
             return AmazonS3ClientBuilder.standard().defaultClient();
         } catch (Exception ignored) {
@@ -32,5 +37,9 @@ public final class S3Utils {
             metadata.setContentLength(bytes.length);
             return client.putObject(new PutObjectRequest(bucket, fileName, bais, metadata));
         }
+    }
+
+    private static final class Holder {
+        private static final AmazonS3 CLIENT_INSTANCE = S3Utils.newClient();
     }
 }

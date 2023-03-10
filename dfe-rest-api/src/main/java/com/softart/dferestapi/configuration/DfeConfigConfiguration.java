@@ -20,12 +20,14 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.Scope;
 
 @Configuration
-@ConfigurationProperties("dfe.keystore")
+@ConfigurationProperties("dfe.config")
 @Getter
 @Setter
-public class DfeConfiguration {
+public class DfeConfigConfiguration {
 
     private final KeyStoreInfo defaultKeyStore;
 
@@ -39,7 +41,7 @@ public class DfeConfiguration {
     private String csc;
     private String cscId;
 
-    public DfeConfiguration(@Qualifier("defaultKeyStore") KeyStoreInfo defaultKeyStore) {
+    public DfeConfigConfiguration(@Qualifier("defaultKeyStore") KeyStoreInfo defaultKeyStore) {
         this.defaultKeyStore = defaultKeyStore;
     }
 
@@ -56,5 +58,26 @@ public class DfeConfiguration {
     @Bean("defaultMdfeConfig")
     public MdfeConfig defaultMdfeConfig() throws SSLContextException {
         return new PfxMdfeConfigImpl(UF.valueOfCode(getDefaultUf()), getDefaultCnpj(), Environment.valueOfCode(getDefaultEnvironment()), getDefaultKeyStore(), MdfeEmissionType.valueOfCode(getDefaultMdfeEmissionType()));
+    }
+
+    @Bean
+    @Scope("prototype")
+    @Primary
+    public CteConfig cteConfig() throws SSLContextException {
+        return null;
+    }
+
+    @Bean
+    @Scope("prototype")
+    @Primary
+    public NfConfig nfConfig() throws SSLContextException {
+        return null;
+    }
+
+    @Bean
+    @Scope("prototype")
+    @Primary
+    public MdfeConfig mdfeConfig() throws SSLContextException {
+        return null;
     }
 }

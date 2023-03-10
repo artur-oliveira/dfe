@@ -4,7 +4,6 @@ import com.softart.dferestapi.exceptions.entity.EntityAlreadyExistsException;
 import com.softart.dferestapi.exceptions.entity.EntityNotFoundException;
 import com.softart.dferestapi.models.auth.Account;
 import com.softart.dferestapi.models.company.Company;
-import com.softart.dferestapi.models.company.CompanyDTO;
 import com.softart.dferestapi.models.company.request.CompanyPartialUpdateRequest;
 import com.softart.dferestapi.models.company.request.CompanyRequest;
 import com.softart.dferestapi.models.company.request.CompanyUpdateRequest;
@@ -17,7 +16,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
 @Service
 @Getter

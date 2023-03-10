@@ -14,6 +14,6 @@ public abstract class KeyStoreFactory implements KeyStoreInfo {
     }
 
     public static KeyStoreFactory getInstance(String certPath, String certPass) throws CertificateException {
-        return new PfxKeyStoreInfoImpl(InputStreamUtils.newFileInputStream(certPath), certPass, InputStreamUtils.newByteArrayInputStream(CertificateChainFactory.getInstance().generate(Certificate.builder().build())), CertificateChainFactory.getInstance().getPassword());
+        return new PfxKeyStoreInfoImpl(InputStreamUtils.newFileInputStream(certPath), certPass);
     }
 }

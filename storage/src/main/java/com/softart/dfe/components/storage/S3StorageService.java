@@ -20,7 +20,7 @@ public final class S3StorageService extends StorageServiceFactory {
     }
 
     public S3StorageService(String s3Bucket) {
-        this.client = S3Utils.newClient();
+        this.client = S3Utils.clientInstance();
         this.s3Bucket = s3Bucket;
     }
 

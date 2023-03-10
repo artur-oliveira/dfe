@@ -1,6 +1,8 @@
 package com.softart.dfe.components.internal.certificate;
 
+import com.softart.dfe.components.security.chain.CertificateChainFactory;
 import com.softart.dfe.exceptions.security.CertificateException;
+import com.softart.dfe.models.internal.security.Certificate;
 import com.softart.dfe.util.InputStreamUtils;
 
 import java.io.InputStream;
@@ -9,7 +11,7 @@ import java.security.KeyStoreException;
 import java.util.Objects;
 import java.util.Optional;
 
-public final class PfxKeyStoreInfoImpl extends KeyStoreFactory {
+public class PfxKeyStoreInfoImpl extends KeyStoreFactory {
     private final String certificatePassword;
     private final String certificateChainPassword;
     private KeyStore certificateKeyStore;
@@ -22,6 +24,10 @@ public final class PfxKeyStoreInfoImpl extends KeyStoreFactory {
     /**
      * @see KeyStoreFactory
      */
+    public PfxKeyStoreInfoImpl(InputStream cert, String certPassword) throws CertificateException {
+        this(cert, certPassword, InputStreamUtils.newByteArrayInputStream(CertificateChainFactory.getInstance().generate(Certificate.builder().build())), CertificateChainFactory.getInstance().getPassword());
+    }
+
     public PfxKeyStoreInfoImpl(InputStream cert, String certPassword, InputStream chain, String chainPassword) throws CertificateException {
         this.certificatePassword = certPassword;
         this.certificateChainPassword = chainPassword;
