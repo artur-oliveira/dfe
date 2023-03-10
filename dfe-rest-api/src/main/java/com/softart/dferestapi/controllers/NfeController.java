@@ -7,7 +7,7 @@ import com.softart.dfe.exceptions.security.SecurityException;
 import com.softart.dfe.exceptions.services.NoProviderFound;
 import com.softart.dfe.models.nf.authorization.ReturnSendNf;
 import com.softart.dfe.models.nf.authorization.SendNf;
-import com.softart.dferestapi.models.error.CommonError;
+import com.softart.dferestapi.models.response.error.CommonError;
 import com.softart.dferestapi.services.nfe.NfeService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;

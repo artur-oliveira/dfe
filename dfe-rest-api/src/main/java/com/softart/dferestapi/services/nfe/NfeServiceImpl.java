@@ -18,7 +18,7 @@ import lombok.SneakyThrows;
 import org.springframework.stereotype.Service;
 
 @Service
-public class NfeServiceImpl implements NfeService {
+public final class NfeServiceImpl implements NfeService {
 
     @Override
     public ReturnSendNf authorization(SendNf sendNf) throws ProcessException, ValidationException, SoapServiceGeneralException, NoProviderFound, SecurityException {

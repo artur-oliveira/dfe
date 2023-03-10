@@ -10,10 +10,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.br.CNPJ;
 import org.hibernate.validator.constraints.br.CPF;
 
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.*;
 import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
@@ -26,9 +23,11 @@ import javax.validation.constraints.Size;
 public final class BasicInfo {
     @CNPJ
     @Size(max = 14, min = 14)
+    @Column(name = "cnpj")
     private String cnpj;
     @CPF
     @Size(max = 11, min = 11)
+    @Column(name = "cpf")
     private String cpf;
 
     @Size(min = 2)
@@ -69,13 +68,15 @@ public final class BasicInfo {
     @Email
     private String email;
 
+    @Transient
     @AssertTrue
     public boolean hasCpfOrCnpj() {
         return !Functions.isNullOrEmpty(getCnpj()) || !Functions.isNullOrEmpty(getCpf());
     }
 
+    @Transient
     @AssertTrue
-    public boolean hasOneOfCpfOrCnpj() {
+    public boolean isOnlyCpfOrCnpj() {
         return Functions.isNullOrEmpty(getCnpj()) != Functions.isNullOrEmpty(getCpf());
     }
 }

@@ -11,7 +11,9 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
+import java.util.function.BinaryOperator;
 
 @Entity
 @Table(name = "account", uniqueConstraints = {
@@ -63,4 +65,15 @@ public final class Account {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
+
+    @Transient
+    public boolean hasRole(RoleType role) {
+        return getRoles().stream().anyMatch(it -> Objects.equals(it.getName(), role));
+    }
+
+    @Transient
+    @JsonIgnore
+    public boolean isAdmin() {
+        return hasRole(RoleType.ADMIN);
+    }
 }

@@ -1,7 +1,7 @@
-package com.softart.dferestapi.models.fiscal;
+package com.softart.dferestapi.models.fiscalconfiguration;
 
-import com.softart.dfe.enums.cte.identification.CteEmissionType;
 import com.softart.dfe.enums.internal.Environment;
+import com.softart.dfe.enums.mdfe.identification.MdfeEmissionType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,33 +19,33 @@ import javax.validation.constraints.NotNull;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public final class CteConfiguration {
+public final class MdfeConfiguration {
 
     @NotNull
     @Builder.Default
     @Min(0)
-    @Column(name = "cte_serie", columnDefinition = "UNSIGNED TINYINT DEFAULT 0", nullable = false)
+    @Column(name = "mdfe_serie", columnDefinition = "TINYINT UNSIGNED DEFAULT 0", nullable = false)
     private Short serie = 0;
 
     @Builder.Default
     @NotNull
     @Min(0)
-    @Column(name = "cte_number_production", columnDefinition = "UNSIGNED SMALLINT DEFAULT 0", nullable = false)
+    @Column(name = "mdfe_number_production", columnDefinition = "INT UNSIGNED DEFAULT 0", nullable = false)
     private Integer numberProduction = 0;
 
     @Builder.Default
     @NotNull
     @Min(0)
-    @Column(name = "cte_number_homologation", columnDefinition = "UNSIGNED SMALLINT DEFAULT 0", nullable = false)
+    @Column(name = "mdfe_number_homologation", columnDefinition = "INT UNSIGNED DEFAULT 0", nullable = false)
     private Integer numberHomologation = 0;
 
     @Builder.Default
-    @Column(name = "cte_emission_type", columnDefinition = "VARCHAR(255) DEFAULT 'NORMAL'", nullable = false)
+    @Column(name = "mdfe_emission_type", columnDefinition = "VARCHAR(255) DEFAULT 'NORMAL'", nullable = false)
     @Enumerated(EnumType.STRING)
-    private CteEmissionType emissionType = CteEmissionType.NORMAL;
+    private MdfeEmissionType emissionType = MdfeEmissionType.NORMAL;
 
     @Builder.Default
-    @Column(name = "cte_environment", columnDefinition = "VARCHAR(255) DEFAULT 'HOMOLOGATION'", nullable = false)
+    @Column(name = "mdfe_environment", columnDefinition = "VARCHAR(255) DEFAULT 'HOMOLOGATION'", nullable = false)
     @Enumerated(EnumType.STRING)
     private Environment environment = Environment.HOMOLOGATION;
 

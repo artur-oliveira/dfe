@@ -7,4 +7,6 @@ public interface AccountService {
 
     Account createAccount(RegisterRequest request);
 
+    Account getLoggedAccount();
+
 }

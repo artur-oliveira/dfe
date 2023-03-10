@@ -1,4 +1,4 @@
-package com.softart.dferestapi.models.error;
+package com.softart.dferestapi.models.response.error;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

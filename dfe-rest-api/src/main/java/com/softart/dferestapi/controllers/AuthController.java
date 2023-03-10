@@ -1,11 +1,11 @@
 package com.softart.dferestapi.controllers;
 
-import com.softart.dferestapi.models.error.CommonError;
+import com.softart.dferestapi.models.response.error.CommonError;
 import com.softart.dferestapi.models.auth.Account;
 import com.softart.dferestapi.models.auth.request.LoginRequest;
 import com.softart.dferestapi.models.auth.request.RegisterRequest;
 import com.softart.dferestapi.models.auth.response.JwtResponse;
-import com.softart.dferestapi.models.error.ValidationError;
+import com.softart.dferestapi.models.response.error.ValidationError;
 import com.softart.dferestapi.services.auth.AccountService;
 import com.softart.dferestapi.services.auth.JwtService;
 import io.swagger.v3.oas.annotations.Operation;

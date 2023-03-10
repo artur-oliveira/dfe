@@ -1,6 +1,7 @@
 package com.softart.dferestapi.services.auth;
 
 import com.softart.dfe.util.DateUtils;
+import com.softart.dferestapi.models.auth.UserAccount;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
 import io.jsonwebtoken.security.SignatureException;
@@ -9,7 +10,6 @@ import lombok.Setter;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Service;
 
 import java.nio.charset.StandardCharsets;
@@ -32,7 +32,7 @@ public final class JwtServiceImpl implements JwtService {
 
     @Override
     public String generateToken(Authentication authentication) {
-        User userPrincipal = (User) authentication.getPrincipal();
+        UserAccount userPrincipal = (UserAccount) authentication.getPrincipal();
         ZonedDateTime now = DateUtils.now();
         return Jwts
                 .builder()

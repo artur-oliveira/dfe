@@ -1,4 +1,4 @@
-package com.softart.dferestapi.models.fiscal;
+package com.softart.dferestapi.models.fiscalconfiguration;
 
 import com.softart.dfe.enums.internal.Environment;
 import com.softart.dfe.enums.nf.NFSend;
@@ -21,47 +21,47 @@ import javax.validation.constraints.NotNull;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class NfceConfiguration {
+public final class NfceConfiguration {
 
     @NotNull
     @Builder.Default
     @Min(0)
-    @Column(name = "nfce_serie", columnDefinition = "UNSIGNED TINYINT DEFAULT 0", nullable = false)
-    protected Short serie = 0;
+    @Column(name = "nfce_serie", columnDefinition = "TINYINT UNSIGNED DEFAULT 0", nullable = false)
+    private Short serie = 0;
 
     @Builder.Default
     @NotNull
     @Min(0)
-    @Column(name = "nfce_number_production", columnDefinition = "UNSIGNED SMALLINT DEFAULT 0", nullable = false)
-    protected Integer numberProduction = 0;
+    @Column(name = "nfce_number_production", columnDefinition = "INT UNSIGNED DEFAULT 0", nullable = false)
+    private Integer numberProduction = 0;
 
     @Builder.Default
     @NotNull
     @Min(0)
-    @Column(name = "nfce_number_homologation", columnDefinition = "UNSIGNED SMALLINT DEFAULT 0", nullable = false)
-    protected Integer numberHomologation = 0;
+    @Column(name = "nfce_number_homologation", columnDefinition = "INT UNSIGNED DEFAULT 0", nullable = false)
+    private Integer numberHomologation = 0;
 
     @Builder.Default
     @Column(name = "nfce_emission_type", columnDefinition = "VARCHAR(255) DEFAULT 'NORMAL'", nullable = false)
     @Enumerated(EnumType.STRING)
-    protected NFEmissionType emissionType = NFEmissionType.NORMAL;
+    private NFEmissionType emissionType = NFEmissionType.NORMAL;
 
     @Builder.Default
     @Column(name = "nfce_send", columnDefinition = "VARCHAR(255) DEFAULT 'SYNC'", nullable = false)
     @Enumerated(EnumType.STRING)
-    protected NFSend nfSend = NFSend.SYNC;
+    private NFSend nfSend = NFSend.SYNC;
 
     @Builder.Default
     @Column(name = "nfce_environment", columnDefinition = "VARCHAR(255) DEFAULT 'HOMOLOGATION'", nullable = false)
     @Enumerated(EnumType.STRING)
-    protected Environment environment = Environment.HOMOLOGATION;
+    private Environment environment = Environment.HOMOLOGATION;
 
     @Column(name = "csc", nullable = false)
     @NotBlank
-    protected String csc;
+    private String csc;
 
     @Column(name = "csc_id", nullable = false)
     @NotBlank
-    protected String cscId;
+    private String cscId;
 
 }
