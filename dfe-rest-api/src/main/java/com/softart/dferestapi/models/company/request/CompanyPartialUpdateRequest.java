@@ -39,18 +39,25 @@ public final class CompanyPartialUpdateRequest {
     private MdfeConfiguration mdfeConfiguration;
 
     @JsonIgnore
+    @Builder.Default
     private boolean setCertificateIdCalled = false;
     @JsonIgnore
+    @Builder.Default
     private boolean setInfoCalled = false;
     @JsonIgnore
+    @Builder.Default
     private boolean setAddressCalled = false;
     @JsonIgnore
+    @Builder.Default
     private boolean setNfeConfigurationCalled = false;
     @JsonIgnore
+    @Builder.Default
     private boolean setNfceConfigurationCalled = false;
     @JsonIgnore
+    @Builder.Default
     private boolean setCteConfigurationCalled = false;
     @JsonIgnore
+    @Builder.Default
     private boolean setMdfeConfigurationCalled = false;
 
     public void setInfo(@Valid @NotNull BasicInfo info) {

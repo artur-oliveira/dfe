@@ -8,6 +8,9 @@ import com.softart.dfe.exceptions.services.NoProviderFound;
 import com.softart.dfe.interfaces.internal.config.NfConfig;
 import com.softart.dfe.models.nf.authorization.ReturnSendNf;
 import com.softart.dfe.models.nf.authorization.SendNf;
+import com.softart.dfe.models.nf.cancel.ReturnNfeCancel;
+import com.softart.dfe.models.nf.cancel.SendNfeCancel;
+import com.softart.dferestapi.models.nfe.CancelNfe;
 import com.softart.dferestapi.services.DfeGenericService;
 
 public interface NfeService extends DfeGenericService {
@@ -15,4 +18,8 @@ public interface NfeService extends DfeGenericService {
     NfConfig getConfig();
 
     ReturnSendNf authorization(SendNf sendNf) throws ProcessException, ValidationException, SoapServiceGeneralException, NoProviderFound, SecurityException;
+
+    ReturnNfeCancel cancel(SendNfeCancel sendNfeCancel) throws ProcessException, ValidationException, SoapServiceGeneralException, NoProviderFound, SecurityException;
+
+    ReturnNfeCancel cancel(CancelNfe withAccessKey) throws ProcessException, ValidationException, SoapServiceGeneralException, NoProviderFound, SecurityException;
 }

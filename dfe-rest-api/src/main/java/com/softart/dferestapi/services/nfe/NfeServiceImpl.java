@@ -13,7 +13,11 @@ import com.softart.dfe.exceptions.services.NoProviderFound;
 import com.softart.dfe.interfaces.internal.config.NfConfig;
 import com.softart.dfe.models.nf.authorization.ReturnSendNf;
 import com.softart.dfe.models.nf.authorization.SendNf;
+import com.softart.dfe.models.nf.cancel.ReturnNfeCancel;
+import com.softart.dfe.models.nf.cancel.SendNfeCancel;
 import com.softart.dfe.services.nf.authorization.NfeAuthorizationServiceImpl;
+import com.softart.dfe.services.nf.cancel.NfeCancelServiceImpl;
+import com.softart.dferestapi.models.nfe.CancelNfe;
 import lombok.SneakyThrows;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +27,16 @@ public final class NfeServiceImpl implements NfeService {
     @Override
     public ReturnSendNf authorization(SendNf sendNf) throws ProcessException, ValidationException, SoapServiceGeneralException, NoProviderFound, SecurityException {
         return new NfeAuthorizationServiceImpl(getConfig()).authorization(sendNf.getNFe());
+    }
+
+    @Override
+    public ReturnNfeCancel cancel(CancelNfe withAccessKey) throws ProcessException, ValidationException, SoapServiceGeneralException, NoProviderFound, SecurityException {
+        return new NfeCancelServiceImpl(getConfig()).cancelWithMotive(withAccessKey.getAccessKey(), withAccessKey.getXJust());
+    }
+
+    @Override
+    public ReturnNfeCancel cancel(SendNfeCancel sendNfeCancel) throws ProcessException, ValidationException, SoapServiceGeneralException, NoProviderFound, SecurityException {
+        return new NfeCancelServiceImpl(getConfig()).cancel(sendNfeCancel);
     }
 
     @Override

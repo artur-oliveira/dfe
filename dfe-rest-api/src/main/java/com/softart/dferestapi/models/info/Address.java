@@ -73,4 +73,11 @@ public final class Address {
                 .anyMatch(it -> Objects.equals(getCityCode(), it.getCode()));
     }
 
+    @AssertTrue
+    @Transient
+    @JsonIgnore
+    public boolean isCityCodeInListCitiesUfList() {
+        return getUf().getCities().stream().anyMatch(it -> Objects.equals(getCityCode(), it.getCode()));
+    }
+
 }

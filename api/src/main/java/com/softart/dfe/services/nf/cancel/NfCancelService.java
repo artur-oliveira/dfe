@@ -190,6 +190,10 @@ public interface NfCancelService extends NfSefazService {
         return cancel(accessKey, String.valueOf(getNfQueryProtocolService().queryProtocol(accessKey).getProtNFe().getInfProt().getNProt()));
     }
 
+    default ReturnNfeCancel cancelWithMotive(String accessKey, String motive) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+        return cancel(accessKey, String.valueOf(getNfQueryProtocolService().queryProtocol(accessKey).getProtNFe().getInfProt().getNProt()), motive);
+    }
+
     /**
      * * If the service is already instantiated, return it.
      * * If the service is not instantiated, try to instantiate it.
