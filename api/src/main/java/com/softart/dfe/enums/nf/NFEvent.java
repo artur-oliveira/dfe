@@ -3,6 +3,9 @@ package com.softart.dfe.enums.nf;
 import com.softart.dfe.components.internal.DFEnum;
 import lombok.Getter;
 
+import java.util.Arrays;
+import java.util.Collection;
+
 @Getter
 public enum NFEvent implements DFEnum.Codeable {
 
@@ -31,5 +34,9 @@ public enum NFEvent implements DFEnum.Codeable {
 
     public static NFEvent valueOfCode(String code) {
         return DFEnum.valueOfCode(values(), code);
+    }
+
+    public static Collection<NFEvent> manifestation() {
+        return Arrays.asList(NFEvent.OPERATION_IGNORANCE, NFEvent.OPERATION_SCIENCE, NFEvent.OPERATION_NOT_PERFORMED, NFEvent.OPERATION_CONFIRMATION);
     }
 }

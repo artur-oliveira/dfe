@@ -23,6 +23,10 @@ public class SendNfeCorrectionLetter implements DFObject, XMLAdapter<SendNfeCorr
     protected List<NfeCorrectionLetter> evento;
 
     public static SendNfeCorrectionLetter correctionLetter(String accessKey, String correction, String nseq, Config conf) {
-        return SendNfeCorrectionLetter.builder().evento(Collections.singletonList(NfeCorrectionLetter.builder().infEvento(NfeCorrectionLetter.InfEvento.builder().chNFe(accessKey).nSeqEvento(nseq).cnpj(conf.cnpj()).cpf(conf.cpf()).cOrgao(conf.uf().getCode()).tpAmb(conf.environment().getCode()).detEvento(NfeCorrectionLetter.InfEvento.DetEvento.builder().xCorrecao(correction).build()).build()).build())).build();
+        return correctionLetter(Collections.singletonList(NfeCorrectionLetter.builder().infEvento(NfeCorrectionLetter.InfEvento.builder().chNFe(accessKey).nSeqEvento(nseq).cnpj(conf.cnpj()).cpf(conf.cpf()).cOrgao(conf.uf().getCode()).tpAmb(conf.environment().getCode()).detEvento(NfeCorrectionLetter.InfEvento.DetEvento.builder().xCorrecao(correction).build()).build()).build()));
+    }
+
+    public static SendNfeCorrectionLetter correctionLetter(List<NfeCorrectionLetter> evento) {
+        return SendNfeCorrectionLetter.builder().evento(evento).build();
     }
 }

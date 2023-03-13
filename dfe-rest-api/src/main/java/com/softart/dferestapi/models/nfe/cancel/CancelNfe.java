@@ -1,4 +1,4 @@
-package com.softart.dferestapi.models.nfe;
+package com.softart.dferestapi.models.nfe.cancel;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;

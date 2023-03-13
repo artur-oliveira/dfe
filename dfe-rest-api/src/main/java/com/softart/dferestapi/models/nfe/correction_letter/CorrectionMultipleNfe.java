@@ -1,7 +1,9 @@
-package com.softart.dferestapi.models.nfe;
+package com.softart.dferestapi.models.nfe.correction_letter;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
@@ -12,25 +14,25 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public final class CancelMultipleNfe {
+public final class CorrectionMultipleNfe {
     @Data
     @AllArgsConstructor
     @NoArgsConstructor
     @Builder
-    public static final class CancelNfeData {
+    public static final class CorrectionData {
         @Size(min = 44, max = 44)
         @NotBlank
         private String chNFe;
 
         @Size(min = 15)
         @NotBlank
-        private String xJust;
+        private String xCorrecao;
 
         @NotBlank
-        @Size(min = 15)
-        private String nProt;
+        @Size(min = 1)
+        private String nSeqEvento;
     }
 
     @NotEmpty
-    private List<CancelNfeData> data;
+    private List<CorrectionData> data;
 }
