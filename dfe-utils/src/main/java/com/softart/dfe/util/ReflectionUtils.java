@@ -25,6 +25,7 @@ public final class ReflectionUtils {
      */
     @SneakyThrows
     public static <T> T newInstance(Class<T> cls) {
+        if (Objects.isNull(cls)) return null;
         return cls.newInstance();
     }
 

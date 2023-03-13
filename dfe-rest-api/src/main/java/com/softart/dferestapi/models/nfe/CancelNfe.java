@@ -13,7 +13,7 @@ import javax.validation.constraints.Size;
 @With
 public final class CancelNfe {
     @JsonIgnore
-    private String accessKey;
+    private String chNFe;
 
     @Size(min = 15)
     @NotBlank

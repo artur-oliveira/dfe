@@ -56,7 +56,7 @@ public class SendNfeCancel implements DFObject, XMLAdapter<SendNfeCancel, TEnvEv
                 .nSeqEvento(sequenceNumber)
                 .cnpj(conf.cnpj())
                 .cpf(conf.cpf())
-                .cOrgao(conf.environment().getCode())
+                .cOrgao(conf.uf().getCode())
                 .tpAmb(conf.environment().getCode())
                 .detEvento(NfeCancel.InfEvento.DetEvento.builder().nProt(processed.getProtNFe().getInfProt().getNProt()).xJust(motive).build())
                 .build()).build();

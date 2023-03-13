@@ -274,7 +274,9 @@ public abstract class GenericCteStorage extends CommonStorage implements CteStor
     public void storeCte(Store<TEnviCTe> o) throws StorageException {
         try {
             if (Objects.nonNull(o.getData())) {
-                getStorageService().writeSend(o.getConfig(), CteStorageKey.CTE_RECEPTION, xmlNameWithTime(AccessKeyParserFactory.cte().fromId(o.getData().getCTe().get(0).getInfCte().getId())), o.getXml());
+                for (int i = 0; i < o.getData().getCTe().size(); i++) {
+                    getStorageService().writeSend(o.getConfig(), CteStorageKey.CTE_RECEPTION, xmlNameWithTime(AccessKeyParserFactory.cte().fromId(o.getData().getCTe().get(i).getInfCte().getId())), o.getXml());
+                }
             }
         } catch (Exception e) {
             throw new StorageException(e);

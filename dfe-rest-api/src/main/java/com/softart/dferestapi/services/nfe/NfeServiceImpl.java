@@ -13,13 +13,17 @@ import com.softart.dfe.exceptions.services.NoProviderFound;
 import com.softart.dfe.interfaces.internal.config.NfConfig;
 import com.softart.dfe.models.nf.authorization.ReturnSendNf;
 import com.softart.dfe.models.nf.authorization.SendNf;
+import com.softart.dfe.models.nf.cancel.NfeCancel;
 import com.softart.dfe.models.nf.cancel.ReturnNfeCancel;
 import com.softart.dfe.models.nf.cancel.SendNfeCancel;
 import com.softart.dfe.services.nf.authorization.NfeAuthorizationServiceImpl;
 import com.softart.dfe.services.nf.cancel.NfeCancelServiceImpl;
+import com.softart.dferestapi.models.nfe.CancelMultipleNfe;
 import com.softart.dferestapi.models.nfe.CancelNfe;
 import lombok.SneakyThrows;
 import org.springframework.stereotype.Service;
+
+import java.util.stream.Collectors;
 
 @Service
 public final class NfeServiceImpl implements NfeService {
@@ -31,12 +35,31 @@ public final class NfeServiceImpl implements NfeService {
 
     @Override
     public ReturnNfeCancel cancel(CancelNfe withAccessKey) throws ProcessException, ValidationException, SoapServiceGeneralException, NoProviderFound, SecurityException {
-        return new NfeCancelServiceImpl(getConfig()).cancelWithMotive(withAccessKey.getAccessKey(), withAccessKey.getXJust());
+        return new NfeCancelServiceImpl(getConfig()).cancelWithMotive(withAccessKey.getChNFe(), withAccessKey.getXJust());
     }
 
     @Override
-    public ReturnNfeCancel cancel(SendNfeCancel sendNfeCancel) throws ProcessException, ValidationException, SoapServiceGeneralException, NoProviderFound, SecurityException {
-        return new NfeCancelServiceImpl(getConfig()).cancel(sendNfeCancel);
+    public ReturnNfeCancel cancel(CancelMultipleNfe cancelMultipleNfe) throws ProcessException, ValidationException, SoapServiceGeneralException, NoProviderFound, SecurityException {
+        return new NfeCancelServiceImpl(getConfig()).cancel(SendNfeCancel.build(cancelMultipleNfe
+                .getData()
+                .stream()
+                .map(it -> NfeCancel.builder().infEvento(NfeCancel
+                        .InfEvento
+                        .builder()
+                        .chNFe(it.getChNFe())
+                        .nSeqEvento("1")
+                        .cnpj(getConfig().cnpj())
+                        .cpf(getConfig().cpf())
+                        .cOrgao(getConfig().uf().getCode())
+                        .tpAmb(getConfig().environment().getCode())
+                        .detEvento(NfeCancel.InfEvento
+                                .DetEvento
+                                .builder()
+                                .nProt(it.getNProt())
+                                .xJust(it.getXJust())
+                                .build())
+                        .build()).build())
+                .collect(Collectors.toList())));
     }
 
     @Override

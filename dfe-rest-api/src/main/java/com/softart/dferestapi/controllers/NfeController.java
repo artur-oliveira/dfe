@@ -11,6 +11,7 @@ import com.softart.dfe.models.nf.cancel.ReturnNfeCancel;
 import com.softart.dfe.models.nf.cancel.SendNfeCancel;
 import com.softart.dferestapi.constants.HttpStatusCode;
 import com.softart.dferestapi.constants.NfeControllerConstants;
+import com.softart.dferestapi.models.nfe.CancelMultipleNfe;
 import com.softart.dferestapi.models.nfe.CancelNfe;
 import com.softart.dferestapi.models.response.error.CommonError;
 import com.softart.dferestapi.models.response.error.ValidationError;
@@ -60,8 +61,8 @@ public final class NfeController {
             @ApiResponse(responseCode = HttpStatusCode.OK, description = HttpStatusCode.OK_DESCRIPTION, content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = ReturnNfeCancel.class))})
     })
     @PostMapping(value = NfeControllerConstants.CANCEL_PATH, consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<ReturnNfeCancel> cancel(@RequestBody SendNfeCancel sendNfeCancel) throws ProcessException, ValidationException, SoapServiceGeneralException, NoProviderFound, SecurityException {
-        return ResponseEntity.ok(getNfeService().cancel(sendNfeCancel));
+    public ResponseEntity<ReturnNfeCancel> cancel(@RequestBody CancelMultipleNfe cancelMultipleNfe) throws ProcessException, ValidationException, SoapServiceGeneralException, NoProviderFound, SecurityException {
+        return ResponseEntity.ok(getNfeService().cancel(cancelMultipleNfe));
     }
 
     @Operation(summary = NfeControllerConstants.OPEN_API_SIMPLE_CANCEL_SUMMARY, tags = NfeControllerConstants.OPEN_API_TAG, description = NfeControllerConstants.OPEN_API_SIMPLE_CANCEL_DESCRIPTION)
@@ -74,7 +75,7 @@ public final class NfeController {
     })
     @PostMapping(value = NfeControllerConstants.SIMPLE_CANCEL_PATH, consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<ReturnNfeCancel> cancelAccessKey(@PathVariable("accessKey") String accessKey, @RequestBody CancelNfe cancelNfe) throws ProcessException, ValidationException, SoapServiceGeneralException, NoProviderFound, SecurityException {
-        return ResponseEntity.ok(getNfeService().cancel(cancelNfe.withAccessKey(accessKey)));
+        return ResponseEntity.ok(getNfeService().cancel(cancelNfe.withChNFe(accessKey)));
     }
 
 }

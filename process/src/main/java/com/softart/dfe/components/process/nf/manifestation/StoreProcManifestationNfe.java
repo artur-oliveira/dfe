@@ -19,13 +19,15 @@ public abstract class StoreProcManifestationNfe implements AfterManifestation {
     @Override
     public <T extends AfterRequest<TEnvEvento, TRetEnvEvento>> void process(T data) throws ProcessException {
         if (Objects.nonNull(data.getRequest()) && !data.getRequest().getEvento().isEmpty() && Objects.nonNull(data.getResponse()) && !data.getResponse().getRetEvento().isEmpty()) {
-            TProcEvento procEvento = new br.inf.portalfiscal.nfe.event_manifestation.ObjectFactory().createTProcEvento();
-            procEvento.setEvento(data.getRequest().getEvento().get(0));
-            procEvento.setRetEvento(data.getResponse().getRetEvento().get(0));
-            procEvento.setVersao(procEvento.getRetEvento().getVersao());
+            for (int i = 0; i < data.getRequest().getEvento().size(); i++) {
+                TProcEvento procEvento = new br.inf.portalfiscal.nfe.event_manifestation.ObjectFactory().createTProcEvento();
+                procEvento.setEvento(data.getRequest().getEvento().get(i));
+                procEvento.setRetEvento(data.getResponse().getRetEvento().get(i));
+                procEvento.setVersao(procEvento.getRetEvento().getVersao());
 
-            if (Objects.nonNull(getStorage()))
-                getStorage().storeProcManifestation(new XMLStore<>(procEvento, data.getConfig(), NfMarshallerFactory.getInstance().procManifestationNfe(procEvento)));
+                if (Objects.nonNull(getStorage()))
+                    getStorage().storeProcManifestation(new XMLStore<>(procEvento, data.getConfig(), NfMarshallerFactory.getInstance().procManifestationNfe(procEvento)));
+            }
         } else {
             log.warn(data.getResponse().getXMotivo());
         }

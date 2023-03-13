@@ -19,11 +19,13 @@ public abstract class StoreProcAuthorizationNfe implements AfterAuthorization {
     public <T extends AfterRequest<TEnviNFe, TRetEnviNFe>> void process(T data) throws ProcessException {
         if (Objects.nonNull(data.getRequest()) && Objects.nonNull(data.getResponse())) {
             if (Objects.nonNull(data.getResponse().getProtNFe()) && !data.getRequest().getNFe().isEmpty()) {
-                br.inf.portalfiscal.nfe.send.TNfeProc proc = new br.inf.portalfiscal.nfe.send.ObjectFactory().createTNfeProc();
-                proc.setNFe(data.getRequest().getNFe().get(0));
-                proc.setProtNFe(data.getResponse().getProtNFe());
-                proc.setVersao(data.getRequest().getNFe().get(0).getInfNFe().getVersao());
-                getStorage().storeProcNfe(new XMLStore<>(proc, data.getConfig(), NfMarshallerFactory.getInstance().procNfe(proc)));
+                for (int i = 0; i < data.getRequest().getNFe().size(); i++) {
+                    br.inf.portalfiscal.nfe.send.TNfeProc proc = new br.inf.portalfiscal.nfe.send.ObjectFactory().createTNfeProc();
+                    proc.setNFe(data.getRequest().getNFe().get(i));
+                    proc.setProtNFe(data.getResponse().getProtNFe());
+                    proc.setVersao(data.getRequest().getNFe().get(i).getInfNFe().getVersao());
+                    getStorage().storeProcNfe(new XMLStore<>(proc, data.getConfig(), NfMarshallerFactory.getInstance().procNfe(proc)));
+                }
             }
         } else {
             log.warn(Objects.requireNonNull(data.getResponse()).getXMotivo());
