@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+                  xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+                  xmlns:tns="http://www.portalfiscal.inf.br/nfe/wsdl/ccgConsGtin"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  targetNamespace="http://www.portalfiscal.inf.br/nfe/wsdl/ccgConsGtin"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:types>
+        <s:schema elementFormDefault="qualified" targetNamespace="http://www.portalfiscal.inf.br/nfe/wsdl/ccgConsGtin">
+            <s:element name="ccgConsGTIN">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="nfeDadosMsg">
+                            <s:complexType mixed="true">
+                                <s:sequence>
+                                    <s:any/>
+                                </s:sequence>
+                            </s:complexType>
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="ccgConsGTINResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="nfeResultMsg">
+                            <s:complexType mixed="true">
+                                <s:sequence>
+                                    <s:any/>
+                                </s:sequence>
+                            </s:complexType>
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+        </s:schema>
+    </wsdl:types>
+    <wsdl:message name="ccgConsGTINSoapIn">
+        <wsdl:part name="parameters" element="tns:ccgConsGTIN"/>
+    </wsdl:message>
+    <wsdl:message name="ccgConsGTINSoapOut">
+        <wsdl:part name="parameters" element="tns:ccgConsGTINResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="ccgConsGTINSoap">
+        <wsdl:operation name="ccgConsGTIN">
+            <wsdl:input message="tns:ccgConsGTINSoapIn"/>
+            <wsdl:output message="tns:ccgConsGTINSoapOut"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="ccgConsGTINSoap" type="tns:ccgConsGTINSoap">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="ccgConsGTIN">
+            <soap:operation soapAction="http://www.portalfiscal.inf.br/nfe/wsdl/ccgConsGtin/ccgConsGTIN"
+                            style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="ccgConsGTINSoap12" type="tns:ccgConsGTINSoap">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="ccgConsGTIN">
+            <soap12:operation soapAction="http://www.portalfiscal.inf.br/nfe/wsdl/ccgConsGtin/ccgConsGTIN"
+                              style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="ccgConsGTIN">
+        <wsdl:port name="ccgConsGTINSoap" binding="tns:ccgConsGTINSoap">
+            <soap:address location="https://dfe-servico.svrs.rs.gov.br/ws/ccgConsGTIN/ccgConsGTIN.asmx"/>
+        </wsdl:port>
+        <wsdl:port name="ccgConsGTINSoap12" binding="tns:ccgConsGTINSoap12">
+            <soap12:address location="https://dfe-servico.svrs.rs.gov.br/ws/ccgConsGTIN/ccgConsGTIN.asmx"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

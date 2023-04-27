@@ -1,0 +1,6 @@
+/**
+ * Serviço destinado ao atendimento de solicitações
+ * de consulta ao Cadastro de Contribuintes do ICMS da Secretaria de Fazenda Estatual.
+ */
+@javax.xml.bind.annotation.XmlSchema(namespace = "http://www.portalfiscal.inf.br/nfe/wsdl/CadConsultaCadastro4")
+package br.inf.portalfiscal.nfe.wsdl.query_register.sp.prod;

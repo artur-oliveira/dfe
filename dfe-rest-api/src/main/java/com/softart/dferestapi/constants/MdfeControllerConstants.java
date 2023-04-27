@@ -1,0 +1,48 @@
+package com.softart.dferestapi.constants;
+
+public final class MdfeControllerConstants {
+    public static final String BASE_PATH = "/api/v1/mdfe";
+    public static final String OPEN_API_TAG = "MDF-e";
+    public static final String DISTRIBUTION_PATH = "/distribution/";
+    public static final String OPEN_API_DISTRIBUTION_SUMMARY = "Distribuição de MDF-e";
+    public static final String OPEN_API_DISTRIBUTION_DESCRIPTION = "Endpoint da distribuição de MDF-e";
+    public static final String STATUS_SERVICE_PATH = "/status-service/";
+    public static final String OPEN_API_STATUS_SERVICE_SUMMARY = "Consulta status do serviço de MDF-e";
+    public static final String OPEN_API_STATUS_SERVICE_DESCRIPTION = "Endpoint de status do serviço de MDF-e";
+    public static final String QUERY_UNCLOSED_PATH = "/unclosed/";
+    public static final String OPEN_API_QUERY_UNCLOSED_SUMMARY = "Consulta MDF-e não encerrados";
+    public static final String OPEN_API_QUERY_UNCLOSED_DESCRIPTION = "Endpoint de consulta de MDF-e não encerrados";
+    public static final String QUERY_SITUATION_PATH = "/situation/";
+    public static final String OPEN_API_QUERY_SITUATION_SUMMARY = "Consulta situação do MDF-e";
+    public static final String OPEN_API_QUERY_SITUATION_DESCRIPTION = "Endpoint de consulta da situação do MDF-e";
+    public static final String QUERY_RECEIPT_PATH = "/receipt/";
+    public static final String OPEN_API_QUERY_RECEIPT_SUMMARY = "Consulta recibo do MDF-e";
+    public static final String OPEN_API_QUERY_RECEIPT_DESCRIPTION = "Endpoint de consulta de recibo do MDF-e";
+    public static final String RECEPTION_PATH = "/";
+    public static final String OPEN_API_RECEPTION_SUMMARY = "Emissão de MDF-e";
+    public static final String OPEN_API_RECEPTION_DESCRIPTION = "Endpoint de emissão de MDF-e";
+    public static final String RECEPTION_SYNC_PATH = "/sync/";
+    public static final String OPEN_API_RECEPTION_SYNC_SUMMARY = "Emissão síncrona de MDF-e";
+    public static final String OPEN_API_RECEPTION_SYNC_DESCRIPTION = "Endpoint de emissão síncrona de MDF-e";
+    public static final String CANCEL_PATH = "/{chMDFe}/cancel/";
+    public static final String OPEN_API_CANCEL_SUMMARY = "Evento de cancelamento de MDF-e";
+    public static final String OPEN_API_CANCEL_DESCRIPTION = "Endpoint de evento de cancelamento de MDF-e";
+    public static final String CLOSE_PATH = "/{chMDFe}/close/";
+    public static final String OPEN_API_CLOSE_SUMMARY = "Evento de encerramento de MDF-e";
+    public static final String OPEN_API_CLOSE_DESCRIPTION = "Endpoint de evento de encerramento de MDF-e";
+    public static final String DFE_INCLUSION_PATH = "/{chMDFe}/dfe-inclusion/";
+    public static final String OPEN_API_DFE_INCLUSION_SUMMARY = "Evento de inclusão de DF-e de MDF-e";
+    public static final String OPEN_API_DFE_INCLUSION_DESCRIPTION = "Endpoint de evento de inclusão de DF-e de MDF-e";
+    public static final String DRIVER_INCLUSION_PATH = "/{chMDFe}/driver-inclusion/";
+    public static final String OPEN_API_DRIVER_INCLUSION_SUMMARY = "Evento de inclusão de condutor de MDF-e";
+    public static final String OPEN_API_DRIVER_INCLUSION_DESCRIPTION = "Endpoint de evento de inclusão de condutor de MDF-e";
+    public static final String PAYMENT_MODIFICATION_PATH = "/{chMDFe}/payment-modification/";
+    public static final String OPEN_API_PAYMENT_MODIFICATION_SUMMARY = "Evento de alteração de pagamento do serviço de MDF-e";
+    public static final String OPEN_API_PAYMENT_MODIFICATION_DESCRIPTION = "Endpoint de evento de alteração de pagamento do serviço de MDF-e";
+    public static final String PAYMENT_OPERATION_PATH = "/{chMDFe}/payment-operation/";
+    public static final String OPEN_API_PAYMENT_OPERATION_SUMMARY = "Evento de pagamento do serviço de MDF-e";
+    public static final String OPEN_API_PAYMENT_OPERATION_DESCRIPTION = "Endpoint de evento de pagamento do serviço de MDF-e";
+    public static final String TRANSPORT_CONFIRMATION_PATH = "/{chMDFe}/transport-confirmation/";
+    public static final String OPEN_API_TRANSPORT_CONFIRMATION_SUMMARY = "Evento de confirmação do serviço de transporte de MDF-e";
+    public static final String OPEN_API_TRANSPORT_CONFIRMATION_DESCRIPTION = "Endpoint de evento de confirmação do serviço de transporte de MDF-e";
+}

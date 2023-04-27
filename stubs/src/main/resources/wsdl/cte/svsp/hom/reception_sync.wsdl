@@ -1,0 +1,58 @@
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+                  xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+                  xmlns:tns="http://www.portalfiscal.inf.br/cte/wsdl/CTeRecepcaoSinc"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  targetNamespace="http://www.portalfiscal.inf.br/cte/wsdl/CTeRecepcaoSinc">
+    <script/>
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Serviço destinado à recepção de mensagens de CTe
+        síncrono (modelo 57).
+    </wsdl:documentation>
+    <wsdl:types>
+        <s:schema elementFormDefault="qualified"
+                  targetNamespace="http://www.portalfiscal.inf.br/cte/wsdl/CTeRecepcaoSinc">
+            <s:element name="cteDadosMsg" type="s:string"/>
+            <s:element name="cteRecepcaoSincResult">
+                <s:complexType mixed="true">
+                    <s:sequence>
+                        <s:any/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+        </s:schema>
+    </wsdl:types>
+    <wsdl:message name="cteRecepcaoSincSoap12In">
+        <wsdl:part name="cteDadosMsg" element="tns:cteDadosMsg"/>
+    </wsdl:message>
+    <wsdl:message name="cteRecepcaoSincSoap12Out">
+        <wsdl:part name="cteRecepcaoSincResult" element="tns:cteRecepcaoSincResult"/>
+    </wsdl:message>
+    <wsdl:portType name="CTeRecepcaoSincSoap12">
+        <wsdl:operation name="cteRecepcaoSinc">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Recepção síncrona do CTe (modelo 57)
+            </wsdl:documentation>
+            <wsdl:input message="tns:cteRecepcaoSincSoap12In"/>
+            <wsdl:output message="tns:cteRecepcaoSincSoap12Out"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="CTeRecepcaoSincSoap12" type="tns:CTeRecepcaoSincSoap12">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="cteRecepcaoSinc">
+            <soap12:operation soapAction="http://www.portalfiscal.inf.br/cte/wsdl/CTeRecepcaoSinc/cteRecepcaoSinc"
+                              style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="CTeRecepcaoSinc">
+        <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Serviço destinado à recepção de mensagens de
+            CTe síncrono (modelo 57).
+        </wsdl:documentation>
+        <wsdl:port name="CTeRecepcaoSincSoap12" binding="tns:CTeRecepcaoSincSoap12">
+            <soap12:address location="https://homologacao.nfe.fazenda.sp.gov.br/cteWEB/services/CTeRecepcaoSinc.asmx"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

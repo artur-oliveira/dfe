@@ -1,0 +1,113 @@
+package com.softart.dfe.enums.internal.city;
+
+import com.softart.dfe.components.internal.DFEnum;
+import com.softart.dfe.enums.internal.UF;
+import lombok.Getter;
+
+@Getter
+public enum CityRJ implements DFEnum.Codeable {
+    RJ_ANGRA_DOS_REIS("3300100", "Angra Dos Reis"),
+    RJ_APERIBE("3300159", "Aperibé"),
+    RJ_ARARUAMA("3300209", "Araruama"),
+    RJ_AREAL("3300225", "Areal"),
+    RJ_ARMACAO_DOS_BUZIOS("3300233", "Armação Dos Búzios"),
+    RJ_ARRAIAL_DO_CABO("3300258", "Arraial do Cabo"),
+    RJ_BARRA_DO_PIRAI("3300308", "Barra do Piraí"),
+    RJ_BARRA_MANSA("3300407", "Barra Mansa"),
+    RJ_BELFORD_ROXO("3300456", "Belford Roxo"),
+    RJ_BOM_JARDIM("3300506", "Bom Jardim"),
+    RJ_BOM_JESUS_DO_ITABAPOANA("3300605", "Bom Jesus do Itabapoana"),
+    RJ_CABO_FRIO("3300704", "Cabo Frio"),
+    RJ_CACHOEIRAS_DE_MACACU("3300803", "Cachoeiras de Macacu"),
+    RJ_CAMBUCI("3300902", "Cambuci"),
+    RJ_CARAPEBUS("3300936", "Carapebus"),
+    RJ_COMENDADOR_LEVY_GASPARIAN("3300951", "Comendador Levy Gasparian"),
+    RJ_CAMPOS_DOS_GOYTACAZES("3301009", "Campos Dos Goytacazes"),
+    RJ_CANTAGALO("3301108", "Cantagalo"),
+    RJ_CARDOSO_MOREIRA("3301157", "Cardoso Moreira"),
+    RJ_CARMO("3301207", "Carmo"),
+    RJ_CASIMIRO_DE_ABREU("3301306", "Casimiro de Abreu"),
+    RJ_CONCEICAO_DE_MACABU("3301405", "Conceição de Macabu"),
+    RJ_CORDEIRO("3301504", "Cordeiro"),
+    RJ_DUAS_BARRAS("3301603", "Duas Barras"),
+    RJ_DUQUE_DE_CAXIAS("3301702", "Duque de Caxias"),
+    RJ_ENGENHEIRO_PAULO_DE_FRONTIN("3301801", "Engenheiro Paulo de Frontin"),
+    RJ_GUAPIMIRIM("3301850", "Guapimirim"),
+    RJ_IGUABA_GRANDE("3301876", "Iguaba Grande"),
+    RJ_ITABORAI("3301900", "Itaboraí"),
+    RJ_ITAGUAI("3302007", "Itaguaí"),
+    RJ_ITALVA("3302056", "Italva"),
+    RJ_ITAOCARA("3302106", "Itaocara"),
+    RJ_ITAPERUNA("3302205", "Itaperuna"),
+    RJ_ITATIAIA("3302254", "Itatiaia"),
+    RJ_JAPERI("3302270", "Japeri"),
+    RJ_LAJE_DO_MURIAE("3302304", "Laje do Muriaé"),
+    RJ_MACAE("3302403", "Macaé"),
+    RJ_MACUCO("3302452", "Macuco"),
+    RJ_MAGE("3302502", "Magé"),
+    RJ_MANGARATIBA("3302601", "Mangaratiba"),
+    RJ_MARICA("3302700", "Maricá"),
+    RJ_MENDES("3302809", "Mendes"),
+    RJ_MESQUITA("3302858", "Mesquita"),
+    RJ_MIGUEL_PEREIRA("3302908", "Miguel Pereira"),
+    RJ_MIRACEMA("3303005", "Miracema"),
+    RJ_NATIVIDADE("3303104", "Natividade"),
+    RJ_NILOPOLIS("3303203", "Nilópolis"),
+    RJ_NITEROI("3303302", "Niterói"),
+    RJ_NOVA_FRIBURGO("3303401", "Nova Friburgo"),
+    RJ_NOVA_IGUACU("3303500", "Nova Iguaçu"),
+    RJ_PARACAMBI("3303609", "Paracambi"),
+    RJ_PARAIBA_DO_SUL("3303708", "Paraíba do Sul"),
+    RJ_PARATI("3303807", "Parati"),
+    RJ_PATY_DO_ALFERES("3303856", "Paty do Alferes"),
+    RJ_PETROPOLIS("3303906", "Petrópolis"),
+    RJ_PINHEIRAL("3303955", "Pinheiral"),
+    RJ_PIRAI("3304003", "Piraí"),
+    RJ_PORCIUNCULA("3304102", "Porciúncula"),
+    RJ_PORTO_REAL("3304110", "Porto Real"),
+    RJ_QUATIS("3304128", "Quatis"),
+    RJ_QUEIMADOS("3304144", "Queimados"),
+    RJ_QUISSAMA("3304151", "Quissamã"),
+    RJ_RESENDE("3304201", "Resende"),
+    RJ_RIO_BONITO("3304300", "Rio Bonito"),
+    RJ_RIO_CLARO("3304409", "Rio Claro"),
+    RJ_RIO_DAS_FLORES("3304508", "Rio Das Flores"),
+    RJ_RIO_DAS_OSTRAS("3304524", "Rio Das Ostras"),
+    RJ_RIO_DE_JANEIRO("3304557", "Rio de Janeiro"),
+    RJ_SANTA_MARIA_MADALENA("3304607", "Santa Maria Madalena"),
+    RJ_SANTO_ANTONIO_DE_PADUA("3304706", "Santo Antônio de Pádua"),
+    RJ_SAO_FRANCISCO_DE_ITABAPOANA("3304755", "São Francisco de Itabapoana"),
+    RJ_SAO_FIDELIS("3304805", "São Fidélis"),
+    RJ_SAO_GONCALO("3304904", "São Gonçalo"),
+    RJ_SAO_JOAO_DA_BARRA("3305000", "São João da Barra"),
+    RJ_SAO_JOAO_DE_MERITI("3305109", "São João de Meriti"),
+    RJ_SAO_JOSE_DE_UBA("3305133", "São José de Ubá"),
+    RJ_SAO_JOSE_DO_VALE_DO_RIO_PRETO("3305158", "São José do Vale do Rio Preto"),
+    RJ_SAO_PEDRO_DA_ALDEIA("3305208", "São Pedro da Aldeia"),
+    RJ_SAO_SEBASTIAO_DO_ALTO("3305307", "São Sebastião do Alto"),
+    RJ_SAPUCAIA("3305406", "Sapucaia"),
+    RJ_SAQUAREMA("3305505", "Saquarema"),
+    RJ_SEROPEDICA("3305554", "Seropédica"),
+    RJ_SILVA_JARDIM("3305604", "Silva Jardim"),
+    RJ_SUMIDOURO("3305703", "Sumidouro"),
+    RJ_TANGUA("3305752", "Tanguá"),
+    RJ_TERESOPOLIS("3305802", "Teresópolis"),
+    RJ_TRAJANO_DE_MORAIS("3305901", "Trajano de Morais"),
+    RJ_TRES_RIOS("3306008", "Três Rios"),
+    RJ_VALENCA("3306107", "Valença"),
+    RJ_VARRE_SAI("3306156", "Varre-sai"),
+    RJ_VASSOURAS("3306206", "Vassouras"),
+    RJ_VOLTA_REDONDA("3306305", "Volta Redonda"),
+    ;
+    private final String code;
+    private final String description;
+
+    CityRJ(String code, String description) {
+        this.code = code;
+        this.description = description;
+    }
+
+    public UF getUf() {
+        return UF.valueOf(name().substring(0, 2));
+    }
+}
