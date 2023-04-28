@@ -4,7 +4,6 @@ import com.softart.dfe.enums.internal.Environment;
 import com.softart.dfe.enums.internal.Model;
 import com.softart.dfe.enums.internal.UF;
 import com.softart.dfe.interfaces.security.CertificateChain;
-import com.softart.dfe.util.IOUtils;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -26,6 +25,6 @@ public final class Certificate implements CertificateChain {
 
     @Override
     public String fileName() {
-        return String.join(IOUtils.separator(), IOUtils.homeDir(), ".chain", hashCode() + ".jks");
+        return hashCode() + ".jks";
     }
 }

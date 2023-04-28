@@ -241,6 +241,13 @@ public final class DateUtils {
                 .toLocalDateTime();
     }
 
+    public static LocalDate localDate(Date f) {
+        return f
+                .toInstant()
+                .atZone(ZoneId.systemDefault())
+                .toLocalDate();
+    }
+
     public static ZonedDateTime zonedDateTime(Date f) {
         return f
                 .toInstant()
