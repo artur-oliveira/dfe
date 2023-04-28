@@ -46,16 +46,13 @@ public class StartupConfig {
     }
 
     @PostConstruct
-    public void startupCertificateChain() {
+    public void startupCertificateChainAndServices() {
         if (getStartupConfigurationProperties().getUpdateCertificateChain()) {
             log.info("generating certificate chain");
             CertificateChainFactory.getInstance().generate(Certificate.builder().build());
             log.info("generated certificate chain");
         }
-    }
 
-    @PostConstruct
-    public void startupSoapService() throws SoapServiceGeneralException {
         if (getStartupConfigurationProperties().getInitializeServices()) {
             log.info("initializing soap services");
             ExecutorService service = Executors.newFixedThreadPool(4);

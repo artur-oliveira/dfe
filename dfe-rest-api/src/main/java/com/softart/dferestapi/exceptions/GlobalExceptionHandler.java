@@ -1,5 +1,7 @@
 package com.softart.dferestapi.exceptions;
 
+import com.softart.dfe.exceptions.DfeException;
+import com.softart.dfe.exceptions.DfeUncheckedException;
 import com.softart.dferestapi.exceptions.entity.EntityAlreadyExistsException;
 import com.softart.dferestapi.exceptions.entity.EntityNotFoundException;
 import com.softart.dferestapi.models.response.error.CommonError;
@@ -147,6 +149,28 @@ public final class GlobalExceptionHandler {
 
     @ExceptionHandler(UnsupportedOperationException.class)
     public ResponseEntity<CommonError> handler(UnsupportedOperationException e) {
+        return ResponseEntity
+                .status(HttpStatus.BAD_REQUEST)
+                .body(CommonError
+                        .builder()
+                        .error(e.getClass().getSimpleName().replace("Exception", ""))
+                        .message(e.getMessage())
+                        .build());
+    }
+
+    @ExceptionHandler(DfeUncheckedException.class)
+    public ResponseEntity<CommonError> handler(DfeUncheckedException e) {
+        return ResponseEntity
+                .status(HttpStatus.BAD_REQUEST)
+                .body(CommonError
+                        .builder()
+                        .error(e.getClass().getSimpleName().replace("Exception", ""))
+                        .message(e.getMessage())
+                        .build());
+    }
+
+    @ExceptionHandler(DfeException.class)
+    public ResponseEntity<CommonError> handler(DfeException e) {
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)
                 .body(CommonError

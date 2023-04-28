@@ -1,6 +1,6 @@
 package com.softart.dfe.exceptions.xml;
 
-import com.softart.dfe.exceptions.DFUncheckedException;
+import com.softart.dfe.exceptions.DfeUncheckedException;
 import lombok.Getter;
 import lombok.extern.log4j.Log4j2;
 
@@ -9,7 +9,7 @@ import lombok.extern.log4j.Log4j2;
  */
 @Log4j2
 @Getter
-public class UnmarshallException extends DFUncheckedException {
+public class UnmarshallException extends DfeUncheckedException {
 
     private String xml;
 

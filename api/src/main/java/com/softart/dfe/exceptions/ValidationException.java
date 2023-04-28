@@ -3,7 +3,7 @@ package com.softart.dfe.exceptions;
 /**
  * > This class is used to indicate that a validation error has occurred
  */
-public class ValidationException extends DFException {
+public class ValidationException extends DfeException {
     public ValidationException() {
     }
 

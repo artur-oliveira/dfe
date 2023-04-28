@@ -1,5 +1,8 @@
 package com.softart.dfe.components.security.keystore;
 
+import com.softart.dfe.exceptions.DfeException;
+import com.softart.dfe.exceptions.DfeUncheckedException;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.security.KeyStore;
@@ -16,7 +19,11 @@ final class KeyStoreParserServiceImpl extends KeyStoreParserFactory {
     public KeyStore read(InputStream is, String keyStoreType, String keyStorePassword) throws IOException, KeyStoreException, CertificateException, NoSuchAlgorithmException {
         try (InputStream inputStream = is) {
             final KeyStore ks = KeyStore.getInstance(keyStoreType);
-            ks.load(inputStream, keyStorePassword.toCharArray());
+            try {
+                ks.load(inputStream, keyStorePassword.toCharArray());
+            } catch (IOException e) {
+                throw new DfeUncheckedException(e.getMessage());
+            }
             return ks;
         }
     }

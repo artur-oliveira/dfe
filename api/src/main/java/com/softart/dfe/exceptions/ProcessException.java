@@ -3,7 +3,7 @@ package com.softart.dfe.exceptions;
 /**
  * > This class is a subclass of `DFException` that is used to indicate that an error occurred while processing a request
  */
-public class ProcessException extends DFException {
+public class ProcessException extends DfeException {
     public ProcessException() {
     }
 

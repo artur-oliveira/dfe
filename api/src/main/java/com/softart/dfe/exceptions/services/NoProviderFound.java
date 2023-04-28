@@ -1,12 +1,12 @@
 package com.softart.dfe.exceptions.services;
 
 import com.softart.dfe.enums.internal.UF;
-import com.softart.dfe.exceptions.DFException;
+import com.softart.dfe.exceptions.DfeException;
 
 /**
  * This exception is thrown when a provider is not found for a given UF.
  */
-public class NoProviderFound extends DFException {
+public class NoProviderFound extends DfeException {
     public NoProviderFound() {
         super("Não foi implementado para esta UF");
     }

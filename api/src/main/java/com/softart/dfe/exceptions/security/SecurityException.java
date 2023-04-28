@@ -1,11 +1,11 @@
 package com.softart.dfe.exceptions.security;
 
-import com.softart.dfe.exceptions.DFException;
+import com.softart.dfe.exceptions.DfeException;
 
 /**
  * SecurityException is the base class for all security related exceptions
  */
-public abstract class SecurityException extends DFException {
+public abstract class SecurityException extends DfeException {
 
     public SecurityException() {
     }
