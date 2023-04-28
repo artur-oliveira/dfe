@@ -1,5 +1,6 @@
 package com.softart.dfe.components.security.chain;
 
+import com.softart.dfe.components.security.chain.cache.CertificateChainCacheFactory;
 import com.softart.dfe.enums.internal.Environment;
 import com.softart.dfe.enums.internal.Model;
 import com.softart.dfe.enums.internal.UF;
@@ -34,7 +35,6 @@ final class CertificateChainServiceImpl extends CertificateChainFactory {
 
     private static final String DEFAULT_PASSWORD = System.getProperty("com.softart.dfe.security.chain.password", "123456");
     private static final int PORT = 443;
-    private static final long DAYS_IN_CACHE = Long.parseLong(System.getProperty("com.softart.dfe.security.chain.cache.days", "14"));
     private static final String PROTOCOL = "TLSv1.2";
     private static final int SOCKET_TIMEOUT = Math.min(Integer.parseInt(System.getProperty("com.softart.dfe.security.chain.socket.timeout", "5000")), 5000);
 
@@ -46,7 +46,7 @@ final class CertificateChainServiceImpl extends CertificateChainFactory {
         final DFTrustManager savingTrustManager = new DFTrustManager(defaultTrustManager);
 
         final SSLContext sslContext = SSLContext.getInstance(PROTOCOL);
-        sslContext.init(null, new TrustManager[] {savingTrustManager}, null);
+        sslContext.init(null, new TrustManager[]{savingTrustManager}, null);
 
         try (SSLSocket sslSocket = (SSLSocket) sslContext.getSocketFactory().createSocket(host, PORT)) {
             sslSocket.setSoTimeout(CertificateChainServiceImpl.SOCKET_TIMEOUT);
@@ -98,19 +98,12 @@ final class CertificateChainServiceImpl extends CertificateChainFactory {
 
     @SneakyThrows
     private static byte[] getFromCache(CertificateChain generate) {
-        File f = new File(generate.fileName());
-        if (!f.exists()) return null;
-
-        if (Duration.between(Objects.requireNonNull(IOUtils.creationDate(f)), DateUtils.now()).compareTo(Duration.ofDays(DAYS_IN_CACHE)) >= 0) {
-            return null;
-        }
-
-        return IOUtils.readAllBytes(f);
+        return CertificateChainCacheFactory.getInstance().getFromCache(generate);
     }
 
     @SneakyThrows
     private static byte[] addToCache(CertificateChain generate, byte[] bytes) {
-        IOUtils.write(generate.fileName(), bytes);
+        CertificateChainCacheFactory.getInstance().addToCache(generate, bytes);
         return bytes;
     }
 
