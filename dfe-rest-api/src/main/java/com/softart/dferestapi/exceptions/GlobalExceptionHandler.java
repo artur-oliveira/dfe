@@ -169,8 +169,10 @@ public final class GlobalExceptionHandler {
                         .build());
     }
 
+
     @ExceptionHandler(DfeException.class)
     public ResponseEntity<CommonError> handler(DfeException e) {
+        log.error(e);
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)
                 .body(CommonError
