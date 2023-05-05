@@ -1,8 +1,7 @@
 package com.softart.dferestapi.configuration;
 
 import com.softart.dferestapi.components.auth.AuthTokenFilter;
-import com.softart.dferestapi.constants.AuthControllerConstants;
-import com.softart.dferestapi.constants.NfeControllerConstants;
+import com.softart.dferestapi.constants.*;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -76,11 +75,12 @@ public class WebSecurityConfig {
                 .antMatchers("/api-docs/**").permitAll()
                 .antMatchers("/docs/**").permitAll()
                 .antMatchers("/swagger-ui/**").permitAll()
+                .antMatchers(HealthCheckControllerConstants.BASE_PATH + "/**").permitAll()
                 .antMatchers(AuthControllerConstants.BASE_PATH + "/**").permitAll()
                 .antMatchers(NfeControllerConstants.BASE_PATH + "/**").hasAnyRole("NFE", "ADMIN")
-                .antMatchers("/api/v1/nfce/**").hasAnyRole("NFCE", "ADMIN")
-                .antMatchers("/api/v1/cte/**").hasAnyRole("CTE", "ADMIN")
-                .antMatchers("/api/v1/mdfe/**").hasAnyRole("CTE", "ADMIN")
+                .antMatchers(NfceControllerConstants.BASE_PATH + "/**").hasAnyRole("NFCE", "ADMIN")
+                .antMatchers(CteControllerConstants.BASE_PATH + "/**").hasAnyRole("CTE", "ADMIN")
+                .antMatchers(MdfeControllerConstants.BASE_PATH + "/**").hasAnyRole("CTE", "ADMIN")
                 .anyRequest()
                 .authenticated();
 

@@ -38,4 +38,11 @@ build/
 ### Mac OS ###
 .DS_Store
 
-.pfx
+# Other files
+*.pfx
+*.txt
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
