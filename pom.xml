@@ -5,6 +5,9 @@
     <groupId>com.softart</groupId>
     <artifactId>dfe</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <name>DF-e</name>
+    <description>Projeto que unifica os WebServices de NF-e, NFC-e, CT-e e MDF-e</description>
+    <url>https://github.com/artur-oliveira/dfe</url>
     <modules>
         <module>stubs</module>
         <module>dfe-utils</module>
@@ -21,15 +24,39 @@
         <module>app</module>
         <module>process</module>
     </modules>
+
     <packaging>pom</packaging>
+
     <licenses>
         <license>
             <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
         </license>
     </licenses>
 
-    <name>DF-e</name>
-    <description>Projeto que unifica os WebServices de NF-e, NFC-e, CT-e e MDF-e</description>
+    <developers>
+        <developer>
+            <name>Artur Oliveira</name>
+            <email>artur.oliveira9876@gmail.com</email>
+            <url>https://github.com/artur-oliveira</url>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git://github.com/artur-oliveira/dfe.git</connection>
+        <developerConnection>scm:git:ssh://github.com:SeunMatt/mysql-backup4j.git</developerConnection>
+        <url>https://github.com/artur-oliveira/dfe/tree/master</url>
+    </scm>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -37,7 +64,6 @@
         <lombok.version>1.18.24</lombok.version>
         <log4j.version>2.19.0</log4j.version>
     </properties>
-
 
     <dependencies>
         <dependency>
