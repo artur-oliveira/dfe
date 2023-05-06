@@ -4,10 +4,14 @@ import com.softart.dfe.models.internal.reflection.PackageFinder;
 import lombok.SneakyThrows;
 import lombok.extern.log4j.Log4j2;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
+import java.net.JarURLConnection;
+import java.net.URL;
+import java.net.URLConnection;
+import java.net.URLDecoder;
 import java.util.*;
+import java.util.jar.JarEntry;
+import java.util.jar.JarFile;
 import java.util.stream.Collectors;
 
 @Log4j2
@@ -71,6 +75,63 @@ public final class ReflectionUtils {
     }
 
     /**
+     * This function retrieves all classes from a given directory and package name in Java.
+     *
+     * @param directory   The directory from which to retrieve the classes.
+     * @param packageName The name of the package to search for classes in.
+     * @return The method is returning a Set of Class objects.
+     */
+    private static Set<Class<?>> getClassesFromDirectory(File directory, String packageName) throws ClassNotFoundException, IOException {
+        File tmpDirectory;
+        Set<Class<?>> classes = new HashSet<>();
+        if (directory.exists() && directory.isDirectory()) {
+            final String[] files = directory.list();
+
+            if (Objects.nonNull(files)) {
+                for (final String file : files) {
+                    if (isClassFile(file)) {
+                        try {
+                            classes.add(Class.forName(packageName + '.' + file.substring(0, file.length() - 6)));
+                        } catch (final NoClassDefFoundError ignored) {
+                        }
+                    } else if ((tmpDirectory = new File(directory, file)).isDirectory()) {
+                        classes.addAll(getClassesFromDirectory(tmpDirectory, packageName + "." + file));
+                    }
+                }
+            }
+        }
+
+        return classes;
+    }
+
+    /**
+     * This function retrieves all classes from a JAR file that belong to a specified package.
+     *
+     * @param connection  The JarURLConnection object representing the JAR file from which to extract the classes.
+     * @param packageName The name of the package to search for classes in the JAR file.
+     * @return The method is returning a Set of Class objects that are found in a JAR file and belong to a specific
+     * package.
+     */
+    private static Set<Class<?>> getClassesFromJarFile(JarURLConnection connection, String packageName) throws ClassNotFoundException, IOException {
+        final JarFile jarFile = connection.getJarFile();
+        final Enumeration<JarEntry> entries = jarFile.entries();
+        String name;
+        final Set<Class<?>> classes = new HashSet<>();
+
+        for (JarEntry jarEntry; entries.hasMoreElements() && ((jarEntry = entries.nextElement()) != null); ) {
+            name = jarEntry.getName();
+            if (isClassFile(name)) {
+                name = name.substring(0, name.length() - 6).replace('/', '.');
+
+                if (name.contains(packageName)) {
+                    classes.add(Class.forName(name));
+                }
+            }
+        }
+        return classes;
+    }
+
+    /**
      * > Find all classes in the given package finder
      *
      * @param packageFinder This is the package finder object that we created earlier.
@@ -79,30 +140,23 @@ public final class ReflectionUtils {
     @SneakyThrows
     public static Set<Class<?>> findAllClasses(PackageFinder packageFinder) {
         Set<Class<?>> allClasses = new HashSet<>();
+        final ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
 
         for (String packageName : packageFinder.getPackages()) {
-            try (InputStream is = RequireUtils.nonNull(Thread.currentThread().getContextClassLoader().getResourceAsStream(packageName.replaceAll("[.]", "/")), packageName)) {
-                try (BufferedReader reader = new BufferedReader(new InputStreamReader(is))) {
-                    Collection<String> lines = reader.lines().collect(Collectors.toList());
+            final Enumeration<URL> resources = classLoader.getResources(packageName.replace('.', '/'));
 
-                    for (String line : lines) {
-                        if (isClassFile(line)) {
-                            Class<?> cls = getClass(line, packageName);
-                            if (Objects.isNull(cls)) continue;
-                            if (packageFinder.matchClass(cls)) allClasses.add(cls);
+            for (URL url; resources.hasMoreElements() && ((url = resources.nextElement()) != null); ) {
+                URLConnection connection = Objects.requireNonNull(url.openConnection());
 
-                        } else {
-                            allClasses.addAll(findAllClasses(PackageFinder
-                                    .builder()
-                                    .assignables(packageFinder.getAssignables())
-                                    .packages(Collections.singletonList(packageName + "." + line))
-                                    .packageAntMatcher(packageFinder.getPackageAntMatcher())
-                                    .packageMatchers(packageFinder.getPackageMatchers())
-                                    .excludeClasses(packageFinder.getExcludeClasses())
-                                    .build()));
-                        }
-                    }
+                Set<Class<?>> tempClasses = new HashSet<>();
+
+                if (connection instanceof JarURLConnection) {
+                    tempClasses.addAll(getClassesFromJarFile((JarURLConnection) connection, packageName));
+                } else {
+                    tempClasses.addAll(getClassesFromDirectory(new File(URLDecoder.decode(url.getPath(), "UTF-8")), packageName));
                 }
+
+                allClasses.addAll(tempClasses.stream().filter(Objects::nonNull).filter(packageFinder::matchClass).collect(Collectors.toSet()));
             }
         }
 
