@@ -43,6 +43,6 @@ build/
 *.txt
 
 # Elastic Beanstalk Files
-.elasticbeanstalk/*
+../dfe-rest-api/.elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
