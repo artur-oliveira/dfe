@@ -14,7 +14,7 @@ public interface ConfigureProvider {
     }
 
     /**
-     * > Configures the provider with the specified configuration
+     * Configures the provider with the specified configuration
      *
      * @param config The configuration object that contains the configuration parameters for the provider.
      */

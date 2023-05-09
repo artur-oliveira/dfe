@@ -85,7 +85,7 @@ public interface NfQueryProtocolService extends NfSefazService {
 
 
     /**
-     * > This function returns a service object that can be used to make calls to the NfCommonService
+     * This function returns a service object that can be used to make calls to the NfCommonService
      *
      * @param environment The environment you want to connect to.
      * @return A service object that can be used to call the service.
@@ -93,7 +93,7 @@ public interface NfQueryProtocolService extends NfSefazService {
     NfCommonService getService(Environment environment) throws NoProviderFound, SoapServiceGeneralException;
 
     /**
-     * > Returns the validator used by this class
+     * Returns the validator used by this class
      *
      * @return The validator object.
      */
@@ -117,7 +117,7 @@ public interface NfQueryProtocolService extends NfSefazService {
     }
 
     /**
-     * > Get the last sequence number for a given event type
+     * Get the last sequence number for a given event type
      *
      * @param accessKey The access key of the user who is making the request.
      * @param event     The event code for which you want to get the last sequence number.

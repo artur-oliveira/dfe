@@ -9,7 +9,7 @@ import java.io.IOException;
 public interface StorageService {
 
     /**
-     * > Returns the root path of the config
+     * Returns the root path of the config
      *
      * @param config The configuration object that contains the configuration for the application.
      * @return A string

@@ -43,14 +43,14 @@ public interface NfReturnAuthorizationService extends NfSefazService {
     }
 
     /**
-     * > Returns the validator used by this class
+     * Returns the validator used by this class
      *
      * @return The validator object.
      */
     NfCommonValidator getValidator();
 
     /**
-     * > This function returns a service object that can be used to make calls to the NfCommonService
+     * This function returns a service object that can be used to make calls to the NfCommonService
      *
      * @param environment The environment you want to connect to.
      * @return A service object that can be used to call the service.

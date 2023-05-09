@@ -24,7 +24,7 @@ public abstract class SoapService {
     }
 
     /**
-     * > This function returns a NfeSoapService object, which is a SOAP client that can be used to send and receive
+     * This function returns a NfeSoapService object, which is a SOAP client that can be used to send and receive
      * messages from the SEFAZ
      *
      * @param config NfConfig object
@@ -33,7 +33,7 @@ public abstract class SoapService {
     public abstract NfeSoapService getNfeSoapService(NfConfig config) throws SoapServiceGeneralException;
 
     /**
-     * > This function returns a collection of all the NfeSoapService objects that are available for the given NfConfig
+     * This function returns a collection of all the NfeSoapService objects that are available for the given NfConfig
      *
      * @param config NfConfig object
      * @return A collection of NfeSoapService
@@ -42,7 +42,7 @@ public abstract class SoapService {
 
 
     /**
-     * > This function returns a NfceSoapService object, which is a SOAP client that can be used to communicate with the
+     * This function returns a NfceSoapService object, which is a SOAP client that can be used to communicate with the
      * webservice
      *
      * @param config The configuration object that contains the information about the webservice.
@@ -51,7 +51,7 @@ public abstract class SoapService {
     public abstract NfceSoapService getNfceSoapService(NfConfig config) throws SoapServiceGeneralException;
 
     /**
-     * > This function returns a collection of all the NFCe Soap Services that are available for the given configuration
+     * This function returns a collection of all the NFCe Soap Services that are available for the given configuration
      *
      * @param config The configuration object that contains the information about the connection to the server.
      * @return A collection of NfceSoapService
@@ -59,7 +59,7 @@ public abstract class SoapService {
     public abstract Collection<? extends NfceSoapService> getAllNfceSoapService(NfConfig config) throws SoapServiceGeneralException;
 
     /**
-     * > This function returns a CteSoapService object that can be used to make calls to the CteSoapService
+     * This function returns a CteSoapService object that can be used to make calls to the CteSoapService
      *
      * @param config The configuration object that contains the information needed to connect to the CTE service.
      * @return A CteSoapService object.
@@ -67,7 +67,7 @@ public abstract class SoapService {
     public abstract CteSoapService getCteSoapService(CteConfig config) throws SoapServiceGeneralException;
 
     /**
-     * > This function returns a collection of all the CteSoapService objects that are available for the given NfConfig
+     * This function returns a collection of all the CteSoapService objects that are available for the given NfConfig
      *
      * @param config The configuration object that contains the information about the NF-e server.
      * @return A collection of CteSoapService objects.
@@ -84,7 +84,7 @@ public abstract class SoapService {
     public abstract MdfeSoapService getMdfeSoapService(MdfeConfig config) throws SoapServiceGeneralException;
 
     /**
-     * > This function returns a collection of all the MDF-e SOAP services that are available for the given configuration
+     * This function returns a collection of all the MDF-e SOAP services that are available for the given configuration
      *
      * @param config The configuration object that contains the information about the NF-e service.
      * @return A collection of MdfeSoapService

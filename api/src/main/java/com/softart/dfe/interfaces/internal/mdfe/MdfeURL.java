@@ -30,7 +30,7 @@ public interface MdfeURL {
     String querySituationHom();
 
     /**
-     * > Returns the status of the service
+     * Returns the status of the service
      *
      * @return A string.
      */
@@ -58,7 +58,7 @@ public interface MdfeURL {
     String receptionSyncHom();
 
     /**
-     * > This function returns the reception production of the current word
+     * This function returns the reception production of the current word
      *
      * @return A string.
      */
@@ -88,7 +88,7 @@ public interface MdfeURL {
     String statusServiceProd();
 
     /**
-     * > This function returns a query that returns all the unclosed production orders
+     * This function returns a query that returns all the unclosed production orders
      *
      * @return A list of all the products that have not been closed.
      */

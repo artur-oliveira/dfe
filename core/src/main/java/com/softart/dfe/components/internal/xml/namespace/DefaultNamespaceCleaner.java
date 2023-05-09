@@ -24,7 +24,7 @@ final class DefaultNamespaceCleaner extends NameSpaceCleanerFactory {
     }
 
     /**
-     * > This function takes a node and a map of nodes to their parents, and recursively cleans the node and all of its
+     * This function takes a node and a map of nodes to their parents, and recursively cleans the node and all of its
      * children
      *
      * @param node The node to clean.
@@ -84,7 +84,7 @@ final class DefaultNamespaceCleaner extends NameSpaceCleanerFactory {
      * This function removes specified namespaces from an XML node and its child nodes.
      *
      * @param node The root node of an XML document or a subtree of the XML document.
-     * @param ns A list of namespace URIs to be removed from the XML document.
+     * @param ns   A list of namespace URIs to be removed from the XML document.
      */
     private void postRemoveNs(Node node, List<String> ns) {
         NodeList nodes = node.getChildNodes();

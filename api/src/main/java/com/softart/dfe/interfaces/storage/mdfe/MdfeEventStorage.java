@@ -17,7 +17,7 @@ public interface MdfeEventStorage extends Storage {
     void storeRetEvent(Store<TRetEvento> o) throws StorageException;
 
     /**
-     * > Stores the event in the storage
+     * Stores the event in the storage
      *
      * @param o The object to be stored.
      */

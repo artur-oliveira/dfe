@@ -34,7 +34,7 @@ public final class SoapServiceProxy {
     }
 
     /**
-     * > The function returns a static instance of the class
+     * The function returns a static instance of the class
      *
      * @return A singleton instance of the SoapServiceProxy class.
      */
@@ -43,7 +43,7 @@ public final class SoapServiceProxy {
     }
 
     /**
-     * > If the authorizer is not null, then return the soapService
+     * If the authorizer is not null, then return the soapService
      *
      * @param authorizer NfeAuthorizer object
      * @return A NfeSoapService object.
@@ -57,7 +57,7 @@ public final class SoapServiceProxy {
     }
 
     /**
-     * > This function adds a new NfeSoapService to the NfeServiceMap
+     * This function adds a new NfeSoapService to the NfeServiceMap
      *
      * @param soapService The SOAP service that will be added to the map.
      */
@@ -67,7 +67,7 @@ public final class SoapServiceProxy {
 
 
     /**
-     * > If the authorizer is not null, then return the soapService
+     * If the authorizer is not null, then return the soapService
      *
      * @param authorizer The authorizer object that contains the access token and the URL of the webservice.
      * @return A NfceSoapService object.
@@ -81,7 +81,7 @@ public final class SoapServiceProxy {
     }
 
     /**
-     * > This function adds a new NFCe service to the list of services that are available to the application
+     * This function adds a new NFCe service to the list of services that are available to the application
      *
      * @param soapService The SOAP service that will be added to the list of services.
      */
@@ -90,7 +90,7 @@ public final class SoapServiceProxy {
     }
 
     /**
-     * > If the authorizer is already in the map, return the soap service. Otherwise, return null
+     * If the authorizer is already in the map, return the soap service. Otherwise, return null
      *
      * @param authorizer The authorizer object that contains the credentials to access the CteSoapService.
      * @return A CteSoapService object.
@@ -104,7 +104,7 @@ public final class SoapServiceProxy {
     }
 
     /**
-     * > This function adds a new CteSoapService to the CteServiceMap
+     * This function adds a new CteSoapService to the CteServiceMap
      *
      * @param soapService The SOAP service to be added to the list of services.
      */
@@ -113,7 +113,7 @@ public final class SoapServiceProxy {
     }
 
     /**
-     * > If the MdfeSoapService object is not null, return it. Otherwise, return null
+     * If the MdfeSoapService object is not null, return it. Otherwise, return null
      *
      * @param authorizer The authorizer object that contains the credentials to access the webservice.
      * @return A MdfeSoapService object.
@@ -127,7 +127,7 @@ public final class SoapServiceProxy {
     }
 
     /**
-     * > Adds a new MDF-e SOAP service to the list of available services
+     * Adds a new MDF-e SOAP service to the list of available services
      *
      * @param soapService The SOAP service that will be added to the list of available services.
      */

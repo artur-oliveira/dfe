@@ -50,7 +50,7 @@ public final class FileSystemStorageService extends StorageServiceFactory {
     }
 
     /**
-     * > This function writes the XML content to a file in the processed directory
+     * This function writes the XML content to a file in the processed directory
      *
      * @param conf       The configuration object
      * @param key        The key of the file to be written.

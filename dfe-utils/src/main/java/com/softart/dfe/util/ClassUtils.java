@@ -82,6 +82,7 @@ public final class ClassUtils {
     /**
      * It creates a new instance of the class passed as parameter
      *
+     * @param <T>         Generic Type
      * @param entityClass The class of the entity to be instantiated.
      * @return A new instance of the class passed as parameter.
      */
@@ -97,6 +98,7 @@ public final class ClassUtils {
      * It takes a getter method and an instance of the class that the getter belongs to, and returns the value of the field
      * that the getter gets
      *
+     * @param <I>          Generic Type
      * @param getter       The getter method to invoke
      * @param thisInstance The instance of the class that the getter is being called on.
      * @return The value of the field that the getter method is accessing.
@@ -116,6 +118,7 @@ public final class ClassUtils {
      * It takes a method, an instance of the class that the method belongs to, and a value, and it sets the value of the
      * method on the instance
      *
+     * @param <I>          Generic Type
      * @param method       The method to invoke
      * @param thisInstance The instance of the class you want to set the field on.
      * @param val          The value to set the field to.

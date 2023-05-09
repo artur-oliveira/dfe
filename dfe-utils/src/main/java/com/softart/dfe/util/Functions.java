@@ -35,6 +35,8 @@ public final class Functions {
     /**
      * Return the first non-null argument, or null if all arguments are null.
      *
+     * @param <T>  Generic Type
+     * @param args Any Arguments
      * @return The first non-null value in the array.
      */
     @SafeVarargs

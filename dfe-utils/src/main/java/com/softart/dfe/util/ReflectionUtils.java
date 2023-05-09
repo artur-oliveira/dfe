@@ -4,7 +4,8 @@ import com.softart.dfe.models.internal.reflection.PackageFinder;
 import lombok.SneakyThrows;
 import lombok.extern.log4j.Log4j2;
 
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
 import java.net.JarURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
@@ -132,7 +133,7 @@ public final class ReflectionUtils {
     }
 
     /**
-     * > Find all classes in the given package finder
+     * Find all classes in the given package finder
      *
      * @param packageFinder This is the package finder object that we created earlier.
      * @return A set of all classes in the packages specified in the packageFinder.

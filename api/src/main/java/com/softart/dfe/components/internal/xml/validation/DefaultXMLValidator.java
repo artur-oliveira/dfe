@@ -62,7 +62,7 @@ final class DefaultXMLValidator extends XMLValidatorFactory {
     }
 
     /**
-     * > This class is used to resolve external resources, such as DTDs and schemas, that are referenced in an XML document
+     * This class is used to resolve external resources, such as DTDs and schemas, that are referenced in an XML document
      */
     @Getter
     private static final class ResourceResolver implements LSResourceResolver {
@@ -74,7 +74,7 @@ final class DefaultXMLValidator extends XMLValidatorFactory {
         }
 
         /**
-         * > It takes the systemId of the xsd file, and returns an InputStream of the xsd file
+         * It takes the systemId of the xsd file, and returns an InputStream of the xsd file
          *
          * @param type         The type of the resource being resolved.
          * @param namespaceURI The namespace of the resource being resolved.

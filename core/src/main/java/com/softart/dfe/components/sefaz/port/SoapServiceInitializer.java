@@ -81,7 +81,7 @@ public abstract class SoapServiceInitializer<T extends CommonSoapService> {
     }
 
     /**
-     * > This function is called by the framework to initialize the service
+     * This function is called by the framework to initialize the service
      *
      * @param soapService The SOAP service that you want to initialize.
      */

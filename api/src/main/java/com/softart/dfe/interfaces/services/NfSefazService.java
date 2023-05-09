@@ -6,7 +6,7 @@ import com.softart.dfe.interfaces.process.nf.NfProcessService;
 public interface NfSefazService extends SefazService {
 
     /**
-     * > Returns the current configuration of the NF
+     * Returns the current configuration of the NF
      *
      * @return The NfConfig object.
      */

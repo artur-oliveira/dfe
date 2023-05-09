@@ -9,14 +9,14 @@ import com.softart.dfe.interfaces.storage.Store;
 public interface NfeDistributionStorage extends Storage {
 
     /**
-     * > Stores the return distribution of a given instrument
+     * Stores the return distribution of a given instrument
      *
      * @param o The Store object to store.
      */
     void storeRetDistribution(Store<TRetDistDFeInt> o) throws StorageException;
 
     /**
-     * > Store the distribution of the environment
+     * Store the distribution of the environment
      *
      * @param o The Store object to store the distribution in.
      */

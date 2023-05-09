@@ -16,7 +16,7 @@ public interface SefazService {
     Config getConfig();
 
     /**
-     * > This function returns an instance of the XMLSignerService class
+     * This function returns an instance of the XMLSignerService class
      *
      * @return The XMLSignerService object.
      */
@@ -44,7 +44,7 @@ public interface SefazService {
     ValidationService getValidatorFactory();
 
     /**
-     * > Returns the ConfigureProviderFactory instance
+     * Returns the ConfigureProviderFactory instance
      *
      * @return The ConfigureProviderFactory is being returned.
      */

@@ -89,7 +89,7 @@ public interface NfProcessService extends DfProcess {
     Collection<AfterReturnAuthorization> afterReturnAuthorization();
 
     /**
-     * > Returns a collection of all the BeforeReturnAuthorization objects that have been registered with the current
+     * Returns a collection of all the BeforeReturnAuthorization objects that have been registered with the current
      * instance of the AuthorizationManager
      *
      * @return A collection of BeforeReturnAuthorization objects.
@@ -97,14 +97,14 @@ public interface NfProcessService extends DfProcess {
     Collection<BeforeReturnAuthorization> beforeReturnAuthorization();
 
     /**
-     * > Returns a collection of all the `AfterQueryProtocol`s that have been registered with the `QueryManager`
+     * Returns a collection of all the `AfterQueryProtocol`s that have been registered with the `QueryManager`
      *
      * @return A collection of AfterQueryProtocol objects.
      */
     Collection<AfterQueryProtocol> afterQueryProtocol();
 
     /**
-     * > This function returns a collection of all the BeforeQueryProtocol objects that are registered with the
+     * This function returns a collection of all the BeforeQueryProtocol objects that are registered with the
      * QueryManager.
      *
      * @return A collection of BeforeQueryProtocol objects.
@@ -112,7 +112,7 @@ public interface NfProcessService extends DfProcess {
     Collection<BeforeQueryProtocol> beforeQueryProtocol();
 
     /**
-     * > This function returns a collection of services that are called after the query status is set
+     * This function returns a collection of services that are called after the query status is set
      *
      * @return A collection of AfterQueryStatusService objects.
      */
@@ -126,14 +126,14 @@ public interface NfProcessService extends DfProcess {
     Collection<BeforeQueryStatusService> beforeQueryStatusService();
 
     /**
-     * > Returns a collection of all the after distributions for this distribution
+     * Returns a collection of all the after distributions for this distribution
      *
      * @return A collection of AfterDistribution objects.
      */
     Collection<AfterDistribution> afterDistribution();
 
     /**
-     * > Returns a collection of all the BeforeDistribution objects in the current distribution
+     * Returns a collection of all the BeforeDistribution objects in the current distribution
      *
      * @return A collection of BeforeDistribution objects.
      */
@@ -203,7 +203,7 @@ public interface NfProcessService extends DfProcess {
     Collection<AfterQueryGtin> afterQueryGtin();
 
     /**
-     * > This function returns a collection of BeforeQueryGtin objects
+     * This function returns a collection of BeforeQueryGtin objects
      *
      * @return A collection of BeforeQueryGtin objects.
      */
@@ -224,14 +224,14 @@ public interface NfProcessService extends DfProcess {
     Collection<BeforeSubstituteCancel> beforeSubstituteCancel();
 
     /**
-     * > This function is called after the query is executed and the results are returned
+     * This function is called after the query is executed and the results are returned
      *
      * @return A collection of AfterQueryRegister objects.
      */
     Collection<AfterQueryRegister> afterQueryRegister();
 
     /**
-     * > This function is called before the query is executed
+     * This function is called before the query is executed
      *
      * @return A collection of BeforeQueryRegister objects.
      */

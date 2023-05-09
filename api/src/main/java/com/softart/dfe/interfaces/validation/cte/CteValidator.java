@@ -34,21 +34,21 @@ public interface CteValidator {
     Collection<CteInutilizationValidator> inutilizationValidators();
 
     /**
-     * > This function returns a collection of validators that will be used to validate the receipt of a query
+     * This function returns a collection of validators that will be used to validate the receipt of a query
      *
      * @return A collection of CteQueryReceiptValidator objects.
      */
     Collection<CteQueryReceiptValidator> queryReceiptValidators();
 
     /**
-     * > This function returns a collection of validators that will be used to validate the query situation
+     * This function returns a collection of validators that will be used to validate the query situation
      *
      * @return A collection of CteQuerySituationValidator objects.
      */
     Collection<CteQuerySituationValidator> querySituationValidators();
 
     /**
-     * > This function returns a collection of all the `CteReceptionGtveValidator` objects that are available in the
+     * This function returns a collection of all the `CteReceptionGtveValidator` objects that are available in the
      * application
      *
      * @return A collection of CteReceptionGtveValidator objects.

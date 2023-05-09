@@ -232,7 +232,7 @@ public interface CteEventService extends CteSefazService {
     }
 
     /**
-     * > This function takes a CteGtv object and returns a CteReturnEvent object
+     * This function takes a CteGtv object and returns a CteReturnEvent object
      *
      * @param gtv The GTV object that contains the data to be sent to the CTE.
      * @return A CteReturnEvent object.

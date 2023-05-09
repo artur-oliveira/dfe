@@ -53,7 +53,7 @@ public interface NfCommonServiceURL {
     String statusServiceNfProd();
 
     /**
-     * > Returns the status of the service
+     * Returns the status of the service
      *
      * @return A string.
      */

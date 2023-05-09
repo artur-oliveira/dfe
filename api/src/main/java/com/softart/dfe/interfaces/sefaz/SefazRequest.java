@@ -37,7 +37,7 @@ public interface SefazRequest<SEND extends XML, RETURN extends XML> {
     Collection<? extends Validator<SEND>> getValidators();
 
     /**
-     * > Returns an instance of the XMLSignerService class
+     * Returns an instance of the XMLSignerService class
      *
      * @return The XMLSignerService object.
      */
@@ -51,14 +51,14 @@ public interface SefazRequest<SEND extends XML, RETURN extends XML> {
     ConfigureProvider getConfigureProvider();
 
     /**
-     * > Returns a collection of BeforeWebServiceRequest objects that will be executed before the request is sent
+     * Returns a collection of BeforeWebServiceRequest objects that will be executed before the request is sent
      *
      * @return A collection of BeforeWebServiceRequest objects.
      */
     Collection<? extends BeforeWebServiceRequest<SEND>> getBeforeRequest();
 
     /**
-     * > Returns a collection of all the `AfterWebServiceRequest` objects that are registered with the `WebServiceRequest`
+     * Returns a collection of all the `AfterWebServiceRequest` objects that are registered with the `WebServiceRequest`
      * object
      *
      * @return A collection of AfterWebServiceRequest objects.

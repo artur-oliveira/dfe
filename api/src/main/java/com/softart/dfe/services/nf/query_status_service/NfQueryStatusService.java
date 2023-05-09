@@ -46,7 +46,7 @@ public interface NfQueryStatusService extends NfSefazService {
     }
 
     /**
-     * > Returns the validator used by this class
+     * Returns the validator used by this class
      *
      * @return The validator object.
      */

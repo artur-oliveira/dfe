@@ -10,7 +10,7 @@ import com.softart.dfe.interfaces.storage.Store;
 public interface MdfeReceptionStorage extends Storage {
 
     /**
-     * > Stores the MDFe in the database
+     * Stores the MDFe in the database
      *
      * @param o The object to be stored.
      */

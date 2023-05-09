@@ -137,7 +137,7 @@ public final class DateUtils {
     }
 
     /**
-     * > It takes a date in the format of `yyyy-MM-dd HH:mm:ss.SSSZ` and returns a string in the format of `yyMM`
+     * It takes a date in the format of `yyyy-MM-dd HH:mm:ss.SSSZ` and returns a string in the format of `yyMM`
      *
      * @param zonedDate The date in the format of "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
      * @return The year and month of the date in the format yyMM.
@@ -147,7 +147,7 @@ public final class DateUtils {
     }
 
     /**
-     * > It returns a string representation of the given temporal object in the format of `yyMM`
+     * It returns a string representation of the given temporal object in the format of `yyMM`
      *
      * @param temporal The temporal object to format.
      * @return A string representation of the date in the format yyMM.
@@ -184,7 +184,7 @@ public final class DateUtils {
     }
 
     /**
-     * > This function formats a temporal object into a string using the ISO-8601 extended offset date-time format
+     * This function formats a temporal object into a string using the ISO-8601 extended offset date-time format
      *
      * @param temporal The temporal object to format.
      * @return A string representation of the date and time.
@@ -194,7 +194,7 @@ public final class DateUtils {
     }
 
     /**
-     * > It formats a date-time object using the specified formatter
+     * It formats a date-time object using the specified formatter
      *
      * @param temporal  The temporal object to format.
      * @param formatter The formatter to use.
@@ -205,7 +205,7 @@ public final class DateUtils {
     }
 
     /**
-     * > It formats a date-time object using the specified formatter
+     * It formats a date-time object using the specified formatter
      *
      * @param temporal  The temporal object to format.
      * @param formatter The formatter to use.

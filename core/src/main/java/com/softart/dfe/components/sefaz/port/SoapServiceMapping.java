@@ -33,7 +33,7 @@ public final class SoapServiceMapping {
     }
 
     /**
-     * > The function returns a static instance of the class
+     * The function returns a static instance of the class
      *
      * @return The instance of the SoapServiceMapping class.
      */

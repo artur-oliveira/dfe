@@ -7,7 +7,7 @@ import com.softart.dfe.interfaces.xml.generic.XML;
 public interface AfterWebServiceRequest<REQ extends XML, RES extends XML> {
 
     /**
-     * > Processes the given object, which is an object that implements the AfterRequest interface
+     * Processes the given object, which is an object that implements the AfterRequest interface
      *
      * @param o The object that is being processed.
      */

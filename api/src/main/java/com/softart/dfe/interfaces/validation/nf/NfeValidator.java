@@ -7,7 +7,7 @@ import java.util.Collection;
 public interface NfeValidator extends NfCommonValidator {
 
     /**
-     * > Returns a collection of validators that will be used to validate the distribution of the NFE
+     * Returns a collection of validators that will be used to validate the distribution of the NFE
      *
      * @return A collection of NfeDistributionValidator objects.
      */

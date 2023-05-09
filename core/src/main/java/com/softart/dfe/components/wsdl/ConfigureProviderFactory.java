@@ -5,7 +5,7 @@ import com.softart.dfe.interfaces.wsdl.ConfigureProvider;
 public abstract class ConfigureProviderFactory implements ConfigureProvider {
 
     /**
-     * > The function returns a singleton instance of the ConfigureProviderFactory class
+     * The function returns a singleton instance of the ConfigureProviderFactory class
      *
      * @return The ConfigureProviderFactoryHolder.INSTANCE
      */

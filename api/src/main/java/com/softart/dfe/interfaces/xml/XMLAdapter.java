@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 public interface XMLAdapter<T extends XML, I extends XML> {
 
     /**
-     * > It takes the first class, and the second class, and it creates an instance of the second class, and it copies all
+     * It takes the first class, and the second class, and it creates an instance of the second class, and it copies all
      * the values from the first class to the second class
      *
      * @return The object that is being returned is the object that is being converted to.

@@ -7,7 +7,7 @@ import java.util.Collection;
 public interface ProcessFactory<REQ extends XML, RES extends XML> {
 
     /**
-     * > Returns a collection of functions that will be called after the web service request is made
+     * Returns a collection of functions that will be called after the web service request is made
      *
      * @return A collection of AfterWebServiceRequest objects.
      */

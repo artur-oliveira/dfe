@@ -9,7 +9,7 @@ import com.softart.dfe.interfaces.storage.Store;
 
 public interface NfAuthorizationStorage extends Storage {
     /**
-     * > Store a TNfeProc object in the database
+     * Store a TNfeProc object in the database
      *
      * @param o The object to be stored.
      */

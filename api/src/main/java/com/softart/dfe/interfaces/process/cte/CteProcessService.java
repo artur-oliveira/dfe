@@ -27,14 +27,14 @@ import java.util.Collection;
 public interface CteProcessService extends DfProcess {
 
     /**
-     * > Returns a collection of all the BeforeDistribution objects in the current distribution
+     * Returns a collection of all the BeforeDistribution objects in the current distribution
      *
      * @return A collection of BeforeDistribution objects.
      */
     Collection<BeforeDistribution> beforeDistribution();
 
     /**
-     * > Returns a collection of all the after distributions for this distribution
+     * Returns a collection of all the after distributions for this distribution
      *
      * @return A collection of AfterDistribution objects.
      */
@@ -69,28 +69,28 @@ public interface CteProcessService extends DfProcess {
     Collection<AfterInutilization> afterInutilization();
 
     /**
-     * > This function is called before a query is executed
+     * This function is called before a query is executed
      *
      * @return A collection of BeforeQueryReceipt objects.
      */
     Collection<BeforeQueryReceipt> beforeQueryReceipt();
 
     /**
-     * > Returns a collection of all the receipts that have been issued for the afterQuery event
+     * Returns a collection of all the receipts that have been issued for the afterQuery event
      *
      * @return A collection of AfterQueryReceipt objects.
      */
     Collection<AfterQueryReceipt> afterQueryReceipt();
 
     /**
-     * > Returns a collection of situations that will be used to determine if the query should be executed
+     * Returns a collection of situations that will be used to determine if the query should be executed
      *
      * @return A collection of BeforeQuerySituation objects.
      */
     Collection<BeforeQuerySituation> beforeQuerySituation();
 
     /**
-     * > Returns a collection of all the `AfterQuerySituation`s that have been registered with the `Query` object.
+     * Returns a collection of all the `AfterQuerySituation`s that have been registered with the `Query` object.
      *
      * @return A collection of AfterQuerySituation objects.
      */

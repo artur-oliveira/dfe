@@ -24,7 +24,7 @@ public interface MdfeReceptionSyncStorage extends Storage {
     void storeReturnMdfe(Store<TRetMDFe> o) throws StorageException;
 
     /**
-     * > This function will store the object `o` in the database
+     * This function will store the object `o` in the database
      *
      * @param o The object to be stored.
      */

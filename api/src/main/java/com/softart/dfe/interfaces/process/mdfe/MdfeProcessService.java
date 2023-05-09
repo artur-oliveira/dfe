@@ -30,7 +30,7 @@ public interface MdfeProcessService extends DfProcess {
     Collection<BeforeReception> beforeReception();
 
     /**
-     * > This function is called before a query is executed
+     * This function is called before a query is executed
      *
      * @return A collection of BeforeQueryReceipt objects.
      */
@@ -44,7 +44,7 @@ public interface MdfeProcessService extends DfProcess {
     Collection<BeforeEvent> beforeEvent();
 
     /**
-     * > Returns a collection of situations that will be used to determine if the query should be executed
+     * Returns a collection of situations that will be used to determine if the query should be executed
      *
      * @return A collection of BeforeQuerySituation objects.
      */
@@ -61,14 +61,14 @@ public interface MdfeProcessService extends DfProcess {
     Collection<BeforeStatusService> beforeStatusService();
 
     /**
-     * > Returns a collection of all the `BeforeQueryUnclosed` objects in the current `Query` object
+     * Returns a collection of all the `BeforeQueryUnclosed` objects in the current `Query` object
      *
      * @return A collection of BeforeQueryUnclosed objects.
      */
     Collection<BeforeQueryUnclosed> beforeQueryUnclosed();
 
     /**
-     * > Returns a collection of all the BeforeDistribution objects in the current distribution
+     * Returns a collection of all the BeforeDistribution objects in the current distribution
      *
      * @return A collection of BeforeDistribution objects.
      */
@@ -98,7 +98,7 @@ public interface MdfeProcessService extends DfProcess {
     Collection<AfterEvent> afterEvent();
 
     /**
-     * > Returns a collection of all the `AfterQuerySituation`s that have been registered
+     * Returns a collection of all the `AfterQuerySituation`s that have been registered
      *
      * @return A collection of AfterQuerySituation objects.
      */
@@ -121,7 +121,7 @@ public interface MdfeProcessService extends DfProcess {
     Collection<AfterQueryUnclosed> afterQueryUnclosed();
 
     /**
-     * > Returns a collection of all the after distributions for this distribution
+     * Returns a collection of all the after distributions for this distribution
      *
      * @return A collection of AfterDistribution objects.
      */

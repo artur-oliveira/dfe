@@ -8,7 +8,7 @@ import com.softart.dfe.interfaces.storage.Store;
 
 public interface NfeQueryRegisterStorage extends Storage {
     /**
-     * > Stores the given object in the database
+     * Stores the given object in the database
      *
      * @param o The object to be stored.
      */

@@ -27,7 +27,7 @@ public abstract class Finder {
     }
 
     /**
-     * > It checks if the class name contains the authorizer name
+     * It checks if the class name contains the authorizer name
      *
      * @param clsName The class name of the class being loaded.
      */
@@ -37,7 +37,7 @@ public abstract class Finder {
 
 
     /**
-     * > It checks if the class name contains the environment name
+     * It checks if the class name contains the environment name
      *
      * @param clsName The class name of the class being loaded.
      */

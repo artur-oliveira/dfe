@@ -6,7 +6,7 @@ import com.softart.dfe.interfaces.storage.Store;
 public interface CteQueryReceiptStorage {
 
     /**
-     * > Store the query receipt for the given CTe
+     * Store the query receipt for the given CTe
      *
      * @param o The object to be stored.
      */

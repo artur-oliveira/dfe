@@ -16,7 +16,7 @@ public interface MdfeDistributionStorage extends Storage {
     void storeRetDistribution(Store<TRetDistDFe> o) throws StorageException;
 
     /**
-     * > Store a distribution of DFeInts
+     * Store a distribution of DFeInts
      *
      * @param o The object to be stored.
      */

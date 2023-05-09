@@ -6,7 +6,7 @@ import com.softart.dfe.interfaces.process.mdfe.MdfeProcessService;
 public interface MdfeSefazService extends SefazService {
 
     /**
-     * > Returns the configuration object used by the MDF-e library
+     * Returns the configuration object used by the MDF-e library
      *
      * @return The configuration object.
      */

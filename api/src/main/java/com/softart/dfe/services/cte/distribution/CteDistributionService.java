@@ -99,7 +99,7 @@ public interface CteDistributionService extends CteSefazService {
     }
 
     /**
-     * > Returns the distribution of the last NSU
+     * Returns the distribution of the last NSU
      *
      * @param nsu The NSU number of the CTe.
      * @return A CteReturnDistribution object.

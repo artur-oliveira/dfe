@@ -4,7 +4,7 @@ package com.softart.dfe.interfaces.internal.cte;
 public interface CteURL extends CteAnServiceURL {
 
     /**
-     * > This function returns the reception production of the current word
+     * This function returns the reception production of the current word
      *
      * @return A string.
      */
@@ -46,14 +46,14 @@ public interface CteURL extends CteAnServiceURL {
     String receptionSyncHom();
 
     /**
-     * > Returns the reception of the GTVE production
+     * Returns the reception of the GTVE production
      *
      * @return A string.
      */
     String receptionGtveProd();
 
     /**
-     * > This function returns the reception of the GTVE channel in the home
+     * This function returns the reception of the GTVE channel in the home
      *
      * @return A string.
      */
@@ -81,7 +81,7 @@ public interface CteURL extends CteAnServiceURL {
     String inutilizationProd();
 
     /**
-     * > Returns the utilization of the home
+     * Returns the utilization of the home
      *
      * @return A string.
      */
@@ -109,7 +109,7 @@ public interface CteURL extends CteAnServiceURL {
     String statusServiceProd();
 
     /**
-     * > Returns the status of the service
+     * Returns the status of the service
      *
      * @return A string.
      */

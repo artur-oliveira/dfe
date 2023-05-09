@@ -50,7 +50,7 @@ public interface CteQuerySituationService extends CteSefazService {
 
 
     /**
-     * > Get the last sequence number for a given event type
+     * Get the last sequence number for a given event type
      *
      * @param accessKey The access key for the user.
      * @param eventType The type of event you want to get the last sequence number for.
@@ -72,7 +72,7 @@ public interface CteQuerySituationService extends CteSefazService {
     }
 
     /**
-     * > Returns the last sequence number for the given event type as a string
+     * Returns the last sequence number for the given event type as a string
      *
      * @param accessKey The access key for the user.
      * @param eventType The type of event you want to get the last sequence number for.

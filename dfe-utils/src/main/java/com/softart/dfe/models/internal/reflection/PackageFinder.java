@@ -52,7 +52,7 @@ public final class PackageFinder {
     }
 
     /**
-     * > If the packageAntMatcher is empty, return true. Otherwise, return true if none of the packageAntMatcher strings
+     * If the packageAntMatcher is empty, return true. Otherwise, return true if none of the packageAntMatcher strings
      * are contained in the class name
      *
      * @param cls The class to be scanned
@@ -73,7 +73,7 @@ public final class PackageFinder {
     }
 
     /**
-     * > If the class is assignable to the class we're looking for, and it matches the ant matchers, and it matches the
+     * If the class is assignable to the class we're looking for, and it matches the ant matchers, and it matches the
      * package matchers, and it doesn't match the excluded classes, then return true
      *
      * @param cls The class to be matched

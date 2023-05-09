@@ -175,7 +175,7 @@ public interface NfInutilizationService extends NfSefazService {
     NfCommonService getService(Environment environment) throws NoProviderFound, SoapServiceGeneralException;
 
     /**
-     * > Returns the validator used by this class
+     * Returns the validator used by this class
      *
      * @return The validator object.
      */

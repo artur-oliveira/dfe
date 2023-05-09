@@ -6,7 +6,7 @@ import com.softart.dfe.interfaces.process.cte.CteProcessService;
 public interface CteSefazService extends SefazService {
 
     /**
-     * > This function returns a CteConfig object that contains the configuration information for the CTE
+     * This function returns a CteConfig object that contains the configuration information for the CTE
      *
      * @return The CteConfig object.
      */

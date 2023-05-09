@@ -18,7 +18,7 @@ public interface KeyStoreInfo {
     void loadCertificate(InputStream inputStream, String type) throws CertificateException;
 
     /**
-     * > Loads a certificate from an input stream
+     * Loads a certificate from an input stream
      *
      * @param inputStream The input stream of the certificate file.
      */

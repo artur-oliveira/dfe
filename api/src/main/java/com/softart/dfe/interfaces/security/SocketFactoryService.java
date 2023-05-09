@@ -7,7 +7,7 @@ import javax.net.ssl.SSLContext;
 
 public interface SocketFactoryService {
     /**
-     * > Creates an SSLContext from the given configuration
+     * Creates an SSLContext from the given configuration
      *
      * @param config The configuration object that contains the configuration for the SSLContext.
      * @return An SSLContext object.

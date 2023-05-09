@@ -52,7 +52,7 @@ public final class StringUtils {
     }
 
     /**
-     * > It takes a string, and pads it with zeros on the left until it reaches the desired length
+     * It takes a string, and pads it with zeros on the left until it reaches the desired length
      *
      * @param text The text to be padded.
      * @param len  The length of the string you want to return.

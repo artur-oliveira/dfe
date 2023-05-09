@@ -21,18 +21,18 @@ final class DefaultConfigureProviderFactory extends ConfigureProviderFactory {
     private static final String CONNECT_TIMEOUT = "com.sun.xml.internal.ws.connect.timeout";
     private static final String REQUEST_TIMEOUT = "com.sun.xml.internal.ws.request.timeout";
 
-    private final List<SOAPHandler<?>> handlers = Collections.singletonList(new CustomSoapHandler());
-
     static {
         System.setProperty("sun.net.client.defaultReadTimeout", Objects.toString(TIMEOUT_IN_SECS * 1000));
         System.setProperty("sun.net.client.defaultConnectTimeout", Objects.toString(TIMEOUT_IN_SECS * 1000));
     }
 
+    private final List<SOAPHandler<?>> handlers = Collections.singletonList(new CustomSoapHandler());
+
     public DefaultConfigureProviderFactory() {
     }
 
     /**
-     * > The function takes a BindingProvider and a Config object, and sets the socket factory of the BindingProvider to a
+     * The function takes a BindingProvider and a Config object, and sets the socket factory of the BindingProvider to a
      * socket factory that is configured with the Config object
      *
      * @param port   The port object that is used to invoke the web service.
@@ -52,7 +52,7 @@ final class DefaultConfigureProviderFactory extends ConfigureProviderFactory {
     }
 
     /**
-     * > Set the timeout for the request to the value of the `DefaultConfigureProviderFactory.TIMEOUT_IN_SECS` constant
+     * Set the timeout for the request to the value of the `DefaultConfigureProviderFactory.TIMEOUT_IN_SECS` constant
      *
      * @param port the port of the web service
      */
