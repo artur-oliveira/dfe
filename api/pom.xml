@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>dfe</artifactId>
-        <groupId>com.softart</groupId>
+        <groupId>io.github.artur-oliveira</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
@@ -15,27 +15,27 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.softart</groupId>
+            <groupId>io.github.artur-oliveira</groupId>
             <artifactId>stubs</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.softart</groupId>
+            <groupId>io.github.artur-oliveira</groupId>
             <artifactId>dfe-utils</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.softart</groupId>
+            <groupId>io.github.artur-oliveira</groupId>
             <artifactId>cte-services</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.softart</groupId>
+            <groupId>io.github.artur-oliveira</groupId>
             <artifactId>nfe-services</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.softart</groupId>
+            <groupId>io.github.artur-oliveira</groupId>
             <artifactId>mdfe-services</artifactId>
             <version>${project.version}</version>
         </dependency>

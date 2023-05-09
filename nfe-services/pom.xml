@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>dfe</artifactId>
-        <groupId>com.softart</groupId>
+        <groupId>io.github.artur-oliveira</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
@@ -14,7 +14,7 @@
     <description>Contains all WebServices related to NF-e/NFC-e</description>
     <dependencies>
         <dependency>
-            <groupId>com.softart</groupId>
+            <groupId>io.github.artur-oliveira</groupId>
             <artifactId>nfe-classes</artifactId>
             <version>${project.version}</version>
         </dependency>
