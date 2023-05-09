@@ -252,6 +252,26 @@
                             <extension>true</extension>
                         </configuration>
                     </execution>
+                    <execution>
+                        <id>cte_send_400</id>
+                        <goals>
+                            <goal>xjc</goal>
+                        </goals>
+                        <phase>none</phase>
+                        <configuration>
+                            <xjbSources>
+                                <xjbSource>src/main/resources/binding.xjb</xjbSource>
+                            </xjbSources>
+                            <sources>
+                                <source>${basedir}/src/main/resources/xsds/cte/PL_CTe_400</source>
+                            </sources>
+                            <outputDirectory>${basedir}/src/generated</outputDirectory>
+                            <packageName>br.inf.portalfiscal.cte.send400</packageName>
+                            <clearOutputDir>false</clearOutputDir>
+                            <extension>true</extension>
+                        </configuration>
+                    </execution>
+
                     <!-- END CTE -->
 
                     <!-- BEGIN MDFE -->
