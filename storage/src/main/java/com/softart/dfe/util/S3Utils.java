@@ -12,8 +12,6 @@ import static java.nio.charset.StandardCharsets.UTF_8;
 @SuppressWarnings("all")
 public final class S3Utils {
 
-    public static final String DEFAULT_S3_BUCKET = System.getProperty("com.softart.dfe.s3.bucket");
-
     private S3Utils() {
         throw new UnsupportedOperationException("No instances of " + this.getClass().getSimpleName());
     }
@@ -70,7 +68,7 @@ public final class S3Utils {
     }
 
     static String requiredBucket() {
-        return RequireUtils.nonNull(DEFAULT_S3_BUCKET, "com.softart.dfe.s3.bucket must be set in order to use this method");
+        return RequireUtils.nonNull(System.getProperty("com.softart.dfe.s3.bucket"), "com.softart.dfe.s3.bucket must be set in order to use this method");
     }
 
     private static final class Holder {

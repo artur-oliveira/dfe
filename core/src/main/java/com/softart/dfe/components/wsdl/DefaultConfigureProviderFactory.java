@@ -15,7 +15,7 @@ import java.util.*;
 @Getter(AccessLevel.PRIVATE)
 final class DefaultConfigureProviderFactory extends ConfigureProviderFactory {
 
-    public static final int TIMEOUT_IN_SECS = Integer.parseInt(System.getProperty("com.softart.dfe.ws.timeout", "10"));
+    public static final int TIMEOUT_IN_SECS = Integer.parseInt(System.getProperty("com.softart.dfe.ws.timeout", "30"));
     private static final String SOCKET_FACTORY = "com.sun.xml.internal.ws.transport.https.client.SSLSocketFactory";
     private static final String ENDPOINT_ADDRESS = "javax.xml.ws.service.endpoint.address";
     private static final String CONNECT_TIMEOUT = "com.sun.xml.internal.ws.connect.timeout";

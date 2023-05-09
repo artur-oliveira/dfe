@@ -40,10 +40,8 @@ import java.util.stream.Collectors;
 
 
 public abstract class CteProcess implements CteProcessService {
-    private static final String DEFAULT = System.getProperty("com.softart.dfe.process.cte", "default");
-
     public static CteProcess getInstance() {
-        switch (DEFAULT) {
+        switch (System.getProperty("com.softart.dfe.process.cte", "default")) {
             case "s3":
                 return HolderS3.INSTANCE;
             case "default":

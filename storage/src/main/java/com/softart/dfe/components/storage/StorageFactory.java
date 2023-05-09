@@ -6,10 +6,8 @@ import com.softart.dfe.interfaces.storage.nf.NfceStorage;
 import com.softart.dfe.interfaces.storage.nf.NfeStorage;
 
 public abstract class StorageFactory {
-    public static final String DEFAULT_STORAGE_FACTORY = System.getProperty("com.softart.dfe.storage.default", "filesystem");
-
     public static StorageFactory getInstance() {
-        switch (DEFAULT_STORAGE_FACTORY) {
+        switch (System.getProperty("com.softart.dfe.storage.default", "filesystem")) {
             case "s3":
                 return HolderS3.S3;
             case "nostorage":
