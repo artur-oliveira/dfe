@@ -37,6 +37,36 @@ final class DefaultNfUnmarshaller extends NfUnmarshallerFactory {
     }
 
     @Override
+    public JAXBElement<br.inf.portalfiscal.nfe.event_cancel.TRetEnvEvento> returnCancelNfe(String xml) {
+        try {
+            try (StringReader reader = new StringReader(xml)) {
+                Object o = NfContextFactory.getInstance().getNfeCancelContext().createUnmarshaller().unmarshal(reader);
+                if (o instanceof JAXBElement) {
+                    return (JAXBElement<br.inf.portalfiscal.nfe.event_cancel.TRetEnvEvento>) o;
+                }
+                return cancelNfeObjectFactory.createRetEnvEvento((br.inf.portalfiscal.nfe.event_cancel.TRetEnvEvento) o);
+            }
+        } catch (JAXBException e) {
+            throw new UnmarshallException(e);
+        }
+    }
+
+    @Override
+    public JAXBElement<br.inf.portalfiscal.nfe.event_cancel.TProcEvento> procCancelNfe(String xml) {
+        try {
+            try (StringReader reader = new StringReader(xml)) {
+                Object o = NfContextFactory.getInstance().getNfeCancelContext().createUnmarshaller().unmarshal(reader);
+                if (o instanceof JAXBElement) {
+                    return (JAXBElement<br.inf.portalfiscal.nfe.event_cancel.TProcEvento>) o;
+                }
+                return cancelNfeObjectFactory.createProcEventoNFe((br.inf.portalfiscal.nfe.event_cancel.TProcEvento) o);
+            }
+        } catch (JAXBException e) {
+            throw new UnmarshallException(e);
+        }
+    }
+
+    @Override
     public JAXBElement<br.inf.portalfiscal.nfe.event_substitute_cancel.TEnvEvento> substituteCancelNfe(String xml) {
         try {
             try (StringReader reader = new StringReader(xml)) {
@@ -46,6 +76,38 @@ final class DefaultNfUnmarshaller extends NfUnmarshallerFactory {
                     return (JAXBElement<br.inf.portalfiscal.nfe.event_substitute_cancel.TEnvEvento>) o;
                 }
                 return substituteCancelNfeObjectFactory.createEnvEvento((br.inf.portalfiscal.nfe.event_substitute_cancel.TEnvEvento) o);
+            }
+        } catch (JAXBException e) {
+            throw new UnmarshallException(e);
+        }
+    }
+
+    @Override
+    public JAXBElement<br.inf.portalfiscal.nfe.event_substitute_cancel.TRetEnvEvento> returnSubstituteCancelNfe(String xml) {
+        try {
+            try (StringReader reader = new StringReader(xml)) {
+                Object o = NfContextFactory.getInstance().getNfeSubstituteCancelContext().createUnmarshaller().unmarshal(reader);
+
+                if (o instanceof JAXBElement) {
+                    return (JAXBElement<br.inf.portalfiscal.nfe.event_substitute_cancel.TRetEnvEvento>) o;
+                }
+                return substituteCancelNfeObjectFactory.createRetEnvEvento((br.inf.portalfiscal.nfe.event_substitute_cancel.TRetEnvEvento) o);
+            }
+        } catch (JAXBException e) {
+            throw new UnmarshallException(e);
+        }
+    }
+
+    @Override
+    public JAXBElement<br.inf.portalfiscal.nfe.event_substitute_cancel.TProcEvento> procSubstituteCancelNfe(String xml) {
+        try {
+            try (StringReader reader = new StringReader(xml)) {
+                Object o = NfContextFactory.getInstance().getNfeSubstituteCancelContext().createUnmarshaller().unmarshal(reader);
+
+                if (o instanceof JAXBElement) {
+                    return (JAXBElement<br.inf.portalfiscal.nfe.event_substitute_cancel.TProcEvento>) o;
+                }
+                return substituteCancelNfeObjectFactory.createProcEventoNFe((br.inf.portalfiscal.nfe.event_substitute_cancel.TProcEvento) o);
             }
         } catch (JAXBException e) {
             throw new UnmarshallException(e);
@@ -76,6 +138,36 @@ final class DefaultNfUnmarshaller extends NfUnmarshallerFactory {
                     return (JAXBElement<TInutNFe>) o;
                 }
                 return sendNfeObjectFactory.createInutNFe((TInutNFe) o);
+            }
+        } catch (JAXBException e) {
+            throw new UnmarshallException(e);
+        }
+    }
+
+    @Override
+    public JAXBElement<TRetInutNFe> retInutNfe(String xml) {
+        try {
+            try (StringReader reader = new StringReader(xml)) {
+                Object o = NfContextFactory.getInstance().getNfeSendContext().createUnmarshaller().unmarshal(reader);
+                if (o instanceof JAXBElement) {
+                    return (JAXBElement<TRetInutNFe>) o;
+                }
+                return sendNfeObjectFactory.createRetInutNFe((TRetInutNFe) o);
+            }
+        } catch (JAXBException e) {
+            throw new UnmarshallException(e);
+        }
+    }
+
+    @Override
+    public JAXBElement<TProcInutNFe> procInutNfe(String xml) {
+        try {
+            try (StringReader reader = new StringReader(xml)) {
+                Object o = NfContextFactory.getInstance().getNfeSendContext().createUnmarshaller().unmarshal(reader);
+                if (o instanceof JAXBElement) {
+                    return (JAXBElement<TProcInutNFe>) o;
+                }
+                return sendNfeObjectFactory.createProcInutNFe((TProcInutNFe) o);
             }
         } catch (JAXBException e) {
             throw new UnmarshallException(e);
@@ -145,6 +237,38 @@ final class DefaultNfUnmarshaller extends NfUnmarshallerFactory {
     }
 
     @Override
+    public JAXBElement<br.inf.portalfiscal.nfe.event_manifestation.TRetEnvEvento> returnManifestationNfe(String xml) {
+        try {
+            try (StringReader reader = new StringReader(xml)) {
+                Object o = NfContextFactory.getInstance().getNfeManifestationContext().createUnmarshaller().unmarshal(reader);
+
+                if (o instanceof JAXBElement) {
+                    return (JAXBElement<br.inf.portalfiscal.nfe.event_manifestation.TRetEnvEvento>) o;
+                }
+                return manifestationNfeObjectFactory.createRetEnvEvento((br.inf.portalfiscal.nfe.event_manifestation.TRetEnvEvento) o);
+            }
+        } catch (JAXBException e) {
+            throw new UnmarshallException(e);
+        }
+    }
+
+    @Override
+    public JAXBElement<br.inf.portalfiscal.nfe.event_manifestation.TProcEvento> procManifestationNfe(String xml) {
+        try {
+            try (StringReader reader = new StringReader(xml)) {
+                Object o = NfContextFactory.getInstance().getNfeManifestationContext().createUnmarshaller().unmarshal(reader);
+
+                if (o instanceof JAXBElement) {
+                    return (JAXBElement<br.inf.portalfiscal.nfe.event_manifestation.TProcEvento>) o;
+                }
+                return manifestationNfeObjectFactory.createProcEventoNFe((br.inf.portalfiscal.nfe.event_manifestation.TProcEvento) o);
+            }
+        } catch (JAXBException e) {
+            throw new UnmarshallException(e);
+        }
+    }
+
+    @Override
     public JAXBElement<br.inf.portalfiscal.nfe.event_epec.TEnvEvento> epecNfe(String xml) {
         try {
             try (StringReader reader = new StringReader(xml)) {
@@ -154,6 +278,38 @@ final class DefaultNfUnmarshaller extends NfUnmarshallerFactory {
                     return (JAXBElement<br.inf.portalfiscal.nfe.event_epec.TEnvEvento>) o;
                 }
                 return epecNfeObjectFactory.createEnvEvento((br.inf.portalfiscal.nfe.event_epec.TEnvEvento) o);
+            }
+        } catch (JAXBException e) {
+            throw new UnmarshallException(e);
+        }
+    }
+
+    @Override
+    public JAXBElement<br.inf.portalfiscal.nfe.event_epec.TRetEnvEvento> returnEpecNfe(String xml) {
+        try {
+            try (StringReader reader = new StringReader(xml)) {
+                Object o = NfContextFactory.getInstance().getNfeEpecContext().createUnmarshaller().unmarshal(reader);
+
+                if (o instanceof JAXBElement) {
+                    return (JAXBElement<br.inf.portalfiscal.nfe.event_epec.TRetEnvEvento>) o;
+                }
+                return epecNfeObjectFactory.createRetEnvEvento((br.inf.portalfiscal.nfe.event_epec.TRetEnvEvento) o);
+            }
+        } catch (JAXBException e) {
+            throw new UnmarshallException(e);
+        }
+    }
+
+    @Override
+    public JAXBElement<br.inf.portalfiscal.nfe.event_epec.TProcEvento> procEpecNfe(String xml) {
+        try {
+            try (StringReader reader = new StringReader(xml)) {
+                Object o = NfContextFactory.getInstance().getNfeEpecContext().createUnmarshaller().unmarshal(reader);
+
+                if (o instanceof JAXBElement) {
+                    return (JAXBElement<br.inf.portalfiscal.nfe.event_epec.TProcEvento>) o;
+                }
+                return epecNfeObjectFactory.createProcEventoNFe((br.inf.portalfiscal.nfe.event_epec.TProcEvento) o);
             }
         } catch (JAXBException e) {
             throw new UnmarshallException(e);
@@ -176,6 +332,39 @@ final class DefaultNfUnmarshaller extends NfUnmarshallerFactory {
         }
     }
 
+
+    @Override
+    public JAXBElement<br.inf.portalfiscal.nfe.event_correction_letter.TRetEnvEvento> returnCorrectionLetterNfe(String xml) {
+        try {
+            try (StringReader reader = new StringReader(xml)) {
+                Object o = NfContextFactory.getInstance().getNfeCorrectionLetterContext().createUnmarshaller().unmarshal(reader);
+
+                if (o instanceof JAXBElement) {
+                    return (JAXBElement<br.inf.portalfiscal.nfe.event_correction_letter.TRetEnvEvento>) o;
+                }
+                return correcetionLetterNfeObjectFactory.createRetEnvEvento((br.inf.portalfiscal.nfe.event_correction_letter.TRetEnvEvento) o);
+            }
+        } catch (JAXBException e) {
+            throw new UnmarshallException(e);
+        }
+    }
+
+    @Override
+    public JAXBElement<br.inf.portalfiscal.nfe.event_correction_letter.TProcEvento> procCorrectionLetterNfe(String xml) {
+        try {
+            try (StringReader reader = new StringReader(xml)) {
+                Object o = NfContextFactory.getInstance().getNfeCorrectionLetterContext().createUnmarshaller().unmarshal(reader);
+
+                if (o instanceof JAXBElement) {
+                    return (JAXBElement<br.inf.portalfiscal.nfe.event_correction_letter.TProcEvento>) o;
+                }
+                return correcetionLetterNfeObjectFactory.createProcEventoNFe((br.inf.portalfiscal.nfe.event_correction_letter.TProcEvento) o);
+            }
+        } catch (JAXBException e) {
+            throw new UnmarshallException(e);
+        }
+    }
+
     @Override
     public JAXBElement<br.inf.portalfiscal.nfe.event_interested_actor.TEnvEvento> interestedActorNfe(String xml) {
         try {
@@ -185,6 +374,36 @@ final class DefaultNfUnmarshaller extends NfUnmarshallerFactory {
                     return (JAXBElement<br.inf.portalfiscal.nfe.event_interested_actor.TEnvEvento>) o;
                 }
                 return interestedActorNfeObjectFactory.createEnvEvento((br.inf.portalfiscal.nfe.event_interested_actor.TEnvEvento) o);
+            }
+        } catch (JAXBException e) {
+            throw new UnmarshallException(e);
+        }
+    }
+
+    @Override
+    public JAXBElement<br.inf.portalfiscal.nfe.event_interested_actor.TRetEnvEvento> returnInterestedActorNfe(String xml) {
+        try {
+            try (StringReader reader = new StringReader(xml)) {
+                Object o = NfContextFactory.getInstance().getNfeInterestedActorContext().createUnmarshaller().unmarshal(reader);
+                if (o instanceof JAXBElement) {
+                    return (JAXBElement<br.inf.portalfiscal.nfe.event_interested_actor.TRetEnvEvento>) o;
+                }
+                return interestedActorNfeObjectFactory.createRetEnvEvento((br.inf.portalfiscal.nfe.event_interested_actor.TRetEnvEvento) o);
+            }
+        } catch (JAXBException e) {
+            throw new UnmarshallException(e);
+        }
+    }
+
+    @Override
+    public JAXBElement<br.inf.portalfiscal.nfe.event_interested_actor.TProcEvento> procInterestedActorNfe(String xml) {
+        try {
+            try (StringReader reader = new StringReader(xml)) {
+                Object o = NfContextFactory.getInstance().getNfeInterestedActorContext().createUnmarshaller().unmarshal(reader);
+                if (o instanceof JAXBElement) {
+                    return (JAXBElement<br.inf.portalfiscal.nfe.event_interested_actor.TProcEvento>) o;
+                }
+                return interestedActorNfeObjectFactory.createProcEventoNFe((br.inf.portalfiscal.nfe.event_interested_actor.TProcEvento) o);
             }
         } catch (JAXBException e) {
             throw new UnmarshallException(e);
