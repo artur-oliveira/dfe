@@ -70,7 +70,7 @@ public final class DateUtils {
      * @param temporal The temporal object to format.
      * @return The month of the year.
      */
-    public static String month(Temporal temporal) {
+    public static String month(TemporalAccessor temporal) {
         return String.valueOf(temporal.get(ChronoField.MONTH_OF_YEAR));
     }
 
@@ -90,7 +90,7 @@ public final class DateUtils {
      * @param temporal The temporal object to format.
      * @return The year of the temporal object.
      */
-    public static String year(Temporal temporal) {
+    public static String year(TemporalAccessor temporal) {
         return String.valueOf(temporal.get(ChronoField.YEAR));
     }
 
@@ -111,7 +111,7 @@ public final class DateUtils {
      * @param temporal The temporal object to format.
      * @return The last two digits of the year.
      */
-    public static String twoDigitsyear(Temporal temporal) {
+    public static String twoDigitsyear(TemporalAccessor temporal) {
         return DateUtils.year(temporal).substring(2, 4);
     }
 
@@ -132,7 +132,7 @@ public final class DateUtils {
      * @param temporal The temporal object to format.
      * @return A string of the month in two digits.
      */
-    public static String twoDigitsMonth(Temporal temporal) {
+    public static String twoDigitsMonth(TemporalAccessor temporal) {
         return StringUtils.padZeroStart(month(temporal), 2);
     }
 
@@ -152,7 +152,7 @@ public final class DateUtils {
      * @param temporal The temporal object to format.
      * @return A string representation of the date in the format yyMM.
      */
-    public static String yyMM(Temporal temporal) {
+    public static String yyMM(TemporalAccessor temporal) {
         return DateUtils.formatters.get(DateUtils.yyMM).format(temporal);
     }
 

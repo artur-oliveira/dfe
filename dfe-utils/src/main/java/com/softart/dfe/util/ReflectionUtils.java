@@ -82,7 +82,7 @@ public final class ReflectionUtils {
      * @param packageName The name of the package to search for classes in.
      * @return The method is returning a Set of Class objects.
      */
-    private static Set<Class<?>> getClassesFromDirectory(File directory, String packageName) throws ClassNotFoundException, IOException {
+    private static Set<Class<?>> getClassesFromDirectory(File directory, String packageName) throws ClassNotFoundException {
         File tmpDirectory;
         Set<Class<?>> classes = new HashSet<>();
         if (directory.exists() && directory.isDirectory()) {
@@ -162,23 +162,6 @@ public final class ReflectionUtils {
         }
 
         return Collections.unmodifiableSet(allClasses);
-    }
-
-    /**
-     * It takes a class name and a package name, and returns the class object
-     *
-     * @param className   The name of the class to be loaded.
-     * @param packageName The package name of the class to be loaded.
-     * @return A Class object.
-     */
-    private static Class<?> getClass(String className, String packageName) {
-        try {
-            return Class.forName(packageName + "."
-                    + className.substring(0, className.lastIndexOf('.')));
-        } catch (ClassNotFoundException ex) {
-            log.error(String.join(" ", "ERROR:", ex.getMessage(), className, packageName));
-        }
-        return null;
     }
 
 }

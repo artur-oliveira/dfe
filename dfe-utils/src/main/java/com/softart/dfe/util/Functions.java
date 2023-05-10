@@ -1,5 +1,6 @@
 package com.softart.dfe.util;
 
+import java.lang.reflect.Array;
 import java.util.*;
 
 public final class Functions {
@@ -22,7 +23,7 @@ public final class Functions {
      */
     public static boolean isNullOrEmpty(Object o) {
         if (Objects.isNull(o)) return true;
-        if (o instanceof Object[]) return ((Object[]) o).length == 0;
+        if (o.getClass().isArray()) return Array.getLength(o) == 0;
         else if (o instanceof CharSequence) return o.toString().isEmpty();
         else if (o instanceof Collection) return ((Collection<?>) o).isEmpty();
         else if (o instanceof Enumeration) return ((Enumeration<?>) o).hasMoreElements();
