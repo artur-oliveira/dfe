@@ -5,8 +5,8 @@ import br.inf.portalfiscal.nfe.send.*;
 import com.softart.dfe.components.internal.xml.context.NfContextFactory;
 import com.softart.dfe.exceptions.xml.UnmarshallException;
 
-import javax.xml.bind.JAXBElement;
-import javax.xml.bind.JAXBException;
+import jakarta.xml.bind.JAXBElement;
+import jakarta.xml.bind.JAXBException;
 import java.io.StringReader;
 
 @SuppressWarnings("unchecked")

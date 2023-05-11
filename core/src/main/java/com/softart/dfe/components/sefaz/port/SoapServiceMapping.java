@@ -9,7 +9,7 @@ import com.softart.dfe.util.ReflectionUtils;
 import lombok.AccessLevel;
 import lombok.Getter;
 
-import javax.xml.ws.Service;
+import jakarta.xml.ws.Service;
 import java.util.Collections;
 import java.util.Set;
 

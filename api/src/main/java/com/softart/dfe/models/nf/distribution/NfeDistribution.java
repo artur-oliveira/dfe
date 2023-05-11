@@ -28,7 +28,7 @@ public class NfeDistribution implements DFObject, XMLAdapter<NfeDistribution, TD
     @ToString
     @AllArgsConstructor
     @NoArgsConstructor
-    public static class DistNSU implements DFObject, XMLAdapter<DistNSU, TDistDFeInt.DistNSU> {
+    public static class DistNSU implements DFObject, XMLAdapter<DistNSU, br.inf.portalfiscal.nfe.distribution.DistNSU> {
         protected String ultNSU;
     }
 
@@ -38,7 +38,7 @@ public class NfeDistribution implements DFObject, XMLAdapter<NfeDistribution, TD
     @ToString
     @AllArgsConstructor
     @NoArgsConstructor
-    public static class ConsNSU implements DFObject, XMLAdapter<ConsNSU, TDistDFeInt.ConsNSU> {
+    public static class ConsNSU implements DFObject, XMLAdapter<ConsNSU, br.inf.portalfiscal.nfe.distribution.ConsNSU> {
         protected String nsu;
     }
 
@@ -48,7 +48,7 @@ public class NfeDistribution implements DFObject, XMLAdapter<NfeDistribution, TD
     @ToString
     @AllArgsConstructor
     @NoArgsConstructor
-    public static class ConsChNFe implements DFObject, XMLAdapter<ConsChNFe, TDistDFeInt.ConsChNFe> {
+    public static class ConsChNFe implements DFObject, XMLAdapter<ConsChNFe, br.inf.portalfiscal.nfe.distribution.ConsChNFe> {
         protected String chNFe;
     }
 

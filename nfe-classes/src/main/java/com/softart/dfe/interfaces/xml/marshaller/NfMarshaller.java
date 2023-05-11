@@ -6,7 +6,7 @@ import br.inf.portalfiscal.nfe.gtin.TConsGTIN;
 import br.inf.portalfiscal.nfe.gtin.TRetConsGTIN;
 import br.inf.portalfiscal.nfe.send.*;
 
-import javax.xml.bind.JAXBElement;
+import jakarta.xml.bind.JAXBElement;
 
 @SuppressWarnings("unused")
 public interface NfMarshaller {

@@ -1,12 +1,12 @@
 package br.inf.portalfiscal.nfe.wsdl.event_interested_actor.an.prod;
 
-import javax.xml.bind.annotation.XmlRegistry;
+import jakarta.xml.bind.annotation.XmlRegistry;
 
 
 /**
  * This object contains factory methods for each
  * Java content interface and Java element interface
- * generated in the br.inf.portalfiscal.nfe.wsdl.event.an.prod package.
+ * generated in the br.inf.portalfiscal.nfe.wsdl.event_manifestation.an.prod package.
  * <p>An ObjectFactory allows you to programatically
  * construct new instances of the Java representation
  * for XML content. The Java representation of XML
@@ -21,13 +21,15 @@ public class ObjectFactory {
 
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: br.inf.portalfiscal.nfe.wsdl.event.an.prod
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: br.inf.portalfiscal.nfe.wsdl.event_manifestation.an.prod
      */
     public ObjectFactory() {
     }
 
     /**
      * Create an instance of {@link NfeDadosMsg }
+     *
+     * @return the new instance of {@link NfeDadosMsg }
      */
     public NfeDadosMsg createNfeDadosMsg() {
         return new NfeDadosMsg();
@@ -35,6 +37,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link NfeRecepcaoEventoNFResult }
+     *
+     * @return the new instance of {@link NfeRecepcaoEventoNFResult }
      */
     public NfeRecepcaoEventoNFResult createNfeRecepcaoEventoNFResult() {
         return new NfeRecepcaoEventoNFResult();

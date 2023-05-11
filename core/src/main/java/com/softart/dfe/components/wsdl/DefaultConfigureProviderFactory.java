@@ -8,8 +8,8 @@ import com.softart.dfe.models.internal.wsdl.ProviderConfig;
 import lombok.AccessLevel;
 import lombok.Getter;
 
-import javax.xml.ws.BindingProvider;
-import javax.xml.ws.handler.soap.SOAPHandler;
+import jakarta.xml.ws.BindingProvider;
+import jakarta.xml.ws.handler.soap.SOAPHandler;
 import java.util.*;
 
 @Getter(AccessLevel.PRIVATE)
@@ -17,7 +17,7 @@ final class DefaultConfigureProviderFactory extends ConfigureProviderFactory {
 
     public static final int TIMEOUT_IN_SECS = Integer.parseInt(System.getProperty("com.softart.dfe.ws.timeout", "30"));
     private static final String SOCKET_FACTORY = "com.sun.xml.internal.ws.transport.https.client.SSLSocketFactory";
-    private static final String ENDPOINT_ADDRESS = "javax.xml.ws.service.endpoint.address";
+    private static final String ENDPOINT_ADDRESS = "jakarta.xml.ws.service.endpoint.address";
     private static final String CONNECT_TIMEOUT = "com.sun.xml.internal.ws.connect.timeout";
     private static final String REQUEST_TIMEOUT = "com.sun.xml.internal.ws.request.timeout";
 

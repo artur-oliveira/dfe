@@ -45,7 +45,7 @@ public class ReturnNfeEpec implements DFObject, XMLAdapter<ReturnNfeEpec, TRetEn
         @ToString
         @AllArgsConstructor
         @NoArgsConstructor
-        public static class InfEvento implements DFObject, XMLAdapter<InfEvento, br.inf.portalfiscal.nfe.event_epec.TRetEvento.InfEvento> {
+        public static class InfEvento implements DFObject, XMLAdapter<InfEvento, br.inf.portalfiscal.nfe.event_epec.InfEvento> {
             protected String tpAmb;
             protected String verAplic;
             protected String cOrgao;

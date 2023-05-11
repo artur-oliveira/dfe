@@ -1,7 +1,6 @@
-
 package br.inf.portalfiscal.nfe.wsdl.query_register.mt.hom;
 
-import javax.xml.bind.annotation.XmlRegistry;
+import jakarta.xml.bind.annotation.XmlRegistry;
 
 
 /**
@@ -29,6 +28,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ConsultaCadastro }
+     *
+     * @return the new instance of {@link ConsultaCadastro }
      */
     public ConsultaCadastro createConsultaCadastro() {
         return new ConsultaCadastro();
@@ -36,6 +37,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link NfeResultMsg }
+     *
+     * @return the new instance of {@link NfeResultMsg }
      */
     public NfeResultMsg createNfeResultMsg() {
         return new NfeResultMsg();
@@ -43,6 +46,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ConsultaCadastro.NfeDadosMsg }
+     *
+     * @return the new instance of {@link ConsultaCadastro.NfeDadosMsg }
      */
     public ConsultaCadastro.NfeDadosMsg createConsultaCadastroNfeDadosMsg() {
         return new ConsultaCadastro.NfeDadosMsg();
@@ -50,6 +55,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link NfeResultMsg.ConsultaCadastroResult }
+     *
+     * @return the new instance of {@link NfeResultMsg.ConsultaCadastroResult }
      */
     public NfeResultMsg.ConsultaCadastroResult createNfeResultMsgConsultaCadastroResult() {
         return new NfeResultMsg.ConsultaCadastroResult();

@@ -8,7 +8,7 @@ import com.softart.dfe.interfaces.xml.generic.DFObject;
 import com.softart.dfe.models.cte.event.CteReturnEvent;
 import lombok.*;
 
-import javax.xml.bind.JAXBElement;
+import jakarta.xml.bind.JAXBElement;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;

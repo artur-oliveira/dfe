@@ -32,7 +32,7 @@ public class NfeEpec implements DFObject, XMLAdapter<NfeEpec, TEvento> {
     @Builder
     @AllArgsConstructor
     @NoArgsConstructor
-    public static class InfEvento implements DFObject, XMLAdapter<InfEvento, TEvento.InfEvento> {
+    public static class InfEvento implements DFObject, XMLAdapter<InfEvento, br.inf.portalfiscal.nfe.event_epec.InfEvento> {
 
         @Builder.Default
         protected String dhEvento = DateUtils.nowString();
@@ -52,8 +52,8 @@ public class NfeEpec implements DFObject, XMLAdapter<NfeEpec, TEvento> {
         protected String id;
 
         @Override
-        public TEvento.InfEvento toObject() {
-            TEvento.InfEvento evento = XMLAdapter.super.toObject();
+        public br.inf.portalfiscal.nfe.event_epec.InfEvento toObject() {
+            br.inf.portalfiscal.nfe.event_epec.InfEvento evento = XMLAdapter.super.toObject();
             evento.setId(XMLStringUtils.idEvento(getTpEvento(), getChNFe(), getNSeqEvento()));
             evento.setCNPJ(AccessKeyParserFactory.nfe().cnpj(getChNFe()));
             return evento;
@@ -65,7 +65,7 @@ public class NfeEpec implements DFObject, XMLAdapter<NfeEpec, TEvento> {
         @Builder
         @AllArgsConstructor
         @NoArgsConstructor
-        public static class DetEvento implements DFObject, XMLAdapter<DetEvento, TEvento.InfEvento.DetEvento> {
+        public static class DetEvento implements DFObject, XMLAdapter<DetEvento, br.inf.portalfiscal.nfe.event_epec.DetEvento> {
             @Builder.Default
             protected String versao = NFEventVersion.getDefault().getVersion();
             @Builder.Default
@@ -86,7 +86,7 @@ public class NfeEpec implements DFObject, XMLAdapter<NfeEpec, TEvento> {
             @Builder
             @AllArgsConstructor
             @NoArgsConstructor
-            public static class Dest implements DFObject, XMLAdapter<Dest, TEvento.InfEvento.DetEvento.Dest> {
+            public static class Dest implements DFObject, XMLAdapter<Dest, br.inf.portalfiscal.nfe.event_epec.EpecDest> {
                 protected TUf uf;
                 protected String cnpj;
                 protected String cpf;

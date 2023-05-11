@@ -1,32 +1,33 @@
 package br.inf.portalfiscal.nfe.wsdl.authorization.svrs.hom;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAnyAttribute;
-import javax.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlAnyAttribute;
+import jakarta.xml.bind.annotation.XmlType;
+
 import javax.xml.namespace.QName;
 import java.util.HashMap;
 import java.util.Map;
 
 
 /**
- * <p>Classe Java de nfeMonitoria complex type.
+ * <p>Java class for nfeMonitoria complex type.
  *
- * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  *
- * <pre>
- * &lt;complexType name="nfeMonitoria"&gt;
- *   &lt;complexContent&gt;
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *       &lt;sequence&gt;
- *         &lt;element name="nomeServidor" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="dhServidor" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *       &lt;/sequence&gt;
- *       &lt;anyAttribute/&gt;
- *     &lt;/restriction&gt;
- *   &lt;/complexContent&gt;
- * &lt;/complexType&gt;
- * </pre>
+ * <pre>{@code
+ * <complexType name="nfeMonitoria">
+ *   <complexContent>
+ *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *       <sequence>
+ *         <element name="nomeServidor" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         <element name="dhServidor" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *       </sequence>
+ *       <anyAttribute/>
+ *     </restriction>
+ *   </complexContent>
+ * </complexType>
+ * }</pre>
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "nfeMonitoria", propOrder = {
@@ -35,13 +36,13 @@ import java.util.Map;
 })
 public class NfeMonitoria {
 
-    @XmlAnyAttribute
-    private final Map<QName, String> otherAttributes = new HashMap<QName, String>();
     protected String nomeServidor;
     protected String dhServidor;
+    @XmlAnyAttribute
+    private Map<QName, String> otherAttributes = new HashMap<>();
 
     /**
-     * Obtém o valor da propriedade nomeServidor.
+     * Gets the value of the nomeServidor property.
      *
      * @return possible object is
      * {@link String }
@@ -51,7 +52,7 @@ public class NfeMonitoria {
     }
 
     /**
-     * Define o valor da propriedade nomeServidor.
+     * Sets the value of the nomeServidor property.
      *
      * @param value allowed object is
      *              {@link String }
@@ -61,7 +62,7 @@ public class NfeMonitoria {
     }
 
     /**
-     * Obtém o valor da propriedade dhServidor.
+     * Gets the value of the dhServidor property.
      *
      * @return possible object is
      * {@link String }
@@ -71,7 +72,7 @@ public class NfeMonitoria {
     }
 
     /**
-     * Define o valor da propriedade dhServidor.
+     * Sets the value of the dhServidor property.
      *
      * @param value allowed object is
      *              {@link String }

@@ -1,6 +1,6 @@
 package br.inf.portalfiscal.nfe.wsdl.query_gtin.svrs.prod;
 
-import javax.xml.bind.annotation.XmlRegistry;
+import jakarta.xml.bind.annotation.XmlRegistry;
 
 
 /**
@@ -28,6 +28,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CcgConsGTIN }
+     *
+     * @return the new instance of {@link CcgConsGTIN }
      */
     public CcgConsGTIN createCcgConsGTIN() {
         return new CcgConsGTIN();
@@ -35,6 +37,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CcgConsGTINResponse }
+     *
+     * @return the new instance of {@link CcgConsGTINResponse }
      */
     public CcgConsGTINResponse createCcgConsGTINResponse() {
         return new CcgConsGTINResponse();
@@ -42,6 +46,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CcgConsGTIN.NfeDadosMsg }
+     *
+     * @return the new instance of {@link CcgConsGTIN.NfeDadosMsg }
      */
     public CcgConsGTIN.NfeDadosMsg createCcgConsGTINNfeDadosMsg() {
         return new CcgConsGTIN.NfeDadosMsg();
@@ -49,6 +55,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CcgConsGTINResponse.NfeResultMsg }
+     *
+     * @return the new instance of {@link CcgConsGTINResponse.NfeResultMsg }
      */
     public CcgConsGTINResponse.NfeResultMsg createCcgConsGTINResponseNfeResultMsg() {
         return new CcgConsGTINResponse.NfeResultMsg();

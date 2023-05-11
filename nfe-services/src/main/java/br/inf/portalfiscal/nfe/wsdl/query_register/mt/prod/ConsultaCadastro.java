@@ -1,37 +1,37 @@
-
 package br.inf.portalfiscal.nfe.wsdl.query_register.mt.prod;
 
-import javax.xml.bind.annotation.*;
+import jakarta.xml.bind.annotation.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
 
 /**
- * <p>Classe Java de anonymous complex type.
+ * <p>Java class for anonymous complex type.
  *
- * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  *
- * <pre>
- * &lt;complexType&gt;
- *   &lt;complexContent&gt;
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *       &lt;sequence&gt;
- *         &lt;element name="nfeDadosMsg" minOccurs="0"&gt;
- *           &lt;complexType&gt;
- *             &lt;complexContent&gt;
- *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                 &lt;sequence&gt;
- *                   &lt;any/&gt;
- *                 &lt;/sequence&gt;
- *               &lt;/restriction&gt;
- *             &lt;/complexContent&gt;
- *           &lt;/complexType&gt;
- *         &lt;/element&gt;
- *       &lt;/sequence&gt;
- *     &lt;/restriction&gt;
- *   &lt;/complexContent&gt;
- * &lt;/complexType&gt;
- * </pre>
+ * <pre>{@code
+ * <complexType>
+ *   <complexContent>
+ *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *       <sequence>
+ *         <element name="nfeDadosMsg" minOccurs="0">
+ *           <complexType>
+ *             <complexContent>
+ *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                 <sequence>
+ *                   <any/>
+ *                 </sequence>
+ *               </restriction>
+ *             </complexContent>
+ *           </complexType>
+ *         </element>
+ *       </sequence>
+ *     </restriction>
+ *   </complexContent>
+ * </complexType>
+ * }</pre>
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
@@ -43,7 +43,7 @@ public class ConsultaCadastro {
     protected NfeDadosMsg nfeDadosMsg;
 
     /**
-     * Obtém o valor da propriedade nfeDadosMsg.
+     * Gets the value of the nfeDadosMsg property.
      *
      * @return possible object is
      * {@link NfeDadosMsg }
@@ -53,7 +53,7 @@ public class ConsultaCadastro {
     }
 
     /**
-     * Define o valor da propriedade nfeDadosMsg.
+     * Sets the value of the nfeDadosMsg property.
      *
      * @param value allowed object is
      *              {@link NfeDadosMsg }
@@ -64,21 +64,21 @@ public class ConsultaCadastro {
 
 
     /**
-     * <p>Classe Java de anonymous complex type.
+     * <p>Java class for anonymous complex type.
      *
-     * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
+     * <p>The following schema fragment specifies the expected content contained within this class.
      *
-     * <pre>
-     * &lt;complexType&gt;
-     *   &lt;complexContent&gt;
-     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *       &lt;sequence&gt;
-     *         &lt;any/&gt;
-     *       &lt;/sequence&gt;
-     *     &lt;/restriction&gt;
-     *   &lt;/complexContent&gt;
-     * &lt;/complexType&gt;
-     * </pre>
+     * <pre>{@code
+     * <complexType>
+     *   <complexContent>
+     *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *       <sequence>
+     *         <any/>
+     *       </sequence>
+     *     </restriction>
+     *   </complexContent>
+     * </complexType>
+     * }</pre>
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
@@ -96,8 +96,8 @@ public class ConsultaCadastro {
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
-         * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the content property.
+         * returned list will be present inside the Jakarta XML Binding object.
+         * This is why there is not a {@code set} method for the content property.
          *
          * <p>
          * For example, to add a new item, do as follows:
@@ -110,10 +110,12 @@ public class ConsultaCadastro {
          * Objects of the following type(s) are allowed in the list
          * {@link Object }
          * {@link String }
+         *
+         * @return The value of the content property.
          */
         public List<Object> getContent() {
             if (content == null) {
-                content = new ArrayList<Object>();
+                content = new ArrayList<>();
             }
             return this.content;
         }

@@ -1,14 +1,15 @@
 package com.softart.dfe.interfaces.xml.unmarshaller;
 
 import br.inf.portalfiscal.nfe.distribution.TDistDFeInt;
-import br.inf.portalfiscal.nfe.event_cancel.TEnvEvento;
 import br.inf.portalfiscal.nfe.send.*;
 
-import javax.xml.bind.JAXBElement;
+import jakarta.xml.bind.JAXBElement;
 
 public interface NfUnmarshaller {
     JAXBElement<br.inf.portalfiscal.nfe.event_cancel.TEnvEvento> cancelNfe(String xml);
+
     JAXBElement<br.inf.portalfiscal.nfe.event_cancel.TRetEnvEvento> returnCancelNfe(String xml);
+
     JAXBElement<br.inf.portalfiscal.nfe.event_cancel.TProcEvento> procCancelNfe(String xml);
 
     JAXBElement<br.inf.portalfiscal.nfe.event_substitute_cancel.TEnvEvento> substituteCancelNfe(String xml);

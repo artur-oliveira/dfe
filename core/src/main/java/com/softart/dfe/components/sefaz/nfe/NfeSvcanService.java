@@ -25,8 +25,8 @@ import com.softart.dfe.models.internal.Validation;
 import com.softart.dfe.models.internal.wsdl.ProviderConfig;
 import lombok.Getter;
 
-import javax.xml.bind.JAXBElement;
-import javax.xml.ws.BindingProvider;
+import jakarta.xml.bind.JAXBElement;
+import jakarta.xml.ws.BindingProvider;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Objects;

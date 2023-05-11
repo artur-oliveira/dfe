@@ -4,8 +4,8 @@ import br.inf.portalfiscal.cte.distribution.DistDFeInt;
 import br.inf.portalfiscal.cte.send.*;
 import org.w3c.dom.Element;
 
-import javax.xml.bind.JAXBElement;
-import javax.xml.bind.JAXBException;
+import jakarta.xml.bind.JAXBElement;
+import jakarta.xml.bind.JAXBException;
 
 public interface CteUnmarshaller {
     JAXBElement<DistDFeInt> distributionCte(String xml);

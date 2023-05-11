@@ -1,12 +1,9 @@
 package com.softart.dfe.components.internal.xml.marshaller;
 
 
-import com.softart.dfe.util.StringUtils;
 import org.junit.jupiter.api.Test;
 
-import java.util.Objects;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class DefaultNfMarshallerTest {
 

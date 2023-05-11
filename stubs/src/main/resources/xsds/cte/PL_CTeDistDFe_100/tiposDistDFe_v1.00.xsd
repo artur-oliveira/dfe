@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cte="http://www.portalfiscal.inf.br/cte"
            targetNamespace="http://www.portalfiscal.inf.br/cte" elementFormDefault="qualified"
-           attributeFormDefault="unqualified">
+>
     <xs:simpleType name="TNSU">
         <xs:annotation>
             <xs:documentation>Tipo número sequencial único</xs:documentation>

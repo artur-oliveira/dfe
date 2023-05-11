@@ -1,64 +1,65 @@
 package br.inf.portalfiscal.nfe.wsdl.return_authorization.mg.hom;
 
-import javax.xml.bind.annotation.*;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlType;
+
 import java.util.ArrayList;
 import java.util.List;
 
 
 /**
- * <p>Classe Java de nFeRetAutorizacao4Result complex type.
+ * <p>Java class for nFeRetAutorizacao4Result complex type.
  *
- * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  *
- * <pre>
- * &lt;complexType name="nFeRetAutorizacao4Result"&gt;
- *   &lt;complexContent&gt;
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *       &lt;sequence&gt;
- *         &lt;element name="content" type="{http://www.w3.org/2001/XMLSchema}anyType" maxOccurs="unbounded" minOccurs="0"/&gt;
- *       &lt;/sequence&gt;
- *     &lt;/restriction&gt;
- *   &lt;/complexContent&gt;
- * &lt;/complexType&gt;
- * </pre>
+ * <pre>{@code
+ * <complexType name="nFeRetAutorizacao4Result">
+ *   <complexContent>
+ *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *       <sequence>
+ *         <element name="retConsReciNFe" type="{http://www.w3.org/2001/XMLSchema}anyType" maxOccurs="unbounded" minOccurs="0"/>
+ *       </sequence>
+ *     </restriction>
+ *   </complexContent>
+ * </complexType>
+ * }</pre>
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "nFeRetAutorizacao4Result", propOrder = {
-        "content"
+        "retConsReciNFe"
 })
 public class NFeRetAutorizacao4Result {
 
-    @XmlMixed
-    @XmlAnyElement(lax = true)
-    protected List<Object> content;
+    protected List<Object> retConsReciNFe;
 
     /**
-     * Gets the value of the content property.
+     * Gets the value of the retConsReciNFe property.
      *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the content property.
+     * returned list will be present inside the Jakarta XML Binding object.
+     * This is why there is not a {@code set} method for the retConsReciNFe property.
      *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getContent().add(newItem);
+     *    getRetConsReciNFe().add(newItem);
      * </pre>
      *
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Object }
-     * {@link String }
+     *
+     * @return The value of the retConsReciNFe property.
      */
-    public List<Object> getContent() {
-        if (content == null) {
-            content = new ArrayList<Object>();
+    public List<Object> getRetConsReciNFe() {
+        if (retConsReciNFe == null) {
+            retConsReciNFe = new ArrayList<>();
         }
-        return this.content;
+        return this.retConsReciNFe;
     }
-
 
 }

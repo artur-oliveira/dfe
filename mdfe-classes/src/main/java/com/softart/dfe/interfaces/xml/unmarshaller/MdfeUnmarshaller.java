@@ -3,8 +3,8 @@ package com.softart.dfe.interfaces.xml.unmarshaller;
 import br.inf.portalfiscal.mdfe.classes.*;
 import org.w3c.dom.Element;
 
-import javax.xml.bind.JAXBElement;
-import javax.xml.bind.JAXBException;
+import jakarta.xml.bind.JAXBElement;
+import jakarta.xml.bind.JAXBException;
 
 public interface MdfeUnmarshaller {
     JAXBElement<TDistDFe> sendDistribution(String xml);

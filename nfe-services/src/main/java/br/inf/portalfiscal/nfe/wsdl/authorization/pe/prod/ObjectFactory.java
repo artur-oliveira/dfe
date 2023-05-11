@@ -1,6 +1,6 @@
 package br.inf.portalfiscal.nfe.wsdl.authorization.pe.prod;
 
-import javax.xml.bind.annotation.XmlRegistry;
+import jakarta.xml.bind.annotation.XmlRegistry;
 
 
 /**
@@ -28,6 +28,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link NfeDadosMsg }
+     *
+     * @return the new instance of {@link NfeDadosMsg }
      */
     public NfeDadosMsg createNfeDadosMsg() {
         return new NfeDadosMsg();
@@ -35,6 +37,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link NfeResultMsg }
+     *
+     * @return the new instance of {@link NfeResultMsg }
      */
     public NfeResultMsg createNfeResultMsg() {
         return new NfeResultMsg();
@@ -42,6 +46,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link NfeDadosMsgZip }
+     *
+     * @return the new instance of {@link NfeDadosMsgZip }
      */
     public NfeDadosMsgZip createNfeDadosMsgZip() {
         return new NfeDadosMsgZip();
@@ -49,6 +55,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link NfeResultMsgZip }
+     *
+     * @return the new instance of {@link NfeResultMsgZip }
      */
     public NfeResultMsgZip createNfeResultMsgZip() {
         return new NfeResultMsgZip();

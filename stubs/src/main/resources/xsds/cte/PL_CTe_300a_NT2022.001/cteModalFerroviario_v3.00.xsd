@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns="http://www.portalfiscal.inf.br/cte" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.portalfiscal.inf.br/cte"
            targetNamespace="http://www.portalfiscal.inf.br/cte" elementFormDefault="qualified"
-           attributeFormDefault="unqualified">
+>
     <xs:include schemaLocation="tiposGeralCTe_v3.00.xsd"/>
     <xs:include schemaLocation="cteTiposBasico_v3.00.xsd"/>
     <xs:complexType name="TEnderFer">

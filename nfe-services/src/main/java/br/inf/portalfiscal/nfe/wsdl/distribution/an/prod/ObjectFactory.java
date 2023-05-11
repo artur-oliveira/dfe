@@ -1,6 +1,6 @@
 package br.inf.portalfiscal.nfe.wsdl.distribution.an.prod;
 
-import javax.xml.bind.annotation.XmlRegistry;
+import jakarta.xml.bind.annotation.XmlRegistry;
 
 
 /**
@@ -28,6 +28,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link NfeDistDFeInteresse }
+     *
+     * @return the new instance of {@link NfeDistDFeInteresse }
      */
     public NfeDistDFeInteresse createNfeDistDFeInteresse() {
         return new NfeDistDFeInteresse();
@@ -35,6 +37,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link NfeDistDFeInteresseResponse }
+     *
+     * @return the new instance of {@link NfeDistDFeInteresseResponse }
      */
     public NfeDistDFeInteresseResponse createNfeDistDFeInteresseResponse() {
         return new NfeDistDFeInteresseResponse();
@@ -42,6 +46,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link NfeDistDFeInteresse.NfeDadosMsg }
+     *
+     * @return the new instance of {@link NfeDistDFeInteresse.NfeDadosMsg }
      */
     public NfeDistDFeInteresse.NfeDadosMsg createNfeDistDFeInteresseNfeDadosMsg() {
         return new NfeDistDFeInteresse.NfeDadosMsg();
@@ -49,6 +55,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link NfeDistDFeInteresseResponse.NfeDistDFeInteresseResult }
+     *
+     * @return the new instance of {@link NfeDistDFeInteresseResponse.NfeDistDFeInteresseResult }
      */
     public NfeDistDFeInteresseResponse.NfeDistDFeInteresseResult createNfeDistDFeInteresseResponseNfeDistDFeInteresseResult() {
         return new NfeDistDFeInteresseResponse.NfeDistDFeInteresseResult();

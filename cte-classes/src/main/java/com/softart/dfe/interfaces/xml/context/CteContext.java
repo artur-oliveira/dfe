@@ -1,6 +1,6 @@
 package com.softart.dfe.interfaces.xml.context;
 
-import javax.xml.bind.JAXBContext;
+import jakarta.xml.bind.JAXBContext;
 
 public interface CteContext {
 

@@ -1,6 +1,6 @@
 package br.inf.portalfiscal.nfe.wsdl.inutilization.ms.nfce.hom;
 
-import javax.xml.bind.annotation.XmlRegistry;
+import jakarta.xml.bind.annotation.XmlRegistry;
 
 
 /**
@@ -28,6 +28,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link NfeCabecMsg }
+     *
+     * @return the new instance of {@link NfeCabecMsg }
      */
     public NfeCabecMsg createNfeCabecMsg() {
         return new NfeCabecMsg();
@@ -35,6 +37,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link NfeDadosMsg }
+     *
+     * @return the new instance of {@link NfeDadosMsg }
      */
     public NfeDadosMsg createNfeDadosMsg() {
         return new NfeDadosMsg();
@@ -42,6 +46,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link NfeResultMsg }
+     *
+     * @return the new instance of {@link NfeResultMsg }
      */
     public NfeResultMsg createNfeResultMsg() {
         return new NfeResultMsg();

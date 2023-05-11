@@ -1,8 +1,9 @@
 package br.inf.portalfiscal.nfe.wsdl.authorization.sp.nfce.hom;
 
-import javax.xml.bind.JAXBElement;
-import javax.xml.bind.annotation.XmlElementDecl;
-import javax.xml.bind.annotation.XmlRegistry;
+import jakarta.xml.bind.JAXBElement;
+import jakarta.xml.bind.annotation.XmlElementDecl;
+import jakarta.xml.bind.annotation.XmlRegistry;
+
 import javax.xml.namespace.QName;
 
 
@@ -22,7 +23,7 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _NfeDadosMsgZip_QNAME = new QName("http://www.portalfiscal.inf.br/nfe/wsdl/NFeAutorizacao4", "nfeDadosMsgZip");
+    private static final QName _NfeDadosMsgZip_QNAME = new QName("http://www.portalfiscal.inf.br/nfe/wsdl/NFeAutorizacao4", "nfeDadosMsgZip");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: br.inf.portalfiscal.nfe.wsdl.authorization.sp.nfce.hom
@@ -32,6 +33,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link NfeDadosMsg }
+     *
+     * @return the new instance of {@link NfeDadosMsg }
      */
     public NfeDadosMsg createNfeDadosMsg() {
         return new NfeDadosMsg();
@@ -39,6 +42,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link NfeResultMsg }
+     *
+     * @return the new instance of {@link NfeResultMsg }
      */
     public NfeResultMsg createNfeResultMsg() {
         return new NfeResultMsg();
@@ -52,7 +57,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeAutorizacao4", name = "nfeDadosMsgZip")
     public JAXBElement<String> createNfeDadosMsgZip(String value) {
-        return new JAXBElement<String>(_NfeDadosMsgZip_QNAME, String.class, null, value);
+        return new JAXBElement<>(_NfeDadosMsgZip_QNAME, String.class, null, value);
     }
 
 }

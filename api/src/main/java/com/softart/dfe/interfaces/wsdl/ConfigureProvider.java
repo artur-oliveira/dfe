@@ -4,7 +4,7 @@ import com.softart.dfe.exceptions.security.SecurityException;
 import com.softart.dfe.interfaces.internal.config.Config;
 import com.softart.dfe.models.internal.wsdl.ProviderConfig;
 
-import javax.xml.ws.BindingProvider;
+import jakarta.xml.ws.BindingProvider;
 
 public interface ConfigureProvider {
 

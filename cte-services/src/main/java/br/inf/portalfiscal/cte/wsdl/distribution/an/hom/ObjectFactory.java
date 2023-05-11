@@ -1,6 +1,6 @@
 package br.inf.portalfiscal.cte.wsdl.distribution.an.hom;
 
-import javax.xml.bind.annotation.XmlRegistry;
+import jakarta.xml.bind.annotation.XmlRegistry;
 
 
 /**
@@ -28,6 +28,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CteDistDFeInteresse }
+     *
+     * @return the new instance of {@link CteDistDFeInteresse }
      */
     public CteDistDFeInteresse createCteDistDFeInteresse() {
         return new CteDistDFeInteresse();
@@ -35,6 +37,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CteDistDFeInteresseResponse }
+     *
+     * @return the new instance of {@link CteDistDFeInteresseResponse }
      */
     public CteDistDFeInteresseResponse createCteDistDFeInteresseResponse() {
         return new CteDistDFeInteresseResponse();
@@ -42,6 +46,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CteDistDFeInteresse.CteDadosMsg }
+     *
+     * @return the new instance of {@link CteDistDFeInteresse.CteDadosMsg }
      */
     public CteDistDFeInteresse.CteDadosMsg createCteDistDFeInteresseCteDadosMsg() {
         return new CteDistDFeInteresse.CteDadosMsg();
@@ -49,6 +55,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CteDistDFeInteresseResponse.CteDistDFeInteresseResult }
+     *
+     * @return the new instance of {@link CteDistDFeInteresseResponse.CteDistDFeInteresseResult }
      */
     public CteDistDFeInteresseResponse.CteDistDFeInteresseResult createCteDistDFeInteresseResponseCteDistDFeInteresseResult() {
         return new CteDistDFeInteresseResponse.CteDistDFeInteresseResult();

@@ -1,29 +1,30 @@
 package br.inf.portalfiscal.mdfe.wsdl.query_situation.svrs.hom;
 
-import javax.xml.bind.annotation.*;
+import jakarta.xml.bind.annotation.*;
+
 import javax.xml.namespace.QName;
 import java.util.HashMap;
 import java.util.Map;
 
 
 /**
- * <p>Classe Java de mdfeCabecMsg complex type.
+ * <p>Java class for mdfeCabecMsg complex type.
  *
- * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  *
- * <pre>
- * &lt;complexType name="mdfeCabecMsg"&gt;
- *   &lt;complexContent&gt;
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *       &lt;sequence&gt;
- *         &lt;element name="cUF" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="versaoDados" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *       &lt;/sequence&gt;
- *       &lt;anyAttribute/&gt;
- *     &lt;/restriction&gt;
- *   &lt;/complexContent&gt;
- * &lt;/complexType&gt;
- * </pre>
+ * <pre>{@code
+ * <complexType name="mdfeCabecMsg">
+ *   <complexContent>
+ *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *       <sequence>
+ *         <element name="cUF" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         <element name="versaoDados" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *       </sequence>
+ *       <anyAttribute/>
+ *     </restriction>
+ *   </complexContent>
+ * </complexType>
+ * }</pre>
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "mdfeCabecMsg", propOrder = {
@@ -36,10 +37,10 @@ public class MdfeCabecMsg {
     protected String cuf;
     protected String versaoDados;
     @XmlAnyAttribute
-    private final Map<QName, String> otherAttributes = new HashMap<QName, String>();
+    private Map<QName, String> otherAttributes = new HashMap<>();
 
     /**
-     * Obtém o valor da propriedade cuf.
+     * Gets the value of the cuf property.
      *
      * @return possible object is
      * {@link String }
@@ -49,7 +50,7 @@ public class MdfeCabecMsg {
     }
 
     /**
-     * Define o valor da propriedade cuf.
+     * Sets the value of the cuf property.
      *
      * @param value allowed object is
      *              {@link String }
@@ -59,7 +60,7 @@ public class MdfeCabecMsg {
     }
 
     /**
-     * Obtém o valor da propriedade versaoDados.
+     * Gets the value of the versaoDados property.
      *
      * @return possible object is
      * {@link String }
@@ -69,7 +70,7 @@ public class MdfeCabecMsg {
     }
 
     /**
-     * Define o valor da propriedade versaoDados.
+     * Sets the value of the versaoDados property.
      *
      * @param value allowed object is
      *              {@link String }

@@ -4,7 +4,7 @@ import com.softart.dfe.interfaces.internal.Pair;
 import com.softart.dfe.interfaces.xml.generic.XML;
 import com.softart.dfe.util.ClassUtils;
 
-import javax.xml.bind.JAXBElement;
+import jakarta.xml.bind.JAXBElement;
 import javax.xml.datatype.XMLGregorianCalendar;
 import java.beans.PropertyDescriptor;
 import java.lang.reflect.ParameterizedType;

@@ -1,8 +1,9 @@
 package br.inf.portalfiscal.mdfe.wsdl.reception_sync.svrs.hom;
 
-import javax.xml.bind.JAXBElement;
-import javax.xml.bind.annotation.XmlElementDecl;
-import javax.xml.bind.annotation.XmlRegistry;
+import jakarta.xml.bind.JAXBElement;
+import jakarta.xml.bind.annotation.XmlElementDecl;
+import jakarta.xml.bind.annotation.XmlRegistry;
+
 import javax.xml.namespace.QName;
 
 
@@ -22,7 +23,7 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _MdfeDadosMsg_QNAME = new QName("http://www.portalfiscal.inf.br/mdfe/wsdl/MDFeRecepcaoSinc", "mdfeDadosMsg");
+    private static final QName _MdfeDadosMsg_QNAME = new QName("http://www.portalfiscal.inf.br/mdfe/wsdl/MDFeRecepcaoSinc", "mdfeDadosMsg");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: br.inf.portalfiscal.mdfe.wsdl.reception_sync.svrs.hom
@@ -32,6 +33,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link MdfeRecepcaoResult }
+     *
+     * @return the new instance of {@link MdfeRecepcaoResult }
      */
     public MdfeRecepcaoResult createMdfeRecepcaoResult() {
         return new MdfeRecepcaoResult();
@@ -45,7 +48,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe/wsdl/MDFeRecepcaoSinc", name = "mdfeDadosMsg")
     public JAXBElement<String> createMdfeDadosMsg(String value) {
-        return new JAXBElement<String>(_MdfeDadosMsg_QNAME, String.class, null, value);
+        return new JAXBElement<>(_MdfeDadosMsg_QNAME, String.class, null, value);
     }
 
 }

@@ -9,7 +9,7 @@ import com.softart.dfe.util.XMLStringUtils;
 import com.softart.dfe.util.XMLUtils;
 import org.w3c.dom.Element;
 
-import javax.xml.bind.JAXBException;
+import jakarta.xml.bind.JAXBException;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.IOException;

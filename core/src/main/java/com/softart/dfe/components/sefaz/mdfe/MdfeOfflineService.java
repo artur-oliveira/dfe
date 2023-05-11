@@ -22,7 +22,7 @@ import com.softart.dfe.models.internal.Before;
 import com.softart.dfe.models.internal.Validation;
 import lombok.Getter;
 
-import javax.xml.bind.JAXBElement;
+import jakarta.xml.bind.JAXBElement;
 import java.util.Collection;
 import java.util.Objects;
 

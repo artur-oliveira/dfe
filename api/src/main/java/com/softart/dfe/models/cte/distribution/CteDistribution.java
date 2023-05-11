@@ -30,7 +30,7 @@ public class CteDistribution implements DFObject, XMLAdapter<CteDistribution, Di
     @ToString
     @AllArgsConstructor
     @NoArgsConstructor
-    public static class DistNSU implements DFObject, XMLAdapter<DistNSU, DistDFeInt.DistNSU> {
+    public static class DistNSU implements DFObject, XMLAdapter<DistNSU, br.inf.portalfiscal.cte.distribution.DistNSU> {
         protected String ultNSU;
     }
 
@@ -40,7 +40,7 @@ public class CteDistribution implements DFObject, XMLAdapter<CteDistribution, Di
     @ToString
     @AllArgsConstructor
     @NoArgsConstructor
-    public static class ConsNSU implements DFObject, XMLAdapter<ConsNSU, DistDFeInt.ConsNSU> {
+    public static class ConsNSU implements DFObject, XMLAdapter<ConsNSU, br.inf.portalfiscal.cte.distribution.ConsNSU> {
         protected String nsu;
     }
 

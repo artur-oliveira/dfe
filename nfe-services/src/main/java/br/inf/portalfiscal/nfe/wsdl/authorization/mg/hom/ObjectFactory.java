@@ -1,8 +1,9 @@
 package br.inf.portalfiscal.nfe.wsdl.authorization.mg.hom;
 
-import javax.xml.bind.JAXBElement;
-import javax.xml.bind.annotation.XmlElementDecl;
-import javax.xml.bind.annotation.XmlRegistry;
+import jakarta.xml.bind.JAXBElement;
+import jakarta.xml.bind.annotation.XmlElementDecl;
+import jakarta.xml.bind.annotation.XmlRegistry;
+
 import javax.xml.namespace.QName;
 
 
@@ -22,7 +23,7 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _NfeResultMsg_QNAME = new QName("http://www.portalfiscal.inf.br/nfe/wsdl/NFeAutorizacao4", "nfeResultMsg");
+    private static final QName _NfeResultMsg_QNAME = new QName("http://www.portalfiscal.inf.br/nfe/wsdl/NFeAutorizacao4", "nfeResultMsg");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: br.inf.portalfiscal.nfe.wsdl.authorization.mg.hom
@@ -32,6 +33,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link NfeDadosMsg }
+     *
+     * @return the new instance of {@link NfeDadosMsg }
      */
     public NfeDadosMsg createNfeDadosMsg() {
         return new NfeDadosMsg();
@@ -39,6 +42,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link NfeDadosMsgZip }
+     *
+     * @return the new instance of {@link NfeDadosMsgZip }
      */
     public NfeDadosMsgZip createNfeDadosMsgZip() {
         return new NfeDadosMsgZip();
@@ -46,6 +51,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link NFeAutorizacao4LoteResult }
+     *
+     * @return the new instance of {@link NFeAutorizacao4LoteResult }
      */
     public NFeAutorizacao4LoteResult createNFeAutorizacao4LoteResult() {
         return new NFeAutorizacao4LoteResult();
@@ -59,7 +66,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeAutorizacao4", name = "nfeResultMsg")
     public JAXBElement<NFeAutorizacao4LoteResult> createNfeResultMsg(NFeAutorizacao4LoteResult value) {
-        return new JAXBElement<NFeAutorizacao4LoteResult>(_NfeResultMsg_QNAME, NFeAutorizacao4LoteResult.class, null, value);
+        return new JAXBElement<>(_NfeResultMsg_QNAME, NFeAutorizacao4LoteResult.class, null, value);
     }
 
 }

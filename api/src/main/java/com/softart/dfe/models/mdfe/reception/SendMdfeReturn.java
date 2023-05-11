@@ -8,7 +8,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.datatype.XMLGregorianCalendar;
 import java.math.BigInteger;
 
@@ -32,7 +31,6 @@ public final class SendMdfeReturn implements DFObject, XMLAdapter<SendMdfeReturn
     @NoArgsConstructor
     public static final class InfRec implements DFObject, XMLAdapter<InfRec, TRetEnviMDFe.InfRec> {
         private String nRec;
-        @XmlSchemaType(name = "dateTime")
         private XMLGregorianCalendar dhRecbto;
         private BigInteger tMed;
     }

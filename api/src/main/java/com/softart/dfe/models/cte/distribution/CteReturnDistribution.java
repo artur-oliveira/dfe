@@ -32,7 +32,7 @@ public class CteReturnDistribution implements DFObject, XMLAdapter<CteReturnDist
     @ToString
     @AllArgsConstructor
     @NoArgsConstructor
-    public static class LoteDistDFeInt implements DFObject, XMLAdapter<LoteDistDFeInt, RetDistDFeInt.LoteDistDFeInt> {
+    public static class LoteDistDFeInt implements DFObject, XMLAdapter<LoteDistDFeInt, br.inf.portalfiscal.cte.distribution.LoteDistDFeInt> {
         protected List<DocZip> docZip;
 
 
@@ -42,14 +42,14 @@ public class CteReturnDistribution implements DFObject, XMLAdapter<CteReturnDist
         @ToString
         @AllArgsConstructor
         @NoArgsConstructor
-        public static class DocZip implements DFObject, XMLAdapter<DocZip, RetDistDFeInt.LoteDistDFeInt.DocZip> {
+        public static class DocZip implements DFObject, XMLAdapter<DocZip, br.inf.portalfiscal.cte.distribution.DocZip> {
             protected String value;
             protected String nsu;
             protected String schema;
 
             @Override
-            public RetDistDFeInt.LoteDistDFeInt.DocZip toObject() {
-                RetDistDFeInt.LoteDistDFeInt.DocZip docZip = new RetDistDFeInt.LoteDistDFeInt.DocZip();
+            public br.inf.portalfiscal.cte.distribution.DocZip toObject() {
+                br.inf.portalfiscal.cte.distribution.DocZip docZip = new br.inf.portalfiscal.cte.distribution.DocZip();
 
                 docZip.setNSU(getNsu());
                 docZip.setSchema(getSchema());
@@ -63,7 +63,7 @@ public class CteReturnDistribution implements DFObject, XMLAdapter<CteReturnDist
             }
 
             @Override
-            public DocZip fromObject(RetDistDFeInt.LoteDistDFeInt.DocZip o) {
+            public DocZip fromObject(br.inf.portalfiscal.cte.distribution.DocZip o) {
                 DocZip docZip = DocZip.builder().build();
                 docZip.setNsu(o.getNSU());
                 docZip.setSchema(o.getSchema());

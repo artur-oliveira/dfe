@@ -23,11 +23,10 @@ import com.softart.dfe.models.internal.Validation;
 import com.softart.dfe.models.internal.wsdl.ProviderConfig;
 import com.softart.dfe.util.GZIPUtils;
 import com.softart.dfe.util.RequireUtils;
+import jakarta.xml.bind.JAXBElement;
+import jakarta.xml.ws.BindingProvider;
 import lombok.Getter;
 
-import javax.xml.bind.JAXBElement;
-import javax.xml.ws.BindingProvider;
-import javax.xml.ws.Holder;
 import java.util.Collection;
 import java.util.Objects;
 
@@ -89,7 +88,7 @@ public final class MdfeSvrsService implements MdfeService {
             cabecMsg.setVersaoDados(envio.getValue().getVersao());
             dadosMsg.getContent().add(envio);
 
-            br.inf.portalfiscal.mdfe.wsdl.distribution.svrs.prod.MdfeDistDFeInteresseResult result = ws.mdfeDistDFeInteresse(dadosMsg, new Holder<>(cabecMsg));
+            br.inf.portalfiscal.mdfe.wsdl.distribution.svrs.prod.MdfeDistDFeInteresseResult result = ws.mdfeDistDFeInteresse(dadosMsg);
 
             if (!result.getContent().isEmpty()) {
                 resultElement = (JAXBElement<?>) result.getContent().get(0);
@@ -107,7 +106,7 @@ public final class MdfeSvrsService implements MdfeService {
             cabecMsg.setVersaoDados(envio.getValue().getVersao());
             dadosMsg.getContent().add(envio);
 
-            br.inf.portalfiscal.mdfe.wsdl.distribution.svrs.hom.MdfeDistDFeInteresseResult result = ws.mdfeDistDFeInteresse(dadosMsg, new Holder<>(cabecMsg));
+            br.inf.portalfiscal.mdfe.wsdl.distribution.svrs.hom.MdfeDistDFeInteresseResult result = ws.mdfeDistDFeInteresse(dadosMsg);
 
             if (!result.getContent().isEmpty()) {
                 resultElement = (JAXBElement<?>) result.getContent().get(0);
@@ -151,7 +150,7 @@ public final class MdfeSvrsService implements MdfeService {
             cabecMsg.setVersaoDados(envio.getValue().getVersao());
             dadosMsg.getContent().add(envio);
 
-            br.inf.portalfiscal.mdfe.wsdl.event.svrs.prod.MdfeRecepcaoEventoResult result = ws.mdfeRecepcaoEvento(dadosMsg, new Holder<>(cabecMsg));
+            br.inf.portalfiscal.mdfe.wsdl.event.svrs.prod.MdfeRecepcaoEventoResult result = ws.mdfeRecepcaoEvento(dadosMsg);
 
             if (!result.getContent().isEmpty()) {
                 resultElement = (JAXBElement<?>) result.getContent().get(0);
@@ -169,7 +168,7 @@ public final class MdfeSvrsService implements MdfeService {
             cabecMsg.setVersaoDados(envio.getValue().getVersao());
             dadosMsg.getContent().add(envio);
 
-            br.inf.portalfiscal.mdfe.wsdl.event.svrs.hom.MdfeRecepcaoEventoResult result = ws.mdfeRecepcaoEvento(dadosMsg, new Holder<>(cabecMsg));
+            br.inf.portalfiscal.mdfe.wsdl.event.svrs.hom.MdfeRecepcaoEventoResult result = ws.mdfeRecepcaoEvento(dadosMsg);
 
             if (!result.getContent().isEmpty()) {
                 resultElement = (JAXBElement<?>) result.getContent().get(0);
@@ -213,7 +212,7 @@ public final class MdfeSvrsService implements MdfeService {
             cabecMsg.setVersaoDados(envio.getValue().getVersao());
             dadosMsg.getContent().add(envio);
 
-            br.inf.portalfiscal.mdfe.wsdl.query_receipt.svrs.prod.MdfeRetRecepcaoResult result = ws.mdfeRetRecepcao(dadosMsg, new Holder<>(cabecMsg));
+            br.inf.portalfiscal.mdfe.wsdl.query_receipt.svrs.prod.MdfeRetRecepcaoResult result = ws.mdfeRetRecepcao(dadosMsg);
 
             if (!result.getContent().isEmpty()) {
                 resultElement = (JAXBElement<?>) result.getContent().get(0);
@@ -231,7 +230,7 @@ public final class MdfeSvrsService implements MdfeService {
             cabecMsg.setVersaoDados(envio.getValue().getVersao());
             dadosMsg.getContent().add(envio);
 
-            br.inf.portalfiscal.mdfe.wsdl.query_receipt.svrs.hom.MdfeRetRecepcaoResult result = ws.mdfeRetRecepcao(dadosMsg, new Holder<>(cabecMsg));
+            br.inf.portalfiscal.mdfe.wsdl.query_receipt.svrs.hom.MdfeRetRecepcaoResult result = ws.mdfeRetRecepcao(dadosMsg);
 
             if (!result.getContent().isEmpty()) {
                 resultElement = (JAXBElement<?>) result.getContent().get(0);
@@ -275,7 +274,7 @@ public final class MdfeSvrsService implements MdfeService {
             cabecMsg.setVersaoDados(envio.getValue().getVersao());
             dadosMsg.getContent().add(envio);
 
-            br.inf.portalfiscal.mdfe.wsdl.query_situation.svrs.prod.MdfeConsultaMDFResult result = ws.mdfeConsultaMDF(dadosMsg, new Holder<>(cabecMsg));
+            br.inf.portalfiscal.mdfe.wsdl.query_situation.svrs.prod.MdfeConsultaMDFResult result = ws.mdfeConsultaMDF(dadosMsg);
 
             if (!result.getContent().isEmpty()) {
                 resultElement = (JAXBElement<?>) result.getContent().get(0);
@@ -293,7 +292,7 @@ public final class MdfeSvrsService implements MdfeService {
             cabecMsg.setVersaoDados(envio.getValue().getVersao());
             dadosMsg.getContent().add(envio);
 
-            br.inf.portalfiscal.mdfe.wsdl.query_situation.svrs.hom.MdfeConsultaMDFResult result = ws.mdfeConsultaMDF(dadosMsg, new Holder<>(cabecMsg));
+            br.inf.portalfiscal.mdfe.wsdl.query_situation.svrs.hom.MdfeConsultaMDFResult result = ws.mdfeConsultaMDF(dadosMsg);
 
             if (!result.getContent().isEmpty()) {
                 resultElement = (JAXBElement<?>) result.getContent().get(0);
@@ -337,7 +336,7 @@ public final class MdfeSvrsService implements MdfeService {
             cabecMsg.setVersaoDados(envio.getValue().getVersao());
             dadosMsg.getContent().add(envio);
 
-            br.inf.portalfiscal.mdfe.wsdl.query_unclosed.svrs.prod.MdfeConsNaoEncResult result = ws.mdfeConsNaoEnc(dadosMsg, new Holder<>(cabecMsg));
+            br.inf.portalfiscal.mdfe.wsdl.query_unclosed.svrs.prod.MdfeConsNaoEncResult result = ws.mdfeConsNaoEnc(dadosMsg);
 
             if (!result.getContent().isEmpty()) {
                 resultElement = (JAXBElement<?>) result.getContent().get(0);
@@ -355,7 +354,7 @@ public final class MdfeSvrsService implements MdfeService {
             cabecMsg.setVersaoDados(envio.getValue().getVersao());
             dadosMsg.getContent().add(envio);
 
-            br.inf.portalfiscal.mdfe.wsdl.query_unclosed.svrs.hom.MdfeConsNaoEncResult result = ws.mdfeConsNaoEnc(dadosMsg, new Holder<>(cabecMsg));
+            br.inf.portalfiscal.mdfe.wsdl.query_unclosed.svrs.hom.MdfeConsNaoEncResult result = ws.mdfeConsNaoEnc(dadosMsg);
 
             if (!result.getContent().isEmpty()) {
                 resultElement = (JAXBElement<?>) result.getContent().get(0);
@@ -399,7 +398,7 @@ public final class MdfeSvrsService implements MdfeService {
             cabecMsg.setVersaoDados(envio.getValue().getVersao());
             dadosMsg.getContent().add(envio);
 
-            br.inf.portalfiscal.mdfe.wsdl.reception.svrs.prod.MdfeRecepcaoLoteResult result = ws.mdfeRecepcaoLote(dadosMsg, new Holder<>(cabecMsg));
+            br.inf.portalfiscal.mdfe.wsdl.reception.svrs.prod.MdfeRecepcaoLoteResult result = ws.mdfeRecepcaoLote(dadosMsg);
 
             if (!result.getContent().isEmpty()) {
                 resultElement = (JAXBElement<?>) result.getContent().get(0);
@@ -417,7 +416,7 @@ public final class MdfeSvrsService implements MdfeService {
             cabecMsg.setVersaoDados(envio.getValue().getVersao());
             dadosMsg.getContent().add(envio);
 
-            br.inf.portalfiscal.mdfe.wsdl.reception.svrs.hom.MdfeRecepcaoLoteResult result = ws.mdfeRecepcaoLote(dadosMsg, new Holder<>(cabecMsg));
+            br.inf.portalfiscal.mdfe.wsdl.reception.svrs.hom.MdfeRecepcaoLoteResult result = ws.mdfeRecepcaoLote(dadosMsg);
 
             if (!result.getContent().isEmpty()) {
                 resultElement = (JAXBElement<?>) result.getContent().get(0);
@@ -517,7 +516,7 @@ public final class MdfeSvrsService implements MdfeService {
             cabecMsg.setVersaoDados(envio.getValue().getVersao());
             dadosMsg.getContent().add(envio);
 
-            br.inf.portalfiscal.mdfe.wsdl.status_service.svrs.prod.MdfeStatusServicoMDFResult result = ws.mdfeStatusServicoMDF(dadosMsg, new Holder<>(cabecMsg));
+            br.inf.portalfiscal.mdfe.wsdl.status_service.svrs.prod.MdfeStatusServicoMDFResult result = ws.mdfeStatusServicoMDF(dadosMsg);
 
             if (!result.getContent().isEmpty()) {
                 resultElement = (JAXBElement<?>) result.getContent().get(0);
@@ -535,7 +534,7 @@ public final class MdfeSvrsService implements MdfeService {
             cabecMsg.setVersaoDados(envio.getValue().getVersao());
             dadosMsg.getContent().add(envio);
 
-            br.inf.portalfiscal.mdfe.wsdl.status_service.svrs.hom.MdfeStatusServicoMDFResult result = ws.mdfeStatusServicoMDF(dadosMsg, new Holder<>(cabecMsg));
+            br.inf.portalfiscal.mdfe.wsdl.status_service.svrs.hom.MdfeStatusServicoMDFResult result = ws.mdfeStatusServicoMDF(dadosMsg);
 
             if (!result.getContent().isEmpty()) {
                 resultElement = (JAXBElement<?>) result.getContent().get(0);

@@ -2,7 +2,7 @@ package com.softart.dfe.components.internal.xml.context;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class DefaultNfContextTest {
 

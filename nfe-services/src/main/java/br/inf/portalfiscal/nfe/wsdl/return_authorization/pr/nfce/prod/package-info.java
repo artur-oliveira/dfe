@@ -1,5 +1,6 @@
 /**
- * Servico destinado a retornar o resultado do processamento do lote de NFCe
+ * Servico destinado a retornar o resultado do
+ * processamento do lote de NFCe
  */
-@javax.xml.bind.annotation.XmlSchema(namespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeRetAutorizacao4")
+@jakarta.xml.bind.annotation.XmlSchema(namespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeRetAutorizacao4")
 package br.inf.portalfiscal.nfe.wsdl.return_authorization.pr.nfce.prod;

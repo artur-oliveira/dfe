@@ -20,8 +20,8 @@ import com.softart.dfe.models.internal.Before;
 import com.softart.dfe.models.internal.Validation;
 import com.softart.dfe.models.internal.wsdl.ProviderConfig;
 
-import javax.xml.bind.JAXBElement;
-import javax.xml.ws.BindingProvider;
+import jakarta.xml.bind.JAXBElement;
+import jakarta.xml.ws.BindingProvider;
 
 public abstract class CteAnService implements CteService {
 

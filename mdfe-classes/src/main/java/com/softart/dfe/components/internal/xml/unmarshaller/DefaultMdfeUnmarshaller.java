@@ -7,8 +7,8 @@ import com.softart.dfe.exceptions.xml.MarshallException;
 import com.softart.dfe.util.XMLUtils;
 import org.w3c.dom.Element;
 
-import javax.xml.bind.JAXBElement;
-import javax.xml.bind.JAXBException;
+import jakarta.xml.bind.JAXBElement;
+import jakarta.xml.bind.JAXBException;
 import java.io.StringReader;
 
 @SuppressWarnings({"unchecked", "unused"})

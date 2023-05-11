@@ -25,7 +25,7 @@
     </dependencies>
 
     <properties>
-        <s3-sdk.version>1.12.409</s3-sdk.version>
+        <s3-sdk.version>1.12.466</s3-sdk.version>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

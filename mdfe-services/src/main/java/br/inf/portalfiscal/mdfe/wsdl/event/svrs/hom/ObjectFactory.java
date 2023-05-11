@@ -1,8 +1,9 @@
 package br.inf.portalfiscal.mdfe.wsdl.event.svrs.hom;
 
-import javax.xml.bind.JAXBElement;
-import javax.xml.bind.annotation.XmlElementDecl;
-import javax.xml.bind.annotation.XmlRegistry;
+import jakarta.xml.bind.JAXBElement;
+import jakarta.xml.bind.annotation.XmlElementDecl;
+import jakarta.xml.bind.annotation.XmlRegistry;
+
 import javax.xml.namespace.QName;
 
 
@@ -22,7 +23,7 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _MdfeCabecMsg_QNAME = new QName("http://www.portalfiscal.inf.br/mdfe/wsdl/MDFeRecepcaoEvento", "mdfeCabecMsg");
+    private static final QName _MdfeCabecMsg_QNAME = new QName("http://www.portalfiscal.inf.br/mdfe/wsdl/MDFeRecepcaoEvento", "mdfeCabecMsg");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: br.inf.portalfiscal.mdfe.wsdl.event.svrs.hom
@@ -32,6 +33,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link MdfeDadosMsg }
+     *
+     * @return the new instance of {@link MdfeDadosMsg }
      */
     public MdfeDadosMsg createMdfeDadosMsg() {
         return new MdfeDadosMsg();
@@ -39,6 +42,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link MdfeRecepcaoEventoResult }
+     *
+     * @return the new instance of {@link MdfeRecepcaoEventoResult }
      */
     public MdfeRecepcaoEventoResult createMdfeRecepcaoEventoResult() {
         return new MdfeRecepcaoEventoResult();
@@ -46,6 +51,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link MdfeCabecMsg }
+     *
+     * @return the new instance of {@link MdfeCabecMsg }
      */
     public MdfeCabecMsg createMdfeCabecMsg() {
         return new MdfeCabecMsg();
@@ -59,7 +66,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe/wsdl/MDFeRecepcaoEvento", name = "mdfeCabecMsg")
     public JAXBElement<MdfeCabecMsg> createMdfeCabecMsg(MdfeCabecMsg value) {
-        return new JAXBElement<MdfeCabecMsg>(_MdfeCabecMsg_QNAME, MdfeCabecMsg.class, null, value);
+        return new JAXBElement<>(_MdfeCabecMsg_QNAME, MdfeCabecMsg.class, null, value);
     }
 
 }

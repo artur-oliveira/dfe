@@ -1,8 +1,9 @@
 package br.inf.portalfiscal.cte.wsdl.event.ms.hom;
 
-import javax.xml.bind.JAXBElement;
-import javax.xml.bind.annotation.XmlElementDecl;
-import javax.xml.bind.annotation.XmlRegistry;
+import jakarta.xml.bind.JAXBElement;
+import jakarta.xml.bind.annotation.XmlElementDecl;
+import jakarta.xml.bind.annotation.XmlRegistry;
+
 import javax.xml.namespace.QName;
 
 
@@ -22,7 +23,7 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _CteCabecMsg_QNAME = new QName("http://www.portalfiscal.inf.br/cte/wsdl/CteRecepcaoEvento", "cteCabecMsg");
+    private static final QName _CteCabecMsg_QNAME = new QName("http://www.portalfiscal.inf.br/cte/wsdl/CteRecepcaoEvento", "cteCabecMsg");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: br.inf.portalfiscal.cte.wsdl.event.ms.hom
@@ -32,6 +33,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CteDadosMsg }
+     *
+     * @return the new instance of {@link CteDadosMsg }
      */
     public CteDadosMsg createCteDadosMsg() {
         return new CteDadosMsg();
@@ -39,6 +42,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CteRecepcaoEventoResult }
+     *
+     * @return the new instance of {@link CteRecepcaoEventoResult }
      */
     public CteRecepcaoEventoResult createCteRecepcaoEventoResult() {
         return new CteRecepcaoEventoResult();
@@ -46,6 +51,8 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link CTeCabecMsg }
+     *
+     * @return the new instance of {@link CTeCabecMsg }
      */
     public CTeCabecMsg createCTeCabecMsg() {
         return new CTeCabecMsg();
@@ -59,7 +66,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte/wsdl/CteRecepcaoEvento", name = "cteCabecMsg")
     public JAXBElement<CTeCabecMsg> createCteCabecMsg(CTeCabecMsg value) {
-        return new JAXBElement<CTeCabecMsg>(_CteCabecMsg_QNAME, CTeCabecMsg.class, null, value);
+        return new JAXBElement<>(_CteCabecMsg_QNAME, CTeCabecMsg.class, null, value);
     }
 
 }
