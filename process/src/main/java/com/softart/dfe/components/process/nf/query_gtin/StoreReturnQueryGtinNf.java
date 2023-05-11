@@ -17,11 +17,11 @@ public abstract class StoreReturnQueryGtinNf implements AfterQueryGtin {
 
     @Override
     public <T extends AfterRequest<TConsGTIN, TRetConsGTIN>> void process(T data) throws ProcessException {
-        if (Objects.nonNull(data.getResponse())) {
+        if (Objects.nonNull(data.response())) {
             if (Objects.nonNull(getStorage()))
-                getStorage().storeReturnQueryGtin(new XMLStore<>(data.getResponse(), data.getConfig(), NfMarshallerFactory.getInstance().returnQueryGtinNf(data.getResponse())));
+                getStorage().storeReturnQueryGtin(new XMLStore<>(data.response(), data.config(), NfMarshallerFactory.getInstance().returnQueryGtinNf(data.response())));
         } else {
-            log.warn(Objects.requireNonNull(data.getResponse()).getXMotivo());
+            log.warn(Objects.requireNonNull(data.response()).getXMotivo());
         }
 
     }

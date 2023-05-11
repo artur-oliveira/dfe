@@ -56,23 +56,23 @@ public final class MdfeOfflineService implements MdfeService {
     }
 
     @Override
-    public <T extends SefazRequest<TDistDFe, TRetDistDFe>> Pair<TDistDFe, TRetDistDFe> distribution(T data) throws SecurityException, ValidationException, ProcessException {
+    public <T extends SefazRequest<TDistDFe, TRetDistDFe>> Pair<TDistDFe, TRetDistDFe> distribution(T data) {
         throw new UnsupportedOperationException("not implemented");
     }
 
     @Override
-    public <T extends SefazRequest<TEvento, TRetEvento>> Pair<TEvento, TRetEvento> event(T data) throws SecurityException, ValidationException, ProcessException {
+    public <T extends SefazRequest<TEvento, TRetEvento>> Pair<TEvento, TRetEvento> event(T data) {
         throw new UnsupportedOperationException("not implemented");
     }
 
     @Override
-    public <T extends SefazRequest<TConsReciMDFe, TRetConsReciMDFe>> Pair<TConsReciMDFe, TRetConsReciMDFe> queryReceipt(T data) throws SecurityException, ValidationException, ProcessException {
+    public <T extends SefazRequest<TConsReciMDFe, TRetConsReciMDFe>> Pair<TConsReciMDFe, TRetConsReciMDFe> queryReceipt(T data) {
         throw new UnsupportedOperationException("not implemented");
 
     }
 
     @Override
-    public <T extends SefazRequest<TConsSitMDFe, TRetConsSitMDFe>> Pair<TConsSitMDFe, TRetConsSitMDFe> querySituation(T data) throws SecurityException, ValidationException, ProcessException {
+    public <T extends SefazRequest<TConsSitMDFe, TRetConsSitMDFe>> Pair<TConsSitMDFe, TRetConsSitMDFe> querySituation(T data) {
         throw new UnsupportedOperationException("not implemented");
     }
 
@@ -83,18 +83,18 @@ public final class MdfeOfflineService implements MdfeService {
 
     @Override
     public <T extends SefazRequest<TEnviMDFe, TRetEnviMDFe>> Pair<TEnviMDFe, TRetEnviMDFe> reception(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = data.getSigner().signMdfe(MdfeMarshallerFactory.getInstance().sendReception(data.getData()), data.getConfig());
+        String xml = data.signer().signMdfe(MdfeMarshallerFactory.getInstance().sendReception(data.data()), data.config());
         JAXBElement<TEnviMDFe> envio = MdfeUnmarshallerFactory.getInstance().sendReception(xml);
-        for (Validator<TEnviMDFe> validator : data.getValidators()) {
+        for (Validator<TEnviMDFe> validator : data.validators()) {
             validator.valid(new Validation<>(envio.getValue(), xml));
         }
 
-        for (BeforeWebServiceRequest<TEnviMDFe> before : data.getBeforeRequest()) {
-            before.process(new Before<>(envio.getValue(), data.getConfig()));
+        for (BeforeWebServiceRequest<TEnviMDFe> before : data.beforeRequest()) {
+            before.process(new Before<>(envio.getValue(), data.config()));
         }
 
-        for (AfterWebServiceRequest<TEnviMDFe, TRetEnviMDFe> after : data.getAfterRequest()) {
-            after.process(new After<>(envio.getValue(), new TRetEnviMDFe(), data.getConfig()));
+        for (AfterWebServiceRequest<TEnviMDFe, TRetEnviMDFe> after : data.afterRequest()) {
+            after.process(new After<>(envio.getValue(), new TRetEnviMDFe(), data.config()));
         }
 
         return new PairImpl<>(envio.getValue(), new TRetEnviMDFe());
@@ -102,25 +102,25 @@ public final class MdfeOfflineService implements MdfeService {
 
     @Override
     public <T extends SefazRequest<TMDFe, TRetMDFe>> Pair<TMDFe, TRetMDFe> receptionSync(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = data.getSigner().signMdfe(MdfeMarshallerFactory.getInstance().sendReceptionSync(data.getData()), data.getConfig());
+        String xml = data.signer().signMdfe(MdfeMarshallerFactory.getInstance().sendReceptionSync(data.data()), data.config());
         JAXBElement<TMDFe> envio = MdfeUnmarshallerFactory.getInstance().sendReceptionSync(xml);
-        for (Validator<TMDFe> validator : data.getValidators()) {
+        for (Validator<TMDFe> validator : data.validators()) {
             validator.valid(new Validation<>(envio.getValue(), xml));
         }
 
-        for (BeforeWebServiceRequest<TMDFe> before : data.getBeforeRequest()) {
-            before.process(new Before<>(envio.getValue(), data.getConfig()));
+        for (BeforeWebServiceRequest<TMDFe> before : data.beforeRequest()) {
+            before.process(new Before<>(envio.getValue(), data.config()));
         }
 
-        for (AfterWebServiceRequest<TMDFe, TRetMDFe> after : data.getAfterRequest()) {
-            after.process(new After<>(envio.getValue(), new TRetMDFe(), data.getConfig()));
+        for (AfterWebServiceRequest<TMDFe, TRetMDFe> after : data.afterRequest()) {
+            after.process(new After<>(envio.getValue(), new TRetMDFe(), data.config()));
         }
 
         return new PairImpl<>(envio.getValue(), new TRetMDFe());
     }
 
     @Override
-    public <T extends SefazRequest<TConsStatServ, TRetConsStatServ>> Pair<TConsStatServ, TRetConsStatServ> statusService(T data) throws SecurityException, ValidationException, ProcessException {
+    public <T extends SefazRequest<TConsStatServ, TRetConsStatServ>> Pair<TConsStatServ, TRetConsStatServ> statusService(T data) {
         throw new UnsupportedOperationException("not implemented");
     }
 }

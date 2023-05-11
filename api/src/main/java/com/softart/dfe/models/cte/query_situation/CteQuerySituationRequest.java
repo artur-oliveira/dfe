@@ -9,22 +9,20 @@ import com.softart.dfe.interfaces.sefaz.SefazRequest;
 import com.softart.dfe.interfaces.validation.cte.CteQuerySituationValidator;
 import com.softart.dfe.interfaces.wsdl.ConfigureProvider;
 import com.softart.dfe.interfaces.xml.XMLSignerService;
-import lombok.*;
+import lombok.Builder;
 
 import java.util.Collection;
 
-@Getter
-@Setter
 @Builder
-@ToString
-@AllArgsConstructor
-@NoArgsConstructor
-public final class CteQuerySituationRequest implements SefazRequest<TConsSitCTe, TRetConsSitCTe> {
-    public TConsSitCTe data;
-    public Config config;
-    public XMLSignerService signer;
-    public ConfigureProvider configureProvider;
-    public Collection<CteQuerySituationValidator> validators;
-    public Collection<BeforeQuerySituation> beforeRequest;
-    public Collection<AfterQuerySituation> afterRequest;
+public record CteQuerySituationRequest(
+        TConsSitCTe data,
+        Config config,
+        XMLSignerService signer,
+        ConfigureProvider configureProvider,
+        Collection<CteQuerySituationValidator> validators,
+        Collection<BeforeQuerySituation> beforeRequest,
+        Collection<AfterQuerySituation> afterRequest
+) implements SefazRequest<TConsSitCTe, TRetConsSitCTe> {
+
+
 }

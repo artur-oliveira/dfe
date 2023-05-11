@@ -11,6 +11,7 @@ public interface NfCancelStorage extends Storage {
     /**
      * It cancels a stored procedure.
      *
+     * @throws StorageException StorageException
      * @param o The store object
      */
     void storeProcCancel(Store<TProcEvento> o) throws StorageException;
@@ -18,6 +19,7 @@ public interface NfCancelStorage extends Storage {
     /**
      * It stores the return value of the function.
      *
+     * @throws StorageException StorageException
      * @param o The object to be stored.
      */
     void storeRetCancel(Store<TRetEnvEvento> o) throws StorageException;
@@ -25,6 +27,7 @@ public interface NfCancelStorage extends Storage {
     /**
      * It cancels the sending of an event.
      *
+     * @throws StorageException StorageException
      * @param o The object to be stored.
      */
     void storeSendCancel(Store<TEnvEvento> o) throws StorageException;

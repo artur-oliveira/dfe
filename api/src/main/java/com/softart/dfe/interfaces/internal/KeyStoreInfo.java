@@ -7,6 +7,12 @@ import java.io.InputStream;
 import java.security.KeyStore;
 import java.time.ZonedDateTime;
 
+/**
+ * Defining a Java interface named `KeyStoreInfo`. This interface contains several methods that define the behavior of a
+ * class that implements this interface. The methods are related to loading and retrieving certificates and certificate
+ * chains from input streams, as well as retrieving information about the certificates such as their expiration date and
+ * alias.
+ */
 public interface KeyStoreInfo {
 
     /**

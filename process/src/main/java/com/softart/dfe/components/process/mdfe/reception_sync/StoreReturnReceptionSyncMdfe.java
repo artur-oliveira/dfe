@@ -16,8 +16,8 @@ public abstract class StoreReturnReceptionSyncMdfe implements AfterReceptionSync
 
     @Override
     public <T extends AfterRequest<TMDFe, TRetMDFe>> void process(T o) throws ProcessException {
-        if (Objects.nonNull(getStorage()) && Objects.nonNull(o.getResponse())) {
-            getStorage().storeReturnMdfe(new XMLStore<>(o.getResponse(), o.getConfig(), MdfeMarshallerFactory.getInstance().returnReceptionSync(o.getResponse())));
+        if (Objects.nonNull(getStorage()) && Objects.nonNull(o.response())) {
+            getStorage().storeReturnMdfe(new XMLStore<>(o.response(), o.config(), MdfeMarshallerFactory.getInstance().returnReceptionSync(o.response())));
         }
     }
 

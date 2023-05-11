@@ -3,6 +3,11 @@ package com.softart.dfe.interfaces.services;
 import com.softart.dfe.interfaces.internal.config.NfConfig;
 import com.softart.dfe.interfaces.process.nf.NfProcessService;
 
+/**
+ * This line of code is creating a Java interface called `NfSefazService` that extends another interface called
+ * `SefazService`. This means that `NfSefazService` inherits all the methods and properties of `SefazService`, and can also
+ * define its own methods and properties.
+ */
 public interface NfSefazService extends SefazService {
 
     /**

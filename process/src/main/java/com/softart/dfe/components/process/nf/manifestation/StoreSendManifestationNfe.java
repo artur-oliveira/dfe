@@ -14,9 +14,9 @@ public abstract class StoreSendManifestationNfe implements BeforeManifestation {
 
     @Override
     public <T extends BeforeRequest<TEnvEvento>> void process(T data) throws ProcessException {
-        if (Objects.nonNull(data.getRequest()) && !data.getRequest().getEvento().isEmpty())
+        if (Objects.nonNull(data.request()) && !data.request().getEvento().isEmpty())
             if (Objects.nonNull(getStorage()))
-                getStorage().storeSendManifestation(new XMLStore<>(data.getRequest(), data.getConfig(), NfMarshallerFactory.getInstance().manifestationNfe(data.getRequest())));
+                getStorage().storeSendManifestation(new XMLStore<>(data.request(), data.config(), NfMarshallerFactory.getInstance().manifestationNfe(data.request())));
 
     }
 

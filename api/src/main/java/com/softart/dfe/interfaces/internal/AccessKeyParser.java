@@ -5,6 +5,11 @@ import com.softart.dfe.enums.internal.UF;
 
 import java.time.YearMonth;
 
+/**
+ * Declaring a public interface named `AccessKeyParser`. This interface defines a set of methods that must be implemented
+ * by any class that implements this interface. The methods defined in this interface are related to parsing and extracting
+ * information from an access key.
+ */
 public interface AccessKeyParser {
     /**
      * It returns the emission of a given access key.

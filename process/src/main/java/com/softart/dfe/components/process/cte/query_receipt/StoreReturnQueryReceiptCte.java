@@ -15,8 +15,8 @@ public abstract class StoreReturnQueryReceiptCte implements AfterQueryReceipt {
 
     @Override
     public <T extends AfterRequest<TConsReciCTe, TRetConsReciCTe>> void process(T o) throws ProcessException {
-        if (Objects.nonNull(o.getResponse()) && Objects.nonNull(getStorage())) {
-            getStorage().storeReturnQueryReceipt(new XMLStore<>(o.getResponse(), o.getConfig(), CteMarshallerFactory.getInstance().returnQueryReceipt(o.getResponse())));
+        if (Objects.nonNull(o.response()) && Objects.nonNull(getStorage())) {
+            getStorage().storeReturnQueryReceipt(new XMLStore<>(o.response(), o.config(), CteMarshallerFactory.getInstance().returnQueryReceipt(o.response())));
         }
     }
 

@@ -6,10 +6,13 @@ import com.softart.dfe.models.internal.mdfe.MdfeQrCode;
 public interface QrCodeGenerator {
 
     /**
-     * It generates a QR Code image in PNG format, based on the data provided in the `qrCode` parameter
+     * This Java function generates an MDFe QR code and throws an exception if no provider is found.
      *
-     * @param qrCode The object that contains the data to be generated.
-     * @return A string with the base64 of the image.
+     * @param qrCode qrCode is an object of type MdfeQrCode which is likely used to generate a QR code. It may contain
+     *               information such as the MDF-e (Manifesto Eletrônico de Documentos Fiscais) data, which is a Brazilian electronic
+     *               document used for the transportation of
+     * @return A String is being returned.
+     * @throws NoProviderFound if no provider is found.
      */
     String generate(MdfeQrCode qrCode) throws NoProviderFound;
 

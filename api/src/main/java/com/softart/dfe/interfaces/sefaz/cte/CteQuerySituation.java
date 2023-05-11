@@ -17,6 +17,9 @@ public interface CteQuerySituation {
      *
      * @param data The request object.
      * @return A pair of objects, the first is the request object and the second is the response object.
+     * @throws SecurityException   SecurityException
+     * @throws ValidationException ValidationException
+     * @throws ProcessException    ProcessException
      */
     <T extends SefazRequest<TConsSitCTe, TRetConsSitCTe>> Pair<TConsSitCTe, TRetConsSitCTe> querySituation(T data) throws SecurityException, ValidationException, ProcessException;
 

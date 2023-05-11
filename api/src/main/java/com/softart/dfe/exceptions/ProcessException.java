@@ -1,7 +1,9 @@
 package com.softart.dfe.exceptions;
 
+
 /**
- * This class is a subclass of `DFException` that is used to indicate that an error occurred while processing a request
+ * The class ProcessException extends the DfeException class and provides constructors for creating exceptions with
+ * different parameters.
  */
 public class ProcessException extends DfeException {
     public ProcessException() {

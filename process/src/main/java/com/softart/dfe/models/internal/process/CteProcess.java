@@ -41,13 +41,10 @@ import java.util.stream.Collectors;
 
 public abstract class CteProcess implements CteProcessService {
     public static CteProcess getInstance() {
-        switch (System.getProperty("com.softart.dfe.process.cte", "default")) {
-            case "s3":
-                return HolderS3.INSTANCE;
-            case "default":
-            default:
-                return Holder.INSTANCE;
-        }
+        return switch (System.getProperty("com.softart.dfe.process.cte", "default")) {
+            case "s3" -> HolderS3.INSTANCE;
+            default -> Holder.INSTANCE;
+        };
     }
 
     public abstract List<CteProcessFactory> getProcessFactories();

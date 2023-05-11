@@ -62,29 +62,29 @@ public final class MdfeSvrsService implements MdfeService {
 
     @Override
     public <T extends SefazRequest<TDistDFe, TRetDistDFe>> Pair<TDistDFe, TRetDistDFe> distribution(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = MdfeMarshallerFactory.getInstance().sendDistribution(data.getData());
+        String xml = MdfeMarshallerFactory.getInstance().sendDistribution(data.data());
         JAXBElement<TDistDFe> envio = MdfeUnmarshallerFactory.getInstance().sendDistribution(xml);
-        for (Validator<TDistDFe> validator : data.getValidators()) {
+        for (Validator<TDistDFe> validator : data.validators()) {
             validator.valid(new Validation<>(envio.getValue(), xml));
         }
 
-        for (BeforeWebServiceRequest<TDistDFe> before : data.getBeforeRequest()) {
-            before.process(new Before<>(envio.getValue(), data.getConfig()));
+        for (BeforeWebServiceRequest<TDistDFe> before : data.beforeRequest()) {
+            before.process(new Before<>(envio.getValue(), data.config()));
         }
 
         TRetDistDFe returnValue;
         JAXBElement<?> resultElement = null;
 
-        if (data.getConfig().production()) {
+        if (data.config().production()) {
             br.inf.portalfiscal.mdfe.wsdl.distribution.svrs.prod.MDFeDistribuicaoDFeSoap12 ws = ((br.inf.portalfiscal.mdfe.wsdl.distribution.svrs.prod.MDFeDistribuicaoDFe) (getSoapService()).distributionProd()).getMDFeDistribuicaoDFeSoap12();
 
-            data.getConfigureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.getConfig()).build());
+            data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
 
             br.inf.portalfiscal.mdfe.wsdl.distribution.svrs.prod.ObjectFactory fc = new br.inf.portalfiscal.mdfe.wsdl.distribution.svrs.prod.ObjectFactory();
 
             br.inf.portalfiscal.mdfe.wsdl.distribution.svrs.prod.MdfeDadosMsg dadosMsg = fc.createMdfeDadosMsg();
             br.inf.portalfiscal.mdfe.wsdl.distribution.svrs.prod.MdfeCabecMsg cabecMsg = fc.createMdfeCabecMsg();
-            cabecMsg.setCUF(data.getConfig().uf().getCode());
+            cabecMsg.setCUF(data.config().uf().getCode());
             cabecMsg.setVersaoDados(envio.getValue().getVersao());
             dadosMsg.getContent().add(envio);
 
@@ -96,13 +96,13 @@ public final class MdfeSvrsService implements MdfeService {
         } else {
             br.inf.portalfiscal.mdfe.wsdl.distribution.svrs.hom.MDFeDistribuicaoDFeSoap12 ws = ((br.inf.portalfiscal.mdfe.wsdl.distribution.svrs.hom.MDFeDistribuicaoDFe) (getSoapService()).distributionHom()).getMDFeDistribuicaoDFeSoap12();
 
-            data.getConfigureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.getConfig()).build());
+            data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
 
             br.inf.portalfiscal.mdfe.wsdl.distribution.svrs.hom.ObjectFactory fc = new br.inf.portalfiscal.mdfe.wsdl.distribution.svrs.hom.ObjectFactory();
 
             br.inf.portalfiscal.mdfe.wsdl.distribution.svrs.hom.MdfeDadosMsg dadosMsg = fc.createMdfeDadosMsg();
             br.inf.portalfiscal.mdfe.wsdl.distribution.svrs.hom.MdfeCabecMsg cabecMsg = fc.createMdfeCabecMsg();
-            cabecMsg.setCUF(data.getConfig().uf().getCode());
+            cabecMsg.setCUF(data.config().uf().getCode());
             cabecMsg.setVersaoDados(envio.getValue().getVersao());
             dadosMsg.getContent().add(envio);
 
@@ -115,8 +115,8 @@ public final class MdfeSvrsService implements MdfeService {
 
         returnValue = (TRetDistDFe) RequireUtils.nonNull(resultElement, "resultElement of soap return cannot be null").getValue();
 
-        for (AfterWebServiceRequest<TDistDFe, TRetDistDFe> after : data.getAfterRequest()) {
-            after.process(new After<>(envio.getValue(), returnValue, data.getConfig()));
+        for (AfterWebServiceRequest<TDistDFe, TRetDistDFe> after : data.afterRequest()) {
+            after.process(new After<>(envio.getValue(), returnValue, data.config()));
         }
 
         return new PairImpl<>(envio.getValue(), returnValue);
@@ -124,29 +124,29 @@ public final class MdfeSvrsService implements MdfeService {
 
     @Override
     public <T extends SefazRequest<TEvento, TRetEvento>> Pair<TEvento, TRetEvento> event(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = data.getSigner().signEvent(MdfeMarshallerFactory.getInstance().sendEvent(data.getData()), data.getConfig());
+        String xml = data.signer().signEvent(MdfeMarshallerFactory.getInstance().sendEvent(data.data()), data.config());
         JAXBElement<TEvento> envio = MdfeUnmarshallerFactory.getInstance().sendEvent(xml);
-        for (Validator<TEvento> validator : data.getValidators()) {
+        for (Validator<TEvento> validator : data.validators()) {
             validator.valid(new Validation<>(envio.getValue(), xml));
         }
 
-        for (BeforeWebServiceRequest<TEvento> before : data.getBeforeRequest()) {
-            before.process(new Before<>(envio.getValue(), data.getConfig()));
+        for (BeforeWebServiceRequest<TEvento> before : data.beforeRequest()) {
+            before.process(new Before<>(envio.getValue(), data.config()));
         }
 
         TRetEvento returnValue;
         JAXBElement<?> resultElement = null;
 
-        if (data.getConfig().production()) {
+        if (data.config().production()) {
             br.inf.portalfiscal.mdfe.wsdl.event.svrs.prod.MDFeRecepcaoEventoSoap12 ws = ((br.inf.portalfiscal.mdfe.wsdl.event.svrs.prod.MDFeRecepcaoEvento) (getSoapService()).eventProd()).getMDFeRecepcaoEventoSoap12();
 
-            data.getConfigureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.getConfig()).build());
+            data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
 
             br.inf.portalfiscal.mdfe.wsdl.event.svrs.prod.ObjectFactory fc = new br.inf.portalfiscal.mdfe.wsdl.event.svrs.prod.ObjectFactory();
 
             br.inf.portalfiscal.mdfe.wsdl.event.svrs.prod.MdfeDadosMsg dadosMsg = fc.createMdfeDadosMsg();
             br.inf.portalfiscal.mdfe.wsdl.event.svrs.prod.MdfeCabecMsg cabecMsg = fc.createMdfeCabecMsg();
-            cabecMsg.setCUF(data.getConfig().uf().getCode());
+            cabecMsg.setCUF(data.config().uf().getCode());
             cabecMsg.setVersaoDados(envio.getValue().getVersao());
             dadosMsg.getContent().add(envio);
 
@@ -158,13 +158,13 @@ public final class MdfeSvrsService implements MdfeService {
         } else {
             br.inf.portalfiscal.mdfe.wsdl.event.svrs.hom.MDFeRecepcaoEventoSoap12 ws = ((br.inf.portalfiscal.mdfe.wsdl.event.svrs.hom.MDFeRecepcaoEvento) (getSoapService()).eventHom()).getMDFeRecepcaoEventoSoap12();
 
-            data.getConfigureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.getConfig()).build());
+            data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
 
             br.inf.portalfiscal.mdfe.wsdl.event.svrs.hom.ObjectFactory fc = new br.inf.portalfiscal.mdfe.wsdl.event.svrs.hom.ObjectFactory();
 
             br.inf.portalfiscal.mdfe.wsdl.event.svrs.hom.MdfeDadosMsg dadosMsg = fc.createMdfeDadosMsg();
             br.inf.portalfiscal.mdfe.wsdl.event.svrs.hom.MdfeCabecMsg cabecMsg = fc.createMdfeCabecMsg();
-            cabecMsg.setCUF(data.getConfig().uf().getCode());
+            cabecMsg.setCUF(data.config().uf().getCode());
             cabecMsg.setVersaoDados(envio.getValue().getVersao());
             dadosMsg.getContent().add(envio);
 
@@ -177,8 +177,8 @@ public final class MdfeSvrsService implements MdfeService {
 
         returnValue = (TRetEvento) RequireUtils.nonNull(resultElement, "resultElement of soap return cannot be null").getValue();
 
-        for (AfterWebServiceRequest<TEvento, TRetEvento> after : data.getAfterRequest()) {
-            after.process(new After<>(envio.getValue(), returnValue, data.getConfig()));
+        for (AfterWebServiceRequest<TEvento, TRetEvento> after : data.afterRequest()) {
+            after.process(new After<>(envio.getValue(), returnValue, data.config()));
         }
 
         return new PairImpl<>(envio.getValue(), returnValue);
@@ -186,29 +186,29 @@ public final class MdfeSvrsService implements MdfeService {
 
     @Override
     public <T extends SefazRequest<TConsReciMDFe, TRetConsReciMDFe>> Pair<TConsReciMDFe, TRetConsReciMDFe> queryReceipt(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = MdfeMarshallerFactory.getInstance().sendQueryReceipt(data.getData());
+        String xml = MdfeMarshallerFactory.getInstance().sendQueryReceipt(data.data());
         JAXBElement<TConsReciMDFe> envio = MdfeUnmarshallerFactory.getInstance().sendQueryReceipt(xml);
-        for (Validator<TConsReciMDFe> validator : data.getValidators()) {
+        for (Validator<TConsReciMDFe> validator : data.validators()) {
             validator.valid(new Validation<>(envio.getValue(), xml));
         }
 
-        for (BeforeWebServiceRequest<TConsReciMDFe> before : data.getBeforeRequest()) {
-            before.process(new Before<>(envio.getValue(), data.getConfig()));
+        for (BeforeWebServiceRequest<TConsReciMDFe> before : data.beforeRequest()) {
+            before.process(new Before<>(envio.getValue(), data.config()));
         }
 
         TRetConsReciMDFe returnValue;
         JAXBElement<?> resultElement = null;
 
-        if (data.getConfig().production()) {
+        if (data.config().production()) {
             br.inf.portalfiscal.mdfe.wsdl.query_receipt.svrs.prod.MDFeRetRecepcaoSoap12 ws = ((br.inf.portalfiscal.mdfe.wsdl.query_receipt.svrs.prod.MDFeRetRecepcao) (getSoapService()).queryReceiptProd()).getMDFeRetRecepcaoSoap12();
 
-            data.getConfigureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.getConfig()).build());
+            data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
 
             br.inf.portalfiscal.mdfe.wsdl.query_receipt.svrs.prod.ObjectFactory fc = new br.inf.portalfiscal.mdfe.wsdl.query_receipt.svrs.prod.ObjectFactory();
 
             br.inf.portalfiscal.mdfe.wsdl.query_receipt.svrs.prod.MdfeDadosMsg dadosMsg = fc.createMdfeDadosMsg();
             br.inf.portalfiscal.mdfe.wsdl.query_receipt.svrs.prod.MdfeCabecMsg cabecMsg = fc.createMdfeCabecMsg();
-            cabecMsg.setCUF(data.getConfig().uf().getCode());
+            cabecMsg.setCUF(data.config().uf().getCode());
             cabecMsg.setVersaoDados(envio.getValue().getVersao());
             dadosMsg.getContent().add(envio);
 
@@ -220,13 +220,13 @@ public final class MdfeSvrsService implements MdfeService {
         } else {
             br.inf.portalfiscal.mdfe.wsdl.query_receipt.svrs.hom.MDFeRetRecepcaoSoap12 ws = ((br.inf.portalfiscal.mdfe.wsdl.query_receipt.svrs.hom.MDFeRetRecepcao) (getSoapService()).queryReceiptHom()).getMDFeRetRecepcaoSoap12();
 
-            data.getConfigureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.getConfig()).build());
+            data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
 
             br.inf.portalfiscal.mdfe.wsdl.query_receipt.svrs.hom.ObjectFactory fc = new br.inf.portalfiscal.mdfe.wsdl.query_receipt.svrs.hom.ObjectFactory();
 
             br.inf.portalfiscal.mdfe.wsdl.query_receipt.svrs.hom.MdfeDadosMsg dadosMsg = fc.createMdfeDadosMsg();
             br.inf.portalfiscal.mdfe.wsdl.query_receipt.svrs.hom.MdfeCabecMsg cabecMsg = fc.createMdfeCabecMsg();
-            cabecMsg.setCUF(data.getConfig().uf().getCode());
+            cabecMsg.setCUF(data.config().uf().getCode());
             cabecMsg.setVersaoDados(envio.getValue().getVersao());
             dadosMsg.getContent().add(envio);
 
@@ -239,8 +239,8 @@ public final class MdfeSvrsService implements MdfeService {
 
         returnValue = (TRetConsReciMDFe) RequireUtils.nonNull(resultElement, "resultElement of soap return cannot be null").getValue();
 
-        for (AfterWebServiceRequest<TConsReciMDFe, TRetConsReciMDFe> after : data.getAfterRequest()) {
-            after.process(new After<>(envio.getValue(), returnValue, data.getConfig()));
+        for (AfterWebServiceRequest<TConsReciMDFe, TRetConsReciMDFe> after : data.afterRequest()) {
+            after.process(new After<>(envio.getValue(), returnValue, data.config()));
         }
 
         return new PairImpl<>(envio.getValue(), returnValue);
@@ -248,29 +248,29 @@ public final class MdfeSvrsService implements MdfeService {
 
     @Override
     public <T extends SefazRequest<TConsSitMDFe, TRetConsSitMDFe>> Pair<TConsSitMDFe, TRetConsSitMDFe> querySituation(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = MdfeMarshallerFactory.getInstance().sendQuerySituation(data.getData());
+        String xml = MdfeMarshallerFactory.getInstance().sendQuerySituation(data.data());
         JAXBElement<TConsSitMDFe> envio = MdfeUnmarshallerFactory.getInstance().sendQuerySituation(xml);
-        for (Validator<TConsSitMDFe> validator : data.getValidators()) {
+        for (Validator<TConsSitMDFe> validator : data.validators()) {
             validator.valid(new Validation<>(envio.getValue(), xml));
         }
 
-        for (BeforeWebServiceRequest<TConsSitMDFe> before : data.getBeforeRequest()) {
-            before.process(new Before<>(envio.getValue(), data.getConfig()));
+        for (BeforeWebServiceRequest<TConsSitMDFe> before : data.beforeRequest()) {
+            before.process(new Before<>(envio.getValue(), data.config()));
         }
 
         TRetConsSitMDFe returnValue;
         JAXBElement<?> resultElement = null;
 
-        if (data.getConfig().production()) {
+        if (data.config().production()) {
             br.inf.portalfiscal.mdfe.wsdl.query_situation.svrs.prod.MDFeConsultaSoap12 ws = ((br.inf.portalfiscal.mdfe.wsdl.query_situation.svrs.prod.MDFeConsulta) (getSoapService()).querySituationProd()).getMDFeConsultaSoap12();
 
-            data.getConfigureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.getConfig()).build());
+            data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
 
             br.inf.portalfiscal.mdfe.wsdl.query_situation.svrs.prod.ObjectFactory fc = new br.inf.portalfiscal.mdfe.wsdl.query_situation.svrs.prod.ObjectFactory();
 
             br.inf.portalfiscal.mdfe.wsdl.query_situation.svrs.prod.MdfeDadosMsg dadosMsg = fc.createMdfeDadosMsg();
             br.inf.portalfiscal.mdfe.wsdl.query_situation.svrs.prod.MdfeCabecMsg cabecMsg = fc.createMdfeCabecMsg();
-            cabecMsg.setCUF(data.getConfig().uf().getCode());
+            cabecMsg.setCUF(data.config().uf().getCode());
             cabecMsg.setVersaoDados(envio.getValue().getVersao());
             dadosMsg.getContent().add(envio);
 
@@ -282,13 +282,13 @@ public final class MdfeSvrsService implements MdfeService {
         } else {
             br.inf.portalfiscal.mdfe.wsdl.query_situation.svrs.hom.MDFeConsultaSoap12 ws = ((br.inf.portalfiscal.mdfe.wsdl.query_situation.svrs.hom.MDFeConsulta) (getSoapService()).querySituationHom()).getMDFeConsultaSoap12();
 
-            data.getConfigureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.getConfig()).build());
+            data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
 
             br.inf.portalfiscal.mdfe.wsdl.query_situation.svrs.hom.ObjectFactory fc = new br.inf.portalfiscal.mdfe.wsdl.query_situation.svrs.hom.ObjectFactory();
 
             br.inf.portalfiscal.mdfe.wsdl.query_situation.svrs.hom.MdfeDadosMsg dadosMsg = fc.createMdfeDadosMsg();
             br.inf.portalfiscal.mdfe.wsdl.query_situation.svrs.hom.MdfeCabecMsg cabecMsg = fc.createMdfeCabecMsg();
-            cabecMsg.setCUF(data.getConfig().uf().getCode());
+            cabecMsg.setCUF(data.config().uf().getCode());
             cabecMsg.setVersaoDados(envio.getValue().getVersao());
             dadosMsg.getContent().add(envio);
 
@@ -301,8 +301,8 @@ public final class MdfeSvrsService implements MdfeService {
 
         returnValue = (TRetConsSitMDFe) RequireUtils.nonNull(resultElement, "resultElement of soap return cannot be null").getValue();
 
-        for (AfterWebServiceRequest<TConsSitMDFe, TRetConsSitMDFe> after : data.getAfterRequest()) {
-            after.process(new After<>(envio.getValue(), returnValue, data.getConfig()));
+        for (AfterWebServiceRequest<TConsSitMDFe, TRetConsSitMDFe> after : data.afterRequest()) {
+            after.process(new After<>(envio.getValue(), returnValue, data.config()));
         }
 
         return new PairImpl<>(envio.getValue(), returnValue);
@@ -310,29 +310,29 @@ public final class MdfeSvrsService implements MdfeService {
 
     @Override
     public <T extends SefazRequest<TConsMDFeNaoEnc, TRetConsMDFeNaoEnc>> Pair<TConsMDFeNaoEnc, TRetConsMDFeNaoEnc> queryUnclosed(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = MdfeMarshallerFactory.getInstance().sendQueryUnclosed(data.getData());
+        String xml = MdfeMarshallerFactory.getInstance().sendQueryUnclosed(data.data());
         JAXBElement<TConsMDFeNaoEnc> envio = MdfeUnmarshallerFactory.getInstance().sendQueryUnclosed(xml);
-        for (Validator<TConsMDFeNaoEnc> validator : data.getValidators()) {
+        for (Validator<TConsMDFeNaoEnc> validator : data.validators()) {
             validator.valid(new Validation<>(envio.getValue(), xml));
         }
 
-        for (BeforeWebServiceRequest<TConsMDFeNaoEnc> before : data.getBeforeRequest()) {
-            before.process(new Before<>(envio.getValue(), data.getConfig()));
+        for (BeforeWebServiceRequest<TConsMDFeNaoEnc> before : data.beforeRequest()) {
+            before.process(new Before<>(envio.getValue(), data.config()));
         }
 
         TRetConsMDFeNaoEnc returnValue;
         JAXBElement<?> resultElement = null;
 
-        if (data.getConfig().production()) {
+        if (data.config().production()) {
             br.inf.portalfiscal.mdfe.wsdl.query_unclosed.svrs.prod.MDFeConsNaoEncSoap12 ws = ((br.inf.portalfiscal.mdfe.wsdl.query_unclosed.svrs.prod.MDFeConsNaoEnc) (getSoapService()).queryUnclosedProd()).getMDFeConsNaoEncSoap12();
 
-            data.getConfigureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.getConfig()).build());
+            data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
 
             br.inf.portalfiscal.mdfe.wsdl.query_unclosed.svrs.prod.ObjectFactory fc = new br.inf.portalfiscal.mdfe.wsdl.query_unclosed.svrs.prod.ObjectFactory();
 
             br.inf.portalfiscal.mdfe.wsdl.query_unclosed.svrs.prod.MdfeDadosMsg dadosMsg = fc.createMdfeDadosMsg();
             br.inf.portalfiscal.mdfe.wsdl.query_unclosed.svrs.prod.MdfeCabecMsg cabecMsg = fc.createMdfeCabecMsg();
-            cabecMsg.setCUF(data.getConfig().uf().getCode());
+            cabecMsg.setCUF(data.config().uf().getCode());
             cabecMsg.setVersaoDados(envio.getValue().getVersao());
             dadosMsg.getContent().add(envio);
 
@@ -344,13 +344,13 @@ public final class MdfeSvrsService implements MdfeService {
         } else {
             br.inf.portalfiscal.mdfe.wsdl.query_unclosed.svrs.hom.MDFeConsNaoEncSoap12 ws = ((br.inf.portalfiscal.mdfe.wsdl.query_unclosed.svrs.hom.MDFeConsNaoEnc) (getSoapService()).queryUnclosedHom()).getMDFeConsNaoEncSoap12();
 
-            data.getConfigureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.getConfig()).build());
+            data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
 
             br.inf.portalfiscal.mdfe.wsdl.query_unclosed.svrs.hom.ObjectFactory fc = new br.inf.portalfiscal.mdfe.wsdl.query_unclosed.svrs.hom.ObjectFactory();
 
             br.inf.portalfiscal.mdfe.wsdl.query_unclosed.svrs.hom.MdfeDadosMsg dadosMsg = fc.createMdfeDadosMsg();
             br.inf.portalfiscal.mdfe.wsdl.query_unclosed.svrs.hom.MdfeCabecMsg cabecMsg = fc.createMdfeCabecMsg();
-            cabecMsg.setCUF(data.getConfig().uf().getCode());
+            cabecMsg.setCUF(data.config().uf().getCode());
             cabecMsg.setVersaoDados(envio.getValue().getVersao());
             dadosMsg.getContent().add(envio);
 
@@ -363,8 +363,8 @@ public final class MdfeSvrsService implements MdfeService {
 
         returnValue = (TRetConsMDFeNaoEnc) RequireUtils.nonNull(resultElement, "resultElement of soap return cannot be null").getValue();
 
-        for (AfterWebServiceRequest<TConsMDFeNaoEnc, TRetConsMDFeNaoEnc> after : data.getAfterRequest()) {
-            after.process(new After<>(envio.getValue(), returnValue, data.getConfig()));
+        for (AfterWebServiceRequest<TConsMDFeNaoEnc, TRetConsMDFeNaoEnc> after : data.afterRequest()) {
+            after.process(new After<>(envio.getValue(), returnValue, data.config()));
         }
 
         return new PairImpl<>(envio.getValue(), returnValue);
@@ -372,29 +372,29 @@ public final class MdfeSvrsService implements MdfeService {
 
     @Override
     public <T extends SefazRequest<TEnviMDFe, TRetEnviMDFe>> Pair<TEnviMDFe, TRetEnviMDFe> reception(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = data.getSigner().signMdfe(MdfeMarshallerFactory.getInstance().sendReception(data.getData()), data.getConfig());
+        String xml = data.signer().signMdfe(MdfeMarshallerFactory.getInstance().sendReception(data.data()), data.config());
         JAXBElement<TEnviMDFe> envio = MdfeUnmarshallerFactory.getInstance().sendReception(xml);
-        for (Validator<TEnviMDFe> validator : data.getValidators()) {
+        for (Validator<TEnviMDFe> validator : data.validators()) {
             validator.valid(new Validation<>(envio.getValue(), xml));
         }
 
-        for (BeforeWebServiceRequest<TEnviMDFe> before : data.getBeforeRequest()) {
-            before.process(new Before<>(envio.getValue(), data.getConfig()));
+        for (BeforeWebServiceRequest<TEnviMDFe> before : data.beforeRequest()) {
+            before.process(new Before<>(envio.getValue(), data.config()));
         }
 
         TRetEnviMDFe returnValue;
         JAXBElement<?> resultElement = null;
 
-        if (data.getConfig().production()) {
+        if (data.config().production()) {
             br.inf.portalfiscal.mdfe.wsdl.reception.svrs.prod.MDFeRecepcaoSoap12 ws = ((br.inf.portalfiscal.mdfe.wsdl.reception.svrs.prod.MDFeRecepcao) (getSoapService()).receptionProd()).getMDFeRecepcaoSoap12();
 
-            data.getConfigureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.getConfig()).build());
+            data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
 
             br.inf.portalfiscal.mdfe.wsdl.reception.svrs.prod.ObjectFactory fc = new br.inf.portalfiscal.mdfe.wsdl.reception.svrs.prod.ObjectFactory();
 
             br.inf.portalfiscal.mdfe.wsdl.reception.svrs.prod.MdfeDadosMsg dadosMsg = fc.createMdfeDadosMsg();
             br.inf.portalfiscal.mdfe.wsdl.reception.svrs.prod.MdfeCabecMsg cabecMsg = fc.createMdfeCabecMsg();
-            cabecMsg.setCUF(data.getConfig().uf().getCode());
+            cabecMsg.setCUF(data.config().uf().getCode());
             cabecMsg.setVersaoDados(envio.getValue().getVersao());
             dadosMsg.getContent().add(envio);
 
@@ -406,13 +406,13 @@ public final class MdfeSvrsService implements MdfeService {
         } else {
             br.inf.portalfiscal.mdfe.wsdl.reception.svrs.hom.MDFeRecepcaoSoap12 ws = ((br.inf.portalfiscal.mdfe.wsdl.reception.svrs.hom.MDFeRecepcao) (getSoapService()).receptionHom()).getMDFeRecepcaoSoap12();
 
-            data.getConfigureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.getConfig()).build());
+            data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
 
             br.inf.portalfiscal.mdfe.wsdl.reception.svrs.hom.ObjectFactory fc = new br.inf.portalfiscal.mdfe.wsdl.reception.svrs.hom.ObjectFactory();
 
             br.inf.portalfiscal.mdfe.wsdl.reception.svrs.hom.MdfeDadosMsg dadosMsg = fc.createMdfeDadosMsg();
             br.inf.portalfiscal.mdfe.wsdl.reception.svrs.hom.MdfeCabecMsg cabecMsg = fc.createMdfeCabecMsg();
-            cabecMsg.setCUF(data.getConfig().uf().getCode());
+            cabecMsg.setCUF(data.config().uf().getCode());
             cabecMsg.setVersaoDados(envio.getValue().getVersao());
             dadosMsg.getContent().add(envio);
 
@@ -425,8 +425,8 @@ public final class MdfeSvrsService implements MdfeService {
 
         returnValue = (TRetEnviMDFe) RequireUtils.nonNull(resultElement, "resultElement of soap return cannot be null").getValue();
 
-        for (AfterWebServiceRequest<TEnviMDFe, TRetEnviMDFe> after : data.getAfterRequest()) {
-            after.process(new After<>(envio.getValue(), returnValue, data.getConfig()));
+        for (AfterWebServiceRequest<TEnviMDFe, TRetEnviMDFe> after : data.afterRequest()) {
+            after.process(new After<>(envio.getValue(), returnValue, data.config()));
         }
 
         return new PairImpl<>(envio.getValue(), returnValue);
@@ -434,23 +434,23 @@ public final class MdfeSvrsService implements MdfeService {
 
     @Override
     public <T extends SefazRequest<TMDFe, TRetMDFe>> Pair<TMDFe, TRetMDFe> receptionSync(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = data.getSigner().signMdfe(MdfeMarshallerFactory.getInstance().sendReceptionSync(data.getData()), data.getConfig());
+        String xml = data.signer().signMdfe(MdfeMarshallerFactory.getInstance().sendReceptionSync(data.data()), data.config());
         JAXBElement<TMDFe> envio = MdfeUnmarshallerFactory.getInstance().sendReceptionSync(xml);
-        for (Validator<TMDFe> validator : data.getValidators()) {
+        for (Validator<TMDFe> validator : data.validators()) {
             validator.valid(new Validation<>(envio.getValue(), xml));
         }
 
-        for (BeforeWebServiceRequest<TMDFe> before : data.getBeforeRequest()) {
-            before.process(new Before<>(envio.getValue(), data.getConfig()));
+        for (BeforeWebServiceRequest<TMDFe> before : data.beforeRequest()) {
+            before.process(new Before<>(envio.getValue(), data.config()));
         }
 
         TRetMDFe returnValue;
         JAXBElement<?> resultElement = null;
 
-        if (data.getConfig().production()) {
+        if (data.config().production()) {
             br.inf.portalfiscal.mdfe.wsdl.reception_sync.svrs.prod.MDFeRecepcaoSincSoap12 ws = ((br.inf.portalfiscal.mdfe.wsdl.reception_sync.svrs.prod.MDFeRecepcaoSinc) (getSoapService()).receptionSyncProd()).getMDFeRecepcaoSincSoap12();
 
-            data.getConfigureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.getConfig()).build());
+            data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
 
             br.inf.portalfiscal.mdfe.wsdl.reception_sync.svrs.prod.MdfeRecepcaoResult result;
             try {
@@ -465,7 +465,7 @@ public final class MdfeSvrsService implements MdfeService {
         } else {
             br.inf.portalfiscal.mdfe.wsdl.reception_sync.svrs.hom.MDFeRecepcaoSincSoap12 ws = ((br.inf.portalfiscal.mdfe.wsdl.reception_sync.svrs.hom.MDFeRecepcaoSinc) (getSoapService()).receptionSyncHom()).getMDFeRecepcaoSincSoap12();
 
-            data.getConfigureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.getConfig()).build());
+            data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
 
             br.inf.portalfiscal.mdfe.wsdl.reception_sync.svrs.hom.MdfeRecepcaoResult result;
             try {
@@ -481,8 +481,8 @@ public final class MdfeSvrsService implements MdfeService {
 
         returnValue = (TRetMDFe) RequireUtils.nonNull(resultElement, "resultElement of soap return cannot be null").getValue();
 
-        for (AfterWebServiceRequest<TMDFe, TRetMDFe> after : data.getAfterRequest()) {
-            after.process(new After<>(envio.getValue(), returnValue, data.getConfig()));
+        for (AfterWebServiceRequest<TMDFe, TRetMDFe> after : data.afterRequest()) {
+            after.process(new After<>(envio.getValue(), returnValue, data.config()));
         }
 
         return new PairImpl<>(envio.getValue(), returnValue);
@@ -490,29 +490,29 @@ public final class MdfeSvrsService implements MdfeService {
 
     @Override
     public <T extends SefazRequest<TConsStatServ, TRetConsStatServ>> Pair<TConsStatServ, TRetConsStatServ> statusService(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = MdfeMarshallerFactory.getInstance().sendStatusService(data.getData());
+        String xml = MdfeMarshallerFactory.getInstance().sendStatusService(data.data());
         JAXBElement<TConsStatServ> envio = MdfeUnmarshallerFactory.getInstance().sendStatusService(xml);
-        for (Validator<TConsStatServ> validator : data.getValidators()) {
+        for (Validator<TConsStatServ> validator : data.validators()) {
             validator.valid(new Validation<>(envio.getValue(), xml));
         }
 
-        for (BeforeWebServiceRequest<TConsStatServ> before : data.getBeforeRequest()) {
-            before.process(new Before<>(envio.getValue(), data.getConfig()));
+        for (BeforeWebServiceRequest<TConsStatServ> before : data.beforeRequest()) {
+            before.process(new Before<>(envio.getValue(), data.config()));
         }
 
         TRetConsStatServ returnValue;
         JAXBElement<?> resultElement = null;
 
-        if (data.getConfig().production()) {
+        if (data.config().production()) {
             br.inf.portalfiscal.mdfe.wsdl.status_service.svrs.prod.MDFeStatusServicoSoap12 ws = ((br.inf.portalfiscal.mdfe.wsdl.status_service.svrs.prod.MDFeStatusServico) (getSoapService()).statusServiceProd()).getMDFeStatusServicoSoap12();
 
-            data.getConfigureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.getConfig()).build());
+            data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
 
             br.inf.portalfiscal.mdfe.wsdl.status_service.svrs.prod.ObjectFactory fc = new br.inf.portalfiscal.mdfe.wsdl.status_service.svrs.prod.ObjectFactory();
 
             br.inf.portalfiscal.mdfe.wsdl.status_service.svrs.prod.MdfeDadosMsg dadosMsg = fc.createMdfeDadosMsg();
             br.inf.portalfiscal.mdfe.wsdl.status_service.svrs.prod.MdfeCabecMsg cabecMsg = fc.createMdfeCabecMsg();
-            cabecMsg.setCUF(data.getConfig().uf().getCode());
+            cabecMsg.setCUF(data.config().uf().getCode());
             cabecMsg.setVersaoDados(envio.getValue().getVersao());
             dadosMsg.getContent().add(envio);
 
@@ -524,13 +524,13 @@ public final class MdfeSvrsService implements MdfeService {
         } else {
             br.inf.portalfiscal.mdfe.wsdl.status_service.svrs.hom.MDFeStatusServicoSoap12 ws = ((br.inf.portalfiscal.mdfe.wsdl.status_service.svrs.hom.MDFeStatusServico) (getSoapService()).statusServiceHom()).getMDFeStatusServicoSoap12();
 
-            data.getConfigureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.getConfig()).build());
+            data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
 
             br.inf.portalfiscal.mdfe.wsdl.status_service.svrs.hom.ObjectFactory fc = new br.inf.portalfiscal.mdfe.wsdl.status_service.svrs.hom.ObjectFactory();
 
             br.inf.portalfiscal.mdfe.wsdl.status_service.svrs.hom.MdfeDadosMsg dadosMsg = fc.createMdfeDadosMsg();
             br.inf.portalfiscal.mdfe.wsdl.status_service.svrs.hom.MdfeCabecMsg cabecMsg = fc.createMdfeCabecMsg();
-            cabecMsg.setCUF(data.getConfig().uf().getCode());
+            cabecMsg.setCUF(data.config().uf().getCode());
             cabecMsg.setVersaoDados(envio.getValue().getVersao());
             dadosMsg.getContent().add(envio);
 
@@ -543,8 +543,8 @@ public final class MdfeSvrsService implements MdfeService {
 
         returnValue = (TRetConsStatServ) RequireUtils.nonNull(resultElement, "resultElement of soap return cannot be null").getValue();
 
-        for (AfterWebServiceRequest<TConsStatServ, TRetConsStatServ> after : data.getAfterRequest()) {
-            after.process(new After<>(envio.getValue(), returnValue, data.getConfig()));
+        for (AfterWebServiceRequest<TConsStatServ, TRetConsStatServ> after : data.afterRequest()) {
+            after.process(new After<>(envio.getValue(), returnValue, data.config()));
         }
 
         return new PairImpl<>(envio.getValue(), returnValue);

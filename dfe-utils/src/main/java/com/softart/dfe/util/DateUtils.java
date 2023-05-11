@@ -4,7 +4,6 @@ import java.nio.file.attribute.FileTime;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoField;
-import java.time.temporal.Temporal;
 import java.time.temporal.TemporalAccessor;
 import java.util.Date;
 import java.util.Map;
@@ -106,7 +105,6 @@ public final class DateUtils {
 
     /**
      * "Given a temporal, return the last two digits of the year."
-     * <p>
      *
      * @param temporal The temporal object to format.
      * @return The last two digits of the year.
@@ -117,7 +115,6 @@ public final class DateUtils {
 
     /**
      * "Given a date, return the month as a two digit string."
-     * <p>
      *
      * @param date The date to be formatted.
      * @return The month of the date in two digits.
@@ -295,9 +292,6 @@ public final class DateUtils {
 
     /**
      * "Returns a string representation of the date that is `days` days from now, formatted using the given formatter."
-     * <p>
-     * The first line of the function is a comment that describes what the function does. The second line is the function
-     * signature. The third line is the function body
      *
      * @param days      The number of days to add to the current date.
      * @param formatter The format of the date you want to return.

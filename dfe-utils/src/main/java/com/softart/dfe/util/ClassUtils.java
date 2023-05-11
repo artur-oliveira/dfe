@@ -88,7 +88,7 @@ public final class ClassUtils {
      */
     public static <T> T newInstance(Class<T> entityClass) {
         try {
-            return entityClass.newInstance();
+            return entityClass.getDeclaredConstructor().newInstance();
         } catch (Exception e) {
             throw new IllegalStateException("Class " + entityClass.getSimpleName() + " cannot be instanciated");
         }

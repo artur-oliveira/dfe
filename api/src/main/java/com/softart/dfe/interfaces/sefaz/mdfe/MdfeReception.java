@@ -18,6 +18,9 @@ public interface MdfeReception {
      *
      * @param data The request object.
      * @return A pair of objects, one of type TEnviMDFe and the other of type TRetEnviMDFe.
+     * @throws SecurityException   SecurityException
+     * @throws ValidationException ValidationException
+     * @throws ProcessException    ProcessException
      */
     <T extends SefazRequest<TEnviMDFe, TRetEnviMDFe>> Pair<TEnviMDFe, TRetEnviMDFe> reception(T data) throws SecurityException, ValidationException, ProcessException;
 

@@ -14,8 +14,8 @@ public abstract class StoreEventCte implements BeforeEvent {
 
     @Override
     public <T extends BeforeRequest<TEvento>> void process(T o) throws ProcessException {
-        if (Objects.nonNull(o.getRequest()) && Objects.nonNull(getStorage())) {
-            getStorage().storeEvent(new XMLStore<>(o.getRequest(), o.getConfig(), CteMarshallerFactory.getInstance().eventCte(o.getRequest())));
+        if (Objects.nonNull(o.request()) && Objects.nonNull(getStorage())) {
+            getStorage().storeEvent(new XMLStore<>(o.request(), o.config(), CteMarshallerFactory.getInstance().eventCte(o.request())));
         }
     }
 

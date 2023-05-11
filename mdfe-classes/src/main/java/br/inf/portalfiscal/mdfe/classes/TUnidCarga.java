@@ -149,7 +149,7 @@ public class TUnidCarga
      */
     public List<LacUnidCarga> getLacUnidCarga() {
         if (lacUnidCarga == null) {
-            lacUnidCarga = new ArrayList<LacUnidCarga>();
+            lacUnidCarga = new ArrayList<>();
         }
         return this.lacUnidCarga;
     }

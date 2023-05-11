@@ -2,9 +2,10 @@ package com.softart.dfe.exceptions.storage;
 
 import com.softart.dfe.exceptions.ProcessException;
 
+
 /**
- * This class is a subclass of ProcessException that is used to indicate that an error occurred while trying to access
- * the storage system
+ * The StorageException class extends the ProcessException class and provides constructors for handling exceptions related
+ * to storage.
  */
 public class StorageException extends ProcessException {
     public StorageException() {

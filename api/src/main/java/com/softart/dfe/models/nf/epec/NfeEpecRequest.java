@@ -15,18 +15,14 @@ import java.util.Collection;
 
 
 @Builder
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-public final class NfeEpecRequest implements SefazRequest<TEnvEvento, TRetEnvEvento> {
-
-    public TEnvEvento data;
-    public Config config;
-    public XMLSignerService signer;
-    public ConfigureProvider configureProvider;
-    public Collection<NfeEpecValidator> validators;
-    public Collection<BeforeEpec> beforeRequest;
-    public Collection<AfterEpec> afterRequest;
+public record NfeEpecRequest(
+        TEnvEvento data,
+        Config config,
+        XMLSignerService signer,
+        ConfigureProvider configureProvider,
+        Collection<NfeEpecValidator> validators,
+        Collection<BeforeEpec> beforeRequest,
+        Collection<AfterEpec> afterRequest
+) implements SefazRequest<TEnvEvento, TRetEnvEvento> {
 
 }

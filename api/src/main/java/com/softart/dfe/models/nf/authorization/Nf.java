@@ -17,6 +17,7 @@ import lombok.*;
 import java.util.List;
 import java.util.Objects;
 
+@SuppressWarnings("ALL")
 @Getter
 @Setter
 @Builder
@@ -692,48 +693,37 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
                 public Imposto fromObject(TNFe.InfNFe.Det.Imposto fromInstance) {
                     fromInstance.getContent().forEach(content -> {
                         switch (content.getName().getLocalPart().toUpperCase()) {
-                            case "VTOTTRIB": {
+                            case "VTOTTRIB" -> {
                                 setVTotTrib(Objects.toString(content.getValue()));
-                                break;
                             }
-                            case "ICMS": {
+                            case "ICMS" -> {
                                 setIcms(new ICMS().fromObject((TNFe.InfNFe.Det.Imposto.ICMS) content.getValue()));
-                                break;
                             }
-                            case "ICMSUFDEST": {
+                            case "ICMSUFDEST" -> {
                                 setIcmsufDest(new ICMSUFDest().fromObject((TNFe.InfNFe.Det.Imposto.ICMSUFDest) content.getValue()));
-                                break;
                             }
-                            case "IPI": {
+                            case "IPI" -> {
                                 setIpi(new IPI().fromObject((TIpi) content.getValue()));
-                                break;
                             }
-                            case "II": {
+                            case "II" -> {
                                 setIi(new II().fromObject((TNFe.InfNFe.Det.Imposto.II) content.getValue()));
-                                break;
                             }
-                            case "PIS": {
+                            case "PIS" -> {
                                 setPis(new PIS().fromObject((TNFe.InfNFe.Det.Imposto.PIS) content.getValue()));
-                                break;
                             }
-                            case "PISST": {
+                            case "PISST" -> {
                                 setPisst(new PISST().fromObject((TNFe.InfNFe.Det.Imposto.PISST) content.getValue()));
-                                break;
                             }
-                            case "COFINS": {
+                            case "COFINS" -> {
                                 setCofins(new COFINS().fromObject((TNFe.InfNFe.Det.Imposto.COFINS) content.getValue()));
-                                break;
                             }
-                            case "COFINSST": {
+                            case "COFINSST" -> {
                                 setCofinsst(new COFINSST().fromObject((TNFe.InfNFe.Det.Imposto.COFINSST) content.getValue()));
-                                break;
                             }
-                            case "ISSQN": {
+                            case "ISSQN" -> {
                                 setIssqn(new ISSQN().fromObject((TNFe.InfNFe.Det.Imposto.ISSQN) content.getValue()));
-                                break;
                             }
-                            default:
-                                throw new IllegalStateException("Não implementado " + content.getName());
+                            default -> throw new IllegalStateException("Não implementado " + content.getName());
                         }
                     });
                     return this;

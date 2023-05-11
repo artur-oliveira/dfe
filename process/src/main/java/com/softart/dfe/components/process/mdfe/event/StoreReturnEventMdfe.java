@@ -16,8 +16,8 @@ public abstract class StoreReturnEventMdfe implements AfterEvent {
 
     @Override
     public <T extends AfterRequest<TEvento, TRetEvento>> void process(T o) throws ProcessException {
-        if (Objects.nonNull(getStorage()) && Objects.nonNull(o.getResponse())) {
-            getStorage().storeRetEvent(new XMLStore<>(o.getResponse(), o.getConfig(), MdfeMarshallerFactory.getInstance().returnEvent(o.getResponse())));
+        if (Objects.nonNull(getStorage()) && Objects.nonNull(o.response())) {
+            getStorage().storeRetEvent(new XMLStore<>(o.response(), o.config(), MdfeMarshallerFactory.getInstance().returnEvent(o.response())));
         }
     }
 

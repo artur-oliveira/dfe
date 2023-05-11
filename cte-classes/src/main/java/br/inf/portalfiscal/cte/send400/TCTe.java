@@ -3224,7 +3224,7 @@ public class TCTe
          */
         public List<InfCteComp> getInfCteComp() {
             if (infCteComp == null) {
-                infCteComp = new ArrayList<InfCteComp>();
+                infCteComp = new ArrayList<>();
             }
             return this.infCteComp;
         }
@@ -3259,7 +3259,7 @@ public class TCTe
          */
         public List<AutXML> getAutXML() {
             if (autXML == null) {
-                autXML = new ArrayList<AutXML>();
+                autXML = new ArrayList<>();
             }
             return this.autXML;
         }
@@ -4021,7 +4021,7 @@ public class TCTe
              */
             public List<ObsCont> getObsCont() {
                 if (obsCont == null) {
-                    obsCont = new ArrayList<ObsCont>();
+                    obsCont = new ArrayList<>();
                 }
                 return this.obsCont;
             }
@@ -4056,7 +4056,7 @@ public class TCTe
              */
             public List<ObsFisco> getObsFisco() {
                 if (obsFisco == null) {
-                    obsFisco = new ArrayList<ObsFisco>();
+                    obsFisco = new ArrayList<>();
                 }
                 return this.obsFisco;
             }
@@ -5031,7 +5031,7 @@ public class TCTe
                  */
                 public List<Pass> getPass() {
                     if (pass == null) {
-                        pass = new ArrayList<Pass>();
+                        pass = new ArrayList<>();
                     }
                     return this.pass;
                 }
@@ -8750,7 +8750,7 @@ public class TCTe
              */
             public List<VeicNovos> getVeicNovos() {
                 if (veicNovos == null) {
-                    veicNovos = new ArrayList<VeicNovos>();
+                    veicNovos = new ArrayList<>();
                 }
                 return this.veicNovos;
             }
@@ -8974,7 +8974,7 @@ public class TCTe
                  */
                 public List<Dup> getDup() {
                     if (dup == null) {
-                        dup = new ArrayList<Dup>();
+                        dup = new ArrayList<>();
                     }
                     return this.dup;
                 }
@@ -9381,7 +9381,7 @@ public class TCTe
                  */
                 public List<EmiDocAnt> getEmiDocAnt() {
                     if (emiDocAnt == null) {
-                        emiDocAnt = new ArrayList<EmiDocAnt>();
+                        emiDocAnt = new ArrayList<>();
                     }
                     return this.emiDocAnt;
                 }
@@ -9657,7 +9657,7 @@ public class TCTe
                      */
                     public List<IdDocAnt> getIdDocAnt() {
                         if (idDocAnt == null) {
-                            idDocAnt = new ArrayList<IdDocAnt>();
+                            idDocAnt = new ArrayList<>();
                         }
                         return this.idDocAnt;
                     }
@@ -9772,7 +9772,7 @@ public class TCTe
                          */
                         public List<IdDocAntPap> getIdDocAntPap() {
                             if (idDocAntPap == null) {
-                                idDocAntPap = new ArrayList<IdDocAntPap>();
+                                idDocAntPap = new ArrayList<>();
                             }
                             return this.idDocAntPap;
                         }
@@ -9807,7 +9807,7 @@ public class TCTe
                          */
                         public List<IdDocAntEle> getIdDocAntEle() {
                             if (idDocAntEle == null) {
-                                idDocAntEle = new ArrayList<IdDocAntEle>();
+                                idDocAntEle = new ArrayList<>();
                             }
                             return this.idDocAntEle;
                         }
@@ -10251,7 +10251,7 @@ public class TCTe
                  */
                 public List<InfQ> getInfQ() {
                     if (infQ == null) {
-                        infQ = new ArrayList<InfQ>();
+                        infQ = new ArrayList<>();
                     }
                     return this.infQ;
                 }
@@ -10704,7 +10704,7 @@ public class TCTe
                  */
                 public List<InfNF> getInfNF() {
                     if (infNF == null) {
-                        infNF = new ArrayList<InfNF>();
+                        infNF = new ArrayList<>();
                     }
                     return this.infNF;
                 }
@@ -10739,7 +10739,7 @@ public class TCTe
                  */
                 public List<InfNFe> getInfNFe() {
                     if (infNFe == null) {
-                        infNFe = new ArrayList<InfNFe>();
+                        infNFe = new ArrayList<>();
                     }
                     return this.infNFe;
                 }
@@ -10774,7 +10774,7 @@ public class TCTe
                  */
                 public List<InfOutros> getInfOutros() {
                     if (infOutros == null) {
-                        infOutros = new ArrayList<InfOutros>();
+                        infOutros = new ArrayList<>();
                     }
                     return this.infOutros;
                 }
@@ -11322,7 +11322,7 @@ public class TCTe
                      */
                     public List<TUnidCarga> getInfUnidCarga() {
                         if (infUnidCarga == null) {
-                            infUnidCarga = new ArrayList<TUnidCarga>();
+                            infUnidCarga = new ArrayList<>();
                         }
                         return this.infUnidCarga;
                     }
@@ -11357,7 +11357,7 @@ public class TCTe
                      */
                     public List<TUnidadeTransp> getInfUnidTransp() {
                         if (infUnidTransp == null) {
-                            infUnidTransp = new ArrayList<TUnidadeTransp>();
+                            infUnidTransp = new ArrayList<>();
                         }
                         return this.infUnidTransp;
                     }
@@ -11518,7 +11518,7 @@ public class TCTe
                      */
                     public List<TUnidCarga> getInfUnidCarga() {
                         if (infUnidCarga == null) {
-                            infUnidCarga = new ArrayList<TUnidCarga>();
+                            infUnidCarga = new ArrayList<>();
                         }
                         return this.infUnidCarga;
                     }
@@ -11553,7 +11553,7 @@ public class TCTe
                      */
                     public List<TUnidadeTransp> getInfUnidTransp() {
                         if (infUnidTransp == null) {
-                            infUnidTransp = new ArrayList<TUnidadeTransp>();
+                            infUnidTransp = new ArrayList<>();
                         }
                         return this.infUnidTransp;
                     }
@@ -11810,7 +11810,7 @@ public class TCTe
                      */
                     public List<TUnidCarga> getInfUnidCarga() {
                         if (infUnidCarga == null) {
-                            infUnidCarga = new ArrayList<TUnidCarga>();
+                            infUnidCarga = new ArrayList<>();
                         }
                         return this.infUnidCarga;
                     }
@@ -11845,7 +11845,7 @@ public class TCTe
                      */
                     public List<TUnidadeTransp> getInfUnidTransp() {
                         if (infUnidTransp == null) {
-                            infUnidTransp = new ArrayList<TUnidadeTransp>();
+                            infUnidTransp = new ArrayList<>();
                         }
                         return this.infUnidTransp;
                     }
@@ -12071,7 +12071,7 @@ public class TCTe
                  */
                 public List<InfCTeMultimodal> getInfCTeMultimodal() {
                     if (infCTeMultimodal == null) {
-                        infCTeMultimodal = new ArrayList<InfCTeMultimodal>();
+                        infCTeMultimodal = new ArrayList<>();
                     }
                     return this.infCTeMultimodal;
                 }
@@ -13232,7 +13232,7 @@ public class TCTe
              */
             public List<Comp> getComp() {
                 if (comp == null) {
-                    comp = new ArrayList<Comp>();
+                    comp = new ArrayList<>();
                 }
                 return this.comp;
             }

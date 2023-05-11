@@ -107,7 +107,7 @@ public final class AppCte {
         }
     }
 
-    private static void receptionSync() throws Exception {
+    private static void receptionSync() {
         try {
             KeyStoreInfo info = KeyStoreFactory.getInstance();
             CteReceptionSyncService service = new CteReceptionSyncServiceImpl(new PfxCteConfigImpl(UF.MT, "11520224000140", Environment.HOMOLOGATION, info));
@@ -126,7 +126,7 @@ public final class AppCte {
 
     }
 
-    private static void receptionGtve() throws Exception {
+    private static void receptionGtve() {
         try {
             KeyStoreInfo info = KeyStoreFactory.getInstance();
             GtveReceptionService service = new GtveReceptionServiceImpl(new PfxCteConfigImpl(UF.PR, "11520224000140", Environment.HOMOLOGATION, info));
@@ -138,7 +138,7 @@ public final class AppCte {
 
     }
 
-    private static CteOs getCteOs(CteConfig config, int number, Model model) throws Exception {
+    private static CteOs getCteOs(CteConfig config, int number, Model model) {
         CityPI c = CityPI.PI_TERESINA;
 
         return CteOs
@@ -241,7 +241,7 @@ public final class AppCte {
                 .build();
     }
 
-    private static Cte getCte(CteConfig config, int number, Model model) throws Exception {
+    private static Cte getCte(CteConfig config, int number, Model model) {
         CityPI c = CityPI.PI_TERESINA;
 
         return Cte
@@ -428,7 +428,7 @@ public final class AppCte {
                 .build();
     }
 
-    private static Gtve getGtve(CteConfig config, int number, Model model) throws Exception {
+    private static Gtve getGtve(CteConfig config, int number, Model model) {
         CityPI c = CityPI.PI_TERESINA;
 
         return Gtve

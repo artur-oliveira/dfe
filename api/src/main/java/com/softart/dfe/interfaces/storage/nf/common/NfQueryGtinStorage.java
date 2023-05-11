@@ -12,6 +12,7 @@ public interface NfQueryGtinStorage extends Storage {
      * Stores the return query GTIN
      *
      * @param o The object to be stored.
+     * @throws StorageException StorageException
      */
     void storeReturnQueryGtin(Store<TRetConsGTIN> o) throws StorageException;
 
@@ -19,6 +20,7 @@ public interface NfQueryGtinStorage extends Storage {
      * Store a GTIN in the database
      *
      * @param o The object to be stored.
+     * @throws StorageException StorageException
      */
     void storeQueryGtin(Store<TConsGTIN> o) throws StorageException;
 }

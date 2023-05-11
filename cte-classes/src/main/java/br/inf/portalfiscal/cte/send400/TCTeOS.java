@@ -1868,7 +1868,7 @@ public class TCTeOS
          */
         public List<InfCteComp> getInfCteComp() {
             if (infCteComp == null) {
-                infCteComp = new ArrayList<InfCteComp>();
+                infCteComp = new ArrayList<>();
             }
             return this.infCteComp;
         }
@@ -1903,7 +1903,7 @@ public class TCTeOS
          */
         public List<AutXML> getAutXML() {
             if (autXML == null) {
-                autXML = new ArrayList<AutXML>();
+                autXML = new ArrayList<>();
             }
             return this.autXML;
         }
@@ -2312,7 +2312,7 @@ public class TCTeOS
              */
             public List<ObsCont> getObsCont() {
                 if (obsCont == null) {
-                    obsCont = new ArrayList<ObsCont>();
+                    obsCont = new ArrayList<>();
                 }
                 return this.obsCont;
             }
@@ -2347,7 +2347,7 @@ public class TCTeOS
              */
             public List<ObsFisco> getObsFisco() {
                 if (obsFisco == null) {
-                    obsFisco = new ArrayList<ObsFisco>();
+                    obsFisco = new ArrayList<>();
                 }
                 return this.obsFisco;
             }
@@ -3721,7 +3721,7 @@ public class TCTeOS
              */
             public List<InfPercurso> getInfPercurso() {
                 if (infPercurso == null) {
-                    infPercurso = new ArrayList<InfPercurso>();
+                    infPercurso = new ArrayList<>();
                 }
                 return this.infPercurso;
             }
@@ -4820,7 +4820,7 @@ public class TCTeOS
              */
             public List<InfDocRef> getInfDocRef() {
                 if (infDocRef == null) {
-                    infDocRef = new ArrayList<InfDocRef>();
+                    infDocRef = new ArrayList<>();
                 }
                 return this.infDocRef;
             }
@@ -4855,7 +4855,7 @@ public class TCTeOS
              */
             public List<Seg> getSeg() {
                 if (seg == null) {
-                    seg = new ArrayList<Seg>();
+                    seg = new ArrayList<>();
                 }
                 return this.seg;
             }
@@ -4986,7 +4986,7 @@ public class TCTeOS
              */
             public List<InfGTVe> getInfGTVe() {
                 if (infGTVe == null) {
-                    infGTVe = new ArrayList<InfGTVe>();
+                    infGTVe = new ArrayList<>();
                 }
                 return this.infGTVe;
             }
@@ -5114,7 +5114,7 @@ public class TCTeOS
                  */
                 public List<Dup> getDup() {
                     if (dup == null) {
-                        dup = new ArrayList<Dup>();
+                        dup = new ArrayList<>();
                     }
                     return this.dup;
                 }
@@ -5775,7 +5775,7 @@ public class TCTeOS
                  */
                 public List<Comp> getComp() {
                     if (comp == null) {
-                        comp = new ArrayList<Comp>();
+                        comp = new ArrayList<>();
                     }
                     return this.comp;
                 }
@@ -6689,7 +6689,7 @@ public class TCTeOS
              */
             public List<Comp> getComp() {
                 if (comp == null) {
-                    comp = new ArrayList<Comp>();
+                    comp = new ArrayList<>();
                 }
                 return this.comp;
             }

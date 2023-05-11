@@ -10,6 +10,6 @@ import com.softart.dfe.models.internal.xml.XMLValidation;
 final class XSDQueryProtocolValidator implements NfQueryProtocolValidator {
     @Override
     public void valid(Validation<TConsSitNFe> o) throws ValidationException {
-        XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/nfe/PL_009k_NT2023_001_v110a/consSitNFe_v4.00.xsd", o.getXml()));
+        XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/nfe/PL_009k_NT2023_001_v110a/consSitNFe_v4.00.xsd", o.xml()));
     }
 }

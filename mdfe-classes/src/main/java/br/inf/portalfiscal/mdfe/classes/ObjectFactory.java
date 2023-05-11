@@ -1066,7 +1066,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "consMDFeNaoEnc")
     public JAXBElement<TConsMDFeNaoEnc> createConsMDFeNaoEnc(TConsMDFeNaoEnc value) {
-        return new JAXBElement<TConsMDFeNaoEnc>(_ConsMDFeNaoEnc_QNAME, TConsMDFeNaoEnc.class, null, value);
+        return new JAXBElement<>(_ConsMDFeNaoEnc_QNAME, TConsMDFeNaoEnc.class, null, value);
     }
 
     /**
@@ -1077,7 +1077,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "consReciMDFe")
     public JAXBElement<TConsReciMDFe> createConsReciMDFe(TConsReciMDFe value) {
-        return new JAXBElement<TConsReciMDFe>(_ConsReciMDFe_QNAME, TConsReciMDFe.class, null, value);
+        return new JAXBElement<>(_ConsReciMDFe_QNAME, TConsReciMDFe.class, null, value);
     }
 
     /**
@@ -1088,7 +1088,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "consSitMDFe")
     public JAXBElement<TConsSitMDFe> createConsSitMDFe(TConsSitMDFe value) {
-        return new JAXBElement<TConsSitMDFe>(_ConsSitMDFe_QNAME, TConsSitMDFe.class, null, value);
+        return new JAXBElement<>(_ConsSitMDFe_QNAME, TConsSitMDFe.class, null, value);
     }
 
     /**
@@ -1099,7 +1099,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "consStatServMDFe")
     public JAXBElement<TConsStatServ> createConsStatServMDFe(TConsStatServ value) {
-        return new JAXBElement<TConsStatServ>(_ConsStatServMDFe_QNAME, TConsStatServ.class, null, value);
+        return new JAXBElement<>(_ConsStatServMDFe_QNAME, TConsStatServ.class, null, value);
     }
 
     /**
@@ -1110,7 +1110,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "distMDFe")
     public JAXBElement<TDistDFe> createDistMDFe(TDistDFe value) {
-        return new JAXBElement<TDistDFe>(_DistMDFe_QNAME, TDistDFe.class, null, value);
+        return new JAXBElement<>(_DistMDFe_QNAME, TDistDFe.class, null, value);
     }
 
     /**
@@ -1121,7 +1121,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "enviMDFe")
     public JAXBElement<TEnviMDFe> createEnviMDFe(TEnviMDFe value) {
-        return new JAXBElement<TEnviMDFe>(_EnviMDFe_QNAME, TEnviMDFe.class, null, value);
+        return new JAXBElement<>(_EnviMDFe_QNAME, TEnviMDFe.class, null, value);
     }
 
     /**
@@ -1132,7 +1132,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "evAlteracaoPagtoServMDFe")
     public JAXBElement<EvAlteracaoPagtoServMDFe> createEvAlteracaoPagtoServMDFe(EvAlteracaoPagtoServMDFe value) {
-        return new JAXBElement<EvAlteracaoPagtoServMDFe>(_EvAlteracaoPagtoServMDFe_QNAME, EvAlteracaoPagtoServMDFe.class, null, value);
+        return new JAXBElement<>(_EvAlteracaoPagtoServMDFe_QNAME, EvAlteracaoPagtoServMDFe.class, null, value);
     }
 
     /**
@@ -1143,7 +1143,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "evCancMDFe")
     public JAXBElement<EvCancMDFe> createEvCancMDFe(EvCancMDFe value) {
-        return new JAXBElement<EvCancMDFe>(_EvCancMDFe_QNAME, EvCancMDFe.class, null, value);
+        return new JAXBElement<>(_EvCancMDFe_QNAME, EvCancMDFe.class, null, value);
     }
 
     /**
@@ -1154,7 +1154,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "evConfirmaServMDFe")
     public JAXBElement<EvConfirmaServMDFe> createEvConfirmaServMDFe(EvConfirmaServMDFe value) {
-        return new JAXBElement<EvConfirmaServMDFe>(_EvConfirmaServMDFe_QNAME, EvConfirmaServMDFe.class, null, value);
+        return new JAXBElement<>(_EvConfirmaServMDFe_QNAME, EvConfirmaServMDFe.class, null, value);
     }
 
     /**
@@ -1165,7 +1165,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "evEncMDFe")
     public JAXBElement<EvEncMDFe> createEvEncMDFe(EvEncMDFe value) {
-        return new JAXBElement<EvEncMDFe>(_EvEncMDFe_QNAME, EvEncMDFe.class, null, value);
+        return new JAXBElement<>(_EvEncMDFe_QNAME, EvEncMDFe.class, null, value);
     }
 
     /**
@@ -1176,7 +1176,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "evIncCondutorMDFe")
     public JAXBElement<EvIncCondutorMDFe> createEvIncCondutorMDFe(EvIncCondutorMDFe value) {
-        return new JAXBElement<EvIncCondutorMDFe>(_EvIncCondutorMDFe_QNAME, EvIncCondutorMDFe.class, null, value);
+        return new JAXBElement<>(_EvIncCondutorMDFe_QNAME, EvIncCondutorMDFe.class, null, value);
     }
 
     /**
@@ -1187,7 +1187,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "evIncDFeMDFe")
     public JAXBElement<EvIncDFeMDFe> createEvIncDFeMDFe(EvIncDFeMDFe value) {
-        return new JAXBElement<EvIncDFeMDFe>(_EvIncDFeMDFe_QNAME, EvIncDFeMDFe.class, null, value);
+        return new JAXBElement<>(_EvIncDFeMDFe_QNAME, EvIncDFeMDFe.class, null, value);
     }
 
     /**
@@ -1198,7 +1198,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "evPagtoOperMDFe")
     public JAXBElement<EvPagtoOperMDFe> createEvPagtoOperMDFe(EvPagtoOperMDFe value) {
-        return new JAXBElement<EvPagtoOperMDFe>(_EvPagtoOperMDFe_QNAME, EvPagtoOperMDFe.class, null, value);
+        return new JAXBElement<>(_EvPagtoOperMDFe_QNAME, EvPagtoOperMDFe.class, null, value);
     }
 
     /**
@@ -1209,7 +1209,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "eventoMDFe")
     public JAXBElement<TEvento> createEventoMDFe(TEvento value) {
-        return new JAXBElement<TEvento>(_EventoMDFe_QNAME, TEvento.class, null, value);
+        return new JAXBElement<>(_EventoMDFe_QNAME, TEvento.class, null, value);
     }
 
     /**
@@ -1220,7 +1220,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "mdfeConsultaDFe")
     public JAXBElement<TMDFeConsultaDFe> createMdfeConsultaDFe(TMDFeConsultaDFe value) {
-        return new JAXBElement<TMDFeConsultaDFe>(_MdfeConsultaDFe_QNAME, TMDFeConsultaDFe.class, null, value);
+        return new JAXBElement<>(_MdfeConsultaDFe_QNAME, TMDFeConsultaDFe.class, null, value);
     }
 
     /**
@@ -1231,7 +1231,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "aereo")
     public JAXBElement<Aereo> createAereo(Aereo value) {
-        return new JAXBElement<Aereo>(_Aereo_QNAME, Aereo.class, null, value);
+        return new JAXBElement<>(_Aereo_QNAME, Aereo.class, null, value);
     }
 
     /**
@@ -1242,7 +1242,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "aquav")
     public JAXBElement<Aquav> createAquav(Aquav value) {
-        return new JAXBElement<Aquav>(_Aquav_QNAME, Aquav.class, null, value);
+        return new JAXBElement<>(_Aquav_QNAME, Aquav.class, null, value);
     }
 
     /**
@@ -1253,7 +1253,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "ferrov")
     public JAXBElement<Ferrov> createFerrov(Ferrov value) {
-        return new JAXBElement<Ferrov>(_Ferrov_QNAME, Ferrov.class, null, value);
+        return new JAXBElement<>(_Ferrov_QNAME, Ferrov.class, null, value);
     }
 
     /**
@@ -1264,7 +1264,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "rodo")
     public JAXBElement<Rodo> createRodo(Rodo value) {
-        return new JAXBElement<Rodo>(_Rodo_QNAME, Rodo.class, null, value);
+        return new JAXBElement<>(_Rodo_QNAME, Rodo.class, null, value);
     }
 
     /**
@@ -1275,7 +1275,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "MDFe")
     public JAXBElement<TMDFe> createMDFe(TMDFe value) {
-        return new JAXBElement<TMDFe>(_MDFe_QNAME, TMDFe.class, null, value);
+        return new JAXBElement<>(_MDFe_QNAME, TMDFe.class, null, value);
     }
 
     /**
@@ -1286,7 +1286,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "procEventoMDFe")
     public JAXBElement<TProcEvento> createProcEventoMDFe(TProcEvento value) {
-        return new JAXBElement<TProcEvento>(_ProcEventoMDFe_QNAME, TProcEvento.class, null, value);
+        return new JAXBElement<>(_ProcEventoMDFe_QNAME, TProcEvento.class, null, value);
     }
 
     /**
@@ -1297,7 +1297,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "mdfeProc")
     public JAXBElement<TMdfeProc> createMdfeProc(TMdfeProc value) {
-        return new JAXBElement<TMdfeProc>(_MdfeProc_QNAME, TMdfeProc.class, null, value);
+        return new JAXBElement<>(_MdfeProc_QNAME, TMdfeProc.class, null, value);
     }
 
     /**
@@ -1308,7 +1308,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "protMDFe")
     public JAXBElement<TProtMDFe> createProtMDFe(TProtMDFe value) {
-        return new JAXBElement<TProtMDFe>(_ProtMDFe_QNAME, TProtMDFe.class, null, value);
+        return new JAXBElement<>(_ProtMDFe_QNAME, TProtMDFe.class, null, value);
     }
 
     /**
@@ -1319,7 +1319,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "retConsMDFeNaoEnc")
     public JAXBElement<TRetConsMDFeNaoEnc> createRetConsMDFeNaoEnc(TRetConsMDFeNaoEnc value) {
-        return new JAXBElement<TRetConsMDFeNaoEnc>(_RetConsMDFeNaoEnc_QNAME, TRetConsMDFeNaoEnc.class, null, value);
+        return new JAXBElement<>(_RetConsMDFeNaoEnc_QNAME, TRetConsMDFeNaoEnc.class, null, value);
     }
 
     /**
@@ -1330,7 +1330,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "retConsReciMDFe")
     public JAXBElement<TRetConsReciMDFe> createRetConsReciMDFe(TRetConsReciMDFe value) {
-        return new JAXBElement<TRetConsReciMDFe>(_RetConsReciMDFe_QNAME, TRetConsReciMDFe.class, null, value);
+        return new JAXBElement<>(_RetConsReciMDFe_QNAME, TRetConsReciMDFe.class, null, value);
     }
 
     /**
@@ -1341,7 +1341,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "retConsSitMDFe")
     public JAXBElement<TRetConsSitMDFe> createRetConsSitMDFe(TRetConsSitMDFe value) {
-        return new JAXBElement<TRetConsSitMDFe>(_RetConsSitMDFe_QNAME, TRetConsSitMDFe.class, null, value);
+        return new JAXBElement<>(_RetConsSitMDFe_QNAME, TRetConsSitMDFe.class, null, value);
     }
 
     /**
@@ -1352,7 +1352,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "retConsStatServMDFe")
     public JAXBElement<TRetConsStatServ> createRetConsStatServMDFe(TRetConsStatServ value) {
-        return new JAXBElement<TRetConsStatServ>(_RetConsStatServMDFe_QNAME, TRetConsStatServ.class, null, value);
+        return new JAXBElement<>(_RetConsStatServMDFe_QNAME, TRetConsStatServ.class, null, value);
     }
 
     /**
@@ -1363,7 +1363,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "retDistMDFe")
     public JAXBElement<TRetDistDFe> createRetDistMDFe(TRetDistDFe value) {
-        return new JAXBElement<TRetDistDFe>(_RetDistMDFe_QNAME, TRetDistDFe.class, null, value);
+        return new JAXBElement<>(_RetDistMDFe_QNAME, TRetDistDFe.class, null, value);
     }
 
     /**
@@ -1374,7 +1374,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "retEnviMDFe")
     public JAXBElement<TRetEnviMDFe> createRetEnviMDFe(TRetEnviMDFe value) {
-        return new JAXBElement<TRetEnviMDFe>(_RetEnviMDFe_QNAME, TRetEnviMDFe.class, null, value);
+        return new JAXBElement<>(_RetEnviMDFe_QNAME, TRetEnviMDFe.class, null, value);
     }
 
     /**
@@ -1385,7 +1385,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "retEventoMDFe")
     public JAXBElement<TRetEvento> createRetEventoMDFe(TRetEvento value) {
-        return new JAXBElement<TRetEvento>(_RetEventoMDFe_QNAME, TRetEvento.class, null, value);
+        return new JAXBElement<>(_RetEventoMDFe_QNAME, TRetEvento.class, null, value);
     }
 
     /**
@@ -1396,7 +1396,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "retMDFeConsultaDFe")
     public JAXBElement<TRetMDFeConsultaDFe> createRetMDFeConsultaDFe(TRetMDFeConsultaDFe value) {
-        return new JAXBElement<TRetMDFeConsultaDFe>(_RetMDFeConsultaDFe_QNAME, TRetMDFeConsultaDFe.class, null, value);
+        return new JAXBElement<>(_RetMDFeConsultaDFe_QNAME, TRetMDFeConsultaDFe.class, null, value);
     }
 
     /**
@@ -1407,7 +1407,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "retMDFe")
     public JAXBElement<TRetMDFe> createRetMDFe(TRetMDFe value) {
-        return new JAXBElement<TRetMDFe>(_RetMDFe_QNAME, TRetMDFe.class, null, value);
+        return new JAXBElement<>(_RetMDFe_QNAME, TRetMDFe.class, null, value);
     }
 
     /**
@@ -1418,7 +1418,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.w3.org/2000/09/xmldsig#", name = "Signature")
     public JAXBElement<SignatureType> createSignature(SignatureType value) {
-        return new JAXBElement<SignatureType>(_Signature_QNAME, SignatureType.class, null, value);
+        return new JAXBElement<>(_Signature_QNAME, SignatureType.class, null, value);
     }
 
 }

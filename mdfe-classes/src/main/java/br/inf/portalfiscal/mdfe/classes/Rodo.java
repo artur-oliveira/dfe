@@ -666,7 +666,7 @@ public class Rodo
      */
     public List<VeicReboque> getVeicReboque() {
         if (veicReboque == null) {
-            veicReboque = new ArrayList<VeicReboque>();
+            veicReboque = new ArrayList<>();
         }
         return this.veicReboque;
     }
@@ -725,7 +725,7 @@ public class Rodo
      */
     public List<LacRodo> getLacRodo() {
         if (lacRodo == null) {
-            lacRodo = new ArrayList<LacRodo>();
+            lacRodo = new ArrayList<>();
         }
         return this.lacRodo;
     }
@@ -1074,7 +1074,7 @@ public class Rodo
          */
         public List<InfCIOT> getInfCIOT() {
             if (infCIOT == null) {
-                infCIOT = new ArrayList<InfCIOT>();
+                infCIOT = new ArrayList<>();
             }
             return this.infCIOT;
         }
@@ -1133,7 +1133,7 @@ public class Rodo
          */
         public List<InfContratante> getInfContratante() {
             if (infContratante == null) {
-                infContratante = new ArrayList<InfContratante>();
+                infContratante = new ArrayList<>();
             }
             return this.infContratante;
         }
@@ -1168,7 +1168,7 @@ public class Rodo
          */
         public List<InfPag> getInfPag() {
             if (infPag == null) {
-                infPag = new ArrayList<InfPag>();
+                infPag = new ArrayList<>();
             }
             return this.infPag;
         }
@@ -1749,7 +1749,7 @@ public class Rodo
              */
             public List<Comp> getComp() {
                 if (comp == null) {
-                    comp = new ArrayList<Comp>();
+                    comp = new ArrayList<>();
                 }
                 return this.comp;
             }
@@ -1880,7 +1880,7 @@ public class Rodo
              */
             public List<InfPrazo> getInfPrazo() {
                 if (infPrazo == null) {
-                    infPrazo = new ArrayList<InfPrazo>();
+                    infPrazo = new ArrayList<>();
                 }
                 return this.infPrazo;
             }
@@ -2427,7 +2427,7 @@ public class Rodo
              */
             public List<Disp> getDisp() {
                 if (disp == null) {
-                    disp = new ArrayList<Disp>();
+                    disp = new ArrayList<>();
                 }
                 return this.disp;
             }
@@ -3738,7 +3738,7 @@ public class Rodo
          */
         public List<Condutor> getCondutor() {
             if (condutor == null) {
-                condutor = new ArrayList<Condutor>();
+                condutor = new ArrayList<>();
             }
             return this.condutor;
         }

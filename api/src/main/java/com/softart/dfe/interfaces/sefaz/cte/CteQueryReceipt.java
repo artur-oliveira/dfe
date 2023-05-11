@@ -17,6 +17,9 @@ public interface CteQueryReceipt {
      *
      * @param data The request object.
      * @return A pair of objects, the first is the request object, the second is the response object.
+     * @throws SecurityException   SecurityException
+     * @throws ValidationException ValidationException
+     * @throws ProcessException    ProcessException
      */
     <T extends SefazRequest<TConsReciCTe, TRetConsReciCTe>> Pair<TConsReciCTe, TRetConsReciCTe> queryReceipt(T data) throws SecurityException, ValidationException, ProcessException;
 

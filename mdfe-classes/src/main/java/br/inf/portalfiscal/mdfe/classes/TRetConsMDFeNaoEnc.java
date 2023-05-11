@@ -219,7 +219,7 @@ public class TRetConsMDFeNaoEnc
      */
     public List<InfMDFe> getInfMDFe() {
         if (infMDFe == null) {
-            infMDFe = new ArrayList<InfMDFe>();
+            infMDFe = new ArrayList<>();
         }
         return this.infMDFe;
     }

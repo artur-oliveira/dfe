@@ -159,7 +159,7 @@ public class EvCCeCTe
      */
     public List<InfCorrecao> getInfCorrecao() {
         if (infCorrecao == null) {
-            infCorrecao = new ArrayList<InfCorrecao>();
+            infCorrecao = new ArrayList<>();
         }
         return this.infCorrecao;
     }

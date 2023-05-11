@@ -21,8 +21,6 @@ public final class InputStreamUtils {
 
     /**
      * "If the file exists, open it and return the stream, otherwise throw an exception."
-     * <p>
-     * The function is a bit more complicated than that, but that's the gist of it
      *
      * @param p The path to the file to open.
      * @return An InputStream

@@ -29,7 +29,7 @@ public interface CteStatusServicoSoap12 {
      */
     @WebMethod(action = "http://www.portalfiscal.inf.br/cte/wsdl/CteStatusServico/cteStatusServicoCT")
     @WebResult(name = "cteStatusServicoCTResult", targetNamespace = "http://www.portalfiscal.inf.br/cte/wsdl/CteStatusServico", partName = "cteStatusServicoCTResult")
-    public CteStatusServicoCTResult cteStatusServicoCT(
+    CteStatusServicoCTResult cteStatusServicoCT(
             @WebParam(name = "cteDadosMsg", targetNamespace = "http://www.portalfiscal.inf.br/cte/wsdl/CteStatusServico", partName = "cteDadosMsg")
             CteDadosMsg cteDadosMsg);
 

@@ -17,11 +17,11 @@ public abstract class StoreRetInutilizationNfe implements AfterInut {
 
     @Override
     public <T extends AfterRequest<TInutNFe, TRetInutNFe>> void process(T data) throws ProcessException {
-        if (Objects.nonNull(data.getResponse()) && Objects.nonNull(data.getResponse().getInfInut())) {
+        if (Objects.nonNull(data.response()) && Objects.nonNull(data.response().getInfInut())) {
             if (Objects.nonNull(getStorage()))
-                getStorage().storeRetInut(new XMLStore<>(data.getResponse(), data.getConfig(), NfMarshallerFactory.getInstance().returnInutNfe(data.getResponse())));
+                getStorage().storeRetInut(new XMLStore<>(data.response(), data.config(), NfMarshallerFactory.getInstance().returnInutNfe(data.response())));
         } else {
-            log.warn(Objects.requireNonNull(data.getResponse()).getInfInut().getXMotivo());
+            log.warn(Objects.requireNonNull(data.response()).getInfInut().getXMotivo());
         }
     }
 

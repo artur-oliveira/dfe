@@ -1,6 +1,11 @@
 package com.softart.dfe.interfaces.internal.nf;
 
-@SuppressWarnings("unused")
+/**
+ * Declaring a public interface named `NfCommonServiceURL`. This interface contains several method signatures that define
+ * the URLs and protocols used to interact with NF (Nota Fiscal) services in both production and homologation environments.
+ * The methods return strings that represent the various URLs and protocols used for querying and authorizing NF
+ * transactions.
+ */
 public interface NfCommonServiceURL {
 
     /**

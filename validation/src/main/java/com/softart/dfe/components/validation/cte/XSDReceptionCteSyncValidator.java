@@ -12,27 +12,21 @@ import com.softart.dfe.models.internal.xml.XMLValidation;
 public final class XSDReceptionCteSyncValidator implements CteReceptionCteSyncValidator {
     @Override
     public void valid(Validation<TCTe> o) throws ValidationException {
-        XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/cte/PL_CTe_300a_NT2022.001/cte_v3.00.xsd", o.getXml()));
+        XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/cte/PL_CTe_300a_NT2022.001/cte_v3.00.xsd", o.xml()));
 
-        switch (CteModal.valueOfCode(o.getValue().getInfCte().getIde().getModal())) {
-            case AEREO:
-                XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/cte/PL_CTe_300a_NT2022.001/cteModalAereo_v3.00.xsd", CteMarshallerFactory.getInstance().any(o.getValue().getInfCte().getInfCTeNorm().getInfModal().getAny())));
-                break;
-            case AQUAVIARIO:
-                XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/cte/PL_CTe_300a_NT2022.001/cteModalAquaviario_v3.00.xsd", CteMarshallerFactory.getInstance().any(o.getValue().getInfCte().getInfCTeNorm().getInfModal().getAny())));
-                break;
-            case RODOVIARIO:
-                XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/cte/PL_CTe_300a_NT2022.001/cteModalRodoviario_v3.00.xsd", CteMarshallerFactory.getInstance().any(o.getValue().getInfCte().getInfCTeNorm().getInfModal().getAny())));
-                break;
-            case FERROVIARIO:
-                XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/cte/PL_CTe_300a_NT2022.001/cteModalFerroviario_v3.00.xsd", CteMarshallerFactory.getInstance().any(o.getValue().getInfCte().getInfCTeNorm().getInfModal().getAny())));
-                break;
-            case DUTOVIARIO:
-                XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/cte/PL_CTe_300a_NT2022.001/cteModalDutoviario_v3.00.xsd", CteMarshallerFactory.getInstance().any(o.getValue().getInfCte().getInfCTeNorm().getInfModal().getAny())));
-                break;
-            case MULTIMODAL:
-                XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/cte/PL_CTe_300a_NT2022.001/cteMultiModal_v3.00.xsd", CteMarshallerFactory.getInstance().any(o.getValue().getInfCte().getInfCTeNorm().getInfModal().getAny())));
-                break;
+        switch (CteModal.valueOfCode(o.value().getInfCte().getIde().getModal())) {
+            case AEREO ->
+                    XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/cte/PL_CTe_300a_NT2022.001/cteModalAereo_v3.00.xsd", CteMarshallerFactory.getInstance().any(o.value().getInfCte().getInfCTeNorm().getInfModal().getAny())));
+            case AQUAVIARIO ->
+                    XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/cte/PL_CTe_300a_NT2022.001/cteModalAquaviario_v3.00.xsd", CteMarshallerFactory.getInstance().any(o.value().getInfCte().getInfCTeNorm().getInfModal().getAny())));
+            case RODOVIARIO ->
+                    XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/cte/PL_CTe_300a_NT2022.001/cteModalRodoviario_v3.00.xsd", CteMarshallerFactory.getInstance().any(o.value().getInfCte().getInfCTeNorm().getInfModal().getAny())));
+            case FERROVIARIO ->
+                    XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/cte/PL_CTe_300a_NT2022.001/cteModalFerroviario_v3.00.xsd", CteMarshallerFactory.getInstance().any(o.value().getInfCte().getInfCTeNorm().getInfModal().getAny())));
+            case DUTOVIARIO ->
+                    XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/cte/PL_CTe_300a_NT2022.001/cteModalDutoviario_v3.00.xsd", CteMarshallerFactory.getInstance().any(o.value().getInfCte().getInfCTeNorm().getInfModal().getAny())));
+            case MULTIMODAL ->
+                    XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/cte/PL_CTe_300a_NT2022.001/cteMultiModal_v3.00.xsd", CteMarshallerFactory.getInstance().any(o.value().getInfCte().getInfCTeNorm().getInfModal().getAny())));
         }
     }
 }

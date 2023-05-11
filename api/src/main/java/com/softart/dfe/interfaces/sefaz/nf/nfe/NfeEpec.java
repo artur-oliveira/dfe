@@ -15,6 +15,9 @@ public interface NfeEpec {
      *
      * @param data The request object.
      * @return Pair<TEnvEvento, TRetEnvEvento>
+     * @throws SecurityException   SecurityException
+     * @throws ValidationException ValidationException
+     * @throws ProcessException    ProcessException
      */
     <T extends SefazRequest<TEnvEvento, TRetEnvEvento>> Pair<TEnvEvento, TRetEnvEvento> epec(T data) throws SecurityException, ValidationException, ProcessException;
 

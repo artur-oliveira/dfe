@@ -15,8 +15,8 @@ public abstract class StoreReturnStatusServiceMdfe implements AfterStatusService
 
     @Override
     public <T extends AfterRequest<TConsStatServ, TRetConsStatServ>> void process(T o) throws ProcessException {
-        if (Objects.nonNull(o.getConfig()) && Objects.nonNull(o.getRequest())) {
-            getStorage().storeReturnStatusService(new XMLStore<>(o.getResponse(), o.getConfig(), MdfeMarshallerFactory.getInstance().returnStatusService(o.getResponse())));
+        if (Objects.nonNull(o.config()) && Objects.nonNull(o.request())) {
+            getStorage().storeReturnStatusService(new XMLStore<>(o.response(), o.config(), MdfeMarshallerFactory.getInstance().returnStatusService(o.response())));
         }
     }
 

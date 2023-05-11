@@ -17,12 +17,12 @@ public abstract class StoreProcCte implements AfterReceptionCteSync {
 
     @Override
     public <T extends AfterRequest<TCTe, TRetCTe>> void process(T o) throws ProcessException {
-        if (Objects.nonNull(getStorage()) && Objects.nonNull(o.getResponse())) {
+        if (Objects.nonNull(getStorage()) && Objects.nonNull(o.response())) {
             TCteProc procCte = new br.inf.portalfiscal.cte.send.ObjectFactory().createTCteProc();
-            procCte.setCTe(o.getRequest());
-            procCte.setProtCTe(o.getResponse().getProtCTe());
-            procCte.setVersao(o.getResponse().getVersao());
-            getStorage().storeProcCteSync(new XMLStore<>(procCte, o.getConfig(), CteMarshallerFactory.getInstance().cteProc(procCte)));
+            procCte.setCTe(o.request());
+            procCte.setProtCTe(o.response().getProtCTe());
+            procCte.setVersao(o.response().getVersao());
+            getStorage().storeProcCteSync(new XMLStore<>(procCte, o.config(), CteMarshallerFactory.getInstance().cteProc(procCte)));
         }
     }
 

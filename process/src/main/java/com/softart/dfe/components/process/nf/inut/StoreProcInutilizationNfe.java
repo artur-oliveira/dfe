@@ -18,17 +18,17 @@ public abstract class StoreProcInutilizationNfe implements AfterInut {
 
     @Override
     public <T extends AfterRequest<TInutNFe, TRetInutNFe>> void process(T data) throws ProcessException {
-        if (Objects.nonNull(data.getRequest()) && Objects.nonNull(data.getRequest().getInfInut()) && Objects.nonNull(data.getResponse()) && Objects.nonNull(data.getResponse().getInfInut())) {
+        if (Objects.nonNull(data.request()) && Objects.nonNull(data.request().getInfInut()) && Objects.nonNull(data.response()) && Objects.nonNull(data.response().getInfInut())) {
             TProcInutNFe procInut = new br.inf.portalfiscal.nfe.send.ObjectFactory().createTProcInutNFe();
 
-            procInut.setInutNFe(data.getRequest());
-            procInut.setRetInutNFe(data.getResponse());
-            procInut.setVersao(data.getRequest().getVersao());
+            procInut.setInutNFe(data.request());
+            procInut.setRetInutNFe(data.response());
+            procInut.setVersao(data.request().getVersao());
 
             if (Objects.nonNull(getStorage()))
-                getStorage().storeProcInut(new XMLStore<>(procInut, data.getConfig(), NfMarshallerFactory.getInstance().procInutNfe(procInut)));
+                getStorage().storeProcInut(new XMLStore<>(procInut, data.config(), NfMarshallerFactory.getInstance().procInutNfe(procInut)));
         } else {
-            log.warn(Objects.requireNonNull(data.getResponse()).getInfInut().getXMotivo());
+            log.warn(Objects.requireNonNull(data.response()).getInfInut().getXMotivo());
         }
     }
 

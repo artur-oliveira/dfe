@@ -10,8 +10,6 @@ import com.softart.dfe.enums.internal.nf.NfceAuthorizer;
 import com.softart.dfe.enums.internal.nf.NfeAuthorizer;
 import com.softart.dfe.exceptions.services.NoProviderFound;
 import com.softart.dfe.interfaces.security.CertificateChain;
-import com.softart.dfe.util.DateUtils;
-import com.softart.dfe.util.IOUtils;
 import com.softart.dfe.util.OutputStreamUtils;
 import lombok.Getter;
 import lombok.SneakyThrows;
@@ -19,14 +17,12 @@ import lombok.extern.log4j.Log4j2;
 
 import javax.net.ssl.*;
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.security.*;
 import java.security.cert.CertificateEncodingException;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
-import java.time.Duration;
 import java.util.*;
 import java.util.stream.Collectors;
 

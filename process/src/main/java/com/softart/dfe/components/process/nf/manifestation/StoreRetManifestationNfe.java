@@ -17,11 +17,11 @@ public abstract class StoreRetManifestationNfe implements AfterManifestation {
 
     @Override
     public <T extends AfterRequest<TEnvEvento, TRetEnvEvento>> void process(T data) throws ProcessException {
-        if (Objects.nonNull(data.getResponse()) && !data.getResponse().getRetEvento().isEmpty()) {
+        if (Objects.nonNull(data.response()) && !data.response().getRetEvento().isEmpty()) {
             if (Objects.nonNull(getStorage()))
-                getStorage().storeRetManifestation(new XMLStore<>(data.getResponse(), data.getConfig(), NfMarshallerFactory.getInstance().returnManifestationNfe(data.getResponse())));
+                getStorage().storeRetManifestation(new XMLStore<>(data.response(), data.config(), NfMarshallerFactory.getInstance().returnManifestationNfe(data.response())));
         } else {
-            log.warn(data.getResponse().getXMotivo());
+            log.warn(data.response().getXMotivo());
         }
     }
 

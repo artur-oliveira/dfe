@@ -313,7 +313,7 @@ public class TRetConsGTIN
      */
     public List<String> getCEST() {
         if (cest == null) {
-            cest = new ArrayList<String>();
+            cest = new ArrayList<>();
         }
         return this.cest;
     }

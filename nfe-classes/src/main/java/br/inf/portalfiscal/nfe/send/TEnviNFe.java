@@ -133,7 +133,7 @@ public class TEnviNFe
      */
     public List<TNFe> getNFe() {
         if (nFe == null) {
-            nFe = new ArrayList<TNFe>();
+            nFe = new ArrayList<>();
         }
         return this.nFe;
     }

@@ -18,7 +18,7 @@ public final class PfxCteConfigImpl extends PfxConfigImpl implements CteConfig {
 
     private final UF webServiceUF;
     @EqualsAndHashCode.Include
-    private CteEmissionType emissionType;
+    private final CteEmissionType emissionType;
 
     public PfxCteConfigImpl(UF uf, String cnpj, Environment environment, KeyStoreInfo info) throws SSLContextException {
         this(uf, cnpj, environment, info, CteEmissionType.NORMAL);

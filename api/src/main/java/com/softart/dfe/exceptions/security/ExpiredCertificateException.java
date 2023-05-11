@@ -1,5 +1,9 @@
 package com.softart.dfe.exceptions.security;
 
+/**
+ * The ExpiredCertificateException class extends the SecurityException class and provides constructors for creating
+ * exceptions related to expired certificates.
+ */
 public class ExpiredCertificateException extends SecurityException {
     public ExpiredCertificateException() {
     }

@@ -55,13 +55,10 @@ public abstract class NfProcess implements NfProcessService {
 
 
     public static NfProcess getInstance() {
-        switch (System.getProperty("com.softart.dfe.process.nf", "default")) {
-            case "s3":
-                return HolderS3.INSTANCE;
-            case "default":
-            default:
-                return Holder.INSTANCE;
-        }
+        return switch (System.getProperty("com.softart.dfe.process.nf", "default")) {
+            case "s3" -> HolderS3.INSTANCE;
+            default -> Holder.INSTANCE;
+        };
     }
 
     public abstract List<NfProcessFactory> getProcessFactories();

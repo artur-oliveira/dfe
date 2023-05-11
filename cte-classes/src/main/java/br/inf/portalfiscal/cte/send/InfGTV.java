@@ -376,7 +376,7 @@ public class InfGTV
      */
     public List<InfEspecie> getInfEspecie() {
         if (infEspecie == null) {
-            infEspecie = new ArrayList<InfEspecie>();
+            infEspecie = new ArrayList<>();
         }
         return this.infEspecie;
     }

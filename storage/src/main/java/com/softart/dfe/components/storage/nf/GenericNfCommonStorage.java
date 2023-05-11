@@ -25,8 +25,8 @@ public abstract class GenericNfCommonStorage extends CommonStorage implements Nf
     @Override
     public void storeProcCancel(Store<br.inf.portalfiscal.nfe.event_cancel.TProcEvento> o) throws StorageException {
         try {
-            if (Objects.nonNull(o.getData()) && Objects.nonNull(o.getData().getEvento()) && Objects.nonNull(o.getData().getRetEvento()) && Objects.nonNull(o.getXml()) && NFReturnCode.generateProc(o.getData().getRetEvento().getInfEvento().getCStat())) {
-                getStorageService().writeProc(o, NFStorageKey.NF_EVENT, xmlNameWithTime(o.getData().getEvento().getInfEvento().getChNFe() + "-" + o.getData().getEvento().getInfEvento().getTpEvento() + "-" + o.getData().getEvento().getInfEvento().getNSeqEvento()));
+            if (Objects.nonNull(o.data()) && Objects.nonNull(o.data().getEvento()) && Objects.nonNull(o.data().getRetEvento()) && Objects.nonNull(o.xml()) && NFReturnCode.generateProc(o.data().getRetEvento().getInfEvento().getCStat())) {
+                getStorageService().writeProc(o, NFStorageKey.NF_EVENT, xmlNameWithTime(o.data().getEvento().getInfEvento().getChNFe() + "-" + o.data().getEvento().getInfEvento().getTpEvento() + "-" + o.data().getEvento().getInfEvento().getNSeqEvento()));
             }
         } catch (Exception e) {
             throw new StorageException(e);
@@ -36,9 +36,9 @@ public abstract class GenericNfCommonStorage extends CommonStorage implements Nf
     @Override
     public void storeRetCancel(Store<br.inf.portalfiscal.nfe.event_cancel.TRetEnvEvento> o) throws StorageException {
         try {
-            if (Objects.nonNull(o.getData()) && !o.getData().getRetEvento().isEmpty() && Objects.nonNull(o.getXml())) {
-                for (int i = 0; i < o.getData().getRetEvento().size(); i++) {
-                    getStorageService().writeReturn(o, NFStorageKey.NF_EVENT, xmlNameWithTime(o.getData().getRetEvento().get(i).getInfEvento().getChNFe() + "-" + o.getData().getRetEvento().get(i).getInfEvento().getTpEvento()));
+            if (Objects.nonNull(o.data()) && !o.data().getRetEvento().isEmpty() && Objects.nonNull(o.xml())) {
+                for (int i = 0; i < o.data().getRetEvento().size(); i++) {
+                    getStorageService().writeReturn(o, NFStorageKey.NF_EVENT, xmlNameWithTime(o.data().getRetEvento().get(i).getInfEvento().getChNFe() + "-" + o.data().getRetEvento().get(i).getInfEvento().getTpEvento()));
                 }
             }
         } catch (Exception e) {
@@ -49,9 +49,9 @@ public abstract class GenericNfCommonStorage extends CommonStorage implements Nf
     @Override
     public void storeSendCancel(Store<br.inf.portalfiscal.nfe.event_cancel.TEnvEvento> o) throws StorageException {
         try {
-            if (Objects.nonNull(o.getData()) && !o.getData().getEvento().isEmpty() && Objects.nonNull(o.getXml())) {
-                for (int i = 0; i < o.getData().getEvento().size(); i++) {
-                    getStorageService().writeSend(o, NFStorageKey.NF_EVENT, xmlNameWithTime(o.getData().getEvento().get(i).getInfEvento().getChNFe() + "-" + o.getData().getEvento().get(i).getInfEvento().getTpEvento()));
+            if (Objects.nonNull(o.data()) && !o.data().getEvento().isEmpty() && Objects.nonNull(o.xml())) {
+                for (int i = 0; i < o.data().getEvento().size(); i++) {
+                    getStorageService().writeSend(o, NFStorageKey.NF_EVENT, xmlNameWithTime(o.data().getEvento().get(i).getInfEvento().getChNFe() + "-" + o.data().getEvento().get(i).getInfEvento().getTpEvento()));
                 }
             }
         } catch (Exception e) {
@@ -62,9 +62,9 @@ public abstract class GenericNfCommonStorage extends CommonStorage implements Nf
     @Override
     public void storeProcInut(Store<TProcInutNFe> o) throws StorageException {
         try {
-            if (Objects.nonNull(o.getData()) && Objects.nonNull(o.getData().getInutNFe()) && Objects.nonNull(o.getData().getRetInutNFe()) && Objects.nonNull(o.getXml()) && NFReturnCode.generateProc(o.getData().getRetInutNFe().getInfInut().getCStat())) {
-                String keyName = String.join("_", o.getData().getInutNFe().getInfInut().getMod(), o.getData().getInutNFe().getInfInut().getSerie(), o.getData().getInutNFe().getInfInut().getNNFIni(), o.getData().getInutNFe().getInfInut().getNNFFin());
-                getStorageService().writeProc(o.getConfig(), NFStorageKey.NF_INUTILIZATION, xmlNameWithTime(keyName), o.getXml());
+            if (Objects.nonNull(o.data()) && Objects.nonNull(o.data().getInutNFe()) && Objects.nonNull(o.data().getRetInutNFe()) && Objects.nonNull(o.xml()) && NFReturnCode.generateProc(o.data().getRetInutNFe().getInfInut().getCStat())) {
+                String keyName = String.join("_", o.data().getInutNFe().getInfInut().getMod(), o.data().getInutNFe().getInfInut().getSerie(), o.data().getInutNFe().getInfInut().getNNFIni(), o.data().getInutNFe().getInfInut().getNNFFin());
+                getStorageService().writeProc(o.config(), NFStorageKey.NF_INUTILIZATION, xmlNameWithTime(keyName), o.xml());
             }
         } catch (Exception e) {
             throw new StorageException(e);
@@ -74,9 +74,9 @@ public abstract class GenericNfCommonStorage extends CommonStorage implements Nf
     @Override
     public void storeRetInut(Store<TRetInutNFe> o) throws StorageException {
         try {
-            if (Objects.nonNull(o.getData()) && Objects.nonNull(o.getData().getInfInut()) && Objects.nonNull(o.getXml())) {
-                String keyName = String.join("_", o.getData().getInfInut().getMod(), o.getData().getInfInut().getSerie(), o.getData().getInfInut().getNNFIni(), o.getData().getInfInut().getNNFFin());
-                getStorageService().writeReturn(o.getConfig(), NFStorageKey.NF_INUTILIZATION, xmlNameWithTime(keyName), o.getXml());
+            if (Objects.nonNull(o.data()) && Objects.nonNull(o.data().getInfInut()) && Objects.nonNull(o.xml())) {
+                String keyName = String.join("_", o.data().getInfInut().getMod(), o.data().getInfInut().getSerie(), o.data().getInfInut().getNNFIni(), o.data().getInfInut().getNNFFin());
+                getStorageService().writeReturn(o.config(), NFStorageKey.NF_INUTILIZATION, xmlNameWithTime(keyName), o.xml());
             }
         } catch (Exception e) {
             throw new StorageException(e);
@@ -86,9 +86,9 @@ public abstract class GenericNfCommonStorage extends CommonStorage implements Nf
     @Override
     public void storeEnvInut(Store<TInutNFe> o) throws StorageException {
         try {
-            if (Objects.nonNull(o.getData()) && Objects.nonNull(o.getData().getInfInut()) && Objects.nonNull(o.getXml())) {
-                String keyName = String.join("_", o.getData().getInfInut().getMod(), o.getData().getInfInut().getSerie(), o.getData().getInfInut().getNNFIni(), o.getData().getInfInut().getNNFFin());
-                getStorageService().writeSend(o.getConfig(), NFStorageKey.NF_INUTILIZATION, xmlNameWithTime(keyName), o.getXml());
+            if (Objects.nonNull(o.data()) && Objects.nonNull(o.data().getInfInut()) && Objects.nonNull(o.xml())) {
+                String keyName = String.join("_", o.data().getInfInut().getMod(), o.data().getInfInut().getSerie(), o.data().getInfInut().getNNFIni(), o.data().getInfInut().getNNFFin());
+                getStorageService().writeSend(o.config(), NFStorageKey.NF_INUTILIZATION, xmlNameWithTime(keyName), o.xml());
             }
         } catch (Exception e) {
             throw new StorageException(e);
@@ -98,8 +98,8 @@ public abstract class GenericNfCommonStorage extends CommonStorage implements Nf
     @Override
     public void storeProcNfe(Store<TNfeProc> o) throws StorageException {
         try {
-            if (Objects.nonNull(o.getData()) && Objects.nonNull(o.getData().getNFe()) && Objects.nonNull(o.getData().getProtNFe()) && Objects.nonNull(o.getData().getProtNFe().getInfProt()) && Objects.nonNull(o.getXml()) && NFReturnCode.generateProc(o.getData().getProtNFe().getInfProt().getCStat())) {
-                getStorageService().writeProc(o, NFStorageKey.NF_AUTHORIZATION, xmlNameWithTime(o.getData().getProtNFe().getInfProt().getChNFe()));
+            if (Objects.nonNull(o.data()) && Objects.nonNull(o.data().getNFe()) && Objects.nonNull(o.data().getProtNFe()) && Objects.nonNull(o.data().getProtNFe().getInfProt()) && Objects.nonNull(o.xml()) && NFReturnCode.generateProc(o.data().getProtNFe().getInfProt().getCStat())) {
+                getStorageService().writeProc(o, NFStorageKey.NF_AUTHORIZATION, xmlNameWithTime(o.data().getProtNFe().getInfProt().getChNFe()));
             }
         } catch (Exception e) {
             throw new StorageException(e);
@@ -109,10 +109,10 @@ public abstract class GenericNfCommonStorage extends CommonStorage implements Nf
     @Override
     public void storeRetNfe(Store<TRetEnviNFe> o) throws StorageException {
         try {
-            if (Objects.nonNull(o.getData()) && Objects.nonNull(o.getData().getProtNFe()) && Objects.nonNull(o.getData().getProtNFe().getInfProt()) && Objects.nonNull(o.getXml())) {
-                getStorageService().writeReturn(o.getConfig(), NFStorageKey.NF_AUTHORIZATION, xmlNameWithTime(o.getData().getProtNFe().getInfProt().getChNFe()), o.getXml());
-            } else if (Objects.nonNull(o.getData()) && Objects.nonNull(o.getData().getInfRec()) && Objects.nonNull(o.getXml())) {
-                getStorageService().writeReturn(o.getConfig(), NFStorageKey.NF_AUTHORIZATION, xmlNameWithTime(o.getData().getInfRec().getNRec()), o.getXml());
+            if (Objects.nonNull(o.data()) && Objects.nonNull(o.data().getProtNFe()) && Objects.nonNull(o.data().getProtNFe().getInfProt()) && Objects.nonNull(o.xml())) {
+                getStorageService().writeReturn(o.config(), NFStorageKey.NF_AUTHORIZATION, xmlNameWithTime(o.data().getProtNFe().getInfProt().getChNFe()), o.xml());
+            } else if (Objects.nonNull(o.data()) && Objects.nonNull(o.data().getInfRec()) && Objects.nonNull(o.xml())) {
+                getStorageService().writeReturn(o.config(), NFStorageKey.NF_AUTHORIZATION, xmlNameWithTime(o.data().getInfRec().getNRec()), o.xml());
             }
         } catch (Exception e) {
             throw new StorageException(e);
@@ -122,9 +122,9 @@ public abstract class GenericNfCommonStorage extends CommonStorage implements Nf
     @Override
     public void storeEnvNfe(Store<TEnviNFe> o) throws StorageException {
         try {
-            if (Objects.nonNull(o.getData()) && Objects.nonNull(o.getXml())) {
-                for (int i = 0; i < o.getData().getNFe().size(); i++) {
-                    getStorageService().writeSend(o.getConfig(), NFStorageKey.NF_AUTHORIZATION, xmlNameWithTime(AccessKeyParserFactory.nfe().fromId(o.getData().getNFe().get(i).getInfNFe().getId())), o.getXml());
+            if (Objects.nonNull(o.data()) && Objects.nonNull(o.xml())) {
+                for (int i = 0; i < o.data().getNFe().size(); i++) {
+                    getStorageService().writeSend(o.config(), NFStorageKey.NF_AUTHORIZATION, xmlNameWithTime(AccessKeyParserFactory.nfe().fromId(o.data().getNFe().get(i).getInfNFe().getId())), o.xml());
                 }
             }
         } catch (Exception e) {
@@ -133,11 +133,11 @@ public abstract class GenericNfCommonStorage extends CommonStorage implements Nf
     }
 
     protected void storeProcByQueryReceipt(Store<TRetConsReciNFe> o) throws IOException, StorageException {
-        if (Objects.isNull(o.getData().getProtNFe())) return;
+        if (Objects.isNull(o.data().getProtNFe())) return;
 
         String xml = null;
-        for (TProtNFe protNFe : o.getData().getProtNFe()) {
-            xml = IOUtils.readFileToString(IOUtils.findLastFileByBasePath(String.join(separator, getStorageService().rootPath(o.getConfig()), NFStorageKey.NF_AUTHORIZATION.getForSend(), protNFe.getInfProt().getChNFe())));
+        for (TProtNFe protNFe : o.data().getProtNFe()) {
+            xml = IOUtils.readFileToString(IOUtils.findLastFileByBasePath(String.join(separator, getStorageService().rootPath(o.config()), NFStorageKey.NF_AUTHORIZATION.getForSend(), protNFe.getInfProt().getChNFe())));
             if (Objects.nonNull(xml)) break;
         }
 
@@ -145,22 +145,22 @@ public abstract class GenericNfCommonStorage extends CommonStorage implements Nf
 
         TEnviNFe tEnviNFe = NfUnmarshallerFactory.getInstance().enviNfe(xml).getValue();
         String versao = tEnviNFe.getNFe().stream().findFirst().orElseThrow(RuntimeException::new).getInfNFe().getVersao();
-        for (TProtNFe protNFe : o.getData().getProtNFe()) {
+        for (TProtNFe protNFe : o.data().getProtNFe()) {
             TNfeProc proc = new ObjectFactory().createTNfeProc();
             proc.setProtNFe(protNFe);
             proc.setNFe(tEnviNFe.getNFe().stream().filter(it -> it.getInfNFe().getId().contains(protNFe.getInfProt().getChNFe())).findFirst().orElse(null));
             proc.setVersao(versao);
 
-            storeProcNfe(new XMLStore<>(proc, o.getConfig(), NfMarshallerFactory.getInstance().procNfe(proc)));
+            storeProcNfe(new XMLStore<>(proc, o.config(), NfMarshallerFactory.getInstance().procNfe(proc)));
         }
     }
 
     @Override
     public void storeRetReturnAuthorization(Store<TRetConsReciNFe> o) throws StorageException {
         try {
-            if (Objects.nonNull(o.getData()) && Objects.nonNull(o.getXml())) {
+            if (Objects.nonNull(o.data()) && Objects.nonNull(o.xml())) {
                 storeProcByQueryReceipt(o);
-                getStorageService().writeReturn(o, NFStorageKey.NF_RETURN_AUTHORIZATION, xmlNameWithTime(o.getData().getNRec()));
+                getStorageService().writeReturn(o, NFStorageKey.NF_RETURN_AUTHORIZATION, xmlNameWithTime(o.data().getNRec()));
             }
         } catch (Exception e) {
             throw new StorageException(e);
@@ -170,8 +170,8 @@ public abstract class GenericNfCommonStorage extends CommonStorage implements Nf
     @Override
     public void storeEnvReturnAuthorization(Store<TConsReciNFe> o) throws StorageException {
         try {
-            if (Objects.nonNull(o.getData()) && Objects.nonNull(o.getXml())) {
-                getStorageService().writeSend(o, NFStorageKey.NF_RETURN_AUTHORIZATION, xmlNameWithTime(o.getData().getNRec()));
+            if (Objects.nonNull(o.data()) && Objects.nonNull(o.xml())) {
+                getStorageService().writeSend(o, NFStorageKey.NF_RETURN_AUTHORIZATION, xmlNameWithTime(o.data().getNRec()));
             }
         } catch (Exception e) {
             throw new StorageException(e);
@@ -181,8 +181,8 @@ public abstract class GenericNfCommonStorage extends CommonStorage implements Nf
     @Override
     public void storeRetQueryProtocol(Store<TRetConsSitNFe> o) throws StorageException {
         try {
-            if (Objects.nonNull(o.getData()) && Objects.nonNull(o.getXml())) {
-                getStorageService().writeReturn(o, NFStorageKey.NF_QUERY_PROTOCOL, xmlNameWithTime(o.getData().getChNFe()));
+            if (Objects.nonNull(o.data()) && Objects.nonNull(o.xml())) {
+                getStorageService().writeReturn(o, NFStorageKey.NF_QUERY_PROTOCOL, xmlNameWithTime(o.data().getChNFe()));
             }
         } catch (Exception e) {
             throw new StorageException(e);
@@ -192,8 +192,8 @@ public abstract class GenericNfCommonStorage extends CommonStorage implements Nf
     @Override
     public void storeEnvQueryProtocol(Store<TConsSitNFe> o) throws StorageException {
         try {
-            if (Objects.nonNull(o.getData()) && Objects.nonNull(o.getXml())) {
-                getStorageService().writeSend(o, NFStorageKey.NF_QUERY_PROTOCOL, xmlNameWithTime(o.getData().getChNFe()));
+            if (Objects.nonNull(o.data()) && Objects.nonNull(o.xml())) {
+                getStorageService().writeSend(o, NFStorageKey.NF_QUERY_PROTOCOL, xmlNameWithTime(o.data().getChNFe()));
             }
         } catch (Exception e) {
             throw new StorageException(e);
@@ -203,7 +203,7 @@ public abstract class GenericNfCommonStorage extends CommonStorage implements Nf
     @Override
     public void storeSendQueryStatusService(Store<TConsStatServ> o) throws StorageException {
         try {
-            if (Objects.nonNull(o.getData()) && Objects.nonNull(o.getXml())) {
+            if (Objects.nonNull(o.data()) && Objects.nonNull(o.xml())) {
                 getStorageService().writeSend(o, NFStorageKey.NF_QUERY_STATUS_SERVICE, System.currentTimeMillis() + ".xml");
             }
         } catch (Exception e) {
@@ -214,7 +214,7 @@ public abstract class GenericNfCommonStorage extends CommonStorage implements Nf
     @Override
     public void storeReturnQueryStatusService(Store<TRetConsStatServ> o) throws StorageException {
         try {
-            if (Objects.nonNull(o.getData()) && Objects.nonNull(o.getXml())) {
+            if (Objects.nonNull(o.data()) && Objects.nonNull(o.xml())) {
                 getStorageService().writeReturn(o, NFStorageKey.NF_QUERY_STATUS_SERVICE, System.currentTimeMillis() + ".xml");
             }
         } catch (Exception e) {
@@ -225,7 +225,7 @@ public abstract class GenericNfCommonStorage extends CommonStorage implements Nf
     @Override
     public void storeReturnQueryGtin(Store<TRetConsGTIN> o) throws StorageException {
         try {
-            if (Objects.nonNull(o.getData()) && Objects.nonNull(o.getXml())) {
+            if (Objects.nonNull(o.data()) && Objects.nonNull(o.xml())) {
                 getStorageService().writeReturn(o, NFStorageKey.NF_QUERY_GTIN, System.currentTimeMillis() + ".xml");
             }
         } catch (Exception e) {
@@ -236,7 +236,7 @@ public abstract class GenericNfCommonStorage extends CommonStorage implements Nf
     @Override
     public void storeQueryGtin(Store<TConsGTIN> o) throws StorageException {
         try {
-            if (Objects.nonNull(o.getData()) && Objects.nonNull(o.getXml())) {
+            if (Objects.nonNull(o.data()) && Objects.nonNull(o.xml())) {
                 getStorageService().writeSend(o, NFStorageKey.NF_QUERY_GTIN, System.currentTimeMillis() + ".xml");
             }
         } catch (Exception e) {

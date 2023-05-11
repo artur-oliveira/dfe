@@ -1857,7 +1857,7 @@ public class TMDFe
          */
         public List<Seg> getSeg() {
             if (seg == null) {
-                seg = new ArrayList<Seg>();
+                seg = new ArrayList<>();
             }
             return this.seg;
         }
@@ -1940,7 +1940,7 @@ public class TMDFe
          */
         public List<Lacres> getLacres() {
             if (lacres == null) {
-                lacres = new ArrayList<Lacres>();
+                lacres = new ArrayList<>();
             }
             return this.lacres;
         }
@@ -1975,7 +1975,7 @@ public class TMDFe
          */
         public List<AutXML> getAutXML() {
             if (autXML == null) {
-                autXML = new ArrayList<AutXML>();
+                autXML = new ArrayList<>();
             }
             return this.autXML;
         }
@@ -3016,7 +3016,7 @@ public class TMDFe
              */
             public List<InfMunCarrega> getInfMunCarrega() {
                 if (infMunCarrega == null) {
-                    infMunCarrega = new ArrayList<InfMunCarrega>();
+                    infMunCarrega = new ArrayList<>();
                 }
                 return this.infMunCarrega;
             }
@@ -3051,7 +3051,7 @@ public class TMDFe
              */
             public List<InfPercurso> getInfPercurso() {
                 if (infPercurso == null) {
-                    infPercurso = new ArrayList<InfPercurso>();
+                    infPercurso = new ArrayList<>();
                 }
                 return this.infPercurso;
             }
@@ -3689,7 +3689,7 @@ public class TMDFe
              */
             public List<InfMunDescarga> getInfMunDescarga() {
                 if (infMunDescarga == null) {
-                    infMunDescarga = new ArrayList<InfMunDescarga>();
+                    infMunDescarga = new ArrayList<>();
                 }
                 return this.infMunDescarga;
             }
@@ -4062,7 +4062,7 @@ public class TMDFe
                  */
                 public List<InfCTe> getInfCTe() {
                     if (infCTe == null) {
-                        infCTe = new ArrayList<InfCTe>();
+                        infCTe = new ArrayList<>();
                     }
                     return this.infCTe;
                 }
@@ -4097,7 +4097,7 @@ public class TMDFe
                  */
                 public List<InfNFe> getInfNFe() {
                     if (infNFe == null) {
-                        infNFe = new ArrayList<InfNFe>();
+                        infNFe = new ArrayList<>();
                     }
                     return this.infNFe;
                 }
@@ -4132,7 +4132,7 @@ public class TMDFe
                  */
                 public List<InfMDFeTransp> getInfMDFeTransp() {
                     if (infMDFeTransp == null) {
-                        infMDFeTransp = new ArrayList<InfMDFeTransp>();
+                        infMDFeTransp = new ArrayList<>();
                     }
                     return this.infMDFeTransp;
                 }
@@ -4357,7 +4357,7 @@ public class TMDFe
                      */
                     public List<TUnidadeTransp> getInfUnidTransp() {
                         if (infUnidTransp == null) {
-                            infUnidTransp = new ArrayList<TUnidadeTransp>();
+                            infUnidTransp = new ArrayList<>();
                         }
                         return this.infUnidTransp;
                     }
@@ -4392,7 +4392,7 @@ public class TMDFe
                      */
                     public List<Peri> getPeri() {
                         if (peri == null) {
-                            peri = new ArrayList<Peri>();
+                            peri = new ArrayList<>();
                         }
                         return this.peri;
                     }
@@ -4915,7 +4915,7 @@ public class TMDFe
                      */
                     public List<TUnidadeTransp> getInfUnidTransp() {
                         if (infUnidTransp == null) {
-                            infUnidTransp = new ArrayList<TUnidadeTransp>();
+                            infUnidTransp = new ArrayList<>();
                         }
                         return this.infUnidTransp;
                     }
@@ -4950,7 +4950,7 @@ public class TMDFe
                      */
                     public List<Peri> getPeri() {
                         if (peri == null) {
-                            peri = new ArrayList<Peri>();
+                            peri = new ArrayList<>();
                         }
                         return this.peri;
                     }
@@ -5395,7 +5395,7 @@ public class TMDFe
                      */
                     public List<TUnidadeTransp> getInfUnidTransp() {
                         if (infUnidTransp == null) {
-                            infUnidTransp = new ArrayList<TUnidadeTransp>();
+                            infUnidTransp = new ArrayList<>();
                         }
                         return this.infUnidTransp;
                     }
@@ -5430,7 +5430,7 @@ public class TMDFe
                      */
                     public List<Peri> getPeri() {
                         if (peri == null) {
-                            peri = new ArrayList<Peri>();
+                            peri = new ArrayList<>();
                         }
                         return this.peri;
                     }
@@ -6867,7 +6867,7 @@ public class TMDFe
              */
             public List<String> getNAver() {
                 if (nAver == null) {
-                    nAver = new ArrayList<String>();
+                    nAver = new ArrayList<>();
                 }
                 return this.nAver;
             }

@@ -506,7 +506,7 @@ public class Aquav
      */
     public List<InfTermCarreg> getInfTermCarreg() {
         if (infTermCarreg == null) {
-            infTermCarreg = new ArrayList<InfTermCarreg>();
+            infTermCarreg = new ArrayList<>();
         }
         return this.infTermCarreg;
     }
@@ -541,7 +541,7 @@ public class Aquav
      */
     public List<InfTermDescarreg> getInfTermDescarreg() {
         if (infTermDescarreg == null) {
-            infTermDescarreg = new ArrayList<InfTermDescarreg>();
+            infTermDescarreg = new ArrayList<>();
         }
         return this.infTermDescarreg;
     }
@@ -576,7 +576,7 @@ public class Aquav
      */
     public List<InfEmbComb> getInfEmbComb() {
         if (infEmbComb == null) {
-            infEmbComb = new ArrayList<InfEmbComb>();
+            infEmbComb = new ArrayList<>();
         }
         return this.infEmbComb;
     }
@@ -611,7 +611,7 @@ public class Aquav
      */
     public List<InfUnidCargaVazia> getInfUnidCargaVazia() {
         if (infUnidCargaVazia == null) {
-            infUnidCargaVazia = new ArrayList<InfUnidCargaVazia>();
+            infUnidCargaVazia = new ArrayList<>();
         }
         return this.infUnidCargaVazia;
     }
@@ -646,7 +646,7 @@ public class Aquav
      */
     public List<InfUnidTranspVazia> getInfUnidTranspVazia() {
         if (infUnidTranspVazia == null) {
-            infUnidTranspVazia = new ArrayList<InfUnidTranspVazia>();
+            infUnidTranspVazia = new ArrayList<>();
         }
         return this.infUnidTranspVazia;
     }

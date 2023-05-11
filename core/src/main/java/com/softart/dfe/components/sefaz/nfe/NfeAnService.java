@@ -29,19 +29,19 @@ public abstract class NfeAnService implements NfeService {
 
     @Override
     public <T extends SefazRequest<TDistDFeInt, TRetDistDFeInt>> Pair<TDistDFeInt, TRetDistDFeInt> distribution(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = NfMarshallerFactory.getInstance().distributionNfe(data.getData());
+        String xml = NfMarshallerFactory.getInstance().distributionNfe(data.data());
         JAXBElement<TDistDFeInt> envio = NfUnmarshallerFactory.getInstance().distributionNfe(xml);
 
-        for (Validator<TDistDFeInt> it : data.getValidators()) it.valid(new Validation<>(envio.getValue(), xml));
-        for (BeforeWebServiceRequest<TDistDFeInt> it : data.getBeforeRequest())
-            it.process(new Before<>(envio.getValue(), data.getConfig()));
+        for (Validator<TDistDFeInt> it : data.validators()) it.valid(new Validation<>(envio.getValue(), xml));
+        for (BeforeWebServiceRequest<TDistDFeInt> it : data.beforeRequest())
+            it.process(new Before<>(envio.getValue(), data.config()));
 
         TRetDistDFeInt retorno = null;
 
-        if (data.getConfig().production()) {
+        if (data.config().production()) {
             br.inf.portalfiscal.nfe.wsdl.distribution.an.prod.NFeDistribuicaoDFeSoap ws = ((br.inf.portalfiscal.nfe.wsdl.distribution.an.prod.NFeDistribuicaoDFe) getSoapService().prodDistribution()).getNFeDistribuicaoDFeSoap();
 
-            data.getConfigureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.getConfig()).build());
+            data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
 
             br.inf.portalfiscal.nfe.wsdl.distribution.an.prod.NfeDistDFeInteresse.NfeDadosMsg msg = new br.inf.portalfiscal.nfe.wsdl.distribution.an.prod.ObjectFactory().createNfeDistDFeInteresseNfeDadosMsg();
             msg.getContent().add(envio);
@@ -51,7 +51,7 @@ public abstract class NfeAnService implements NfeService {
                 retorno = ((JAXBElement<TRetDistDFeInt>) resultMsg.getContent().get(0)).getValue();
         } else {
             br.inf.portalfiscal.nfe.wsdl.distribution.an.hom.NFeDistribuicaoDFeSoap ws = ((br.inf.portalfiscal.nfe.wsdl.distribution.an.hom.NFeDistribuicaoDFe) getSoapService().homDistribution()).getNFeDistribuicaoDFeSoap();
-            data.getConfigureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.getConfig()).build());
+            data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
 
             br.inf.portalfiscal.nfe.wsdl.distribution.an.hom.NfeDistDFeInteresse.NfeDadosMsg msg = new br.inf.portalfiscal.nfe.wsdl.distribution.an.hom.ObjectFactory().createNfeDistDFeInteresseNfeDadosMsg();
             msg.getContent().add(envio);
@@ -62,27 +62,27 @@ public abstract class NfeAnService implements NfeService {
                 retorno = ((JAXBElement<TRetDistDFeInt>) resultMsg.getContent().get(0)).getValue();
         }
 
-        for (AfterWebServiceRequest<TDistDFeInt, TRetDistDFeInt> it : data.getAfterRequest())
-            it.process(new After<>(data.getData(), retorno, data.getConfig()));
+        for (AfterWebServiceRequest<TDistDFeInt, TRetDistDFeInt> it : data.afterRequest())
+            it.process(new After<>(data.data(), retorno, data.config()));
 
         return new PairImpl<>(envio.getValue(), retorno);
     }
 
     @Override
     public <T extends SefazRequest<TEnvEvento, TRetEnvEvento>> Pair<TEnvEvento, TRetEnvEvento> manifestation(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = data.getSigner().signEvent(NfMarshallerFactory.getInstance().manifestationNfe(data.getData()), data.getConfig());
+        String xml = data.signer().signEvent(NfMarshallerFactory.getInstance().manifestationNfe(data.data()), data.config());
         JAXBElement<TEnvEvento> envio = NfUnmarshallerFactory.getInstance().manifestationNfe(xml);
 
-        for (Validator<TEnvEvento> it : data.getValidators()) it.valid(new Validation<>(envio.getValue(), xml));
-        for (BeforeWebServiceRequest<TEnvEvento> it : data.getBeforeRequest())
-            it.process(new Before<>(envio.getValue(), data.getConfig()));
+        for (Validator<TEnvEvento> it : data.validators()) it.valid(new Validation<>(envio.getValue(), xml));
+        for (BeforeWebServiceRequest<TEnvEvento> it : data.beforeRequest())
+            it.process(new Before<>(envio.getValue(), data.config()));
 
         TRetEnvEvento retorno = null;
 
-        if (data.getConfig().production()) {
+        if (data.config().production()) {
             br.inf.portalfiscal.nfe.wsdl.event_manifestation.an.prod.NFeRecepcaoEvento4Soap ws = ((br.inf.portalfiscal.nfe.wsdl.event_manifestation.an.prod.NFeRecepcaoEvento4) getSoapService().prodManifestation()).getNFeRecepcaoEvento4Soap();
 
-            data.getConfigureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.getConfig()).build());
+            data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
 
             br.inf.portalfiscal.nfe.wsdl.event_manifestation.an.prod.NfeDadosMsg msg = new br.inf.portalfiscal.nfe.wsdl.event_manifestation.an.prod.ObjectFactory().createNfeDadosMsg();
             msg.getContent().add(envio);
@@ -92,7 +92,7 @@ public abstract class NfeAnService implements NfeService {
                 retorno = ((JAXBElement<TRetEnvEvento>) resultMsg.getContent().get(0)).getValue();
         } else {
             br.inf.portalfiscal.nfe.wsdl.event_manifestation.an.hom.NFeRecepcaoEvento4Soap ws = ((br.inf.portalfiscal.nfe.wsdl.event_manifestation.an.hom.NFeRecepcaoEvento4) getSoapService().homManifestation()).getNFeRecepcaoEvento4Soap();
-            data.getConfigureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.getConfig()).build());
+            data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
 
             br.inf.portalfiscal.nfe.wsdl.event_manifestation.an.hom.NfeDadosMsg msg = new br.inf.portalfiscal.nfe.wsdl.event_manifestation.an.hom.ObjectFactory().createNfeDadosMsg();
             msg.getContent().add(envio);
@@ -102,28 +102,28 @@ public abstract class NfeAnService implements NfeService {
                 retorno = ((JAXBElement<TRetEnvEvento>) resultMsg.getContent().get(0)).getValue();
         }
 
-        for (AfterWebServiceRequest<TEnvEvento, TRetEnvEvento> it : data.getAfterRequest())
-            it.process(new After<>(data.getData(), retorno, data.getConfig()));
+        for (AfterWebServiceRequest<TEnvEvento, TRetEnvEvento> it : data.afterRequest())
+            it.process(new After<>(data.data(), retorno, data.config()));
 
         return new PairImpl<>(envio.getValue(), retorno);
     }
 
     @Override
     public <T extends SefazRequest<br.inf.portalfiscal.nfe.event_interested_actor.TEnvEvento, br.inf.portalfiscal.nfe.event_interested_actor.TRetEnvEvento>> Pair<br.inf.portalfiscal.nfe.event_interested_actor.TEnvEvento, br.inf.portalfiscal.nfe.event_interested_actor.TRetEnvEvento> interestedActor(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = data.getSigner().signEvent(NfMarshallerFactory.getInstance().interestedActorNfe(data.getData()), data.getConfig());
+        String xml = data.signer().signEvent(NfMarshallerFactory.getInstance().interestedActorNfe(data.data()), data.config());
         JAXBElement<br.inf.portalfiscal.nfe.event_interested_actor.TEnvEvento> envio = NfUnmarshallerFactory.getInstance().interestedActorNfe(xml);
 
-        for (Validator<br.inf.portalfiscal.nfe.event_interested_actor.TEnvEvento> it : data.getValidators())
+        for (Validator<br.inf.portalfiscal.nfe.event_interested_actor.TEnvEvento> it : data.validators())
             it.valid(new Validation<>(envio.getValue(), xml));
-        for (BeforeWebServiceRequest<br.inf.portalfiscal.nfe.event_interested_actor.TEnvEvento> it : data.getBeforeRequest())
-            it.process(new Before<>(envio.getValue(), data.getConfig()));
+        for (BeforeWebServiceRequest<br.inf.portalfiscal.nfe.event_interested_actor.TEnvEvento> it : data.beforeRequest())
+            it.process(new Before<>(envio.getValue(), data.config()));
 
         br.inf.portalfiscal.nfe.event_interested_actor.TRetEnvEvento retorno = null;
 
-        if (data.getConfig().production()) {
+        if (data.config().production()) {
             br.inf.portalfiscal.nfe.wsdl.event_interested_actor.an.prod.NFeRecepcaoEvento4Soap ws = ((br.inf.portalfiscal.nfe.wsdl.event_interested_actor.an.prod.NFeRecepcaoEvento4) getSoapService().prodInterestedActor()).getNFeRecepcaoEvento4Soap();
 
-            data.getConfigureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.getConfig()).build());
+            data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
 
             br.inf.portalfiscal.nfe.wsdl.event_interested_actor.an.prod.NfeDadosMsg msg = new br.inf.portalfiscal.nfe.wsdl.event_interested_actor.an.prod.ObjectFactory().createNfeDadosMsg();
             msg.getContent().add(envio);
@@ -133,7 +133,7 @@ public abstract class NfeAnService implements NfeService {
                 retorno = ((JAXBElement<br.inf.portalfiscal.nfe.event_interested_actor.TRetEnvEvento>) resultMsg.getContent().get(0)).getValue();
         } else {
             br.inf.portalfiscal.nfe.wsdl.event_interested_actor.an.hom.NFeRecepcaoEvento4Soap ws = ((br.inf.portalfiscal.nfe.wsdl.event_interested_actor.an.hom.NFeRecepcaoEvento4) getSoapService().homInterestedActor()).getNFeRecepcaoEvento4Soap();
-            data.getConfigureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.getConfig()).build());
+            data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
 
             br.inf.portalfiscal.nfe.wsdl.event_interested_actor.an.hom.NfeDadosMsg msg = new br.inf.portalfiscal.nfe.wsdl.event_interested_actor.an.hom.ObjectFactory().createNfeDadosMsg();
             msg.getContent().add(envio);
@@ -143,28 +143,28 @@ public abstract class NfeAnService implements NfeService {
                 retorno = ((JAXBElement<br.inf.portalfiscal.nfe.event_interested_actor.TRetEnvEvento>) resultMsg.getContent().get(0)).getValue();
         }
 
-        for (AfterWebServiceRequest<br.inf.portalfiscal.nfe.event_interested_actor.TEnvEvento, br.inf.portalfiscal.nfe.event_interested_actor.TRetEnvEvento> it : data.getAfterRequest())
-            it.process(new After<>(data.getData(), retorno, data.getConfig()));
+        for (AfterWebServiceRequest<br.inf.portalfiscal.nfe.event_interested_actor.TEnvEvento, br.inf.portalfiscal.nfe.event_interested_actor.TRetEnvEvento> it : data.afterRequest())
+            it.process(new After<>(data.data(), retorno, data.config()));
 
         return new PairImpl<>(envio.getValue(), retorno);
     }
 
     @Override
     public <T extends SefazRequest<br.inf.portalfiscal.nfe.event_epec.TEnvEvento, br.inf.portalfiscal.nfe.event_epec.TRetEnvEvento>> Pair<br.inf.portalfiscal.nfe.event_epec.TEnvEvento, br.inf.portalfiscal.nfe.event_epec.TRetEnvEvento> epec(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = data.getSigner().signEvent(NfMarshallerFactory.getInstance().epecNfe(data.getData()), data.getConfig());
+        String xml = data.signer().signEvent(NfMarshallerFactory.getInstance().epecNfe(data.data()), data.config());
         JAXBElement<br.inf.portalfiscal.nfe.event_epec.TEnvEvento> envio = NfUnmarshallerFactory.getInstance().epecNfe(xml);
 
-        for (Validator<br.inf.portalfiscal.nfe.event_epec.TEnvEvento> it : data.getValidators())
+        for (Validator<br.inf.portalfiscal.nfe.event_epec.TEnvEvento> it : data.validators())
             it.valid(new Validation<>(envio.getValue(), xml));
-        for (BeforeWebServiceRequest<br.inf.portalfiscal.nfe.event_epec.TEnvEvento> it : data.getBeforeRequest())
-            it.process(new Before<>(envio.getValue(), data.getConfig()));
+        for (BeforeWebServiceRequest<br.inf.portalfiscal.nfe.event_epec.TEnvEvento> it : data.beforeRequest())
+            it.process(new Before<>(envio.getValue(), data.config()));
 
         br.inf.portalfiscal.nfe.event_epec.TRetEnvEvento retorno = null;
 
-        if (data.getConfig().production()) {
+        if (data.config().production()) {
             br.inf.portalfiscal.nfe.wsdl.event_epec.an.prod.NFeRecepcaoEvento4Soap ws = ((br.inf.portalfiscal.nfe.wsdl.event_epec.an.prod.NFeRecepcaoEvento4) getSoapService().prodEpec()).getNFeRecepcaoEvento4Soap();
 
-            data.getConfigureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.getConfig()).build());
+            data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
 
             br.inf.portalfiscal.nfe.wsdl.event_epec.an.prod.NfeDadosMsg msg = new br.inf.portalfiscal.nfe.wsdl.event_epec.an.prod.ObjectFactory().createNfeDadosMsg();
             msg.getContent().add(envio);
@@ -174,7 +174,7 @@ public abstract class NfeAnService implements NfeService {
                 retorno = ((JAXBElement<br.inf.portalfiscal.nfe.event_epec.TRetEnvEvento>) resultMsg.getContent().get(0)).getValue();
         } else {
             br.inf.portalfiscal.nfe.wsdl.event_epec.an.hom.NFeRecepcaoEvento4Soap ws = ((br.inf.portalfiscal.nfe.wsdl.event_epec.an.hom.NFeRecepcaoEvento4) getSoapService().homEpec()).getNFeRecepcaoEvento4Soap();
-            data.getConfigureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.getConfig()).build());
+            data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
 
             br.inf.portalfiscal.nfe.wsdl.event_epec.an.hom.NfeDadosMsg msg = new br.inf.portalfiscal.nfe.wsdl.event_epec.an.hom.ObjectFactory().createNfeDadosMsg();
             msg.getContent().add(envio);
@@ -184,8 +184,8 @@ public abstract class NfeAnService implements NfeService {
                 retorno = ((JAXBElement<br.inf.portalfiscal.nfe.event_epec.TRetEnvEvento>) resultMsg.getContent().get(0)).getValue();
         }
 
-        for (AfterWebServiceRequest<br.inf.portalfiscal.nfe.event_epec.TEnvEvento, br.inf.portalfiscal.nfe.event_epec.TRetEnvEvento> it : data.getAfterRequest())
-            it.process(new After<>(data.getData(), retorno, data.getConfig()));
+        for (AfterWebServiceRequest<br.inf.portalfiscal.nfe.event_epec.TEnvEvento, br.inf.portalfiscal.nfe.event_epec.TRetEnvEvento> it : data.afterRequest())
+            it.process(new After<>(data.data(), retorno, data.config()));
 
         return new PairImpl<>(envio.getValue(), retorno);
     }

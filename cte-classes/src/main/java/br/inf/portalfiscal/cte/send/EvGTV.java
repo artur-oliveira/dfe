@@ -103,7 +103,7 @@ public class EvGTV
      */
     public List<InfGTV> getInfGTV() {
         if (infGTV == null) {
-            infGTV = new ArrayList<InfGTV>();
+            infGTV = new ArrayList<>();
         }
         return this.infGTV;
     }

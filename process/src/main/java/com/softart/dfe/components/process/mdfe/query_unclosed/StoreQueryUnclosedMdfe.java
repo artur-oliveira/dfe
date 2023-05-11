@@ -14,8 +14,8 @@ public abstract class StoreQueryUnclosedMdfe implements BeforeQueryUnclosed {
 
     @Override
     public <T extends BeforeRequest<TConsMDFeNaoEnc>> void process(T o) throws ProcessException {
-        if (Objects.nonNull(o.getConfig()) && Objects.nonNull(o.getRequest())) {
-            getStorage().storeSendQueryUnclosed(new XMLStore<>(o.getRequest(), o.getConfig(), MdfeMarshallerFactory.getInstance().sendQueryUnclosed(o.getRequest())));
+        if (Objects.nonNull(o.config()) && Objects.nonNull(o.request())) {
+            getStorage().storeSendQueryUnclosed(new XMLStore<>(o.request(), o.config(), MdfeMarshallerFactory.getInstance().sendQueryUnclosed(o.request())));
         }
     }
 

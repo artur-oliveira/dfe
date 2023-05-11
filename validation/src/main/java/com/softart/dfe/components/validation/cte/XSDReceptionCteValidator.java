@@ -13,28 +13,22 @@ import com.softart.dfe.models.internal.xml.XMLValidation;
 public final class XSDReceptionCteValidator implements CteReceptionCteValidator {
     @Override
     public void valid(Validation<TEnviCTe> o) throws ValidationException {
-        XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/cte/PL_CTe_300a_NT2022.001/enviCTe_v3.00.xsd", o.getXml()));
+        XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/cte/PL_CTe_300a_NT2022.001/enviCTe_v3.00.xsd", o.xml()));
 
-        for (TCTe it : o.getValue().getCTe()) {
+        for (TCTe it : o.value().getCTe()) {
             switch (CteModal.valueOfCode(it.getInfCte().getIde().getModal())) {
-                case AEREO:
-                    XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/cte/PL_CTe_300a_NT2022.001/cteModalAereo_v3.00.xsd", CteMarshallerFactory.getInstance().any(it.getInfCte().getInfCTeNorm().getInfModal().getAny())));
-                    break;
-                case AQUAVIARIO:
-                    XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/cte/PL_CTe_300a_NT2022.001/cteModalAquaviario_v3.00.xsd", CteMarshallerFactory.getInstance().any(it.getInfCte().getInfCTeNorm().getInfModal().getAny())));
-                    break;
-                case RODOVIARIO:
-                    XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/cte/PL_CTe_300a_NT2022.001/cteModalRodoviario_v3.00.xsd", CteMarshallerFactory.getInstance().any(it.getInfCte().getInfCTeNorm().getInfModal().getAny())));
-                    break;
-                case FERROVIARIO:
-                    XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/cte/PL_CTe_300a_NT2022.001/cteModalFerroviario_v3.00.xsd", CteMarshallerFactory.getInstance().any(it.getInfCte().getInfCTeNorm().getInfModal().getAny())));
-                    break;
-                case DUTOVIARIO:
-                    XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/cte/PL_CTe_300a_NT2022.001/cteModalDutoviario_v3.00.xsd", CteMarshallerFactory.getInstance().any(it.getInfCte().getInfCTeNorm().getInfModal().getAny())));
-                    break;
-                case MULTIMODAL:
-                    XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/cte/PL_CTe_300a_NT2022.001/cteMultiModal_v3.00.xsd", CteMarshallerFactory.getInstance().any(it.getInfCte().getInfCTeNorm().getInfModal().getAny())));
-                    break;
+                case AEREO ->
+                        XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/cte/PL_CTe_300a_NT2022.001/cteModalAereo_v3.00.xsd", CteMarshallerFactory.getInstance().any(it.getInfCte().getInfCTeNorm().getInfModal().getAny())));
+                case AQUAVIARIO ->
+                        XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/cte/PL_CTe_300a_NT2022.001/cteModalAquaviario_v3.00.xsd", CteMarshallerFactory.getInstance().any(it.getInfCte().getInfCTeNorm().getInfModal().getAny())));
+                case RODOVIARIO ->
+                        XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/cte/PL_CTe_300a_NT2022.001/cteModalRodoviario_v3.00.xsd", CteMarshallerFactory.getInstance().any(it.getInfCte().getInfCTeNorm().getInfModal().getAny())));
+                case FERROVIARIO ->
+                        XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/cte/PL_CTe_300a_NT2022.001/cteModalFerroviario_v3.00.xsd", CteMarshallerFactory.getInstance().any(it.getInfCte().getInfCTeNorm().getInfModal().getAny())));
+                case DUTOVIARIO ->
+                        XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/cte/PL_CTe_300a_NT2022.001/cteModalDutoviario_v3.00.xsd", CteMarshallerFactory.getInstance().any(it.getInfCte().getInfCTeNorm().getInfModal().getAny())));
+                case MULTIMODAL ->
+                        XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/cte/PL_CTe_300a_NT2022.001/cteMultiModal_v3.00.xsd", CteMarshallerFactory.getInstance().any(it.getInfCte().getInfCTeNorm().getInfModal().getAny())));
             }
         }
     }

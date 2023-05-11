@@ -274,7 +274,7 @@ public class TRetConsSitMDFe
      */
     public List<ProcEventoMDFe> getProcEventoMDFe() {
         if (procEventoMDFe == null) {
-            procEventoMDFe = new ArrayList<ProcEventoMDFe>();
+            procEventoMDFe = new ArrayList<>();
         }
         return this.procEventoMDFe;
     }

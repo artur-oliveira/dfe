@@ -18,6 +18,18 @@ import java.util.Objects;
 final class QrCodeV2UrlGenerator extends QrCodeGeneratorFactory {
     private static final String QR_CODE_VERSION = "2";
 
+    /**
+     * This function creates a SHA-1 hash by concatenating two input strings.
+     *
+     * @param params The "params" parameter is a string that contains some data that needs to be hashed. The exact contents
+     *               of this string depend on the specific use case and requirements of the application that is using this method.
+     * @param csc    The parameter "csc" is likely an abbreviation for "Card Security Code", which is a three or four digit
+     *               number found on the back of a credit or debit card. It is also known as the CVV (Card Verification Value) or CVC
+     *               (Card Verification Code).
+     * @return The method `createHash` is returning a `String` which is the SHA-1 hash of the concatenation of the `params`
+     * and `csc` strings.
+     * @throws GeneralSecurityException GeneralSecurityException
+     */
     private static String createHash(String params, String csc) throws GeneralSecurityException {
         return HashUtils.sha1(params + csc);
     }

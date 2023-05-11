@@ -121,7 +121,7 @@ public class NatCarga
      */
     public List<String> getCInfManu() {
         if (cInfManu == null) {
-            cInfManu = new ArrayList<String>();
+            cInfManu = new ArrayList<>();
         }
         return this.cInfManu;
     }

@@ -17,12 +17,12 @@ public abstract class StoreProcMdfe implements AfterReceptionSync {
 
     @Override
     public <T extends AfterRequest<TMDFe, TRetMDFe>> void process(T o) throws ProcessException {
-        if (Objects.nonNull(getStorage()) && Objects.nonNull(o.getResponse())) {
+        if (Objects.nonNull(getStorage()) && Objects.nonNull(o.response())) {
             TMdfeProc procMdfe = new br.inf.portalfiscal.mdfe.classes.ObjectFactory().createTMdfeProc();
-            procMdfe.setMDFe(o.getRequest());
-            procMdfe.setProtMDFe(o.getResponse().getProtMDFe());
-            procMdfe.setVersao(o.getResponse().getVersao());
-            getStorage().storeProcMdfeSync(new XMLStore<>(procMdfe, o.getConfig(), MdfeMarshallerFactory.getInstance().procMdfe(procMdfe)));
+            procMdfe.setMDFe(o.request());
+            procMdfe.setProtMDFe(o.response().getProtMDFe());
+            procMdfe.setVersao(o.response().getVersao());
+            getStorage().storeProcMdfeSync(new XMLStore<>(procMdfe, o.config(), MdfeMarshallerFactory.getInstance().procMdfe(procMdfe)));
         }
     }
 

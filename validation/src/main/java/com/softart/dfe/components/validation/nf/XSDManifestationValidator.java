@@ -10,6 +10,6 @@ import com.softart.dfe.models.internal.xml.XMLValidation;
 final class XSDManifestationValidator implements NfeManifestationValidator {
     @Override
     public void valid(Validation<TEnvEvento> o) throws ValidationException {
-        XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/nfe/Evento_ManifestaDest_PL_v1.01/envConfRecebto_v1.00.xsd", o.getXml()));
+        XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/nfe/Evento_ManifestaDest_PL_v1.01/envConfRecebto_v1.00.xsd", o.xml()));
     }
 }

@@ -17,6 +17,9 @@ public interface CteInutilization {
      *
      * @param data The request object.
      * @return A pair of objects, the first is the request and the second is the response.
+     * @throws SecurityException   SecurityException
+     * @throws ValidationException ValidationException
+     * @throws ProcessException    ProcessException
      */
     <T extends SefazRequest<TInutCTe, TRetInutCTe>> Pair<TInutCTe, TRetInutCTe> inutilization(T data) throws SecurityException, ValidationException, ProcessException;
 

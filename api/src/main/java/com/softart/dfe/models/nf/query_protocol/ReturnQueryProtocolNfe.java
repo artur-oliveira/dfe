@@ -88,11 +88,7 @@ public class ReturnQueryProtocolNfe implements DFObject, XMLAdapter<ReturnQueryP
 
                     @Override
                     public DetEvento fromObject(br.inf.portalfiscal.nfe.send.TEvento.InfEvento.DetEvento o) {
-                        o.getAny().forEach(element -> {
-
-                            getAny().put(element.getNodeName(), element.getFirstChild().getNodeValue());
-
-                        });
+                        o.getAny().forEach(element -> getAny().put(element.getNodeName(), element.getFirstChild().getNodeValue()));
                         o.getOtherAttributes().forEach((k, v) -> getOtherAttributes().put(k.getLocalPart(), v));
 
                         return this;

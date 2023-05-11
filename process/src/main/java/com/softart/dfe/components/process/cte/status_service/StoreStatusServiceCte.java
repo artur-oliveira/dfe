@@ -14,8 +14,8 @@ public abstract class StoreStatusServiceCte implements BeforeStatusService {
 
     @Override
     public <T extends BeforeRequest<TConsStatServ>> void process(T o) throws ProcessException {
-        if (Objects.nonNull(o.getRequest()) && Objects.nonNull(getStorage())) {
-            getStorage().storeStatusService(new XMLStore<>(o.getRequest(), o.getConfig(), CteMarshallerFactory.getInstance().statusService(o.getRequest())));
+        if (Objects.nonNull(o.request()) && Objects.nonNull(getStorage())) {
+            getStorage().storeStatusService(new XMLStore<>(o.request(), o.config(), CteMarshallerFactory.getInstance().statusService(o.request())));
         }
     }
 

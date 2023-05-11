@@ -1,8 +1,9 @@
 package com.softart.dfe.exceptions.security;
 
+
 /**
- * XMLSignException is a SecurityException that is thrown when an error occurs during XML signature generation or
- * validation
+ * The class XMLSignException extends SecurityException and provides constructors for creating exceptions related to XML
+ * signing.
  */
 public class XMLSignException extends SecurityException {
     public XMLSignException() {

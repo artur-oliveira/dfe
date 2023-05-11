@@ -1,7 +1,9 @@
 package com.softart.dfe.exceptions.security;
 
+
 /**
- * SSLContextException is a subclass of SecurityException
+ * The SSLContextException class extends the SecurityException class and provides constructors for creating exceptions
+ * related to SSL context.
  */
 public class SSLContextException extends SecurityException {
 

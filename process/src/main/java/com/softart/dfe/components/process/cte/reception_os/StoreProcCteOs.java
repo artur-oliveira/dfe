@@ -17,12 +17,12 @@ public abstract class StoreProcCteOs implements AfterReceptionCteOs {
 
     @Override
     public <T extends AfterRequest<TCTeOS, TRetCTeOS>> void process(T o) throws ProcessException {
-        if (Objects.nonNull(getStorage()) && Objects.nonNull(o.getResponse())) {
+        if (Objects.nonNull(getStorage()) && Objects.nonNull(o.response())) {
             TCteOSProc procCteOS = new br.inf.portalfiscal.cte.send.ObjectFactory().createTCteOSProc();
-            procCteOS.setCTeOS(o.getRequest());
-            procCteOS.setProtCTe(o.getResponse().getProtCTe());
-            procCteOS.setVersao(o.getResponse().getVersao());
-            getStorage().storeProcCteOs(new XMLStore<>(procCteOS, o.getConfig(), CteMarshallerFactory.getInstance().cteOsProc(procCteOS)));
+            procCteOS.setCTeOS(o.request());
+            procCteOS.setProtCTe(o.response().getProtCTe());
+            procCteOS.setVersao(o.response().getVersao());
+            getStorage().storeProcCteOs(new XMLStore<>(procCteOS, o.config(), CteMarshallerFactory.getInstance().cteOsProc(procCteOS)));
         }
     }
 

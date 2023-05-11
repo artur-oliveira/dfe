@@ -97,7 +97,7 @@ public class TEnviCTe
      */
     public List<TCTe> getCTe() {
         if (cTe == null) {
-            cTe = new ArrayList<TCTe>();
+            cTe = new ArrayList<>();
         }
         return this.cTe;
     }

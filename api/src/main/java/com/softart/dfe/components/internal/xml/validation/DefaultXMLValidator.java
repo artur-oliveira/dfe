@@ -22,6 +22,9 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 
+/**
+ * The class is a final implementation of an XMLValidatorFactory.
+ */
 @Getter(AccessLevel.PRIVATE)
 final class DefaultXMLValidator extends XMLValidatorFactory {
 

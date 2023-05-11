@@ -14,9 +14,9 @@ public abstract class StoreSendCancelNfe implements BeforeCancel {
 
     @Override
     public <T extends BeforeRequest<TEnvEvento>> void process(T data) throws ProcessException {
-        if (Objects.nonNull(data.getRequest()) && !data.getRequest().getEvento().isEmpty())
+        if (Objects.nonNull(data.request()) && !data.request().getEvento().isEmpty())
             if (Objects.nonNull(getStorage()))
-                getStorage().storeSendCancel(new XMLStore<>(data.getRequest(), data.getConfig(), NfMarshallerFactory.getInstance().cancelNfe(data.getRequest())));
+                getStorage().storeSendCancel(new XMLStore<>(data.request(), data.config(), NfMarshallerFactory.getInstance().cancelNfe(data.request())));
 
     }
 

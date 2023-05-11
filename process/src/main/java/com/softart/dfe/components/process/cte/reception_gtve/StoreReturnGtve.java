@@ -16,8 +16,8 @@ public abstract class StoreReturnGtve implements AfterReceptionGtve {
 
     @Override
     public <T extends AfterRequest<TGTVe, TRetGTVe>> void process(T o) throws ProcessException {
-        if (Objects.nonNull(getStorage()) && Objects.nonNull(o.getResponse())) {
-            getStorage().storeReturnGtve(new XMLStore<>(o.getResponse(), o.getConfig(), CteMarshallerFactory.getInstance().returnReceptionGtve(o.getResponse())));
+        if (Objects.nonNull(getStorage()) && Objects.nonNull(o.response())) {
+            getStorage().storeReturnGtve(new XMLStore<>(o.response(), o.config(), CteMarshallerFactory.getInstance().returnReceptionGtve(o.response())));
         }
     }
 

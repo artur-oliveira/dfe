@@ -13,6 +13,8 @@ import jakarta.xml.bind.annotation.*;
 import jakarta.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+import java.util.Objects;
+
 
 /**
  * <p>Java class for ReferenceType complex type.
@@ -252,11 +254,7 @@ public class ReferenceType
          * {@link String }
          */
         public String getAlgorithm() {
-            if (algorithm == null) {
-                return "http://www.w3.org/2000/09/xmldsig#sha1";
-            } else {
-                return algorithm;
-            }
+            return Objects.requireNonNullElse(algorithm, "http://www.w3.org/2000/09/xmldsig#sha1");
         }
 
         /**

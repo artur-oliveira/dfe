@@ -397,7 +397,7 @@ public class EvIECTe
      */
     public List<InfEntrega> getInfEntrega() {
         if (infEntrega == null) {
-            infEntrega = new ArrayList<InfEntrega>();
+            infEntrega = new ArrayList<>();
         }
         return this.infEntrega;
     }

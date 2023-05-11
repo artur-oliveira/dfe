@@ -15,8 +15,8 @@ public abstract class StoreReturnReceptionCte implements AfterReception {
 
     @Override
     public <T extends AfterRequest<TEnviCTe, TRetEnviCTe>> void process(T o) throws ProcessException {
-        if (Objects.nonNull(o.getResponse()) && Objects.nonNull(getStorage())) {
-            getStorage().storeReturnCte(new XMLStore<>(o.getResponse(), o.getConfig(), CteMarshallerFactory.getInstance().returnReceptionCte(o.getResponse())));
+        if (Objects.nonNull(o.response()) && Objects.nonNull(getStorage())) {
+            getStorage().storeReturnCte(new XMLStore<>(o.response(), o.config(), CteMarshallerFactory.getInstance().returnReceptionCte(o.response())));
         }
     }
 

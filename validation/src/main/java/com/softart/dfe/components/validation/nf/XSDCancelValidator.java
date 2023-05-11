@@ -10,6 +10,6 @@ import com.softart.dfe.models.internal.xml.XMLValidation;
 final class XSDCancelValidator implements NfCancelValidator {
     @Override
     public void valid(Validation<TEnvEvento> o) throws ValidationException {
-        XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/nfe/Evento_Canc_PL_v1.01_NT_2018_004/envEventoCancNFe_v1.00.xsd", o.getXml()));
+        XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/nfe/Evento_Canc_PL_v1.01_NT_2018_004/envEventoCancNFe_v1.00.xsd", o.xml()));
     }
 }

@@ -14,8 +14,8 @@ public abstract class StoreReceptionSyncMdfe implements BeforeReceptionSync {
 
     @Override
     public <T extends BeforeRequest<TMDFe>> void process(T o) throws ProcessException {
-        if (Objects.nonNull(o.getRequest()) && Objects.nonNull(getStorage())) {
-            getStorage().storeMdfe(new XMLStore<>(o.getRequest(), o.getConfig(), MdfeMarshallerFactory.getInstance().sendReceptionSync(o.getRequest())));
+        if (Objects.nonNull(o.request()) && Objects.nonNull(getStorage())) {
+            getStorage().storeMdfe(new XMLStore<>(o.request(), o.config(), MdfeMarshallerFactory.getInstance().sendReceptionSync(o.request())));
         }
     }
 

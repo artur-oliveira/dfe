@@ -9,23 +9,19 @@ import com.softart.dfe.interfaces.sefaz.SefazRequest;
 import com.softart.dfe.interfaces.validation.mdfe.MdfeQuerySituationValidator;
 import com.softart.dfe.interfaces.wsdl.ConfigureProvider;
 import com.softart.dfe.interfaces.xml.XMLSignerService;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.Collection;
 
-@Data
 @Builder
-@AllArgsConstructor
-@NoArgsConstructor
-public final class MdfeQuerySituationRequest implements SefazRequest<TConsSitMDFe, TRetConsSitMDFe> {
-    public TConsSitMDFe data;
-    public Config config;
-    public XMLSignerService signer;
-    public ConfigureProvider configureProvider;
-    public Collection<MdfeQuerySituationValidator> validators;
-    public Collection<BeforeQuerySituation> beforeRequest;
-    public Collection<AfterQuerySituation> afterRequest;
+public record MdfeQuerySituationRequest(
+        TConsSitMDFe data,
+        Config config,
+        XMLSignerService signer,
+        ConfigureProvider configureProvider,
+        Collection<MdfeQuerySituationValidator> validators,
+        Collection<BeforeQuerySituation> beforeRequest,
+        Collection<AfterQuerySituation> afterRequest
+) implements SefazRequest<TConsSitMDFe, TRetConsSitMDFe> {
+
 }

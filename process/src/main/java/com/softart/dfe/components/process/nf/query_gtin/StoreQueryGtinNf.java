@@ -16,8 +16,8 @@ public abstract class StoreQueryGtinNf implements BeforeQueryGtin {
 
     @Override
     public <T extends BeforeRequest<TConsGTIN>> void process(T data) throws ProcessException {
-        if (Objects.nonNull(data.getRequest())) if (Objects.nonNull(getStorage()))
-            getStorage().storeQueryGtin(new XMLStore<>(data.getRequest(), data.getConfig(), NfMarshallerFactory.getInstance().queryGtinNf(data.getRequest())));
+        if (Objects.nonNull(data.request())) if (Objects.nonNull(getStorage()))
+            getStorage().storeQueryGtin(new XMLStore<>(data.request(), data.config(), NfMarshallerFactory.getInstance().queryGtinNf(data.request())));
     }
 
     public abstract NfQueryGtinStorage getStorage();

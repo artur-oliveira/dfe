@@ -27,7 +27,7 @@ public interface NFeConsultaProtocoloSoap {
      */
     @WebMethod(action = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeConsultaProtocolo4/nfeConsultaNF")
     @WebResult(name = "nfeResultMsg", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeConsultaProtocolo4", partName = "nfeConsultaNFResult")
-    public NfeResultMsg nfeConsultaNF(
+    NfeResultMsg nfeConsultaNF(
             @WebParam(name = "nfeDadosMsg", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeConsultaProtocolo4", partName = "nfeDadosMsg")
             NfeDadosMsg nfeDadosMsg);
 

@@ -289,8 +289,7 @@ public abstract class AbstractCteSoapService extends AbstractSoapService impleme
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof AbstractCteSoapService)) return false;
-        AbstractCteSoapService that = (AbstractCteSoapService) o;
+        if (!(o instanceof AbstractCteSoapService that)) return false;
         return Objects.equals(getAuthorizer(), that.getAuthorizer());
     }
 

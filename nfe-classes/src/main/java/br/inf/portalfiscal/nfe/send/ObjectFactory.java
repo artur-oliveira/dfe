@@ -1101,7 +1101,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/nfe", name = "ConsCad")
     public JAXBElement<TConsCad> createConsCad(TConsCad value) {
-        return new JAXBElement<TConsCad>(_ConsCad_QNAME, TConsCad.class, null, value);
+        return new JAXBElement<>(_ConsCad_QNAME, TConsCad.class, null, value);
     }
 
     /**
@@ -1112,7 +1112,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/nfe", name = "consReciNFe")
     public JAXBElement<TConsReciNFe> createConsReciNFe(TConsReciNFe value) {
-        return new JAXBElement<TConsReciNFe>(_ConsReciNFe_QNAME, TConsReciNFe.class, null, value);
+        return new JAXBElement<>(_ConsReciNFe_QNAME, TConsReciNFe.class, null, value);
     }
 
     /**
@@ -1123,7 +1123,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/nfe", name = "consSitNFe")
     public JAXBElement<TConsSitNFe> createConsSitNFe(TConsSitNFe value) {
-        return new JAXBElement<TConsSitNFe>(_ConsSitNFe_QNAME, TConsSitNFe.class, null, value);
+        return new JAXBElement<>(_ConsSitNFe_QNAME, TConsSitNFe.class, null, value);
     }
 
     /**
@@ -1134,7 +1134,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/nfe", name = "consStatServ")
     public JAXBElement<TConsStatServ> createConsStatServ(TConsStatServ value) {
-        return new JAXBElement<TConsStatServ>(_ConsStatServ_QNAME, TConsStatServ.class, null, value);
+        return new JAXBElement<>(_ConsStatServ_QNAME, TConsStatServ.class, null, value);
     }
 
     /**
@@ -1145,7 +1145,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/nfe", name = "enviNFe")
     public JAXBElement<TEnviNFe> createEnviNFe(TEnviNFe value) {
-        return new JAXBElement<TEnviNFe>(_EnviNFe_QNAME, TEnviNFe.class, null, value);
+        return new JAXBElement<>(_EnviNFe_QNAME, TEnviNFe.class, null, value);
     }
 
     /**
@@ -1156,7 +1156,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/nfe", name = "inutNFe")
     public JAXBElement<TInutNFe> createInutNFe(TInutNFe value) {
-        return new JAXBElement<TInutNFe>(_InutNFe_QNAME, TInutNFe.class, null, value);
+        return new JAXBElement<>(_InutNFe_QNAME, TInutNFe.class, null, value);
     }
 
     /**
@@ -1167,7 +1167,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/nfe", name = "NFe")
     public JAXBElement<TNFe> createNFe(TNFe value) {
-        return new JAXBElement<TNFe>(_NFe_QNAME, TNFe.class, null, value);
+        return new JAXBElement<>(_NFe_QNAME, TNFe.class, null, value);
     }
 
     /**
@@ -1178,7 +1178,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/nfe", name = "ProcInutNFe")
     public JAXBElement<TProcInutNFe> createProcInutNFe(TProcInutNFe value) {
-        return new JAXBElement<TProcInutNFe>(_ProcInutNFe_QNAME, TProcInutNFe.class, null, value);
+        return new JAXBElement<>(_ProcInutNFe_QNAME, TProcInutNFe.class, null, value);
     }
 
     /**
@@ -1189,7 +1189,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/nfe", name = "nfeProc")
     public JAXBElement<TNfeProc> createNfeProc(TNfeProc value) {
-        return new JAXBElement<TNfeProc>(_NfeProc_QNAME, TNfeProc.class, null, value);
+        return new JAXBElement<>(_NfeProc_QNAME, TNfeProc.class, null, value);
     }
 
     /**
@@ -1200,7 +1200,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/nfe", name = "retConsCad")
     public JAXBElement<TRetConsCad> createRetConsCad(TRetConsCad value) {
-        return new JAXBElement<TRetConsCad>(_RetConsCad_QNAME, TRetConsCad.class, null, value);
+        return new JAXBElement<>(_RetConsCad_QNAME, TRetConsCad.class, null, value);
     }
 
     /**
@@ -1211,7 +1211,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/nfe", name = "retConsReciNFe")
     public JAXBElement<TRetConsReciNFe> createRetConsReciNFe(TRetConsReciNFe value) {
-        return new JAXBElement<TRetConsReciNFe>(_RetConsReciNFe_QNAME, TRetConsReciNFe.class, null, value);
+        return new JAXBElement<>(_RetConsReciNFe_QNAME, TRetConsReciNFe.class, null, value);
     }
 
     /**
@@ -1222,7 +1222,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/nfe", name = "retConsSitNFe")
     public JAXBElement<TRetConsSitNFe> createRetConsSitNFe(TRetConsSitNFe value) {
-        return new JAXBElement<TRetConsSitNFe>(_RetConsSitNFe_QNAME, TRetConsSitNFe.class, null, value);
+        return new JAXBElement<>(_RetConsSitNFe_QNAME, TRetConsSitNFe.class, null, value);
     }
 
     /**
@@ -1233,7 +1233,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/nfe", name = "retConsStatServ")
     public JAXBElement<TRetConsStatServ> createRetConsStatServ(TRetConsStatServ value) {
-        return new JAXBElement<TRetConsStatServ>(_RetConsStatServ_QNAME, TRetConsStatServ.class, null, value);
+        return new JAXBElement<>(_RetConsStatServ_QNAME, TRetConsStatServ.class, null, value);
     }
 
     /**
@@ -1244,7 +1244,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/nfe", name = "retEnviNFe")
     public JAXBElement<TRetEnviNFe> createRetEnviNFe(TRetEnviNFe value) {
-        return new JAXBElement<TRetEnviNFe>(_RetEnviNFe_QNAME, TRetEnviNFe.class, null, value);
+        return new JAXBElement<>(_RetEnviNFe_QNAME, TRetEnviNFe.class, null, value);
     }
 
     /**
@@ -1255,7 +1255,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/nfe", name = "retInutNFe")
     public JAXBElement<TRetInutNFe> createRetInutNFe(TRetInutNFe value) {
-        return new JAXBElement<TRetInutNFe>(_RetInutNFe_QNAME, TRetInutNFe.class, null, value);
+        return new JAXBElement<>(_RetInutNFe_QNAME, TRetInutNFe.class, null, value);
     }
 
     /**
@@ -1266,7 +1266,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.w3.org/2000/09/xmldsig#", name = "Signature")
     public JAXBElement<SignatureType> createSignature(SignatureType value) {
-        return new JAXBElement<SignatureType>(_Signature_QNAME, SignatureType.class, null, value);
+        return new JAXBElement<>(_Signature_QNAME, SignatureType.class, null, value);
     }
 
     /**
@@ -1277,7 +1277,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/nfe", name = "vTotTrib", scope = TNFe.InfNFe.Det.Imposto.class)
     public JAXBElement<String> createTNFeInfNFeDetImpostoVTotTrib(String value) {
-        return new JAXBElement<String>(_TNFeInfNFeDetImpostoVTotTrib_QNAME, String.class, TNFe.InfNFe.Det.Imposto.class, value);
+        return new JAXBElement<>(_TNFeInfNFeDetImpostoVTotTrib_QNAME, String.class, TNFe.InfNFe.Det.Imposto.class, value);
     }
 
     /**
@@ -1288,7 +1288,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/nfe", name = "ICMS", scope = TNFe.InfNFe.Det.Imposto.class)
     public JAXBElement<TNFe.InfNFe.Det.Imposto.ICMS> createTNFeInfNFeDetImpostoICMS(TNFe.InfNFe.Det.Imposto.ICMS value) {
-        return new JAXBElement<TNFe.InfNFe.Det.Imposto.ICMS>(_TNFeInfNFeDetImpostoICMS_QNAME, TNFe.InfNFe.Det.Imposto.ICMS.class, TNFe.InfNFe.Det.Imposto.class, value);
+        return new JAXBElement<>(_TNFeInfNFeDetImpostoICMS_QNAME, TNFe.InfNFe.Det.Imposto.ICMS.class, TNFe.InfNFe.Det.Imposto.class, value);
     }
 
     /**
@@ -1299,7 +1299,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/nfe", name = "IPI", scope = TNFe.InfNFe.Det.Imposto.class)
     public JAXBElement<TIpi> createTNFeInfNFeDetImpostoIPI(TIpi value) {
-        return new JAXBElement<TIpi>(_TNFeInfNFeDetImpostoIPI_QNAME, TIpi.class, TNFe.InfNFe.Det.Imposto.class, value);
+        return new JAXBElement<>(_TNFeInfNFeDetImpostoIPI_QNAME, TIpi.class, TNFe.InfNFe.Det.Imposto.class, value);
     }
 
     /**
@@ -1310,7 +1310,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/nfe", name = "II", scope = TNFe.InfNFe.Det.Imposto.class)
     public JAXBElement<TNFe.InfNFe.Det.Imposto.II> createTNFeInfNFeDetImpostoII(TNFe.InfNFe.Det.Imposto.II value) {
-        return new JAXBElement<TNFe.InfNFe.Det.Imposto.II>(_TNFeInfNFeDetImpostoII_QNAME, TNFe.InfNFe.Det.Imposto.II.class, TNFe.InfNFe.Det.Imposto.class, value);
+        return new JAXBElement<>(_TNFeInfNFeDetImpostoII_QNAME, TNFe.InfNFe.Det.Imposto.II.class, TNFe.InfNFe.Det.Imposto.class, value);
     }
 
     /**
@@ -1321,7 +1321,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/nfe", name = "ISSQN", scope = TNFe.InfNFe.Det.Imposto.class)
     public JAXBElement<TNFe.InfNFe.Det.Imposto.ISSQN> createTNFeInfNFeDetImpostoISSQN(TNFe.InfNFe.Det.Imposto.ISSQN value) {
-        return new JAXBElement<TNFe.InfNFe.Det.Imposto.ISSQN>(_TNFeInfNFeDetImpostoISSQN_QNAME, TNFe.InfNFe.Det.Imposto.ISSQN.class, TNFe.InfNFe.Det.Imposto.class, value);
+        return new JAXBElement<>(_TNFeInfNFeDetImpostoISSQN_QNAME, TNFe.InfNFe.Det.Imposto.ISSQN.class, TNFe.InfNFe.Det.Imposto.class, value);
     }
 
     /**
@@ -1332,7 +1332,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/nfe", name = "PIS", scope = TNFe.InfNFe.Det.Imposto.class)
     public JAXBElement<TNFe.InfNFe.Det.Imposto.PIS> createTNFeInfNFeDetImpostoPIS(TNFe.InfNFe.Det.Imposto.PIS value) {
-        return new JAXBElement<TNFe.InfNFe.Det.Imposto.PIS>(_TNFeInfNFeDetImpostoPIS_QNAME, TNFe.InfNFe.Det.Imposto.PIS.class, TNFe.InfNFe.Det.Imposto.class, value);
+        return new JAXBElement<>(_TNFeInfNFeDetImpostoPIS_QNAME, TNFe.InfNFe.Det.Imposto.PIS.class, TNFe.InfNFe.Det.Imposto.class, value);
     }
 
     /**
@@ -1343,7 +1343,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/nfe", name = "PISST", scope = TNFe.InfNFe.Det.Imposto.class)
     public JAXBElement<TNFe.InfNFe.Det.Imposto.PISST> createTNFeInfNFeDetImpostoPISST(TNFe.InfNFe.Det.Imposto.PISST value) {
-        return new JAXBElement<TNFe.InfNFe.Det.Imposto.PISST>(_TNFeInfNFeDetImpostoPISST_QNAME, TNFe.InfNFe.Det.Imposto.PISST.class, TNFe.InfNFe.Det.Imposto.class, value);
+        return new JAXBElement<>(_TNFeInfNFeDetImpostoPISST_QNAME, TNFe.InfNFe.Det.Imposto.PISST.class, TNFe.InfNFe.Det.Imposto.class, value);
     }
 
     /**
@@ -1354,7 +1354,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/nfe", name = "COFINS", scope = TNFe.InfNFe.Det.Imposto.class)
     public JAXBElement<TNFe.InfNFe.Det.Imposto.COFINS> createTNFeInfNFeDetImpostoCOFINS(TNFe.InfNFe.Det.Imposto.COFINS value) {
-        return new JAXBElement<TNFe.InfNFe.Det.Imposto.COFINS>(_TNFeInfNFeDetImpostoCOFINS_QNAME, TNFe.InfNFe.Det.Imposto.COFINS.class, TNFe.InfNFe.Det.Imposto.class, value);
+        return new JAXBElement<>(_TNFeInfNFeDetImpostoCOFINS_QNAME, TNFe.InfNFe.Det.Imposto.COFINS.class, TNFe.InfNFe.Det.Imposto.class, value);
     }
 
     /**
@@ -1365,7 +1365,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/nfe", name = "COFINSST", scope = TNFe.InfNFe.Det.Imposto.class)
     public JAXBElement<TNFe.InfNFe.Det.Imposto.COFINSST> createTNFeInfNFeDetImpostoCOFINSST(TNFe.InfNFe.Det.Imposto.COFINSST value) {
-        return new JAXBElement<TNFe.InfNFe.Det.Imposto.COFINSST>(_TNFeInfNFeDetImpostoCOFINSST_QNAME, TNFe.InfNFe.Det.Imposto.COFINSST.class, TNFe.InfNFe.Det.Imposto.class, value);
+        return new JAXBElement<>(_TNFeInfNFeDetImpostoCOFINSST_QNAME, TNFe.InfNFe.Det.Imposto.COFINSST.class, TNFe.InfNFe.Det.Imposto.class, value);
     }
 
     /**
@@ -1376,7 +1376,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/nfe", name = "ICMSUFDest", scope = TNFe.InfNFe.Det.Imposto.class)
     public JAXBElement<TNFe.InfNFe.Det.Imposto.ICMSUFDest> createTNFeInfNFeDetImpostoICMSUFDest(TNFe.InfNFe.Det.Imposto.ICMSUFDest value) {
-        return new JAXBElement<TNFe.InfNFe.Det.Imposto.ICMSUFDest>(_TNFeInfNFeDetImpostoICMSUFDest_QNAME, TNFe.InfNFe.Det.Imposto.ICMSUFDest.class, TNFe.InfNFe.Det.Imposto.class, value);
+        return new JAXBElement<>(_TNFeInfNFeDetImpostoICMSUFDest_QNAME, TNFe.InfNFe.Det.Imposto.ICMSUFDest.class, TNFe.InfNFe.Det.Imposto.class, value);
     }
 
 }

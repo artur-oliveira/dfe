@@ -4,6 +4,11 @@ import com.softart.dfe.enums.internal.Environment;
 import com.softart.dfe.enums.internal.Model;
 import com.softart.dfe.enums.internal.UF;
 
+/**
+ * Declaring a public interface named `CertificateChain`. This interface defines a contract for classes that implement it
+ * to provide methods for retrieving information related to a certificate chain, such as the environment, UF, model, and
+ * file name.
+ */
 public interface CertificateChain {
 
     /**

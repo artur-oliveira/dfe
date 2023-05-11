@@ -7,15 +7,11 @@ import com.softart.dfe.interfaces.storage.nf.NfeStorage;
 
 public abstract class StorageFactory {
     public static StorageFactory getInstance() {
-        switch (System.getProperty("com.softart.dfe.storage.default", "filesystem")) {
-            case "s3":
-                return HolderS3.S3;
-            case "nostorage":
-                return Holder.NO_STORAGE;
-            case "filesystem":
-            default:
-                return Holder.FILE_SYSTEM;
-        }
+        return switch (System.getProperty("com.softart.dfe.storage.default", "filesystem")) {
+            case "s3" -> HolderS3.S3;
+            case "nostorage" -> Holder.NO_STORAGE;
+            default -> Holder.FILE_SYSTEM;
+        };
     }
 
     public static StorageFactory noStorage() {

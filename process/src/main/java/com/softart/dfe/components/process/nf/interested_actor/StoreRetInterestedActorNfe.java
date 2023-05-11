@@ -17,11 +17,11 @@ public abstract class StoreRetInterestedActorNfe implements AfterInterestedActor
 
     @Override
     public <T extends AfterRequest<TEnvEvento, TRetEnvEvento>> void process(T data) throws ProcessException {
-        if (Objects.nonNull(data.getResponse()) && !data.getResponse().getRetEvento().isEmpty()) {
+        if (Objects.nonNull(data.response()) && !data.response().getRetEvento().isEmpty()) {
             if (Objects.nonNull(getStorage()))
-                getStorage().storeRetInterestedActor(new XMLStore<>(data.getResponse(), data.getConfig(), NfMarshallerFactory.getInstance().returnInterestedActorNfe(data.getResponse())));
-        } else if (Objects.nonNull(data.getResponse())) {
-            log.warn(data.getResponse().getXMotivo());
+                getStorage().storeRetInterestedActor(new XMLStore<>(data.response(), data.config(), NfMarshallerFactory.getInstance().returnInterestedActorNfe(data.response())));
+        } else if (Objects.nonNull(data.response())) {
+            log.warn(data.response().getXMotivo());
         }
     }
 

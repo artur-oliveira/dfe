@@ -1,6 +1,9 @@
 package com.softart.dfe.interfaces.internal.cte;
 
-@SuppressWarnings("unused")
+/** Declaring a public interface named `CteAnServiceURL`. This interface contains two abstract methods
+ * `distributionAnProd()` and `distributionAnHom()`. Any class that implements this interface must provide an
+ * implementation for these two methods.
+ */
 public interface CteAnServiceURL {
 
     /**

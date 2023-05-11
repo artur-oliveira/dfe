@@ -15,6 +15,9 @@ public interface NfeQueryGtin {
      *
      * @param data The request object.
      * @return A pair of objects, the first is the request object, the second is the response object.
+     * @throws SecurityException   SecurityException
+     * @throws ValidationException ValidationException
+     * @throws ProcessException    ProcessException
      */
     <T extends SefazRequest<TConsGTIN, TRetConsGTIN>> Pair<TConsGTIN, TRetConsGTIN> queryGtin(T data) throws SecurityException, ValidationException, ProcessException;
 

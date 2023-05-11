@@ -18,6 +18,9 @@ public interface MdfeQueryReceipt {
      *
      * @param data The request object.
      * @return A pair of objects, the first is the request object, the second is the response object.
+     * @throws SecurityException   SecurityException
+     * @throws ValidationException ValidationException
+     * @throws ProcessException    ProcessException
      */
     <T extends SefazRequest<TConsReciMDFe, TRetConsReciMDFe>> Pair<TConsReciMDFe, TRetConsReciMDFe> queryReceipt(T data) throws SecurityException, ValidationException, ProcessException;
 

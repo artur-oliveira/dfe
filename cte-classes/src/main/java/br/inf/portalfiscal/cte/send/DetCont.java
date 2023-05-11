@@ -97,7 +97,7 @@ public class DetCont
      */
     public List<Lacre> getLacre() {
         if (lacre == null) {
-            lacre = new ArrayList<Lacre>();
+            lacre = new ArrayList<>();
         }
         return this.lacre;
     }

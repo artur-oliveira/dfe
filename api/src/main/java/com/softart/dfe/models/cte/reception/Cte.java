@@ -109,18 +109,13 @@ public final class Cte implements DFObject, XMLAdapter<Cte, TCTe> {
             return ide().getToma4().uf();
         }
 
-        switch (toma()) {
-            case REMITTER:
-                return rem().uf();
-            case DISPATCHER:
-                return exped().uf();
-            case RECEIVER:
-                return receb().uf();
-            case REMITTEE:
-                return dest().uf();
-            default:
-                throw new IllegalArgumentException("tomaUf() not found");
-        }
+        return switch (toma()) {
+            case REMITTER -> rem().uf();
+            case DISPATCHER -> exped().uf();
+            case RECEIVER -> receb().uf();
+            case REMITTEE -> dest().uf();
+            default -> throw new IllegalArgumentException("tomaUf() not found");
+        };
     }
 
     public String tomaCnpj() {
@@ -128,18 +123,13 @@ public final class Cte implements DFObject, XMLAdapter<Cte, TCTe> {
             return ide().getToma4().getCnpj();
         }
 
-        switch (toma()) {
-            case REMITTER:
-                return rem().getCnpj();
-            case DISPATCHER:
-                return exped().getCnpj();
-            case RECEIVER:
-                return receb().getCnpj();
-            case REMITTEE:
-                return dest().getCnpj();
-            default:
-                throw new IllegalArgumentException("tomaCnpj() not found");
-        }
+        return switch (toma()) {
+            case REMITTER -> rem().getCnpj();
+            case DISPATCHER -> exped().getCnpj();
+            case RECEIVER -> receb().getCnpj();
+            case REMITTEE -> dest().getCnpj();
+            default -> throw new IllegalArgumentException("tomaCnpj() not found");
+        };
     }
 
     public String tomaCpf() {
@@ -147,18 +137,13 @@ public final class Cte implements DFObject, XMLAdapter<Cte, TCTe> {
             return ide().getToma4().getCpf();
         }
 
-        switch (toma()) {
-            case REMITTER:
-                return rem().getCpf();
-            case DISPATCHER:
-                return exped().getCpf();
-            case RECEIVER:
-                return receb().getCpf();
-            case REMITTEE:
-                return dest().getCpf();
-            default:
-                throw new IllegalArgumentException("getCpf() not found");
-        }
+        return switch (toma()) {
+            case REMITTER -> rem().getCpf();
+            case DISPATCHER -> exped().getCpf();
+            case RECEIVER -> receb().getCpf();
+            case REMITTEE -> dest().getCpf();
+            default -> throw new IllegalArgumentException("getCpf() not found");
+        };
     }
 
     public String tomaIe() {
@@ -166,18 +151,13 @@ public final class Cte implements DFObject, XMLAdapter<Cte, TCTe> {
             return ide().getToma4().getIe();
         }
 
-        switch (toma()) {
-            case REMITTER:
-                return rem().getIe();
-            case DISPATCHER:
-                return exped().getIe();
-            case RECEIVER:
-                return receb().getIe();
-            case REMITTEE:
-                return dest().getIe();
-            default:
-                throw new IllegalArgumentException("getIe() not found");
-        }
+        return switch (toma()) {
+            case REMITTER -> rem().getIe();
+            case DISPATCHER -> exped().getIe();
+            case RECEIVER -> receb().getIe();
+            case REMITTEE -> dest().getIe();
+            default -> throw new IllegalArgumentException("getIe() not found");
+        };
     }
 
     @Data

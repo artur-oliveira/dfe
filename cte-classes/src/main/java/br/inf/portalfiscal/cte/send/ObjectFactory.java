@@ -1621,7 +1621,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "GTVe")
     public JAXBElement<TGTVe> createGTVe(TGTVe value) {
-        return new JAXBElement<TGTVe>(_GTVe_QNAME, TGTVe.class, null, value);
+        return new JAXBElement<>(_GTVe_QNAME, TGTVe.class, null, value);
     }
 
     /**
@@ -1632,7 +1632,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "consReciCTe")
     public JAXBElement<TConsReciCTe> createConsReciCTe(TConsReciCTe value) {
-        return new JAXBElement<TConsReciCTe>(_ConsReciCTe_QNAME, TConsReciCTe.class, null, value);
+        return new JAXBElement<>(_ConsReciCTe_QNAME, TConsReciCTe.class, null, value);
     }
 
     /**
@@ -1643,7 +1643,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "consSitCTe")
     public JAXBElement<TConsSitCTe> createConsSitCTe(TConsSitCTe value) {
-        return new JAXBElement<TConsSitCTe>(_ConsSitCTe_QNAME, TConsSitCTe.class, null, value);
+        return new JAXBElement<>(_ConsSitCTe_QNAME, TConsSitCTe.class, null, value);
     }
 
     /**
@@ -1654,7 +1654,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "consStatServCte")
     public JAXBElement<TConsStatServ> createConsStatServCte(TConsStatServ value) {
-        return new JAXBElement<TConsStatServ>(_ConsStatServCte_QNAME, TConsStatServ.class, null, value);
+        return new JAXBElement<>(_ConsStatServCte_QNAME, TConsStatServ.class, null, value);
     }
 
     /**
@@ -1665,7 +1665,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "aereo")
     public JAXBElement<Aereo> createAereo(Aereo value) {
-        return new JAXBElement<Aereo>(_Aereo_QNAME, Aereo.class, null, value);
+        return new JAXBElement<>(_Aereo_QNAME, Aereo.class, null, value);
     }
 
     /**
@@ -1676,7 +1676,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "aquav")
     public JAXBElement<Aquav> createAquav(Aquav value) {
-        return new JAXBElement<Aquav>(_Aquav_QNAME, Aquav.class, null, value);
+        return new JAXBElement<>(_Aquav_QNAME, Aquav.class, null, value);
     }
 
     /**
@@ -1687,7 +1687,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "duto")
     public JAXBElement<Duto> createDuto(Duto value) {
-        return new JAXBElement<Duto>(_Duto_QNAME, Duto.class, null, value);
+        return new JAXBElement<>(_Duto_QNAME, Duto.class, null, value);
     }
 
     /**
@@ -1698,7 +1698,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "ferrov")
     public JAXBElement<Ferrov> createFerrov(Ferrov value) {
-        return new JAXBElement<Ferrov>(_Ferrov_QNAME, Ferrov.class, null, value);
+        return new JAXBElement<>(_Ferrov_QNAME, Ferrov.class, null, value);
     }
 
     /**
@@ -1709,7 +1709,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "rodoOS")
     public JAXBElement<RodoOS> createRodoOS(RodoOS value) {
-        return new JAXBElement<RodoOS>(_RodoOS_QNAME, RodoOS.class, null, value);
+        return new JAXBElement<>(_RodoOS_QNAME, RodoOS.class, null, value);
     }
 
     /**
@@ -1720,7 +1720,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "rodo")
     public JAXBElement<Rodo> createRodo(Rodo value) {
-        return new JAXBElement<Rodo>(_Rodo_QNAME, Rodo.class, null, value);
+        return new JAXBElement<>(_Rodo_QNAME, Rodo.class, null, value);
     }
 
     /**
@@ -1731,7 +1731,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "multimodal")
     public JAXBElement<Multimodal> createMultimodal(Multimodal value) {
-        return new JAXBElement<Multimodal>(_Multimodal_QNAME, Multimodal.class, null, value);
+        return new JAXBElement<>(_Multimodal_QNAME, Multimodal.class, null, value);
     }
 
     /**
@@ -1742,7 +1742,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "CTeOS")
     public JAXBElement<TCTeOS> createCTeOS(TCTeOS value) {
-        return new JAXBElement<TCTeOS>(_CTeOS_QNAME, TCTeOS.class, null, value);
+        return new JAXBElement<>(_CTeOS_QNAME, TCTeOS.class, null, value);
     }
 
     /**
@@ -1753,7 +1753,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "CTe")
     public JAXBElement<TCTe> createCTe(TCTe value) {
-        return new JAXBElement<TCTe>(_CTe_QNAME, TCTe.class, null, value);
+        return new JAXBElement<>(_CTe_QNAME, TCTe.class, null, value);
     }
 
     /**
@@ -1764,7 +1764,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "enviCTe")
     public JAXBElement<TEnviCTe> createEnviCTe(TEnviCTe value) {
-        return new JAXBElement<TEnviCTe>(_EnviCTe_QNAME, TEnviCTe.class, null, value);
+        return new JAXBElement<>(_EnviCTe_QNAME, TEnviCTe.class, null, value);
     }
 
     /**
@@ -1775,7 +1775,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "evCCeCTe")
     public JAXBElement<EvCCeCTe> createEvCCeCTe(EvCCeCTe value) {
-        return new JAXBElement<EvCCeCTe>(_EvCCeCTe_QNAME, EvCCeCTe.class, null, value);
+        return new JAXBElement<>(_EvCCeCTe_QNAME, EvCCeCTe.class, null, value);
     }
 
     /**
@@ -1786,7 +1786,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "evCECTe")
     public JAXBElement<EvCECTe> createEvCECTe(EvCECTe value) {
-        return new JAXBElement<EvCECTe>(_EvCECTe_QNAME, EvCECTe.class, null, value);
+        return new JAXBElement<>(_EvCECTe_QNAME, EvCECTe.class, null, value);
     }
 
     /**
@@ -1797,7 +1797,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "evCancCECTe")
     public JAXBElement<EvCancCECTe> createEvCancCECTe(EvCancCECTe value) {
-        return new JAXBElement<EvCancCECTe>(_EvCancCECTe_QNAME, EvCancCECTe.class, null, value);
+        return new JAXBElement<>(_EvCancCECTe_QNAME, EvCancCECTe.class, null, value);
     }
 
     /**
@@ -1808,7 +1808,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "evCancCTe")
     public JAXBElement<EvCancCTe> createEvCancCTe(EvCancCTe value) {
-        return new JAXBElement<EvCancCTe>(_EvCancCTe_QNAME, EvCancCTe.class, null, value);
+        return new JAXBElement<>(_EvCancCTe_QNAME, EvCancCTe.class, null, value);
     }
 
     /**
@@ -1819,7 +1819,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "evEPECCTe")
     public JAXBElement<EvEPECCTe> createEvEPECCTe(EvEPECCTe value) {
-        return new JAXBElement<EvEPECCTe>(_EvEPECCTe_QNAME, EvEPECCTe.class, null, value);
+        return new JAXBElement<>(_EvEPECCTe_QNAME, EvEPECCTe.class, null, value);
     }
 
     /**
@@ -1830,7 +1830,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "evGTV")
     public JAXBElement<EvGTV> createEvGTV(EvGTV value) {
-        return new JAXBElement<EvGTV>(_EvGTV_QNAME, EvGTV.class, null, value);
+        return new JAXBElement<>(_EvGTV_QNAME, EvGTV.class, null, value);
     }
 
     /**
@@ -1841,7 +1841,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "evPrestDesacordo")
     public JAXBElement<EvPrestDesacordo> createEvPrestDesacordo(EvPrestDesacordo value) {
-        return new JAXBElement<EvPrestDesacordo>(_EvPrestDesacordo_QNAME, EvPrestDesacordo.class, null, value);
+        return new JAXBElement<>(_EvPrestDesacordo_QNAME, EvPrestDesacordo.class, null, value);
     }
 
     /**
@@ -1852,7 +1852,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "evRegMultimodal")
     public JAXBElement<EvRegMultimodal> createEvRegMultimodal(EvRegMultimodal value) {
-        return new JAXBElement<EvRegMultimodal>(_EvRegMultimodal_QNAME, EvRegMultimodal.class, null, value);
+        return new JAXBElement<>(_EvRegMultimodal_QNAME, EvRegMultimodal.class, null, value);
     }
 
     /**
@@ -1863,7 +1863,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "eventoCTe")
     public JAXBElement<TEvento> createEventoCTe(TEvento value) {
-        return new JAXBElement<TEvento>(_EventoCTe_QNAME, TEvento.class, null, value);
+        return new JAXBElement<>(_EventoCTe_QNAME, TEvento.class, null, value);
     }
 
     /**
@@ -1874,7 +1874,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "inutCTe")
     public JAXBElement<TInutCTe> createInutCTe(TInutCTe value) {
-        return new JAXBElement<TInutCTe>(_InutCTe_QNAME, TInutCTe.class, null, value);
+        return new JAXBElement<>(_InutCTe_QNAME, TInutCTe.class, null, value);
     }
 
     /**
@@ -1885,7 +1885,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "cteOSProc")
     public JAXBElement<TCteOSProc> createCteOSProc(TCteOSProc value) {
-        return new JAXBElement<TCteOSProc>(_CteOSProc_QNAME, TCteOSProc.class, null, value);
+        return new JAXBElement<>(_CteOSProc_QNAME, TCteOSProc.class, null, value);
     }
 
     /**
@@ -1896,7 +1896,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "cteProc")
     public JAXBElement<TCteProc> createCteProc(TCteProc value) {
-        return new JAXBElement<TCteProc>(_CteProc_QNAME, TCteProc.class, null, value);
+        return new JAXBElement<>(_CteProc_QNAME, TCteProc.class, null, value);
     }
 
     /**
@@ -1907,7 +1907,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "procEventoCTe")
     public JAXBElement<TProcEvento> createProcEventoCTe(TProcEvento value) {
-        return new JAXBElement<TProcEvento>(_ProcEventoCTe_QNAME, TProcEvento.class, null, value);
+        return new JAXBElement<>(_ProcEventoCTe_QNAME, TProcEvento.class, null, value);
     }
 
     /**
@@ -1918,7 +1918,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "GTVeProc")
     public JAXBElement<TGTVeProc> createGTVeProc(TGTVeProc value) {
-        return new JAXBElement<TGTVeProc>(_GTVeProc_QNAME, TGTVeProc.class, null, value);
+        return new JAXBElement<>(_GTVeProc_QNAME, TGTVeProc.class, null, value);
     }
 
     /**
@@ -1929,7 +1929,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "procInutCTe")
     public JAXBElement<TProcInutCTe> createProcInutCTe(TProcInutCTe value) {
-        return new JAXBElement<TProcInutCTe>(_ProcInutCTe_QNAME, TProcInutCTe.class, null, value);
+        return new JAXBElement<>(_ProcInutCTe_QNAME, TProcInutCTe.class, null, value);
     }
 
     /**
@@ -1940,7 +1940,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "protCTe")
     public JAXBElement<TProtCTe> createProtCTe(TProtCTe value) {
-        return new JAXBElement<TProtCTe>(_ProtCTe_QNAME, TProtCTe.class, null, value);
+        return new JAXBElement<>(_ProtCTe_QNAME, TProtCTe.class, null, value);
     }
 
     /**
@@ -1951,7 +1951,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "protCTeOS")
     public JAXBElement<TProtCTeOS> createProtCTeOS(TProtCTeOS value) {
-        return new JAXBElement<TProtCTeOS>(_ProtCTeOS_QNAME, TProtCTeOS.class, null, value);
+        return new JAXBElement<>(_ProtCTeOS_QNAME, TProtCTeOS.class, null, value);
     }
 
     /**
@@ -1962,7 +1962,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "protGTVe")
     public JAXBElement<TProtGTVe> createProtGTVe(TProtGTVe value) {
-        return new JAXBElement<TProtGTVe>(_ProtGTVe_QNAME, TProtGTVe.class, null, value);
+        return new JAXBElement<>(_ProtGTVe_QNAME, TProtGTVe.class, null, value);
     }
 
     /**
@@ -1973,7 +1973,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "retCTeOS")
     public JAXBElement<TRetCTeOS> createRetCTeOS(TRetCTeOS value) {
-        return new JAXBElement<TRetCTeOS>(_RetCTeOS_QNAME, TRetCTeOS.class, null, value);
+        return new JAXBElement<>(_RetCTeOS_QNAME, TRetCTeOS.class, null, value);
     }
 
     /**
@@ -1984,7 +1984,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "retCTe")
     public JAXBElement<TRetCTe> createRetCTe(TRetCTe value) {
-        return new JAXBElement<TRetCTe>(_RetCTe_QNAME, TRetCTe.class, null, value);
+        return new JAXBElement<>(_RetCTe_QNAME, TRetCTe.class, null, value);
     }
 
     /**
@@ -1995,7 +1995,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "retConsReciCTe")
     public JAXBElement<TRetConsReciCTe> createRetConsReciCTe(TRetConsReciCTe value) {
-        return new JAXBElement<TRetConsReciCTe>(_RetConsReciCTe_QNAME, TRetConsReciCTe.class, null, value);
+        return new JAXBElement<>(_RetConsReciCTe_QNAME, TRetConsReciCTe.class, null, value);
     }
 
     /**
@@ -2006,7 +2006,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "retConsSitCTe")
     public JAXBElement<TRetConsSitCTe> createRetConsSitCTe(TRetConsSitCTe value) {
-        return new JAXBElement<TRetConsSitCTe>(_RetConsSitCTe_QNAME, TRetConsSitCTe.class, null, value);
+        return new JAXBElement<>(_RetConsSitCTe_QNAME, TRetConsSitCTe.class, null, value);
     }
 
     /**
@@ -2017,7 +2017,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "retConsStatServCte")
     public JAXBElement<TRetConsStatServ> createRetConsStatServCte(TRetConsStatServ value) {
-        return new JAXBElement<TRetConsStatServ>(_RetConsStatServCte_QNAME, TRetConsStatServ.class, null, value);
+        return new JAXBElement<>(_RetConsStatServCte_QNAME, TRetConsStatServ.class, null, value);
     }
 
     /**
@@ -2028,7 +2028,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "retEnviCte")
     public JAXBElement<TRetEnviCTe> createRetEnviCte(TRetEnviCTe value) {
-        return new JAXBElement<TRetEnviCTe>(_RetEnviCte_QNAME, TRetEnviCTe.class, null, value);
+        return new JAXBElement<>(_RetEnviCte_QNAME, TRetEnviCTe.class, null, value);
     }
 
     /**
@@ -2039,7 +2039,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "retEventoCTe")
     public JAXBElement<TRetEvento> createRetEventoCTe(TRetEvento value) {
-        return new JAXBElement<TRetEvento>(_RetEventoCTe_QNAME, TRetEvento.class, null, value);
+        return new JAXBElement<>(_RetEventoCTe_QNAME, TRetEvento.class, null, value);
     }
 
     /**
@@ -2050,7 +2050,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "retGTVe")
     public JAXBElement<TRetGTVe> createRetGTVe(TRetGTVe value) {
-        return new JAXBElement<TRetGTVe>(_RetGTVe_QNAME, TRetGTVe.class, null, value);
+        return new JAXBElement<>(_RetGTVe_QNAME, TRetGTVe.class, null, value);
     }
 
     /**
@@ -2061,7 +2061,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "retInutCTe")
     public JAXBElement<TRetInutCTe> createRetInutCTe(TRetInutCTe value) {
-        return new JAXBElement<TRetInutCTe>(_RetInutCTe_QNAME, TRetInutCTe.class, null, value);
+        return new JAXBElement<>(_RetInutCTe_QNAME, TRetInutCTe.class, null, value);
     }
 
     /**
@@ -2072,7 +2072,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.w3.org/2000/09/xmldsig#", name = "Signature")
     public JAXBElement<SignatureType> createSignature(SignatureType value) {
-        return new JAXBElement<SignatureType>(_Signature_QNAME, SignatureType.class, null, value);
+        return new JAXBElement<>(_Signature_QNAME, SignatureType.class, null, value);
     }
 
 }

@@ -13,6 +13,7 @@ public interface MdfeReceptionStorage extends Storage {
      * Stores the MDFe in the database
      *
      * @param o The object to be stored.
+     * @throws StorageException StorageException
      */
     void storeSendMdfe(Store<TEnviMDFe> o) throws StorageException;
 
@@ -20,6 +21,7 @@ public interface MdfeReceptionStorage extends Storage {
      * It stores the return of the MDFe sending.
      *
      * @param o The object to be stored.
+     * @throws StorageException StorageException
      */
     void storeReturnSendMdfe(Store<TRetEnviMDFe> o) throws StorageException;
 
@@ -27,6 +29,7 @@ public interface MdfeReceptionStorage extends Storage {
      * Store the MDF-e process in the database.
      *
      * @param o The object to be stored.
+     * @throws StorageException StorageException
      */
     void storeProcMdfe(Store<TMdfeProc> o) throws StorageException;
 

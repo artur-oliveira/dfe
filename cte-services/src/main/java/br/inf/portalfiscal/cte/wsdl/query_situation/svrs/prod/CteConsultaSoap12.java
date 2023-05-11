@@ -27,7 +27,7 @@ public interface CteConsultaSoap12 {
      */
     @WebMethod(action = "http://www.portalfiscal.inf.br/cte/wsdl/CteConsulta/cteConsultaCT")
     @WebResult(name = "cteConsultaCTResult", targetNamespace = "http://www.portalfiscal.inf.br/cte/wsdl/CteConsulta", partName = "cteConsultaCTResult")
-    public CteConsultaCTResult cteConsultaCT(
+    CteConsultaCTResult cteConsultaCT(
             @WebParam(name = "cteDadosMsg", targetNamespace = "http://www.portalfiscal.inf.br/cte/wsdl/CteConsulta", partName = "cteDadosMsg")
             CteDadosMsg cteDadosMsg);
 

@@ -40,7 +40,7 @@ public final class StringUtils {
 
     /**
      * "Concatenate the string representations of the given arguments."
-     * <p>
+
      * The @SafeVarargs annotation is a compile-time annotation that tells the compiler that the annotated method is safe
      * to use with generics
      *
@@ -83,7 +83,7 @@ public final class StringUtils {
 
     /**
      * "If the text is null, return null, otherwise return the text in upper case."
-     * <p>
+
      *
      * @param text The text to convert to upper case.
      * @return A string that is the uppercase version of the text.
@@ -95,7 +95,7 @@ public final class StringUtils {
 
     /**
      * "If the text is null, return null, otherwise return the text in lower case."
-     * <p>
+
      *
      * @param text The text to convert to lower case.
      * @return A string that is the lowercase version of the text.
@@ -108,7 +108,7 @@ public final class StringUtils {
 
     /**
      * Generates a random number with the specified number of digits
-     * <p>
+
      *
      * @return A random number of the specified length as a string
      * @see NumberUtils
@@ -119,7 +119,7 @@ public final class StringUtils {
 
     /**
      * It returns a random number of the specified length as a string
-     * <p>
+
      *
      * @param digCount The number of digits in the random number.
      * @return A random number of the specified length as a string
@@ -143,12 +143,7 @@ public final class StringUtils {
         if (len < 0) throw new IllegalArgumentException("length is less than zero.");
         if (len <= text.length()) return text.subSequence(0, text.length()).toString();
 
-        StringBuilder sb = new StringBuilder(len);
-
-        for (int i = 0; i < len - text.length(); i++) sb.append(padChar);
-        sb.append(text);
-
-        return sb.toString();
+        return String.valueOf(padChar).repeat(Math.max(0, len - text.length())) + text;
     }
 
 

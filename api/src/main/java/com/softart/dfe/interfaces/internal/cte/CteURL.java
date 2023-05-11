@@ -1,6 +1,11 @@
 package com.softart.dfe.interfaces.internal.cte;
 
-@SuppressWarnings("unused")
+/**
+ * The code is defining a Java interface named `CteURL` that extends another interface named `CteAnServiceURL`. This means
+ * that `CteURL` inherits all the methods and constants defined in `CteAnServiceURL`, and also adds its own methods. Any
+ * class that implements `CteURL` must provide an implementation for all the methods defined in both `CteURL` and
+ * `CteAnServiceURL`.
+ */
 public interface CteURL extends CteAnServiceURL {
 
     /**

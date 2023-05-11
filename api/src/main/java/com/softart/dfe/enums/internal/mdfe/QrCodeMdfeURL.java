@@ -8,7 +8,6 @@ import com.softart.dfe.interfaces.internal.allow.AllowUF;
 import com.softart.dfe.models.internal.mdfe.MdfeQrCode;
 import com.softart.dfe.models.mdfe.reception_sync.Mdfe;
 
-import java.security.GeneralSecurityException;
 import java.util.Arrays;
 import java.util.Collection;
 
@@ -41,7 +40,7 @@ public enum QrCodeMdfeURL implements AllowUF {
         return environment.production() ? serviceURL.production() : serviceURL.homologation();
     }
 
-    public static String generate(Mdfe mdfe) throws NoProviderFound, GeneralSecurityException {
+    public static String generate(Mdfe mdfe) throws NoProviderFound {
         return QrCodeGeneratorFactory.getInstance().generate(MdfeQrCode.builder().mdfe(mdfe).build());
     }
 

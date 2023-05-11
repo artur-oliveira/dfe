@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.extern.log4j.Log4j2;
 
 /**
- * This exception is thrown when a problem occurs during marshalling
+ * This exception is thrown when a problem occurs during unmarshalling
  */
 @Log4j2
 @Getter

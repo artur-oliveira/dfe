@@ -115,7 +115,7 @@ public class TMDFeDFe
      */
     public List<ProcEventoMDFe> getProcEventoMDFe() {
         if (procEventoMDFe == null) {
-            procEventoMDFe = new ArrayList<ProcEventoMDFe>();
+            procEventoMDFe = new ArrayList<>();
         }
         return this.procEventoMDFe;
     }
@@ -181,7 +181,7 @@ public class TMDFeDFe
          */
         public List<Object> getAny() {
             if (any == null) {
-                any = new ArrayList<Object>();
+                any = new ArrayList<>();
             }
             return this.any;
         }
@@ -273,7 +273,7 @@ public class TMDFeDFe
          */
         public List<Object> getAny() {
             if (any == null) {
-                any = new ArrayList<Object>();
+                any = new ArrayList<>();
             }
             return this.any;
         }

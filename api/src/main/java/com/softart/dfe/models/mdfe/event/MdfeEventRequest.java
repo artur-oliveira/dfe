@@ -9,23 +9,19 @@ import com.softart.dfe.interfaces.sefaz.SefazRequest;
 import com.softart.dfe.interfaces.validation.mdfe.MdfeEventValidator;
 import com.softart.dfe.interfaces.wsdl.ConfigureProvider;
 import com.softart.dfe.interfaces.xml.XMLSignerService;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.Collection;
 
-@Data
 @Builder
-@AllArgsConstructor
-@NoArgsConstructor
-public final class MdfeEventRequest implements SefazRequest<TEvento, TRetEvento> {
-    public TEvento data;
-    public Config config;
-    public XMLSignerService signer;
-    public ConfigureProvider configureProvider;
-    public Collection<MdfeEventValidator> validators;
-    public Collection<BeforeEvent> beforeRequest;
-    public Collection<AfterEvent> afterRequest;
+public record MdfeEventRequest(
+        TEvento data,
+        Config config,
+        XMLSignerService signer,
+        ConfigureProvider configureProvider,
+        Collection<MdfeEventValidator> validators,
+        Collection<BeforeEvent> beforeRequest,
+        Collection<AfterEvent> afterRequest
+) implements SefazRequest<TEvento, TRetEvento> {
+
 }

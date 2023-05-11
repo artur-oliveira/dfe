@@ -1,6 +1,5 @@
 package com.softart.dfe.components.security.keystore;
 
-import com.softart.dfe.exceptions.DfeException;
 import com.softart.dfe.exceptions.DfeUncheckedException;
 
 import java.io.IOException;
@@ -40,7 +39,7 @@ final class KeyStoreParserServiceImpl extends KeyStoreParserFactory {
 
     @Override
     public String getSubject(KeyStore certificate) throws KeyStoreException {
-        return Arrays.stream(getCertificate(certificate).getSubjectDN().toString().split(",")).findFirst().orElse(getAlias(certificate));
+        return Arrays.stream(getCertificate(certificate).getSubjectX500Principal().getName().split(",")).findFirst().orElse(getAlias(certificate));
     }
 
     @Override

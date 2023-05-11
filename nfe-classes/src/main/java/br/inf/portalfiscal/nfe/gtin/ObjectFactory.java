@@ -62,7 +62,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/nfe", name = "consGTIN")
     public JAXBElement<TConsGTIN> createConsGTIN(TConsGTIN value) {
-        return new JAXBElement<TConsGTIN>(_ConsGTIN_QNAME, TConsGTIN.class, null, value);
+        return new JAXBElement<>(_ConsGTIN_QNAME, TConsGTIN.class, null, value);
     }
 
     /**
@@ -73,7 +73,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/nfe", name = "retConsGTIN")
     public JAXBElement<TRetConsGTIN> createRetConsGTIN(TRetConsGTIN value) {
-        return new JAXBElement<TRetConsGTIN>(_RetConsGTIN_QNAME, TRetConsGTIN.class, null, value);
+        return new JAXBElement<>(_RetConsGTIN_QNAME, TRetConsGTIN.class, null, value);
     }
 
 }

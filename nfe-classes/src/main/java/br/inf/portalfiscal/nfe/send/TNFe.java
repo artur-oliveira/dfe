@@ -7398,7 +7398,7 @@ public class TNFe
          */
         public List<AutXML> getAutXML() {
             if (autXML == null) {
-                autXML = new ArrayList<AutXML>();
+                autXML = new ArrayList<>();
             }
             return this.autXML;
         }
@@ -7433,7 +7433,7 @@ public class TNFe
          */
         public List<Det> getDet() {
             if (det == null) {
-                det = new ArrayList<Det>();
+                det = new ArrayList<>();
             }
             return this.det;
         }
@@ -8397,7 +8397,7 @@ public class TNFe
              */
             public List<ForDia> getForDia() {
                 if (forDia == null) {
-                    forDia = new ArrayList<ForDia>();
+                    forDia = new ArrayList<>();
                 }
                 return this.forDia;
             }
@@ -8504,7 +8504,7 @@ public class TNFe
              */
             public List<Deduc> getDeduc() {
                 if (deduc == null) {
-                    deduc = new ArrayList<Deduc>();
+                    deduc = new ArrayList<>();
                 }
                 return this.deduc;
             }
@@ -8883,7 +8883,7 @@ public class TNFe
              */
             public List<Dup> getDup() {
                 if (dup == null) {
-                    dup = new ArrayList<Dup>();
+                    dup = new ArrayList<>();
                 }
                 return this.dup;
             }
@@ -13629,7 +13629,7 @@ public class TNFe
                  */
                 public List<JAXBElement<?>> getContent() {
                     if (content == null) {
-                        content = new ArrayList<JAXBElement<?>>();
+                        content = new ArrayList<>();
                     }
                     return this.content;
                 }
@@ -27777,7 +27777,7 @@ public class TNFe
                  */
                 public List<String> getNVE() {
                     if (nve == null) {
-                        nve = new ArrayList<String>();
+                        nve = new ArrayList<>();
                     }
                     return this.nve;
                 }
@@ -28292,7 +28292,7 @@ public class TNFe
                  */
                 public List<DI> getDI() {
                     if (di == null) {
-                        di = new ArrayList<DI>();
+                        di = new ArrayList<>();
                     }
                     return this.di;
                 }
@@ -28327,7 +28327,7 @@ public class TNFe
                  */
                 public List<DetExport> getDetExport() {
                     if (detExport == null) {
-                        detExport = new ArrayList<DetExport>();
+                        detExport = new ArrayList<>();
                     }
                     return this.detExport;
                 }
@@ -28434,7 +28434,7 @@ public class TNFe
                  */
                 public List<Rastro> getRastro() {
                     if (rastro == null) {
-                        rastro = new ArrayList<Rastro>();
+                        rastro = new ArrayList<>();
                     }
                     return this.rastro;
                 }
@@ -28565,7 +28565,7 @@ public class TNFe
                  */
                 public List<Arma> getArma() {
                     if (arma == null) {
-                        arma = new ArrayList<Arma>();
+                        arma = new ArrayList<>();
                     }
                     return this.arma;
                 }
@@ -29263,7 +29263,7 @@ public class TNFe
                      */
                     public List<OrigComb> getOrigComb() {
                         if (origComb == null) {
-                            origComb = new ArrayList<OrigComb>();
+                            origComb = new ArrayList<>();
                         }
                         return this.origComb;
                     }
@@ -30366,7 +30366,7 @@ public class TNFe
                      */
                     public List<Adi> getAdi() {
                         if (adi == null) {
-                            adi = new ArrayList<Adi>();
+                            adi = new ArrayList<>();
                         }
                         return this.adi;
                     }
@@ -33360,7 +33360,7 @@ public class TNFe
              */
             public List<NFref> getNFref() {
                 if (nFref == null) {
-                    nFref = new ArrayList<NFref>();
+                    nFref = new ArrayList<>();
                 }
                 return this.nFref;
             }
@@ -34483,7 +34483,7 @@ public class TNFe
              */
             public List<ObsCont> getObsCont() {
                 if (obsCont == null) {
-                    obsCont = new ArrayList<ObsCont>();
+                    obsCont = new ArrayList<>();
                 }
                 return this.obsCont;
             }
@@ -34518,7 +34518,7 @@ public class TNFe
              */
             public List<ObsFisco> getObsFisco() {
                 if (obsFisco == null) {
-                    obsFisco = new ArrayList<ObsFisco>();
+                    obsFisco = new ArrayList<>();
                 }
                 return this.obsFisco;
             }
@@ -34553,7 +34553,7 @@ public class TNFe
              */
             public List<ProcRef> getProcRef() {
                 if (procRef == null) {
-                    procRef = new ArrayList<ProcRef>();
+                    procRef = new ArrayList<>();
                 }
                 return this.procRef;
             }
@@ -35168,7 +35168,7 @@ public class TNFe
              */
             public List<DetPag> getDetPag() {
                 if (detPag == null) {
-                    detPag = new ArrayList<DetPag>();
+                    detPag = new ArrayList<>();
                 }
                 return this.detPag;
             }
@@ -37523,7 +37523,7 @@ public class TNFe
              */
             public List<TVeiculo> getReboque() {
                 if (reboque == null) {
-                    reboque = new ArrayList<TVeiculo>();
+                    reboque = new ArrayList<>();
                 }
                 return this.reboque;
             }
@@ -37606,7 +37606,7 @@ public class TNFe
              */
             public List<Vol> getVol() {
                 if (vol == null) {
-                    vol = new ArrayList<Vol>();
+                    vol = new ArrayList<>();
                 }
                 return this.vol;
             }
@@ -38319,7 +38319,7 @@ public class TNFe
                  */
                 public List<Lacres> getLacres() {
                     if (lacres == null) {
-                        lacres = new ArrayList<Lacres>();
+                        lacres = new ArrayList<>();
                     }
                     return this.lacres;
                 }

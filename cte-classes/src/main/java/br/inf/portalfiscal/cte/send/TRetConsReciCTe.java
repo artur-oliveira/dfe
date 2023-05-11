@@ -236,7 +236,7 @@ public class TRetConsReciCTe
      */
     public List<TProtCTe> getProtCTe() {
         if (protCTe == null) {
-            protCTe = new ArrayList<TProtCTe>();
+            protCTe = new ArrayList<>();
         }
         return this.protCTe;
     }

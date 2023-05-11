@@ -9,23 +9,18 @@ import com.softart.dfe.interfaces.sefaz.SefazRequest;
 import com.softart.dfe.interfaces.validation.cte.CteQueryReceiptValidator;
 import com.softart.dfe.interfaces.wsdl.ConfigureProvider;
 import com.softart.dfe.interfaces.xml.XMLSignerService;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.Collection;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Builder
-public final class QueryReceiptRequest implements SefazRequest<TConsReciCTe, TRetConsReciCTe> {
-    private TConsReciCTe data;
-    private Config config;
-    private XMLSignerService signer;
-    private ConfigureProvider configureProvider;
-    private Collection<CteQueryReceiptValidator> validators;
-    private Collection<BeforeQueryReceipt> beforeRequest;
-    private Collection<AfterQueryReceipt> afterRequest;
+public record QueryReceiptRequest(
+        TConsReciCTe data,
+        Config config,
+        XMLSignerService signer,
+        ConfigureProvider configureProvider,
+        Collection<CteQueryReceiptValidator> validators,
+        Collection<BeforeQueryReceipt> beforeRequest,
+        Collection<AfterQueryReceipt> afterRequest
+) implements SefazRequest<TConsReciCTe, TRetConsReciCTe> {
 }

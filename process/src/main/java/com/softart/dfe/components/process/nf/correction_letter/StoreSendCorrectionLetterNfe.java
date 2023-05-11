@@ -14,9 +14,9 @@ public abstract class StoreSendCorrectionLetterNfe implements BeforeCorrectionLe
 
     @Override
     public <T extends BeforeRequest<TEnvEvento>> void process(T data) throws ProcessException {
-        if (Objects.nonNull(data.getRequest()) && !data.getRequest().getEvento().isEmpty())
+        if (Objects.nonNull(data.request()) && !data.request().getEvento().isEmpty())
             if (Objects.nonNull(getStorage()))
-                getStorage().storeSendCorrectionLetter(new XMLStore<>(data.getRequest(), data.getConfig(), NfMarshallerFactory.getInstance().correctionLetterNfe(data.getRequest())));
+                getStorage().storeSendCorrectionLetter(new XMLStore<>(data.request(), data.config(), NfMarshallerFactory.getInstance().correctionLetterNfe(data.request())));
 
     }
 

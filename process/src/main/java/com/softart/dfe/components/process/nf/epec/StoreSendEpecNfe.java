@@ -14,9 +14,9 @@ public abstract class StoreSendEpecNfe implements BeforeEpec {
 
     @Override
     public <T extends BeforeRequest<TEnvEvento>> void process(T data) throws ProcessException {
-        if (Objects.nonNull(data.getRequest()) && !data.getRequest().getEvento().isEmpty())
+        if (Objects.nonNull(data.request()) && !data.request().getEvento().isEmpty())
             if (Objects.nonNull(getStorage()))
-                getStorage().storeSendEpec(new XMLStore<>(data.getRequest(), data.getConfig(), NfMarshallerFactory.getInstance().epecNfe(data.getRequest())));
+                getStorage().storeSendEpec(new XMLStore<>(data.request(), data.config(), NfMarshallerFactory.getInstance().epecNfe(data.request())));
 
     }
 

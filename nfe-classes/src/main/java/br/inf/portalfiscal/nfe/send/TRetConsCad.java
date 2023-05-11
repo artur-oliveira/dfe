@@ -593,7 +593,7 @@ public class TRetConsCad
          */
         public List<InfCad> getInfCad() {
             if (infCad == null) {
-                infCad = new ArrayList<InfCad>();
+                infCad = new ArrayList<>();
             }
             return this.infCad;
         }

@@ -14,8 +14,8 @@ public abstract class StoreCte implements BeforeReceptionCteSync {
 
     @Override
     public <T extends BeforeRequest<TCTe>> void process(T o) throws ProcessException {
-        if (Objects.nonNull(o.getRequest()) && Objects.nonNull(getStorage())) {
-            getStorage().storeCteSync(new XMLStore<>(o.getRequest(), o.getConfig(), CteMarshallerFactory.getInstance().receptionCteSync(o.getRequest())));
+        if (Objects.nonNull(o.request()) && Objects.nonNull(getStorage())) {
+            getStorage().storeCteSync(new XMLStore<>(o.request(), o.config(), CteMarshallerFactory.getInstance().receptionCteSync(o.request())));
         }
     }
 

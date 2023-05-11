@@ -17,11 +17,11 @@ public abstract class StoreReturnQueryReceiptNfe implements AfterReturnAuthoriza
 
     @Override
     public <T extends AfterRequest<TConsReciNFe, TRetConsReciNFe>> void process(T data) throws ProcessException {
-        if (Objects.nonNull(data.getResponse()) && Objects.nonNull(data.getResponse().getProtNFe()) && !data.getResponse().getProtNFe().isEmpty()) {
+        if (Objects.nonNull(data.response()) && Objects.nonNull(data.response().getProtNFe()) && !data.response().getProtNFe().isEmpty()) {
             if (Objects.nonNull(getStorage()))
-                getStorage().storeRetReturnAuthorization(new XMLStore<>(data.getResponse(), data.getConfig(), NfMarshallerFactory.getInstance().returnQueryReceiptNfe(data.getResponse())));
+                getStorage().storeRetReturnAuthorization(new XMLStore<>(data.response(), data.config(), NfMarshallerFactory.getInstance().returnQueryReceiptNfe(data.response())));
         } else {
-            log.warn(Objects.requireNonNull(data.getResponse()).getXMotivo());
+            log.warn(Objects.requireNonNull(data.response()).getXMotivo());
         }
     }
 

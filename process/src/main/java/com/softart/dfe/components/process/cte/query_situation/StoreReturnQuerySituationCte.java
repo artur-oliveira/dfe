@@ -15,8 +15,8 @@ public abstract class StoreReturnQuerySituationCte implements AfterQuerySituatio
 
     @Override
     public <T extends AfterRequest<TConsSitCTe, TRetConsSitCTe>> void process(T o) throws ProcessException {
-        if (Objects.nonNull(o.getResponse()) && Objects.nonNull(getStorage())) {
-            getStorage().storeReturnQuerySituation(new XMLStore<>(o.getResponse(), o.getConfig(), CteMarshallerFactory.getInstance().returnQuerySituationCte(o.getResponse())));
+        if (Objects.nonNull(o.response()) && Objects.nonNull(getStorage())) {
+            getStorage().storeReturnQuerySituation(new XMLStore<>(o.response(), o.config(), CteMarshallerFactory.getInstance().returnQuerySituationCte(o.response())));
         }
     }
 

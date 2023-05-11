@@ -15,6 +15,9 @@ public interface NfQueryStatusService {
      *
      * @param data The request object.
      * @return A pair of objects, the first is the request object and the second is the response object.
+     * @throws SecurityException   SecurityException
+     * @throws ValidationException ValidationException
+     * @throws ProcessException    ProcessException
      */
     <T extends SefazRequest<TConsStatServ, TRetConsStatServ>> Pair<TConsStatServ, TRetConsStatServ> queryStatusService(T data) throws SecurityException, ValidationException, ProcessException;
 

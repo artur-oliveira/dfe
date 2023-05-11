@@ -99,6 +99,11 @@ public interface NfCommonSoapService extends CommonSoapService {
      */
     <T> T homReturnAuthorization();
 
+    /**
+     * The function returns a configuration object of type NfConfig.
+     *
+     * @return A `NfConfig` object is being returned.
+     */
     NfConfig getConfig();
 
 }

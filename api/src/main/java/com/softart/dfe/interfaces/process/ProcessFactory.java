@@ -4,6 +4,12 @@ import com.softart.dfe.interfaces.xml.generic.XML;
 
 import java.util.Collection;
 
+/**
+ * This is defining a generic interface called `ProcessFactory` with two type parameters `REQ` and `RES` that extend the
+ * `XML` interface. The `REQ` parameter represents the type of the request object that will be processed by the factory,
+ * and the `RES` parameter represents the type of the response object that will be produced by the factory. This interface
+ * is used to define a factory that can create processes to handle requests and produce responses of the specified types.
+ */
 public interface ProcessFactory<REQ extends XML, RES extends XML> {
 
     /**

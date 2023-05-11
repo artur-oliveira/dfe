@@ -16,8 +16,8 @@ public abstract class StoreSendQueryReceiptNfe implements BeforeReturnAuthorizat
 
     @Override
     public <T extends BeforeRequest<TConsReciNFe>> void process(T data) throws ProcessException {
-        if (Objects.nonNull(data.getRequest())) if (Objects.nonNull(getStorage()))
-            getStorage().storeEnvReturnAuthorization(new XMLStore<>(data.getRequest(), data.getConfig(), NfMarshallerFactory.getInstance().queryReceiptNfe(data.getRequest())));
+        if (Objects.nonNull(data.request())) if (Objects.nonNull(getStorage()))
+            getStorage().storeEnvReturnAuthorization(new XMLStore<>(data.request(), data.config(), NfMarshallerFactory.getInstance().queryReceiptNfe(data.request())));
 
     }
 

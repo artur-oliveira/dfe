@@ -279,7 +279,7 @@ public class TRetConsSitCTe
      */
     public List<ProcEventoCTe> getProcEventoCTe() {
         if (procEventoCTe == null) {
-            procEventoCTe = new ArrayList<ProcEventoCTe>();
+            procEventoCTe = new ArrayList<>();
         }
         return this.procEventoCTe;
     }

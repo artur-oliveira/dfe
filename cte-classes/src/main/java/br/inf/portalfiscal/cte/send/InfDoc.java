@@ -68,7 +68,7 @@ public class InfDoc
      */
     public List<InfNF> getInfNF() {
         if (infNF == null) {
-            infNF = new ArrayList<InfNF>();
+            infNF = new ArrayList<>();
         }
         return this.infNF;
     }
@@ -103,7 +103,7 @@ public class InfDoc
      */
     public List<InfNFe> getInfNFe() {
         if (infNFe == null) {
-            infNFe = new ArrayList<InfNFe>();
+            infNFe = new ArrayList<>();
         }
         return this.infNFe;
     }

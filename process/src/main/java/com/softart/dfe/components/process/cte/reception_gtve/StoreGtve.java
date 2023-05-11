@@ -14,8 +14,8 @@ public abstract class StoreGtve implements BeforeReceptionGtve {
 
     @Override
     public <T extends BeforeRequest<TGTVe>> void process(T o) throws ProcessException {
-        if (Objects.nonNull(o.getRequest()) && Objects.nonNull(getStorage())) {
-            getStorage().storeGtve(new XMLStore<>(o.getRequest(), o.getConfig(), CteMarshallerFactory.getInstance().receptionGtve(o.getRequest())));
+        if (Objects.nonNull(o.request()) && Objects.nonNull(getStorage())) {
+            getStorage().storeGtve(new XMLStore<>(o.request(), o.config(), CteMarshallerFactory.getInstance().receptionGtve(o.request())));
         }
     }
 

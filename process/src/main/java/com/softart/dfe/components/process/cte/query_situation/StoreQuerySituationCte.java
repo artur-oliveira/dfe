@@ -14,8 +14,8 @@ public abstract class StoreQuerySituationCte implements BeforeQuerySituation {
 
     @Override
     public <T extends BeforeRequest<TConsSitCTe>> void process(T o) throws ProcessException {
-        if (Objects.nonNull(o.getRequest()) && Objects.nonNull(getStorage())) {
-            getStorage().storeQuerySituation(new XMLStore<>(o.getRequest(), o.getConfig(), CteMarshallerFactory.getInstance().querySituationCte(o.getRequest())));
+        if (Objects.nonNull(o.request()) && Objects.nonNull(getStorage())) {
+            getStorage().storeQuerySituation(new XMLStore<>(o.request(), o.config(), CteMarshallerFactory.getInstance().querySituationCte(o.request())));
         }
     }
 

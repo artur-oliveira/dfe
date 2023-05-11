@@ -1,7 +1,9 @@
 package com.softart.dfe.exceptions.port;
 
+
 /**
- * This exception is thrown when the SOAP service fails to initialize
+ * This is a Java class for a SoapServiceInitializationException that extends a SoapServiceGeneralException and provides
+ * constructors for different types of exceptions.
  */
 public class SoapServiceInitializationException extends SoapServiceGeneralException {
 

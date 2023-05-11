@@ -83,7 +83,7 @@ public class TLoteDistDFe
      */
     public List<Proc> getProc() {
         if (proc == null) {
-            proc = new ArrayList<Proc>();
+            proc = new ArrayList<>();
         }
         return this.proc;
     }

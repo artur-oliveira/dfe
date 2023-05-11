@@ -43,7 +43,7 @@ final class DefaultSoapServiceImpl extends SoapService {
                     .build())
             .stream()
             .map(it -> (AbstractNfeSoapService) ReflectionUtils.newInstance(it))
-            .collect(Collectors.toList());
+            .toList();
     private final Collection<AbstractNfceSoapService> nfceSoapServices = ReflectionUtils.findAllClasses(PackageFinder
                     .builder()
                     .packages(Collections.singleton("com.softart.dfe.components.sefaz.port.nfce.impl"))
@@ -51,7 +51,7 @@ final class DefaultSoapServiceImpl extends SoapService {
                     .build())
             .stream()
             .map(it -> (AbstractNfceSoapService) ReflectionUtils.newInstance(it))
-            .collect(Collectors.toList());
+            .toList();
     private final Collection<AbstractCteSoapService> cteSoapServices = ReflectionUtils.findAllClasses(PackageFinder
                     .builder()
                     .packages(Collections.singleton("com.softart.dfe.components.sefaz.port.cte.impl"))
@@ -59,7 +59,7 @@ final class DefaultSoapServiceImpl extends SoapService {
                     .build())
             .stream()
             .map(it -> (AbstractCteSoapService) ReflectionUtils.newInstance(it))
-            .collect(Collectors.toList());
+            .toList();
     private final Collection<AbstractMdfeSoapService> mdfeSoapServices = ReflectionUtils.findAllClasses(PackageFinder
                     .builder()
                     .packages(Collections.singleton("com.softart.dfe.components.sefaz.port.mdfe.impl"))
@@ -67,7 +67,7 @@ final class DefaultSoapServiceImpl extends SoapService {
                     .build())
             .stream()
             .map(it -> (AbstractMdfeSoapService) ReflectionUtils.newInstance(it))
-            .collect(Collectors.toList());
+            .toList();
 
     public AbstractNfeSoapService getNfeSoapService(UF uf, Environment environment, NFEmissionType emissionType) throws SoapServiceGeneralException {
         return ReflectionUtils.newInstance(getNfeSoapServices()

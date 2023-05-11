@@ -219,7 +219,7 @@ public class Aereo
      */
     public List<Peri> getPeri() {
         if (peri == null) {
-            peri = new ArrayList<Peri>();
+            peri = new ArrayList<>();
         }
         return this.peri;
     }

@@ -12,7 +12,7 @@ import com.softart.dfe.models.internal.xml.XMLValidation;
 public final class XSDEventValidator implements CteEventValidator {
     @Override
     public void valid(Validation<TEvento> o) throws ValidationException {
-        XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/cte/PL_CTe_300a_NT2022.001/eventoCTe_v3.00.xsd", o.getXml()));
-        XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/cte/PL_CTe_300a_NT2022.001/" + CteEvent.valueOfCode(o.getValue().getInfEvento().getTpEvento()).getXsdName(), CteMarshallerFactory.getInstance().any(o.getValue().getInfEvento().getDetEvento().getAny())));
+        XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/cte/PL_CTe_300a_NT2022.001/eventoCTe_v3.00.xsd", o.xml()));
+        XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/cte/PL_CTe_300a_NT2022.001/" + CteEvent.valueOfCode(o.value().getInfEvento().getTpEvento()).getXsdName(), CteMarshallerFactory.getInstance().any(o.value().getInfEvento().getDetEvento().getAny())));
     }
 }

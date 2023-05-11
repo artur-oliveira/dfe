@@ -12,6 +12,7 @@ public interface NfQueryProtocolStorage extends Storage {
      * It stores the return of the query protocol.
      *
      * @param o The object to be stored.
+     * @throws StorageException StorageException
      */
     void storeRetQueryProtocol(Store<TRetConsSitNFe> o) throws StorageException;
 
@@ -19,6 +20,7 @@ public interface NfQueryProtocolStorage extends Storage {
      * It stores the environment query protocol.
      *
      * @param o The object to be stored.
+     * @throws StorageException StorageException
      */
     void storeEnvQueryProtocol(Store<TConsSitNFe> o) throws StorageException;
 }

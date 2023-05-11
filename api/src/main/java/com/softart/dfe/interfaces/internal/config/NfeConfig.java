@@ -3,6 +3,10 @@ package com.softart.dfe.interfaces.internal.config;
 import com.softart.dfe.enums.internal.Environment;
 import com.softart.dfe.enums.internal.UF;
 
+/**
+ * The code is defining a Java interface named `NfeConfig` that extends another interface named `NfConfig`. This means that
+ * `NfeConfig` inherits all the methods and properties of `NfConfig`, and can also define its own methods and properties.
+ */
 public interface NfeConfig extends NfConfig {
     /**
      * Sets the UF of the web service

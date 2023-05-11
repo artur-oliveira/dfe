@@ -192,7 +192,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/nfe", name = "evento")
     public JAXBElement<TEvento> createEvento(TEvento value) {
-        return new JAXBElement<TEvento>(_Evento_QNAME, TEvento.class, null, value);
+        return new JAXBElement<>(_Evento_QNAME, TEvento.class, null, value);
     }
 
     /**
@@ -203,7 +203,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/nfe", name = "detEvento")
     public JAXBElement<DetEvento> createDetEvento(DetEvento value) {
-        return new JAXBElement<DetEvento>(_DetEvento_QNAME, DetEvento.class, null, value);
+        return new JAXBElement<>(_DetEvento_QNAME, DetEvento.class, null, value);
     }
 
     /**
@@ -214,7 +214,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/nfe", name = "envEvento")
     public JAXBElement<TEnvEvento> createEnvEvento(TEnvEvento value) {
-        return new JAXBElement<TEnvEvento>(_EnvEvento_QNAME, TEnvEvento.class, null, value);
+        return new JAXBElement<>(_EnvEvento_QNAME, TEnvEvento.class, null, value);
     }
 
     /**
@@ -225,7 +225,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/nfe", name = "procEventoNFe")
     public JAXBElement<TProcEvento> createProcEventoNFe(TProcEvento value) {
-        return new JAXBElement<TProcEvento>(_ProcEventoNFe_QNAME, TProcEvento.class, null, value);
+        return new JAXBElement<>(_ProcEventoNFe_QNAME, TProcEvento.class, null, value);
     }
 
     /**
@@ -236,7 +236,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/nfe", name = "retEnvEvento")
     public JAXBElement<TRetEnvEvento> createRetEnvEvento(TRetEnvEvento value) {
-        return new JAXBElement<TRetEnvEvento>(_RetEnvEvento_QNAME, TRetEnvEvento.class, null, value);
+        return new JAXBElement<>(_RetEnvEvento_QNAME, TRetEnvEvento.class, null, value);
     }
 
     /**
@@ -247,7 +247,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.w3.org/2000/09/xmldsig#", name = "Signature")
     public JAXBElement<SignatureType> createSignature(SignatureType value) {
-        return new JAXBElement<SignatureType>(_Signature_QNAME, SignatureType.class, null, value);
+        return new JAXBElement<>(_Signature_QNAME, SignatureType.class, null, value);
     }
 
 }

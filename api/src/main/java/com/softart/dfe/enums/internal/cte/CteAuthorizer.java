@@ -817,7 +817,7 @@ public enum CteAuthorizer implements CteURL, CteServiceAllow {
     public static Collection<String> get(UF uf, Environment environment) throws NoProviderFound {
         Collection<CteAuthorizer> serviceURL = Arrays.stream(values())
                 .filter(it -> it.allow(uf, environment))
-                .collect(Collectors.toList());
+                .toList();
 
         if (serviceURL.isEmpty()) throw new NoProviderFound();
 

@@ -15,105 +15,105 @@ public class NfCommonNoStorage implements NfCommonStorage {
     @Override
     public void storeProcNfe(Store<TNfeProc> o) {
         if (LOG_XML) {
-            log.debug(o.getXml());
+            log.debug(o.xml());
         }
     }
 
     @Override
     public void storeRetNfe(Store<TRetEnviNFe> o) {
         if (LOG_XML) {
-            log.debug(o.getXml());
+            log.debug(o.xml());
         }
     }
 
     @Override
     public void storeEnvNfe(Store<TEnviNFe> o) {
         if (LOG_XML) {
-            log.debug(o.getXml());
+            log.debug(o.xml());
         }
     }
 
     @Override
     public void storeProcCancel(Store<br.inf.portalfiscal.nfe.event_cancel.TProcEvento> o) {
         if (LOG_XML) {
-            log.debug(o.getXml());
+            log.debug(o.xml());
         }
     }
 
     @Override
     public void storeRetCancel(Store<br.inf.portalfiscal.nfe.event_cancel.TRetEnvEvento> o) {
         if (LOG_XML) {
-            log.debug(o.getXml());
+            log.debug(o.xml());
         }
     }
 
     @Override
     public void storeSendCancel(Store<br.inf.portalfiscal.nfe.event_cancel.TEnvEvento> o) {
         if (LOG_XML) {
-            log.debug(o.getXml());
+            log.debug(o.xml());
         }
     }
 
     @Override
     public void storeProcInut(Store<TProcInutNFe> o) {
         if (LOG_XML) {
-            log.debug(o.getXml());
+            log.debug(o.xml());
         }
     }
 
     @Override
     public void storeRetInut(Store<TRetInutNFe> o) {
         if (LOG_XML) {
-            log.debug(o.getXml());
+            log.debug(o.xml());
         }
     }
 
     @Override
     public void storeEnvInut(Store<TInutNFe> o) {
         if (LOG_XML) {
-            log.debug(o.getXml());
+            log.debug(o.xml());
         }
     }
 
     @Override
     public void storeRetQueryProtocol(Store<TRetConsSitNFe> o) {
         if (LOG_XML) {
-            log.debug(o.getXml());
+            log.debug(o.xml());
         }
     }
 
     @Override
     public void storeEnvQueryProtocol(Store<TConsSitNFe> o) {
         if (LOG_XML) {
-            log.debug(o.getXml());
+            log.debug(o.xml());
         }
     }
 
     @Override
     public void storeRetReturnAuthorization(Store<TRetConsReciNFe> o) {
         if (LOG_XML) {
-            log.debug(o.getXml());
+            log.debug(o.xml());
         }
     }
 
     @Override
     public void storeEnvReturnAuthorization(Store<TConsReciNFe> o) {
         if (LOG_XML) {
-            log.debug(o.getXml());
+            log.debug(o.xml());
         }
     }
 
     @Override
     public void storeSendQueryStatusService(Store<TConsStatServ> o) {
         if (LOG_XML) {
-            log.debug(o.getXml());
+            log.debug(o.xml());
         }
     }
 
     @Override
     public void storeReturnQueryStatusService(Store<TRetConsStatServ> o) {
         if (LOG_XML) {
-            log.debug(o.getXml());
+            log.debug(o.xml());
         }
     }
 
@@ -121,14 +121,14 @@ public class NfCommonNoStorage implements NfCommonStorage {
     @Override
     public void storeReturnQueryGtin(Store<TRetConsGTIN> o) {
         if (LOG_XML) {
-            log.debug(o.getXml());
+            log.debug(o.xml());
         }
     }
 
     @Override
     public void storeQueryGtin(Store<TConsGTIN> o) {
         if (LOG_XML) {
-            log.debug(o.getXml());
+            log.debug(o.xml());
         }
     }
 }

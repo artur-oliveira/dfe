@@ -14,8 +14,8 @@ public abstract class StoreDistributionCte implements BeforeDistribution {
 
     @Override
     public <T extends BeforeRequest<DistDFeInt>> void process(T o) throws ProcessException {
-        if (Objects.nonNull(o.getRequest()) && Objects.nonNull(getStorage())) {
-            getStorage().storeDistribution(new XMLStore<>(o.getRequest(), o.getConfig(), CteMarshallerFactory.getInstance().distributionCte(o.getRequest())));
+        if (Objects.nonNull(o.request()) && Objects.nonNull(getStorage())) {
+            getStorage().storeDistribution(new XMLStore<>(o.request(), o.config(), CteMarshallerFactory.getInstance().distributionCte(o.request())));
         }
     }
 

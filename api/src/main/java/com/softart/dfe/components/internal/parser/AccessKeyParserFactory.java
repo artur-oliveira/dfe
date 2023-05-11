@@ -76,7 +76,7 @@ public abstract class AccessKeyParserFactory implements AccessKeyParser {
     }
 
     static final class Holder {
-        final static AccessKeyParserFactory NFE = new NFAccessKeyParser();
+        final static AccessKeyParserFactory NFE = new NfAccessKeyParser();
         final static AccessKeyParserFactory CTE = new CteAccessKeyParser();
         final static AccessKeyParserFactory MDFE = new MdfeAccessKeyParser();
 

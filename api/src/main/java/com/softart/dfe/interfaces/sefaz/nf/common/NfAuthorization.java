@@ -16,6 +16,9 @@ public interface NfAuthorization {
      *
      * @param data The request object.
      * @return A pair of objects, the first one is the request object and the second one is the response object.
+     * @throws SecurityException   SecurityException
+     * @throws ValidationException ValidationException
+     * @throws ProcessException    ProcessException
      */
     <T extends SefazRequest<TEnviNFe, TRetEnviNFe>> Pair<TEnviNFe, TRetEnviNFe> authorize(T data) throws SecurityException, ValidationException, ProcessException;
 

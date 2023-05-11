@@ -15,8 +15,8 @@ public abstract class StoreReturnQueryUnclosedMdfe implements AfterQueryUnclosed
 
     @Override
     public <T extends AfterRequest<TConsMDFeNaoEnc, TRetConsMDFeNaoEnc>> void process(T o) throws ProcessException {
-        if (Objects.nonNull(o.getConfig()) && Objects.nonNull(o.getRequest())) {
-            getStorage().storeRetQueryUnclosed(new XMLStore<>(o.getResponse(), o.getConfig(), MdfeMarshallerFactory.getInstance().returnQueryUnclosed(o.getResponse())));
+        if (Objects.nonNull(o.config()) && Objects.nonNull(o.request())) {
+            getStorage().storeRetQueryUnclosed(new XMLStore<>(o.response(), o.config(), MdfeMarshallerFactory.getInstance().returnQueryUnclosed(o.response())));
         }
     }
 

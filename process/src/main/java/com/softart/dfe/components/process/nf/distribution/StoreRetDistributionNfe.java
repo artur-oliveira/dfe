@@ -14,8 +14,8 @@ import java.util.Objects;
 public abstract class StoreRetDistributionNfe implements AfterDistribution {
     @Override
     public <T extends AfterRequest<TDistDFeInt, TRetDistDFeInt>> void process(T o) throws ProcessException {
-        if (Objects.nonNull(o.getRequest())) if (Objects.nonNull(getStorage()))
-            getStorage().storeRetDistribution(new XMLStore<>(o.getResponse(), o.getConfig(), NfMarshallerFactory.getInstance().returnDistributionNfe(o.getResponse())));
+        if (Objects.nonNull(o.request())) if (Objects.nonNull(getStorage()))
+            getStorage().storeRetDistribution(new XMLStore<>(o.response(), o.config(), NfMarshallerFactory.getInstance().returnDistributionNfe(o.response())));
     }
 
     public abstract NfeDistributionStorage getStorage();

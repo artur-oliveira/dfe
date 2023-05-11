@@ -9,22 +9,20 @@ import com.softart.dfe.interfaces.sefaz.SefazRequest;
 import com.softart.dfe.interfaces.validation.cte.CteReceptionCteOsValidator;
 import com.softart.dfe.interfaces.wsdl.ConfigureProvider;
 import com.softart.dfe.interfaces.xml.XMLSignerService;
-import lombok.*;
+import lombok.Builder;
 
 import java.util.Collection;
 
-@Getter
-@Setter
 @Builder
-@ToString
-@AllArgsConstructor
-@NoArgsConstructor
-public final class CteOsRequest implements SefazRequest<TCTeOS, TRetCTeOS> {
-    public TCTeOS data;
-    public Config config;
-    public XMLSignerService signer;
-    public ConfigureProvider configureProvider;
-    public Collection<CteReceptionCteOsValidator> validators;
-    public Collection<BeforeReceptionCteOs> beforeRequest;
-    public Collection<AfterReceptionCteOs> afterRequest;
+public record CteOsRequest(
+        TCTeOS data,
+        Config config,
+        XMLSignerService signer,
+        ConfigureProvider configureProvider,
+        Collection<CteReceptionCteOsValidator> validators,
+        Collection<BeforeReceptionCteOs> beforeRequest,
+        Collection<AfterReceptionCteOs> afterRequest
+) implements SefazRequest<TCTeOS, TRetCTeOS> {
+
+
 }

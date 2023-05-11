@@ -17,12 +17,12 @@ public abstract class StoreProcGtve implements AfterReceptionGtve {
 
     @Override
     public <T extends AfterRequest<TGTVe, TRetGTVe>> void process(T o) throws ProcessException {
-        if (Objects.nonNull(getStorage()) && Objects.nonNull(o.getResponse())) {
+        if (Objects.nonNull(getStorage()) && Objects.nonNull(o.response())) {
             TGTVeProc procGtve = new br.inf.portalfiscal.cte.send.ObjectFactory().createTGTVeProc();
-            procGtve.setGTVe(o.getRequest());
-            procGtve.setProtCTe(o.getResponse().getProtCTe());
-            procGtve.setVersao(o.getResponse().getVersao());
-            getStorage().storeProcGtve(new XMLStore<>(procGtve, o.getConfig(), CteMarshallerFactory.getInstance().gtveProc(procGtve)));
+            procGtve.setGTVe(o.request());
+            procGtve.setProtCTe(o.response().getProtCTe());
+            procGtve.setVersao(o.response().getVersao());
+            getStorage().storeProcGtve(new XMLStore<>(procGtve, o.config(), CteMarshallerFactory.getInstance().gtveProc(procGtve)));
         }
     }
 

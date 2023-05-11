@@ -1512,7 +1512,7 @@ public class TGTVe
          */
         public List<AutXML> getAutXML() {
             if (autXML == null) {
-                autXML = new ArrayList<AutXML>();
+                autXML = new ArrayList<>();
             }
             return this.autXML;
         }
@@ -1921,7 +1921,7 @@ public class TGTVe
              */
             public List<ObsCont> getObsCont() {
                 if (obsCont == null) {
-                    obsCont = new ArrayList<ObsCont>();
+                    obsCont = new ArrayList<>();
                 }
                 return this.obsCont;
             }
@@ -1956,7 +1956,7 @@ public class TGTVe
              */
             public List<ObsFisco> getObsFisco() {
                 if (obsFisco == null) {
-                    obsFisco = new ArrayList<ObsFisco>();
+                    obsFisco = new ArrayList<>();
                 }
                 return this.obsFisco;
             }
@@ -2545,7 +2545,7 @@ public class TGTVe
              */
             public List<InfEspecie> getInfEspecie() {
                 if (infEspecie == null) {
-                    infEspecie = new ArrayList<InfEspecie>();
+                    infEspecie = new ArrayList<>();
                 }
                 return this.infEspecie;
             }
@@ -2604,7 +2604,7 @@ public class TGTVe
              */
             public List<InfVeiculo> getInfVeiculo() {
                 if (infVeiculo == null) {
-                    infVeiculo = new ArrayList<InfVeiculo>();
+                    infVeiculo = new ArrayList<>();
                 }
                 return this.infVeiculo;
             }

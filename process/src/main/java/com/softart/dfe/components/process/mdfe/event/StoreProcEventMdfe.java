@@ -17,12 +17,12 @@ public abstract class StoreProcEventMdfe implements AfterEvent {
 
     @Override
     public <T extends AfterRequest<TEvento, TRetEvento>> void process(T o) throws ProcessException {
-        if (Objects.nonNull(getStorage()) && Objects.nonNull(o.getResponse())) {
+        if (Objects.nonNull(getStorage()) && Objects.nonNull(o.response())) {
             TProcEvento procEvento = new br.inf.portalfiscal.mdfe.classes.ObjectFactory().createTProcEvento();
-            procEvento.setEventoMDFe(o.getRequest());
-            procEvento.setRetEventoMDFe(o.getResponse());
-            procEvento.setVersao(o.getResponse().getVersao());
-            getStorage().storeProcEvent(new XMLStore<>(procEvento, o.getConfig(), MdfeMarshallerFactory.getInstance().procEvent(procEvento)));
+            procEvento.setEventoMDFe(o.request());
+            procEvento.setRetEventoMDFe(o.response());
+            procEvento.setVersao(o.response().getVersao());
+            getStorage().storeProcEvent(new XMLStore<>(procEvento, o.config(), MdfeMarshallerFactory.getInstance().procEvent(procEvento)));
         }
     }
 

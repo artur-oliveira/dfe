@@ -17,12 +17,12 @@ public abstract class StoreProcEventCte implements AfterEvent {
 
     @Override
     public <T extends AfterRequest<TEvento, TRetEvento>> void process(T o) throws ProcessException {
-        if (Objects.nonNull(getStorage()) && Objects.nonNull(o.getResponse())) {
+        if (Objects.nonNull(getStorage()) && Objects.nonNull(o.response())) {
             TProcEvento procEvento = new br.inf.portalfiscal.cte.send.ObjectFactory().createTProcEvento();
-            procEvento.setEventoCTe(o.getRequest());
-            procEvento.setRetEventoCTe(o.getResponse());
-            procEvento.setVersao(o.getResponse().getVersao());
-            getStorage().storeProcEvent(new XMLStore<>(procEvento, o.getConfig(), CteMarshallerFactory.getInstance().procEventCte(procEvento)));
+            procEvento.setEventoCTe(o.request());
+            procEvento.setRetEventoCTe(o.response());
+            procEvento.setVersao(o.response().getVersao());
+            getStorage().storeProcEvent(new XMLStore<>(procEvento, o.config(), CteMarshallerFactory.getInstance().procEventCte(procEvento)));
         }
     }
 

@@ -11,6 +11,7 @@ public interface NfeQueryRegisterStorage extends Storage {
      * Stores the given object in the database
      *
      * @param o The object to be stored.
+     * @throws StorageException StorageException
      */
     void storeSendQueryRegister(Store<TConsCad> o) throws StorageException;
 
@@ -18,6 +19,7 @@ public interface NfeQueryRegisterStorage extends Storage {
      * It stores the return query status service.
      *
      * @param o The object to be stored.
+     * @throws StorageException StorageException
      */
     void storeReturnQueryRegister(Store<TRetConsCad> o) throws StorageException;
 }

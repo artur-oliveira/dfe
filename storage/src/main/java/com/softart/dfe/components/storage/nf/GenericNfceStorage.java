@@ -15,8 +15,8 @@ public abstract class GenericNfceStorage extends GenericNfCommonStorage implemen
     @Override
     public void storeProcSubstituteCancel(Store<TProcEvento> o) throws StorageException {
         try {
-            if (Objects.nonNull(o.getData()) && Objects.nonNull(o.getData().getEvento()) && Objects.nonNull(o.getData().getRetEvento()) && Objects.nonNull(o.getXml()) && NFReturnCode.generateProc(o.getData().getRetEvento().getInfEvento().getCStat())) {
-                getStorageService().writeProc(o, NFStorageKey.NF_EVENT, xmlNameWithTime(o.getData().getEvento().getInfEvento().getChNFe() + "-" + o.getData().getEvento().getInfEvento().getTpEvento() + "-" + o.getData().getEvento().getInfEvento().getNSeqEvento()));
+            if (Objects.nonNull(o.data()) && Objects.nonNull(o.data().getEvento()) && Objects.nonNull(o.data().getRetEvento()) && Objects.nonNull(o.xml()) && NFReturnCode.generateProc(o.data().getRetEvento().getInfEvento().getCStat())) {
+                getStorageService().writeProc(o, NFStorageKey.NF_EVENT, xmlNameWithTime(o.data().getEvento().getInfEvento().getChNFe() + "-" + o.data().getEvento().getInfEvento().getTpEvento() + "-" + o.data().getEvento().getInfEvento().getNSeqEvento()));
             }
         } catch (Exception e) {
             throw new StorageException(e);
@@ -26,9 +26,9 @@ public abstract class GenericNfceStorage extends GenericNfCommonStorage implemen
     @Override
     public void storeReturnSubstituteCancel(Store<TRetEnvEvento> o) throws StorageException {
         try {
-            if (Objects.nonNull(o.getData()) && Objects.nonNull(o.getXml())) {
-                for (int i = 0; i < o.getData().getRetEvento().size(); i++) {
-                    getStorageService().writeReturn(o, NFStorageKey.NF_EVENT, xmlNameWithTime(o.getData().getRetEvento().get(i).getInfEvento().getChNFe() + "-" + o.getData().getRetEvento().get(i).getInfEvento().getTpEvento()));
+            if (Objects.nonNull(o.data()) && Objects.nonNull(o.xml())) {
+                for (int i = 0; i < o.data().getRetEvento().size(); i++) {
+                    getStorageService().writeReturn(o, NFStorageKey.NF_EVENT, xmlNameWithTime(o.data().getRetEvento().get(i).getInfEvento().getChNFe() + "-" + o.data().getRetEvento().get(i).getInfEvento().getTpEvento()));
                 }
             }
         } catch (Exception e) {
@@ -39,9 +39,9 @@ public abstract class GenericNfceStorage extends GenericNfCommonStorage implemen
     @Override
     public void storeSendSubstituteCancel(Store<TEnvEvento> o) throws StorageException {
         try {
-            if (Objects.nonNull(o.getData()) && !o.getData().getEvento().isEmpty() && Objects.nonNull(o.getXml())) {
-                for (int i = 0; i < o.getData().getEvento().size(); i++) {
-                    getStorageService().writeSend(o, NFStorageKey.NF_EVENT, xmlNameWithTime(o.getData().getEvento().get(i).getInfEvento().getChNFe() + "-" + o.getData().getEvento().get(i).getInfEvento().getTpEvento()));
+            if (Objects.nonNull(o.data()) && !o.data().getEvento().isEmpty() && Objects.nonNull(o.xml())) {
+                for (int i = 0; i < o.data().getEvento().size(); i++) {
+                    getStorageService().writeSend(o, NFStorageKey.NF_EVENT, xmlNameWithTime(o.data().getEvento().get(i).getInfEvento().getChNFe() + "-" + o.data().getEvento().get(i).getInfEvento().getTpEvento()));
                 }
             }
         } catch (Exception e) {

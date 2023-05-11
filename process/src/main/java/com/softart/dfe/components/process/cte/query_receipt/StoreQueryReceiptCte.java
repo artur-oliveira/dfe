@@ -14,8 +14,8 @@ public abstract class StoreQueryReceiptCte implements BeforeQueryReceipt {
 
     @Override
     public <T extends BeforeRequest<TConsReciCTe>> void process(T o) throws ProcessException {
-        if (Objects.nonNull(o.getRequest()) && Objects.nonNull(getStorage())) {
-            getStorage().storeQueryReceipt(new XMLStore<>(o.getRequest(), o.getConfig(), CteMarshallerFactory.getInstance().queryReceipt(o.getRequest())));
+        if (Objects.nonNull(o.request()) && Objects.nonNull(getStorage())) {
+            getStorage().storeQueryReceipt(new XMLStore<>(o.request(), o.config(), CteMarshallerFactory.getInstance().queryReceipt(o.request())));
         }
     }
 

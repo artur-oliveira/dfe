@@ -7,8 +7,11 @@ import lombok.Getter;
 
 import java.util.*;
 
+/**
+ * The MdfeRouteServiceImpl class extends the MdfeRouteFactory class in Java.
+ */
 @Getter(AccessLevel.PRIVATE)
-final class MdfeRouteImpl extends MdfeRouteFactory {
+final class MdfeRouteServiceImpl extends MdfeRouteFactory {
 
     private final Map<UF, List<UF>> frontiers = UF.getUfGraph();
 

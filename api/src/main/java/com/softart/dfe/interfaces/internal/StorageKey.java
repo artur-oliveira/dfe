@@ -1,5 +1,11 @@
 package com.softart.dfe.interfaces.internal;
 
+/**
+ * Declaring a public interface named `StorageKey`. An interface in Java is a collection of abstract methods and constants
+ * that can be implemented by classes. In this case, the interface has three abstract methods: `getForSend()`,
+ * `getForReturn()`, and `getForProcessed()`. Any class that implements this interface must provide an implementation for
+ * these methods.
+ */
 public interface StorageKey {
 
     /**

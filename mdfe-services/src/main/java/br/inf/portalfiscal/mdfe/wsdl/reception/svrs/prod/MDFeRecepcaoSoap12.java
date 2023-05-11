@@ -27,7 +27,7 @@ public interface MDFeRecepcaoSoap12 {
      */
     @WebMethod(action = "http://www.portalfiscal.inf.br/mdfe/wsdl/MDFeRecepcao/mdfeRecepcaoLote")
     @WebResult(name = "mdfeRecepcaoLoteResult", targetNamespace = "http://www.portalfiscal.inf.br/mdfe/wsdl/MDFeRecepcao", partName = "mdfeRecepcaoLoteResult")
-    public MdfeRecepcaoLoteResult mdfeRecepcaoLote(
+    MdfeRecepcaoLoteResult mdfeRecepcaoLote(
             @WebParam(name = "mdfeDadosMsg", targetNamespace = "http://www.portalfiscal.inf.br/mdfe/wsdl/MDFeRecepcao", partName = "mdfeDadosMsg")
             MdfeDadosMsg mdfeDadosMsg);
 

@@ -14,8 +14,8 @@ public abstract class StoreDistributionNfe implements BeforeDistribution {
 
     @Override
     public <T extends BeforeRequest<TDistDFeInt>> void process(T o) throws ProcessException {
-        if (Objects.nonNull(o.getRequest())) if (Objects.nonNull(getStorage()))
-            getStorage().storeEnvDistribution(new XMLStore<>(o.getRequest(), o.getConfig(), NfMarshallerFactory.getInstance().distributionNfe(o.getRequest())));
+        if (Objects.nonNull(o.request())) if (Objects.nonNull(getStorage()))
+            getStorage().storeEnvDistribution(new XMLStore<>(o.request(), o.config(), NfMarshallerFactory.getInstance().distributionNfe(o.request())));
     }
 
     public abstract NfeDistributionStorage getStorage();

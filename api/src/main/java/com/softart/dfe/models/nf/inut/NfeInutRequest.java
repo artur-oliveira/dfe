@@ -9,24 +9,21 @@ import com.softart.dfe.interfaces.sefaz.SefazRequest;
 import com.softart.dfe.interfaces.validation.nf.common.NfInutValidator;
 import com.softart.dfe.interfaces.wsdl.ConfigureProvider;
 import com.softart.dfe.interfaces.xml.XMLSignerService;
-import lombok.*;
+import lombok.Builder;
 
 import java.util.Collection;
 
 
 @Builder
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-public final class NfeInutRequest implements SefazRequest<TInutNFe, TRetInutNFe> {
+public record NfeInutRequest(
+        TInutNFe data,
+        Config config,
+        XMLSignerService signer,
+        ConfigureProvider configureProvider,
+        Collection<NfInutValidator> validators,
+        Collection<BeforeInut> beforeRequest,
+        Collection<AfterInut> afterRequest
+) implements SefazRequest<TInutNFe, TRetInutNFe> {
 
-    public TInutNFe data;
-    public Config config;
-    public XMLSignerService signer;
-    public ConfigureProvider configureProvider;
-    public Collection<NfInutValidator> validators;
-    public Collection<BeforeInut> beforeRequest;
-    public Collection<AfterInut> afterRequest;
 
 }

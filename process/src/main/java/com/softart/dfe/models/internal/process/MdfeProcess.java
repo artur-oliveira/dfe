@@ -35,13 +35,10 @@ import java.util.stream.Collectors;
 public abstract class MdfeProcess implements MdfeProcessService {
 
     public static MdfeProcess getInstance() {
-        switch (System.getProperty("com.softart.dfe.process.mdfe", "default")) {
-            case "s3":
-                return HolderS3.INSTANCE;
-            case "default":
-            default:
-                return Holder.INSTANCE;
-        }
+        return switch (System.getProperty("com.softart.dfe.process.mdfe", "default")) {
+            case "s3" -> HolderS3.INSTANCE;
+            default -> Holder.INSTANCE;
+        };
     }
 
     public abstract List<MdfeProcessFactory> getProcessFactories();

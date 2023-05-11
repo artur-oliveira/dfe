@@ -301,7 +301,7 @@ public class Aquav
      */
     public List<Balsa> getBalsa() {
         if (balsa == null) {
-            balsa = new ArrayList<Balsa>();
+            balsa = new ArrayList<>();
         }
         return this.balsa;
     }
@@ -408,7 +408,7 @@ public class Aquav
      */
     public List<DetCont> getDetCont() {
         if (detCont == null) {
-            detCont = new ArrayList<DetCont>();
+            detCont = new ArrayList<>();
         }
         return this.detCont;
     }
@@ -651,7 +651,7 @@ public class Aquav
          */
         public List<Lacre> getLacre() {
             if (lacre == null) {
-                lacre = new ArrayList<Lacre>();
+                lacre = new ArrayList<>();
             }
             return this.lacre;
         }
@@ -777,7 +777,7 @@ public class Aquav
              */
             public List<InfNF> getInfNF() {
                 if (infNF == null) {
-                    infNF = new ArrayList<InfNF>();
+                    infNF = new ArrayList<>();
                 }
                 return this.infNF;
             }
@@ -812,7 +812,7 @@ public class Aquav
              */
             public List<InfNFe> getInfNFe() {
                 if (infNFe == null) {
-                    infNFe = new ArrayList<InfNFe>();
+                    infNFe = new ArrayList<>();
                 }
                 return this.infNFe;
             }

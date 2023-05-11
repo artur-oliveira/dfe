@@ -147,7 +147,7 @@ public class TUnidadeTransp
      */
     public List<LacUnidTransp> getLacUnidTransp() {
         if (lacUnidTransp == null) {
-            lacUnidTransp = new ArrayList<LacUnidTransp>();
+            lacUnidTransp = new ArrayList<>();
         }
         return this.lacUnidTransp;
     }
@@ -182,7 +182,7 @@ public class TUnidadeTransp
      */
     public List<TUnidCarga> getInfUnidCarga() {
         if (infUnidCarga == null) {
-            infUnidCarga = new ArrayList<TUnidCarga>();
+            infUnidCarga = new ArrayList<>();
         }
         return this.infUnidCarga;
     }

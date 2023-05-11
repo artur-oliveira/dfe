@@ -1651,7 +1651,7 @@ public enum NfeAuthorizer implements NfServiceAllow, NfeURL {
     };
 
     public static Collection<String> get(UF uf, Environment environment) throws NoProviderFound {
-        Collection<NfeAuthorizer> serviceURL = Arrays.stream(NfeAuthorizer.values()).filter(it -> it.allow(uf, environment)).collect(Collectors.toList());
+        Collection<NfeAuthorizer> serviceURL = Arrays.stream(NfeAuthorizer.values()).filter(it -> it.allow(uf, environment)).toList();
 
         if (serviceURL.isEmpty()) throw new NoProviderFound(uf);
 

@@ -13,20 +13,16 @@ import lombok.*;
 
 import java.util.Collection;
 
-@Getter
-@Setter
 @Builder
-@ToString
-@AllArgsConstructor
-@NoArgsConstructor
-public final class QueryReceiptNfeRequest implements SefazRequest<TConsReciNFe, TRetConsReciNFe> {
+public record QueryReceiptNfeRequest(
+        TConsReciNFe data,
+        Config config,
+        XMLSignerService signer,
+        ConfigureProvider configureProvider,
+        Collection<NfReturnAuthorizationValidator> validators,
+        Collection<BeforeReturnAuthorization> beforeRequest,
+        Collection<AfterReturnAuthorization> afterRequest
+) implements SefazRequest<TConsReciNFe, TRetConsReciNFe> {
 
-    public TConsReciNFe data;
-    public Config config;
-    public XMLSignerService signer;
-    public ConfigureProvider configureProvider;
-    public Collection<NfReturnAuthorizationValidator> validators;
-    public Collection<BeforeReturnAuthorization> beforeRequest;
-    public Collection<AfterReturnAuthorization> afterRequest;
 
 }

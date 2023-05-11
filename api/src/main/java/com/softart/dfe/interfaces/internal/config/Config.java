@@ -4,6 +4,11 @@ import com.softart.dfe.enums.internal.Environment;
 import com.softart.dfe.enums.internal.UF;
 import com.softart.dfe.interfaces.internal.KeyStoreInfo;
 
+/**
+ * Declaring a public interface named "Config". This interface defines a set of methods that must be implemented by any
+ * class that implements this interface. The methods defined in this interface are related to configuration settings for a
+ * specific application or system.
+ */
 public interface Config {
 
     /**

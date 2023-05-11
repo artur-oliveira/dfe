@@ -430,8 +430,7 @@ public abstract class AbstractNfeSoapService extends AbstractSoapService impleme
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof AbstractNfeSoapService)) return false;
-        AbstractNfeSoapService that = (AbstractNfeSoapService) o;
+        if (!(o instanceof AbstractNfeSoapService that)) return false;
         return Objects.equals(getAuthorizer(), that.getAuthorizer());
     }
 

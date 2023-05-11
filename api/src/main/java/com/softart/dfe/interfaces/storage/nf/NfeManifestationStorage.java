@@ -12,6 +12,7 @@ public interface NfeManifestationStorage extends Storage {
      * It stores a manifestation of a process event.
      *
      * @param o The object to be stored.
+     * @throws StorageException StorageException
      */
     void storeProcManifestation(Store<TProcEvento> o) throws StorageException;
 
@@ -19,6 +20,7 @@ public interface NfeManifestationStorage extends Storage {
      * It stores the return manifestation of the event.
      *
      * @param o The object to be stored.
+     * @throws StorageException StorageException
      */
     void storeRetManifestation(Store<TRetEnvEvento> o) throws StorageException;
 
@@ -26,6 +28,7 @@ public interface NfeManifestationStorage extends Storage {
      * It stores the manifestation of the event.
      *
      * @param o The object to be stored.
+     * @throws StorageException StorageException
      */
     void storeSendManifestation(Store<TEnvEvento> o) throws StorageException;
 

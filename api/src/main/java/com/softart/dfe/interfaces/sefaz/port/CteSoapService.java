@@ -1,5 +1,11 @@
 package com.softart.dfe.interfaces.sefaz.port;
 
+/**
+ * The `public interface CteSoapService` is declaring an interface named `CteSoapService`. The `extends CommonSoapService`
+ * part is indicating that this interface is extending another interface named `CommonSoapService`. This means that
+ * `CteSoapService` will inherit all the methods and properties of `CommonSoapService` in addition to the ones declared in
+ * `CteSoapService`.
+ */
 public interface CteSoapService extends CommonSoapService {
 
 

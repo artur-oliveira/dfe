@@ -17,6 +17,9 @@ public interface MdfeEvent {
      *
      * @param data The request object.
      * @return A pair of objects.
+     * @throws SecurityException   SecurityException
+     * @throws ValidationException ValidationException
+     * @throws ProcessException    ProcessException
      */
     <T extends SefazRequest<TEvento, TRetEvento>> Pair<TEvento, TRetEvento> event(T data) throws SecurityException, ValidationException, ProcessException;
 

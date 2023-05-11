@@ -10,6 +10,7 @@ import java.net.JarURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
@@ -36,7 +37,7 @@ public final class ReflectionUtils {
     @SneakyThrows
     public static <T> T newInstance(Class<T> cls) {
         if (Objects.isNull(cls)) return null;
-        return cls.newInstance();
+        return cls.getDeclaredConstructor().newInstance();
     }
 
     /**
@@ -154,7 +155,7 @@ public final class ReflectionUtils {
                 if (connection instanceof JarURLConnection) {
                     tempClasses.addAll(getClassesFromJarFile((JarURLConnection) connection, packageName));
                 } else {
-                    tempClasses.addAll(getClassesFromDirectory(new File(URLDecoder.decode(url.getPath(), "UTF-8")), packageName));
+                    tempClasses.addAll(getClassesFromDirectory(new File(URLDecoder.decode(url.getPath(), StandardCharsets.UTF_8)), packageName));
                 }
 
                 allClasses.addAll(tempClasses.stream().filter(Objects::nonNull).filter(packageFinder::matchClass).collect(Collectors.toSet()));

@@ -14,8 +14,8 @@ public abstract class StoreReceptionCte implements BeforeReception {
 
     @Override
     public <T extends BeforeRequest<TEnviCTe>> void process(T o) throws ProcessException {
-        if (Objects.nonNull(o.getRequest()) && Objects.nonNull(getStorage())) {
-            getStorage().storeCte(new XMLStore<>(o.getRequest(), o.getConfig(), CteMarshallerFactory.getInstance().receptionCte(o.getRequest())));
+        if (Objects.nonNull(o.request()) && Objects.nonNull(getStorage())) {
+            getStorage().storeCte(new XMLStore<>(o.request(), o.config(), CteMarshallerFactory.getInstance().receptionCte(o.request())));
         }
     }
 

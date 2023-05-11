@@ -29,7 +29,7 @@ public interface NFeStatusServico4Soap {
     @WebMethod(action = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeStatusServico4/nfeStatusServicoNF")
     @WebResult(name = "nfeResultMsg", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeStatusServico4", partName = "nfeStatusServicoNFResult")
     @Action(input = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeStatusServico4/nfeStatusServicoNF", output = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeStatusServico4/NFeStatusServico4Soap/nfeStatusServicoNFResponse")
-    public NfeResultMsg nfeStatusServicoNF(
+    NfeResultMsg nfeStatusServicoNF(
             @WebParam(name = "nfeDadosMsg", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeStatusServico4", partName = "nfeDadosMsg")
             NfeDadosMsg nfeDadosMsg);
 

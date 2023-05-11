@@ -9,24 +9,21 @@ import com.softart.dfe.interfaces.sefaz.SefazRequest;
 import com.softart.dfe.interfaces.validation.nf.common.NfAuthorizationValidator;
 import com.softart.dfe.interfaces.wsdl.ConfigureProvider;
 import com.softart.dfe.interfaces.xml.XMLSignerService;
-import lombok.*;
+import lombok.Builder;
 
 import java.util.Collection;
 
 
 @Builder
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-public final class NfAuthorizationRequest implements SefazRequest<TEnviNFe, TRetEnviNFe> {
+public record NfAuthorizationRequest(
+        TEnviNFe data,
+        Config config,
+        XMLSignerService signer,
+        ConfigureProvider configureProvider,
+        Collection<NfAuthorizationValidator> validators,
+        Collection<BeforeAuthorization> beforeRequest,
+        Collection<AfterAuthorization> afterRequest
+) implements SefazRequest<TEnviNFe, TRetEnviNFe> {
 
-    public TEnviNFe data;
-    public Config config;
-    public XMLSignerService signer;
-    public ConfigureProvider configureProvider;
-    public Collection<NfAuthorizationValidator> validators;
-    public Collection<BeforeAuthorization> beforeRequest;
-    public Collection<AfterAuthorization> afterRequest;
 
 }

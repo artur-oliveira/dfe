@@ -17,6 +17,9 @@ public interface CteReceptionOs {
      *
      * @param data The request object.
      * @return A pair of objects, one of type TCTeOS and the other of type TRetCTeOS.
+     * @throws SecurityException   SecurityException
+     * @throws ValidationException ValidationException
+     * @throws ProcessException    ProcessException
      */
     <T extends SefazRequest<TCTeOS, TRetCTeOS>> Pair<TCTeOS, TRetCTeOS> receptionOs(T data) throws SecurityException, ValidationException, ProcessException;
 

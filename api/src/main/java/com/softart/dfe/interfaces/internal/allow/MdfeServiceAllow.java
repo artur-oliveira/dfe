@@ -4,18 +4,27 @@ import com.softart.dfe.enums.internal.Environment;
 import com.softart.dfe.enums.internal.UF;
 import com.softart.dfe.enums.mdfe.identification.MdfeEmissionType;
 
+/**
+ * The code is defining a Java interface named `MdfeServiceAllow` that extends another interface named `AllowUF`. This
+ * means that `MdfeServiceAllow` inherits all the methods and constants from `AllowUF` in addition to any methods that are
+ * defined within `MdfeServiceAllow`.
+ */
 public interface MdfeServiceAllow extends AllowUF {
 
+
     /**
-     * "Given a UF, an Environment and an Emission Type, return true if the UF is allowed to emit MDF-e in the given
-     * Environment and Emission Type."
-     * <p>
-     * The function is implemented in the following way:
+     * The function checks if a given UF, environment, and MdfeEmissionType allow for emission.
      *
-     * @param uf           The UF of the vehicle.
-     * @param environment  Environment.PRODUCTION or Environment.HOMOLOGATION
-     * @param emissionType The emission type of the MDF-e.
-     * @return A boolean value.
+     * @param uf           "uf" is an abbreviation for "Unidade Federativa" which means "Federative Unit" in English. In Brazil, it
+     *                     refers to the states and the Federal District. Therefore, "uf" is a parameter that represents the state or the
+     *                     Federal District where the operation is taking place.
+     * @param environment  The `environment` parameter is an object that represents the environment in which the MDF-e
+     *                     (Manifesto Eletrônico de Documentos Fiscais) emission will take place. It contains information such as the company's
+     *                     tax ID, the emission date and time, the type of operation being
+     * @param emissionType The parameter "emissionType" is of type "MdfeEmissionType" and represents the type of MDF-e
+     *                     (Manifesto Eletrônico de Documentos Fiscais) emission that is being allowed or not. MDF-e is a Brazilian electronic
+     *                     document used for the transportation
+     * @return The method `allow` is returning a boolean value.
      */
     boolean allow(UF uf, Environment environment, MdfeEmissionType emissionType);
 

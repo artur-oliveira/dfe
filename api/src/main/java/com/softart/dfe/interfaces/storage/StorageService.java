@@ -6,6 +6,11 @@ import com.softart.dfe.models.internal.storage.StorageResult;
 
 import java.io.IOException;
 
+/**
+ * Declaring a public interface named `StorageService`. This interface defines a set of methods that must be implemented by
+ * any class that implements this interface. These methods are related to storing and retrieving data from a storage
+ * system.
+ */
 public interface StorageService {
 
     /**
@@ -60,7 +65,7 @@ public interface StorageService {
      * @return A File object.
      */
     default StorageResult writeSend(Store<?> o, StorageKey key, String xmlName) throws IOException {
-        return writeSend(o.getConfig(), key, xmlName, o.getXml());
+        return writeSend(o.config(), key, xmlName, o.xml());
     }
 
     /**
@@ -72,7 +77,7 @@ public interface StorageService {
      * @return A File object.
      */
     default StorageResult writeProc(Store<?> o, StorageKey key, String xmlName) throws IOException {
-        return writeProc(o.getConfig(), key, xmlName, o.getXml());
+        return writeProc(o.config(), key, xmlName, o.xml());
     }
 
     /**
@@ -84,6 +89,6 @@ public interface StorageService {
      * @return A File object.
      */
     default StorageResult writeReturn(Store<?> o, StorageKey key, String xmlName) throws IOException {
-        return writeReturn(o.getConfig(), key, xmlName, o.getXml());
+        return writeReturn(o.config(), key, xmlName, o.xml());
     }
 }

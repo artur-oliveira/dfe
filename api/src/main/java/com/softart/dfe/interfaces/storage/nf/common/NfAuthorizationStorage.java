@@ -12,6 +12,7 @@ public interface NfAuthorizationStorage extends Storage {
      * Store a TNfeProc object in the database
      *
      * @param o The object to be stored.
+     * @throws StorageException StorageException
      */
     void storeProcNfe(Store<TNfeProc> o) throws StorageException;
 
@@ -19,6 +20,7 @@ public interface NfAuthorizationStorage extends Storage {
      * It stores the return of the NFe.
      *
      * @param o The object to be stored.
+     * @throws StorageException StorageException
      */
     void storeRetNfe(Store<TRetEnviNFe> o) throws StorageException;
 
@@ -26,6 +28,7 @@ public interface NfAuthorizationStorage extends Storage {
      * It stores the TEnviNFe object in the database.
      *
      * @param o The object to be stored.
+     * @throws StorageException StorageException
      */
     void storeEnvNfe(Store<TEnviNFe> o) throws StorageException;
 

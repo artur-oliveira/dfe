@@ -3,8 +3,10 @@ package com.softart.dfe.exceptions.services;
 import com.softart.dfe.enums.internal.UF;
 import com.softart.dfe.exceptions.DfeException;
 
+
 /**
- * This exception is thrown when a provider is not found for a given UF.
+ * The NoProviderFound class is a custom exception that indicates a lack of implementation for a specific Brazilian state
+ * (UF).
  */
 public class NoProviderFound extends DfeException {
     public NoProviderFound() {

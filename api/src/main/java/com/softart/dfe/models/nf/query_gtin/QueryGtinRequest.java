@@ -9,24 +9,19 @@ import com.softart.dfe.interfaces.sefaz.SefazRequest;
 import com.softart.dfe.interfaces.validation.nf.common.NfQueryGtinValidator;
 import com.softart.dfe.interfaces.wsdl.ConfigureProvider;
 import com.softart.dfe.interfaces.xml.XMLSignerService;
-import lombok.*;
+import lombok.Builder;
 
 import java.util.Collection;
 
-@Getter
-@Setter
 @Builder
-@ToString
-@AllArgsConstructor
-@NoArgsConstructor
-public final class QueryGtinRequest implements SefazRequest<TConsGTIN, TRetConsGTIN> {
-
-    public TConsGTIN data;
-    public Config config;
-    public XMLSignerService signer;
-    public ConfigureProvider configureProvider;
-    public Collection<NfQueryGtinValidator> validators;
-    public Collection<BeforeQueryGtin> beforeRequest;
-    public Collection<AfterQueryGtin> afterRequest;
+public record QueryGtinRequest(
+        TConsGTIN data,
+        Config config,
+        XMLSignerService signer,
+        ConfigureProvider configureProvider,
+        Collection<NfQueryGtinValidator> validators,
+        Collection<BeforeQueryGtin> beforeRequest,
+        Collection<AfterQueryGtin> afterRequest
+) implements SefazRequest<TConsGTIN, TRetConsGTIN> {
 
 }

@@ -10,6 +10,12 @@ import com.softart.dfe.interfaces.xml.generic.XML;
 
 import java.util.Collection;
 
+/**
+ * This is defining a Java interface named `SefazRequest` with two generic type parameters `SEND` and `RETURN`, both of
+ * which extend the `XML` class. The interface declares several methods that must be implemented by any class that
+ * implements this interface. These methods include `getData()`, `getConfig()`, `getValidators()`, `getSigner()`,
+ * `getConfigureProvider()`, `getBeforeRequest()`, and `getAfterRequest()`.
+ */
 public interface SefazRequest<SEND extends XML, RETURN extends XML> {
 
     /**
@@ -17,14 +23,14 @@ public interface SefazRequest<SEND extends XML, RETURN extends XML> {
      *
      * @return The getData() method is being returned.
      */
-    SEND getData();
+    SEND data();
 
     /**
      * Get the config object.
      *
      * @return The config object.
      */
-    Config getConfig();
+    Config config();
 
     /**
      * "Get the validators that should be used to validate the given object."
@@ -34,28 +40,28 @@ public interface SefazRequest<SEND extends XML, RETURN extends XML> {
      *
      * @return A collection of validators.
      */
-    Collection<? extends Validator<SEND>> getValidators();
+    Collection<? extends Validator<SEND>> validators();
 
     /**
      * Returns an instance of the XMLSignerService class
      *
      * @return The XMLSignerService object.
      */
-    XMLSignerService getSigner();
+    XMLSignerService signer();
 
     /**
      * Get the configure provider.
      *
      * @return The ConfigureProvider is being returned.
      */
-    ConfigureProvider getConfigureProvider();
+    ConfigureProvider configureProvider();
 
     /**
      * Returns a collection of BeforeWebServiceRequest objects that will be executed before the request is sent
      *
      * @return A collection of BeforeWebServiceRequest objects.
      */
-    Collection<? extends BeforeWebServiceRequest<SEND>> getBeforeRequest();
+    Collection<? extends BeforeWebServiceRequest<SEND>> beforeRequest();
 
     /**
      * Returns a collection of all the `AfterWebServiceRequest` objects that are registered with the `WebServiceRequest`
@@ -63,6 +69,6 @@ public interface SefazRequest<SEND extends XML, RETURN extends XML> {
      *
      * @return A collection of AfterWebServiceRequest objects.
      */
-    Collection<? extends AfterWebServiceRequest<SEND, RETURN>> getAfterRequest();
+    Collection<? extends AfterWebServiceRequest<SEND, RETURN>> afterRequest();
 
 }

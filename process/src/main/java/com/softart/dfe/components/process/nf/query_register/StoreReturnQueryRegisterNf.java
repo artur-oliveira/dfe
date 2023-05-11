@@ -17,9 +17,9 @@ public abstract class StoreReturnQueryRegisterNf implements AfterQueryRegister {
 
     @Override
     public <T extends AfterRequest<TConsCad, TRetConsCad>> void process(T data) throws ProcessException {
-        if (Objects.nonNull(data.getResponse())) {
+        if (Objects.nonNull(data.response())) {
             if (Objects.nonNull(getStorage()))
-                getStorage().storeReturnQueryRegister(new XMLStore<>(data.getResponse(), data.getConfig(), NfMarshallerFactory.getInstance().returnQueryRegister(data.getResponse())));
+                getStorage().storeReturnQueryRegister(new XMLStore<>(data.response(), data.config(), NfMarshallerFactory.getInstance().returnQueryRegister(data.response())));
         }
     }
 

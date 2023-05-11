@@ -10,6 +10,6 @@ import com.softart.dfe.models.internal.xml.XMLValidation;
 final class XSDGtinValidator implements NfQueryGtinValidator {
     @Override
     public void valid(Validation<TConsGTIN> o) throws ValidationException {
-        XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/nfe/PL_ConsultaGTIN_v1.00/consGTIN_v1.00.xsd", o.getXml()));
+        XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/nfe/PL_ConsultaGTIN_v1.00/consGTIN_v1.00.xsd", o.xml()));
     }
 }

@@ -29,7 +29,7 @@ public interface NFeRetAutorizacaoSoap {
     @WebMethod(action = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeRetAutorizacao4/nfeRetAutorizacaoLote")
     @WebResult(name = "nfeResultMsg", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeRetAutorizacao4", partName = "nfeRetAutorizacaoLoteResult")
     @Action(input = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeRetAutorizacao4/nfeRetAutorizacaoLote", output = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeRetAutorizacao4/NFeRetAutorizacaoSoap/nfeRetAutorizacaoLoteResponse")
-    public NfeResultMsg nfeRetAutorizacaoLote(
+    NfeResultMsg nfeRetAutorizacaoLote(
             @WebParam(name = "nfeDadosMsg", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeRetAutorizacao4", partName = "nfeDadosMsg")
             NfeDadosMsg nfeDadosMsg);
 

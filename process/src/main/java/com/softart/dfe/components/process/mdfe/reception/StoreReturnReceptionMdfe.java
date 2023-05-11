@@ -16,8 +16,8 @@ public abstract class StoreReturnReceptionMdfe implements AfterReception {
 
     @Override
     public <T extends AfterRequest<TEnviMDFe, TRetEnviMDFe>> void process(T o) throws ProcessException {
-        if (Objects.nonNull(getStorage()) && Objects.nonNull(o.getResponse())) {
-            getStorage().storeReturnSendMdfe(new XMLStore<>(o.getResponse(), o.getConfig(), MdfeMarshallerFactory.getInstance().returnReception(o.getResponse())));
+        if (Objects.nonNull(getStorage()) && Objects.nonNull(o.response())) {
+            getStorage().storeReturnSendMdfe(new XMLStore<>(o.response(), o.config(), MdfeMarshallerFactory.getInstance().returnReception(o.response())));
         }
     }
 

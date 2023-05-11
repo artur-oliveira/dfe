@@ -17,11 +17,11 @@ public abstract class StoreRetEpecNfe implements AfterEpec {
 
     @Override
     public <T extends AfterRequest<TEnvEvento, TRetEnvEvento>> void process(T data) throws ProcessException {
-        if (Objects.nonNull(data.getResponse()) && !data.getResponse().getRetEvento().isEmpty()) {
+        if (Objects.nonNull(data.response()) && !data.response().getRetEvento().isEmpty()) {
             if (Objects.nonNull(getStorage()))
-                getStorage().storeRetEpec(new XMLStore<>(data.getResponse(), data.getConfig(), NfMarshallerFactory.getInstance().returnEpecNfe(data.getResponse())));
-        } else if (Objects.nonNull(data.getResponse())) {
-            log.warn(data.getResponse().getXMotivo());
+                getStorage().storeRetEpec(new XMLStore<>(data.response(), data.config(), NfMarshallerFactory.getInstance().returnEpecNfe(data.response())));
+        } else if (Objects.nonNull(data.response())) {
+            log.warn(data.response().getXMotivo());
         }
     }
 

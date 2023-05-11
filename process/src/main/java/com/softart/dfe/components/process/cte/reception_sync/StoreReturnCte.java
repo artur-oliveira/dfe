@@ -16,8 +16,8 @@ public abstract class StoreReturnCte implements AfterReceptionCteSync {
 
     @Override
     public <T extends AfterRequest<TCTe, TRetCTe>> void process(T o) throws ProcessException {
-        if (Objects.nonNull(getStorage()) && Objects.nonNull(o.getResponse())) {
-            getStorage().storeReturnCteSync(new XMLStore<>(o.getResponse(), o.getConfig(), CteMarshallerFactory.getInstance().returnReceptionCteSync(o.getResponse())));
+        if (Objects.nonNull(getStorage()) && Objects.nonNull(o.response())) {
+            getStorage().storeReturnCteSync(new XMLStore<>(o.response(), o.config(), CteMarshallerFactory.getInstance().returnReceptionCteSync(o.response())));
         }
     }
 

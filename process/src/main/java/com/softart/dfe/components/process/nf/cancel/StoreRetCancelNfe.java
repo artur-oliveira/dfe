@@ -17,11 +17,11 @@ public abstract class StoreRetCancelNfe implements AfterCancel {
 
     @Override
     public <T extends AfterRequest<TEnvEvento, TRetEnvEvento>> void process(T data) throws ProcessException {
-        if (Objects.nonNull(data.getResponse()) && !data.getResponse().getRetEvento().isEmpty()) {
+        if (Objects.nonNull(data.response()) && !data.response().getRetEvento().isEmpty()) {
             if (Objects.nonNull(getStorage()))
-                getStorage().storeRetCancel(new XMLStore<>(data.getResponse(), data.getConfig(), NfMarshallerFactory.getInstance().returnCancelNfe(data.getResponse())));
-        } else if (Objects.nonNull(data.getResponse())) {
-            log.warn(data.getResponse().getXMotivo());
+                getStorage().storeRetCancel(new XMLStore<>(data.response(), data.config(), NfMarshallerFactory.getInstance().returnCancelNfe(data.response())));
+        } else if (Objects.nonNull(data.response())) {
+            log.warn(data.response().getXMotivo());
         }
     }
 

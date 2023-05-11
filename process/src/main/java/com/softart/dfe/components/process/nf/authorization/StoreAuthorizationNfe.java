@@ -16,9 +16,9 @@ public abstract class StoreAuthorizationNfe implements BeforeAuthorization {
 
     @Override
     public <T extends BeforeRequest<TEnviNFe>> void process(T data) throws ProcessException {
-        if (Objects.nonNull(data.getRequest()))
+        if (Objects.nonNull(data.request()))
             if (Objects.nonNull(getStorage()))
-                getStorage().storeEnvNfe(new XMLStore<>(data.getRequest(), data.getConfig(), NfMarshallerFactory.getInstance().sendNfe(data.getRequest())));
+                getStorage().storeEnvNfe(new XMLStore<>(data.request(), data.config(), NfMarshallerFactory.getInstance().sendNfe(data.request())));
     }
 
     public abstract NfAuthorizationStorage getStorage();

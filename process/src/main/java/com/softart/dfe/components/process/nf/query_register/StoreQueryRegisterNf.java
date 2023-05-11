@@ -16,8 +16,8 @@ public abstract class StoreQueryRegisterNf implements BeforeQueryRegister {
 
     @Override
     public <T extends BeforeRequest<TConsCad>> void process(T data) throws ProcessException {
-        if (Objects.nonNull(data.getRequest())) if (Objects.nonNull(getStorage()))
-            getStorage().storeSendQueryRegister(new XMLStore<>(data.getRequest(), data.getConfig(), NfMarshallerFactory.getInstance().queryRegister(data.getRequest())));
+        if (Objects.nonNull(data.request())) if (Objects.nonNull(getStorage()))
+            getStorage().storeSendQueryRegister(new XMLStore<>(data.request(), data.config(), NfMarshallerFactory.getInstance().queryRegister(data.request())));
     }
 
     public abstract NfeQueryRegisterStorage getStorage();

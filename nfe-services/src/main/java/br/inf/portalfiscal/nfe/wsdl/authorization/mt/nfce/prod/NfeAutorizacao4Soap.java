@@ -27,7 +27,7 @@ public interface NfeAutorizacao4Soap {
      */
     @WebMethod(action = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeAutorizacao4/nfeAutorizacaoLote")
     @WebResult(name = "nfeResultMsg", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeAutorizacao4", partName = "nfeAutorizacaoLoteResult")
-    public NfeResultMsg nfeAutorizacaoLote(
+    NfeResultMsg nfeAutorizacaoLote(
             @WebParam(name = "nfeDadosMsg", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeAutorizacao4", partName = "nfeDadosMsg")
             NfeDadosMsg nfeDadosMsg);
 
@@ -37,7 +37,7 @@ public interface NfeAutorizacao4Soap {
      */
     @WebMethod(action = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeAutorizacao4/nfeAutorizacaoLoteZip")
     @WebResult(name = "nfeResultMsg", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeAutorizacao4", partName = "nfeAutorizacaoLoteZipResult")
-    public NfeResultMsg nfeAutorizacaoLoteZip(
+    NfeResultMsg nfeAutorizacaoLoteZip(
             @WebParam(name = "nfeDadosMsgZip", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeAutorizacao4", partName = "nfeDadosMsgZip")
             String nfeDadosMsgZip);
 

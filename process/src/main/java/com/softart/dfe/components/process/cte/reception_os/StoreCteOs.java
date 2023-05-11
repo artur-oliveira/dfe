@@ -14,8 +14,8 @@ public abstract class StoreCteOs implements BeforeReceptionCteOs {
 
     @Override
     public <T extends BeforeRequest<TCTeOS>> void process(T o) throws ProcessException {
-        if (Objects.nonNull(o.getRequest()) && Objects.nonNull(getStorage())) {
-            getStorage().storeCteOs(new XMLStore<>(o.getRequest(), o.getConfig(), CteMarshallerFactory.getInstance().receptionCteOs(o.getRequest())));
+        if (Objects.nonNull(o.request()) && Objects.nonNull(getStorage())) {
+            getStorage().storeCteOs(new XMLStore<>(o.request(), o.config(), CteMarshallerFactory.getInstance().receptionCteOs(o.request())));
         }
     }
 

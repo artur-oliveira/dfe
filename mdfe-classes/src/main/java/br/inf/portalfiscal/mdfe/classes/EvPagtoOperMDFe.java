@@ -311,7 +311,7 @@ public class EvPagtoOperMDFe
      */
     public List<InfPag> getInfPag() {
         if (infPag == null) {
-            infPag = new ArrayList<InfPag>();
+            infPag = new ArrayList<>();
         }
         return this.infPag;
     }
@@ -612,7 +612,7 @@ public class EvPagtoOperMDFe
          */
         public List<Comp> getComp() {
             if (comp == null) {
-                comp = new ArrayList<Comp>();
+                comp = new ArrayList<>();
             }
             return this.comp;
         }
@@ -719,7 +719,7 @@ public class EvPagtoOperMDFe
          */
         public List<InfPrazo> getInfPrazo() {
             if (infPrazo == null) {
-                infPrazo = new ArrayList<InfPrazo>();
+                infPrazo = new ArrayList<>();
             }
             return this.infPrazo;
         }

@@ -39,7 +39,7 @@ public class NfeMonitoria {
     protected String nomeServidor;
     protected String dhServidor;
     @XmlAnyAttribute
-    private Map<QName, String> otherAttributes = new HashMap<>();
+    private final Map<QName, String> otherAttributes = new HashMap<>();
 
     /**
      * Gets the value of the nomeServidor property.

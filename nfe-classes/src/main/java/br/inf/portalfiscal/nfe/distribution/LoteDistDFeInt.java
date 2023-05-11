@@ -67,7 +67,7 @@ public class LoteDistDFeInt
      */
     public List<DocZip> getDocZip() {
         if (docZip == null) {
-            docZip = new ArrayList<DocZip>();
+            docZip = new ArrayList<>();
         }
         return this.docZip;
     }

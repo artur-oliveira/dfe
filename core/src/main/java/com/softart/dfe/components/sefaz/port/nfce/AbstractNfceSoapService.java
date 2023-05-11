@@ -222,8 +222,7 @@ public abstract class AbstractNfceSoapService extends AbstractSoapService implem
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof AbstractNfceSoapService)) return false;
-        AbstractNfceSoapService that = (AbstractNfceSoapService) o;
+        if (!(o instanceof AbstractNfceSoapService that)) return false;
         return Objects.equals(getAuthorizer(), that.getAuthorizer());
     }
 

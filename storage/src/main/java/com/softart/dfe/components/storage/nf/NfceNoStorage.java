@@ -12,21 +12,21 @@ public final class NfceNoStorage extends NfCommonNoStorage implements NfceStorag
     @Override
     public void storeProcSubstituteCancel(Store<TProcEvento> o) {
         if (LOG_XML) {
-            log.debug(o.getXml());
+            log.debug(o.xml());
         }
     }
 
     @Override
     public void storeReturnSubstituteCancel(Store<TRetEnvEvento> o) {
         if (LOG_XML) {
-            log.debug(o.getXml());
+            log.debug(o.xml());
         }
     }
 
     @Override
     public void storeSendSubstituteCancel(Store<TEnvEvento> o) {
         if (LOG_XML) {
-            log.debug(o.getXml());
+            log.debug(o.xml());
         }
     }
 }

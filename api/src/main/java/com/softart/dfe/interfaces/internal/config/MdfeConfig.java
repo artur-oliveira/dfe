@@ -4,6 +4,12 @@ import com.softart.dfe.enums.internal.Environment;
 import com.softart.dfe.enums.internal.UF;
 import com.softart.dfe.enums.mdfe.identification.MdfeEmissionType;
 
+/**
+ * The code is defining a Java interface named `MdfeConfig` that extends another interface named `Config`. This means that
+ * `MdfeConfig` inherits all the methods and constants defined in `Config`, and also adds its own methods and constants.
+ * This is a way to create a new interface that builds on top of an existing one, without having to redefine all the
+ * methods and constants from scratch.
+ */
 public interface MdfeConfig extends Config {
 
     /**

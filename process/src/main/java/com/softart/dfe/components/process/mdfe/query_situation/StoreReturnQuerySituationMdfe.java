@@ -15,8 +15,8 @@ public abstract class StoreReturnQuerySituationMdfe implements AfterQuerySituati
 
     @Override
     public <T extends AfterRequest<TConsSitMDFe, TRetConsSitMDFe>> void process(T o) throws ProcessException {
-        if (Objects.nonNull(o.getConfig()) && Objects.nonNull(o.getRequest())) {
-            getStorage().storeRetQuerySituation(new XMLStore<>(o.getResponse(), o.getConfig(), MdfeMarshallerFactory.getInstance().returnQuerySituation(o.getResponse())));
+        if (Objects.nonNull(o.config()) && Objects.nonNull(o.request())) {
+            getStorage().storeRetQuerySituation(new XMLStore<>(o.response(), o.config(), MdfeMarshallerFactory.getInstance().returnQuerySituation(o.response())));
         }
     }
 

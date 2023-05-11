@@ -1,5 +1,9 @@
 package com.softart.dfe.interfaces.internal.mdfe;
 
+/**
+ * Declaring a public interface named `MdfeURL`. This interface contains several method signatures that define the behavior
+ * of the methods that will implement this interface.
+ */
 public interface MdfeURL {
     /**
      * Returns the home reception of the current user.

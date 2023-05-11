@@ -9,22 +9,18 @@ import com.softart.dfe.interfaces.sefaz.SefazRequest;
 import com.softart.dfe.interfaces.validation.cte.CteReceptionCteValidator;
 import com.softart.dfe.interfaces.wsdl.ConfigureProvider;
 import com.softart.dfe.interfaces.xml.XMLSignerService;
-import lombok.*;
+import lombok.Builder;
 
 import java.util.Collection;
 
-@Getter
-@Setter
 @Builder
-@ToString
-@AllArgsConstructor
-@NoArgsConstructor
-public final class CteRequest implements SefazRequest<TEnviCTe, TRetEnviCTe> {
-    public TEnviCTe data;
-    public Config config;
-    public XMLSignerService signer;
-    public ConfigureProvider configureProvider;
-    public Collection<CteReceptionCteValidator> validators;
-    public Collection<BeforeReception> beforeRequest;
-    public Collection<AfterReception> afterRequest;
+public record CteRequest(
+        TEnviCTe data,
+        Config config,
+        XMLSignerService signer,
+        ConfigureProvider configureProvider,
+        Collection<CteReceptionCteValidator> validators,
+        Collection<BeforeReception> beforeRequest,
+        Collection<AfterReception> afterRequest
+) implements SefazRequest<TEnviCTe, TRetEnviCTe> {
 }

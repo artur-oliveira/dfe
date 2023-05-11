@@ -16,6 +16,9 @@ public interface CteReceptionGtve {
      *
      * @param data The object that will be sent to the SEFAZ.
      * @return A pair of objects, one of type TGTVe and the other of type TRetGTVe.
+     * @throws SecurityException   SecurityException
+     * @throws ValidationException ValidationException
+     * @throws ProcessException    ProcessException
      */
     <T extends SefazRequest<TGTVe, TRetGTVe>> Pair<TGTVe, TRetGTVe> receptionGtve(T data) throws SecurityException, ValidationException, ProcessException;
 

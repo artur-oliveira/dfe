@@ -337,7 +337,7 @@ public class Aereo
      */
     public List<Peri> getPeri() {
         if (peri == null) {
-            peri = new ArrayList<Peri>();
+            peri = new ArrayList<>();
         }
         return this.peri;
     }
@@ -455,7 +455,7 @@ public class Aereo
          */
         public List<String> getCInfManu() {
             if (cInfManu == null) {
-                cInfManu = new ArrayList<String>();
+                cInfManu = new ArrayList<>();
             }
             return this.cInfManu;
         }

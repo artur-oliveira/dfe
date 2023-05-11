@@ -2,6 +2,13 @@ package com.softart.dfe.interfaces.validation.mdfe;
 
 import java.util.Collection;
 
+/**
+ * This code is defining a Java interface called `MdfeValidator`. An interface is a collection of abstract methods that can
+ * be implemented by classes. In this case, the interface defines several methods that return collections of different
+ * types of validators that will be used to validate different aspects of the MDF-e (Manifesto Eletrônico de Documentos
+ * Fiscais), which is a Brazilian electronic document used for the transportation of goods. Classes that implement this
+ * interface will need to provide implementations for all of the methods defined in the interface.
+ */
 public interface MdfeValidator {
     /**
      * It returns a collection of validators that will be used to validate the distribution of the MDF-e

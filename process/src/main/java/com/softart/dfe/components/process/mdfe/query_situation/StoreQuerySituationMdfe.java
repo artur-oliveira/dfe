@@ -14,8 +14,8 @@ public abstract class StoreQuerySituationMdfe implements BeforeQuerySituation {
 
     @Override
     public <T extends BeforeRequest<TConsSitMDFe>> void process(T o) throws ProcessException {
-        if (Objects.nonNull(o.getConfig()) && Objects.nonNull(o.getRequest())) {
-            getStorage().storeSendQuerySituation(new XMLStore<>(o.getRequest(), o.getConfig(), MdfeMarshallerFactory.getInstance().sendQuerySituation(o.getRequest())));
+        if (Objects.nonNull(o.config()) && Objects.nonNull(o.request())) {
+            getStorage().storeSendQuerySituation(new XMLStore<>(o.request(), o.config(), MdfeMarshallerFactory.getInstance().sendQuerySituation(o.request())));
         }
     }
 

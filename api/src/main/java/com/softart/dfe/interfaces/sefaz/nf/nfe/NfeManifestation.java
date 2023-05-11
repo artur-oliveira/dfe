@@ -15,6 +15,9 @@ public interface NfeManifestation {
      *
      * @param data The object that contains the data to be sent to the Sefaz.
      * @return Pair<TEnvEvento, TRetEnvEvento>
+     * @throws SecurityException   SecurityException
+     * @throws ValidationException ValidationException
+     * @throws ProcessException    ProcessException
      */
     <T extends SefazRequest<TEnvEvento, TRetEnvEvento>> Pair<TEnvEvento, TRetEnvEvento> manifestation(T data) throws SecurityException, ValidationException, ProcessException;
 

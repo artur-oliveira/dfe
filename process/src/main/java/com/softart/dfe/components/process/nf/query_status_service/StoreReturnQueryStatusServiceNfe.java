@@ -17,11 +17,11 @@ public abstract class StoreReturnQueryStatusServiceNfe implements AfterQueryStat
 
     @Override
     public <T extends AfterRequest<TConsStatServ, TRetConsStatServ>> void process(T data) throws ProcessException {
-        if (Objects.nonNull(data.getResponse())) {
+        if (Objects.nonNull(data.response())) {
             if (Objects.nonNull(getStorage()))
-                getStorage().storeReturnQueryStatusService(new XMLStore<>(data.getResponse(), data.getConfig(), NfMarshallerFactory.getInstance().returnQueryStatusServiceNfe(data.getResponse())));
+                getStorage().storeReturnQueryStatusService(new XMLStore<>(data.response(), data.config(), NfMarshallerFactory.getInstance().returnQueryStatusServiceNfe(data.response())));
         } else {
-            log.warn(Objects.requireNonNull(data.getResponse()).getXMotivo());
+            log.warn(Objects.requireNonNull(data.response()).getXMotivo());
         }
 
     }

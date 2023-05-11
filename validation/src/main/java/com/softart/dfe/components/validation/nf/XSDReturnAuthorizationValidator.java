@@ -10,6 +10,6 @@ import com.softart.dfe.models.internal.xml.XMLValidation;
 final class XSDReturnAuthorizationValidator implements NfReturnAuthorizationValidator {
     @Override
     public void valid(Validation<TConsReciNFe> o) throws ValidationException {
-        XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/nfe/PL_009k_NT2023_001_v110a/consReciNFe_v4.00.xsd", o.getXml()));
+        XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/nfe/PL_009k_NT2023_001_v110a/consReciNFe_v4.00.xsd", o.xml()));
     }
 }

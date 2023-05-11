@@ -29,7 +29,7 @@ public interface NFeInutilizacao4Soap12 {
      */
     @WebMethod(action = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeInutilizacao4/nfeInutilizacaoNF")
     @WebResult(name = "nfeResultMsg", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeInutilizacao4", partName = "nfeResultMsg")
-    public NfeResultMsg nfeInutilizacaoNF(
+    NfeResultMsg nfeInutilizacaoNF(
             @WebParam(name = "nfeDadosMsg", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeInutilizacao4", partName = "nfeDadosMsg")
             NfeDadosMsg nfeDadosMsg);
 

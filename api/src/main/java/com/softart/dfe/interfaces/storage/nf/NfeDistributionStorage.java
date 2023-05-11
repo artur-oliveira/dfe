@@ -12,6 +12,7 @@ public interface NfeDistributionStorage extends Storage {
      * Stores the return distribution of a given instrument
      *
      * @param o The Store object to store.
+     * @throws StorageException StorageException
      */
     void storeRetDistribution(Store<TRetDistDFeInt> o) throws StorageException;
 
@@ -19,6 +20,7 @@ public interface NfeDistributionStorage extends Storage {
      * Store the distribution of the environment
      *
      * @param o The Store object to store the distribution in.
+     * @throws StorageException StorageException
      */
     void storeEnvDistribution(Store<TDistDFeInt> o) throws StorageException;
 

@@ -9,22 +9,19 @@ import com.softart.dfe.interfaces.sefaz.SefazRequest;
 import com.softart.dfe.interfaces.validation.cte.CteInutilizationValidator;
 import com.softart.dfe.interfaces.wsdl.ConfigureProvider;
 import com.softart.dfe.interfaces.xml.XMLSignerService;
-import lombok.*;
+import lombok.Builder;
 
 import java.util.Collection;
 
-@Getter
-@Setter
+
 @Builder
-@ToString
-@AllArgsConstructor
-@NoArgsConstructor
-public final class CteInutilizationRequest implements SefazRequest<TInutCTe, TRetInutCTe> {
-    public TInutCTe data;
-    public Config config;
-    public XMLSignerService signer;
-    public ConfigureProvider configureProvider;
-    public Collection<CteInutilizationValidator> validators;
-    public Collection<BeforeInutilization> beforeRequest;
-    public Collection<AfterInutilization> afterRequest;
+public record CteInutilizationRequest(
+        TInutCTe data,
+        Config config,
+        XMLSignerService signer,
+        ConfigureProvider configureProvider,
+        Collection<CteInutilizationValidator> validators,
+        Collection<BeforeInutilization> beforeRequest,
+        Collection<AfterInutilization> afterRequest
+) implements SefazRequest<TInutCTe, TRetInutCTe> {
 }

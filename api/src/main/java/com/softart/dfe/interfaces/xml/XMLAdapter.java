@@ -127,8 +127,7 @@ public interface XMLAdapter<T extends XML, I extends XML> {
             if (Objects.nonNull(descriptor) && Objects.nonNull(value)) {
                 if (value instanceof String || value instanceof Enum || value instanceof Number || value instanceof byte[] || value instanceof XMLGregorianCalendar) {
                     ClassUtils.set(descriptor.getWriteMethod(), instance, value);
-                } else if (value instanceof List) {
-                    List<?> listValue = ((List<?>) value);
+                } else if (value instanceof List<?> listValue) {
 
                     if (!listValue.isEmpty() && !(listValue.get(0) instanceof String) && !(listValue.get(0) instanceof Enum)) {
                         Class<?> objInstanceClass = (Class<?>) ((ParameterizedType) descriptor.getWriteMethod().getGenericParameterTypes()[0]).getActualTypeArguments()[0];

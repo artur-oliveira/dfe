@@ -40,19 +40,19 @@ public abstract class CteAnService implements CteService {
 
     @Override
     public <T extends SefazRequest<DistDFeInt, RetDistDFeInt>> Pair<DistDFeInt, RetDistDFeInt> distribution(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = CteMarshallerFactory.getInstance().distributionCte(data.getData());
+        String xml = CteMarshallerFactory.getInstance().distributionCte(data.data());
         JAXBElement<DistDFeInt> envio = CteUnmarshallerFactory.getInstance().distributionCte(xml);
 
-        for (Validator<DistDFeInt> it : data.getValidators()) it.valid(new Validation<>(envio.getValue(), xml));
-        for (BeforeWebServiceRequest<DistDFeInt> it : data.getBeforeRequest())
-            it.process(new Before<>(envio.getValue(), data.getConfig()));
+        for (Validator<DistDFeInt> it : data.validators()) it.valid(new Validation<>(envio.getValue(), xml));
+        for (BeforeWebServiceRequest<DistDFeInt> it : data.beforeRequest())
+            it.process(new Before<>(envio.getValue(), data.config()));
 
         RetDistDFeInt retorno = null;
 
-        if (data.getConfig().production()) {
+        if (data.config().production()) {
             br.inf.portalfiscal.cte.wsdl.distribution.an.prod.CTeDistribuicaoDFeSoap ws = ((br.inf.portalfiscal.cte.wsdl.distribution.an.prod.CTeDistribuicaoDFe) getSoapService().prodDistribution()).getCTeDistribuicaoDFeSoap();
 
-            data.getConfigureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.getConfig()).build());
+            data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
 
             br.inf.portalfiscal.cte.wsdl.distribution.an.prod.CteDistDFeInteresse.CteDadosMsg msg = new br.inf.portalfiscal.cte.wsdl.distribution.an.prod.ObjectFactory().createCteDistDFeInteresseCteDadosMsg();
             msg.getContent().add(envio);
@@ -62,7 +62,7 @@ public abstract class CteAnService implements CteService {
                 retorno = (RetDistDFeInt) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();
         } else {
             br.inf.portalfiscal.cte.wsdl.distribution.an.hom.CTeDistribuicaoDFeSoap ws = ((br.inf.portalfiscal.cte.wsdl.distribution.an.hom.CTeDistribuicaoDFe) getSoapService().homDistribution()).getCTeDistribuicaoDFeSoap();
-            data.getConfigureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.getConfig()).build());
+            data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
 
             br.inf.portalfiscal.cte.wsdl.distribution.an.hom.CteDistDFeInteresse.CteDadosMsg msg = new br.inf.portalfiscal.cte.wsdl.distribution.an.hom.ObjectFactory().createCteDistDFeInteresseCteDadosMsg();
             msg.getContent().add(envio);
@@ -73,8 +73,8 @@ public abstract class CteAnService implements CteService {
                 retorno = (RetDistDFeInt) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();
         }
 
-        for (AfterWebServiceRequest<DistDFeInt, RetDistDFeInt> it : data.getAfterRequest())
-            it.process(new After<>(data.getData(), retorno, data.getConfig()));
+        for (AfterWebServiceRequest<DistDFeInt, RetDistDFeInt> it : data.afterRequest())
+            it.process(new After<>(data.data(), retorno, data.config()));
 
         return new PairImpl<>(envio.getValue(), retorno);
     }

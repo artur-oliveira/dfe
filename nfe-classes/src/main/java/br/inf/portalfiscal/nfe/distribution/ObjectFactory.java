@@ -191,7 +191,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/nfe", name = "distDFeInt")
     public JAXBElement<TDistDFeInt> createDistDFeInt(TDistDFeInt value) {
-        return new JAXBElement<TDistDFeInt>(_DistDFeInt_QNAME, TDistDFeInt.class, null, value);
+        return new JAXBElement<>(_DistDFeInt_QNAME, TDistDFeInt.class, null, value);
     }
 
     /**
@@ -202,7 +202,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/nfe", name = "resEvento")
     public JAXBElement<TResEvento> createResEvento(TResEvento value) {
-        return new JAXBElement<TResEvento>(_ResEvento_QNAME, TResEvento.class, null, value);
+        return new JAXBElement<>(_ResEvento_QNAME, TResEvento.class, null, value);
     }
 
     /**
@@ -213,7 +213,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/nfe", name = "resNFe")
     public JAXBElement<TResNFe> createResNFe(TResNFe value) {
-        return new JAXBElement<TResNFe>(_ResNFe_QNAME, TResNFe.class, null, value);
+        return new JAXBElement<>(_ResNFe_QNAME, TResNFe.class, null, value);
     }
 
     /**
@@ -224,7 +224,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/nfe", name = "retDistDFeInt")
     public JAXBElement<TRetDistDFeInt> createRetDistDFeInt(TRetDistDFeInt value) {
-        return new JAXBElement<TRetDistDFeInt>(_RetDistDFeInt_QNAME, TRetDistDFeInt.class, null, value);
+        return new JAXBElement<>(_RetDistDFeInt_QNAME, TRetDistDFeInt.class, null, value);
     }
 
     /**
@@ -235,7 +235,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "http://www.w3.org/2000/09/xmldsig#", name = "Signature")
     public JAXBElement<SignatureType> createSignature(SignatureType value) {
-        return new JAXBElement<SignatureType>(_Signature_QNAME, SignatureType.class, null, value);
+        return new JAXBElement<>(_Signature_QNAME, SignatureType.class, null, value);
     }
 
 }

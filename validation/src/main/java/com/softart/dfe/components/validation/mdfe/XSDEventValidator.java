@@ -12,7 +12,7 @@ import com.softart.dfe.models.internal.xml.XMLValidation;
 public final class XSDEventValidator implements MdfeEventValidator {
     @Override
     public void valid(Validation<TEvento> o) throws ValidationException {
-        XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/mdfe/PL_MDFe_300b/eventoMDFe_v3.00.xsd", o.getXml()));
-        XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/mdfe/PL_MDFe_300b/" + MdfeEvent.valueOfCode(o.getValue().getInfEvento().getTpEvento()).getXsdName(), MdfeMarshallerFactory.getInstance().any(o.getValue().getInfEvento().getDetEvento().getAny())));
+        XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/mdfe/PL_MDFe_300b/eventoMDFe_v3.00.xsd", o.xml()));
+        XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/mdfe/PL_MDFe_300b/" + MdfeEvent.valueOfCode(o.value().getInfEvento().getTpEvento()).getXsdName(), MdfeMarshallerFactory.getInstance().any(o.value().getInfEvento().getDetEvento().getAny())));
     }
 }

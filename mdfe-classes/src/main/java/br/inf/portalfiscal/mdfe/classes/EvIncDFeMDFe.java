@@ -213,7 +213,7 @@ public class EvIncDFeMDFe
      */
     public List<InfDoc> getInfDoc() {
         if (infDoc == null) {
-            infDoc = new ArrayList<InfDoc>();
+            infDoc = new ArrayList<>();
         }
         return this.infDoc;
     }

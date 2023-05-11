@@ -12,7 +12,6 @@ import com.softart.dfe.models.internal.cte.CteOsQrCode;
 import com.softart.dfe.models.internal.cte.CteQrCode;
 import com.softart.dfe.models.internal.cte.GtveQrCode;
 
-import java.security.GeneralSecurityException;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
@@ -121,15 +120,15 @@ public enum QrCodeCteURL implements AllowUF {
         return environment.production() ? serviceURL.production() : serviceURL.homologation();
     }
 
-    public static String generate(Cte cte) throws NoProviderFound, GeneralSecurityException {
+    public static String generate(Cte cte) throws NoProviderFound {
         return QrCodeGeneratorFactory.getInstance().generate(CteQrCode.builder().cte(cte).build());
     }
 
-    public static String generate(Gtve gtve) throws NoProviderFound, GeneralSecurityException {
+    public static String generate(Gtve gtve) throws NoProviderFound {
         return QrCodeGeneratorFactory.getInstance().generate(GtveQrCode.builder().gtve(gtve).build());
     }
 
-    public static String generate(CteOs cteOs) throws NoProviderFound, GeneralSecurityException {
+    public static String generate(CteOs cteOs) throws NoProviderFound {
         return QrCodeGeneratorFactory.getInstance().generate(CteOsQrCode.builder().cteOs(cteOs).build());
     }
 

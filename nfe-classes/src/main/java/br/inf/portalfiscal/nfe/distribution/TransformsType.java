@@ -67,7 +67,7 @@ public class TransformsType
      */
     public List<TransformType> getTransform() {
         if (transform == null) {
-            transform = new ArrayList<TransformType>();
+            transform = new ArrayList<>();
         }
         return this.transform;
     }

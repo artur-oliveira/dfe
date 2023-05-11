@@ -14,8 +14,8 @@ public abstract class StoreInutilizationCte implements BeforeInutilization {
 
     @Override
     public <T extends BeforeRequest<TInutCTe>> void process(T o) throws ProcessException {
-        if (Objects.nonNull(o.getRequest()) && Objects.nonNull(getStorage())) {
-            getStorage().storeInutilization(new XMLStore<>(o.getRequest(), o.getConfig(), CteMarshallerFactory.getInstance().inutilizationCte(o.getRequest())));
+        if (Objects.nonNull(o.request()) && Objects.nonNull(getStorage())) {
+            getStorage().storeInutilization(new XMLStore<>(o.request(), o.config(), CteMarshallerFactory.getInstance().inutilizationCte(o.request())));
         }
     }
 

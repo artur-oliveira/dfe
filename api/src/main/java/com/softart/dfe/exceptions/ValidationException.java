@@ -1,7 +1,9 @@
 package com.softart.dfe.exceptions;
 
+
 /**
- * This class is used to indicate that a validation error has occurred
+ * The ValidationException class extends the DfeException class and provides constructors for creating exceptions related
+ * to validation errors.
  */
 public class ValidationException extends DfeException {
     public ValidationException() {

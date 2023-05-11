@@ -12,6 +12,7 @@ public interface MdfeQuerySituationStorage extends Storage {
      * It stores the return of the query situation of the MDFe.
      *
      * @param o The object to be stored.
+     * @throws StorageException StorageException
      */
     void storeRetQuerySituation(Store<TRetConsSitMDFe> o) throws StorageException;
 
@@ -19,6 +20,7 @@ public interface MdfeQuerySituationStorage extends Storage {
      * It stores the query situation of the MDFe.
      *
      * @param o The object to be stored.
+     * @throws StorageException StorageException
      */
     void storeSendQuerySituation(Store<TConsSitMDFe> o) throws StorageException;
 

@@ -15,8 +15,8 @@ public abstract class StoreReturnDistributionMdfe implements AfterDistribution {
 
     @Override
     public <T extends AfterRequest<TDistDFe, TRetDistDFe>> void process(T o) throws ProcessException {
-        if (Objects.nonNull(o.getConfig()) && Objects.nonNull(o.getRequest())) {
-            getStorage().storeRetDistribution(new XMLStore<>(o.getResponse(), o.getConfig(), MdfeMarshallerFactory.getInstance().returnDistribution(o.getResponse())));
+        if (Objects.nonNull(o.config()) && Objects.nonNull(o.request())) {
+            getStorage().storeRetDistribution(new XMLStore<>(o.response(), o.config(), MdfeMarshallerFactory.getInstance().returnDistribution(o.response())));
         }
     }
 

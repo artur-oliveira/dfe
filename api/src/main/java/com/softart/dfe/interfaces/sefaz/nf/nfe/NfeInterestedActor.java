@@ -15,6 +15,9 @@ public interface NfeInterestedActor {
      *
      * @param data The request object that will be sent to the Sefaz.
      * @return Pair<TEnvEvento, TRetEnvEvento>
+     * @throws SecurityException   SecurityException
+     * @throws ValidationException ValidationException
+     * @throws ProcessException    ProcessException
      */
     <T extends SefazRequest<TEnvEvento, TRetEnvEvento>> Pair<TEnvEvento, TRetEnvEvento> interestedActor(T data) throws SecurityException, ValidationException, ProcessException;
 

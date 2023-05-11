@@ -319,7 +319,7 @@ public class TRetConsSitNFe
      */
     public List<TProcEvento> getProcEventoNFe() {
         if (procEventoNFe == null) {
-            procEventoNFe = new ArrayList<TProcEvento>();
+            procEventoNFe = new ArrayList<>();
         }
         return this.procEventoNFe;
     }

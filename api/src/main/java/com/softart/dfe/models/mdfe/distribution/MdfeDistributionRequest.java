@@ -14,16 +14,15 @@ import lombok.*;
 import java.util.Collection;
 
 @Builder
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-public final class MdfeDistributionRequest implements SefazRequest<TDistDFe, TRetDistDFe> {
-    public TDistDFe data;
-    public Config config;
-    public XMLSignerService signer;
-    public ConfigureProvider configureProvider;
-    public Collection<MdfeDistributionValidator> validators;
-    public Collection<BeforeDistribution> beforeRequest;
-    public Collection<AfterDistribution> afterRequest;
+public record MdfeDistributionRequest(
+        TDistDFe data,
+        Config config,
+        XMLSignerService signer,
+        ConfigureProvider configureProvider,
+        Collection<MdfeDistributionValidator> validators,
+        Collection<BeforeDistribution> beforeRequest,
+        Collection<AfterDistribution> afterRequest
+        ) implements SefazRequest<TDistDFe, TRetDistDFe> {
+
+
 }

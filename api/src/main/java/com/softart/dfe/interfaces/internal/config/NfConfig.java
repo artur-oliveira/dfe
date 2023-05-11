@@ -4,6 +4,11 @@ import com.softart.dfe.enums.internal.Environment;
 import com.softart.dfe.enums.nf.NFSend;
 import com.softart.dfe.enums.nf.identification.NFEmissionType;
 
+/**
+ * The `public interface NfConfig` is defining a new interface called `NfConfig` that extends the `Config` interface. This
+ * means that `NfConfig` inherits all the methods and properties of the `Config` interface and can also define its own
+ * methods and properties. This interface is used to define the configuration settings for a NF (Nota Fiscal) system.
+ */
 public interface NfConfig extends Config {
 
     /**

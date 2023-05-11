@@ -403,7 +403,7 @@ public class Ferrov
          */
         public List<FerroEnv> getFerroEnv() {
             if (ferroEnv == null) {
-                ferroEnv = new ArrayList<FerroEnv>();
+                ferroEnv = new ArrayList<>();
             }
             return this.ferroEnv;
         }

@@ -16,8 +16,8 @@ public abstract class StoreQueryStatusServiceNfe implements BeforeQueryStatusSer
 
     @Override
     public <T extends BeforeRequest<TConsStatServ>> void process(T data) throws ProcessException {
-        if (Objects.nonNull(data.getRequest())) if (Objects.nonNull(getStorage()))
-            getStorage().storeSendQueryStatusService(new XMLStore<>(data.getRequest(), data.getConfig(), NfMarshallerFactory.getInstance().queryStatusServiceNfe(data.getRequest())));
+        if (Objects.nonNull(data.request())) if (Objects.nonNull(getStorage()))
+            getStorage().storeSendQueryStatusService(new XMLStore<>(data.request(), data.config(), NfMarshallerFactory.getInstance().queryStatusServiceNfe(data.request())));
     }
 
     public abstract NfQueryStatusServiceStorage getStorage();

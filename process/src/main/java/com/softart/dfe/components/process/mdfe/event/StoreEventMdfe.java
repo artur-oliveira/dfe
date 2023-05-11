@@ -14,8 +14,8 @@ public abstract class StoreEventMdfe implements BeforeEvent {
 
     @Override
     public <T extends BeforeRequest<TEvento>> void process(T o) throws ProcessException {
-        if (Objects.nonNull(o.getRequest()) && Objects.nonNull(getStorage())) {
-            getStorage().storeSendEvent(new XMLStore<>(o.getRequest(), o.getConfig(), MdfeMarshallerFactory.getInstance().sendEvent(o.getRequest())));
+        if (Objects.nonNull(o.request()) && Objects.nonNull(getStorage())) {
+            getStorage().storeSendEvent(new XMLStore<>(o.request(), o.config(), MdfeMarshallerFactory.getInstance().sendEvent(o.request())));
         }
     }
 

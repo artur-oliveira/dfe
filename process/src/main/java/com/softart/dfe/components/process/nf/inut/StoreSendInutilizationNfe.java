@@ -16,8 +16,8 @@ public abstract class StoreSendInutilizationNfe implements BeforeInut {
 
     @Override
     public <T extends BeforeRequest<TInutNFe>> void process(T data) throws ProcessException {
-        if (Objects.nonNull(data.getRequest())) if (Objects.nonNull(getStorage()))
-            getStorage().storeEnvInut(new XMLStore<>(data.getRequest(), data.getConfig(), NfMarshallerFactory.getInstance().inutNfe(data.getRequest())));
+        if (Objects.nonNull(data.request())) if (Objects.nonNull(getStorage()))
+            getStorage().storeEnvInut(new XMLStore<>(data.request(), data.config(), NfMarshallerFactory.getInstance().inutNfe(data.request())));
 
     }
 

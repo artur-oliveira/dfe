@@ -10,6 +10,6 @@ import com.softart.dfe.models.internal.xml.XMLValidation;
 final class XSDDistributionValidator implements NfeDistributionValidator {
     @Override
     public void valid(Validation<TDistDFeInt> o) throws ValidationException {
-        XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/nfe/PL_NFeDistDFe_103/distDFeInt_v1.01.xsd", o.getXml()));
+        XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/nfe/PL_NFeDistDFe_103/distDFeInt_v1.01.xsd", o.xml()));
     }
 }

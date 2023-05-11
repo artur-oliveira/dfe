@@ -10,20 +10,20 @@ public interface Store<T extends XML> {
      *
      * @return The config object.
      */
-    Config getConfig();
+    Config config();
 
     /**
      * GetData() returns a value of type T.
      *
      * @return The data of the node.
      */
-    T getData();
+    T data();
 
     /**
      * It returns a String.
      *
      * @return The XML representation of the object.
      */
-    String getXml();
+    String xml();
 
 }

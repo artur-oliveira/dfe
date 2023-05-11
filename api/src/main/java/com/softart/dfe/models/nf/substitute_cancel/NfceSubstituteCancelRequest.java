@@ -9,24 +9,21 @@ import com.softart.dfe.interfaces.sefaz.SefazRequest;
 import com.softart.dfe.interfaces.validation.nf.NfceSubstituteCancelValidator;
 import com.softart.dfe.interfaces.wsdl.ConfigureProvider;
 import com.softart.dfe.interfaces.xml.XMLSignerService;
-import lombok.*;
+import lombok.Builder;
 
 import java.util.Collection;
 
 
 @Builder
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-public final class NfceSubstituteCancelRequest implements SefazRequest<TEnvEvento, TRetEnvEvento> {
+public record NfceSubstituteCancelRequest(
+        TEnvEvento data,
+        Config config,
+        XMLSignerService signer,
+        ConfigureProvider configureProvider,
+        Collection<NfceSubstituteCancelValidator> validators,
+        Collection<BeforeSubstituteCancel> beforeRequest,
+        Collection<AfterSubstituteCancel> afterRequest
+) implements SefazRequest<TEnvEvento, TRetEnvEvento> {
 
-    public TEnvEvento data;
-    public Config config;
-    public XMLSignerService signer;
-    public ConfigureProvider configureProvider;
-    public Collection<NfceSubstituteCancelValidator> validators;
-    public Collection<BeforeSubstituteCancel> beforeRequest;
-    public Collection<AfterSubstituteCancel> afterRequest;
 
 }

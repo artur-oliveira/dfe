@@ -21,8 +21,8 @@ public abstract class GenericMdfeStorage extends CommonStorage implements MdfeSt
     @Override
     public void storeRetDistribution(Store<TRetDistDFe> o) throws StorageException {
         try {
-            if (Objects.nonNull(o.getData()) && Objects.nonNull(o.getXml())) {
-                getStorageService().writeReturn(o, MdfeStorageKey.MDFE_DISTRIBUTION, xmlNameWithTime(o.getData().getUltNSU()));
+            if (Objects.nonNull(o.data()) && Objects.nonNull(o.xml())) {
+                getStorageService().writeReturn(o, MdfeStorageKey.MDFE_DISTRIBUTION, xmlNameWithTime(o.data().getUltNSU()));
             }
         } catch (Exception e) {
             throw new StorageException(e);
@@ -32,8 +32,8 @@ public abstract class GenericMdfeStorage extends CommonStorage implements MdfeSt
     @Override
     public void storeSendDistribution(Store<TDistDFe> o) throws StorageException {
         try {
-            if (Objects.nonNull(o.getData()) && Objects.nonNull(o.getXml())) {
-                String nsu = o.getData().getUltNSU();
+            if (Objects.nonNull(o.data()) && Objects.nonNull(o.xml())) {
+                String nsu = o.data().getUltNSU();
                 getStorageService().writeSend(o, MdfeStorageKey.MDFE_DISTRIBUTION, xmlNameWithTime(nsu));
             }
         } catch (Exception e) {
@@ -44,8 +44,8 @@ public abstract class GenericMdfeStorage extends CommonStorage implements MdfeSt
     @Override
     public void storeRetEvent(Store<TRetEvento> o) throws StorageException {
         try {
-            if (Objects.nonNull(o.getData()) && Objects.nonNull(o.getData().getInfEvento()) && Objects.nonNull(o.getXml())) {
-                getStorageService().writeReturn(o, MdfeStorageKey.MDFE_EVENT, xmlNameWithTime(o.getData().getInfEvento().getChMDFe() + "-" + o.getData().getInfEvento().getTpEvento()));
+            if (Objects.nonNull(o.data()) && Objects.nonNull(o.data().getInfEvento()) && Objects.nonNull(o.xml())) {
+                getStorageService().writeReturn(o, MdfeStorageKey.MDFE_EVENT, xmlNameWithTime(o.data().getInfEvento().getChMDFe() + "-" + o.data().getInfEvento().getTpEvento()));
             }
         } catch (Exception e) {
             throw new StorageException(e);
@@ -55,8 +55,8 @@ public abstract class GenericMdfeStorage extends CommonStorage implements MdfeSt
     @Override
     public void storeSendEvent(Store<TEvento> o) throws StorageException {
         try {
-            if (Objects.nonNull(o.getData()) && Objects.nonNull(o.getData().getInfEvento()) && Objects.nonNull(o.getXml())) {
-                getStorageService().writeSend(o, MdfeStorageKey.MDFE_EVENT, xmlNameWithTime(o.getData().getInfEvento().getChMDFe() + "-" + o.getData().getInfEvento().getTpEvento()));
+            if (Objects.nonNull(o.data()) && Objects.nonNull(o.data().getInfEvento()) && Objects.nonNull(o.xml())) {
+                getStorageService().writeSend(o, MdfeStorageKey.MDFE_EVENT, xmlNameWithTime(o.data().getInfEvento().getChMDFe() + "-" + o.data().getInfEvento().getTpEvento()));
             }
         } catch (Exception e) {
             throw new StorageException(e);
@@ -66,8 +66,8 @@ public abstract class GenericMdfeStorage extends CommonStorage implements MdfeSt
     @Override
     public void storeProcEvent(Store<TProcEvento> o) throws StorageException {
         try {
-            if (Objects.nonNull(o.getData()) && Objects.nonNull(o.getData().getRetEventoMDFe()) && Objects.nonNull(o.getXml()) && MdfeReturnCode.generateProc(o.getData().getRetEventoMDFe().getInfEvento().getCStat())) {
-                getStorageService().writeProc(o, MdfeStorageKey.MDFE_EVENT, xmlNameWithTime(o.getData().getRetEventoMDFe().getInfEvento().getChMDFe() + "-" + o.getData().getEventoMDFe().getInfEvento().getTpEvento() + "-" + o.getData().getEventoMDFe().getInfEvento().getNSeqEvento()));
+            if (Objects.nonNull(o.data()) && Objects.nonNull(o.data().getRetEventoMDFe()) && Objects.nonNull(o.xml()) && MdfeReturnCode.generateProc(o.data().getRetEventoMDFe().getInfEvento().getCStat())) {
+                getStorageService().writeProc(o, MdfeStorageKey.MDFE_EVENT, xmlNameWithTime(o.data().getRetEventoMDFe().getInfEvento().getChMDFe() + "-" + o.data().getEventoMDFe().getInfEvento().getTpEvento() + "-" + o.data().getEventoMDFe().getInfEvento().getNSeqEvento()));
             }
         } catch (Exception e) {
             throw new StorageException(e);
@@ -77,8 +77,8 @@ public abstract class GenericMdfeStorage extends CommonStorage implements MdfeSt
     @Override
     public void storeRetQueryReceipt(Store<TRetConsReciMDFe> o) throws StorageException {
         try {
-            if (Objects.nonNull(o.getData()) && Objects.nonNull(o.getXml())) {
-                getStorageService().writeReturn(o, MdfeStorageKey.MDFE_QUERY_RECEIPT, xmlNameWithTime(o.getData().getNRec()));
+            if (Objects.nonNull(o.data()) && Objects.nonNull(o.xml())) {
+                getStorageService().writeReturn(o, MdfeStorageKey.MDFE_QUERY_RECEIPT, xmlNameWithTime(o.data().getNRec()));
                 storeProcByQueryReceipt(o);
             }
         } catch (Exception e) {
@@ -87,12 +87,12 @@ public abstract class GenericMdfeStorage extends CommonStorage implements MdfeSt
     }
 
     private void storeProcByQueryReceipt(Store<TRetConsReciMDFe> o) throws IOException, StorageException {
-        if (Objects.isNull(o.getData().getProtMDFe())) return;
+        if (Objects.isNull(o.data().getProtMDFe())) return;
 
         String xml;
-        TProtMDFe prot = o.getData().getProtMDFe();
+        TProtMDFe prot = o.data().getProtMDFe();
 
-        xml = IOUtils.readFileToString(IOUtils.findLastFileByBasePath(String.join(IOUtils.separator(), getStorageService().rootPath(o.getConfig()), MdfeStorageKey.MDFE_RECEPTION.getForSend(), prot.getInfProt().getChMDFe())));
+        xml = IOUtils.readFileToString(IOUtils.findLastFileByBasePath(String.join(IOUtils.separator(), getStorageService().rootPath(o.config()), MdfeStorageKey.MDFE_RECEPTION.getForSend(), prot.getInfProt().getChMDFe())));
 
         if (Objects.isNull(xml)) return;
 
@@ -102,14 +102,14 @@ public abstract class GenericMdfeStorage extends CommonStorage implements MdfeSt
         proc.setMDFe(envi.getMDFe());
         proc.setVersao(envi.getVersao());
 
-        storeProcMdfe(new XMLStore<>(proc, o.getConfig(), MdfeMarshallerFactory.getInstance().procMdfe(proc)));
+        storeProcMdfe(new XMLStore<>(proc, o.config(), MdfeMarshallerFactory.getInstance().procMdfe(proc)));
     }
 
     @Override
     public void storeSendQueryReceipt(Store<TConsReciMDFe> o) throws StorageException {
         try {
-            if (Objects.nonNull(o.getData()) && Objects.nonNull(o.getXml())) {
-                getStorageService().writeSend(o, MdfeStorageKey.MDFE_QUERY_RECEIPT, xmlNameWithTime(o.getData().getNRec()));
+            if (Objects.nonNull(o.data()) && Objects.nonNull(o.xml())) {
+                getStorageService().writeSend(o, MdfeStorageKey.MDFE_QUERY_RECEIPT, xmlNameWithTime(o.data().getNRec()));
             }
         } catch (Exception e) {
             throw new StorageException(e);
@@ -119,11 +119,11 @@ public abstract class GenericMdfeStorage extends CommonStorage implements MdfeSt
     @Override
     public void storeRetQuerySituation(Store<TRetConsSitMDFe> o) throws StorageException {
         try {
-            if (Objects.nonNull(o.getData()) && Objects.nonNull(o.getXml())) {
+            if (Objects.nonNull(o.data()) && Objects.nonNull(o.xml())) {
                 String accessKey = "";
 
-                if (Objects.nonNull(o.getData().getProtMDFe())) {
-                    accessKey = MdfeUnmarshallerFactory.getInstance().protMdfe(o.getData().getProtMDFe().getAny()).getValue().getInfProt().getChMDFe();
+                if (Objects.nonNull(o.data().getProtMDFe())) {
+                    accessKey = MdfeUnmarshallerFactory.getInstance().protMdfe(o.data().getProtMDFe().getAny()).getValue().getInfProt().getChMDFe();
                 }
 
                 getStorageService().writeReturn(o, MdfeStorageKey.MDFE_QUERY_SITUATION, xmlNameWithTime(accessKey));
@@ -136,7 +136,7 @@ public abstract class GenericMdfeStorage extends CommonStorage implements MdfeSt
     @Override
     public void storeSendQuerySituation(Store<TConsSitMDFe> o) throws StorageException {
         try {
-            if (Objects.nonNull(o.getData()) && Objects.nonNull(o.getXml())) {
+            if (Objects.nonNull(o.data()) && Objects.nonNull(o.xml())) {
                 getStorageService().writeSend(o, MdfeStorageKey.MDFE_QUERY_SITUATION, xmlNameWithTime(""));
             }
         } catch (Exception e) {
@@ -147,7 +147,7 @@ public abstract class GenericMdfeStorage extends CommonStorage implements MdfeSt
     @Override
     public void storeRetQueryUnclosed(Store<TRetConsMDFeNaoEnc> o) throws StorageException {
         try {
-            if (Objects.nonNull(o.getData()) && Objects.nonNull(o.getXml())) {
+            if (Objects.nonNull(o.data()) && Objects.nonNull(o.xml())) {
                 getStorageService().writeReturn(o, MdfeStorageKey.MDFE_QUERY_UNCLOSED, xmlNameWithTime());
             }
         } catch (Exception e) {
@@ -158,8 +158,8 @@ public abstract class GenericMdfeStorage extends CommonStorage implements MdfeSt
     @Override
     public void storeSendQueryUnclosed(Store<TConsMDFeNaoEnc> o) throws StorageException {
         try {
-            if (Objects.nonNull(o.getData()) && Objects.nonNull(o.getXml())) {
-                getStorageService().writeSend(o, MdfeStorageKey.MDFE_QUERY_UNCLOSED, xmlNameWithTime(Functions.coalesce(o.getData().getCNPJ(), o.getData().getCPF(), "")));
+            if (Objects.nonNull(o.data()) && Objects.nonNull(o.xml())) {
+                getStorageService().writeSend(o, MdfeStorageKey.MDFE_QUERY_UNCLOSED, xmlNameWithTime(Functions.coalesce(o.data().getCNPJ(), o.data().getCPF(), "")));
             }
         } catch (Exception e) {
             throw new StorageException(e);
@@ -169,8 +169,8 @@ public abstract class GenericMdfeStorage extends CommonStorage implements MdfeSt
     @Override
     public void storeSendMdfe(Store<TEnviMDFe> o) throws StorageException {
         try {
-            if (Objects.nonNull(o.getData())) {
-                getStorageService().writeSend(o.getConfig(), MdfeStorageKey.MDFE_RECEPTION, xmlNameWithTime(AccessKeyParserFactory.mdfe().fromId(o.getData().getMDFe().getInfMDFe().getId())), o.getXml());
+            if (Objects.nonNull(o.data())) {
+                getStorageService().writeSend(o.config(), MdfeStorageKey.MDFE_RECEPTION, xmlNameWithTime(AccessKeyParserFactory.mdfe().fromId(o.data().getMDFe().getInfMDFe().getId())), o.xml());
             }
         } catch (Exception e) {
             throw new StorageException(e);
@@ -180,8 +180,8 @@ public abstract class GenericMdfeStorage extends CommonStorage implements MdfeSt
     @Override
     public void storeReturnSendMdfe(Store<TRetEnviMDFe> o) throws StorageException {
         try {
-            if (Objects.nonNull(o.getData()) && Objects.nonNull(o.getData().getInfRec()) && Objects.nonNull(o.getXml())) {
-                getStorageService().writeReturn(o.getConfig(), MdfeStorageKey.MDFE_RECEPTION, xmlNameWithTime(o.getData().getInfRec().getNRec()), o.getXml());
+            if (Objects.nonNull(o.data()) && Objects.nonNull(o.data().getInfRec()) && Objects.nonNull(o.xml())) {
+                getStorageService().writeReturn(o.config(), MdfeStorageKey.MDFE_RECEPTION, xmlNameWithTime(o.data().getInfRec().getNRec()), o.xml());
             }
         } catch (Exception e) {
             throw new StorageException(e);
@@ -191,8 +191,8 @@ public abstract class GenericMdfeStorage extends CommonStorage implements MdfeSt
     @Override
     public void storeProcMdfe(Store<TMdfeProc> o) throws StorageException {
         try {
-            if (Objects.nonNull(o.getData()) && Objects.nonNull(o.getData().getProtMDFe()) && Objects.nonNull(o.getXml()) && MdfeReturnCode.generateProc(o.getData().getProtMDFe().getInfProt().getCStat())) {
-                getStorageService().writeProc(o, MdfeStorageKey.MDFE_RECEPTION, xmlNameWithTime(o.getData().getProtMDFe().getInfProt().getChMDFe()));
+            if (Objects.nonNull(o.data()) && Objects.nonNull(o.data().getProtMDFe()) && Objects.nonNull(o.xml()) && MdfeReturnCode.generateProc(o.data().getProtMDFe().getInfProt().getCStat())) {
+                getStorageService().writeProc(o, MdfeStorageKey.MDFE_RECEPTION, xmlNameWithTime(o.data().getProtMDFe().getInfProt().getChMDFe()));
             }
         } catch (Exception e) {
             throw new StorageException(e);
@@ -202,8 +202,8 @@ public abstract class GenericMdfeStorage extends CommonStorage implements MdfeSt
     @Override
     public void storeMdfe(Store<TMDFe> o) throws StorageException {
         try {
-            if (Objects.nonNull(o.getData())) {
-                getStorageService().writeSend(o.getConfig(), MdfeStorageKey.MDFE_RECEPTION_SYNC, xmlNameWithTime(AccessKeyParserFactory.mdfe().fromId(o.getData().getInfMDFe().getId())), o.getXml());
+            if (Objects.nonNull(o.data())) {
+                getStorageService().writeSend(o.config(), MdfeStorageKey.MDFE_RECEPTION_SYNC, xmlNameWithTime(AccessKeyParserFactory.mdfe().fromId(o.data().getInfMDFe().getId())), o.xml());
             }
         } catch (Exception e) {
             throw new StorageException(e);
@@ -213,11 +213,11 @@ public abstract class GenericMdfeStorage extends CommonStorage implements MdfeSt
     @Override
     public void storeReturnMdfe(Store<TRetMDFe> o) throws StorageException {
         try {
-            if (Objects.nonNull(o.getData())) {
-                if (Objects.nonNull(o.getData().getProtMDFe())) {
-                    getStorageService().writeReturn(o.getConfig(), MdfeStorageKey.MDFE_RECEPTION_SYNC, xmlNameWithTime(AccessKeyParserFactory.mdfe().fromId(o.getData().getProtMDFe().getInfProt().getChMDFe())), o.getXml());
+            if (Objects.nonNull(o.data())) {
+                if (Objects.nonNull(o.data().getProtMDFe())) {
+                    getStorageService().writeReturn(o.config(), MdfeStorageKey.MDFE_RECEPTION_SYNC, xmlNameWithTime(AccessKeyParserFactory.mdfe().fromId(o.data().getProtMDFe().getInfProt().getChMDFe())), o.xml());
                 } else {
-                    getStorageService().writeReturn(o.getConfig(), MdfeStorageKey.MDFE_RECEPTION_SYNC, xmlNameWithTime(), o.getXml());
+                    getStorageService().writeReturn(o.config(), MdfeStorageKey.MDFE_RECEPTION_SYNC, xmlNameWithTime(), o.xml());
                 }
             }
         } catch (Exception e) {
@@ -233,8 +233,8 @@ public abstract class GenericMdfeStorage extends CommonStorage implements MdfeSt
     @Override
     public void storeStatusService(Store<TConsStatServ> o) throws StorageException {
         try {
-            if (Objects.nonNull(o.getData())) {
-                getStorageService().writeSend(o.getConfig(), MdfeStorageKey.MDFE_STATUS_SERVICE, xmlNameWithTime(), o.getXml());
+            if (Objects.nonNull(o.data())) {
+                getStorageService().writeSend(o.config(), MdfeStorageKey.MDFE_STATUS_SERVICE, xmlNameWithTime(), o.xml());
             }
         } catch (Exception e) {
             throw new StorageException(e);
@@ -244,8 +244,8 @@ public abstract class GenericMdfeStorage extends CommonStorage implements MdfeSt
     @Override
     public void storeReturnStatusService(Store<TRetConsStatServ> o) throws StorageException {
         try {
-            if (Objects.nonNull(o.getData())) {
-                getStorageService().writeReturn(o.getConfig(), MdfeStorageKey.MDFE_STATUS_SERVICE, xmlNameWithTime(), o.getXml());
+            if (Objects.nonNull(o.data())) {
+                getStorageService().writeReturn(o.config(), MdfeStorageKey.MDFE_STATUS_SERVICE, xmlNameWithTime(), o.xml());
             }
         } catch (Exception e) {
             throw new StorageException(e);

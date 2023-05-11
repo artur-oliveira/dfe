@@ -1,5 +1,10 @@
 package com.softart.dfe.interfaces.sefaz.port;
 
+/**
+ * The code is defining a Java interface named `MdfeSoapService` that extends another interface named `CommonSoapService`.
+ * This means that `MdfeSoapService` inherits all the methods and constants defined in `CommonSoapService`, and can also
+ * define its own methods and constants.
+ */
 public interface MdfeSoapService extends CommonSoapService {
 
 

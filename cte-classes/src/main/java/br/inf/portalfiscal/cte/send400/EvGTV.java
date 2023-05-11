@@ -241,7 +241,7 @@ public class EvGTV
      */
     public List<InfGTV> getInfGTV() {
         if (infGTV == null) {
-            infGTV = new ArrayList<InfGTV>();
+            infGTV = new ArrayList<>();
         }
         return this.infGTV;
     }
@@ -637,7 +637,7 @@ public class EvGTV
          */
         public List<InfEspecie> getInfEspecie() {
             if (infEspecie == null) {
-                infEspecie = new ArrayList<InfEspecie>();
+                infEspecie = new ArrayList<>();
             }
             return this.infEspecie;
         }

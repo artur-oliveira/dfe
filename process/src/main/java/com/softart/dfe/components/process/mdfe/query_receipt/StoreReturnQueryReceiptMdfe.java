@@ -15,8 +15,8 @@ public abstract class StoreReturnQueryReceiptMdfe implements AfterQueryReceipt {
 
     @Override
     public <T extends AfterRequest<TConsReciMDFe, TRetConsReciMDFe>> void process(T o) throws ProcessException {
-        if (Objects.nonNull(o.getConfig()) && Objects.nonNull(o.getRequest())) {
-            getStorage().storeRetQueryReceipt(new XMLStore<>(o.getResponse(), o.getConfig(), MdfeMarshallerFactory.getInstance().returnQueryReceipt(o.getResponse())));
+        if (Objects.nonNull(o.config()) && Objects.nonNull(o.request())) {
+            getStorage().storeRetQueryReceipt(new XMLStore<>(o.response(), o.config(), MdfeMarshallerFactory.getInstance().returnQueryReceipt(o.response())));
         }
     }
 

@@ -1,6 +1,9 @@
 package com.softart.dfe.interfaces.internal.nf;
 
-@SuppressWarnings("unused")
+/**
+ * Declaring a public interface named `NfAnServiceURL`. This interface contains four abstract methods that return URLs for
+ * different events and distributions on AN environment.
+ */
 public interface NfAnServiceURL {
 
     /**

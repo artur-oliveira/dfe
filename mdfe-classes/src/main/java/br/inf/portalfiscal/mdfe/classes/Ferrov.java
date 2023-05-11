@@ -185,7 +185,7 @@ public class Ferrov
      */
     public List<Vag> getVag() {
         if (vag == null) {
-            vag = new ArrayList<Vag>();
+            vag = new ArrayList<>();
         }
         return this.vag;
     }

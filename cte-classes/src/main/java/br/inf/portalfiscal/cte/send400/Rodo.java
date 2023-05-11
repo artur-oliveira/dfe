@@ -144,7 +144,7 @@ public class Rodo
      */
     public List<Occ> getOcc() {
         if (occ == null) {
-            occ = new ArrayList<Occ>();
+            occ = new ArrayList<>();
         }
         return this.occ;
     }

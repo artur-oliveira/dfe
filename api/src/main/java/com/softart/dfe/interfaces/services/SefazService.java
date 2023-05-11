@@ -6,6 +6,11 @@ import com.softart.dfe.interfaces.validation.ValidationService;
 import com.softart.dfe.interfaces.wsdl.ConfigureProvider;
 import com.softart.dfe.interfaces.xml.XMLSignerService;
 
+/**
+ * Declaring a public interface named `SefazService`. This interface defines a set of methods that must be implemented by
+ * any class that implements this interface. The methods defined in this interface are `getConfig()`, `getXmlSigner()`,
+ * `getProcess()`, `getProviderFactory()`, `getValidatorFactory()`, and `getConfigureProviderFactory()`.
+ */
 public interface SefazService {
 
     /**

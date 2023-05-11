@@ -14,8 +14,8 @@ public abstract class StoreReceptionMdfe implements BeforeReception {
 
     @Override
     public <T extends BeforeRequest<TEnviMDFe>> void process(T o) throws ProcessException {
-        if (Objects.nonNull(o.getRequest()) && Objects.nonNull(getStorage())) {
-            getStorage().storeSendMdfe(new XMLStore<>(o.getRequest(), o.getConfig(), MdfeMarshallerFactory.getInstance().sendReception(o.getRequest())));
+        if (Objects.nonNull(o.request()) && Objects.nonNull(getStorage())) {
+            getStorage().storeSendMdfe(new XMLStore<>(o.request(), o.config(), MdfeMarshallerFactory.getInstance().sendReception(o.request())));
         }
     }
 

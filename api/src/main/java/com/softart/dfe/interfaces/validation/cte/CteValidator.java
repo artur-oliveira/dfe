@@ -2,6 +2,12 @@ package com.softart.dfe.interfaces.validation.cte;
 
 import java.util.Collection;
 
+/**
+ * The code is defining a Java interface called `CteValidator`. This interface specifies a set of methods that must be
+ * implemented by any class that implements this interface. The methods defined in this interface are used to validate
+ * different aspects of a CTE (Conhecimento de Transporte Eletrônico) document, such as its distribution, events,
+ * inutilization, query receipt, query situation, reception, and status service.
+ */
 public interface CteValidator {
 
     /**

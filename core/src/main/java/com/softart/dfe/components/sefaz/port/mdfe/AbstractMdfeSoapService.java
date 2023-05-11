@@ -240,8 +240,7 @@ public abstract class AbstractMdfeSoapService extends AbstractSoapService implem
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof AbstractMdfeSoapService)) return false;
-        AbstractMdfeSoapService that = (AbstractMdfeSoapService) o;
+        if (!(o instanceof AbstractMdfeSoapService that)) return false;
         return Objects.equals(getAuthorizer(), that.getAuthorizer());
     }
 

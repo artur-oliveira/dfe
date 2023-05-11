@@ -9,24 +9,20 @@ import com.softart.dfe.interfaces.sefaz.SefazRequest;
 import com.softart.dfe.interfaces.validation.nf.NfeQueryRegisterValidator;
 import com.softart.dfe.interfaces.wsdl.ConfigureProvider;
 import com.softart.dfe.interfaces.xml.XMLSignerService;
-import lombok.*;
+import lombok.Builder;
 
 import java.util.Collection;
 
-@Getter
-@Setter
 @Builder
-@ToString
-@AllArgsConstructor
-@NoArgsConstructor
-public final class QueryRegisterRequest implements SefazRequest<TConsCad, TRetConsCad> {
+public record QueryRegisterRequest(
+        TConsCad data,
+        Config config,
+        XMLSignerService signer,
+        ConfigureProvider configureProvider,
+        Collection<NfeQueryRegisterValidator> validators,
+        Collection<BeforeQueryRegister> beforeRequest,
+        Collection<AfterQueryRegister> afterRequest
+) implements SefazRequest<TConsCad, TRetConsCad> {
 
-    public TConsCad data;
-    public Config config;
-    public XMLSignerService signer;
-    public ConfigureProvider configureProvider;
-    public Collection<NfeQueryRegisterValidator> validators;
-    public Collection<BeforeQueryRegister> beforeRequest;
-    public Collection<AfterQueryRegister> afterRequest;
 
 }

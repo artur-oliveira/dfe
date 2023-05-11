@@ -207,7 +207,7 @@ public class Aquav
      */
     public List<Balsa> getBalsa() {
         if (balsa == null) {
-            balsa = new ArrayList<Balsa>();
+            balsa = new ArrayList<>();
         }
         return this.balsa;
     }
@@ -314,7 +314,7 @@ public class Aquav
      */
     public List<DetCont> getDetCont() {
         if (detCont == null) {
-            detCont = new ArrayList<DetCont>();
+            detCont = new ArrayList<>();
         }
         return this.detCont;
     }

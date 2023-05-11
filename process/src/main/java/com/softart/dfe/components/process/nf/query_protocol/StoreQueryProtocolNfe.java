@@ -16,8 +16,8 @@ public abstract class StoreQueryProtocolNfe implements BeforeQueryProtocol {
 
     @Override
     public <T extends BeforeRequest<TConsSitNFe>> void process(T data) throws ProcessException {
-        if (Objects.nonNull(data.getRequest())) if (Objects.nonNull(getStorage()))
-            getStorage().storeEnvQueryProtocol(new XMLStore<>(data.getRequest(), data.getConfig(), NfMarshallerFactory.getInstance().queryProcotolNfe(data.getRequest())));
+        if (Objects.nonNull(data.request())) if (Objects.nonNull(getStorage()))
+            getStorage().storeEnvQueryProtocol(new XMLStore<>(data.request(), data.config(), NfMarshallerFactory.getInstance().queryProcotolNfe(data.request())));
     }
 
     public abstract NfQueryProtocolStorage getStorage();

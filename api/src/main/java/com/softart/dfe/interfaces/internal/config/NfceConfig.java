@@ -3,6 +3,12 @@ package com.softart.dfe.interfaces.internal.config;
 import com.softart.dfe.enums.internal.Environment;
 import com.softart.dfe.enums.internal.UF;
 
+/**
+ * The code is defining a Java interface named `NfceConfig` that extends another interface named `NfConfig`. This means
+ * that `NfceConfig` inherits all the methods and constants defined in `NfConfig`, and also adds its own methods and
+ * constants. Any class that implements `NfceConfig` must provide implementations for all the methods defined in both
+ * `NfceConfig` and `NfConfig`.
+ */
 public interface NfceConfig extends NfConfig {
     /**
      * Returns the CSC ID of the current user

@@ -10,6 +10,6 @@ import com.softart.dfe.models.internal.xml.XMLValidation;
 final class XSDInterestedActorValidator implements NfeInterestedActorValidator {
     @Override
     public void valid(Validation<TEnvEvento> o) throws ValidationException {
-        XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/nfe/Evento_AtorInteressado_PL_v1.02/envEventoAtorInteressado_v1.00.xsd", o.getXml()));
+        XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/nfe/Evento_AtorInteressado_PL_v1.02/envEventoAtorInteressado_v1.00.xsd", o.xml()));
     }
 }

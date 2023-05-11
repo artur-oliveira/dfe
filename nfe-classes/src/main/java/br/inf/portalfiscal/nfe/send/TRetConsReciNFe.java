@@ -335,7 +335,7 @@ public class TRetConsReciNFe
      */
     public List<TProtNFe> getProtNFe() {
         if (protNFe == null) {
-            protNFe = new ArrayList<TProtNFe>();
+            protNFe = new ArrayList<>();
         }
         return this.protNFe;
     }

@@ -16,8 +16,8 @@ public abstract class StoreReturnCteOs implements AfterReceptionCteOs {
 
     @Override
     public <T extends AfterRequest<TCTeOS, TRetCTeOS>> void process(T o) throws ProcessException {
-        if (Objects.nonNull(getStorage()) && Objects.nonNull(o.getResponse())) {
-            getStorage().storeReturnCteOs(new XMLStore<>(o.getResponse(), o.getConfig(), CteMarshallerFactory.getInstance().returnReceptionCteOs(o.getResponse())));
+        if (Objects.nonNull(getStorage()) && Objects.nonNull(o.response())) {
+            getStorage().storeReturnCteOs(new XMLStore<>(o.response(), o.config(), CteMarshallerFactory.getInstance().returnReceptionCteOs(o.response())));
         }
     }
 

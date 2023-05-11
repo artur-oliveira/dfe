@@ -13,6 +13,7 @@ public interface NfeInterestedActorStorage extends Storage {
      * It stores the interested actor in the database.
      *
      * @param o The object to be stored.
+     * @throws StorageException StorageException
      */
     void storeProcInterestedActor(Store<TProcEvento> o) throws StorageException;
 
@@ -20,6 +21,7 @@ public interface NfeInterestedActorStorage extends Storage {
      * It stores the interested actor in the store.
      *
      * @param o The object to be stored.
+     * @throws StorageException StorageException
      */
     void storeRetInterestedActor(Store<TRetEnvEvento> o) throws StorageException;
 
@@ -27,6 +29,7 @@ public interface NfeInterestedActorStorage extends Storage {
      * It stores the interested actor in the store.
      *
      * @param o The object to be stored.
+     * @throws StorageException StorageException
      */
     void storeSendInterestedActor(Store<TEnvEvento> o) throws StorageException;
 

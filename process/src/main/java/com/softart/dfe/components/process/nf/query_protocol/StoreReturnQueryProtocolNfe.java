@@ -17,11 +17,11 @@ public abstract class StoreReturnQueryProtocolNfe implements AfterQueryProtocol 
 
     @Override
     public <T extends AfterRequest<TConsSitNFe, TRetConsSitNFe>> void process(T data) throws ProcessException {
-        if (Objects.nonNull(data.getResponse())) {
+        if (Objects.nonNull(data.response())) {
             if (Objects.nonNull(getStorage()))
-                getStorage().storeRetQueryProtocol(new XMLStore<>(data.getResponse(), data.getConfig(), NfMarshallerFactory.getInstance().returnQueryProtocolNfe(data.getResponse())));
+                getStorage().storeRetQueryProtocol(new XMLStore<>(data.response(), data.config(), NfMarshallerFactory.getInstance().returnQueryProtocolNfe(data.response())));
         } else {
-            log.warn(Objects.requireNonNull(data.getResponse()).getXMotivo());
+            log.warn(Objects.requireNonNull(data.response()).getXMotivo());
         }
 
     }

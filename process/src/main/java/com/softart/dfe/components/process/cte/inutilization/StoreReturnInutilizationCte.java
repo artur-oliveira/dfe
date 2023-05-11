@@ -16,8 +16,8 @@ public abstract class StoreReturnInutilizationCte implements AfterInutilization 
 
     @Override
     public <T extends AfterRequest<TInutCTe, TRetInutCTe>> void process(T o) throws ProcessException {
-        if (Objects.nonNull(getStorage()) && Objects.nonNull(o.getResponse())) {
-            getStorage().storeReturnInutilization(new XMLStore<>(o.getResponse(), o.getConfig(), CteMarshallerFactory.getInstance().returnInutilizationCte(o.getResponse())));
+        if (Objects.nonNull(getStorage()) && Objects.nonNull(o.response())) {
+            getStorage().storeReturnInutilization(new XMLStore<>(o.response(), o.config(), CteMarshallerFactory.getInstance().returnInutilizationCte(o.response())));
         }
     }
 

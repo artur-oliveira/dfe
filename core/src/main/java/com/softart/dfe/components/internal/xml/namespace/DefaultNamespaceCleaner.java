@@ -16,11 +16,7 @@ final class DefaultNamespaceCleaner extends NameSpaceCleanerFactory {
     private final Map<String, String> overridingNamespaces;
 
     DefaultNamespaceCleaner() {
-        Map<String, String> namespaces = new HashMap<>();
-        namespaces.put("NFe", "http://www.portalfiscal.inf.br/nfe");
-        namespaces.put("CTe", "http://www.portalfiscal.inf.br/cte");
-        namespaces.put("MDFe", "http://www.portalfiscal.inf.br/mdfe");
-        this.overridingNamespaces = Collections.unmodifiableMap(namespaces);
+        this.overridingNamespaces = Map.of("NFe", "http://www.portalfiscal.inf.br/nfe", "CTe", "http://www.portalfiscal.inf.br/cte", "MDFe", "http://www.portalfiscal.inf.br/mdfe");
     }
 
     /**
@@ -45,8 +41,7 @@ final class DefaultNamespaceCleaner extends NameSpaceCleanerFactory {
     private void clean(Node node, Map<String, String> namespaceElement) {
         NodeList nodes = node.getChildNodes();
 
-        if (node instanceof Element) {
-            Element el = (Element) node;
+        if (node instanceof Element el) {
 
             if (Objects.nonNull(el.getPrefix()) && namespaceElement.containsKey(el.getPrefix())) {
                 el.setAttributeNS(XMLConstants.XMLNS_ATTRIBUTE_NS_URI, XMLConstants.XMLNS_ATTRIBUTE, namespaceElement.get(el.getPrefix()));
@@ -59,8 +54,7 @@ final class DefaultNamespaceCleaner extends NameSpaceCleanerFactory {
 
             Collection<Attr> removeAttrs = new ArrayList<>();
             for (int i = 0; i < node.getAttributes().getLength(); i++) {
-                if (node.getAttributes().item(i) instanceof Attr) {
-                    Attr ns = (Attr) node.getAttributes().item(i);
+                if (node.getAttributes().item(i) instanceof Attr ns) {
                     if (Objects.equals(ns.getName(), XMLConstants.XMLNS_ATTRIBUTE) || !ns.getName().startsWith(XMLConstants.XMLNS_ATTRIBUTE))
                         continue;
 
@@ -89,12 +83,10 @@ final class DefaultNamespaceCleaner extends NameSpaceCleanerFactory {
     private void postRemoveNs(Node node, List<String> ns) {
         NodeList nodes = node.getChildNodes();
 
-        if (node instanceof Element) {
-            Element el = (Element) node;
+        if (node instanceof Element el) {
             Collection<Attr> removeAttrs = new ArrayList<>();
             for (int i = 0; i < node.getAttributes().getLength(); i++) {
-                if (node.getAttributes().item(i) instanceof Attr) {
-                    Attr attr = (Attr) node.getAttributes().item(i);
+                if (node.getAttributes().item(i) instanceof Attr attr) {
                     if (Objects.equals(attr.getName(), XMLConstants.XMLNS_ATTRIBUTE)) {
                         if (ns.contains(attr.getValue())) {
                             removeAttrs.add(attr);

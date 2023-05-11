@@ -11,6 +11,7 @@ public interface NfQueryStatusServiceStorage extends Storage {
      * Stores the given object in the database
      *
      * @param o The object to be stored.
+     * @throws StorageException StorageException
      */
     void storeSendQueryStatusService(Store<TConsStatServ> o) throws StorageException;
 
@@ -18,6 +19,7 @@ public interface NfQueryStatusServiceStorage extends Storage {
      * It stores the return query status service.
      *
      * @param o The object to be stored.
+     * @throws StorageException StorageException
      */
     void storeReturnQueryStatusService(Store<TRetConsStatServ> o) throws StorageException;
 }

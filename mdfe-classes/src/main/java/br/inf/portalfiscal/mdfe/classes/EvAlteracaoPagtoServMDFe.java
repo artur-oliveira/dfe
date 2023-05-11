@@ -276,7 +276,7 @@ public class EvAlteracaoPagtoServMDFe
      */
     public List<InfPag> getInfPag() {
         if (infPag == null) {
-            infPag = new ArrayList<InfPag>();
+            infPag = new ArrayList<>();
         }
         return this.infPag;
     }
@@ -597,7 +597,7 @@ public class EvAlteracaoPagtoServMDFe
          */
         public List<Comp> getComp() {
             if (comp == null) {
-                comp = new ArrayList<Comp>();
+                comp = new ArrayList<>();
             }
             return this.comp;
         }
@@ -728,7 +728,7 @@ public class EvAlteracaoPagtoServMDFe
          */
         public List<InfPrazo> getInfPrazo() {
             if (infPrazo == null) {
-                infPrazo = new ArrayList<InfPrazo>();
+                infPrazo = new ArrayList<>();
             }
             return this.infPrazo;
         }
