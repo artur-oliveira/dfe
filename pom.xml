@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.github.artur-oliveira</groupId>
     <artifactId>dfe</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
     <name>DF-e</name>
     <description>Projeto que unifica os WebServices de NF-e, NFC-e, CT-e e MDF-e</description>
     <url>https://github.com/artur-oliveira/dfe</url>
