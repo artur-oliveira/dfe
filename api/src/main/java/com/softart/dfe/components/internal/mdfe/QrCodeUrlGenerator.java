@@ -10,7 +10,7 @@ import com.softart.dfe.models.internal.mdfe.MdfeQrCode;
 /**
  * The QrCodeUrlGenerator class generates a URL for a MDFe QR code based on the provided UF, access key, and environment.
  */
-public class QrCodeUrlGenerator extends QrCodeGeneratorFactory {
+final class QrCodeUrlGenerator extends QrCodeGeneratorFactory {
 
     /**
      * This Java function generates a URL for a MDFe QR code based on the provided UF, access key, and environment.
@@ -27,7 +27,7 @@ public class QrCodeUrlGenerator extends QrCodeGeneratorFactory {
      * Eletrônico de Documentos Fiscais) document. The URL includes the MDF-e access key and the environment type (tpAmb).
      * @throws NoProviderFound if no provider is found.
      */
-    private String generate(String uf, String accessKey, String tpAmb) throws NoProviderFound {
+    String generate(String uf, String accessKey, String tpAmb) throws NoProviderFound {
         String url = QrCodeMdfeURL.get(UF.valueOfCode(uf), Environment.valueOfCode(tpAmb));
         return url + "?chMDFe=" + AccessKeyParserFactory.mdfe().fromId(accessKey) + "&tpAmb=" + tpAmb;
 

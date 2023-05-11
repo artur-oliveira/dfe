@@ -1,8 +1,6 @@
 package com.softart.dfe.util;
 
-import com.softart.dfe.exceptions.RequiredException;
-
-import java.util.Objects;
+import com.softart.dfe.exceptions.DfeOptionalException;
 
 /**
  * The type Require utils.
@@ -35,11 +33,7 @@ public final class RequireUtils {
      * @return A non-null object.
      */
     public static <T> T nonNull(T obj, String msg) {
-        try {
-            return Objects.requireNonNull(obj);
-        } catch (NullPointerException e) {
-            throw new RequiredException(msg, e);
-        }
+        return DfeOptional.ofCondition(obj != null, obj).orElseThrow(() -> new DfeOptionalException(msg));
     }
 
 }

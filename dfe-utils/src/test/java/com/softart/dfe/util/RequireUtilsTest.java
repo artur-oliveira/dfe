@@ -1,15 +1,16 @@
 package com.softart.dfe.util;
 
-import com.softart.dfe.exceptions.RequiredException;
+import com.softart.dfe.exceptions.DfeOptionalException;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class RequireUtilsTest {
 
     @Test
     void testNonNull() {
-        RequiredException ex = assertThrows(RequiredException.class, () -> RequireUtils.nonNull(null, "null obj"));
+        DfeOptionalException ex = assertThrows(DfeOptionalException.class, () -> RequireUtils.nonNull(null, "null obj"));
         assertEquals("null obj", ex.getMessage());
     }
 }

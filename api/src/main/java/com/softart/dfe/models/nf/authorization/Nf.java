@@ -63,7 +63,7 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
     }
 
     public boolean isOffline() {
-        return NFEmissionType.OFFLINE.getCode().equals(ide().getTpEmis());
+        return NFEmissionType.isOffline(ide().getTpEmis());
     }
 
     public boolean isNfe() {

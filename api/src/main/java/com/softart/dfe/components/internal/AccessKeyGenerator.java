@@ -1,7 +1,11 @@
 package com.softart.dfe.components.internal;
 
+import com.softart.dfe.exceptions.internal.AccessKeyGeneratorException;
 import com.softart.dfe.util.DateUtils;
+import com.softart.dfe.util.DfeOptional;
 import com.softart.dfe.util.StringUtils;
+
+import java.util.Objects;
 
 public final class AccessKeyGenerator {
 
@@ -26,17 +30,17 @@ public final class AccessKeyGenerator {
      *                     identifier related to the document being processed.
      * @return A concatenated string of the input parameters, with some of them being formatted or padded with zeros.
      */
-    private static String accessKeyWithoutDV(String uf, String emission, String cnpj, String model, String serie, String number, String emissionType, String code) {
+    static String accessKeyWithoutDV(String uf, String emission, String cnpj, String model, String serie, String number, String emissionType, String code) {
         return String.join(
                 "",
-                uf,
+                DfeOptional.ofLength(uf, 2).orElseThrow(() -> new AccessKeyGeneratorException("UF da chave de acesso inválida: " + uf)),
                 DateUtils.yyMM(emission),
-                cnpj,
-                model,
-                StringUtils.padZeroStart(serie, 3),
-                StringUtils.padZeroStart(number, 9),
-                emissionType,
-                code
+                StringUtils.padZeroStart(DfeOptional.ofLengthIn(cnpj, 14, 11).orElseThrow(() -> new AccessKeyGeneratorException("CNPJ da chave de acesso inválida: " + cnpj)), 14),
+                DfeOptional.ofCondition(Objects.nonNull(model) && model.length() == 2, uf).orElseThrow(() -> new AccessKeyGeneratorException("Modelo da chave de acesso inválida: " + model)),
+                StringUtils.padZeroStart(DfeOptional.ofLengthGte(serie, 1).orElseThrow(() -> new AccessKeyGeneratorException("Série da chave de acesso inválida: " + serie)), 3),
+                StringUtils.padZeroStart(DfeOptional.ofLengthGte(number, 1).orElseThrow(() -> new AccessKeyGeneratorException("Número da chave de acesso inválida: " + number)), 9),
+                DfeOptional.ofLengthEq(emissionType, 1).orElseThrow(() -> new AccessKeyGeneratorException("Tipo de emissão da chave de acesso inválido " + emissionType)),
+                DfeOptional.ofLength(code, 8).orElseThrow(() -> new AccessKeyGeneratorException("Código da chave de acesso inválido: " + code))
         );
     }
 

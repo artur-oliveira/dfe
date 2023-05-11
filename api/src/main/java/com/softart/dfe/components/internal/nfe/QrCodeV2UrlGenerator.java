@@ -3,7 +3,10 @@ package com.softart.dfe.components.internal.nfe;
 import com.softart.dfe.components.internal.parser.AccessKeyParserFactory;
 import com.softart.dfe.components.internal.xml.marshaller.NfMarshallerFactory;
 import com.softart.dfe.components.internal.xml.unmarshaller.NfUnmarshallerFactory;
+import com.softart.dfe.enums.internal.Environment;
+import com.softart.dfe.enums.internal.UF;
 import com.softart.dfe.enums.internal.nf.QrCodeNfceURL;
+import com.softart.dfe.enums.nf.identification.NFEmissionType;
 import com.softart.dfe.exceptions.security.XMLSignException;
 import com.softart.dfe.exceptions.services.NoProviderFound;
 import com.softart.dfe.models.internal.nf.NfQrCode;
@@ -39,33 +42,60 @@ final class QrCodeV2UrlGenerator extends QrCodeGeneratorFactory {
         return QR_CODE_VERSION;
     }
 
-    public String generate(NfQrCode nfQrCode) throws NoProviderFound, GeneralSecurityException, XMLSignException {
-        String url = QrCodeNfceURL.get(nfQrCode.getConfig().uf(), nfQrCode.getConfig().environment());
-
+    String getParams(String chNFe, String tpAmb, String tpEmis, String dhEmi, String vNF, byte[] digestValue, String cscId) {
         final StringBuilder params = new StringBuilder();
-        params.append(AccessKeyParserFactory.nfe().fromId(nfQrCode.getNf().toObject().getInfNFe().getId()))
+        params.append(AccessKeyParserFactory.nfe().fromId(chNFe))
                 .append("|")
                 .append(getVersion())
                 .append("|")
-                .append(nfQrCode.getConfig().environment().getCode())
+                .append(tpAmb)
                 .append("|");
 
-        if (nfQrCode.getNf().isOffline()) {
-            params.append(StringUtils.padZeroStart(DateUtils.zoned(nfQrCode.getNf().dhEmi()).getDayOfMonth(), 2))
+        if (NFEmissionType.isOffline(tpEmis)) {
+            params.append(StringUtils.padZeroStart(DateUtils.zoned(dhEmi).getDayOfMonth(), 2))
                     .append("|")
-                    .append(nfQrCode.getNf().VNF())
+                    .append(vNF)
                     .append("|")
-                    .append(HashUtils.hex(Base64Utils.decodeBinary(NfUnmarshallerFactory.getInstance().nfe(nfQrCode.getXmlSigner().signNfe(NfMarshallerFactory.getInstance().nfe(nfQrCode.getNf().toObject()), nfQrCode.getConfig())).getValue().getSignature().getSignedInfo().getReference().getDigestValue())))
+                    .append(HashUtils.hex(Base64Utils.decodeBinary(digestValue)))
                     .append("|");
         }
 
-        params.append(nfQrCode.getConfig().cscId());
+        params.append(cscId);
+
+        return params.toString();
+    }
+
+    String generate(String uf, String chNFe, String tpAmb, String tpEmis, String dhEmi, String vNF, byte[] digestValue, String cscId, String csc) throws NoProviderFound, GeneralSecurityException {
+        String url = QrCodeNfceURL.get(UF.valueOfCode(uf), Environment.valueOfCode(tpAmb));
+        String params = getParams(
+                AccessKeyParserFactory.nfe().fromId(chNFe),
+                tpAmb,
+                tpEmis,
+                dhEmi,
+                vNF,
+                digestValue,
+                cscId
+        );
 
         return url
                 .replace("?", "")
                 .concat("?p=")
-                .concat(params.toString())
+                .concat(params)
                 .concat("|")
-                .concat(Objects.requireNonNull(StringUtils.upper(createHash(params.toString(), nfQrCode.getConfig().csc()))));
+                .concat(Objects.requireNonNull(StringUtils.upper(createHash(params, csc))));
+    }
+
+    public String generate(NfQrCode nfQrCode) throws NoProviderFound, GeneralSecurityException, XMLSignException {
+        return generate(
+                nfQrCode.getConfig().uf().getCode(),
+                AccessKeyParserFactory.nfe().fromId(nfQrCode.getNf().toObject().getInfNFe().getId()),
+                nfQrCode.getConfig().environment().getCode(),
+                nfQrCode.getNf().ide().getTpEmis(),
+                nfQrCode.getNf().dhEmi(),
+                nfQrCode.getNf().VNF(),
+                nfQrCode.getNf().isOffline() ? NfUnmarshallerFactory.getInstance().nfe(nfQrCode.getXmlSigner().signNfe(NfMarshallerFactory.getInstance().nfe(nfQrCode.getNf().toObject()), nfQrCode.getConfig())).getValue().getSignature().getSignedInfo().getReference().getDigestValue() : null,
+                nfQrCode.getConfig().cscId(),
+                nfQrCode.getConfig().csc()
+        );
     }
 }

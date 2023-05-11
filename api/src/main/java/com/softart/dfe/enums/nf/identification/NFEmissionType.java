@@ -33,4 +33,8 @@ public enum NFEmissionType implements DFEnum.Codeable {
     public static List<NFEmissionType> nfe() {
         return Arrays.asList(NFEmissionType.NORMAL, NFEmissionType.SVCAN, NFEmissionType.SVCRS);
     }
+
+    public static boolean isOffline(String tpEmis) {
+        return NFEmissionType.OFFLINE.getCode().equals(tpEmis);
+    }
 }

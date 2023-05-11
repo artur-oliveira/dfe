@@ -29,7 +29,7 @@ public class QrCodeUrlGenerator extends QrCodeGeneratorFactory {
      * Transporte Eletrônico) document. The URL includes the access key and the environment type (tpAmb) as parameters.
      * @throws NoProviderFound Exception throwed if no provider is found
      */
-    private String generate(String uf, String accessKey, String tpAmb) throws NoProviderFound {
+    String generate(String uf, String accessKey, String tpAmb) throws NoProviderFound {
         String url = QrCodeCteURL.get(UF.valueOfCode(uf), Environment.valueOfCode(tpAmb));
         return url + "?chCTe=" + AccessKeyParserFactory.cte().fromId(accessKey) + "&tpAmb=" + tpAmb;
 
