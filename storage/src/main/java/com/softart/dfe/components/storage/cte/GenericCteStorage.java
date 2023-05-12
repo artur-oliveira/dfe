@@ -212,7 +212,7 @@ public abstract class GenericCteStorage extends CommonStorage implements CteStor
     @Override
     public void storeReturnGtve(Store<TRetGTVe> o) throws StorageException {
         try {
-            if (Objects.nonNull(o.data().getProtCTe())) {
+            if (Objects.nonNull(o.data().getProtCTe()) && Objects.nonNull(o.data().getProtCTe().getInfProt().getChCTe())) {
                 getStorageService().writeReturn(o.config(), CteStorageKey.CTE_RECEPTION_GTVE, xmlNameWithTime(AccessKeyParserFactory.cte().fromId(o.data().getProtCTe().getInfProt().getChCTe())), o.xml());
             } else {
                 getStorageService().writeReturn(o.config(), CteStorageKey.CTE_RECEPTION_GTVE, xmlNameWithTime(""), o.xml());
@@ -248,7 +248,7 @@ public abstract class GenericCteStorage extends CommonStorage implements CteStor
     public void storeReturnCteOs(Store<TRetCTeOS> o) throws StorageException {
         try {
             if (Objects.nonNull(o.data())) {
-                if (Objects.nonNull(o.data().getProtCTe())) {
+                if (Objects.nonNull(o.data().getProtCTe()) && Objects.nonNull(o.data().getProtCTe().getInfProt().getChCTe())) {
                     getStorageService().writeReturn(o.config(), CteStorageKey.CTE_RECEPTION_OS, xmlNameWithTime(AccessKeyParserFactory.cte().fromId(o.data().getProtCTe().getInfProt().getChCTe())), o.xml());
                 } else {
                     getStorageService().writeReturn(o.config(), CteStorageKey.CTE_RECEPTION_OS, xmlNameWithTime(""), o.xml());
@@ -320,7 +320,7 @@ public abstract class GenericCteStorage extends CommonStorage implements CteStor
     public void storeReturnCteSync(Store<TRetCTe> o) throws StorageException {
         try {
             if (Objects.nonNull(o.data())) {
-                if (Objects.nonNull(o.data().getProtCTe())) {
+                if (Objects.nonNull(o.data().getProtCTe()) && Objects.nonNull(o.data().getProtCTe().getInfProt().getChCTe())) {
                     getStorageService().writeReturn(o.config(), CteStorageKey.CTE_RECEPTION_SYNC, xmlNameWithTime(AccessKeyParserFactory.cte().fromId(o.data().getProtCTe().getInfProt().getChCTe())), o.xml());
                 } else {
                     getStorageService().writeReturn(o.config(), CteStorageKey.CTE_RECEPTION_SYNC, xmlNameWithTime(""), o.xml());

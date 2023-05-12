@@ -36,7 +36,7 @@ public final class AccessKeyGenerator {
                 DfeOptional.ofLength(uf, 2).orElseThrow(() -> new AccessKeyGeneratorException("uf da chave de acesso inválida: " + uf)),
                 DateUtils.yyMM(emission),
                 StringUtils.padZeroStart(DfeOptional.ofLengthIn(cnpj, 14, 11).orElseThrow(() -> new AccessKeyGeneratorException("cnpj da chave de acesso inválida: " + cnpj)), 14),
-                DfeOptional.ofCondition(Objects.nonNull(model) && model.length() == 2, uf).orElseThrow(() -> new AccessKeyGeneratorException("modelo da chave de acesso inválida: " + model)),
+                DfeOptional.ofCondition(Objects.nonNull(model) && model.length() == 2, model).orElseThrow(() -> new AccessKeyGeneratorException("modelo da chave de acesso inválida: " + model)),
                 StringUtils.padZeroStart(DfeOptional.ofLengthGte(serie, 1).orElseThrow(() -> new AccessKeyGeneratorException("série da chave de acesso inválida: " + serie)), 3),
                 StringUtils.padZeroStart(DfeOptional.ofLengthGte(number, 1).orElseThrow(() -> new AccessKeyGeneratorException("número da chave de acesso inválida: " + number)), 9),
                 DfeOptional.ofLengthEq(emissionType, 1).orElseThrow(() -> new AccessKeyGeneratorException("tipo de emissão da chave de acesso inválido " + emissionType)),
@@ -96,21 +96,21 @@ public final class AccessKeyGenerator {
      */
     public static String digit(String uf, String emission, String cnpj, String model, String serie, String number, String emissionType, String code) {
         final char[] values = AccessKeyGenerator.accessKeyWithoutDV(uf, emission, cnpj, model, serie, number, emissionType, code).toCharArray();
-        final int[] intValues = {2, 3, 4, 5, 6, 7, 8, 9};
-        int index = 0;
-        int sum = 0;
-        int tempValue;
-        int tempMult;
+        final int[] valoresInt = {2, 3, 4, 5, 6, 7, 8, 9};
+        int indice = 0;
+        int soma = 0;
+        int valorTemp;
+        int multTemp;
         for (int i = values.length; i > 0; i--) {
-            if (index >= intValues.length) {
-                index = 0;
+            if (indice >= valoresInt.length) {
+                indice = 0;
             }
 
-            tempValue = Integer.parseInt(String.valueOf(values[i - 1]));
-            tempMult = intValues[index++];
-            sum += tempValue * tempMult;
+            valorTemp = Integer.parseInt(String.valueOf(values[i - 1]));
+            multTemp = valoresInt[indice++];
+            soma += valorTemp * multTemp;
         }
-        final int dv = 11 - (sum % 11);
-        return ((dv == 11) || (dv == 10)) ? String.valueOf(0) : String.valueOf(dv);
+        final int dv = 11 - (soma % 11);
+        return String.valueOf(((dv == 11) || (dv == 10)) ? 0 : dv);
     }
 }
