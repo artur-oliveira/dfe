@@ -48,7 +48,7 @@ public final class DfeOptional {
      * @param maxInclusive The maximum length (inclusive) that the object can have.
      * @return The method is returning an Optional object of type T, which is the same type as the input object o.
      */
-    public static <T> Optional<T> ofLengthRange(T o, long minInclusive, long maxInclusive) {
+    public static <T> Optional<T> ofRange(T o, long minInclusive, long maxInclusive) {
         if (Functions.isNullOrEmpty(o)) return Optional.empty();
         long currentLength = -1;
         if (o.getClass().isArray()) {
@@ -59,6 +59,8 @@ public final class DfeOptional {
             currentLength = col.size();
         } else if (o instanceof Map<?, ?> map) {
             currentLength = map.size();
+        } else if (o instanceof Number number) {
+            currentLength = number.longValue();
         }
         if (currentLength == -1) {
             throw new DfeOptionalException("cannot measure length of class " + o.getClass());
@@ -79,7 +81,7 @@ public final class DfeOptional {
      * empty `Optional` is returned.
      */
     public static <T> Optional<T> ofLengthEq(T o, long length) {
-        return ofLengthRange(o, length, length);
+        return ofRange(o, length, length);
     }
 
     /**
@@ -107,13 +109,13 @@ public final class DfeOptional {
      *               whose length needs to be checked.
      * @param length The "length" parameter represents the minimum length that the object "o" should have in order for the
      *               method to return a non-empty Optional object. In the method implementation, this parameter is used to call the
-     *               "ofLengthRange" method with a minimum length of "length + 1" and
+     *               "ofRange" method with a minimum length of "length + 1" and
      * @return The method `ofLengthGt` returns an `Optional` object that contains a value of type `T` if the length of the
      * input object `o` is greater than the specified `length`. If the length is not greater than the specified value, an
      * empty `Optional` is returned.
      */
     public static <T> Optional<T> ofLengthGt(T o, long length) {
-        return ofLengthRange(o, length + 1, Long.MAX_VALUE);
+        return ofRange(o, length + 1, Long.MAX_VALUE);
     }
 
     /**
@@ -129,7 +131,7 @@ public final class DfeOptional {
      * length, an empty `Optional` is returned.
      */
     public static <T> Optional<T> ofLengthGte(T o, long length) {
-        return ofLengthRange(o, length, Long.MAX_VALUE);
+        return ofRange(o, length, Long.MAX_VALUE);
     }
 
 
@@ -145,7 +147,7 @@ public final class DfeOptional {
      * input object `o` if its length is less than `length`, otherwise the `Optional` object is empty.
      */
     public static <T> Optional<T> ofLengthLt(T o, long length) {
-        return ofLengthRange(o, 0, length - 1);
+        return ofRange(o, 0, length - 1);
     }
 
     /**
@@ -161,7 +163,7 @@ public final class DfeOptional {
      * empty `Optional` is returned.
      */
     public static <T> Optional<T> ofLengthLte(T o, long length) {
-        return ofLengthRange(o, 0, length);
+        return ofRange(o, 0, length);
     }
 
     /**

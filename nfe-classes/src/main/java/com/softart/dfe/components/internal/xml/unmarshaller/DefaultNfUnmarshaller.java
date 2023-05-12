@@ -4,12 +4,11 @@ import br.inf.portalfiscal.nfe.distribution.TDistDFeInt;
 import br.inf.portalfiscal.nfe.send.*;
 import com.softart.dfe.components.internal.xml.context.NfContextFactory;
 import com.softart.dfe.exceptions.xml.UnmarshallException;
-
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.JAXBException;
+
 import java.io.StringReader;
 
-@SuppressWarnings("unchecked")
 final class DefaultNfUnmarshaller extends NfUnmarshallerFactory {
 
     private final br.inf.portalfiscal.nfe.send.ObjectFactory sendNfeObjectFactory = new br.inf.portalfiscal.nfe.send.ObjectFactory();
@@ -27,7 +26,10 @@ final class DefaultNfUnmarshaller extends NfUnmarshallerFactory {
             try (StringReader reader = new StringReader(xml)) {
                 Object o = NfContextFactory.getInstance().getNfeCancelContext().createUnmarshaller().unmarshal(reader);
                 if (o instanceof JAXBElement) {
-                    return (JAXBElement<br.inf.portalfiscal.nfe.event_cancel.TEnvEvento>) o;
+                    if (!(((JAXBElement<?>) o).getValue() instanceof br.inf.portalfiscal.nfe.event_cancel.TEnvEvento)) {
+                        throw new UnmarshallException("cannot convert to TEnvEvento", xml);
+                    }
+                    return cancelNfeObjectFactory.createEnvEvento((br.inf.portalfiscal.nfe.event_cancel.TEnvEvento) ((JAXBElement<?>) o).getValue());
                 }
                 return cancelNfeObjectFactory.createEnvEvento((br.inf.portalfiscal.nfe.event_cancel.TEnvEvento) o);
             }
@@ -42,7 +44,10 @@ final class DefaultNfUnmarshaller extends NfUnmarshallerFactory {
             try (StringReader reader = new StringReader(xml)) {
                 Object o = NfContextFactory.getInstance().getNfeCancelContext().createUnmarshaller().unmarshal(reader);
                 if (o instanceof JAXBElement) {
-                    return (JAXBElement<br.inf.portalfiscal.nfe.event_cancel.TRetEnvEvento>) o;
+                    if (!(((JAXBElement<?>) o).getValue() instanceof br.inf.portalfiscal.nfe.event_cancel.TRetEnvEvento)) {
+                        throw new UnmarshallException("cannot convert to TRetEnvEvento", xml);
+                    }
+                    return cancelNfeObjectFactory.createRetEnvEvento((br.inf.portalfiscal.nfe.event_cancel.TRetEnvEvento) ((JAXBElement<?>) o).getValue());
                 }
                 return cancelNfeObjectFactory.createRetEnvEvento((br.inf.portalfiscal.nfe.event_cancel.TRetEnvEvento) o);
             }
@@ -57,7 +62,10 @@ final class DefaultNfUnmarshaller extends NfUnmarshallerFactory {
             try (StringReader reader = new StringReader(xml)) {
                 Object o = NfContextFactory.getInstance().getNfeCancelContext().createUnmarshaller().unmarshal(reader);
                 if (o instanceof JAXBElement) {
-                    return (JAXBElement<br.inf.portalfiscal.nfe.event_cancel.TProcEvento>) o;
+                    if (!(((JAXBElement<?>) o).getValue() instanceof br.inf.portalfiscal.nfe.event_cancel.TProcEvento)) {
+                        throw new UnmarshallException("cannot convert to TProcEvento", xml);
+                    }
+                    return cancelNfeObjectFactory.createProcEventoNFe((br.inf.portalfiscal.nfe.event_cancel.TProcEvento) ((JAXBElement<?>) o).getValue());
                 }
                 return cancelNfeObjectFactory.createProcEventoNFe((br.inf.portalfiscal.nfe.event_cancel.TProcEvento) o);
             }
@@ -73,7 +81,10 @@ final class DefaultNfUnmarshaller extends NfUnmarshallerFactory {
                 Object o = NfContextFactory.getInstance().getNfeSubstituteCancelContext().createUnmarshaller().unmarshal(reader);
 
                 if (o instanceof JAXBElement) {
-                    return (JAXBElement<br.inf.portalfiscal.nfe.event_substitute_cancel.TEnvEvento>) o;
+                    if (!(((JAXBElement<?>) o).getValue() instanceof br.inf.portalfiscal.nfe.event_substitute_cancel.TEnvEvento)) {
+                        throw new UnmarshallException("cannot convert to TEnvEvento", xml);
+                    }
+                    return substituteCancelNfeObjectFactory.createEnvEvento((br.inf.portalfiscal.nfe.event_substitute_cancel.TEnvEvento) ((JAXBElement<?>) o).getValue());
                 }
                 return substituteCancelNfeObjectFactory.createEnvEvento((br.inf.portalfiscal.nfe.event_substitute_cancel.TEnvEvento) o);
             }
@@ -89,7 +100,10 @@ final class DefaultNfUnmarshaller extends NfUnmarshallerFactory {
                 Object o = NfContextFactory.getInstance().getNfeSubstituteCancelContext().createUnmarshaller().unmarshal(reader);
 
                 if (o instanceof JAXBElement) {
-                    return (JAXBElement<br.inf.portalfiscal.nfe.event_substitute_cancel.TRetEnvEvento>) o;
+                    if (!(((JAXBElement<?>) o).getValue() instanceof br.inf.portalfiscal.nfe.event_substitute_cancel.TRetEnvEvento)) {
+                        throw new UnmarshallException("cannot convert to TRetEnvEvento", xml);
+                    }
+                    return substituteCancelNfeObjectFactory.createRetEnvEvento((br.inf.portalfiscal.nfe.event_substitute_cancel.TRetEnvEvento) ((JAXBElement<?>) o).getValue());
                 }
                 return substituteCancelNfeObjectFactory.createRetEnvEvento((br.inf.portalfiscal.nfe.event_substitute_cancel.TRetEnvEvento) o);
             }
@@ -105,7 +119,10 @@ final class DefaultNfUnmarshaller extends NfUnmarshallerFactory {
                 Object o = NfContextFactory.getInstance().getNfeSubstituteCancelContext().createUnmarshaller().unmarshal(reader);
 
                 if (o instanceof JAXBElement) {
-                    return (JAXBElement<br.inf.portalfiscal.nfe.event_substitute_cancel.TProcEvento>) o;
+                    if (!(((JAXBElement<?>) o).getValue() instanceof br.inf.portalfiscal.nfe.event_substitute_cancel.TProcEvento)) {
+                        throw new UnmarshallException("cannot convert to TProcEvento", xml);
+                    }
+                    return substituteCancelNfeObjectFactory.createProcEventoNFe((br.inf.portalfiscal.nfe.event_substitute_cancel.TProcEvento) ((JAXBElement<?>) o).getValue());
                 }
                 return substituteCancelNfeObjectFactory.createProcEventoNFe((br.inf.portalfiscal.nfe.event_substitute_cancel.TProcEvento) o);
             }
@@ -120,7 +137,10 @@ final class DefaultNfUnmarshaller extends NfUnmarshallerFactory {
             try (StringReader reader = new StringReader(xml)) {
                 Object o = NfContextFactory.getInstance().getNfeSendContext().createUnmarshaller().unmarshal(reader);
                 if (o instanceof JAXBElement) {
-                    return (JAXBElement<TEnviNFe>) o;
+                    if (!(((JAXBElement<?>) o).getValue() instanceof TEnviNFe)) {
+                        throw new UnmarshallException("cannot convert to TEnviNFe", xml);
+                    }
+                    return sendNfeObjectFactory.createEnviNFe((TEnviNFe) ((JAXBElement<?>) o).getValue());
                 }
                 return sendNfeObjectFactory.createEnviNFe((TEnviNFe) o);
             }
@@ -135,7 +155,10 @@ final class DefaultNfUnmarshaller extends NfUnmarshallerFactory {
             try (StringReader reader = new StringReader(xml)) {
                 Object o = NfContextFactory.getInstance().getNfeSendContext().createUnmarshaller().unmarshal(reader);
                 if (o instanceof JAXBElement) {
-                    return (JAXBElement<TInutNFe>) o;
+                    if (!(((JAXBElement<?>) o).getValue() instanceof TInutNFe)) {
+                        throw new UnmarshallException("cannot convert to TInutNFe", xml);
+                    }
+                    return sendNfeObjectFactory.createInutNFe((TInutNFe) ((JAXBElement<?>) o).getValue());
                 }
                 return sendNfeObjectFactory.createInutNFe((TInutNFe) o);
             }
@@ -150,7 +173,10 @@ final class DefaultNfUnmarshaller extends NfUnmarshallerFactory {
             try (StringReader reader = new StringReader(xml)) {
                 Object o = NfContextFactory.getInstance().getNfeSendContext().createUnmarshaller().unmarshal(reader);
                 if (o instanceof JAXBElement) {
-                    return (JAXBElement<TRetInutNFe>) o;
+                    if (!(((JAXBElement<?>) o).getValue() instanceof TRetInutNFe)) {
+                        throw new UnmarshallException("cannot convert to TRetInutNFe", xml);
+                    }
+                    return sendNfeObjectFactory.createRetInutNFe((TRetInutNFe) ((JAXBElement<?>) o).getValue());
                 }
                 return sendNfeObjectFactory.createRetInutNFe((TRetInutNFe) o);
             }
@@ -165,7 +191,10 @@ final class DefaultNfUnmarshaller extends NfUnmarshallerFactory {
             try (StringReader reader = new StringReader(xml)) {
                 Object o = NfContextFactory.getInstance().getNfeSendContext().createUnmarshaller().unmarshal(reader);
                 if (o instanceof JAXBElement) {
-                    return (JAXBElement<TProcInutNFe>) o;
+                    if (!(((JAXBElement<?>) o).getValue() instanceof TProcInutNFe)) {
+                        throw new UnmarshallException("cannot convert to TProcInutNFe", xml);
+                    }
+                    return sendNfeObjectFactory.createProcInutNFe((TProcInutNFe) ((JAXBElement<?>) o).getValue());
                 }
                 return sendNfeObjectFactory.createProcInutNFe((TProcInutNFe) o);
             }
@@ -180,7 +209,10 @@ final class DefaultNfUnmarshaller extends NfUnmarshallerFactory {
             try (StringReader reader = new StringReader(xml)) {
                 Object o = NfContextFactory.getInstance().getNfeSendContext().createUnmarshaller().unmarshal(reader);
                 if (o instanceof JAXBElement) {
-                    return (JAXBElement<TConsReciNFe>) o;
+                    if (!(((JAXBElement<?>) o).getValue() instanceof TConsReciNFe)) {
+                        throw new UnmarshallException("cannot convert to TConsReciNFe", xml);
+                    }
+                    return sendNfeObjectFactory.createConsReciNFe((TConsReciNFe) ((JAXBElement<?>) o).getValue());
                 }
                 return sendNfeObjectFactory.createConsReciNFe((TConsReciNFe) o);
             }
@@ -195,7 +227,10 @@ final class DefaultNfUnmarshaller extends NfUnmarshallerFactory {
             try (StringReader reader = new StringReader(xml)) {
                 Object o = NfContextFactory.getInstance().getNfeSendContext().createUnmarshaller().unmarshal(reader);
                 if (o instanceof JAXBElement) {
-                    return (JAXBElement<TConsSitNFe>) o;
+                    if (!(((JAXBElement<?>) o).getValue() instanceof TConsSitNFe)) {
+                        throw new UnmarshallException("cannot convert to TConsSitNFe", xml);
+                    }
+                    return sendNfeObjectFactory.createConsSitNFe((TConsSitNFe) ((JAXBElement<?>) o).getValue());
                 }
                 return sendNfeObjectFactory.createConsSitNFe((TConsSitNFe) o);
             }
@@ -211,7 +246,10 @@ final class DefaultNfUnmarshaller extends NfUnmarshallerFactory {
                 Object o = NfContextFactory.getInstance().getNfeDistributionContext().createUnmarshaller().unmarshal(reader);
 
                 if (o instanceof JAXBElement) {
-                    return (JAXBElement<TDistDFeInt>) o;
+                    if (!(((JAXBElement<?>) o).getValue() instanceof TDistDFeInt)) {
+                        throw new UnmarshallException("cannot convert to TDistDFeInt", xml);
+                    }
+                    return distributionNfeObjectFactory.createDistDFeInt((TDistDFeInt) ((JAXBElement<?>) o).getValue());
                 }
                 return distributionNfeObjectFactory.createDistDFeInt((TDistDFeInt) o);
             }
@@ -227,7 +265,10 @@ final class DefaultNfUnmarshaller extends NfUnmarshallerFactory {
                 Object o = NfContextFactory.getInstance().getNfeManifestationContext().createUnmarshaller().unmarshal(reader);
 
                 if (o instanceof JAXBElement) {
-                    return (JAXBElement<br.inf.portalfiscal.nfe.event_manifestation.TEnvEvento>) o;
+                    if (!(((JAXBElement<?>) o).getValue() instanceof br.inf.portalfiscal.nfe.event_manifestation.TEnvEvento)) {
+                        throw new UnmarshallException("cannot convert to TEnvEvento", xml);
+                    }
+                    return manifestationNfeObjectFactory.createEnvEvento((br.inf.portalfiscal.nfe.event_manifestation.TEnvEvento) ((JAXBElement<?>) o).getValue());
                 }
                 return manifestationNfeObjectFactory.createEnvEvento((br.inf.portalfiscal.nfe.event_manifestation.TEnvEvento) o);
             }
@@ -243,7 +284,10 @@ final class DefaultNfUnmarshaller extends NfUnmarshallerFactory {
                 Object o = NfContextFactory.getInstance().getNfeManifestationContext().createUnmarshaller().unmarshal(reader);
 
                 if (o instanceof JAXBElement) {
-                    return (JAXBElement<br.inf.portalfiscal.nfe.event_manifestation.TRetEnvEvento>) o;
+                    if (!(((JAXBElement<?>) o).getValue() instanceof br.inf.portalfiscal.nfe.event_manifestation.TRetEnvEvento)) {
+                        throw new UnmarshallException("cannot convert to TRetEnvEvento", xml);
+                    }
+                    return manifestationNfeObjectFactory.createRetEnvEvento((br.inf.portalfiscal.nfe.event_manifestation.TRetEnvEvento) ((JAXBElement<?>) o).getValue());
                 }
                 return manifestationNfeObjectFactory.createRetEnvEvento((br.inf.portalfiscal.nfe.event_manifestation.TRetEnvEvento) o);
             }
@@ -259,7 +303,10 @@ final class DefaultNfUnmarshaller extends NfUnmarshallerFactory {
                 Object o = NfContextFactory.getInstance().getNfeManifestationContext().createUnmarshaller().unmarshal(reader);
 
                 if (o instanceof JAXBElement) {
-                    return (JAXBElement<br.inf.portalfiscal.nfe.event_manifestation.TProcEvento>) o;
+                    if (!(((JAXBElement<?>) o).getValue() instanceof br.inf.portalfiscal.nfe.event_manifestation.TProcEvento)) {
+                        throw new UnmarshallException("cannot convert to TProcEvento", xml);
+                    }
+                    return manifestationNfeObjectFactory.createProcEventoNFe((br.inf.portalfiscal.nfe.event_manifestation.TProcEvento) ((JAXBElement<?>) o).getValue());
                 }
                 return manifestationNfeObjectFactory.createProcEventoNFe((br.inf.portalfiscal.nfe.event_manifestation.TProcEvento) o);
             }
@@ -275,7 +322,10 @@ final class DefaultNfUnmarshaller extends NfUnmarshallerFactory {
                 Object o = NfContextFactory.getInstance().getNfeEpecContext().createUnmarshaller().unmarshal(reader);
 
                 if (o instanceof JAXBElement) {
-                    return (JAXBElement<br.inf.portalfiscal.nfe.event_epec.TEnvEvento>) o;
+                    if (!(((JAXBElement<?>) o).getValue() instanceof br.inf.portalfiscal.nfe.event_epec.TEnvEvento)) {
+                        throw new UnmarshallException("cannot convert to TEnvEvento", xml);
+                    }
+                    return epecNfeObjectFactory.createEnvEvento((br.inf.portalfiscal.nfe.event_epec.TEnvEvento) ((JAXBElement<?>) o).getValue());
                 }
                 return epecNfeObjectFactory.createEnvEvento((br.inf.portalfiscal.nfe.event_epec.TEnvEvento) o);
             }
@@ -291,7 +341,10 @@ final class DefaultNfUnmarshaller extends NfUnmarshallerFactory {
                 Object o = NfContextFactory.getInstance().getNfeEpecContext().createUnmarshaller().unmarshal(reader);
 
                 if (o instanceof JAXBElement) {
-                    return (JAXBElement<br.inf.portalfiscal.nfe.event_epec.TRetEnvEvento>) o;
+                    if (!(((JAXBElement<?>) o).getValue() instanceof br.inf.portalfiscal.nfe.event_epec.TRetEnvEvento)) {
+                        throw new UnmarshallException("cannot convert to TRetEnvEvento", xml);
+                    }
+                    return epecNfeObjectFactory.createRetEnvEvento((br.inf.portalfiscal.nfe.event_epec.TRetEnvEvento) ((JAXBElement<?>) o).getValue());
                 }
                 return epecNfeObjectFactory.createRetEnvEvento((br.inf.portalfiscal.nfe.event_epec.TRetEnvEvento) o);
             }
@@ -307,7 +360,10 @@ final class DefaultNfUnmarshaller extends NfUnmarshallerFactory {
                 Object o = NfContextFactory.getInstance().getNfeEpecContext().createUnmarshaller().unmarshal(reader);
 
                 if (o instanceof JAXBElement) {
-                    return (JAXBElement<br.inf.portalfiscal.nfe.event_epec.TProcEvento>) o;
+                    if (!(((JAXBElement<?>) o).getValue() instanceof br.inf.portalfiscal.nfe.event_epec.TProcEvento)) {
+                        throw new UnmarshallException("cannot convert to TProcEvento", xml);
+                    }
+                    return epecNfeObjectFactory.createProcEventoNFe((br.inf.portalfiscal.nfe.event_epec.TProcEvento) ((JAXBElement<?>) o).getValue());
                 }
                 return epecNfeObjectFactory.createProcEventoNFe((br.inf.portalfiscal.nfe.event_epec.TProcEvento) o);
             }
@@ -323,7 +379,10 @@ final class DefaultNfUnmarshaller extends NfUnmarshallerFactory {
                 Object o = NfContextFactory.getInstance().getNfeCorrectionLetterContext().createUnmarshaller().unmarshal(reader);
 
                 if (o instanceof JAXBElement) {
-                    return (JAXBElement<br.inf.portalfiscal.nfe.event_correction_letter.TEnvEvento>) o;
+                    if (!(((JAXBElement<?>) o).getValue() instanceof br.inf.portalfiscal.nfe.event_correction_letter.TEnvEvento)) {
+                        throw new UnmarshallException("cannot convert to TEnvEvento", xml);
+                    }
+                    return correcetionLetterNfeObjectFactory.createEnvEvento((br.inf.portalfiscal.nfe.event_correction_letter.TEnvEvento) ((JAXBElement<?>) o).getValue());
                 }
                 return correcetionLetterNfeObjectFactory.createEnvEvento((br.inf.portalfiscal.nfe.event_correction_letter.TEnvEvento) o);
             }
@@ -340,7 +399,10 @@ final class DefaultNfUnmarshaller extends NfUnmarshallerFactory {
                 Object o = NfContextFactory.getInstance().getNfeCorrectionLetterContext().createUnmarshaller().unmarshal(reader);
 
                 if (o instanceof JAXBElement) {
-                    return (JAXBElement<br.inf.portalfiscal.nfe.event_correction_letter.TRetEnvEvento>) o;
+                    if (!(((JAXBElement<?>) o).getValue() instanceof br.inf.portalfiscal.nfe.event_correction_letter.TRetEnvEvento)) {
+                        throw new UnmarshallException("cannot convert to TRetEnvEvento", xml);
+                    }
+                    return correcetionLetterNfeObjectFactory.createRetEnvEvento((br.inf.portalfiscal.nfe.event_correction_letter.TRetEnvEvento) ((JAXBElement<?>) o).getValue());
                 }
                 return correcetionLetterNfeObjectFactory.createRetEnvEvento((br.inf.portalfiscal.nfe.event_correction_letter.TRetEnvEvento) o);
             }
@@ -356,7 +418,10 @@ final class DefaultNfUnmarshaller extends NfUnmarshallerFactory {
                 Object o = NfContextFactory.getInstance().getNfeCorrectionLetterContext().createUnmarshaller().unmarshal(reader);
 
                 if (o instanceof JAXBElement) {
-                    return (JAXBElement<br.inf.portalfiscal.nfe.event_correction_letter.TProcEvento>) o;
+                    if (!(((JAXBElement<?>) o).getValue() instanceof br.inf.portalfiscal.nfe.event_correction_letter.TProcEvento)) {
+                        throw new UnmarshallException("cannot convert to TProcEvento", xml);
+                    }
+                    return correcetionLetterNfeObjectFactory.createProcEventoNFe((br.inf.portalfiscal.nfe.event_correction_letter.TProcEvento) ((JAXBElement<?>) o).getValue());
                 }
                 return correcetionLetterNfeObjectFactory.createProcEventoNFe((br.inf.portalfiscal.nfe.event_correction_letter.TProcEvento) o);
             }
@@ -371,7 +436,10 @@ final class DefaultNfUnmarshaller extends NfUnmarshallerFactory {
             try (StringReader reader = new StringReader(xml)) {
                 Object o = NfContextFactory.getInstance().getNfeInterestedActorContext().createUnmarshaller().unmarshal(reader);
                 if (o instanceof JAXBElement) {
-                    return (JAXBElement<br.inf.portalfiscal.nfe.event_interested_actor.TEnvEvento>) o;
+                    if (!(((JAXBElement<?>) o).getValue() instanceof br.inf.portalfiscal.nfe.event_interested_actor.TEnvEvento)) {
+                        throw new UnmarshallException("cannot convert to TEnvEvento", xml);
+                    }
+                    return interestedActorNfeObjectFactory.createEnvEvento((br.inf.portalfiscal.nfe.event_interested_actor.TEnvEvento) ((JAXBElement<?>) o).getValue());
                 }
                 return interestedActorNfeObjectFactory.createEnvEvento((br.inf.portalfiscal.nfe.event_interested_actor.TEnvEvento) o);
             }
@@ -386,7 +454,10 @@ final class DefaultNfUnmarshaller extends NfUnmarshallerFactory {
             try (StringReader reader = new StringReader(xml)) {
                 Object o = NfContextFactory.getInstance().getNfeInterestedActorContext().createUnmarshaller().unmarshal(reader);
                 if (o instanceof JAXBElement) {
-                    return (JAXBElement<br.inf.portalfiscal.nfe.event_interested_actor.TRetEnvEvento>) o;
+                    if (!(((JAXBElement<?>) o).getValue() instanceof br.inf.portalfiscal.nfe.event_interested_actor.TRetEnvEvento)) {
+                        throw new UnmarshallException("cannot convert to TRetEnvEvento", xml);
+                    }
+                    return interestedActorNfeObjectFactory.createRetEnvEvento((br.inf.portalfiscal.nfe.event_interested_actor.TRetEnvEvento) ((JAXBElement<?>) o).getValue());
                 }
                 return interestedActorNfeObjectFactory.createRetEnvEvento((br.inf.portalfiscal.nfe.event_interested_actor.TRetEnvEvento) o);
             }
@@ -401,7 +472,10 @@ final class DefaultNfUnmarshaller extends NfUnmarshallerFactory {
             try (StringReader reader = new StringReader(xml)) {
                 Object o = NfContextFactory.getInstance().getNfeInterestedActorContext().createUnmarshaller().unmarshal(reader);
                 if (o instanceof JAXBElement) {
-                    return (JAXBElement<br.inf.portalfiscal.nfe.event_interested_actor.TProcEvento>) o;
+                    if (!(((JAXBElement<?>) o).getValue() instanceof br.inf.portalfiscal.nfe.event_interested_actor.TProcEvento)) {
+                        throw new UnmarshallException("cannot convert to TProcEvento", xml);
+                    }
+                    return interestedActorNfeObjectFactory.createProcEventoNFe((br.inf.portalfiscal.nfe.event_interested_actor.TProcEvento) ((JAXBElement<?>) o).getValue());
                 }
                 return interestedActorNfeObjectFactory.createProcEventoNFe((br.inf.portalfiscal.nfe.event_interested_actor.TProcEvento) o);
             }
@@ -416,7 +490,10 @@ final class DefaultNfUnmarshaller extends NfUnmarshallerFactory {
             try (StringReader reader = new StringReader(xml)) {
                 Object o = NfContextFactory.getInstance().getNfeSendContext().createUnmarshaller().unmarshal(reader);
                 if (o instanceof JAXBElement) {
-                    return (JAXBElement<TNFe>) o;
+                    if (!(((JAXBElement<?>) o).getValue() instanceof TNFe)) {
+                        throw new UnmarshallException("cannot convert to TNFe", xml);
+                    }
+                    return sendNfeObjectFactory.createNFe((TNFe) ((JAXBElement<?>) o).getValue());
                 }
                 return sendNfeObjectFactory.createNFe((TNFe) o);
             }
@@ -426,12 +503,15 @@ final class DefaultNfUnmarshaller extends NfUnmarshallerFactory {
     }
 
     @Override
-    public JAXBElement<TNfeProc> nfeProc(String xmlProc) {
+    public JAXBElement<TNfeProc> nfeProc(String xml) {
         try {
-            try (StringReader reader = new StringReader(xmlProc)) {
+            try (StringReader reader = new StringReader(xml)) {
                 Object o = NfContextFactory.getInstance().getNfeSendContext().createUnmarshaller().unmarshal(reader);
                 if (o instanceof JAXBElement) {
-                    return (JAXBElement<TNfeProc>) o;
+                    if (!(((JAXBElement<?>) o).getValue() instanceof TNfeProc)) {
+                        throw new UnmarshallException("cannot convert to TNfeProc", xml);
+                    }
+                    return sendNfeObjectFactory.createNfeProc((TNfeProc) ((JAXBElement<?>) o).getValue());
                 }
                 return sendNfeObjectFactory.createNfeProc((TNfeProc) o);
             }
@@ -446,7 +526,10 @@ final class DefaultNfUnmarshaller extends NfUnmarshallerFactory {
             try (StringReader reader = new StringReader(xml)) {
                 Object o = NfContextFactory.getInstance().getNfeSendContext().createUnmarshaller().unmarshal(reader);
                 if (o instanceof JAXBElement) {
-                    return (JAXBElement<TConsCad>) o;
+                    if (!(((JAXBElement<?>) o).getValue() instanceof TConsCad)) {
+                        throw new UnmarshallException("cannot convert to TConsCad", xml);
+                    }
+                    return sendNfeObjectFactory.createConsCad((TConsCad) ((JAXBElement<?>) o).getValue());
                 }
                 return sendNfeObjectFactory.createConsCad((TConsCad) o);
             }
@@ -461,7 +544,10 @@ final class DefaultNfUnmarshaller extends NfUnmarshallerFactory {
             try (StringReader reader = new StringReader(xml)) {
                 Object o = NfContextFactory.getInstance().getNfeSendContext().createUnmarshaller().unmarshal(reader);
                 if (o instanceof JAXBElement) {
-                    return (JAXBElement<TRetConsCad>) o;
+                    if (!(((JAXBElement<?>) o).getValue() instanceof TRetConsCad)) {
+                        throw new UnmarshallException("cannot convert to TRetConsCad", xml);
+                    }
+                    return sendNfeObjectFactory.createRetConsCad((TRetConsCad) ((JAXBElement<?>) o).getValue());
                 }
                 return sendNfeObjectFactory.createRetConsCad((TRetConsCad) o);
             }

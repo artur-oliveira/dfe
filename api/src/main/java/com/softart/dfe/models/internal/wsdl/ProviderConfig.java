@@ -8,12 +8,10 @@ import lombok.NoArgsConstructor;
 
 import jakarta.xml.ws.BindingProvider;
 
-@Data
 @Builder
-@AllArgsConstructor
-@NoArgsConstructor
-public final class ProviderConfig {
-    private BindingProvider port;
-    private Config config;
-    private String overridePortAddress;
+public record ProviderConfig(
+        BindingProvider port,
+        Config config,
+        String overridePortAddress
+) {
 }

@@ -33,14 +33,14 @@ public final class AccessKeyGenerator {
     static String accessKeyWithoutDV(String uf, String emission, String cnpj, String model, String serie, String number, String emissionType, String code) {
         return String.join(
                 "",
-                DfeOptional.ofLength(uf, 2).orElseThrow(() -> new AccessKeyGeneratorException("UF da chave de acesso inválida: " + uf)),
+                DfeOptional.ofLength(uf, 2).orElseThrow(() -> new AccessKeyGeneratorException("uf da chave de acesso inválida: " + uf)),
                 DateUtils.yyMM(emission),
-                StringUtils.padZeroStart(DfeOptional.ofLengthIn(cnpj, 14, 11).orElseThrow(() -> new AccessKeyGeneratorException("CNPJ da chave de acesso inválida: " + cnpj)), 14),
-                DfeOptional.ofCondition(Objects.nonNull(model) && model.length() == 2, uf).orElseThrow(() -> new AccessKeyGeneratorException("Modelo da chave de acesso inválida: " + model)),
-                StringUtils.padZeroStart(DfeOptional.ofLengthGte(serie, 1).orElseThrow(() -> new AccessKeyGeneratorException("Série da chave de acesso inválida: " + serie)), 3),
-                StringUtils.padZeroStart(DfeOptional.ofLengthGte(number, 1).orElseThrow(() -> new AccessKeyGeneratorException("Número da chave de acesso inválida: " + number)), 9),
-                DfeOptional.ofLengthEq(emissionType, 1).orElseThrow(() -> new AccessKeyGeneratorException("Tipo de emissão da chave de acesso inválido " + emissionType)),
-                DfeOptional.ofLength(code, 8).orElseThrow(() -> new AccessKeyGeneratorException("Código da chave de acesso inválido: " + code))
+                StringUtils.padZeroStart(DfeOptional.ofLengthIn(cnpj, 14, 11).orElseThrow(() -> new AccessKeyGeneratorException("cnpj da chave de acesso inválida: " + cnpj)), 14),
+                DfeOptional.ofCondition(Objects.nonNull(model) && model.length() == 2, uf).orElseThrow(() -> new AccessKeyGeneratorException("modelo da chave de acesso inválida: " + model)),
+                StringUtils.padZeroStart(DfeOptional.ofLengthGte(serie, 1).orElseThrow(() -> new AccessKeyGeneratorException("série da chave de acesso inválida: " + serie)), 3),
+                StringUtils.padZeroStart(DfeOptional.ofLengthGte(number, 1).orElseThrow(() -> new AccessKeyGeneratorException("número da chave de acesso inválida: " + number)), 9),
+                DfeOptional.ofLengthEq(emissionType, 1).orElseThrow(() -> new AccessKeyGeneratorException("tipo de emissão da chave de acesso inválido " + emissionType)),
+                DfeOptional.ofLength(code, 8).orElseThrow(() -> new AccessKeyGeneratorException("código da chave de acesso inválido: " + code))
         );
     }
 

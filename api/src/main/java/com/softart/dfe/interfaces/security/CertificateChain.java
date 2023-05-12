@@ -16,21 +16,21 @@ public interface CertificateChain {
      *
      * @return The environment is being returned.
      */
-    Environment getEnvironment();
+    Environment environment();
 
     /**
      * It returns the UF of the current state.
      *
      * @return The UF object.
      */
-    UF getUf();
+    UF uf();
 
     /**
      * Returns the model that this view is associated with
      *
      * @return The model is being returned.
      */
-    Model getModel();
+    Model model();
 
     /**
      * Returns the name of the file.

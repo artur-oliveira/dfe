@@ -1847,8 +1847,8 @@ public class ObjectFactory {
      * @return the new instance of {@link JAXBElement }{@code <}{@link Object }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "evRegMultimodal")
-    public JAXBElement<Object> createEvRegMultimodal(Object value) {
-        return new JAXBElement<>(_EvRegMultimodal_QNAME, Object.class, null, value);
+    public JAXBElement<EvRegMultimodal> createEvRegMultimodal(EvRegMultimodal value) {
+        return new JAXBElement<>(_EvRegMultimodal_QNAME, EvRegMultimodal.class, null, value);
     }
 
     /**

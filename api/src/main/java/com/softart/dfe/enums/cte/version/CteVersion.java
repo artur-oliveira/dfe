@@ -8,7 +8,18 @@ import java.util.Objects;
 @Getter
 public enum CteVersion {
 
-    VERSION_300("3.00");
+    VERSION_300("3.00") {
+        @Override
+        public String xsdRootPath() {
+            return "xsds/cte/PL_CTe_300a_NT2022.001";
+        }
+    },
+    VERSION_400("4.00") {
+        @Override
+        public String xsdRootPath() {
+            return "xsds/cte/PL_CTe_400";
+        }
+    };
 
     private final String version;
 
@@ -22,5 +33,11 @@ public enum CteVersion {
 
     public static CteVersion getDefault() {
         return valueOfVersion(System.getProperty("com.softart.dfe.cte.version", "3.00"));
+    }
+
+    public abstract String xsdRootPath();
+
+    public String getXsdPath(String xsdName) {
+        return xsdRootPath() + "/" + xsdName + getVersion() + ".xsd";
     }
 }

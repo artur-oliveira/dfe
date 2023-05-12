@@ -13,7 +13,6 @@ public enum Model implements DFEnum.Codeable {
     MDFE("58", "MDF-e"),
     GTVE("64", "GTV-e"),
     NFCE("65", "NFC-e"),
-
     CTE_OS("67", "CT-e OS");
 
     private final String code;

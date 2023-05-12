@@ -3,15 +3,13 @@ package com.softart.dfe.models.internal.nf;
 import com.softart.dfe.interfaces.internal.config.NfceConfig;
 import com.softart.dfe.interfaces.xml.XMLSignerService;
 import com.softart.dfe.models.nf.authorization.Nf;
-import lombok.*;
+import lombok.Builder;
 
-@Data
 @Builder
-@With
-@AllArgsConstructor
-@NoArgsConstructor
-public final class NfQrCode {
-    private Nf nf;
-    private NfceConfig config;
-    private XMLSignerService xmlSigner;
+public record NfQrCode(
+        Nf nf,
+        NfceConfig config,
+        XMLSignerService xmlSigner
+) {
+
 }

@@ -9,6 +9,8 @@ import java.util.stream.Collectors;
 
 public final class StringUtils {
 
+    private static final String EMPTY = "";
+
     /**
      * This is a private constructor that throws an exception if it is ever called. It is used to prevent instances of the
      * `StringUtils` class from being created, as all the methods in the class are static and there is no need to create an
@@ -35,12 +37,12 @@ public final class StringUtils {
      * @return An empty string.
      */
     public static String empty() {
-        return "";
+        return EMPTY;
     }
 
     /**
      * "Concatenate the string representations of the given arguments."
-
+     * <p>
      * The @SafeVarargs annotation is a compile-time annotation that tells the compiler that the annotated method is safe
      * to use with generics
      *
@@ -83,7 +85,6 @@ public final class StringUtils {
 
     /**
      * "If the text is null, return null, otherwise return the text in upper case."
-
      *
      * @param text The text to convert to upper case.
      * @return A string that is the uppercase version of the text.
@@ -95,7 +96,6 @@ public final class StringUtils {
 
     /**
      * "If the text is null, return null, otherwise return the text in lower case."
-
      *
      * @param text The text to convert to lower case.
      * @return A string that is the lowercase version of the text.
@@ -108,7 +108,6 @@ public final class StringUtils {
 
     /**
      * Generates a random number with the specified number of digits
-
      *
      * @return A random number of the specified length as a string
      * @see NumberUtils
@@ -119,7 +118,6 @@ public final class StringUtils {
 
     /**
      * It returns a random number of the specified length as a string
-
      *
      * @param digCount The number of digits in the random number.
      * @return A random number of the specified length as a string

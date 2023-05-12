@@ -8,7 +8,19 @@ import java.util.Objects;
 @Getter
 public enum CteEventVersion {
 
-    VERSION_300("3.00");
+    VERSION_300("3.00") {
+        @Override
+        public String xsdRootPath() {
+            return "xsds/cte/PL_CTe_300a_NT2022.001";
+        }
+    },
+    VERSION_400("4.00") {
+        @Override
+        public String xsdRootPath() {
+            return "xsds/cte/PL_CTe_400";
+        }
+    },
+    ;
 
     private final String version;
 
@@ -23,4 +35,6 @@ public enum CteEventVersion {
     public static CteEventVersion getDefault() {
         return valueOfVersion(System.getProperty("com.softart.dfe.cte.event.version", "3.00"));
     }
+
+    public abstract String xsdRootPath();
 }

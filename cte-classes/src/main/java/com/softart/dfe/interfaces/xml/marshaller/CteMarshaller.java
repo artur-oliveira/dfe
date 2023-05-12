@@ -1,68 +1,114 @@
 package com.softart.dfe.interfaces.xml.marshaller;
 
-import br.inf.portalfiscal.cte.distribution.DistDFeInt;
-import br.inf.portalfiscal.cte.distribution.RetDistDFeInt;
-import br.inf.portalfiscal.cte.send.*;
 import org.w3c.dom.Element;
 
 public interface CteMarshaller {
-    String distributionCte(DistDFeInt data);
 
-    String returnDistributionCte(RetDistDFeInt data);
+    String distributionCte(br.inf.portalfiscal.cte.distribution.DistDFeInt data);
 
-    String eventCte(TEvento data);
+    String returnDistributionCte(br.inf.portalfiscal.cte.distribution.RetDistDFeInt data);
 
-    String returnEventCte(TRetEvento data);
+    String eventCte(br.inf.portalfiscal.cte.send.TEvento data);
 
-    String procEventCte(TProcEvento data);
+    String eventCte(br.inf.portalfiscal.cte.send400.TEvento data);
 
-    String inutilizationCte(TInutCTe data);
+    String returnEventCte(br.inf.portalfiscal.cte.send.TRetEvento data);
 
-    String returnInutilizationCte(TRetInutCTe data);
+    String returnEventCte(br.inf.portalfiscal.cte.send400.TRetEvento data);
 
-    String procInutilizationCte(TProcInutCTe data);
+    String procEventCte(br.inf.portalfiscal.cte.send.TProcEvento data);
 
-    String querySituationCte(TConsSitCTe data);
+    String procEventCte(br.inf.portalfiscal.cte.send400.TProcEvento data);
 
-    String returnQuerySituationCte(TRetConsSitCTe data);
+    String inutilizationCte(br.inf.portalfiscal.cte.send.TInutCTe data);
 
-    String receptionCte(TEnviCTe data);
+    String inutilizationCte(br.inf.portalfiscal.cte.send400.TInutCTe data);
 
-    String returnReceptionCte(TRetEnviCTe data);
+    String returnInutilizationCte(br.inf.portalfiscal.cte.send.TRetInutCTe data);
 
-    String cteProc(TCteProc data);
+    String returnInutilizationCte(br.inf.portalfiscal.cte.send400.TRetInutCTe data);
 
-    String receptionGtve(TGTVe data);
+    String procInutilizationCte(br.inf.portalfiscal.cte.send.TProcInutCTe data);
 
-    String returnReceptionGtve(TRetGTVe data);
+    String procInutilizationCte(br.inf.portalfiscal.cte.send400.TProcInutCTe data);
 
-    String gtveProc(TGTVeProc data);
+    String querySituationCte(br.inf.portalfiscal.cte.send.TConsSitCTe data);
 
-    String receptionCteOs(TCTeOS data);
+    String querySituationCte(br.inf.portalfiscal.cte.send400.TConsSitCTe data);
 
-    String returnReceptionCteOs(TRetCTeOS data);
+    String returnQuerySituationCte(br.inf.portalfiscal.cte.send.TRetConsSitCTe data);
 
-    String cteOsProc(TCteOSProc data);
+    String returnQuerySituationCte(br.inf.portalfiscal.cte.send400.TRetConsSitCTe data);
 
-    String receptionCteSync(TCTe data);
+    String receptionCte(br.inf.portalfiscal.cte.send.TEnviCTe data);
 
-    String returnReceptionCteSync(TRetCTe data);
+    String returnReceptionCte(br.inf.portalfiscal.cte.send.TRetEnviCTe data);
 
-    String cteProcSync(TCteProc data);
+    String cteProc(br.inf.portalfiscal.cte.send.TCteProc data);
 
-    String queryReceipt(TConsReciCTe data);
+    String cteProc(br.inf.portalfiscal.cte.send400.TCteProc data);
 
-    String returnQueryReceipt(TRetConsReciCTe data);
+    String receptionGtve(br.inf.portalfiscal.cte.send.TGTVe data);
 
-    String statusService(TConsStatServ data);
+    String receptionGtve(br.inf.portalfiscal.cte.send400.TGTVe data);
 
-    String returnStatusService(TRetConsStatServ data);
+    String returnReceptionGtve(br.inf.portalfiscal.cte.send.TRetGTVe data);
+
+    String returnReceptionGtve(br.inf.portalfiscal.cte.send400.TRetGTVe data);
+
+    String gtveProc(br.inf.portalfiscal.cte.send.TGTVeProc data);
+
+    String gtveProc(br.inf.portalfiscal.cte.send400.TGTVeProc data);
+
+    String receptionCteOs(br.inf.portalfiscal.cte.send.TCTeOS data);
+
+    String receptionCteOs(br.inf.portalfiscal.cte.send400.TCTeOS data);
+
+    String returnReceptionCteOs(br.inf.portalfiscal.cte.send.TRetCTeOS data);
+
+    String returnReceptionCteOs(br.inf.portalfiscal.cte.send400.TRetCTeOS data);
+
+    String cteOsProc(br.inf.portalfiscal.cte.send.TCteOSProc data);
+
+    String cteOsProc(br.inf.portalfiscal.cte.send400.TCteOSProc data);
+
+    String receptionCteSync(br.inf.portalfiscal.cte.send.TCTe data);
+
+    String receptionCteSync(br.inf.portalfiscal.cte.send400.TCTe data);
+
+    String returnReceptionCteSync(br.inf.portalfiscal.cte.send.TRetCTe data);
+
+    String returnReceptionCteSync(br.inf.portalfiscal.cte.send400.TRetCTe data);
+
+    String cteProcSync(br.inf.portalfiscal.cte.send.TCteProc data);
+
+    String cteProcSync(br.inf.portalfiscal.cte.send400.TCteProc data);
+
+    String queryReceipt(br.inf.portalfiscal.cte.send.TConsReciCTe data);
+
+    String returnQueryReceipt(br.inf.portalfiscal.cte.send.TRetConsReciCTe data);
+
+    String statusService(br.inf.portalfiscal.cte.send.TConsStatServ data);
+
+    String statusService(br.inf.portalfiscal.cte.send400.TConsStatServ data);
+
+    String returnStatusService(br.inf.portalfiscal.cte.send.TRetConsStatServ data);
+
+    String returnStatusService(br.inf.portalfiscal.cte.send400.TRetConsStatServ data);
 
     String any(Element element);
 
+    String any400(Element element);
+
     String protCte(Element element);
+
+    String protCte400(Element element);
 
     String protCteOs(Element element);
 
+    String protCteOs400(Element element);
+
     String protGtve(Element element);
+
+    String protGtve400(Element element);
 }

@@ -48,12 +48,12 @@ class DefaultNfUnmarshallerTest {
 
     @Test
     void testRetInutNfe() {
-        assertDoesNotThrow(() -> new DefaultNfUnmarshaller().inutNfe("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><retInutNFe xmlns=\"http://www.portalfiscal.inf.br/nfe\"/>"));
+        assertDoesNotThrow(() -> new DefaultNfUnmarshaller().retInutNfe("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><retInutNFe xmlns=\"http://www.portalfiscal.inf.br/nfe\"/>"));
     }
 
     @Test
     void testProcInutNfe() {
-        assertDoesNotThrow(() -> new DefaultNfUnmarshaller().inutNfe("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><ProcInutNFe xmlns=\"http://www.portalfiscal.inf.br/nfe\"/>"));
+        assertDoesNotThrow(() -> new DefaultNfUnmarshaller().procInutNfe("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><ProcInutNFe xmlns=\"http://www.portalfiscal.inf.br/nfe\"/>"));
     }
 
     @Test

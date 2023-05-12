@@ -87,15 +87,15 @@ final class QrCodeV2UrlGenerator extends QrCodeGeneratorFactory {
 
     public String generate(NfQrCode nfQrCode) throws NoProviderFound, GeneralSecurityException, XMLSignException {
         return generate(
-                nfQrCode.getConfig().uf().getCode(),
-                AccessKeyParserFactory.nfe().fromId(nfQrCode.getNf().toObject().getInfNFe().getId()),
-                nfQrCode.getConfig().environment().getCode(),
-                nfQrCode.getNf().ide().getTpEmis(),
-                nfQrCode.getNf().dhEmi(),
-                nfQrCode.getNf().VNF(),
-                nfQrCode.getNf().isOffline() ? NfUnmarshallerFactory.getInstance().nfe(nfQrCode.getXmlSigner().signNfe(NfMarshallerFactory.getInstance().nfe(nfQrCode.getNf().toObject()), nfQrCode.getConfig())).getValue().getSignature().getSignedInfo().getReference().getDigestValue() : null,
-                nfQrCode.getConfig().cscId(),
-                nfQrCode.getConfig().csc()
+                nfQrCode.config().uf().getCode(),
+                AccessKeyParserFactory.nfe().fromId(nfQrCode.nf().toObject().getInfNFe().getId()),
+                nfQrCode.config().environment().getCode(),
+                nfQrCode.nf().ide().getTpEmis(),
+                nfQrCode.nf().dhEmi(),
+                nfQrCode.nf().VNF(),
+                nfQrCode.nf().isOffline() ? NfUnmarshallerFactory.getInstance().nfe(nfQrCode.xmlSigner().signNfe(NfMarshallerFactory.getInstance().nfe(nfQrCode.nf().toObject()), nfQrCode.config())).getValue().getSignature().getSignedInfo().getReference().getDigestValue() : null,
+                nfQrCode.config().cscId(),
+                nfQrCode.config().csc()
         );
     }
 }

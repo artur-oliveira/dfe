@@ -21,13 +21,13 @@ final class MdfeRouteServiceImpl extends MdfeRouteFactory {
         Queue<UF> queue = new LinkedList<>();
         Map<UF, UF> previousStates = new HashMap<>();
 
-        queue.offer(locator.getStart());
-        previousStates.put(locator.getStart(), null);
+        queue.offer(locator.start());
+        previousStates.put(locator.start(), null);
 
         while (!queue.isEmpty()) {
             UF estadoAtual = queue.poll();
 
-            if (estadoAtual.equals(locator.getEnd())) {
+            if (estadoAtual.equals(locator.end())) {
                 break;
             }
 
@@ -39,15 +39,15 @@ final class MdfeRouteServiceImpl extends MdfeRouteFactory {
             }
         }
 
-        UF state = locator.getEnd();
+        UF state = locator.end();
         while (Objects.nonNull(state)) {
             route.add(state);
             state = previousStates.get(state);
         }
 
         Collections.reverse(route);
-        if (!locator.isIncludeStartEnd()) {
-            route.removeIf(it -> Arrays.asList(locator.getStart(), locator.getEnd()).contains(it));
+        if (!locator.includeStartEnd()) {
+            route.removeIf(it -> Arrays.asList(locator.start(), locator.end()).contains(it));
         }
         return route;
     }

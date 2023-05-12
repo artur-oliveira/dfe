@@ -1,13 +1,11 @@
 package com.softart.dfe.models.internal.cte;
 
 import com.softart.dfe.models.cte.reception.Cte;
-import lombok.*;
+import lombok.Builder;
 
-@Data
 @Builder
-@With
-@AllArgsConstructor
-@NoArgsConstructor
-public final class CteQrCode {
-    private Cte cte;
+public record CteQrCode(
+        Cte cte
+) {
+
 }

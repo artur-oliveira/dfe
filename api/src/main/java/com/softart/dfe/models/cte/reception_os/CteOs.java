@@ -534,7 +534,7 @@ public final class CteOs implements DFObject, XMLAdapter<CteOs, TCTeOS> {
 
                 @Override
                 public InfModal fromObject(TCTeOS.InfCte.InfCTeNorm.InfModal o) {
-                    Object el = CteUnmarshallerFactory.getInstance().any(o.getAny()).getValue();
+                    Object el = CteUnmarshallerFactory.getInstance().any300(o.getAny()).getValue();
 
                     if (el instanceof br.inf.portalfiscal.cte.send.RodoOS) {
                         setRodoOs(RodoOS.builder().build().fromObject((br.inf.portalfiscal.cte.send.RodoOS) el));

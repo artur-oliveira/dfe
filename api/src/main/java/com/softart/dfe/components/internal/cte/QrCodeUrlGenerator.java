@@ -37,16 +37,16 @@ public class QrCodeUrlGenerator extends QrCodeGeneratorFactory {
 
     @Override
     public String generate(CteQrCode cteQrCode) throws NoProviderFound {
-        return generate(cteQrCode.getCte().getInfCte().getIde().getCuf(), cteQrCode.getCte().getInfCte().getId(), cteQrCode.getCte().getInfCte().getIde().getTpAmb());
+        return generate(cteQrCode.cte().getInfCte().getIde().getCuf(), cteQrCode.cte().getInfCte().getId(), cteQrCode.cte().getInfCte().getIde().getTpAmb());
     }
 
     @Override
     public String generate(GtveQrCode gtveQrCode) throws NoProviderFound {
-        return generate(gtveQrCode.getGtve().getInfCte().getIde().getCuf(), gtveQrCode.getGtve().getInfCte().getId(), gtveQrCode.getGtve().getInfCte().getIde().getTpAmb());
+        return generate(gtveQrCode.gtve().getInfCte().getIde().getCuf(), gtveQrCode.gtve().getInfCte().getId(), gtveQrCode.gtve().getInfCte().getIde().getTpAmb());
     }
 
     @Override
     public String generate(CteOsQrCode cteOsQrCode) throws NoProviderFound {
-        return generate(cteOsQrCode.getCteOs().getInfCte().getIde().getCuf(), cteOsQrCode.getCteOs().getInfCte().getId(), cteOsQrCode.getCteOs().getInfCte().getIde().getTpAmb());
+        return generate(cteOsQrCode.cteOs().getInfCte().getIde().getCuf(), cteOsQrCode.cteOs().getInfCte().getId(), cteOsQrCode.cteOs().getInfCte().getIde().getTpAmb());
     }
 }

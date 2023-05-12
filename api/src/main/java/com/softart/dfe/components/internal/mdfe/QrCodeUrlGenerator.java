@@ -35,7 +35,7 @@ final class QrCodeUrlGenerator extends QrCodeGeneratorFactory {
 
     @Override
     public String generate(MdfeQrCode qrCode) throws NoProviderFound {
-        return generate(qrCode.getMdfe().getInfMDFe().getIde().getCuf(), qrCode.getMdfe().getInfMDFe().getId(), qrCode.getMdfe().getInfMDFe().getIde().getTpAmb());
+        return generate(qrCode.mdfe().getInfMDFe().getIde().getCuf(), qrCode.mdfe().getInfMDFe().getId(), qrCode.mdfe().getInfMDFe().getIde().getTpAmb());
     }
 
 }

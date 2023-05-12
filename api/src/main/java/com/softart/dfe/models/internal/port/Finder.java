@@ -5,13 +5,13 @@ import com.softart.dfe.enums.internal.Environment;
 import com.softart.dfe.util.StringUtils;
 
 @SuppressWarnings("rawtypes")
-public abstract class Finder {
+public interface Finder {
 
-    public abstract Enum getAuthorizer();
+    Enum authorizer();
 
-    public abstract DFEnum.Codeable getEndpoint();
+    DFEnum.Codeable endpoint();
 
-    public abstract Environment getEnvironment();
+    Environment environment();
 
 
     /**
@@ -22,8 +22,8 @@ public abstract class Finder {
      * @param clsName The name of the class being loaded.
      * @return A boolean value.
      */
-    public boolean matchEndpoint(String clsName) {
-        return clsName.contains(StringUtils.concat(".", getEndpoint().getCode(), "."));
+    default boolean matchEndpoint(String clsName) {
+        return clsName.contains(StringUtils.concat(".", endpoint().getCode(), "."));
     }
 
     /**
@@ -31,8 +31,8 @@ public abstract class Finder {
      *
      * @param clsName The class name of the class being loaded.
      */
-    public boolean matchAuthorizer(String clsName) {
-        return clsName.contains(StringUtils.concat(".", StringUtils.lower(getAuthorizer().name()), "."));
+    default boolean matchAuthorizer(String clsName) {
+        return clsName.contains(StringUtils.concat(".", StringUtils.lower(authorizer().name()), "."));
     }
 
 
@@ -41,8 +41,8 @@ public abstract class Finder {
      *
      * @param clsName The class name of the class being loaded.
      */
-    public boolean matchEnvironment(String clsName) {
-        return clsName.contains(StringUtils.concat(".", getEnvironment().getRootPath(), "."));
+    default boolean matchEnvironment(String clsName) {
+        return clsName.contains(StringUtils.concat(".", environment().getRootPath(), "."));
     }
 
     /**
@@ -53,7 +53,7 @@ public abstract class Finder {
      * @param cls The class to be tested
      * @return A boolean value.
      */
-    public boolean found(Class<?> cls) {
+    default boolean found(Class<?> cls) {
         return matchEndpoint(cls.getName()) && matchAuthorizer(cls.getName()) && matchEnvironment(cls.getName());
     }
 

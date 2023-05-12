@@ -1,13 +1,10 @@
 package com.softart.dfe.models.internal.mdfe;
 
 import com.softart.dfe.models.mdfe.reception_sync.Mdfe;
-import lombok.*;
+import lombok.Builder;
 
-@Data
 @Builder
-@With
-@AllArgsConstructor
-@NoArgsConstructor
-public final class MdfeQrCode {
-    private Mdfe mdfe;
+public record MdfeQrCode(
+        Mdfe mdfe
+) {
 }

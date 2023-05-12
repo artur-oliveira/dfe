@@ -5,11 +5,11 @@ import com.softart.dfe.components.security.socket.SocketFactory;
 import com.softart.dfe.exceptions.security.SecurityException;
 import com.softart.dfe.interfaces.internal.config.Config;
 import com.softart.dfe.models.internal.wsdl.ProviderConfig;
+import jakarta.xml.ws.BindingProvider;
+import jakarta.xml.ws.handler.soap.SOAPHandler;
 import lombok.AccessLevel;
 import lombok.Getter;
 
-import jakarta.xml.ws.BindingProvider;
-import jakarta.xml.ws.handler.soap.SOAPHandler;
 import java.util.*;
 
 @Getter(AccessLevel.PRIVATE)
@@ -48,7 +48,7 @@ final class DefaultConfigureProviderFactory extends ConfigureProviderFactory {
      * @param config The provider config
      */
     private void useHttps(ProviderConfig config) {
-        config.getPort().getRequestContext().put(ENDPOINT_ADDRESS, Optional.ofNullable(config.getOverridePortAddress()).orElseGet(() -> config.getPort().getRequestContext().get(ENDPOINT_ADDRESS).toString().replace("http://", "https://")));
+        config.port().getRequestContext().put(ENDPOINT_ADDRESS, Optional.ofNullable(config.overridePortAddress()).orElseGet(() -> config.port().getRequestContext().get(ENDPOINT_ADDRESS).toString().replace("http://", "https://")));
     }
 
     /**
@@ -72,9 +72,9 @@ final class DefaultConfigureProviderFactory extends ConfigureProviderFactory {
 
     @Override
     public void configure(ProviderConfig config) throws SecurityException {
-        context(config.getPort(), config.getConfig());
-        timeout(config.getPort());
-        handler(config.getPort());
+        context(config.port(), config.config());
+        timeout(config.port());
+        handler(config.port());
         useHttps(config);
     }
 }

@@ -11,5 +11,7 @@ public interface CteContext {
      */
     JAXBContext getCteSendContext();
 
+    JAXBContext getCte400SendContext();
+
     JAXBContext getCteDistributionContext();
 }

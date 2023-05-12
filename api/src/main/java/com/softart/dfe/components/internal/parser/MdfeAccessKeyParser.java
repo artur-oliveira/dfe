@@ -6,7 +6,7 @@ import com.softart.dfe.util.XMLStringUtils;
  * The MdfeAccessKeyParser class extends the AccessKeyParserFactory and overrides the idPrefix method to return a specific
  * prefix.
  */
-final class MdfeAccessKeyParser extends AccessKeyParserFactory {
+final class MdfeAccessKeyParser extends AccessKeyParserFactoryImpl {
 
     @Override
     public String idPrefix() {

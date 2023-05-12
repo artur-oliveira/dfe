@@ -26,10 +26,9 @@ class DfeOptionalTest {
 
     @Test
     void testOfLengthRange() {
-        assertTrue(DfeOptional.ofLengthRange("123", 1, 3).isPresent());
-        assertFalse(DfeOptional.ofLengthRange("123", 1, 2).isPresent());
-
-        assertThrows(DfeOptionalException.class, () -> DfeOptional.ofLengthRange(1, 1, 1));
+        assertTrue(DfeOptional.ofRange("123", 1, 3).isPresent());
+        assertFalse(DfeOptional.ofRange("123", 1, 2).isPresent());
+        assertThrows(DfeOptionalException.class, () -> DfeOptional.ofRange(0, 1, 1).orElseThrow(DfeOptionalException::new));
     }
 
     @Test

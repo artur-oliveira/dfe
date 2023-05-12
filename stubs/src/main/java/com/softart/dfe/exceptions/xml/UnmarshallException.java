@@ -22,4 +22,14 @@ public class UnmarshallException extends DfeUncheckedException {
         this.xml = xml;
         log.error(xml);
     }
+
+    public UnmarshallException(String message) {
+        super(message);
+    }
+
+    public UnmarshallException(String message, String xml) {
+        super(message);
+        this.xml = xml;
+        log.error(xml);
+    }
 }

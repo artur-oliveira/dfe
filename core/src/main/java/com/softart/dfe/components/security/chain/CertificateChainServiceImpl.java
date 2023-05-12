@@ -106,9 +106,9 @@ final class CertificateChainServiceImpl extends CertificateChainFactory {
     private static Collection<String> getUrls(CertificateChain generate) {
 
         Collection<String> hosts = new HashSet<>();
-        Collection<UF> ufs = Objects.isNull(generate.getUf()) ? UF.states() : Collections.singletonList(generate.getUf());
-        Collection<Environment> environments = Objects.isNull(generate.getUf()) ? Arrays.asList(Environment.values()) : Collections.singletonList(generate.getEnvironment());
-        Collection<Model> models = Objects.isNull(generate.getModel()) ? Model.hasAuthorizers() : Collections.singletonList(generate.getModel());
+        Collection<UF> ufs = Objects.isNull(generate.uf()) ? UF.states() : Collections.singletonList(generate.uf());
+        Collection<Environment> environments = Objects.isNull(generate.uf()) ? Arrays.asList(Environment.values()) : Collections.singletonList(generate.environment());
+        Collection<Model> models = Objects.isNull(generate.model()) ? Model.hasAuthorizers() : Collections.singletonList(generate.model());
 
         for (Model model : models) {
             switch (model) {
