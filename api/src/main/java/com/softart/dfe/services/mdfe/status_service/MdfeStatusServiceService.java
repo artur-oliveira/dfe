@@ -46,8 +46,12 @@ public interface MdfeStatusServiceService extends MdfeSefazService {
      *
      * @return A service that can be used to query the status of a MDFe.
      */
+    default MdfeReturnStatusService statusService(Environment environment) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+        return statusService(getConfig().uf(), environment);
+    }
+
     default MdfeReturnStatusService statusService() throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
-        return statusService(getConfig().uf(), getConfig().environment());
+        return statusService(getConfig().environment());
     }
 
 }
