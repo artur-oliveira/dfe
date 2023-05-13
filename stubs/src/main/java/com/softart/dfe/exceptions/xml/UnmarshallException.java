@@ -4,6 +4,8 @@ import com.softart.dfe.exceptions.DfeUncheckedException;
 import lombok.Getter;
 import lombok.extern.log4j.Log4j2;
 
+import java.util.Objects;
+
 /**
  * This exception is thrown when a problem occurs during marshalling
  */
@@ -29,7 +31,9 @@ public class UnmarshallException extends DfeUncheckedException {
 
     public UnmarshallException(String message, String xml) {
         super(message);
-        this.xml = xml;
-        log.error(xml);
+        if (Objects.nonNull(xml)) {
+            this.xml = xml;
+            log.error(xml);
+        }
     }
 }

@@ -4,6 +4,7 @@ import br.inf.portalfiscal.mdfe.classes.TMDFe;
 import br.inf.portalfiscal.mdfe.classes.TUf;
 import com.softart.dfe.components.internal.AccessKeyGenerator;
 import com.softart.dfe.components.internal.ProjectProperties;
+import com.softart.dfe.components.internal.xml.marshaller.MdfeMarshallerFactory;
 import com.softart.dfe.components.internal.xml.unmarshaller.MdfeUnmarshallerFactory;
 import com.softart.dfe.enums.internal.Model;
 import com.softart.dfe.enums.internal.mdfe.QrCodeMdfeURL;
@@ -200,13 +201,13 @@ public final class Mdfe implements DFObject, XMLAdapter<Mdfe, TMDFe> {
             public TMDFe.InfMDFe.InfModal toObject() {
                 TMDFe.InfMDFe.InfModal infModal = new TMDFe.InfMDFe.InfModal();
                 if (Objects.nonNull(getRodo())) {
-                    infModal.setAny(MdfeUnmarshallerFactory.getInstance().toElement(getRodo().toObject()));
+                    infModal.setAny(MdfeMarshallerFactory.getInstance().toElement(getRodo().toObject()));
                 } else if (Objects.nonNull(getAereo())) {
-                    infModal.setAny(MdfeUnmarshallerFactory.getInstance().toElement(getAereo().toObject()));
+                    infModal.setAny(MdfeMarshallerFactory.getInstance().toElement(getAereo().toObject()));
                 } else if (Objects.nonNull(getAquav())) {
-                    infModal.setAny(MdfeUnmarshallerFactory.getInstance().toElement(getAquav().toObject()));
+                    infModal.setAny(MdfeMarshallerFactory.getInstance().toElement(getAquav().toObject()));
                 } else if (Objects.nonNull(getFerrov())) {
-                    infModal.setAny(MdfeUnmarshallerFactory.getInstance().toElement(getFerrov().toObject()));
+                    infModal.setAny(MdfeMarshallerFactory.getInstance().toElement(getFerrov().toObject()));
                 }
                 infModal.setVersaoModal(getVersaoModal());
                 return infModal;

@@ -8,466 +8,246 @@ import br.inf.portalfiscal.nfe.send.*;
 import com.softart.dfe.components.internal.xml.context.NfContextFactory;
 import com.softart.dfe.exceptions.xml.MarshallException;
 import com.softart.dfe.util.XMLStringUtils;
-
+import com.softart.dfe.util.XMLUtils;
+import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.JAXBException;
+
 import java.io.IOException;
 import java.io.StringWriter;
 
 final class DefaultNfMarshaller extends NfMarshallerFactory {
 
     private final br.inf.portalfiscal.nfe.send.ObjectFactory sendNfeObjectFactory = new br.inf.portalfiscal.nfe.send.ObjectFactory();
+
     private final br.inf.portalfiscal.nfe.event_cancel.ObjectFactory cancelNfeObjectFactory = new br.inf.portalfiscal.nfe.event_cancel.ObjectFactory();
     private final br.inf.portalfiscal.nfe.event_substitute_cancel.ObjectFactory substituteCancelNfeObjectFactory = new br.inf.portalfiscal.nfe.event_substitute_cancel.ObjectFactory();
-    private final br.inf.portalfiscal.nfe.event_correction_letter.ObjectFactory correcetionLetterNfeObjectFactory = new br.inf.portalfiscal.nfe.event_correction_letter.ObjectFactory();
+    private final br.inf.portalfiscal.nfe.event_correction_letter.ObjectFactory correctionLetterNfeObjectFactory = new br.inf.portalfiscal.nfe.event_correction_letter.ObjectFactory();
     private final br.inf.portalfiscal.nfe.event_epec.ObjectFactory epecNfeObjectFactory = new br.inf.portalfiscal.nfe.event_epec.ObjectFactory();
     private final br.inf.portalfiscal.nfe.event_manifestation.ObjectFactory manifestationNfeObjectFactory = new br.inf.portalfiscal.nfe.event_manifestation.ObjectFactory();
     private final br.inf.portalfiscal.nfe.event_interested_actor.ObjectFactory interestedActorNfeObjectFactory = new br.inf.portalfiscal.nfe.event_interested_actor.ObjectFactory();
     private final br.inf.portalfiscal.nfe.gtin.ObjectFactory gtinNfeObjectFactory = new br.inf.portalfiscal.nfe.gtin.ObjectFactory();
     private final br.inf.portalfiscal.nfe.distribution.ObjectFactory distributionNfeObjectFactory = new br.inf.portalfiscal.nfe.distribution.ObjectFactory();
 
+    String cancelMarshall(JAXBElement<?> el) {
+        return XMLUtils.marshall(NfContextFactory.getInstance().getNfeCancelContext(), el);
+    }
+
+    String sendMarshall(JAXBElement<?> el) {
+        return XMLUtils.marshall(NfContextFactory.getInstance().getNfeSendContext(), el);
+    }
+
+    String substituteCancelMarshall(JAXBElement<?> el) {
+        return XMLUtils.marshall(NfContextFactory.getInstance().getNfeSubstituteCancelContext(), el);
+    }
+
+    String correctionLetterMarshall(JAXBElement<?> el) {
+        return XMLUtils.marshall(NfContextFactory.getInstance().getNfeCorrectionLetterContext(), el);
+    }
+
+    String epecMarshall(JAXBElement<?> el) {
+        return XMLUtils.marshall(NfContextFactory.getInstance().getNfeEpecContext(), el);
+    }
+
+    String manifestationMarshall(JAXBElement<?> el) {
+        return XMLUtils.marshall(NfContextFactory.getInstance().getNfeManifestationContext(), el);
+    }
+
+    String interestedActorMarshall(JAXBElement<?> el) {
+        return XMLUtils.marshall(NfContextFactory.getInstance().getNfeInterestedActorContext(), el);
+    }
+
+    String gtinMarshall(JAXBElement<?> el) {
+        return XMLUtils.marshall(NfContextFactory.getInstance().getNfeGtinContext(), el);
+    }
+
+    String distributionMarshall(JAXBElement<?> el) {
+        return XMLUtils.marshall(NfContextFactory.getInstance().getNfeDistributionContext(), el);
+    }
+
     @Override
     public String cancelNfe(br.inf.portalfiscal.nfe.event_cancel.TEnvEvento o) {
-        try {
-            try (StringWriter sw = new StringWriter()) {
-                NfContextFactory.getInstance().getNfeCancelContext().createMarshaller().marshal(cancelNfeObjectFactory.createEnvEvento(o), sw);
-                return XMLStringUtils.cleanNamespace(sw.toString());
-            }
-        } catch (JAXBException | IOException e) {
-            throw new MarshallException(e);
-        }
+        return cancelMarshall(cancelNfeObjectFactory.createEnvEvento(o));
     }
 
     @Override
     public String returnCancelNfe(br.inf.portalfiscal.nfe.event_cancel.TRetEnvEvento o) {
-        try {
-            try (StringWriter sw = new StringWriter()) {
-                NfContextFactory.getInstance().getNfeCancelContext().createMarshaller().marshal(cancelNfeObjectFactory.createRetEnvEvento(o), sw);
-                return XMLStringUtils.cleanNamespace(sw.toString());
-            }
-        } catch (JAXBException | IOException e) {
-            throw new MarshallException(e);
-        }
+        return cancelMarshall(cancelNfeObjectFactory.createRetEnvEvento(o));
     }
 
     @Override
     public String procCancelNfe(br.inf.portalfiscal.nfe.event_cancel.TProcEvento o) {
-        try {
-            try (StringWriter sw = new StringWriter()) {
-                NfContextFactory.getInstance().getNfeCancelContext().createMarshaller().marshal(cancelNfeObjectFactory.createProcEventoNFe(o), sw);
-                return XMLStringUtils.cleanNamespace(sw.toString());
-            }
-        } catch (JAXBException | IOException e) {
-            throw new MarshallException(e);
-        }
+        return cancelMarshall(cancelNfeObjectFactory.createProcEventoNFe(o));
     }
 
 
     @Override
     public String substituteCancelNfe(br.inf.portalfiscal.nfe.event_substitute_cancel.TEnvEvento o) {
-        try {
-            try (StringWriter sw = new StringWriter()) {
-                NfContextFactory.getInstance().getNfeSubstituteCancelContext().createMarshaller().marshal(substituteCancelNfeObjectFactory.createEnvEvento(o), sw);
-                return XMLStringUtils.cleanNamespace(sw.toString());
-            }
-        } catch (JAXBException | IOException e) {
-            throw new MarshallException(e);
-        }
+        return substituteCancelMarshall(substituteCancelNfeObjectFactory.createEnvEvento(o));
     }
 
     @Override
     public String returnSubstituteCancelNfe(br.inf.portalfiscal.nfe.event_substitute_cancel.TRetEnvEvento o) {
-        try {
-            try (StringWriter sw = new StringWriter()) {
-                NfContextFactory.getInstance().getNfeSubstituteCancelContext().createMarshaller().marshal(substituteCancelNfeObjectFactory.createRetEnvEvento(o), sw);
-                return XMLStringUtils.cleanNamespace(sw.toString());
-            }
-        } catch (JAXBException | IOException e) {
-            throw new MarshallException(e);
-        }
+        return substituteCancelMarshall(substituteCancelNfeObjectFactory.createRetEnvEvento(o));
     }
 
     @Override
     public String procSubstituteCancelNfe(br.inf.portalfiscal.nfe.event_substitute_cancel.TProcEvento o) {
-        try {
-            try (StringWriter sw = new StringWriter()) {
-                NfContextFactory.getInstance().getNfeSubstituteCancelContext().createMarshaller().marshal(substituteCancelNfeObjectFactory.createProcEventoNFe(o), sw);
-                return XMLStringUtils.cleanNamespace(sw.toString());
-            }
-        } catch (JAXBException | IOException e) {
-            throw new MarshallException(e);
-        }
+        return substituteCancelMarshall(substituteCancelNfeObjectFactory.createProcEventoNFe(o));
     }
 
 
     @Override
     public String inutNfe(TInutNFe o) {
-        try {
-            try (StringWriter sw = new StringWriter()) {
-                NfContextFactory.getInstance().getNfeSendContext().createMarshaller().marshal(sendNfeObjectFactory.createInutNFe(o), sw);
-                return XMLStringUtils.cleanNamespace(sw.toString());
-            }
-        } catch (JAXBException | IOException e) {
-            throw new MarshallException(e);
-        }
+        return sendMarshall(sendNfeObjectFactory.createInutNFe(o));
     }
 
     @Override
     public String returnInutNfe(TRetInutNFe o) {
-        try {
-            try (StringWriter sw = new StringWriter()) {
-                NfContextFactory.getInstance().getNfeSendContext().createMarshaller().marshal(sendNfeObjectFactory.createRetInutNFe(o), sw);
-                return XMLStringUtils.cleanNamespace(sw.toString());
-            }
-        } catch (JAXBException | IOException e) {
-            throw new MarshallException(e);
-        }
+        return sendMarshall(sendNfeObjectFactory.createRetInutNFe(o));
     }
 
     @Override
     public String procInutNfe(TProcInutNFe o) {
-        try {
-            try (StringWriter sw = new StringWriter()) {
-                NfContextFactory.getInstance().getNfeSendContext().createMarshaller().marshal(sendNfeObjectFactory.createProcInutNFe(o), sw);
-                return XMLStringUtils.cleanNamespace(sw.toString());
-            }
-        } catch (JAXBException | IOException e) {
-            throw new MarshallException(e);
-        }
+        return sendMarshall(sendNfeObjectFactory.createProcInutNFe(o));
     }
 
     @Override
     public String sendNfe(TEnviNFe o) {
-        try {
-            try (StringWriter sw = new StringWriter()) {
-                NfContextFactory.getInstance().getNfeSendContext().createMarshaller().marshal(sendNfeObjectFactory.createEnviNFe(o), sw);
-                return XMLStringUtils.cleanNamespace(sw.toString());
-            }
-        } catch (JAXBException | IOException e) {
-            throw new MarshallException(e);
-        }
+        return sendMarshall(sendNfeObjectFactory.createEnviNFe(o));
     }
 
     @Override
     public String procNfe(TNfeProc o) {
-        try {
-            try (StringWriter sw = new StringWriter()) {
-                NfContextFactory.getInstance().getNfeSendContext().createMarshaller().marshal(sendNfeObjectFactory.createNfeProc(o), sw);
-                return XMLStringUtils.cleanNamespace(sw.toString());
-            }
-        } catch (JAXBException | IOException e) {
-            throw new MarshallException(e);
-        }
+        return sendMarshall(sendNfeObjectFactory.createNfeProc(o));
     }
 
     @Override
     public String nfe(TNFe o) {
-        try {
-            try (StringWriter sw = new StringWriter()) {
-                NfContextFactory.getInstance().getNfeSendContext().createMarshaller().marshal(sendNfeObjectFactory.createNFe(o), sw);
-                return XMLStringUtils.cleanNamespace(sw.toString());
-            }
-        } catch (JAXBException | IOException e) {
-            throw new MarshallException(e);
-        }
+        return sendMarshall(sendNfeObjectFactory.createNFe(o));
     }
 
     @Override
     public String returnEnviNfe(TRetEnviNFe o) {
-        try {
-            try (StringWriter sw = new StringWriter()) {
-                NfContextFactory.getInstance().getNfeSendContext().createMarshaller().marshal(sendNfeObjectFactory.createRetEnviNFe(o), sw);
-                return XMLStringUtils.cleanNamespace(sw.toString());
-            }
-        } catch (JAXBException | IOException e) {
-            throw new MarshallException(e);
-        }
+        return sendMarshall(sendNfeObjectFactory.createRetEnviNFe(o));
     }
 
     @Override
     public String queryReceiptNfe(TConsReciNFe o) {
-        try {
-            try (StringWriter sw = new StringWriter()) {
-                NfContextFactory.getInstance().getNfeSendContext().createMarshaller().marshal(sendNfeObjectFactory.createConsReciNFe(o), sw);
-                return XMLStringUtils.cleanNamespace(sw.toString());
-            }
-        } catch (JAXBException | IOException e) {
-            throw new MarshallException(e);
-        }
+        return sendMarshall(sendNfeObjectFactory.createConsReciNFe(o));
     }
 
     @Override
     public String returnQueryReceiptNfe(TRetConsReciNFe o) {
-        try {
-            try (StringWriter sw = new StringWriter()) {
-                NfContextFactory.getInstance().getNfeSendContext().createMarshaller().marshal(sendNfeObjectFactory.createRetConsReciNFe(o), sw);
-                return XMLStringUtils.cleanNamespace(sw.toString());
-            }
-        } catch (JAXBException | IOException e) {
-            throw new MarshallException(e);
-        }
+        return sendMarshall(sendNfeObjectFactory.createRetConsReciNFe(o));
     }
 
     @Override
     public String queryProcotolNfe(TConsSitNFe o) {
-        try {
-            try (StringWriter sw = new StringWriter()) {
-                NfContextFactory.getInstance().getNfeSendContext().createMarshaller().marshal(sendNfeObjectFactory.createConsSitNFe(o), sw);
-                return XMLStringUtils.cleanNamespace(sw.toString());
-            }
-        } catch (JAXBException | IOException e) {
-            throw new MarshallException(e);
-        }
+        return sendMarshall(sendNfeObjectFactory.createConsSitNFe(o));
     }
 
     @Override
     public String queryStatusServiceNfe(TConsStatServ o) {
-        try {
-            try (StringWriter sw = new StringWriter()) {
-                NfContextFactory.getInstance().getNfeSendContext().createMarshaller().marshal(sendNfeObjectFactory.createConsStatServ(o), sw);
-                return XMLStringUtils.cleanNamespace(sw.toString());
-            }
-        } catch (JAXBException | IOException e) {
-            throw new MarshallException(e);
-        }
+        return sendMarshall(sendNfeObjectFactory.createConsStatServ(o));
     }
 
     @Override
     public String returnQueryStatusServiceNfe(TRetConsStatServ o) {
-        try {
-            try (StringWriter sw = new StringWriter()) {
-                NfContextFactory.getInstance().getNfeSendContext().createMarshaller().marshal(sendNfeObjectFactory.createRetConsStatServ(o), sw);
-                return XMLStringUtils.cleanNamespace(sw.toString());
-            }
-        } catch (JAXBException | IOException e) {
-            throw new MarshallException(e);
-        }
+        return sendMarshall(sendNfeObjectFactory.createRetConsStatServ(o));
     }
 
     @Override
     public String queryGtinNf(TConsGTIN o) {
-        try {
-            try (StringWriter sw = new StringWriter()) {
-                NfContextFactory.getInstance().getNfeGtinContext().createMarshaller().marshal(gtinNfeObjectFactory.createConsGTIN(o), sw);
-                return XMLStringUtils.cleanNamespace(sw.toString());
-            }
-        } catch (JAXBException | IOException e) {
-            throw new MarshallException(e);
-        }
+        return gtinMarshall(gtinNfeObjectFactory.createConsGTIN(o));
     }
 
     @Override
     public String returnQueryGtinNf(TRetConsGTIN o) {
-        try {
-            try (StringWriter sw = new StringWriter()) {
-                NfContextFactory.getInstance().getNfeGtinContext().createMarshaller().marshal(gtinNfeObjectFactory.createRetConsGTIN(o), sw);
-                return XMLStringUtils.cleanNamespace(sw.toString());
-            }
-        } catch (JAXBException | IOException e) {
-            throw new MarshallException(e);
-        }
+        return gtinMarshall(gtinNfeObjectFactory.createRetConsGTIN(o));
     }
 
     @Override
     public String returnQueryProtocolNfe(TRetConsSitNFe o) {
-        try {
-            try (StringWriter sw = new StringWriter()) {
-                NfContextFactory.getInstance().getNfeSendContext().createMarshaller().marshal(sendNfeObjectFactory.createRetConsSitNFe(o), sw);
-                return XMLStringUtils.cleanNamespace(sw.toString());
-            }
-        } catch (JAXBException | IOException e) {
-            throw new MarshallException(e);
-        }
+        return sendMarshall(sendNfeObjectFactory.createRetConsSitNFe(o));
     }
 
     @Override
     public String distributionNfe(TDistDFeInt o) {
-        try {
-            try (StringWriter sw = new StringWriter()) {
-                NfContextFactory.getInstance().getNfeDistributionContext().createMarshaller().marshal(distributionNfeObjectFactory.createDistDFeInt(o), sw);
-                return XMLStringUtils.cleanNamespace(sw.toString());
-            }
-        } catch (JAXBException | IOException e) {
-            throw new MarshallException(e);
-        }
+        return distributionMarshall(distributionNfeObjectFactory.createDistDFeInt(o));
     }
 
     @Override
     public String returnDistributionNfe(TRetDistDFeInt o) {
-        try {
-            try (StringWriter sw = new StringWriter()) {
-                NfContextFactory.getInstance().getNfeDistributionContext().createMarshaller().marshal(distributionNfeObjectFactory.createRetDistDFeInt(o), sw);
-                return XMLStringUtils.cleanNamespace(sw.toString());
-            }
-        } catch (JAXBException | IOException e) {
-            throw new MarshallException(e);
-        }
+        return distributionMarshall(distributionNfeObjectFactory.createRetDistDFeInt(o));
     }
 
     @Override
     public String manifestationNfe(br.inf.portalfiscal.nfe.event_manifestation.TEnvEvento o) {
-        try {
-            try (StringWriter sw = new StringWriter()) {
-                NfContextFactory.getInstance().getNfeManifestationContext().createMarshaller().marshal(manifestationNfeObjectFactory.createEnvEvento(o), sw);
-                return XMLStringUtils.cleanNamespace(sw.toString());
-            }
-        } catch (JAXBException | IOException e) {
-            throw new MarshallException(e);
-        }
+        return manifestationMarshall(manifestationNfeObjectFactory.createEnvEvento(o));
     }
 
     @Override
     public String procManifestationNfe(br.inf.portalfiscal.nfe.event_manifestation.TProcEvento o) {
-        try {
-            try (StringWriter sw = new StringWriter()) {
-                NfContextFactory.getInstance().getNfeManifestationContext().createMarshaller().marshal(manifestationNfeObjectFactory.createProcEventoNFe(o), sw);
-                return XMLStringUtils.cleanNamespace(sw.toString());
-            }
-        } catch (JAXBException | IOException e) {
-            throw new MarshallException(e);
-        }
+        return manifestationMarshall(manifestationNfeObjectFactory.createProcEventoNFe(o));
     }
 
     @Override
     public String returnManifestationNfe(br.inf.portalfiscal.nfe.event_manifestation.TRetEnvEvento o) {
-        try {
-            try (StringWriter sw = new StringWriter()) {
-                NfContextFactory.getInstance().getNfeManifestationContext().createMarshaller().marshal(manifestationNfeObjectFactory.createRetEnvEvento(o), sw);
-                return XMLStringUtils.cleanNamespace(sw.toString());
-            }
-        } catch (JAXBException | IOException e) {
-            throw new MarshallException(e);
-        }
+        return manifestationMarshall(manifestationNfeObjectFactory.createRetEnvEvento(o));
     }
 
     @Override
     public String epecNfe(br.inf.portalfiscal.nfe.event_epec.TEnvEvento o) {
-        try {
-            try (StringWriter sw = new StringWriter()) {
-                NfContextFactory.getInstance().getNfeEpecContext().createMarshaller().marshal(epecNfeObjectFactory.createEnvEvento(o), sw);
-                return XMLStringUtils.cleanNamespace(sw.toString());
-            }
-        } catch (JAXBException | IOException e) {
-            throw new MarshallException(e);
-        }
+        return epecMarshall(epecNfeObjectFactory.createEnvEvento(o));
     }
 
     @Override
     public String returnEpecNfe(br.inf.portalfiscal.nfe.event_epec.TRetEnvEvento o) {
-        try {
-            try (StringWriter sw = new StringWriter()) {
-                NfContextFactory.getInstance().getNfeEpecContext().createMarshaller().marshal(epecNfeObjectFactory.createRetEnvEvento(o), sw);
-                return XMLStringUtils.cleanNamespace(sw.toString());
-            }
-        } catch (JAXBException | IOException e) {
-            throw new MarshallException(e);
-        }
+        return epecMarshall(epecNfeObjectFactory.createRetEnvEvento(o));
     }
 
     @Override
     public String procEpecNfe(br.inf.portalfiscal.nfe.event_epec.TProcEvento o) {
-        try {
-            try (StringWriter sw = new StringWriter()) {
-                NfContextFactory.getInstance().getNfeEpecContext().createMarshaller().marshal(epecNfeObjectFactory.createProcEventoNFe(o), sw);
-                return XMLStringUtils.cleanNamespace(sw.toString());
-            }
-        } catch (JAXBException | IOException e) {
-            throw new MarshallException(e);
-        }
+        return epecMarshall(epecNfeObjectFactory.createProcEventoNFe(o));
     }
 
     @Override
     public String correctionLetterNfe(br.inf.portalfiscal.nfe.event_correction_letter.TEnvEvento o) {
-        try {
-            try (StringWriter sw = new StringWriter()) {
-                NfContextFactory.getInstance().getNfeCorrectionLetterContext().createMarshaller().marshal(correcetionLetterNfeObjectFactory.createEnvEvento(o), sw);
-                return XMLStringUtils.cleanNamespace(sw.toString());
-            }
-        } catch (JAXBException | IOException e) {
-            throw new MarshallException(e);
-        }
+        return correctionLetterMarshall(correctionLetterNfeObjectFactory.createEnvEvento(o));
     }
 
     @Override
     public String returnCorrectionLetterNfe(br.inf.portalfiscal.nfe.event_correction_letter.TRetEnvEvento o) {
-        try {
-            try (StringWriter sw = new StringWriter()) {
-                NfContextFactory.getInstance().getNfeCorrectionLetterContext().createMarshaller().marshal(correcetionLetterNfeObjectFactory.createRetEnvEvento(o), sw);
-                return XMLStringUtils.cleanNamespace(sw.toString());
-            }
-        } catch (JAXBException | IOException e) {
-            throw new MarshallException(e);
-        }
+        return correctionLetterMarshall(correctionLetterNfeObjectFactory.createRetEnvEvento(o));
     }
 
     @Override
     public String procCorrectionLetterNfe(br.inf.portalfiscal.nfe.event_correction_letter.TProcEvento o) {
-        try {
-            try (StringWriter sw = new StringWriter()) {
-                NfContextFactory.getInstance().getNfeCorrectionLetterContext().createMarshaller().marshal(correcetionLetterNfeObjectFactory.createProcEventoNFe(o), sw);
-                return XMLStringUtils.cleanNamespace(sw.toString());
-            }
-        } catch (JAXBException | IOException e) {
-            throw new MarshallException(e);
-        }
+        return correctionLetterMarshall(correctionLetterNfeObjectFactory.createProcEventoNFe(o));
     }
 
     @Override
     public String interestedActorNfe(br.inf.portalfiscal.nfe.event_interested_actor.TEnvEvento o) {
-        try {
-            try (StringWriter sw = new StringWriter()) {
-                NfContextFactory.getInstance().getNfeInterestedActorContext().createMarshaller().marshal(interestedActorNfeObjectFactory.createEnvEvento(o), sw);
-                return XMLStringUtils.cleanNamespace(sw.toString());
-            }
-        } catch (JAXBException | IOException e) {
-            throw new MarshallException(e);
-        }
+        return interestedActorMarshall(interestedActorNfeObjectFactory.createEnvEvento(o));
     }
 
     @Override
     public String returnInterestedActorNfe(br.inf.portalfiscal.nfe.event_interested_actor.TRetEnvEvento o) {
-        try {
-            try (StringWriter sw = new StringWriter()) {
-                NfContextFactory.getInstance().getNfeInterestedActorContext().createMarshaller().marshal(interestedActorNfeObjectFactory.createRetEnvEvento(o), sw);
-                return XMLStringUtils.cleanNamespace(sw.toString());
-            }
-        } catch (JAXBException | IOException e) {
-            throw new MarshallException(e);
-        }
+        return interestedActorMarshall(interestedActorNfeObjectFactory.createRetEnvEvento(o));
     }
 
     @Override
     public String procInterestedActorNfe(br.inf.portalfiscal.nfe.event_interested_actor.TProcEvento o) {
-        try {
-            try (StringWriter sw = new StringWriter()) {
-                NfContextFactory.getInstance().getNfeInterestedActorContext().createMarshaller().marshal(interestedActorNfeObjectFactory.createProcEventoNFe(o), sw);
-                return XMLStringUtils.cleanNamespace(sw.toString());
-            }
-        } catch (JAXBException | IOException e) {
-            throw new MarshallException(e);
-        }
+        return interestedActorMarshall(interestedActorNfeObjectFactory.createProcEventoNFe(o));
     }
 
     @Override
     public String queryRegister(TConsCad o) {
-        try {
-            try (StringWriter sw = new StringWriter()) {
-                NfContextFactory.getInstance().getNfeSendContext().createMarshaller().marshal(sendNfeObjectFactory.createConsCad(o), sw);
-                return XMLStringUtils.cleanNamespace(sw.toString());
-            }
-        } catch (JAXBException | IOException e) {
-            throw new MarshallException(e);
-        }
+        return sendMarshall(sendNfeObjectFactory.createConsCad(o));
     }
 
     @Override
     public String returnQueryRegister(TRetConsCad o) {
-        try {
-            try (StringWriter sw = new StringWriter()) {
-                NfContextFactory.getInstance().getNfeSendContext().createMarshaller().marshal(sendNfeObjectFactory.createRetConsCad(o), sw);
-                return XMLStringUtils.cleanNamespace(sw.toString());
-            }
-        } catch (JAXBException | IOException e) {
-            throw new MarshallException(e);
-        }
+        return sendMarshall(sendNfeObjectFactory.createRetConsCad(o));
     }
 }

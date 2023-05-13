@@ -5,6 +5,7 @@ import br.inf.portalfiscal.cte.send.TUFSemEX;
 import br.inf.portalfiscal.cte.send.TUf;
 import com.softart.dfe.components.internal.AccessKeyGenerator;
 import com.softart.dfe.components.internal.ProjectProperties;
+import com.softart.dfe.components.internal.xml.marshaller.CteMarshallerFactory;
 import com.softart.dfe.components.internal.xml.unmarshaller.CteUnmarshallerFactory;
 import com.softart.dfe.enums.cte.identification.CteType;
 import com.softart.dfe.enums.cte.tax.CteICMS;
@@ -526,7 +527,7 @@ public final class CteOs implements DFObject, XMLAdapter<CteOs, TCTeOS> {
                     infModal.setVersaoModal(getVersaoModal());
 
                     if (Objects.nonNull(getRodoOs())) {
-                        infModal.setAny(CteUnmarshallerFactory.getInstance().toElement(getRodoOs().toObject()));
+                        infModal.setAny(CteMarshallerFactory.getInstance().toElement(getRodoOs().toObject()));
                     }
 
                     return infModal;

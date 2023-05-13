@@ -2,6 +2,7 @@ package com.softart.dfe.models.mdfe.event;
 
 import br.inf.portalfiscal.mdfe.classes.TEvento;
 import com.softart.dfe.components.internal.parser.AccessKeyParserFactory;
+import com.softart.dfe.components.internal.xml.marshaller.MdfeMarshallerFactory;
 import com.softart.dfe.components.internal.xml.unmarshaller.MdfeUnmarshallerFactory;
 import com.softart.dfe.enums.mdfe.MdfeEvent;
 import com.softart.dfe.enums.mdfe.version.MdfeEventVersion;
@@ -99,7 +100,7 @@ public final class MdfeDfeInclusion implements DFObject, XMLAdapter<MdfeDfeInclu
             public TEvento.InfEvento.DetEvento toObject() {
                 TEvento.InfEvento.DetEvento evento = new TEvento.InfEvento.DetEvento();
                 evento.setVersaoEvento(getVersaoEvento());
-                evento.setAny(MdfeUnmarshallerFactory.getInstance().toElement(getEvent().toObject()));
+                evento.setAny(MdfeMarshallerFactory.getInstance().toElement(getEvent().toObject()));
                 return evento;
 
             }

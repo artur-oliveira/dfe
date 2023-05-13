@@ -2,9 +2,202 @@ package com.softart.dfe.components.internal.xml.marshaller;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class DefaultCteMarshallerTest {
+
+    @Test
+    void testToElement() {
+        br.inf.portalfiscal.cte.send.EvCancCTe o = new br.inf.portalfiscal.cte.send.EvCancCTe();
+        assertNotNull(new DefaultCteMarshaller().toElement(o));
+    }
+
+    @Test
+    void testToElement1() {
+        br.inf.portalfiscal.cte.send.RodoOS o = new br.inf.portalfiscal.cte.send.RodoOS();
+        assertNotNull(new DefaultCteMarshaller().toElement(o));
+    }
+
+    @Test
+    void testToElement2() {
+        br.inf.portalfiscal.cte.send.EvCCeCTe o = new br.inf.portalfiscal.cte.send.EvCCeCTe();
+        assertNotNull(new DefaultCteMarshaller().toElement(o));
+    }
+
+    @Test
+    void testToElement3() {
+        br.inf.portalfiscal.cte.send.EvCECTe o = new br.inf.portalfiscal.cte.send.EvCECTe();
+        assertNotNull(new DefaultCteMarshaller().toElement(o));
+    }
+
+    @Test
+    void testToElement4() {
+        br.inf.portalfiscal.cte.send.EvCancCECTe o = new br.inf.portalfiscal.cte.send.EvCancCECTe();
+        assertNotNull(new DefaultCteMarshaller().toElement(o));
+    }
+
+    @Test
+    void testToElement5() {
+        br.inf.portalfiscal.cte.send.EvEPECCTe o = new br.inf.portalfiscal.cte.send.EvEPECCTe();
+        assertNotNull(new DefaultCteMarshaller().toElement(o));
+    }
+
+    @Test
+    void testToElement6() {
+        br.inf.portalfiscal.cte.send.EvGTV o = new br.inf.portalfiscal.cte.send.EvGTV();
+        assertNotNull(new DefaultCteMarshaller().toElement(o));
+    }
+
+    @Test
+    void testToElement7() {
+        br.inf.portalfiscal.cte.send.EvRegMultimodal o = new br.inf.portalfiscal.cte.send.EvRegMultimodal();
+        assertNotNull(new DefaultCteMarshaller().toElement(o));
+    }
+
+    @Test
+    void testToElement8() {
+        br.inf.portalfiscal.cte.send.EvPrestDesacordo o = new br.inf.portalfiscal.cte.send.EvPrestDesacordo();
+        assertNotNull(new DefaultCteMarshaller().toElement(o));
+    }
+
+    @Test
+    void testToElement9() {
+        br.inf.portalfiscal.cte.send.Rodo o = new br.inf.portalfiscal.cte.send.Rodo();
+        assertNotNull(new DefaultCteMarshaller().toElement(o));
+    }
+
+    @Test
+    void testToElement10() {
+        br.inf.portalfiscal.cte.send.Aereo o = new br.inf.portalfiscal.cte.send.Aereo();
+        assertNotNull(new DefaultCteMarshaller().toElement(o));
+    }
+
+    @Test
+    void testToElement11() {
+        br.inf.portalfiscal.cte.send.Aquav o = new br.inf.portalfiscal.cte.send.Aquav();
+        assertNotNull(new DefaultCteMarshaller().toElement(o));
+    }
+
+    @Test
+    void testToElement12() {
+        br.inf.portalfiscal.cte.send.Duto o = new br.inf.portalfiscal.cte.send.Duto();
+        assertNotNull(new DefaultCteMarshaller().toElement(o));
+    }
+
+    @Test
+    void testToElement13() {
+        br.inf.portalfiscal.cte.send.Ferrov o = new br.inf.portalfiscal.cte.send.Ferrov();
+        assertNotNull(new DefaultCteMarshaller().toElement(o));
+    }
+
+    @Test
+    void testToElement14() {
+        br.inf.portalfiscal.cte.send.Multimodal o = new br.inf.portalfiscal.cte.send.Multimodal();
+        assertNotNull(new DefaultCteMarshaller().toElement(o));
+    }
+
+    @Test
+    void testToElement15() {
+        br.inf.portalfiscal.cte.send400.EvCancCTe o = new br.inf.portalfiscal.cte.send400.EvCancCTe();
+        assertNotNull(new DefaultCteMarshaller().toElement(o));
+    }
+
+    @Test
+    void testToElement16() {
+        br.inf.portalfiscal.cte.send400.RodoOS o = new br.inf.portalfiscal.cte.send400.RodoOS();
+        assertNotNull(new DefaultCteMarshaller().toElement(o));
+    }
+
+    @Test
+    void testToElement17() {
+        br.inf.portalfiscal.cte.send400.EvCCeCTe o = new br.inf.portalfiscal.cte.send400.EvCCeCTe();
+        assertNotNull(new DefaultCteMarshaller().toElement(o));
+    }
+
+    @Test
+    void testToElement18() {
+        br.inf.portalfiscal.cte.send400.EvCECTe o = new br.inf.portalfiscal.cte.send400.EvCECTe();
+        assertNotNull(new DefaultCteMarshaller().toElement(o));
+    }
+
+    @Test
+    void testToElement19() {
+        br.inf.portalfiscal.cte.send400.EvCancCECTe o = new br.inf.portalfiscal.cte.send400.EvCancCECTe();
+        assertNotNull(new DefaultCteMarshaller().toElement(o));
+    }
+
+    @Test
+    void testToElement20() {
+        br.inf.portalfiscal.cte.send400.EvEPECCTe o = new br.inf.portalfiscal.cte.send400.EvEPECCTe();
+        assertNotNull(new DefaultCteMarshaller().toElement(o));
+    }
+
+    @Test
+    void testToElement21() {
+        br.inf.portalfiscal.cte.send400.EvGTV o = new br.inf.portalfiscal.cte.send400.EvGTV();
+        assertNotNull(new DefaultCteMarshaller().toElement(o));
+    }
+
+    @Test
+    void testToElement22() {
+        br.inf.portalfiscal.cte.send400.EvRegMultimodal o = new br.inf.portalfiscal.cte.send400.EvRegMultimodal();
+        assertNotNull(new DefaultCteMarshaller().toElement(o));
+    }
+
+    @Test
+    void testToElement23() {
+        br.inf.portalfiscal.cte.send400.EvPrestDesacordo o = new br.inf.portalfiscal.cte.send400.EvPrestDesacordo();
+        assertNotNull(new DefaultCteMarshaller().toElement(o));
+    }
+
+    @Test
+    void testToElement24() {
+        br.inf.portalfiscal.cte.send400.EvCancPrestDesacordo o = new br.inf.portalfiscal.cte.send400.EvCancPrestDesacordo();
+        assertNotNull(new DefaultCteMarshaller().toElement(o));
+    }
+
+    @Test
+    void testToElement25() {
+        br.inf.portalfiscal.cte.send400.EvIECTe o = new br.inf.portalfiscal.cte.send400.EvIECTe();
+        assertNotNull(new DefaultCteMarshaller().toElement(o));
+    }
+
+    @Test
+    void testToElement26() {
+        br.inf.portalfiscal.cte.send400.EvCancIECTe o = new br.inf.portalfiscal.cte.send400.EvCancIECTe();
+        assertNotNull(new DefaultCteMarshaller().toElement(o));
+    }
+
+    @Test
+    void testToElement27() {
+        br.inf.portalfiscal.cte.send400.Rodo o = new br.inf.portalfiscal.cte.send400.Rodo();
+        assertNotNull(new DefaultCteMarshaller().toElement(o));
+    }
+
+    @Test
+    void testToElement28() {
+        br.inf.portalfiscal.cte.send400.Aereo o = new br.inf.portalfiscal.cte.send400.Aereo();
+        assertNotNull(new DefaultCteMarshaller().toElement(o));
+    }
+
+    @Test
+    void testToElement29() {
+        br.inf.portalfiscal.cte.send400.Aquav o = new br.inf.portalfiscal.cte.send400.Aquav();
+        assertNotNull(new DefaultCteMarshaller().toElement(o));
+    }
+
+    @Test
+    void testToElement30() {
+        br.inf.portalfiscal.cte.send400.Duto o = new br.inf.portalfiscal.cte.send400.Duto();
+        assertNotNull(new DefaultCteMarshaller().toElement(o));
+    }
+
+    @Test
+    void testToElement31() {
+        br.inf.portalfiscal.cte.send400.Ferrov o = new br.inf.portalfiscal.cte.send400.Ferrov();
+        assertNotNull(new DefaultCteMarshaller().toElement(o));
+    }
 
     @Test
     void testDistributionCte() {

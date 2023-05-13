@@ -1,10 +1,8 @@
 package com.softart.dfe.interfaces.xml.unmarshaller;
 
 import br.inf.portalfiscal.mdfe.classes.*;
-import org.w3c.dom.Element;
-
 import jakarta.xml.bind.JAXBElement;
-import jakarta.xml.bind.JAXBException;
+import org.w3c.dom.Element;
 
 public interface MdfeUnmarshaller {
     JAXBElement<TDistDFe> sendDistribution(String xml);
@@ -25,43 +23,41 @@ public interface MdfeUnmarshaller {
 
     JAXBElement<TRetEvento> returnEvent(Element el);
 
+    JAXBElement<TRetEvento> returnEvent(String xml);
+
+    JAXBElement<TProtMDFe> protMdfe(String xml);
+
     JAXBElement<TProtMDFe> protMdfe(Element el);
-
-    JAXBElement<EvCancMDFe> evCancMDFe(Element el);
-
-    Element toElement(EvCancMDFe element) throws JAXBException;
-
-    Element toElement(Rodo element) throws JAXBException;
-
-    Element toElement(Aquav element) throws JAXBException;
-
-    Element toElement(Aereo element) throws JAXBException;
-
-    Element toElement(Ferrov element) throws JAXBException;
 
     JAXBElement<?> any(Element element);
 
+    JAXBElement<?> any(String xml);
+
+    JAXBElement<EvCancMDFe> evCancMDFe(Element el);
+
+    JAXBElement<EvCancMDFe> evCancMDFe(String xml);
+
     JAXBElement<EvAlteracaoPagtoServMDFe> evAlteracaoPagtoServMDFe(Element el);
 
-    Element toElement(EvAlteracaoPagtoServMDFe element) throws JAXBException;
+    JAXBElement<EvAlteracaoPagtoServMDFe> evAlteracaoPagtoServMDFe(String xml);
 
     JAXBElement<EvConfirmaServMDFe> evConfirmaServMDFe(Element el);
 
-    Element toElement(EvConfirmaServMDFe element) throws JAXBException;
+    JAXBElement<EvConfirmaServMDFe> evConfirmaServMDFe(String xml);
 
     JAXBElement<EvEncMDFe> evEncMDFe(Element el);
 
-    Element toElement(EvEncMDFe element) throws JAXBException;
+    JAXBElement<EvEncMDFe> evEncMDFe(String xml);
 
     JAXBElement<EvIncCondutorMDFe> evIncCondutorMDFe(Element el);
 
-    Element toElement(EvIncCondutorMDFe element) throws JAXBException;
+    JAXBElement<EvIncCondutorMDFe> evIncCondutorMDFe(String xml);
 
     JAXBElement<EvIncDFeMDFe> evIncDFeMDFe(Element el);
 
-    Element toElement(EvIncDFeMDFe element) throws JAXBException;
+    JAXBElement<EvIncDFeMDFe> evIncDFeMDFe(String xml);
 
     JAXBElement<EvPagtoOperMDFe> evPagtoOperMDFe(Element el);
 
-    Element toElement(EvPagtoOperMDFe element) throws JAXBException;
+    JAXBElement<EvPagtoOperMDFe> evPagtoOperMDFe(String xml);
 }

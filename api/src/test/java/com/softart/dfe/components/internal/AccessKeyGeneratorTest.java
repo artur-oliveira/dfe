@@ -13,11 +13,11 @@ class AccessKeyGeneratorTest {
 
     @Test
     void testAccessKey() {
-        assertEquals("22230111520224000140550010000000011123456786", AccessKeyGenerator.accessKey("22", "2023-01-01T00:00:00-03:00", "11520224000140", "55", "1", "1", "1", "12345678"));
+        assertEquals("22230111520224000140550010000000011123456785", AccessKeyGenerator.accessKey("22", "2023-01-01T00:00:00-03:00", "11520224000140", "55", "1", "1", "1", "12345678"));
     }
 
     @Test
     void testDigit() {
-        assertEquals("6", AccessKeyGenerator.digit("22", "2023-01-01T00:00:00-03:00", "11520224000140", "55", "1", "1", "1", "12345678"));
+        assertEquals("5", AccessKeyGenerator.digit("22", "2023-01-01T00:00:00-03:00", "11520224000140", "55", "1", "1", "1", "12345678"));
     }
 }

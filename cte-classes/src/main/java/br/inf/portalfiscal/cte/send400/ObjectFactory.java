@@ -1704,8 +1704,8 @@ public class ObjectFactory {
      * @return the new instance of {@link JAXBElement }{@code <}{@link Object }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "multimodal")
-    public JAXBElement<Object> createMultimodal(Object value) {
-        return new JAXBElement<>(_Multimodal_QNAME, Object.class, null, value);
+    public JAXBElement<Multimodal> createMultimodal(Multimodal value) {
+        return new JAXBElement<>(_Multimodal_QNAME, Multimodal.class, null, value);
     }
 
     /**

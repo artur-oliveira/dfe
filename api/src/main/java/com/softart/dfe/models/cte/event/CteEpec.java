@@ -3,6 +3,7 @@ package com.softart.dfe.models.cte.event;
 import br.inf.portalfiscal.cte.send.TEvento;
 import br.inf.portalfiscal.cte.send.TUf;
 import com.softart.dfe.components.internal.parser.AccessKeyParserFactory;
+import com.softart.dfe.components.internal.xml.marshaller.CteMarshallerFactory;
 import com.softart.dfe.components.internal.xml.unmarshaller.CteUnmarshallerFactory;
 import com.softart.dfe.enums.cte.CteEvent;
 import com.softart.dfe.enums.cte.version.CteEventVersion;
@@ -88,7 +89,7 @@ public final class CteEpec implements DFObject, XMLAdapter<CteEpec, TEvento> {
             public br.inf.portalfiscal.cte.send.DetEvento toObject() {
                 br.inf.portalfiscal.cte.send.DetEvento evento = new br.inf.portalfiscal.cte.send.DetEvento();
                 evento.setVersaoEvento(getVersaoEvento());
-                evento.setAny(CteUnmarshallerFactory.getInstance().toElement(getEvent().toObject()));
+                evento.setAny(CteMarshallerFactory.getInstance().toElement(getEvent().toObject()));
                 return evento;
             }
 

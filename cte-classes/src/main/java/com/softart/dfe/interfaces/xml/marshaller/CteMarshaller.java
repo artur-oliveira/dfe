@@ -111,4 +111,70 @@ public interface CteMarshaller {
     String protGtve(Element element);
 
     String protGtve400(Element element);
+
+    Element toElement(br.inf.portalfiscal.cte.send.EvCancCTe o);
+
+    Element toElement(br.inf.portalfiscal.cte.send.RodoOS o);
+
+    Element toElement(br.inf.portalfiscal.cte.send.EvCCeCTe o);
+
+    Element toElement(br.inf.portalfiscal.cte.send.EvCECTe o);
+
+    Element toElement(br.inf.portalfiscal.cte.send.EvCancCECTe o);
+
+    Element toElement(br.inf.portalfiscal.cte.send.EvEPECCTe o);
+
+    Element toElement(br.inf.portalfiscal.cte.send.EvGTV o);
+
+    Element toElement(br.inf.portalfiscal.cte.send.EvRegMultimodal o);
+
+    Element toElement(br.inf.portalfiscal.cte.send.EvPrestDesacordo o);
+
+    Element toElement(br.inf.portalfiscal.cte.send.Rodo o);
+
+    Element toElement(br.inf.portalfiscal.cte.send.Aereo o);
+
+    Element toElement(br.inf.portalfiscal.cte.send.Aquav o);
+
+    Element toElement(br.inf.portalfiscal.cte.send.Duto o);
+
+    Element toElement(br.inf.portalfiscal.cte.send.Ferrov o);
+
+    Element toElement(br.inf.portalfiscal.cte.send.Multimodal o);
+
+    Element toElement(br.inf.portalfiscal.cte.send400.EvCancCTe o);
+
+    Element toElement(br.inf.portalfiscal.cte.send400.RodoOS o);
+
+    Element toElement(br.inf.portalfiscal.cte.send400.EvCCeCTe o);
+
+    Element toElement(br.inf.portalfiscal.cte.send400.EvCECTe o);
+
+    Element toElement(br.inf.portalfiscal.cte.send400.EvCancCECTe o);
+
+    Element toElement(br.inf.portalfiscal.cte.send400.EvEPECCTe o);
+
+    Element toElement(br.inf.portalfiscal.cte.send400.EvGTV o);
+
+    Element toElement(br.inf.portalfiscal.cte.send400.EvRegMultimodal o);
+
+    Element toElement(br.inf.portalfiscal.cte.send400.EvPrestDesacordo o);
+
+    Element toElement(br.inf.portalfiscal.cte.send400.EvCancPrestDesacordo o);
+
+    Element toElement(br.inf.portalfiscal.cte.send400.EvIECTe o);
+
+    Element toElement(br.inf.portalfiscal.cte.send400.EvCancIECTe o);
+
+    Element toElement(br.inf.portalfiscal.cte.send400.Rodo o);
+
+    Element toElement(br.inf.portalfiscal.cte.send400.Aereo o);
+
+    Element toElement(br.inf.portalfiscal.cte.send400.Aquav o);
+
+    Element toElement(br.inf.portalfiscal.cte.send400.Duto o);
+
+    Element toElement(br.inf.portalfiscal.cte.send400.Ferrov o);
+
+    Element toElement(br.inf.portalfiscal.cte.send400.Multimodal o);
 }

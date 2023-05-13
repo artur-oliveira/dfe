@@ -1,7 +1,6 @@
 package com.softart.dfe.components.internal.xml.unmarshaller;
 
 import jakarta.xml.bind.JAXBElement;
-import jakarta.xml.bind.JAXBException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -102,152 +101,68 @@ class DefaultCteUnmarshallerTest {
     }
 
     @Test
-    void testAny300() throws JAXBException {
-        JAXBElement<?> rodo = new DefaultCteUnmarshaller().any300(new DefaultCteUnmarshaller().toElement(new br.inf.portalfiscal.cte.send.Rodo()));
+    void testAny300() {
+        JAXBElement<?> rodo = new DefaultCteUnmarshaller().any300("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><rodo xmlns=\"http://www.portalfiscal.inf.br/cte\"/>");
         assertNotNull(rodo);
         assertTrue(rodo.getValue() instanceof br.inf.portalfiscal.cte.send.Rodo);
-        JAXBElement<?> rodoos = new DefaultCteUnmarshaller().any300(new DefaultCteUnmarshaller().toElement(new br.inf.portalfiscal.cte.send.RodoOS()));
+        JAXBElement<?> rodoos = new DefaultCteUnmarshaller().any300("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><rodoOS xmlns=\"http://www.portalfiscal.inf.br/cte\"/>");
         assertNotNull(rodoos);
         assertTrue(rodoos.getValue() instanceof br.inf.portalfiscal.cte.send.RodoOS);
-        JAXBElement<?> duto = new DefaultCteUnmarshaller().any300(new DefaultCteUnmarshaller().toElement(new br.inf.portalfiscal.cte.send.Duto()));
+        JAXBElement<?> duto = new DefaultCteUnmarshaller().any300("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><duto xmlns=\"http://www.portalfiscal.inf.br/cte\"/>");
         assertNotNull(duto);
         assertTrue(duto.getValue() instanceof br.inf.portalfiscal.cte.send.Duto);
-        JAXBElement<?> aquav = new DefaultCteUnmarshaller().any300(new DefaultCteUnmarshaller().toElement(new br.inf.portalfiscal.cte.send.Aquav()));
+        JAXBElement<?> aquav = new DefaultCteUnmarshaller().any300("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><aquav xmlns=\"http://www.portalfiscal.inf.br/cte\"/>");
         assertNotNull(aquav);
         assertTrue(aquav.getValue() instanceof br.inf.portalfiscal.cte.send.Aquav);
-        JAXBElement<?> aereo = new DefaultCteUnmarshaller().any300(new DefaultCteUnmarshaller().toElement(new br.inf.portalfiscal.cte.send.Aereo()));
+        JAXBElement<?> aereo = new DefaultCteUnmarshaller().any300("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><aereo xmlns=\"http://www.portalfiscal.inf.br/cte\"/>");
         assertNotNull(aereo);
         assertTrue(aereo.getValue() instanceof br.inf.portalfiscal.cte.send.Aereo);
-        JAXBElement<?> ferrov = new DefaultCteUnmarshaller().any300(new DefaultCteUnmarshaller().toElement(new br.inf.portalfiscal.cte.send.Ferrov()));
+        JAXBElement<?> ferrov = new DefaultCteUnmarshaller().any300("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><ferrov xmlns=\"http://www.portalfiscal.inf.br/cte\"/>");
         assertNotNull(ferrov);
         assertTrue(ferrov.getValue() instanceof br.inf.portalfiscal.cte.send.Ferrov);
-        JAXBElement<?> multimodal = new DefaultCteUnmarshaller().any300(new DefaultCteUnmarshaller().toElement(new br.inf.portalfiscal.cte.send.Multimodal()));
+        JAXBElement<?> multimodal = new DefaultCteUnmarshaller().any300("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><multimodal xmlns=\"http://www.portalfiscal.inf.br/cte\"/>");
         assertNotNull(multimodal);
         assertTrue(multimodal.getValue() instanceof br.inf.portalfiscal.cte.send.Multimodal);
     }
 
     @Test
-    void testEvCancCTe() throws JAXBException {
-        assertNotNull(new DefaultCteUnmarshaller().evCancCTe(new DefaultCteUnmarshaller().toElement(new br.inf.portalfiscal.cte.send.EvCancCTe())));
+    void testEvCancCTe() {
+        assertNotNull(new DefaultCteUnmarshaller().evCancCTe("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><evCancCTe xmlns=\"http://www.portalfiscal.inf.br/cte\"/>"));
     }
 
     @Test
-    void testEvCancCECTe() throws JAXBException {
-        assertNotNull(new DefaultCteUnmarshaller().evCancCECTe(new DefaultCteUnmarshaller().toElement(new br.inf.portalfiscal.cte.send.EvCancCECTe())));
+    void testEvCancCECTe() {
+        assertNotNull(new DefaultCteUnmarshaller().evCancCECTe("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><evCancCECTe xmlns=\"http://www.portalfiscal.inf.br/cte\"/>"));
     }
 
     @Test
-    void testEvCCeCTe() throws JAXBException {
-        assertNotNull(new DefaultCteUnmarshaller().evCCeCTe(new DefaultCteUnmarshaller().toElement(new br.inf.portalfiscal.cte.send.EvCCeCTe())));
+    void testEvCCeCTe() {
+        assertNotNull(new DefaultCteUnmarshaller().evCCeCTe("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><evCCeCTe xmlns=\"http://www.portalfiscal.inf.br/cte\"/>"));
     }
 
     @Test
-    void testEvCECTe() throws JAXBException {
-        assertNotNull(new DefaultCteUnmarshaller().evCECTe(new DefaultCteUnmarshaller().toElement(new br.inf.portalfiscal.cte.send.EvCECTe())));
+    void testEvCECTe() {
+        assertNotNull(new DefaultCteUnmarshaller().evCECTe("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><evCECTe xmlns=\"http://www.portalfiscal.inf.br/cte\"/>"));
     }
 
     @Test
-    void testEvEPECCTe() throws JAXBException {
-        assertNotNull(new DefaultCteUnmarshaller().evEPECCTe(new DefaultCteUnmarshaller().toElement(new br.inf.portalfiscal.cte.send.EvEPECCTe())));
+    void testEvEPECCTe() {
+        assertNotNull(new DefaultCteUnmarshaller().evEPECCTe("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><evEPECCTe xmlns=\"http://www.portalfiscal.inf.br/cte\"/>"));
     }
 
     @Test
-    void testEvGTV() throws JAXBException {
-        assertNotNull(new DefaultCteUnmarshaller().evGTV(new DefaultCteUnmarshaller().toElement(new br.inf.portalfiscal.cte.send.EvGTV())));
+    void testEvGTV() {
+        assertNotNull(new DefaultCteUnmarshaller().evGTV("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><evGTV xmlns=\"http://www.portalfiscal.inf.br/cte\"/>"));
     }
 
     @Test
-    void testEvPrestDesacordo() throws JAXBException {
-        assertNotNull(new DefaultCteUnmarshaller().evPrestDesacordo(new DefaultCteUnmarshaller().toElement(new br.inf.portalfiscal.cte.send.EvPrestDesacordo())));
+    void testEvPrestDesacordo() {
+        assertNotNull(new DefaultCteUnmarshaller().evPrestDesacordo("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><evPrestDesacordo xmlns=\"http://www.portalfiscal.inf.br/cte\"/>"));
     }
 
     @Test
-    void testEvRegMultimodal() throws JAXBException {
-        assertNotNull(new DefaultCteUnmarshaller().evRegMultimodal(new DefaultCteUnmarshaller().toElement(new br.inf.portalfiscal.cte.send.EvRegMultimodal())));
-    }
-
-    @Test
-    void testToElement() throws JAXBException {
-        br.inf.portalfiscal.cte.send.EvCancCTe o = new br.inf.portalfiscal.cte.send.EvCancCTe();
-        assertNotNull(new DefaultCteUnmarshaller().toElement(o));
-    }
-
-    @Test
-    void testToElement1() throws JAXBException {
-        br.inf.portalfiscal.cte.send.RodoOS o = new br.inf.portalfiscal.cte.send.RodoOS();
-        assertNotNull(new DefaultCteUnmarshaller().toElement(o));
-    }
-
-    @Test
-    void testToElement2() throws JAXBException {
-        br.inf.portalfiscal.cte.send.EvCCeCTe o = new br.inf.portalfiscal.cte.send.EvCCeCTe();
-        assertNotNull(new DefaultCteUnmarshaller().toElement(o));
-    }
-
-    @Test
-    void testToElement3() throws JAXBException {
-        br.inf.portalfiscal.cte.send.EvCECTe o = new br.inf.portalfiscal.cte.send.EvCECTe();
-        assertNotNull(new DefaultCteUnmarshaller().toElement(o));
-    }
-
-    @Test
-    void testToElement4() throws JAXBException {
-        br.inf.portalfiscal.cte.send.EvCancCECTe o = new br.inf.portalfiscal.cte.send.EvCancCECTe();
-        assertNotNull(new DefaultCteUnmarshaller().toElement(o));
-    }
-
-    @Test
-    void testToElement5() throws JAXBException {
-        br.inf.portalfiscal.cte.send.EvEPECCTe o = new br.inf.portalfiscal.cte.send.EvEPECCTe();
-        assertNotNull(new DefaultCteUnmarshaller().toElement(o));
-    }
-
-    @Test
-    void testToElement6() throws JAXBException {
-        br.inf.portalfiscal.cte.send.EvGTV o = new br.inf.portalfiscal.cte.send.EvGTV();
-        assertNotNull(new DefaultCteUnmarshaller().toElement(o));
-    }
-
-    @Test
-    void testToElement7() throws JAXBException {
-        br.inf.portalfiscal.cte.send.EvRegMultimodal o = new br.inf.portalfiscal.cte.send.EvRegMultimodal();
-        assertNotNull(new DefaultCteUnmarshaller().toElement(o));
-    }
-
-    @Test
-    void testToElement8() throws JAXBException {
-        br.inf.portalfiscal.cte.send.EvPrestDesacordo o = new br.inf.portalfiscal.cte.send.EvPrestDesacordo();
-        assertNotNull(new DefaultCteUnmarshaller().toElement(o));
-    }
-
-    @Test
-    void testToElement9() throws JAXBException {
-        br.inf.portalfiscal.cte.send.Rodo o = new br.inf.portalfiscal.cte.send.Rodo();
-        assertNotNull(new DefaultCteUnmarshaller().toElement(o));
-    }
-
-    @Test
-    void testToElement10() throws JAXBException {
-        br.inf.portalfiscal.cte.send.Aereo o = new br.inf.portalfiscal.cte.send.Aereo();
-        assertNotNull(new DefaultCteUnmarshaller().toElement(o));
-    }
-
-    @Test
-    void testToElement11() throws JAXBException {
-        br.inf.portalfiscal.cte.send.Aquav o = new br.inf.portalfiscal.cte.send.Aquav();
-        assertNotNull(new DefaultCteUnmarshaller().toElement(o));
-    }
-
-    @Test
-    void testToElement12() throws JAXBException {
-        br.inf.portalfiscal.cte.send.Duto o = new br.inf.portalfiscal.cte.send.Duto();
-        assertNotNull(new DefaultCteUnmarshaller().toElement(o));
-    }
-
-    @Test
-    void testToElement13() throws JAXBException {
-        br.inf.portalfiscal.cte.send.Ferrov o = new br.inf.portalfiscal.cte.send.Ferrov();
-        assertNotNull(new DefaultCteUnmarshaller().toElement(o));
+    void testEvRegMultimodal() {
+        assertNotNull(new DefaultCteUnmarshaller().evRegMultimodal("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><evRegMultimodal xmlns=\"http://www.portalfiscal.inf.br/cte\"/>"));
     }
 
     @Test
@@ -291,191 +206,83 @@ class DefaultCteUnmarshallerTest {
     }
 
     @Test
-    void testAny400() throws JAXBException {
-        JAXBElement<?> rodo = new DefaultCteUnmarshaller().any400(new DefaultCteUnmarshaller().toElement(new br.inf.portalfiscal.cte.send400.Rodo()));
+    void testAny400() {
+        JAXBElement<?> rodo = new DefaultCteUnmarshaller().any400("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><rodo xmlns=\"http://www.portalfiscal.inf.br/cte\"/>");
         assertNotNull(rodo);
         assertTrue(rodo.getValue() instanceof br.inf.portalfiscal.cte.send400.Rodo);
-        JAXBElement<?> rodoos = new DefaultCteUnmarshaller().any400(new DefaultCteUnmarshaller().toElement(new br.inf.portalfiscal.cte.send400.RodoOS()));
+        JAXBElement<?> rodoos = new DefaultCteUnmarshaller().any400("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><rodoOS xmlns=\"http://www.portalfiscal.inf.br/cte\"/>");
         assertNotNull(rodoos);
         assertTrue(rodoos.getValue() instanceof br.inf.portalfiscal.cte.send400.RodoOS);
-        JAXBElement<?> duto = new DefaultCteUnmarshaller().any400(new DefaultCteUnmarshaller().toElement(new br.inf.portalfiscal.cte.send400.Duto()));
+        JAXBElement<?> duto = new DefaultCteUnmarshaller().any400("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><duto xmlns=\"http://www.portalfiscal.inf.br/cte\"/>");
         assertNotNull(duto);
         assertTrue(duto.getValue() instanceof br.inf.portalfiscal.cte.send400.Duto);
-        JAXBElement<?> aquav = new DefaultCteUnmarshaller().any400(new DefaultCteUnmarshaller().toElement(new br.inf.portalfiscal.cte.send400.Aquav()));
+        JAXBElement<?> aquav = new DefaultCteUnmarshaller().any400("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><aquav xmlns=\"http://www.portalfiscal.inf.br/cte\"/>");
         assertNotNull(aquav);
         assertTrue(aquav.getValue() instanceof br.inf.portalfiscal.cte.send400.Aquav);
-        JAXBElement<?> aereo = new DefaultCteUnmarshaller().any400(new DefaultCteUnmarshaller().toElement(new br.inf.portalfiscal.cte.send400.Aereo()));
+        JAXBElement<?> aereo = new DefaultCteUnmarshaller().any400("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><aereo xmlns=\"http://www.portalfiscal.inf.br/cte\"/>");
         assertNotNull(aereo);
         assertTrue(aereo.getValue() instanceof br.inf.portalfiscal.cte.send400.Aereo);
-        JAXBElement<?> ferrov = new DefaultCteUnmarshaller().any400(new DefaultCteUnmarshaller().toElement(new br.inf.portalfiscal.cte.send400.Ferrov()));
+        JAXBElement<?> ferrov = new DefaultCteUnmarshaller().any400("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><ferrov xmlns=\"http://www.portalfiscal.inf.br/cte\"/>");
         assertNotNull(ferrov);
         assertTrue(ferrov.getValue() instanceof br.inf.portalfiscal.cte.send400.Ferrov);
-        JAXBElement<?> multimodal = new DefaultCteUnmarshaller().any400(new DefaultCteUnmarshaller().toElement(new br.inf.portalfiscal.cte.send400.Multimodal()));
+        JAXBElement<?> multimodal = new DefaultCteUnmarshaller().any400("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><multimodal xmlns=\"http://www.portalfiscal.inf.br/cte\"/>");
         assertNotNull(multimodal);
         assertTrue(multimodal.getValue() instanceof br.inf.portalfiscal.cte.send400.Multimodal);
     }
 
     @Test
-    void testEvCancCTe400() throws JAXBException {
-        assertNotNull(new DefaultCteUnmarshaller().evCancCTe400(new DefaultCteUnmarshaller().toElement(new br.inf.portalfiscal.cte.send400.EvCancCTe())));
+    void testEvCancCTe400() {
+        assertNotNull(new DefaultCteUnmarshaller().evCancCTe400("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><evCancCTe xmlns=\"http://www.portalfiscal.inf.br/cte\"/>"));
     }
 
     @Test
-    void testEvCancCECTe400() throws JAXBException {
-        assertNotNull(new DefaultCteUnmarshaller().evCancCECTe400(new DefaultCteUnmarshaller().toElement(new br.inf.portalfiscal.cte.send400.EvCancCECTe())));
+    void testEvCancCECTe400() {
+        assertNotNull(new DefaultCteUnmarshaller().evCancCECTe400("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><evCancCECTe xmlns=\"http://www.portalfiscal.inf.br/cte\"/>"));
     }
 
     @Test
-    void testEvCCeCTe400() throws JAXBException {
-        assertNotNull(new DefaultCteUnmarshaller().evCCeCTe400(new DefaultCteUnmarshaller().toElement(new br.inf.portalfiscal.cte.send400.EvCCeCTe())));
+    void testEvCCeCTe400() {
+        assertNotNull(new DefaultCteUnmarshaller().evCCeCTe400("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><evCCeCTe xmlns=\"http://www.portalfiscal.inf.br/cte\"/>"));
     }
 
     @Test
-    void testEvCECTe400() throws JAXBException {
-        assertNotNull(new DefaultCteUnmarshaller().evCECTe400(new DefaultCteUnmarshaller().toElement(new br.inf.portalfiscal.cte.send400.EvCECTe())));
+    void testEvCECTe400() {
+        assertNotNull(new DefaultCteUnmarshaller().evCECTe400("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><evCECTe xmlns=\"http://www.portalfiscal.inf.br/cte\"/>"));
     }
 
     @Test
-    void testEvEPECCTe400() throws JAXBException {
-        assertNotNull(new DefaultCteUnmarshaller().evEPECCTe400(new DefaultCteUnmarshaller().toElement(new br.inf.portalfiscal.cte.send400.EvEPECCTe())));
+    void testEvEPECCTe400() {
+        assertNotNull(new DefaultCteUnmarshaller().evEPECCTe400("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><evEPECCTe xmlns=\"http://www.portalfiscal.inf.br/cte\"/>"));
     }
 
     @Test
-    void testEvGTV400() throws JAXBException {
-        assertNotNull(new DefaultCteUnmarshaller().evGTV400(new DefaultCteUnmarshaller().toElement(new br.inf.portalfiscal.cte.send400.EvGTV())));
+    void testEvGTV400() {
+        assertNotNull(new DefaultCteUnmarshaller().evGTV400("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><evGTV xmlns=\"http://www.portalfiscal.inf.br/cte\"/>"));
     }
 
     @Test
-    void testEvPrestDesacordo400() throws JAXBException {
-        assertNotNull(new DefaultCteUnmarshaller().evPrestDesacordo400(new DefaultCteUnmarshaller().toElement(new br.inf.portalfiscal.cte.send400.EvPrestDesacordo())));
+    void testEvPrestDesacordo400() {
+        assertNotNull(new DefaultCteUnmarshaller().evPrestDesacordo400("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><evPrestDesacordo xmlns=\"http://www.portalfiscal.inf.br/cte\"/>"));
     }
 
     @Test
-    void testEvCancPrestDesacordo400() throws JAXBException {
-        assertNotNull(new DefaultCteUnmarshaller().evCancPrestDesacordo400(new DefaultCteUnmarshaller().toElement(new br.inf.portalfiscal.cte.send400.EvCancPrestDesacordo())));
+    void testEvCancPrestDesacordo400() {
+        assertNotNull(new DefaultCteUnmarshaller().evCancPrestDesacordo400("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><evCancPrestDesacordo xmlns=\"http://www.portalfiscal.inf.br/cte\"/>"));
     }
 
     @Test
-    void testEvIECTe400() throws JAXBException {
-        assertNotNull(new DefaultCteUnmarshaller().evIECTe400(new DefaultCteUnmarshaller().toElement(new br.inf.portalfiscal.cte.send400.EvIECTe())));
+    void testEvIECTe400() {
+        assertNotNull(new DefaultCteUnmarshaller().evIECTe400("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><evIECTe xmlns=\"http://www.portalfiscal.inf.br/cte\"/>"));
     }
 
     @Test
-    void testEvCancIECTe400() throws JAXBException {
-        assertNotNull(new DefaultCteUnmarshaller().evCancIECTe400(new DefaultCteUnmarshaller().toElement(new br.inf.portalfiscal.cte.send400.EvCancIECTe())));
+    void testEvCancIECTe400() {
+        assertNotNull(new DefaultCteUnmarshaller().evCancIECTe400("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><evCancIECTe xmlns=\"http://www.portalfiscal.inf.br/cte\"/>"));
     }
 
     @Test
-    void testEvRegMultimodal400() throws JAXBException {
-        assertNotNull(new DefaultCteUnmarshaller().evRegMultimodal400(new DefaultCteUnmarshaller().toElement(new br.inf.portalfiscal.cte.send400.EvRegMultimodal())));
-    }
-
-    @Test
-    void testToElement14() throws JAXBException {
-        br.inf.portalfiscal.cte.send.Multimodal o = new br.inf.portalfiscal.cte.send.Multimodal();
-        assertNotNull(new DefaultCteUnmarshaller().toElement(o));
-    }
-
-    @Test
-    void testToElement15() throws JAXBException {
-        br.inf.portalfiscal.cte.send400.EvCancCTe o = new br.inf.portalfiscal.cte.send400.EvCancCTe();
-        assertNotNull(new DefaultCteUnmarshaller().toElement(o));
-    }
-
-    @Test
-    void testToElement16() throws JAXBException {
-        br.inf.portalfiscal.cte.send400.RodoOS o = new br.inf.portalfiscal.cte.send400.RodoOS();
-        assertNotNull(new DefaultCteUnmarshaller().toElement(o));
-    }
-
-    @Test
-    void testToElement17() throws JAXBException {
-        br.inf.portalfiscal.cte.send400.EvCCeCTe o = new br.inf.portalfiscal.cte.send400.EvCCeCTe();
-        assertNotNull(new DefaultCteUnmarshaller().toElement(o));
-    }
-
-    @Test
-    void testToElement18() throws JAXBException {
-        br.inf.portalfiscal.cte.send400.EvCECTe o = new br.inf.portalfiscal.cte.send400.EvCECTe();
-        assertNotNull(new DefaultCteUnmarshaller().toElement(o));
-    }
-
-    @Test
-    void testToElement19() throws JAXBException {
-        br.inf.portalfiscal.cte.send400.EvCancCECTe o = new br.inf.portalfiscal.cte.send400.EvCancCECTe();
-        assertNotNull(new DefaultCteUnmarshaller().toElement(o));
-    }
-
-    @Test
-    void testToElement20() throws JAXBException {
-        br.inf.portalfiscal.cte.send400.EvEPECCTe o = new br.inf.portalfiscal.cte.send400.EvEPECCTe();
-        assertNotNull(new DefaultCteUnmarshaller().toElement(o));
-    }
-
-    @Test
-    void testToElement21() throws JAXBException {
-        br.inf.portalfiscal.cte.send400.EvGTV o = new br.inf.portalfiscal.cte.send400.EvGTV();
-        assertNotNull(new DefaultCteUnmarshaller().toElement(o));
-    }
-
-    @Test
-    void testToElement22() throws JAXBException {
-        br.inf.portalfiscal.cte.send400.EvRegMultimodal o = new br.inf.portalfiscal.cte.send400.EvRegMultimodal();
-        assertNotNull(new DefaultCteUnmarshaller().toElement(o));
-    }
-
-    @Test
-    void testToElement23() throws JAXBException {
-        br.inf.portalfiscal.cte.send400.EvPrestDesacordo o = new br.inf.portalfiscal.cte.send400.EvPrestDesacordo();
-        assertNotNull(new DefaultCteUnmarshaller().toElement(o));
-    }
-
-    @Test
-    void testToElement24() throws JAXBException {
-        br.inf.portalfiscal.cte.send400.EvCancPrestDesacordo o = new br.inf.portalfiscal.cte.send400.EvCancPrestDesacordo();
-        assertNotNull(new DefaultCteUnmarshaller().toElement(o));
-    }
-
-    @Test
-    void testToElement25() throws JAXBException {
-        br.inf.portalfiscal.cte.send400.EvIECTe o = new br.inf.portalfiscal.cte.send400.EvIECTe();
-        assertNotNull(new DefaultCteUnmarshaller().toElement(o));
-    }
-
-    @Test
-    void testToElement26() throws JAXBException {
-        br.inf.portalfiscal.cte.send400.EvCancIECTe o = new br.inf.portalfiscal.cte.send400.EvCancIECTe();
-        assertNotNull(new DefaultCteUnmarshaller().toElement(o));
-    }
-
-    @Test
-    void testToElement27() throws JAXBException {
-        br.inf.portalfiscal.cte.send400.Rodo o = new br.inf.portalfiscal.cte.send400.Rodo();
-        assertNotNull(new DefaultCteUnmarshaller().toElement(o));
-    }
-
-    @Test
-    void testToElement28() throws JAXBException {
-        br.inf.portalfiscal.cte.send400.Aereo o = new br.inf.portalfiscal.cte.send400.Aereo();
-        assertNotNull(new DefaultCteUnmarshaller().toElement(o));
-    }
-
-    @Test
-    void testToElement29() throws JAXBException {
-        br.inf.portalfiscal.cte.send400.Aquav o = new br.inf.portalfiscal.cte.send400.Aquav();
-        assertNotNull(new DefaultCteUnmarshaller().toElement(o));
-    }
-
-    @Test
-    void testToElement30() throws JAXBException {
-        br.inf.portalfiscal.cte.send400.Duto o = new br.inf.portalfiscal.cte.send400.Duto();
-        assertNotNull(new DefaultCteUnmarshaller().toElement(o));
-    }
-
-    @Test
-    void testToElement31() throws JAXBException {
-        br.inf.portalfiscal.cte.send400.Ferrov o = new br.inf.portalfiscal.cte.send400.Ferrov();
-        assertNotNull(new DefaultCteUnmarshaller().toElement(o));
+    void testEvRegMultimodal400() {
+        assertNotNull(new DefaultCteUnmarshaller().evRegMultimodal400("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><evRegMultimodal xmlns=\"http://www.portalfiscal.inf.br/cte\"/>"));
     }
 
     @Test

@@ -5,6 +5,7 @@ import br.inf.portalfiscal.cte.send.TUFSemEX;
 import br.inf.portalfiscal.cte.send.TUf;
 import com.softart.dfe.components.internal.AccessKeyGenerator;
 import com.softart.dfe.components.internal.ProjectProperties;
+import com.softart.dfe.components.internal.xml.marshaller.CteMarshallerFactory;
 import com.softart.dfe.components.internal.xml.unmarshaller.CteUnmarshallerFactory;
 import com.softart.dfe.enums.cte.identification.*;
 import com.softart.dfe.enums.cte.tax.CteICMS;
@@ -944,17 +945,17 @@ public final class Cte implements DFObject, XMLAdapter<Cte, TCTe> {
                     infModal.setVersaoModal(getVersaoModal());
 
                     if (Objects.nonNull(getRodo())) {
-                        infModal.setAny(CteUnmarshallerFactory.getInstance().toElement(getRodo().toObject()));
+                        infModal.setAny(CteMarshallerFactory.getInstance().toElement(getRodo().toObject()));
                     } else if (Objects.nonNull(getAereo())) {
-                        infModal.setAny(CteUnmarshallerFactory.getInstance().toElement(getAereo().toObject()));
+                        infModal.setAny(CteMarshallerFactory.getInstance().toElement(getAereo().toObject()));
                     } else if (Objects.nonNull(getAquav())) {
-                        infModal.setAny(CteUnmarshallerFactory.getInstance().toElement(getAquav().toObject()));
+                        infModal.setAny(CteMarshallerFactory.getInstance().toElement(getAquav().toObject()));
                     } else if (Objects.nonNull(getDuto())) {
-                        infModal.setAny(CteUnmarshallerFactory.getInstance().toElement(getDuto().toObject()));
+                        infModal.setAny(CteMarshallerFactory.getInstance().toElement(getDuto().toObject()));
                     } else if (Objects.nonNull(getFerrov())) {
-                        infModal.setAny(CteUnmarshallerFactory.getInstance().toElement(getFerrov().toObject()));
+                        infModal.setAny(CteMarshallerFactory.getInstance().toElement(getFerrov().toObject()));
                     } else if (Objects.nonNull(getMultimodal())) {
-                        infModal.setAny(CteUnmarshallerFactory.getInstance().toElement(getMultimodal().toObject()));
+                        infModal.setAny(CteMarshallerFactory.getInstance().toElement(getMultimodal().toObject()));
                     }
 
                     return infModal;

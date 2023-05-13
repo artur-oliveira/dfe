@@ -1,7 +1,6 @@
 package com.softart.dfe.interfaces.xml.unmarshaller;
 
 import jakarta.xml.bind.JAXBElement;
-import jakarta.xml.bind.JAXBException;
 import org.w3c.dom.Element;
 
 public interface CteUnmarshaller {
@@ -29,51 +28,63 @@ public interface CteUnmarshaller {
 
     JAXBElement<?> any300(Element element);
 
+    JAXBElement<?> any300(String xml);
+
     JAXBElement<br.inf.portalfiscal.cte.send.EvCancCTe> evCancCTe(Element element);
+
+    JAXBElement<br.inf.portalfiscal.cte.send.EvCancCTe> evCancCTe(String xml);
 
     JAXBElement<br.inf.portalfiscal.cte.send.EvCancCECTe> evCancCECTe(Element element);
 
+    JAXBElement<br.inf.portalfiscal.cte.send.EvCancCECTe> evCancCECTe(String xml);
+
     JAXBElement<br.inf.portalfiscal.cte.send.EvCCeCTe> evCCeCTe(Element element);
+
+    JAXBElement<br.inf.portalfiscal.cte.send.EvCCeCTe> evCCeCTe(String xml);
 
     JAXBElement<br.inf.portalfiscal.cte.send.EvCECTe> evCECTe(Element element);
 
+    JAXBElement<br.inf.portalfiscal.cte.send.EvCECTe> evCECTe(String xml);
+
     JAXBElement<br.inf.portalfiscal.cte.send.EvEPECCTe> evEPECCTe(Element element);
+
+    JAXBElement<br.inf.portalfiscal.cte.send.EvEPECCTe> evEPECCTe(String xml);
 
     JAXBElement<br.inf.portalfiscal.cte.send.EvGTV> evGTV(Element element);
 
+    JAXBElement<br.inf.portalfiscal.cte.send.EvGTV> evGTV(String xml);
+
     JAXBElement<br.inf.portalfiscal.cte.send.EvPrestDesacordo> evPrestDesacordo(Element element);
+
+    JAXBElement<br.inf.portalfiscal.cte.send.EvPrestDesacordo> evPrestDesacordo(String xml);
 
     JAXBElement<br.inf.portalfiscal.cte.send.EvRegMultimodal> evRegMultimodal(Element element);
 
-    Element toElement(br.inf.portalfiscal.cte.send.EvCancCTe o) throws JAXBException;
+    JAXBElement<br.inf.portalfiscal.cte.send.EvRegMultimodal> evRegMultimodal(String xml);
 
-    Element toElement(br.inf.portalfiscal.cte.send.RodoOS o) throws JAXBException;
+    JAXBElement<br.inf.portalfiscal.cte.send.Rodo> rodo(String xml);
 
-    Element toElement(br.inf.portalfiscal.cte.send.EvCCeCTe o) throws JAXBException;
+    JAXBElement<br.inf.portalfiscal.cte.send.Rodo> rodo(Element el);
 
-    Element toElement(br.inf.portalfiscal.cte.send.EvCECTe o) throws JAXBException;
+    JAXBElement<br.inf.portalfiscal.cte.send.Aereo> aereo(String xml);
 
-    Element toElement(br.inf.portalfiscal.cte.send.EvCancCECTe o) throws JAXBException;
+    JAXBElement<br.inf.portalfiscal.cte.send.Aereo> aereo(Element el);
 
-    Element toElement(br.inf.portalfiscal.cte.send.EvEPECCTe o) throws JAXBException;
+    JAXBElement<br.inf.portalfiscal.cte.send.Aquav> aquav(String xml);
 
-    Element toElement(br.inf.portalfiscal.cte.send.EvGTV o) throws JAXBException;
+    JAXBElement<br.inf.portalfiscal.cte.send.Aquav> aquav(Element el);
 
-    Element toElement(br.inf.portalfiscal.cte.send.EvRegMultimodal o) throws JAXBException;
+    JAXBElement<br.inf.portalfiscal.cte.send.Duto> duto(String xml);
 
-    Element toElement(br.inf.portalfiscal.cte.send.EvPrestDesacordo o) throws JAXBException;
+    JAXBElement<br.inf.portalfiscal.cte.send.Duto> duto(Element el);
 
-    Element toElement(br.inf.portalfiscal.cte.send.Rodo o) throws JAXBException;
+    JAXBElement<br.inf.portalfiscal.cte.send.Ferrov> ferrov(String xml);
 
-    Element toElement(br.inf.portalfiscal.cte.send.Aereo o) throws JAXBException;
+    JAXBElement<br.inf.portalfiscal.cte.send.Ferrov> ferrov(Element el);
 
-    Element toElement(br.inf.portalfiscal.cte.send.Aquav o) throws JAXBException;
+    JAXBElement<br.inf.portalfiscal.cte.send.Multimodal> multimodal(String xml);
 
-    Element toElement(br.inf.portalfiscal.cte.send.Duto o) throws JAXBException;
-
-    Element toElement(br.inf.portalfiscal.cte.send.Ferrov o) throws JAXBException;
-
-    Element toElement(br.inf.portalfiscal.cte.send.Multimodal o) throws JAXBException;
+    JAXBElement<br.inf.portalfiscal.cte.send.Multimodal> multimodal(Element el);
 
     JAXBElement<br.inf.portalfiscal.cte.send.TProtCTe> protCTe(Element element);
 
@@ -105,63 +116,75 @@ public interface CteUnmarshaller {
 
     JAXBElement<?> any400(Element element);
 
+    JAXBElement<?> any400(String xml);
+
     JAXBElement<br.inf.portalfiscal.cte.send400.EvCancCTe> evCancCTe400(Element element);
+
+    JAXBElement<br.inf.portalfiscal.cte.send400.EvCancCTe> evCancCTe400(String xml);
 
     JAXBElement<br.inf.portalfiscal.cte.send400.EvCancCECTe> evCancCECTe400(Element element);
 
+    JAXBElement<br.inf.portalfiscal.cte.send400.EvCancCECTe> evCancCECTe400(String xml);
+
     JAXBElement<br.inf.portalfiscal.cte.send400.EvCCeCTe> evCCeCTe400(Element element);
+
+    JAXBElement<br.inf.portalfiscal.cte.send400.EvCCeCTe> evCCeCTe400(String xml);
 
     JAXBElement<br.inf.portalfiscal.cte.send400.EvCECTe> evCECTe400(Element element);
 
+    JAXBElement<br.inf.portalfiscal.cte.send400.EvCECTe> evCECTe400(String xml);
+
     JAXBElement<br.inf.portalfiscal.cte.send400.EvEPECCTe> evEPECCTe400(Element element);
+
+    JAXBElement<br.inf.portalfiscal.cte.send400.EvEPECCTe> evEPECCTe400(String xml);
 
     JAXBElement<br.inf.portalfiscal.cte.send400.EvGTV> evGTV400(Element element);
 
+    JAXBElement<br.inf.portalfiscal.cte.send400.EvGTV> evGTV400(String xml);
+
     JAXBElement<br.inf.portalfiscal.cte.send400.EvPrestDesacordo> evPrestDesacordo400(Element element);
+
+    JAXBElement<br.inf.portalfiscal.cte.send400.EvPrestDesacordo> evPrestDesacordo400(String xml);
 
     JAXBElement<br.inf.portalfiscal.cte.send400.EvCancPrestDesacordo> evCancPrestDesacordo400(Element element);
 
+    JAXBElement<br.inf.portalfiscal.cte.send400.EvCancPrestDesacordo> evCancPrestDesacordo400(String xml);
+
     JAXBElement<br.inf.portalfiscal.cte.send400.EvRegMultimodal> evRegMultimodal400(Element element);
+
+    JAXBElement<br.inf.portalfiscal.cte.send400.EvRegMultimodal> evRegMultimodal400(String xml);
 
     JAXBElement<br.inf.portalfiscal.cte.send400.EvIECTe> evIECTe400(Element element);
 
+    JAXBElement<br.inf.portalfiscal.cte.send400.EvIECTe> evIECTe400(String xml);
+
     JAXBElement<br.inf.portalfiscal.cte.send400.EvCancIECTe> evCancIECTe400(Element element);
 
-    Element toElement(br.inf.portalfiscal.cte.send400.EvCancCTe o) throws JAXBException;
+    JAXBElement<br.inf.portalfiscal.cte.send400.EvCancIECTe> evCancIECTe400(String xml);
 
-    Element toElement(br.inf.portalfiscal.cte.send400.RodoOS o) throws JAXBException;
+    JAXBElement<br.inf.portalfiscal.cte.send400.Rodo> rodo400(String xml);
 
-    Element toElement(br.inf.portalfiscal.cte.send400.EvCCeCTe o) throws JAXBException;
+    JAXBElement<br.inf.portalfiscal.cte.send400.Rodo> rodo400(Element el);
 
-    Element toElement(br.inf.portalfiscal.cte.send400.EvCECTe o) throws JAXBException;
+    JAXBElement<br.inf.portalfiscal.cte.send400.Aereo> aereo400(String xml);
 
-    Element toElement(br.inf.portalfiscal.cte.send400.EvCancCECTe o) throws JAXBException;
+    JAXBElement<br.inf.portalfiscal.cte.send400.Aereo> aereo400(Element el);
 
-    Element toElement(br.inf.portalfiscal.cte.send400.EvEPECCTe o) throws JAXBException;
+    JAXBElement<br.inf.portalfiscal.cte.send400.Aquav> aquav400(String xml);
 
-    Element toElement(br.inf.portalfiscal.cte.send400.EvGTV o) throws JAXBException;
+    JAXBElement<br.inf.portalfiscal.cte.send400.Aquav> aquav400(Element el);
 
-    Element toElement(br.inf.portalfiscal.cte.send400.EvRegMultimodal o) throws JAXBException;
+    JAXBElement<br.inf.portalfiscal.cte.send400.Duto> duto400(String xml);
 
-    Element toElement(br.inf.portalfiscal.cte.send400.EvPrestDesacordo o) throws JAXBException;
+    JAXBElement<br.inf.portalfiscal.cte.send400.Duto> duto400(Element el);
 
-    Element toElement(br.inf.portalfiscal.cte.send400.EvCancPrestDesacordo o) throws JAXBException;
+    JAXBElement<br.inf.portalfiscal.cte.send400.Ferrov> ferrov400(String xml);
 
-    Element toElement(br.inf.portalfiscal.cte.send400.EvIECTe o) throws JAXBException;
+    JAXBElement<br.inf.portalfiscal.cte.send400.Ferrov> ferrov400(Element el);
 
-    Element toElement(br.inf.portalfiscal.cte.send400.EvCancIECTe o) throws JAXBException;
+    JAXBElement<br.inf.portalfiscal.cte.send400.Multimodal> multimodal400(String xml);
 
-    Element toElement(br.inf.portalfiscal.cte.send400.Rodo o) throws JAXBException;
-
-    Element toElement(br.inf.portalfiscal.cte.send400.Aereo o) throws JAXBException;
-
-    Element toElement(br.inf.portalfiscal.cte.send400.Aquav o) throws JAXBException;
-
-    Element toElement(br.inf.portalfiscal.cte.send400.Duto o) throws JAXBException;
-
-    Element toElement(br.inf.portalfiscal.cte.send400.Ferrov o) throws JAXBException;
-
-    Element toElement(br.inf.portalfiscal.cte.send400.Multimodal o) throws JAXBException;
+    JAXBElement<br.inf.portalfiscal.cte.send400.Multimodal> multimodal400(Element el);
 
     JAXBElement<br.inf.portalfiscal.cte.send400.TProtCTe> protCTe400(Element element);
 
