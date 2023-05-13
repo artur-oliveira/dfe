@@ -6,14 +6,8 @@ import br.inf.portalfiscal.nfe.gtin.TConsGTIN;
 import br.inf.portalfiscal.nfe.gtin.TRetConsGTIN;
 import br.inf.portalfiscal.nfe.send.*;
 import com.softart.dfe.components.internal.xml.context.NfContextFactory;
-import com.softart.dfe.exceptions.xml.MarshallException;
-import com.softart.dfe.util.XMLStringUtils;
 import com.softart.dfe.util.XMLUtils;
 import jakarta.xml.bind.JAXBElement;
-import jakarta.xml.bind.JAXBException;
-
-import java.io.IOException;
-import java.io.StringWriter;
 
 final class DefaultNfMarshaller extends NfMarshallerFactory {
 
@@ -27,6 +21,7 @@ final class DefaultNfMarshaller extends NfMarshallerFactory {
     private final br.inf.portalfiscal.nfe.event_interested_actor.ObjectFactory interestedActorNfeObjectFactory = new br.inf.portalfiscal.nfe.event_interested_actor.ObjectFactory();
     private final br.inf.portalfiscal.nfe.gtin.ObjectFactory gtinNfeObjectFactory = new br.inf.portalfiscal.nfe.gtin.ObjectFactory();
     private final br.inf.portalfiscal.nfe.distribution.ObjectFactory distributionNfeObjectFactory = new br.inf.portalfiscal.nfe.distribution.ObjectFactory();
+
 
     String cancelMarshall(JAXBElement<?> el) {
         return XMLUtils.marshall(NfContextFactory.getInstance().getNfeCancelContext(), el);

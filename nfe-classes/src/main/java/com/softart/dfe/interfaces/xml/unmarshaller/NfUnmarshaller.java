@@ -2,8 +2,8 @@ package com.softart.dfe.interfaces.xml.unmarshaller;
 
 import br.inf.portalfiscal.nfe.distribution.TDistDFeInt;
 import br.inf.portalfiscal.nfe.send.*;
-
 import jakarta.xml.bind.JAXBElement;
+import org.w3c.dom.Element;
 
 public interface NfUnmarshaller {
     JAXBElement<br.inf.portalfiscal.nfe.event_cancel.TEnvEvento> cancelNfe(String xml);
@@ -63,4 +63,34 @@ public interface NfUnmarshaller {
     JAXBElement<TConsCad> queryRegister(String xml);
 
     JAXBElement<TRetConsCad> returnQueryRegister(String xml);
+
+    JAXBElement<?> anySendNfe(Element el);
+
+    JAXBElement<?> anySendNfe(String xml);
+
+    JAXBElement<?> anyCancelNfe(String xml);
+
+    JAXBElement<?> anySubstituteCancelNfe(Element el);
+
+    JAXBElement<?> anySubstituteCancelNfe(String xml);
+
+    JAXBElement<?> anyCorrectionLetterNfe(Element el);
+
+    JAXBElement<?> anyCorrectionLetterNfe(String xml);
+
+    JAXBElement<?> anyEpecNfe(Element el);
+
+    JAXBElement<?> anyEpecNfe(String xml);
+
+    JAXBElement<?> anyManifestationNfe(Element el);
+
+    JAXBElement<?> anyManifestationNfe(String xml);
+
+    JAXBElement<?> anyInterestedActorNfe(Element el);
+
+    JAXBElement<?> anyInterestedActorNfe(String xml);
+
+    JAXBElement<?> anyDistributionNfe(Element el);
+
+    JAXBElement<?> anyDistributionNfe(String xml);
 }

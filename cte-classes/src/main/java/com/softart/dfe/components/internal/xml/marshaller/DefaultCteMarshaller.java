@@ -309,26 +309,12 @@ final class DefaultCteMarshaller extends CteMarshallerFactory {
 
     @Override
     public String any(Element element) {
-        try {
-            try (StringWriter sw = new StringWriter()) {
-                XMLUtils.getTransformer().transform(new DOMSource(element), new StreamResult(sw));
-                return XMLStringUtils.cleanNamespace(sw.toString());
-            }
-        } catch (Exception e) {
-            throw new MarshallException(e);
-        }
+        return XMLUtils.elementToString(element);
     }
 
     @Override
     public String any400(Element element) {
-        try {
-            try (StringWriter sw = new StringWriter()) {
-                XMLUtils.getTransformer().transform(new DOMSource(element), new StreamResult(sw));
-                return XMLStringUtils.cleanNamespace(sw.toString());
-            }
-        } catch (Exception e) {
-            throw new MarshallException(e);
-        }
+        return XMLUtils.elementToString(element);
     }
 
     @Override

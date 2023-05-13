@@ -1,6 +1,7 @@
 package com.softart.dfe.components.internal.xml.unmarshaller;
 
 import br.inf.portalfiscal.mdfe.classes.*;
+import br.inf.portalfiscal.mdfe.distribution.DistDFeInt;
 import com.softart.dfe.components.internal.xml.context.MdfeContextFactory;
 import com.softart.dfe.components.internal.xml.marshaller.MdfeMarshallerFactory;
 import com.softart.dfe.exceptions.xml.UnmarshallException;
@@ -13,51 +14,57 @@ import java.io.StringReader;
 
 final class DefaultMdfeUnmarshaller extends MdfeUnmarshallerFactory {
 
-    private final ObjectFactory fc = new ObjectFactory();
+    private final br.inf.portalfiscal.mdfe.classes.ObjectFactory objectFactory = new br.inf.portalfiscal.mdfe.classes.ObjectFactory();
+    private final br.inf.portalfiscal.mdfe.distribution.ObjectFactory distributionObjectFactory = new br.inf.portalfiscal.mdfe.distribution.ObjectFactory();
 
     @Override
     public JAXBElement<TDistDFe> sendDistribution(String xml) {
-        return fc.createDistMDFe(XMLUtils.getJaxbElementValue(any(xml).getValue(), TDistDFe.class, xml));
+        return objectFactory.createDistMDFe(XMLUtils.getJaxbElementValue(any(xml).getValue(), TDistDFe.class, xml));
+    }
+
+    @Override
+    public JAXBElement<DistDFeInt> sendDistributionOld(String xml) {
+        return distributionObjectFactory.createDistDFeInt(XMLUtils.getJaxbElementValue(anyDistribution(xml).getValue(), DistDFeInt.class, xml));
     }
 
     @Override
     public JAXBElement<TEvento> sendEvent(String xml) {
-        return fc.createEventoMDFe(XMLUtils.getJaxbElementValue(any(xml).getValue(), TEvento.class, xml));
+        return objectFactory.createEventoMDFe(XMLUtils.getJaxbElementValue(any(xml).getValue(), TEvento.class, xml));
     }
 
     @Override
     public JAXBElement<TConsReciMDFe> sendQueryReceipt(String xml) {
-        return fc.createConsReciMDFe(XMLUtils.getJaxbElementValue(any(xml).getValue(), TConsReciMDFe.class, xml));
+        return objectFactory.createConsReciMDFe(XMLUtils.getJaxbElementValue(any(xml).getValue(), TConsReciMDFe.class, xml));
     }
 
     @Override
     public JAXBElement<TConsSitMDFe> sendQuerySituation(String xml) {
-        return fc.createConsSitMDFe(XMLUtils.getJaxbElementValue(any(xml).getValue(), TConsSitMDFe.class, xml));
+        return objectFactory.createConsSitMDFe(XMLUtils.getJaxbElementValue(any(xml).getValue(), TConsSitMDFe.class, xml));
     }
 
     @Override
     public JAXBElement<TConsMDFeNaoEnc> sendQueryUnclosed(String xml) {
-        return fc.createConsMDFeNaoEnc(XMLUtils.getJaxbElementValue(any(xml).getValue(), TConsMDFeNaoEnc.class, xml));
+        return objectFactory.createConsMDFeNaoEnc(XMLUtils.getJaxbElementValue(any(xml).getValue(), TConsMDFeNaoEnc.class, xml));
     }
 
     @Override
     public JAXBElement<TEnviMDFe> sendReception(String xml) {
-        return fc.createEnviMDFe(XMLUtils.getJaxbElementValue(any(xml).getValue(), TEnviMDFe.class, xml));
+        return objectFactory.createEnviMDFe(XMLUtils.getJaxbElementValue(any(xml).getValue(), TEnviMDFe.class, xml));
     }
 
     @Override
     public JAXBElement<TMDFe> sendReceptionSync(String xml) {
-        return fc.createMDFe(XMLUtils.getJaxbElementValue(any(xml).getValue(), TMDFe.class, xml));
+        return objectFactory.createMDFe(XMLUtils.getJaxbElementValue(any(xml).getValue(), TMDFe.class, xml));
     }
 
     @Override
     public JAXBElement<TConsStatServ> sendStatusService(String xml) {
-        return fc.createConsStatServMDFe(XMLUtils.getJaxbElementValue(any(xml).getValue(), TConsStatServ.class, xml));
+        return objectFactory.createConsStatServMDFe(XMLUtils.getJaxbElementValue(any(xml).getValue(), TConsStatServ.class, xml));
     }
 
     @Override
     public JAXBElement<TRetEvento> returnEvent(String xml) {
-        return fc.createRetEventoMDFe(XMLUtils.getJaxbElementValue(any(xml).getValue(), TRetEvento.class, xml));
+        return objectFactory.createRetEventoMDFe(XMLUtils.getJaxbElementValue(any(xml).getValue(), TRetEvento.class, xml));
     }
 
     @Override
@@ -67,7 +74,7 @@ final class DefaultMdfeUnmarshaller extends MdfeUnmarshallerFactory {
 
     @Override
     public JAXBElement<TProtMDFe> protMdfe(String xml) {
-        return fc.createProtMDFe(XMLUtils.getJaxbElementValue(any(xml).getValue(), TProtMDFe.class, xml));
+        return objectFactory.createProtMDFe(XMLUtils.getJaxbElementValue(any(xml).getValue(), TProtMDFe.class, xml));
     }
 
     @Override
@@ -82,7 +89,7 @@ final class DefaultMdfeUnmarshaller extends MdfeUnmarshallerFactory {
 
     @Override
     public JAXBElement<EvCancMDFe> evCancMDFe(String xml) {
-        return fc.createEvCancMDFe(XMLUtils.getJaxbElementValue(any(xml).getValue(), EvCancMDFe.class, xml));
+        return objectFactory.createEvCancMDFe(XMLUtils.getJaxbElementValue(any(xml).getValue(), EvCancMDFe.class, xml));
     }
 
 
@@ -107,13 +114,28 @@ final class DefaultMdfeUnmarshaller extends MdfeUnmarshallerFactory {
     }
 
     @Override
+    public JAXBElement<?> anyDistribution(String xml) {
+        try {
+            try (StringReader reader = new StringReader(xml)) {
+                Object o = MdfeContextFactory.getInstance().getMdfeDistributionContext().createUnmarshaller().unmarshal(reader);
+                if (o instanceof JAXBElement) {
+                    return (JAXBElement<?>) o;
+                }
+                throw new UnmarshallException("Object " + o + " of unknown type");
+            }
+        } catch (JAXBException e) {
+            throw new UnmarshallException(e);
+        }
+    }
+
+    @Override
     public JAXBElement<EvAlteracaoPagtoServMDFe> evAlteracaoPagtoServMDFe(Element el) {
         return evAlteracaoPagtoServMDFe(MdfeMarshallerFactory.getInstance().any(el));
     }
 
     @Override
     public JAXBElement<EvAlteracaoPagtoServMDFe> evAlteracaoPagtoServMDFe(String xml) {
-        return fc.createEvAlteracaoPagtoServMDFe(XMLUtils.getJaxbElementValue(any(xml).getValue(), EvAlteracaoPagtoServMDFe.class, xml));
+        return objectFactory.createEvAlteracaoPagtoServMDFe(XMLUtils.getJaxbElementValue(any(xml).getValue(), EvAlteracaoPagtoServMDFe.class, xml));
     }
 
     @Override
@@ -123,7 +145,7 @@ final class DefaultMdfeUnmarshaller extends MdfeUnmarshallerFactory {
 
     @Override
     public JAXBElement<EvConfirmaServMDFe> evConfirmaServMDFe(String xml) {
-        return fc.createEvConfirmaServMDFe(XMLUtils.getJaxbElementValue(any(xml).getValue(), EvConfirmaServMDFe.class, xml));
+        return objectFactory.createEvConfirmaServMDFe(XMLUtils.getJaxbElementValue(any(xml).getValue(), EvConfirmaServMDFe.class, xml));
     }
 
     @Override
@@ -133,7 +155,7 @@ final class DefaultMdfeUnmarshaller extends MdfeUnmarshallerFactory {
 
     @Override
     public JAXBElement<EvEncMDFe> evEncMDFe(String xml) {
-        return fc.createEvEncMDFe(XMLUtils.getJaxbElementValue(any(xml).getValue(), EvEncMDFe.class, xml));
+        return objectFactory.createEvEncMDFe(XMLUtils.getJaxbElementValue(any(xml).getValue(), EvEncMDFe.class, xml));
     }
 
     @Override
@@ -143,7 +165,7 @@ final class DefaultMdfeUnmarshaller extends MdfeUnmarshallerFactory {
 
     @Override
     public JAXBElement<EvIncCondutorMDFe> evIncCondutorMDFe(String xml) {
-        return fc.createEvIncCondutorMDFe(XMLUtils.getJaxbElementValue(any(xml).getValue(), EvIncCondutorMDFe.class, xml));
+        return objectFactory.createEvIncCondutorMDFe(XMLUtils.getJaxbElementValue(any(xml).getValue(), EvIncCondutorMDFe.class, xml));
     }
 
     @Override
@@ -153,7 +175,7 @@ final class DefaultMdfeUnmarshaller extends MdfeUnmarshallerFactory {
 
     @Override
     public JAXBElement<EvIncDFeMDFe> evIncDFeMDFe(String xml) {
-        return fc.createEvIncDFeMDFe(XMLUtils.getJaxbElementValue(any(xml).getValue(), EvIncDFeMDFe.class, xml));
+        return objectFactory.createEvIncDFeMDFe(XMLUtils.getJaxbElementValue(any(xml).getValue(), EvIncDFeMDFe.class, xml));
     }
 
     @Override
@@ -163,7 +185,7 @@ final class DefaultMdfeUnmarshaller extends MdfeUnmarshallerFactory {
 
     @Override
     public JAXBElement<EvPagtoOperMDFe> evPagtoOperMDFe(String xml) {
-        return fc.createEvPagtoOperMDFe(XMLUtils.getJaxbElementValue(any(xml).getValue(), EvPagtoOperMDFe.class, xml));
+        return objectFactory.createEvPagtoOperMDFe(XMLUtils.getJaxbElementValue(any(xml).getValue(), EvPagtoOperMDFe.class, xml));
     }
 }
 

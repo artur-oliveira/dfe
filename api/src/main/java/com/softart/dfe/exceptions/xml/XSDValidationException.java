@@ -3,7 +3,7 @@ package com.softart.dfe.exceptions.xml;
 import com.softart.dfe.exceptions.ValidationException;
 import lombok.Getter;
 import lombok.extern.log4j.Log4j2;
-import org.xml.sax.SAXParseException;
+import org.xml.sax.SAXException;
 
 /**
  * The class XSDValidationException extends the ValidationException class in Java.
@@ -23,7 +23,8 @@ public class XSDValidationException extends ValidationException {
         this.xml = xml;
     }
 
-    public XSDValidationException(SAXParseException ex) {
+    public XSDValidationException(SAXException ex, String xml) {
         super(ex.getMessage());
+        this.xml = xml;
     }
 }

@@ -10,6 +10,8 @@ import java.util.Objects;
 @AllArgsConstructor
 public enum MdfeDistributionVersion {
 
+    VERSION_100("1.00"),
+
     VERSION_300("3.00");
 
     private final String version;
@@ -19,6 +21,6 @@ public enum MdfeDistributionVersion {
     }
 
     public static MdfeDistributionVersion getDefault() {
-        return valueOfVersion(System.getProperty("com.softart.dfe.mdfe.distribution.version", "3.00"));
+        return valueOfVersion(System.getProperty("com.softart.dfe.mdfe.distribution.version", "1.00"));
     }
 }

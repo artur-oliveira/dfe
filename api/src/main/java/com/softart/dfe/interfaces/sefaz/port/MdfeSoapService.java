@@ -69,6 +69,14 @@ public interface MdfeSoapService extends CommonSoapService {
      *
      * @return A function that takes a type parameter T and returns a value of type T.
      */
+    <T> T distributionOldHom();
+
+
+    /**
+     * This function returns a generic type T.
+     *
+     * @return A function that takes a type parameter T and returns a value of type T.
+     */
     <T> T receptionSyncHom();
 
 
@@ -126,6 +134,13 @@ public interface MdfeSoapService extends CommonSoapService {
      * @return A function that takes a type parameter T and returns a value of type T.
      */
     <T> T distributionProd();
+
+    /**
+     * This function returns a generic type T.
+     *
+     * @return A function that takes a type parameter T and returns a value of type T.
+     */
+    <T> T distributionOldProd();
 
 
     /**

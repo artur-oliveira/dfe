@@ -1,6 +1,8 @@
 package com.softart.dfe.components.sefaz.mdfe;
 
 import br.inf.portalfiscal.mdfe.classes.*;
+import br.inf.portalfiscal.mdfe.distribution.DistDFeInt;
+import br.inf.portalfiscal.mdfe.distribution.RetDistDFeInt;
 import com.softart.dfe.components.internal.PairImpl;
 import com.softart.dfe.components.internal.xml.marshaller.MdfeMarshallerFactory;
 import com.softart.dfe.components.internal.xml.unmarshaller.MdfeUnmarshallerFactory;
@@ -57,6 +59,11 @@ public final class MdfeOfflineService implements MdfeService {
 
     @Override
     public <T extends SefazRequest<TDistDFe, TRetDistDFe>> Pair<TDistDFe, TRetDistDFe> distribution(T data) {
+        throw new UnsupportedOperationException("not implemented");
+    }
+
+    @Override
+    public <T extends SefazRequest<DistDFeInt, RetDistDFeInt>> Pair<DistDFeInt, RetDistDFeInt> distributionOld(T data) throws SecurityException, ValidationException, ProcessException {
         throw new UnsupportedOperationException("not implemented");
     }
 

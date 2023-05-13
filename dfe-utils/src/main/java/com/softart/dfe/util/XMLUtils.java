@@ -14,6 +14,8 @@ import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMResult;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.util.Objects;
@@ -100,5 +102,23 @@ public final class XMLUtils {
         if (!Objects.equals(o.getClass(), expected))
             throw new UnmarshallException("cannot convert to " + expected.getSimpleName(), xml);
         return (T) o;
+    }
+
+    /**
+     * This Java function converts an XML element to a string and removes any namespace information.
+     *
+     * @param el The parameter "el" is an object of type "Element", which represents an element in an XML document.
+     * @return The method is returning a string representation of the XML element passed as a parameter, with the namespace
+     * removed.
+     */
+    public static String elementToString(Element el) {
+        try {
+            try (StringWriter sw = new StringWriter()) {
+                XMLUtils.getTransformer().transform(new DOMSource(el), new StreamResult(sw));
+                return XMLStringUtils.cleanNamespace(sw.toString());
+            }
+        } catch (Exception e) {
+            throw new MarshallException(e);
+        }
     }
 }

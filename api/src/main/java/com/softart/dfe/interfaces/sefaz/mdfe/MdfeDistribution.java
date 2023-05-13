@@ -1,6 +1,8 @@
 package com.softart.dfe.interfaces.sefaz.mdfe;
 
 
+import br.inf.portalfiscal.mdfe.distribution.DistDFeInt;
+import br.inf.portalfiscal.mdfe.distribution.RetDistDFeInt;
 import br.inf.portalfiscal.mdfe.classes.TDistDFe;
 import br.inf.portalfiscal.mdfe.classes.TRetDistDFe;
 import com.softart.dfe.exceptions.ProcessException;
@@ -24,4 +26,6 @@ public interface MdfeDistribution {
      * @throws ProcessException    ProcessException
      */
     <T extends SefazRequest<TDistDFe, TRetDistDFe>> Pair<TDistDFe, TRetDistDFe> distribution(T data) throws SecurityException, ValidationException, ProcessException;
+
+    <T extends SefazRequest<DistDFeInt, RetDistDFeInt>> Pair<DistDFeInt, RetDistDFeInt> distributionOld(T data) throws SecurityException, ValidationException, ProcessException;
 }

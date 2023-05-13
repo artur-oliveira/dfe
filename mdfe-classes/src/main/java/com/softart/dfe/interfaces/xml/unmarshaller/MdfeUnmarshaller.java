@@ -1,11 +1,14 @@
 package com.softart.dfe.interfaces.xml.unmarshaller;
 
 import br.inf.portalfiscal.mdfe.classes.*;
+import br.inf.portalfiscal.mdfe.distribution.DistDFeInt;
 import jakarta.xml.bind.JAXBElement;
 import org.w3c.dom.Element;
 
 public interface MdfeUnmarshaller {
     JAXBElement<TDistDFe> sendDistribution(String xml);
+
+    JAXBElement<DistDFeInt> sendDistributionOld(String xml);
 
     JAXBElement<TEvento> sendEvent(String xml);
 
@@ -32,6 +35,8 @@ public interface MdfeUnmarshaller {
     JAXBElement<?> any(Element element);
 
     JAXBElement<?> any(String xml);
+
+    JAXBElement<?> anyDistribution(String xml);
 
     JAXBElement<EvCancMDFe> evCancMDFe(Element el);
 

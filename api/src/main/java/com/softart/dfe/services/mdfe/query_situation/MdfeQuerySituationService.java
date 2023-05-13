@@ -44,11 +44,11 @@ public interface MdfeQuerySituationService extends MdfeSefazService {
     /**
      * It queries the situation of a MDF-e
      *
-     * @param queryUnclosed The queryUnclosed object is a MdfeQuerySituation object.
+     * @param o The o object is a MdfeQuerySituation object.
      * @return The return is a MdfeReturnQuerySituation object.
      */
-    default MdfeReturnQuerySituation querySituation(MdfeQuerySituation queryUnclosed) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
-        return querySituation(queryUnclosed.toObject());
+    default MdfeReturnQuerySituation querySituation(MdfeQuerySituation o) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+        return querySituation(o.toObject());
     }
 
 

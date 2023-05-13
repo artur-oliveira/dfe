@@ -14,6 +14,7 @@ public enum MdfePathEndpoint implements DFEnum.Codeable {
     STATUS_SERVICE("status_service", "Status do serviço"),
     QUERY_UNCLOSED("query_unclosed", "Consulta não encerrados"),
     DISTRIBUTION("distribution", "Distribuição"),
+    DISTRIBUTION_OLD("distributionold", "Distribuição Antiga"),
     RECEPTION_SYNC("reception_sync", "Recepção síncrona");
 
     private final String code;

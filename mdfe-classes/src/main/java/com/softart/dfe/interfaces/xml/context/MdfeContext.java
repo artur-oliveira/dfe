@@ -11,4 +11,6 @@ public interface MdfeContext {
      */
     JAXBContext getMdfeContext();
 
+    JAXBContext getMdfeDistributionContext();
+
 }

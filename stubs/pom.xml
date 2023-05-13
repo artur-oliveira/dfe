@@ -327,6 +327,25 @@
                             <extension>true</extension>
                         </configuration>
                     </execution>
+                    <execution>
+                        <id>mdfe_distribution</id>
+                        <goals>
+                            <goal>xjc</goal>
+                        </goals>
+                        <phase>generate-sources</phase>
+                        <configuration>
+                            <xjbSources>
+                                <xjbSource>src/main/resources/binding.xjb</xjbSource>
+                            </xjbSources>
+                            <sources>
+                                <source>${basedir}/src/main/resources/xsds/mdfe/PL_MDFeDistDFe_100</source>
+                            </sources>
+                            <outputDirectory>${basedir}/src/generated</outputDirectory>
+                            <packageName>br.inf.portalfiscal.mdfe.distribution</packageName>
+                            <clearOutputDir>false</clearOutputDir>
+                            <extension>true</extension>
+                        </configuration>
+                    </execution>
                     <!-- END MDFE -->
                 </executions>
             </plugin>

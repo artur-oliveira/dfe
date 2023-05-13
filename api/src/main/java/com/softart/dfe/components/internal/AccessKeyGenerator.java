@@ -95,7 +95,19 @@ public final class AccessKeyGenerator {
      * @return The method is returning a String value representing the calculated digit for a given set of parameters.
      */
     public static String digit(String uf, String emission, String cnpj, String model, String serie, String number, String emissionType, String code) {
-        final char[] values = AccessKeyGenerator.accessKeyWithoutDV(uf, emission, cnpj, model, serie, number, emissionType, code).toCharArray();
+        return digit(AccessKeyGenerator.accessKeyWithoutDV(uf, emission, cnpj, model, serie, number, emissionType, code));
+    }
+
+    /**
+     * This Java function calculates the verification digit of an access key using a specific algorithm.
+     *
+     * @param accessKeyWithoutDv accessKeyWithoutDv is a String parameter that represents an access key without the
+     *                           verification digit. The method digit() calculates and returns the verification digit for this access key.
+     * @return The method is returning a String representation of the calculated digit (DV) for the given access key
+     * without DV.
+     */
+    public static String digit(String accessKeyWithoutDv) {
+        final char[] values = accessKeyWithoutDv.toCharArray();
         final int[] valoresInt = {2, 3, 4, 5, 6, 7, 8, 9};
         int indice = 0;
         int soma = 0;

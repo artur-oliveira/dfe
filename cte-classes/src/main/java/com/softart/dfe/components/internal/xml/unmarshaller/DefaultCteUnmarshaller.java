@@ -21,7 +21,6 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
     private final br.inf.portalfiscal.cte.distribution.ObjectFactory distFc = new br.inf.portalfiscal.cte.distribution.ObjectFactory();
 
 
-
     @Override
     public JAXBElement<DistDFeInt> distributionCte(String xml) {
         try {
@@ -126,13 +125,13 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<?> any300(Element element) {
-        return any300(CteMarshallerFactory.getInstance().any(element));
+        return any300(XMLUtils.elementToString(element));
     }
 
 
     @Override
     public JAXBElement<EvCancCTe> evCancCTe(Element element) {
-        return evCancCTe(CteMarshallerFactory.getInstance().any(element));
+        return evCancCTe(XMLUtils.elementToString(element));
     }
 
     @Override
@@ -142,7 +141,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<EvCancCECTe> evCancCECTe(Element element) {
-        return evCancCECTe(CteMarshallerFactory.getInstance().any(element));
+        return evCancCECTe(XMLUtils.elementToString(element));
     }
 
     @Override
@@ -152,7 +151,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<EvCCeCTe> evCCeCTe(Element element) {
-        return evCCeCTe(CteMarshallerFactory.getInstance().any(element));
+        return evCCeCTe(XMLUtils.elementToString(element));
     }
 
     @Override
@@ -162,7 +161,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<EvCECTe> evCECTe(Element element) {
-        return evCECTe(CteMarshallerFactory.getInstance().any(element));
+        return evCECTe(XMLUtils.elementToString(element));
     }
 
     @Override
@@ -172,7 +171,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<EvEPECCTe> evEPECCTe(Element element) {
-        return evEPECCTe(CteMarshallerFactory.getInstance().any(element));
+        return evEPECCTe(XMLUtils.elementToString(element));
     }
 
     @Override
@@ -182,7 +181,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<EvGTV> evGTV(Element element) {
-        return evGTV(CteMarshallerFactory.getInstance().any(element));
+        return evGTV(XMLUtils.elementToString(element));
     }
 
     @Override
@@ -192,7 +191,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<EvPrestDesacordo> evPrestDesacordo(Element element) {
-        return evPrestDesacordo(CteMarshallerFactory.getInstance().any(element));
+        return evPrestDesacordo(XMLUtils.elementToString(element));
     }
 
     @Override
@@ -202,7 +201,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<EvRegMultimodal> evRegMultimodal(Element element) {
-        return evRegMultimodal(CteMarshallerFactory.getInstance().any(element));
+        return evRegMultimodal(XMLUtils.elementToString(element));
     }
 
     @Override
@@ -212,7 +211,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<Rodo> rodo(Element el) {
-        return rodo(CteMarshallerFactory.getInstance().any(el));
+        return rodo(XMLUtils.elementToString(el));
     }
 
     @Override
@@ -222,7 +221,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<Aereo> aereo(Element el) {
-        return aereo(CteMarshallerFactory.getInstance().any(el));
+        return aereo(XMLUtils.elementToString(el));
     }
 
     @Override
@@ -232,7 +231,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<Ferrov> ferrov(Element el) {
-        return ferrov(CteMarshallerFactory.getInstance().any(el));
+        return ferrov(XMLUtils.elementToString(el));
     }
 
     @Override
@@ -242,7 +241,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<Aquav> aquav(Element el) {
-        return aquav(CteMarshallerFactory.getInstance().any(el));
+        return aquav(XMLUtils.elementToString(el));
     }
 
     @Override
@@ -252,7 +251,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<Multimodal> multimodal(Element el) {
-        return multimodal(CteMarshallerFactory.getInstance().any(el));
+        return multimodal(XMLUtils.elementToString(el));
     }
 
     @Override
@@ -292,7 +291,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<?> any400(Element element) {
-        return any400(CteMarshallerFactory.getInstance().any(element));
+        return any400(XMLUtils.elementToString(element));
     }
 
     @Override
@@ -359,7 +358,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<br.inf.portalfiscal.cte.send400.EvCancCTe> evCancCTe400(Element element) {
-        return evCancCTe400(CteMarshallerFactory.getInstance().any400(element));
+        return evCancCTe400(XMLUtils.elementToString(element));
     }
 
     @Override
@@ -369,7 +368,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<br.inf.portalfiscal.cte.send400.EvCancCECTe> evCancCECTe400(Element element) {
-        return evCancCECTe400(CteMarshallerFactory.getInstance().any400(element));
+        return evCancCECTe400(XMLUtils.elementToString(element));
     }
 
     @Override
@@ -379,7 +378,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<br.inf.portalfiscal.cte.send400.EvCCeCTe> evCCeCTe400(Element element) {
-        return evCCeCTe400(CteMarshallerFactory.getInstance().any400(element));
+        return evCCeCTe400(XMLUtils.elementToString(element));
     }
 
     @Override
@@ -389,7 +388,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<br.inf.portalfiscal.cte.send400.EvCECTe> evCECTe400(Element element) {
-        return evCECTe400(CteMarshallerFactory.getInstance().any400(element));
+        return evCECTe400(XMLUtils.elementToString(element));
     }
 
     @Override
@@ -399,7 +398,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<br.inf.portalfiscal.cte.send400.EvEPECCTe> evEPECCTe400(Element element) {
-        return evEPECCTe400(CteMarshallerFactory.getInstance().any400(element));
+        return evEPECCTe400(XMLUtils.elementToString(element));
     }
 
 
@@ -410,7 +409,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<br.inf.portalfiscal.cte.send400.EvGTV> evGTV400(Element element) {
-        return evGTV400(CteMarshallerFactory.getInstance().any400(element));
+        return evGTV400(XMLUtils.elementToString(element));
     }
 
     @Override
@@ -420,7 +419,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<br.inf.portalfiscal.cte.send400.EvPrestDesacordo> evPrestDesacordo400(Element element) {
-        return evPrestDesacordo400(CteMarshallerFactory.getInstance().any400(element));
+        return evPrestDesacordo400(XMLUtils.elementToString(element));
     }
 
     @Override
@@ -430,7 +429,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<br.inf.portalfiscal.cte.send400.EvCancPrestDesacordo> evCancPrestDesacordo400(Element element) {
-        return evCancPrestDesacordo400(CteMarshallerFactory.getInstance().any400(element));
+        return evCancPrestDesacordo400(XMLUtils.elementToString(element));
     }
 
     @Override
@@ -440,7 +439,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<br.inf.portalfiscal.cte.send400.EvIECTe> evIECTe400(Element element) {
-        return evIECTe400(CteMarshallerFactory.getInstance().any400(element));
+        return evIECTe400(XMLUtils.elementToString(element));
     }
 
     @Override
@@ -450,7 +449,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<br.inf.portalfiscal.cte.send400.EvCancIECTe> evCancIECTe400(Element element) {
-        return evCancIECTe400(CteMarshallerFactory.getInstance().any400(element));
+        return evCancIECTe400(XMLUtils.elementToString(element));
     }
 
     @Override
@@ -460,7 +459,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<br.inf.portalfiscal.cte.send400.EvRegMultimodal> evRegMultimodal400(Element element) {
-        return evRegMultimodal400(CteMarshallerFactory.getInstance().any400(element));
+        return evRegMultimodal400(XMLUtils.elementToString(element));
     }
 
     @Override
@@ -470,7 +469,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<br.inf.portalfiscal.cte.send400.TProtCTeOS> protCTeOS400(Element element) {
-        return protCTeOS400(CteMarshallerFactory.getInstance().any400(element));
+        return protCTeOS400(XMLUtils.elementToString(element));
     }
 
     @Override
@@ -480,7 +479,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<br.inf.portalfiscal.cte.send400.TProtGTVe> protGTVe400(Element element) {
-        return protGTVe400(CteMarshallerFactory.getInstance().any400(element));
+        return protGTVe400(XMLUtils.elementToString(element));
     }
 
     @Override
@@ -490,7 +489,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<br.inf.portalfiscal.cte.send400.Rodo> rodo400(Element el) {
-        return rodo400(CteMarshallerFactory.getInstance().any400(el));
+        return rodo400(XMLUtils.elementToString(el));
     }
 
     @Override
@@ -500,7 +499,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<Duto> duto(Element el) {
-        return duto(CteMarshallerFactory.getInstance().any(el));
+        return duto(XMLUtils.elementToString(el));
     }
 
     @Override
@@ -510,7 +509,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<br.inf.portalfiscal.cte.send400.Aereo> aereo400(Element el) {
-        return aereo400(CteMarshallerFactory.getInstance().any400(el));
+        return aereo400(XMLUtils.elementToString(el));
     }
 
     @Override
@@ -520,7 +519,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<br.inf.portalfiscal.cte.send400.Ferrov> ferrov400(Element el) {
-        return ferrov400(CteMarshallerFactory.getInstance().any400(el));
+        return ferrov400(XMLUtils.elementToString(el));
     }
 
     @Override
@@ -530,7 +529,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<br.inf.portalfiscal.cte.send400.Aquav> aquav400(Element el) {
-        return aquav400(CteMarshallerFactory.getInstance().any400(el));
+        return aquav400(XMLUtils.elementToString(el));
     }
 
     @Override
@@ -540,7 +539,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<br.inf.portalfiscal.cte.send400.Multimodal> multimodal400(Element el) {
-        return multimodal400(CteMarshallerFactory.getInstance().any400(el));
+        return multimodal400(XMLUtils.elementToString(el));
     }
 
     @Override
@@ -550,7 +549,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<br.inf.portalfiscal.cte.send400.Duto> duto400(Element el) {
-        return duto400(CteMarshallerFactory.getInstance().any400(el));
+        return duto400(XMLUtils.elementToString(el));
     }
 
     @Override

@@ -1,6 +1,8 @@
 package com.softart.dfe.interfaces.xml.marshaller;
 
 import br.inf.portalfiscal.mdfe.classes.*;
+import br.inf.portalfiscal.mdfe.distribution.DistDFeInt;
+import br.inf.portalfiscal.mdfe.distribution.RetDistDFeInt;
 import org.w3c.dom.Element;
 
 public interface MdfeMarshaller {
@@ -18,6 +20,10 @@ public interface MdfeMarshaller {
     String sendDistribution(TDistDFe data);
 
     String returnDistribution(TRetDistDFe data);
+
+    String sendDistributionOld(DistDFeInt data);
+
+    String returnDistributionOld(RetDistDFeInt data);
 
     String returnEvent(TRetEvento data);
 

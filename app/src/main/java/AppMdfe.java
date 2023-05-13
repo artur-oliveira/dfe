@@ -16,8 +16,8 @@ import com.softart.dfe.models.mdfe.event.MdfeDfeInclusion;
 import com.softart.dfe.models.mdfe.event.MdfePaymentModification;
 import com.softart.dfe.models.mdfe.event.MdfePaymentOperation;
 import com.softart.dfe.models.mdfe.reception_sync.Mdfe;
-import com.softart.dfe.services.mdfe.distribution.MdfeDistributionService;
-import com.softart.dfe.services.mdfe.distribution.MdfeDistributionServiceImpl;
+import com.softart.dfe.services.mdfe.distribution.MdfeDistributionOldService;
+import com.softart.dfe.services.mdfe.distribution.MdfeDistributionOldServiceImpl;
 import com.softart.dfe.services.mdfe.event.MdfeEventService;
 import com.softart.dfe.services.mdfe.event.MdfeEventServiceImpl;
 import com.softart.dfe.services.mdfe.query_receipt.MdfeQueryReceiptService;
@@ -254,7 +254,7 @@ public final class AppMdfe {
 
 
     private static void distribution() throws Exception {
-        MdfeDistributionService service = new MdfeDistributionServiceImpl(new PfxMdfeConfigImpl(UF.PI, "11520224000140", Environment.HOMOLOGATION, KeyStoreFactory.getInstance()));
-        System.out.println(service.distribution(0));
+        MdfeDistributionOldService service = new MdfeDistributionOldServiceImpl(new PfxMdfeConfigImpl(UF.PI, "11520224000140", Environment.HOMOLOGATION, KeyStoreFactory.getInstance()));
+        System.out.println(service.distributionUniqueNsu(0));
     }
 }

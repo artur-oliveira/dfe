@@ -1,6 +1,8 @@
 package com.softart.dfe.components.sefaz.mdfe;
 
 import br.inf.portalfiscal.mdfe.classes.*;
+import br.inf.portalfiscal.mdfe.distribution.DistDFeInt;
+import br.inf.portalfiscal.mdfe.distribution.RetDistDFeInt;
 import com.softart.dfe.components.internal.PairImpl;
 import com.softart.dfe.components.internal.xml.marshaller.MdfeMarshallerFactory;
 import com.softart.dfe.components.internal.xml.unmarshaller.MdfeUnmarshallerFactory;
@@ -25,6 +27,7 @@ import com.softart.dfe.util.GZIPUtils;
 import com.softart.dfe.util.RequireUtils;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.ws.BindingProvider;
+import jakarta.xml.ws.Holder;
 import lombok.Getter;
 
 import java.util.Collection;
@@ -58,6 +61,69 @@ public final class MdfeSvrsService implements MdfeService {
     public MdfeService withSoapService(MdfeSoapService nfeSoapService) {
         this.soapService = nfeSoapService;
         return this;
+    }
+
+    @Override
+    public <T extends SefazRequest<DistDFeInt, RetDistDFeInt>> Pair<DistDFeInt, RetDistDFeInt> distributionOld(T data) throws SecurityException, ValidationException, ProcessException {
+        String xml = MdfeMarshallerFactory.getInstance().sendDistributionOld(data.data());
+        JAXBElement<DistDFeInt> envio = MdfeUnmarshallerFactory.getInstance().sendDistributionOld(xml);
+        for (Validator<DistDFeInt> validator : data.validators()) {
+            validator.valid(new Validation<>(envio.getValue(), xml));
+        }
+
+        for (BeforeWebServiceRequest<DistDFeInt> before : data.beforeRequest()) {
+            before.process(new Before<>(envio.getValue(), data.config()));
+        }
+
+        RetDistDFeInt returnValue;
+        JAXBElement<?> resultElement = null;
+
+        if (data.config().production()) {
+            br.inf.portalfiscal.mdfe.wsdl.distributionold.svrs.prod.MDFeDistribuicaoDFeSoap12 ws = ((br.inf.portalfiscal.mdfe.wsdl.distributionold.svrs.prod.MDFeDistribuicaoDFe) (getSoapService()).distributionOldProd()).getMDFeDistribuicaoDFeSoap12();
+
+            data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
+
+            br.inf.portalfiscal.mdfe.wsdl.distributionold.svrs.prod.ObjectFactory fc = new br.inf.portalfiscal.mdfe.wsdl.distributionold.svrs.prod.ObjectFactory();
+
+            br.inf.portalfiscal.mdfe.wsdl.distributionold.svrs.prod.MdfeDadosMsg dadosMsg = fc.createMdfeDadosMsg();
+            dadosMsg.getContent().add(envio);
+            br.inf.portalfiscal.mdfe.wsdl.distributionold.svrs.prod.MdfeCabecMsg cabecMsg = fc.createMdfeCabecMsg();
+            cabecMsg.setCUF(data.config().uf().getCode());
+            cabecMsg.setVersaoDados(envio.getValue().getVersao());
+            dadosMsg.getContent().add(envio);
+
+            br.inf.portalfiscal.mdfe.wsdl.distributionold.svrs.prod.MdfeDistDFeInteresseResult result = ws.mdfeDistDFeInteresse(dadosMsg, new Holder<>(cabecMsg));
+
+            if (!result.getContent().isEmpty()) {
+                resultElement = (JAXBElement<?>) result.getContent().get(0);
+            }
+        } else {
+            br.inf.portalfiscal.mdfe.wsdl.distributionold.svrs.hom.MDFeDistribuicaoDFeSoap12 ws = ((br.inf.portalfiscal.mdfe.wsdl.distributionold.svrs.hom.MDFeDistribuicaoDFe) (getSoapService()).distributionOldHom()).getMDFeDistribuicaoDFeSoap12();
+
+            data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
+
+            br.inf.portalfiscal.mdfe.wsdl.distributionold.svrs.hom.ObjectFactory fc = new br.inf.portalfiscal.mdfe.wsdl.distributionold.svrs.hom.ObjectFactory();
+
+            br.inf.portalfiscal.mdfe.wsdl.distributionold.svrs.hom.MdfeDadosMsg dadosMsg = fc.createMdfeDadosMsg();
+            br.inf.portalfiscal.mdfe.wsdl.distributionold.svrs.hom.MdfeCabecMsg cabecMsg = fc.createMdfeCabecMsg();
+            cabecMsg.setCUF(data.config().uf().getCode());
+            cabecMsg.setVersaoDados(envio.getValue().getVersao());
+            dadosMsg.getContent().add(envio);
+
+            br.inf.portalfiscal.mdfe.wsdl.distributionold.svrs.hom.MdfeDistDFeInteresseResult result = ws.mdfeDistDFeInteresse(dadosMsg, new Holder<>(cabecMsg));
+
+            if (!result.getContent().isEmpty()) {
+                resultElement = (JAXBElement<?>) result.getContent().get(0);
+            }
+        }
+
+        returnValue = (RetDistDFeInt) RequireUtils.nonNull(resultElement, "resultElement of soap return cannot be null").getValue();
+
+        for (AfterWebServiceRequest<DistDFeInt, RetDistDFeInt> after : data.afterRequest()) {
+            after.process(new After<>(envio.getValue(), returnValue, data.config()));
+        }
+
+        return new PairImpl<>(envio.getValue(), returnValue);
     }
 
     @Override

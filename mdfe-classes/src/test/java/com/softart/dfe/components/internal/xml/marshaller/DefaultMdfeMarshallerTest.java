@@ -1,6 +1,8 @@
 package com.softart.dfe.components.internal.xml.marshaller;
 
 import br.inf.portalfiscal.mdfe.classes.*;
+import br.inf.portalfiscal.mdfe.distribution.DistDFeInt;
+import br.inf.portalfiscal.mdfe.distribution.RetDistDFeInt;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -137,5 +139,15 @@ class DefaultMdfeMarshallerTest {
     void testSendStatusService() {
         TConsStatServ o = new TConsStatServ();
         assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><consStatServMDFe xmlns=\"http://www.portalfiscal.inf.br/mdfe\"/>", new DefaultMdfeMarshaller().sendStatusService(o));
+    }
+
+    @Test
+    void testSendDistributionOld() {
+        assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><distDFeInt xmlns=\"http://www.portalfiscal.inf.br/mdfe\"/>", new DefaultMdfeMarshaller().sendDistributionOld(new DistDFeInt()));
+    }
+
+    @Test
+    void testReturnDistributionOld() {
+        assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><retDistDFeInt xmlns=\"http://www.portalfiscal.inf.br/mdfe\"/>", new DefaultMdfeMarshaller().returnDistributionOld(new RetDistDFeInt()));
     }
 }

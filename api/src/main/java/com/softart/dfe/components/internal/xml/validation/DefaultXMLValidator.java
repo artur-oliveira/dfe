@@ -9,11 +9,13 @@ import lombok.Setter;
 import lombok.SneakyThrows;
 import org.w3c.dom.ls.LSInput;
 import org.w3c.dom.ls.LSResourceResolver;
+import org.xml.sax.SAXException;
 
 import javax.xml.XMLConstants;
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.Reader;
 import java.io.StringReader;
@@ -46,7 +48,9 @@ final class DefaultXMLValidator extends XMLValidatorFactory {
             try (StringReader reader = new StringReader(validation.xml())) {
                 schema.newValidator().validate(new StreamSource(reader));
             }
-        } catch (Exception e) {
+        } catch (SAXException e) {
+            throw new XSDValidationException(e, validation.xml());
+        } catch (IOException e) {
             throw new XSDValidationException(e, validation.xml());
         }
     }
