@@ -86,9 +86,8 @@ public final class CteDeliveryReceipt implements DFObject, XMLAdapter<CteDeliver
         @Override
         public br.inf.portalfiscal.cte.send.InfEvento toObject() {
             br.inf.portalfiscal.cte.send.InfEvento evento = XMLAdapter.super.toObject();
-            evento.setId(XMLStringUtils.idEvento(getTpEvento(), getChCTe(), getNSeqEvento()));
-            evento.setCNPJ(AccessKeyParserFactory.cte().cnpj(getChCTe()));
-            evento.setCOrgao(AccessKeyParserFactory.cte().uf(getChCTe()).getCode());
+            setId(XMLStringUtils.idEvento(getTpEvento(), getChCTe(), getNSeqEvento()));
+            evento.setId(getId());
             return evento;
         }
 

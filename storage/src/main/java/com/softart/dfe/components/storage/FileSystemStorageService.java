@@ -8,6 +8,8 @@ import com.softart.dfe.util.IOUtils;
 import com.softart.dfe.util.StringUtils;
 
 import java.io.IOException;
+import java.util.Collection;
+import java.util.stream.Collectors;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 
@@ -36,6 +38,14 @@ public final class FileSystemStorageService extends StorageServiceFactory {
         return StorageResult.builder().file(IOUtils.write(String.join(IOUtils.separator(), rootPath(conf), key.getForSend(), xmlName), xmlContent.getBytes(UTF_8))).build();
     }
 
+    @Override
+    public Collection<StorageResult> getSend(Config conf, StorageKey key, String xmlName) {
+        return IOUtils.findFilesByBasePath(String.join(IOUtils.separator(), rootPath(conf), key.getForSend(), xmlName))
+                .stream()
+                .map(it -> StorageResult.builder().file(it).build())
+                .collect(Collectors.toList());
+    }
+
     /**
      * Write the XML content to the file system.
      *
@@ -49,6 +59,14 @@ public final class FileSystemStorageService extends StorageServiceFactory {
         return StorageResult.builder().file(IOUtils.write(String.join(IOUtils.separator(), rootPath(conf), key.getForReturn(), xmlName), xmlContent.getBytes(UTF_8))).build();
     }
 
+    @Override
+    public Collection<StorageResult> getReturn(Config conf, StorageKey key, String xmlName) {
+        return IOUtils.findFilesByBasePath(String.join(IOUtils.separator(), rootPath(conf), key.getForReturn(), xmlName))
+                .stream()
+                .map(it -> StorageResult.builder().file(it).build())
+                .collect(Collectors.toList());
+    }
+
     /**
      * This function writes the XML content to a file in the processed directory
      *
@@ -60,5 +78,13 @@ public final class FileSystemStorageService extends StorageServiceFactory {
     @Override
     public StorageResult writeProc(Config conf, StorageKey key, String xmlName, String xmlContent) throws IOException {
         return StorageResult.builder().file(IOUtils.write(String.join(IOUtils.separator(), rootPath(conf), key.getForProcessed(), xmlName), xmlContent.getBytes(UTF_8))).build();
+    }
+
+    @Override
+    public Collection<StorageResult> getProc(Config conf, StorageKey key, String xmlName) {
+        return IOUtils.findFilesByBasePath(String.join(IOUtils.separator(), rootPath(conf), key.getForProcessed(), xmlName))
+                .stream()
+                .map(it -> StorageResult.builder().file(it).build())
+                .collect(Collectors.toList());
     }
 }

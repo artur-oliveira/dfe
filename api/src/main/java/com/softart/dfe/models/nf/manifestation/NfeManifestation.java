@@ -46,7 +46,8 @@ public class NfeManifestation implements DFObject, XMLAdapter<NfeManifestation, 
         @Override
         public TEvento.InfEvento toObject() {
             TEvento.InfEvento evento = XMLAdapter.super.toObject();
-            evento.setId(XMLStringUtils.idEvento(getTpEvento(), getChNFe(), getNSeqEvento()));
+            setId(XMLStringUtils.idEvento(getTpEvento(), getChNFe(), getNSeqEvento()));
+            evento.setId(getId());
             return evento;
         }
 

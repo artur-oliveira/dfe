@@ -21,9 +21,9 @@ import com.softart.dfe.models.internal.Before;
 import com.softart.dfe.models.internal.Validation;
 import com.softart.dfe.models.internal.wsdl.ProviderConfig;
 import com.softart.dfe.util.GZIPUtils;
-
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.ws.BindingProvider;
+import jakarta.xml.ws.Holder;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -57,7 +57,7 @@ public final class CtePrService extends CteAnService {
             cabec.setCUF(data.config().webServiceUF().getCode());
             cabec.setVersaoDados(envio.getValue().getVersao());
 
-            br.inf.portalfiscal.cte.wsdl.event.pr.prod.CteRecepcaoEventoResult resultMsg = ws.cteRecepcaoEvento(msg);
+            br.inf.portalfiscal.cte.wsdl.event.pr.prod.CteRecepcaoEventoResult resultMsg = ws.cteRecepcaoEvento(msg, new Holder<>(cabec));
 
             if (!resultMsg.getContent().isEmpty())
                 retorno = (TRetEvento) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();
@@ -73,7 +73,7 @@ public final class CtePrService extends CteAnService {
             cabec.setCUF(data.config().webServiceUF().getCode());
             cabec.setVersaoDados(envio.getValue().getVersao());
 
-            br.inf.portalfiscal.cte.wsdl.event.pr.hom.CteRecepcaoEventoResult resultMsg = ws.cteRecepcaoEvento(msg);
+            br.inf.portalfiscal.cte.wsdl.event.pr.hom.CteRecepcaoEventoResult resultMsg = ws.cteRecepcaoEvento(msg, new Holder<>(cabec));
             if (!resultMsg.getContent().isEmpty())
                 retorno = (TRetEvento) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();
         }
@@ -108,7 +108,7 @@ public final class CtePrService extends CteAnService {
             cabecMsg.setCUF(data.config().webServiceUF().getCode());
             cabecMsg.setVersaoDados(data.data().getVersao());
 
-            br.inf.portalfiscal.cte.wsdl.inutilization.pr.prod.CteInutilizacaoCTResult resultMsg = ws.cteInutilizacaoCT(msg);
+            br.inf.portalfiscal.cte.wsdl.inutilization.pr.prod.CteInutilizacaoCTResult resultMsg = ws.cteInutilizacaoCT(msg, new Holder<>(cabecMsg));
 
             if (!resultMsg.getContent().isEmpty())
                 retorno = (TRetInutCTe) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();
@@ -123,7 +123,7 @@ public final class CtePrService extends CteAnService {
             cabecMsg.setCUF(data.config().webServiceUF().getCode());
             cabecMsg.setVersaoDados(data.data().getVersao());
 
-            br.inf.portalfiscal.cte.wsdl.inutilization.pr.hom.CteInutilizacaoCTResult resultMsg = ws.cteInutilizacaoCT(msg);
+            br.inf.portalfiscal.cte.wsdl.inutilization.pr.hom.CteInutilizacaoCTResult resultMsg = ws.cteInutilizacaoCT(msg, new Holder<>(cabecMsg));
 
             if (!resultMsg.getContent().isEmpty())
                 retorno = (TRetInutCTe) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();
@@ -438,7 +438,7 @@ public final class CtePrService extends CteAnService {
             cabec.setCUF(data.config().webServiceUF().getCode());
             cabec.setVersaoDados(envio.getValue().getVersao());
 
-            br.inf.portalfiscal.cte.wsdl.query_receipt.pr.prod.CteRetRecepcaoResult resultMsg = ws.cteRetRecepcao(msg);
+            br.inf.portalfiscal.cte.wsdl.query_receipt.pr.prod.CteRetRecepcaoResult resultMsg = ws.cteRetRecepcao(msg, new Holder<>(cabec));
 
             if (!resultMsg.getContent().isEmpty())
                 retorno = (TRetConsReciCTe) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();
@@ -454,7 +454,7 @@ public final class CtePrService extends CteAnService {
             cabec.setCUF(data.config().webServiceUF().getCode());
             cabec.setVersaoDados(envio.getValue().getVersao());
 
-            br.inf.portalfiscal.cte.wsdl.query_receipt.pr.hom.CteRetRecepcaoResult resultMsg = ws.cteRetRecepcao(msg);
+            br.inf.portalfiscal.cte.wsdl.query_receipt.pr.hom.CteRetRecepcaoResult resultMsg = ws.cteRetRecepcao(msg, new Holder<>(cabec));
 
             if (!resultMsg.getContent().isEmpty())
                 retorno = (TRetConsReciCTe) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();

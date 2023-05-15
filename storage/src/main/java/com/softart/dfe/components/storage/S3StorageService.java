@@ -8,6 +8,8 @@ import com.softart.dfe.util.*;
 import lombok.Getter;
 
 import java.io.IOException;
+import java.util.Collection;
+import java.util.stream.Collectors;
 
 
 @Getter
@@ -54,6 +56,11 @@ public final class S3StorageService extends StorageServiceFactory {
         return getResult(String.join(IOUtils.separator(), rootPath(conf), key.getForSend(), xmlName), xmlContent);
     }
 
+    @Override
+    public Collection<StorageResult> getSend(Config conf, StorageKey key, String xmlName) throws IOException {
+        return listKeys(String.join(IOUtils.separator(), rootPath(conf), key.getForSend(), xmlName));
+    }
+
     /**
      * Write the XML content to the file system.
      *
@@ -65,6 +72,11 @@ public final class S3StorageService extends StorageServiceFactory {
     @Override
     public StorageResult writeReturn(Config conf, StorageKey key, String xmlName, String xmlContent) throws IOException {
         return getResult(String.join(IOUtils.separator(), rootPath(conf), key.getForReturn(), xmlName), xmlContent);
+    }
+
+    @Override
+    public Collection<StorageResult> getReturn(Config conf, StorageKey key, String xmlName) {
+        return listKeys(String.join(IOUtils.separator(), rootPath(conf), key.getForReturn(), xmlName));
     }
 
     /**
@@ -80,6 +92,11 @@ public final class S3StorageService extends StorageServiceFactory {
         return getResult(String.join(IOUtils.separator(), rootPath(conf), key.getForProcessed(), xmlName), xmlContent);
     }
 
+    @Override
+    public Collection<StorageResult> getProc(Config conf, StorageKey key, String xmlName) {
+        return listKeys(String.join(IOUtils.separator(), rootPath(conf), key.getForProcessed(), xmlName));
+    }
+
     /**
      * This function uploads the XML content to S3 and returns a StorageResult object
      *
@@ -90,6 +107,16 @@ public final class S3StorageService extends StorageServiceFactory {
     private StorageResult getResult(String filename, String xmlContent) throws IOException {
         S3Utils.putObject(getClient(), getS3Bucket(), filename, xmlContent);
         return StorageResult.builder().fileName(filename).build();
+    }
+
+    private Collection<StorageResult> listKeys(String filename) {
+        return S3Utils.listObjects(filename).stream().map(it -> {
+            try {
+                return StorageResult.builder().file(IOUtils.writeTemp(it.getKey(), IOUtils.readAllBytes(it.getObjectContent()))).build();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }).collect(Collectors.toList());
     }
 
 }

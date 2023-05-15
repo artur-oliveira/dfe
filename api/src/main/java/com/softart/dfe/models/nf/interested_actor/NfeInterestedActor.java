@@ -60,9 +60,8 @@ public class NfeInterestedActor implements DFObject, XMLAdapter<NfeInterestedAct
         @Override
         public TEvento.InfEvento toObject() {
             TEvento.InfEvento evento = XMLAdapter.super.toObject();
-            evento.setId(XMLStringUtils.idEvento(getTpEvento(), getChNFe(), getNSeqEvento()));
-            evento.setCNPJ(AccessKeyParserFactory.nfe().cnpj(getChNFe()));
-            evento.setCOrgao(AccessKeyParserFactory.nfe().uf(getChNFe()).getCode());
+            setId(XMLStringUtils.idEvento(getTpEvento(), getChNFe(), getNSeqEvento()));
+            evento.setId(getId());
             return evento;
         }
 

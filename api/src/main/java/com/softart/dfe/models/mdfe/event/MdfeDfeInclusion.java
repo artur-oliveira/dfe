@@ -75,12 +75,7 @@ public final class MdfeDfeInclusion implements DFObject, XMLAdapter<MdfeDfeInclu
         public TEvento.InfEvento toObject() {
             TEvento.InfEvento evento = XMLAdapter.super.toObject();
             setId(XMLStringUtils.idEvento(getTpEvento(), getChMDFe(), getNSeqEvento()));
-            setCnpj(AccessKeyParserFactory.mdfe().cnpj(getChMDFe()));
-            setCOrgao(AccessKeyParserFactory.mdfe().uf(getChMDFe()).getCode());
-
             evento.setId(getId());
-            evento.setCNPJ(getCnpj());
-            evento.setCOrgao(getCOrgao());
             return evento;
         }
 

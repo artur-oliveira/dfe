@@ -2,22 +2,25 @@ package com.softart.dfe.services.mdfe.event;
 
 import com.softart.dfe.components.internal.certificate.KeyStoreFactory;
 import com.softart.dfe.components.internal.config.PfxMdfeConfigImpl;
+import com.softart.dfe.components.storage.StorageServiceFactory;
 import com.softart.dfe.enums.internal.Environment;
 import com.softart.dfe.enums.internal.UF;
 import com.softart.dfe.enums.internal.city.CityPI;
+import com.softart.dfe.enums.internal.mdfe.MdfeStorageKey;
 import com.softart.dfe.enums.mdfe.MdfeEvent;
 import com.softart.dfe.enums.mdfe.event.MdfePaymentOperationShippingType;
 import com.softart.dfe.enums.mdfe.event.MdfePaymentOperationTypeIndicator;
+import com.softart.dfe.models.internal.storage.StorageResult;
 import com.softart.dfe.models.mdfe.event.MdfeDfeInclusion;
 import com.softart.dfe.models.mdfe.event.MdfePaymentModification;
 import com.softart.dfe.models.mdfe.event.MdfePaymentOperation;
 import com.softart.dfe.models.mdfe.event.MdfeReturnEvent;
 import org.junit.jupiter.api.Test;
 
+import java.util.Collection;
 import java.util.Collections;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 class MdfeEventServiceImplTest {
     MdfeEventService service = new MdfeEventServiceImpl(
@@ -37,6 +40,14 @@ class MdfeEventServiceImplTest {
         assertNotNull(event.getInfEvento());
         assertEquals(service.getConfig().environment().getCode(), event.getInfEvento().getTpAmb());
         assertEquals(service.getConfig().uf().getCode(), event.getInfEvento().getCOrgao());
+
+        Collection<StorageResult> sendStorage = StorageServiceFactory.file().getSend(service.getConfig(), MdfeStorageKey.MDFE_EVENT, "22999999999999999999999999999999999999999999");
+        Collection<StorageResult> returnStorage = StorageServiceFactory.file().getReturn(service.getConfig(), MdfeStorageKey.MDFE_EVENT, "22999999999999999999999999999999999999999999");
+        Collection<StorageResult> procStorage = StorageServiceFactory.file().getProc(service.getConfig(), MdfeStorageKey.MDFE_EVENT, "22999999999999999999999999999999999999999999");
+
+        assertTrue(sendStorage.size() > 1);
+        assertTrue(returnStorage.size() > 1);
+        assertTrue(procStorage.size() > 1);
     }
 
     @Test

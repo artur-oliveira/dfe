@@ -1,7 +1,6 @@
 package com.softart.dfe.models.mdfe.event;
 
 import br.inf.portalfiscal.mdfe.classes.TEvento;
-import com.softart.dfe.components.internal.parser.AccessKeyParserFactory;
 import com.softart.dfe.components.internal.xml.marshaller.MdfeMarshallerFactory;
 import com.softart.dfe.components.internal.xml.unmarshaller.MdfeUnmarshallerFactory;
 import com.softart.dfe.enums.mdfe.MdfeEvent;
@@ -66,12 +65,7 @@ public final class MdfeClose implements DFObject, XMLAdapter<MdfeClose, TEvento>
         public TEvento.InfEvento toObject() {
             TEvento.InfEvento evento = XMLAdapter.super.toObject();
             setId(XMLStringUtils.idEvento(getTpEvento(), getChMDFe(), getNSeqEvento()));
-            setCnpj(AccessKeyParserFactory.mdfe().cnpj(getChMDFe()));
-            setCOrgao(AccessKeyParserFactory.mdfe().uf(getChMDFe()).getCode());
-
             evento.setId(getId());
-            evento.setCNPJ(getCnpj());
-            evento.setCOrgao(getCOrgao());
             return evento;
         }
 

@@ -54,8 +54,8 @@ public class NfeEpec implements DFObject, XMLAdapter<NfeEpec, TEvento> {
         @Override
         public br.inf.portalfiscal.nfe.event_epec.InfEvento toObject() {
             br.inf.portalfiscal.nfe.event_epec.InfEvento evento = XMLAdapter.super.toObject();
-            evento.setId(XMLStringUtils.idEvento(getTpEvento(), getChNFe(), getNSeqEvento()));
-            evento.setCNPJ(AccessKeyParserFactory.nfe().cnpj(getChNFe()));
+            setId(XMLStringUtils.idEvento(getTpEvento(), getChNFe(), getNSeqEvento()));
+            evento.setId(getId());
             return evento;
         }
 

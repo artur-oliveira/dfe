@@ -51,26 +51,86 @@ public abstract class AbstractCteSoapService extends AbstractSoapService impleme
     public void initialize(CteSoapService cached) {
         this.config = cached.getConfig();
 
-        this.prodDistribution = cached.prodDistribution();
-        this.homDistribution = cached.homDistribution();
-        this.prodEvent = cached.prodEvent();
-        this.homEvent = cached.homEvent();
-        this.prodInutilization = cached.prodInutilization();
-        this.homInutilization = cached.homInutilization();
-        this.prodQueryReceipt = cached.prodQueryReceipt();
-        this.homQueryReceipt = cached.homQueryReceipt();
-        this.prodQuerySituation = cached.prodQuerySituation();
-        this.homQuerySituation = cached.homQuerySituation();
-        this.prodReception = cached.prodReception();
-        this.homReception = cached.homReception();
-        this.prodReceptionGtve = cached.prodReceptionGtve();
-        this.homReceptionGtve = cached.homReceptionGtve();
-        this.prodReceptionOs = cached.prodReceptionOs();
-        this.homReceptionOs = cached.homReceptionOs();
-        this.prodReceptionSync = cached.prodReceptionSync();
-        this.homReceptionSync = cached.homReceptionSync();
-        this.prodStatusService = cached.prodStatusService();
-        this.homStatusService = cached.homStatusService();
+        try {
+            this.prodDistribution = cached.prodDistribution();
+        } catch (Exception ignored) {
+        }
+        try {
+            this.homDistribution = cached.homDistribution();
+        } catch (Exception ignored) {
+        }
+        try {
+            this.prodEvent = cached.prodEvent();
+        } catch (Exception ignored) {
+        }
+        try {
+            this.homEvent = cached.homEvent();
+        } catch (Exception ignored) {
+        }
+        try {
+            this.prodInutilization = cached.prodInutilization();
+        } catch (Exception ignored) {
+        }
+        try {
+            this.homInutilization = cached.homInutilization();
+        } catch (Exception ignored) {
+        }
+        try {
+            this.prodQueryReceipt = cached.prodQueryReceipt();
+        } catch (Exception ignored) {
+        }
+        try {
+            this.homQueryReceipt = cached.homQueryReceipt();
+        } catch (Exception ignored) {
+        }
+        try {
+            this.prodQuerySituation = cached.prodQuerySituation();
+        } catch (Exception ignored) {
+        }
+        try {
+            this.homQuerySituation = cached.homQuerySituation();
+        } catch (Exception ignored) {
+        }
+        try {
+            this.prodReception = cached.prodReception();
+        } catch (Exception ignored) {
+        }
+        try {
+            this.homReception = cached.homReception();
+        } catch (Exception ignored) {
+        }
+        try {
+            this.prodReceptionGtve = cached.prodReceptionGtve();
+        } catch (Exception ignored) {
+        }
+        try {
+            this.homReceptionGtve = cached.homReceptionGtve();
+        } catch (Exception ignored) {
+        }
+        try {
+            this.prodReceptionOs = cached.prodReceptionOs();
+        } catch (Exception ignored) {
+        }
+        try {
+            this.homReceptionOs = cached.homReceptionOs();
+        } catch (Exception ignored) {
+        }
+        try {
+            this.prodReceptionSync = cached.prodReceptionSync();
+        } catch (Exception ignored) {
+        }
+        try {
+            this.homReceptionSync = cached.homReceptionSync();
+        } catch (Exception ignored) {
+        }
+        try {
+            this.prodStatusService = cached.prodStatusService();
+        } catch (Exception ignored) {
+        }
+        try {
+            this.homStatusService = cached.homStatusService();
+        } catch (Exception ignored) {
+        }
 
         this.initialized = true;
     }

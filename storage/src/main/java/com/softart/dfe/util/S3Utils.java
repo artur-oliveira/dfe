@@ -2,10 +2,15 @@ package com.softart.dfe.util;
 
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
-import com.amazonaws.services.s3.model.*;
+import com.amazonaws.services.s3.model.ObjectMetadata;
+import com.amazonaws.services.s3.model.PutObjectRequest;
+import com.amazonaws.services.s3.model.PutObjectResult;
+import com.amazonaws.services.s3.model.S3Object;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Collection;
+import java.util.stream.Collectors;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 
@@ -69,6 +74,20 @@ public final class S3Utils {
 
     static String requiredBucket() {
         return RequireUtils.nonNull(System.getProperty("com.softart.dfe.s3.bucket"), "com.softart.dfe.s3.bucket must be set in order to use this method");
+    }
+
+    public static Collection<S3Object> listObjects(AmazonS3 client, String bucket, String key) {
+        return client.listObjectsV2(bucket, key).getObjectSummaries().stream().map(it -> {
+            return getObject(client, it.getBucketName(), it.getKey());
+        }).collect(Collectors.toList());
+    }
+
+    public static Collection<S3Object> listObjects(String bucket, String key) {
+        return listObjects(clientInstance(), bucket, key);
+    }
+
+    public static Collection<S3Object> listObjects(String key) {
+        return listObjects(requiredBucket(), key);
     }
 
     private static final class Holder {
