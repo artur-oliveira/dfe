@@ -45,7 +45,7 @@ public abstract class GenericMdfeStorage extends CommonStorage implements MdfeSt
     public void storeRetEvent(Store<TRetEvento> o) throws StorageException {
         try {
             if (Objects.nonNull(o.data()) && Objects.nonNull(o.data().getInfEvento()) && Objects.nonNull(o.xml())) {
-                getStorageService().writeReturn(o, MdfeStorageKey.MDFE_EVENT, xmlNameWithTime(o.data().getInfEvento().getChMDFe() + "-" + o.data().getInfEvento().getTpEvento()));
+                getStorageService().writeReturn(o, MdfeStorageKey.MDFE_EVENT, xmlNameWithTime(String.join("-", o.data().getInfEvento().getChMDFe(), o.data().getInfEvento().getTpEvento(), o.data().getInfEvento().getNSeqEvento())));
             }
         } catch (Exception e) {
             throw new StorageException(e);
@@ -56,7 +56,7 @@ public abstract class GenericMdfeStorage extends CommonStorage implements MdfeSt
     public void storeSendEvent(Store<TEvento> o) throws StorageException {
         try {
             if (Objects.nonNull(o.data()) && Objects.nonNull(o.data().getInfEvento()) && Objects.nonNull(o.xml())) {
-                getStorageService().writeSend(o, MdfeStorageKey.MDFE_EVENT, xmlNameWithTime(o.data().getInfEvento().getChMDFe() + "-" + o.data().getInfEvento().getTpEvento()));
+                getStorageService().writeSend(o, MdfeStorageKey.MDFE_EVENT, xmlNameWithTime(String.join("-", o.data().getInfEvento().getChMDFe(), o.data().getInfEvento().getTpEvento(), o.data().getInfEvento().getNSeqEvento())));
             }
         } catch (Exception e) {
             throw new StorageException(e);
@@ -67,7 +67,7 @@ public abstract class GenericMdfeStorage extends CommonStorage implements MdfeSt
     public void storeProcEvent(Store<TProcEvento> o) throws StorageException {
         try {
             if (Objects.nonNull(o.data()) && Objects.nonNull(o.data().getRetEventoMDFe()) && Objects.nonNull(o.xml()) && MdfeReturnCode.generateProc(o.data().getRetEventoMDFe().getInfEvento().getCStat())) {
-                getStorageService().writeProc(o, MdfeStorageKey.MDFE_EVENT, xmlNameWithTime(o.data().getRetEventoMDFe().getInfEvento().getChMDFe() + "-" + o.data().getEventoMDFe().getInfEvento().getTpEvento() + "-" + o.data().getEventoMDFe().getInfEvento().getNSeqEvento()));
+                getStorageService().writeProc(o, MdfeStorageKey.MDFE_EVENT, xmlNameWithTime(String.join("-", o.data().getEventoMDFe().getInfEvento().getChMDFe(), o.data().getEventoMDFe().getInfEvento().getTpEvento(), o.data().getEventoMDFe().getInfEvento().getNSeqEvento())));
             }
         } catch (Exception e) {
             throw new StorageException(e);

@@ -11,12 +11,16 @@ import com.softart.dfe.interfaces.storage.mdfe.MdfeEventStorage;
 import com.softart.dfe.models.internal.xml.XMLStore;
 
 import java.util.Objects;
+import java.util.Optional;
 
 public abstract class StoreReturnEventMdfe implements AfterEvent {
 
     @Override
     public <T extends AfterRequest<TEvento, TRetEvento>> void process(T o) throws ProcessException {
         if (Objects.nonNull(getStorage()) && Objects.nonNull(o.response())) {
+            o.response().getInfEvento().setChMDFe(Optional.ofNullable(o.response().getInfEvento().getChMDFe()).orElse(o.request().getInfEvento().getChMDFe()));
+            o.response().getInfEvento().setTpEvento(Optional.ofNullable(o.response().getInfEvento().getTpEvento()).orElse(o.request().getInfEvento().getTpEvento()));
+            o.response().getInfEvento().setNSeqEvento(Optional.ofNullable(o.response().getInfEvento().getNSeqEvento()).orElse(o.request().getInfEvento().getNSeqEvento()));
             getStorage().storeRetEvent(new XMLStore<>(o.response(), o.config(), MdfeMarshallerFactory.getInstance().returnEvent(o.response())));
         }
     }
