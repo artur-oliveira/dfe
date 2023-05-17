@@ -1,17 +1,15 @@
 package br.inf.portalfiscal.nfe.wsdl.authorization.mg.prod;
 
-import jakarta.xml.bind.annotation.XmlAccessType;
-import jakarta.xml.bind.annotation.XmlAccessorType;
-import jakarta.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
 /**
- * <p>Java class for nFeAutorizacao4LoteResult complex type.
+ * <p>Classe Java de nFeAutorizacao4LoteResult complex type.
  *
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
  *
  * <pre>{@code
  * <complexType name="nFeAutorizacao4LoteResult">
@@ -31,6 +29,8 @@ import java.util.List;
 })
 public class NFeAutorizacao4LoteResult {
 
+    @XmlMixed
+    @XmlAnyElement(lax = true)
     protected List<Object> retEnviNFe;
 
     /**

@@ -5,7 +5,6 @@ import com.softart.dfe.enums.internal.Environment;
 import com.softart.dfe.enums.internal.UF;
 import com.softart.dfe.enums.internal.nf.QrCodeNfceURL;
 import com.softart.dfe.enums.internal.nf.QueryNfceURL;
-import com.softart.dfe.enums.nf.NFSend;
 import com.softart.dfe.enums.nf.version.NFVersion;
 import com.softart.dfe.exceptions.security.XMLSignException;
 import com.softart.dfe.exceptions.services.NoProviderFound;
@@ -53,7 +52,8 @@ public class SendNf implements DFObject, XMLAdapter<SendNf, TEnviNFe> {
         return SendNf
                 .builder()
                 .nFe(new ArrayList<>(nfs))
-                .indSinc(((nfs.stream().anyMatch(Nf::isNfe) && (config.uf().equals(UF.SP) || config.uf().equals(UF.BA))) || nfs.size() > 1 || config.send().equals(NFSend.ASYNC)) ? NFSend.ASYNC.getCode() : NFSend.SYNC.getCode())
+//                .indSinc(((nfs.stream().anyMatch(Nf::isNfe) && (config.uf().equals(UF.SP) || config.uf().equals(UF.BA))) || nfs.size() > 1 || config.send().equals(NFSend.ASYNC)) ? NFSend.ASYNC.getCode() : NFSend.SYNC.getCode())
+                .indSinc(config.send().getCode())
                 .build();
     }
 }

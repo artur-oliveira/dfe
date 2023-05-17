@@ -6,6 +6,7 @@ import jakarta.jws.WebResult;
 import jakarta.jws.WebService;
 import jakarta.jws.soap.SOAPBinding;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
+import jakarta.xml.ws.Action;
 
 
 /**
@@ -23,22 +24,24 @@ public interface NFeAutorizacao4Soap {
 
     /**
      * @param nfeDadosMsg
-     * @return returns br.inf.portalfiscal.nfe.wsdl.authorization.mg.hom.NFeAutorizacao4LoteResult
+     * @return returns br.inf.portalfiscal.nfe.wsdl.authorization.mg.hom.NfeResultMsg
      */
     @WebMethod(action = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeAutorizacao4/nfeAutorizacaoLote")
-    @WebResult(name = "nfeResultMsg", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeAutorizacao4", partName = "nfeResultMsg")
-    NFeAutorizacao4LoteResult nfeAutorizacaoLote(
+    @WebResult(name = "nfeResultMsg", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeAutorizacao4", partName = "nfeAutorizacaoLoteResult")
+    @Action(input = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeAutorizacao4/nfeAutorizacaoLote", output = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeAutorizacao4/NFeAutorizacao4Soap/nfeAutorizacaoLoteResponse")
+    public NfeResultMsg nfeAutorizacaoLote(
             @WebParam(name = "nfeDadosMsg", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeAutorizacao4", partName = "nfeDadosMsg")
             NfeDadosMsg nfeDadosMsg);
 
     /**
      * @param nfeDadosMsgZip
-     * @return returns br.inf.portalfiscal.nfe.wsdl.authorization.mg.hom.NFeAutorizacao4LoteResult
+     * @return returns br.inf.portalfiscal.nfe.wsdl.authorization.mg.hom.NfeResultMsg
      */
     @WebMethod(action = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeAutorizacao4/nfeAutorizacaoLoteZip")
-    @WebResult(name = "nfeResultMsg", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeAutorizacao4", partName = "nfeResultMsg")
-    NFeAutorizacao4LoteResult nfeAutorizacaoLoteZip(
+    @WebResult(name = "nfeResultMsg", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeAutorizacao4", partName = "nfeAutorizacaoLoteZipResult")
+    @Action(input = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeAutorizacao4/nfeAutorizacaoLoteZip", output = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeAutorizacao4/NFeAutorizacao4Soap/nfeAutorizacaoLoteZipResponse")
+    public NfeResultMsg nfeAutorizacaoLoteZip(
             @WebParam(name = "nfeDadosMsgZip", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeAutorizacao4", partName = "nfeDadosMsgZip")
-            NfeDadosMsgZip nfeDadosMsgZip);
+            String nfeDadosMsgZip);
 
 }

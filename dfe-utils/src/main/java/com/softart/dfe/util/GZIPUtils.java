@@ -37,6 +37,26 @@ public final class GZIPUtils {
     }
 
     /**
+     * This Java function decompresses a Base64-encoded byte array using GZIP and returns the resulting string.
+     *
+     * @param o The parameter "o" is a byte array that contains compressed data in Base64 encoding format. This method
+     *          decompresses the data using GZIP algorithm and returns the decompressed string.
+     * @return The method is returning a String that is the result of decompressing and decoding a byte array using GZIP
+     * and Base64 algorithms, respectively. The decompressed and decoded String is then read using a BufferedReader and
+     * returned as a single String by joining all the lines using the Collectors.joining() method. If the input byte array
+     * is null or empty, an empty String is returned.
+     */
+    public static String decompressWithBase64(byte[] o) throws Exception {
+        if (Functions.isNullOrEmpty(o)) return "";
+
+        try (InputStream gis = InputStreamUtils.newGZIPInputStream(InputStreamUtils.newByteArrayInputStream(Base64Utils.decode(o)))) {
+            try (BufferedReader bf = new BufferedReader(new InputStreamReader(gis, StandardCharsets.UTF_8))) {
+                return bf.lines().collect(Collectors.joining(""));
+            }
+        }
+    }
+
+    /**
      * It takes a string, converts it to a byte array, and then passes it to the decompress function that takes a byte
      * array
      *
@@ -45,6 +65,17 @@ public final class GZIPUtils {
      */
     public static String decompress(String o) throws Exception {
         return decompress(o.getBytes(StandardCharsets.UTF_8));
+    }
+
+    /**
+     * This Java function decompresses a Base64-encoded string.
+     *
+     * @param o The parameter "o" is a String that represents the compressed data in Base64 encoding. The method
+     *          "decompressWithBase64" takes this parameter and returns the decompressed data as a String.
+     * @return The method `decompressWithBase64` is returning a `String` value.
+     */
+    public static String decompressWithBase64(String o) throws Exception {
+        return decompressWithBase64(o.getBytes(StandardCharsets.UTF_8));
     }
 
     /**

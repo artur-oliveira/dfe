@@ -1,6 +1,7 @@
 package com.softart.dfe.util;
 
 import jakarta.xml.bind.DatatypeConverter;
+
 import java.io.ByteArrayOutputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
@@ -97,5 +98,9 @@ public final class Base64Utils {
      */
     public static byte[] decode(String string) {
         return Base64.getDecoder().decode(string);
+    }
+
+    public static byte[] decode(byte[] bytes) {
+        return Base64.getDecoder().decode(bytes);
     }
 }

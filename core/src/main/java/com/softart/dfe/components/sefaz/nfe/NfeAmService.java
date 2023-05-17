@@ -11,6 +11,7 @@ import com.softart.dfe.components.internal.xml.unmarshaller.NfUnmarshallerFactor
 import com.softart.dfe.enums.internal.Environment;
 import com.softart.dfe.enums.internal.UF;
 import com.softart.dfe.enums.nf.identification.NFEmissionType;
+import com.softart.dfe.exceptions.DfeUncheckedException;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.exceptions.ValidationException;
 import com.softart.dfe.exceptions.security.SecurityException;
@@ -25,10 +26,11 @@ import com.softart.dfe.models.internal.After;
 import com.softart.dfe.models.internal.Before;
 import com.softart.dfe.models.internal.Validation;
 import com.softart.dfe.models.internal.wsdl.ProviderConfig;
-import lombok.Getter;
-
+import com.softart.dfe.util.GZIPUtils;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.ws.BindingProvider;
+import lombok.Getter;
+
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Objects;
@@ -77,21 +79,25 @@ public final class NfeAmService extends NfeAnService {
         if (data.config().production()) {
             br.inf.portalfiscal.nfe.wsdl.authorization.am.prod.NfeAutorizacao4Soap ws = ((br.inf.portalfiscal.nfe.wsdl.authorization.am.prod.NfeAutorizacao4) getSoapService().prodAuthorization()).getNfeAutorizacao4Soap12();
             data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
-
-            br.inf.portalfiscal.nfe.wsdl.authorization.am.prod.NfeDadosMsg msg = new br.inf.portalfiscal.nfe.wsdl.authorization.am.prod.NfeDadosMsg();
-            msg.getContent().add(envio);
-
-            br.inf.portalfiscal.nfe.wsdl.authorization.am.prod.NfeResultMsg resultMsg = ws.nfeAutorizacaoLote(msg);
+            String gzip;
+            try {
+                gzip = GZIPUtils.compressToString(xml);
+            } catch (Exception e) {
+                throw new DfeUncheckedException(e);
+            }
+            br.inf.portalfiscal.nfe.wsdl.authorization.am.prod.NfeResultMsg resultMsg = ws.nfeAutorizacaoLoteZip(gzip);
 
             retorno = ((JAXBElement<TRetEnviNFe>) resultMsg.getContent().get(0)).getValue();
         } else {
-            br.inf.portalfiscal.nfe.wsdl.authorization.am.hom.NFeAutorizacao4Soap ws = ((br.inf.portalfiscal.nfe.wsdl.authorization.am.hom.NFeAutorizacao4) getSoapService().homAuthorization()).getNFeAutorizacao4Soap();
+            br.inf.portalfiscal.nfe.wsdl.authorization.am.hom.NfeAutorizacao4Soap ws = ((br.inf.portalfiscal.nfe.wsdl.authorization.am.hom.NfeAutorizacao4) getSoapService().homAuthorization()).getNfeAutorizacao4Soap12();
             data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
-
-            br.inf.portalfiscal.nfe.wsdl.authorization.am.hom.NfeDadosMsg msg = new br.inf.portalfiscal.nfe.wsdl.authorization.am.hom.NfeDadosMsg();
-            msg.getContent().add(envio);
-
-            br.inf.portalfiscal.nfe.wsdl.authorization.am.hom.NfeResultMsg resultMsg = ws.nfeAutorizacaoLote(msg);
+            String gzip;
+            try {
+                gzip = GZIPUtils.compressToString(xml);
+            } catch (Exception e) {
+                throw new DfeUncheckedException(e);
+            }
+            br.inf.portalfiscal.nfe.wsdl.authorization.am.hom.NfeResultMsg resultMsg = ws.nfeAutorizacaoLoteZip(gzip);
 
             retorno = ((JAXBElement<TRetEnviNFe>) resultMsg.getContent().get(0)).getValue();
         }
@@ -126,7 +132,7 @@ public final class NfeAmService extends NfeAnService {
             if (!resultMsg.getContent().isEmpty())
                 retorno = ((JAXBElement<br.inf.portalfiscal.nfe.event_cancel.TRetEnvEvento>) resultMsg.getContent().get(0)).getValue();
         } else {
-            br.inf.portalfiscal.nfe.wsdl.event_cancel.am.hom.NFeRecepcaoEvento4Soap ws = ((br.inf.portalfiscal.nfe.wsdl.event_cancel.am.hom.NFeRecepcaoEvento4) getSoapService().homCancel()).getNFeRecepcaoEvento4Soap();
+            br.inf.portalfiscal.nfe.wsdl.event_cancel.am.hom.RecepcaoEvento4Soap ws = ((br.inf.portalfiscal.nfe.wsdl.event_cancel.am.hom.RecepcaoEvento4) getSoapService().homCancel()).getRecepcaoEvento4Soap12();
             data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
 
             br.inf.portalfiscal.nfe.wsdl.event_cancel.am.hom.NfeDadosMsg msg = new br.inf.portalfiscal.nfe.wsdl.event_cancel.am.hom.ObjectFactory().createNfeDadosMsg();
@@ -166,7 +172,7 @@ public final class NfeAmService extends NfeAnService {
             if (!resultMsg.getContent().isEmpty())
                 retorno = ((JAXBElement<TRetInutNFe>) resultMsg.getContent().get(0)).getValue();
         } else {
-            br.inf.portalfiscal.nfe.wsdl.inutilization.am.hom.NFeInutilizacao4Soap ws = ((br.inf.portalfiscal.nfe.wsdl.inutilization.am.hom.NFeInutilizacao4) getSoapService().homInutilization()).getNFeInutilizacao4Soap();
+            br.inf.portalfiscal.nfe.wsdl.inutilization.am.hom.NfeInutilizacao4Soap ws = ((br.inf.portalfiscal.nfe.wsdl.inutilization.am.hom.NfeInutilizacao4) getSoapService().homInutilization()).getNfeInutilizacao4Soap12();
             data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
 
             br.inf.portalfiscal.nfe.wsdl.inutilization.am.hom.NfeDadosMsg msg = new br.inf.portalfiscal.nfe.wsdl.inutilization.am.hom.ObjectFactory().createNfeDadosMsg();
@@ -205,7 +211,7 @@ public final class NfeAmService extends NfeAnService {
             if (!resultMsg.getContent().isEmpty())
                 retorno = ((JAXBElement<TRetConsReciNFe>) resultMsg.getContent().get(0)).getValue();
         } else {
-            br.inf.portalfiscal.nfe.wsdl.return_authorization.am.hom.NFeRetAutorizacao4Soap ws = ((br.inf.portalfiscal.nfe.wsdl.return_authorization.am.hom.NFeRetAutorizacao4) getSoapService().homReturnAuthorization()).getNFeRetAutorizacao4Soap();
+            br.inf.portalfiscal.nfe.wsdl.return_authorization.am.hom.NfeRetAutorizacao4Soap ws = ((br.inf.portalfiscal.nfe.wsdl.return_authorization.am.hom.NfeRetAutorizacao4) getSoapService().homReturnAuthorization()).getNfeRetAutorizacao4Soap12();
             data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
 
             br.inf.portalfiscal.nfe.wsdl.return_authorization.am.hom.NfeDadosMsg msg = new br.inf.portalfiscal.nfe.wsdl.return_authorization.am.hom.ObjectFactory().createNfeDadosMsg();
@@ -245,7 +251,7 @@ public final class NfeAmService extends NfeAnService {
             if (!resultMsg.getContent().isEmpty())
                 retorno = ((JAXBElement<TRetConsSitNFe>) resultMsg.getContent().get(0)).getValue();
         } else {
-            br.inf.portalfiscal.nfe.wsdl.query_protocol.am.hom.NFeConsultaProtocolo4Soap ws = ((br.inf.portalfiscal.nfe.wsdl.query_protocol.am.hom.NFeConsultaProtocolo4) getSoapService().homQueryProtocol()).getNFeConsultaProtocolo4Soap();
+            br.inf.portalfiscal.nfe.wsdl.query_protocol.am.hom.NfeConsulta4Soap ws = ((br.inf.portalfiscal.nfe.wsdl.query_protocol.am.hom.NfeConsulta4) getSoapService().homQueryProtocol()).getNfeConsulta4Soap12();
             data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
 
             br.inf.portalfiscal.nfe.wsdl.query_protocol.am.hom.NfeDadosMsg msg = new br.inf.portalfiscal.nfe.wsdl.query_protocol.am.hom.ObjectFactory().createNfeDadosMsg();
@@ -286,7 +292,7 @@ public final class NfeAmService extends NfeAnService {
             if (!resultMsg.getContent().isEmpty())
                 retorno = ((JAXBElement<br.inf.portalfiscal.nfe.event_correction_letter.TRetEnvEvento>) resultMsg.getContent().get(0)).getValue();
         } else {
-            br.inf.portalfiscal.nfe.wsdl.event_correction_letter.am.hom.NFeRecepcaoEvento4Soap ws = ((br.inf.portalfiscal.nfe.wsdl.event_correction_letter.am.hom.NFeRecepcaoEvento4) getSoapService().homCorrectionLetter()).getNFeRecepcaoEvento4Soap();
+            br.inf.portalfiscal.nfe.wsdl.event_correction_letter.am.hom.RecepcaoEvento4Soap ws = ((br.inf.portalfiscal.nfe.wsdl.event_correction_letter.am.hom.RecepcaoEvento4) getSoapService().homCorrectionLetter()).getRecepcaoEvento4Soap12();
             data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
 
             br.inf.portalfiscal.nfe.wsdl.event_correction_letter.am.hom.NfeDadosMsg msg = new br.inf.portalfiscal.nfe.wsdl.event_correction_letter.am.hom.ObjectFactory().createNfeDadosMsg();
@@ -328,7 +334,7 @@ public final class NfeAmService extends NfeAnService {
             if (!resultMsg.getContent().isEmpty())
                 retorno = ((JAXBElement<TRetConsStatServ>) resultMsg.getContent().get(0)).getValue();
         } else {
-            br.inf.portalfiscal.nfe.wsdl.status_service.am.hom.NFeStatusServico4Soap ws = ((br.inf.portalfiscal.nfe.wsdl.status_service.am.hom.NFeStatusServico4) getSoapService().homQueryStatusService()).getNFeStatusServico4Soap();
+            br.inf.portalfiscal.nfe.wsdl.status_service.am.hom.NfeStatusServico4Soap ws = ((br.inf.portalfiscal.nfe.wsdl.status_service.am.hom.NfeStatusServico4) getSoapService().homQueryStatusService()).getNfeStatusServico4Soap12();
             data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
 
             br.inf.portalfiscal.nfe.wsdl.status_service.am.hom.NfeDadosMsg msg = new br.inf.portalfiscal.nfe.wsdl.status_service.am.hom.ObjectFactory().createNfeDadosMsg();

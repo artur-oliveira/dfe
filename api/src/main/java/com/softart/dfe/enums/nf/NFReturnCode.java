@@ -505,6 +505,7 @@ public enum NFReturnCode implements ReturnCode {
     CODE_773("773", "Rejeição: Operação Interna e UF de destino difere da UF de origem"),
     CODE_774("774", "Rejeição: NFC-e com indicador de item não participante do total [nItem: 999]"),
     CODE_775("775", "Rejeição: Modelo da NFC-e diferente de 65"),
+    CODE_776("776", "Rejeicao: UF não disponibiliza este atendimento"),
     CODE_777("777", "Rejeição: Obrigatória a informação do NCM completo (redação dada pela NT 2013/005 v 1.20) [nItem: 999]"),
     CODE_778("778", "Rejeição: Informado NCM inexistente[nItem:nnn]"),
     CODE_779("779", "Rejeição: NFC-e com NCM incompatível [nItem: 999]"),

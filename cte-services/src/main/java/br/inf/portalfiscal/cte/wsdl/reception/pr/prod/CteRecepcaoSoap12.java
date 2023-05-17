@@ -6,6 +6,7 @@ import jakarta.jws.WebResult;
 import jakarta.jws.WebService;
 import jakarta.jws.soap.SOAPBinding;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
+import jakarta.xml.ws.Holder;
 
 
 /**
@@ -29,6 +30,9 @@ public interface CteRecepcaoSoap12 {
     @WebResult(name = "cteRecepcaoLoteResult", targetNamespace = "http://www.portalfiscal.inf.br/cte/wsdl/CteRecepcao", partName = "cteRecepcaoLoteResult")
     CteRecepcaoLoteResult cteRecepcaoLote(
             @WebParam(name = "cteDadosMsg", targetNamespace = "http://www.portalfiscal.inf.br/cte/wsdl/CteRecepcao", partName = "cteDadosMsg")
-            CteDadosMsg cteDadosMsg);
+            CteDadosMsg cteDadosMsg,
+            @WebParam(name = "cteCabecMsg", targetNamespace = "http://www.portalfiscal.inf.br/cte/wsdl/CteRecepcao", header = true, mode = WebParam.Mode.INOUT, partName = "cteCabecMsg")
+            Holder<CteCabecMsg> cteCabecMsg
+            );
 
 }

@@ -48,7 +48,7 @@ final class DefaultConfigureProviderFactory extends ConfigureProviderFactory {
      * @param config The provider config
      */
     private void useHttps(ProviderConfig config) {
-        config.port().getRequestContext().put(ENDPOINT_ADDRESS, Optional.ofNullable(config.overridePortAddress()).orElseGet(() -> config.port().getRequestContext().get(ENDPOINT_ADDRESS).toString().replace("http://", "https://")));
+        config.port().getRequestContext().put(ENDPOINT_ADDRESS, Optional.ofNullable(config.overridePortAddress()).orElseGet(() -> config.port().getRequestContext().get(ENDPOINT_ADDRESS).toString().replace(":80/", "/").replace("http://", "https://")));
     }
 
     /**

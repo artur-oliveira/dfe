@@ -332,7 +332,7 @@
                         <goals>
                             <goal>xjc</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <xjbSources>
                                 <xjbSource>src/main/resources/binding.xjb</xjbSource>
@@ -823,7 +823,7 @@
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/am/hom/authorization.wsdl</wsdlFile>
                             </wsdlFiles>
                             <wsdlLocation>
-                                https://nfe-homologacao.svrs.rs.gov.br/ws/NfeAutorizacao/NFeAutorizacao4.asmx?wsdl
+                                https://homnfe.sefaz.am.gov.br/services2/services/NfeAutorizacao4?wsdl
                             </wsdlLocation>
                             <sourceDestDir>${basedir}/src/generated</sourceDestDir>
                             <packageName>br.inf.portalfiscal.nfe.wsdl.authorization.am.hom</packageName>
@@ -864,7 +864,7 @@
                         <phase>none</phase>
                         <configuration>
                             <wsdlLocation>
-                                https://nfe-homologacao.svrs.rs.gov.br/ws/NfeConsulta/NfeConsulta4.asmx?wsdl
+                                https://homnfe.sefaz.am.gov.br/services2/services/NfeConsulta4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/am/hom/query_protocol.wsdl</wsdlFile>
@@ -908,7 +908,7 @@
                         <phase>none</phase>
                         <configuration>
                             <wsdlLocation>
-                                https://nfe-homologacao.svrs.rs.gov.br/ws/recepcaoevento/recepcaoevento4.asmx?wsdl
+                                https://nfe.sefaz.am.gov.br/services2/services/RecepcaoEvento4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/am/hom/event_cancel.wsdl</wsdlFile>
@@ -953,7 +953,7 @@
                         <phase>none</phase>
                         <configuration>
                             <wsdlLocation>
-                                https://nfe-homologacao.svrs.rs.gov.br/ws/recepcaoevento/recepcaoevento4.asmx?wsdl
+                                https://nfe.sefaz.am.gov.br/services2/services/RecepcaoEvento4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/am/hom/event_correction_letter.wsdl
@@ -999,7 +999,7 @@
                         <phase>none</phase>
                         <configuration>
                             <wsdlLocation>
-                                https://nfe-homologacao.svrs.rs.gov.br/ws/recepcaoevento/recepcaoevento4.asmx?wsdl
+                                https://nfe.sefaz.am.gov.br/services2/services/RecepcaoEvento4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/am/hom/event_interested_actor.wsdl
@@ -1045,7 +1045,7 @@
                         <phase>none</phase>
                         <configuration>
                             <wsdlLocation>
-                                https://nfe-homologacao.svrs.rs.gov.br/ws/NfeRetAutorizacao/NFeRetAutorizacao4.asmx?wsdl
+                                https://homnfe.sefaz.am.gov.br/services2/services/NfeRetAutorizacao4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/am/hom/return_authorization.wsdl
@@ -1090,7 +1090,7 @@
                         <phase>none</phase>
                         <configuration>
                             <wsdlLocation>
-                                https://nfe-homologacao.svrs.rs.gov.br/ws/nfeinutilizacao/nfeinutilizacao4.asmx?wsdl
+                                https://homnfe.sefaz.am.gov.br/services2/services/NfeInutilizacao4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/am/hom/inutilization.wsdl</wsdlFile>
@@ -1134,7 +1134,7 @@
                         <phase>none</phase>
                         <configuration>
                             <wsdlLocation>
-                                https://nfe-homologacao.svrs.rs.gov.br/ws/NfeStatusServico/NfeStatusServico4.asmx?wsdl
+                                https://homnfe.sefaz.am.gov.br/services2/services/NfeStatusServico4?wsdl
                             </wsdlLocation>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/nfe/am/hom/status_service.wsdl</wsdlFile>

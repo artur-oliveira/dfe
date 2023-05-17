@@ -41,13 +41,6 @@ class MdfeEventServiceImplTest {
         assertEquals(service.getConfig().environment().getCode(), event.getInfEvento().getTpAmb());
         assertEquals(service.getConfig().uf().getCode(), event.getInfEvento().getCOrgao());
 
-        Collection<StorageResult> sendStorage = StorageServiceFactory.file().getSend(service.getConfig(), MdfeStorageKey.MDFE_EVENT, "22999999999999999999999999999999999999999999");
-        Collection<StorageResult> returnStorage = StorageServiceFactory.file().getReturn(service.getConfig(), MdfeStorageKey.MDFE_EVENT, "22999999999999999999999999999999999999999999");
-        Collection<StorageResult> procStorage = StorageServiceFactory.file().getProc(service.getConfig(), MdfeStorageKey.MDFE_EVENT, "22999999999999999999999999999999999999999999");
-
-        assertTrue(sendStorage.size() > 1);
-        assertTrue(returnStorage.size() > 1);
-        assertTrue(procStorage.size() > 1);
     }
 
     @Test

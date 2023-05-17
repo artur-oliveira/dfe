@@ -10,6 +10,7 @@ import com.softart.dfe.enums.internal.Environment;
 import com.softart.dfe.enums.internal.UF;
 import com.softart.dfe.enums.nf.identification.NFEmissionType;
 import com.softart.dfe.enums.nf.version.NFVersion;
+import com.softart.dfe.exceptions.DfeUncheckedException;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.exceptions.ValidationException;
 import com.softart.dfe.exceptions.security.SecurityException;
@@ -24,6 +25,7 @@ import com.softart.dfe.models.internal.After;
 import com.softart.dfe.models.internal.Before;
 import com.softart.dfe.models.internal.Validation;
 import com.softart.dfe.models.internal.wsdl.ProviderConfig;
+import com.softart.dfe.util.GZIPUtils;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.ws.BindingProvider;
 import jakarta.xml.ws.Holder;
@@ -77,23 +79,29 @@ public final class NfeMgService extends NfeAnService {
         if (data.config().production()) {
             br.inf.portalfiscal.nfe.wsdl.authorization.mg.prod.NFeAutorizacao4Soap ws = ((br.inf.portalfiscal.nfe.wsdl.authorization.mg.prod.NFeAutorizacao4) getSoapService().prodAuthorization()).getNFeAutorizacao4Soap12();
             data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
-
-            br.inf.portalfiscal.nfe.wsdl.authorization.mg.prod.NfeDadosMsg msg = new br.inf.portalfiscal.nfe.wsdl.authorization.mg.prod.NfeDadosMsg();
-            msg.getContent().add(envio);
-
-            br.inf.portalfiscal.nfe.wsdl.authorization.mg.prod.NFeAutorizacao4LoteResult resultMsg = ws.nfeAutorizacaoLote(msg);
+            String gzip;
+            try {
+                gzip = GZIPUtils.compressToString(xml);
+            } catch (Exception e) {
+                throw new DfeUncheckedException(e);
+            }
+            br.inf.portalfiscal.nfe.wsdl.authorization.mg.prod.NfeDadosMsgZip msg = new br.inf.portalfiscal.nfe.wsdl.authorization.mg.prod.NfeDadosMsgZip();
+            msg.getContent().add(gzip);
+            br.inf.portalfiscal.nfe.wsdl.authorization.mg.prod.NFeAutorizacao4LoteResult resultMsg = ws.nfeAutorizacaoLoteZip(msg);
 
             retorno = ((JAXBElement<TRetEnviNFe>) resultMsg.getRetEnviNFe().get(0)).getValue();
         } else {
-            br.inf.portalfiscal.nfe.wsdl.authorization.mg.hom.NFeAutorizacao4Soap ws = ((br.inf.portalfiscal.nfe.wsdl.authorization.mg.hom.NFeAutorizacao4) getSoapService().homAuthorization()).getNFeAutorizacao4Soap12();
+            br.inf.portalfiscal.nfe.wsdl.authorization.mg.hom.NFeAutorizacao4Soap ws = ((br.inf.portalfiscal.nfe.wsdl.authorization.mg.hom.NFeAutorizacao4) getSoapService().homAuthorization()).getNFeAutorizacao4Soap();
             data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
+            String gzip;
+            try {
+                gzip = GZIPUtils.compressToString(xml);
+            } catch (Exception e) {
+                throw new DfeUncheckedException(e);
+            }
 
-            br.inf.portalfiscal.nfe.wsdl.authorization.mg.hom.NfeDadosMsg msg = new br.inf.portalfiscal.nfe.wsdl.authorization.mg.hom.NfeDadosMsg();
-            msg.getContent().add(envio);
-
-            br.inf.portalfiscal.nfe.wsdl.authorization.mg.hom.NFeAutorizacao4LoteResult resultMsg = ws.nfeAutorizacaoLote(msg);
-
-            retorno = ((JAXBElement<TRetEnviNFe>) resultMsg.getRetEnviNFe().get(0)).getValue();
+            br.inf.portalfiscal.nfe.wsdl.authorization.mg.hom.NfeResultMsg resultMsg = ws.nfeAutorizacaoLoteZip(gzip);
+            retorno = ((JAXBElement<TRetEnviNFe>) resultMsg.getContent().get(0)).getValue();
         }
         for (AfterWebServiceRequest<TEnviNFe, TRetEnviNFe> it : data.afterRequest())
             it.process(new After<>(envio.getValue(), retorno, data.config()));

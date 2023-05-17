@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-                  xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
-                  xmlns:tns="http://www.portalfiscal.inf.br/nfe/wsdl/NFeInutilizacao4"
-                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-                  targetNamespace="http://www.portalfiscal.inf.br/nfe/wsdl/NFeInutilizacao4"
-                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:tns="http://www.portalfiscal.inf.br/nfe/wsdl/NFeInutilizacao4" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://www.portalfiscal.inf.br/nfe/wsdl/NFeInutilizacao4">
     <wsdl:types>
-        <s:schema elementFormDefault="qualified"
-                  targetNamespace="http://www.portalfiscal.inf.br/nfe/wsdl/NFeInutilizacao4">
+        <s:schema elementFormDefault="qualified" targetNamespace="http://www.portalfiscal.inf.br/nfe/wsdl/NFeInutilizacao4">
             <s:element name="nfeDadosMsg">
                 <s:complexType mixed="true">
                     <s:sequence>
@@ -30,17 +24,16 @@
     <wsdl:message name="nfeInutilizacaoNFSoapOut">
         <wsdl:part name="nfeInutilizacaoNFResult" element="tns:nfeResultMsg"/>
     </wsdl:message>
-    <wsdl:portType name="NFeInutilizacao4Soap">
+    <wsdl:portType name="NfeInutilizacao4Soap">
         <wsdl:operation name="nfeInutilizacaoNF">
             <wsdl:input message="tns:nfeInutilizacaoNFSoapIn"/>
             <wsdl:output message="tns:nfeInutilizacaoNFSoapOut"/>
         </wsdl:operation>
     </wsdl:portType>
-    <wsdl:binding name="NFeInutilizacao4Soap" type="tns:NFeInutilizacao4Soap">
+    <wsdl:binding name="NfeInutilizacao4Soap" type="tns:NfeInutilizacao4Soap">
         <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
         <wsdl:operation name="nfeInutilizacaoNF">
-            <soap:operation soapAction="http://www.portalfiscal.inf.br/nfe/wsdl/NFeInutilizacao4/nfeInutilizacaoNF"
-                            style="document"/>
+            <soap:operation style="document" soapAction="http://www.portalfiscal.inf.br/nfe/wsdl/NFeInutilizacao4/nfeInutilizacaoNF"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -49,11 +42,10 @@
             </wsdl:output>
         </wsdl:operation>
     </wsdl:binding>
-    <wsdl:binding name="NFeInutilizacao4Soap12" type="tns:NFeInutilizacao4Soap">
+    <wsdl:binding name="NfeInutilizacao4Soap12" type="tns:NfeInutilizacao4Soap">
         <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
         <wsdl:operation name="nfeInutilizacaoNF">
-            <soap12:operation soapAction="http://www.portalfiscal.inf.br/nfe/wsdl/NFeInutilizacao4/nfeInutilizacaoNF"
-                              style="document"/>
+            <soap12:operation style="document" soapAction="http://www.portalfiscal.inf.br/nfe/wsdl/NFeInutilizacao4/nfeInutilizacaoNF" soapActionRequired="false"/>
             <wsdl:input>
                 <soap12:body use="literal"/>
             </wsdl:input>
@@ -62,12 +54,9 @@
             </wsdl:output>
         </wsdl:operation>
     </wsdl:binding>
-    <wsdl:service name="NFeInutilizacao4">
-        <wsdl:port name="NFeInutilizacao4Soap" binding="tns:NFeInutilizacao4Soap">
-            <soap:address location="https://nfe-homologacao.svrs.rs.gov.br/ws/nfeinutilizacao/nfeinutilizacao4.asmx"/>
-        </wsdl:port>
-        <wsdl:port name="NFeInutilizacao4Soap12" binding="tns:NFeInutilizacao4Soap12">
-            <soap12:address location="https://nfe-homologacao.svrs.rs.gov.br/ws/nfeinutilizacao/nfeinutilizacao4.asmx"/>
+    <wsdl:service name="NfeInutilizacao4">
+        <wsdl:port name="NfeInutilizacao4Soap12" binding="tns:NfeInutilizacao4Soap12">
+            <soap12:address location="https://homnfe.sefaz.am.gov.br/services2/services/NfeInutilizacao4"/>
         </wsdl:port>
     </wsdl:service>
 </wsdl:definitions>

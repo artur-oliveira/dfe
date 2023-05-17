@@ -1,21 +1,24 @@
 package com.softart.dfe.components.internal.xml.handler;
 
 import com.softart.dfe.components.internal.xml.namespace.NameSpaceCleanerFactory;
+import com.softart.dfe.util.Base64Utils;
+import com.softart.dfe.util.GZIPUtils;
 import com.softart.dfe.util.XMLUtils;
+import jakarta.xml.ws.handler.MessageContext;
+import jakarta.xml.ws.handler.soap.SOAPHandler;
+import jakarta.xml.ws.handler.soap.SOAPMessageContext;
 import lombok.extern.log4j.Log4j2;
 
 import javax.xml.namespace.QName;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
-import jakarta.xml.ws.handler.MessageContext;
-import jakarta.xml.ws.handler.soap.SOAPHandler;
-import jakarta.xml.ws.handler.soap.SOAPMessageContext;
 import java.io.StringWriter;
 import java.util.Set;
 
 @Log4j2
 public final class CustomSoapHandler implements SOAPHandler<SOAPMessageContext> {
 
+    private static final String BASE_64_PREFFIX = "H4sIAAAAAAAA";
     private static final boolean LOG_REQUEST = Boolean.parseBoolean(System.getProperty("com.softart.dfe.handler.log.request", "true"));
     private static final boolean LOG_RESPONSE = Boolean.parseBoolean(System.getProperty("com.softart.dfe.handler.log.response", "true"));
 
@@ -36,7 +39,7 @@ public final class CustomSoapHandler implements SOAPHandler<SOAPMessageContext> 
                 if (LOG_REQUEST) {
                     try (StringWriter xml = new StringWriter()) {
                         XMLUtils.getTransformer().transform(new DOMSource(context.getMessage().getSOAPPart().getEnvelope().getBody().getFirstChild().getFirstChild()), new StreamResult(xml));
-                        log.debug(xml);
+                        log.debug(xml.toString().startsWith(BASE_64_PREFFIX) ? GZIPUtils.decompressWithBase64(xml.toString()) :xml.toString());
                     }
                 }
 
@@ -48,7 +51,7 @@ public final class CustomSoapHandler implements SOAPHandler<SOAPMessageContext> 
                 if (LOG_RESPONSE) {
                     try (StringWriter xml = new StringWriter()) {
                         XMLUtils.getTransformer().transform(new DOMSource(context.getMessage().getSOAPPart().getEnvelope().getBody().getFirstChild().getFirstChild()), new StreamResult(xml));
-                        log.debug(xml);
+                        log.debug(xml.toString().startsWith(BASE_64_PREFFIX) ? GZIPUtils.decompressWithBase64(xml.toString()) :xml.toString());
                     }
                 }
             } catch (Exception ex) {

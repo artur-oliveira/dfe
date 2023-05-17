@@ -56,6 +56,13 @@ public class NFeAutorizacao4
         super(wsdlLocation, serviceName, features);
     }
 
+    private static URL __getWsdlLocation() {
+        if (NFEAUTORIZACAO4_EXCEPTION != null) {
+            throw NFEAUTORIZACAO4_EXCEPTION;
+        }
+        return NFEAUTORIZACAO4_WSDL_LOCATION;
+    }
+
     /**
      * @return returns NFeAutorizacao4Soap
      */
@@ -71,13 +78,6 @@ public class NFeAutorizacao4
     @WebEndpoint(name = "NFeAutorizacao4Soap12")
     public NFeAutorizacao4Soap getNFeAutorizacao4Soap12(WebServiceFeature... features) {
         return super.getPort(new QName("http://www.portalfiscal.inf.br/nfe/wsdl/NFeAutorizacao4", "NFeAutorizacao4Soap12"), NFeAutorizacao4Soap.class, features);
-    }
-
-    private static URL __getWsdlLocation() {
-        if (NFEAUTORIZACAO4_EXCEPTION != null) {
-            throw NFEAUTORIZACAO4_EXCEPTION;
-        }
-        return NFEAUTORIZACAO4_WSDL_LOCATION;
     }
 
 }

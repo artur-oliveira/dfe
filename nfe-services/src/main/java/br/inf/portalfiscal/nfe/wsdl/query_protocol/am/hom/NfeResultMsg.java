@@ -1,3 +1,4 @@
+
 package br.inf.portalfiscal.nfe.wsdl.query_protocol.am.hom;
 
 import jakarta.xml.bind.annotation.*;
@@ -7,10 +8,10 @@ import java.util.List;
 
 
 /**
- * <p>Java class for anonymous complex type.
- *
- * <p>The following schema fragment specifies the expected content contained within this class.
- *
+ * <p>Classe Java de anonymous complex type.
+ * 
+ * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
+ * 
  * <pre>{@code
  * <complexType>
  *   <complexContent>
@@ -22,10 +23,12 @@ import java.util.List;
  *   </complexContent>
  * </complexType>
  * }</pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-        "content"
+    "content"
 })
 public class NfeResultMsg {
 
@@ -35,26 +38,28 @@ public class NfeResultMsg {
 
     /**
      * Gets the value of the content property.
-     *
+     * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the Jakarta XML Binding object.
      * This is why there is not a {@code set} method for the content property.
-     *
+     * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getContent().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Object }
      * {@link String }
-     *
-     * @return The value of the content property.
+     * 
+     * 
+     * @return
+     *     The value of the content property.
      */
     public List<Object> getContent() {
         if (content == null) {
