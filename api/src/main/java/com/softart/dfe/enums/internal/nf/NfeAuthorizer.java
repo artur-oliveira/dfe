@@ -126,7 +126,7 @@ public enum NfeAuthorizer implements NfServiceAllow, NfeURL {
 
     SVRS {
         public Collection<UF> ufs() {
-            return Arrays.asList(UF.AC, UF.AL, UF.AP, UF.CE, UF.DF, UF.ES, UF.PB, UF.PI, UF.RJ, UF.RN, UF.RO, UF.RR, UF.SC, UF.SE, UF.TO);
+            return Arrays.asList(UF.AC, UF.AL, UF.AP, UF.CE, UF.DF, UF.ES, UF.PB, UF.PI, UF.PA, UF.RJ, UF.RN, UF.RO, UF.RR, UF.SC, UF.SE, UF.TO);
         }
 
         @Override

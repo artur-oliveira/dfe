@@ -13,6 +13,7 @@ import com.softart.dfe.interfaces.services.NfSefazService;
 import com.softart.dfe.models.nf.query_register.QueryRegister;
 import com.softart.dfe.models.nf.query_register.QueryRegisterRequest;
 import com.softart.dfe.models.nf.query_register.ReturnQueryRegister;
+import com.softart.dfe.util.StringUtils;
 
 public interface NfeQueryRegisterService extends NfSefazService {
 
@@ -41,7 +42,7 @@ public interface NfeQueryRegisterService extends NfSefazService {
     }
 
     default ReturnQueryRegister queryRegister(String cnpj, String uf) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
-        return queryRegister(QueryRegister.builder().infCons(QueryRegister.InfCons.builder().cnpj(cnpj).uf(TUfConsCad.valueOf(uf)).build()).build().toObject());
+        return queryRegister(QueryRegister.builder().infCons(QueryRegister.InfCons.builder().cnpj(StringUtils.extractDigits(cnpj)).uf(TUfConsCad.valueOf(uf)).build()).build().toObject());
     }
 
     default ReturnQueryRegister queryRegister(String cnpj, UF uf) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {

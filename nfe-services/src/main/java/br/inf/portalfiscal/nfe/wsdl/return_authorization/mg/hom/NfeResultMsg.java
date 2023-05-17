@@ -31,8 +31,8 @@ import java.util.List;
 @XmlType(name = "", propOrder = {
     "content"
 })
-@XmlRootElement(name = "nfeDadosMsg")
-public class NfeDadosMsg {
+@XmlRootElement(name = "nfeResultMsg")
+public class NfeResultMsg {
 
     @XmlMixed
     @XmlAnyElement(lax = true)

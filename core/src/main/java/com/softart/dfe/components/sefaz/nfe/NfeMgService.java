@@ -34,7 +34,6 @@ import lombok.Getter;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
 
 @Getter
 @SuppressWarnings({"unchecked", "unused"})
@@ -214,16 +213,16 @@ public final class NfeMgService extends NfeAnService {
             if (!resultMsg.getRetConsReciNFe().isEmpty())
                 retorno = ((JAXBElement<TRetConsReciNFe>) resultMsg.getRetConsReciNFe().get(0)).getValue();
         } else {
-            br.inf.portalfiscal.nfe.wsdl.return_authorization.mg.hom.NFeRetAutorizacao4Soap ws = ((br.inf.portalfiscal.nfe.wsdl.return_authorization.mg.hom.NFeRetAutorizacao4) getSoapService().homReturnAuthorization()).getNFeRetAutorizacao4Soap12();
+            br.inf.portalfiscal.nfe.wsdl.return_authorization.mg.hom.NFeRetAutorizacao4Soap ws = ((br.inf.portalfiscal.nfe.wsdl.return_authorization.mg.hom.NFeRetAutorizacao4) getSoapService().homReturnAuthorization()).getNFeRetAutorizacao4Soap();
             data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
 
             br.inf.portalfiscal.nfe.wsdl.return_authorization.mg.hom.NfeDadosMsg msg = new br.inf.portalfiscal.nfe.wsdl.return_authorization.mg.hom.ObjectFactory().createNfeDadosMsg();
             msg.getContent().add(envio);
 
-            br.inf.portalfiscal.nfe.wsdl.return_authorization.mg.hom.NFeRetAutorizacao4Result resultMsg = ws.nfeRetAutorizacaoLote(msg);
+            br.inf.portalfiscal.nfe.wsdl.return_authorization.mg.hom.NfeResultMsg resultMsg = ws.nfeRetAutorizacaoLote(msg);
 
-            if (!resultMsg.getRetConsReciNFe().isEmpty())
-                retorno = ((JAXBElement<TRetConsReciNFe>) resultMsg.getRetConsReciNFe().get(0)).getValue();
+            if (!resultMsg.getContent().isEmpty())
+                retorno = ((JAXBElement<TRetConsReciNFe>) resultMsg.getContent().get(0)).getValue();
         }
 
         for (AfterWebServiceRequest<TConsReciNFe, TRetConsReciNFe> it : data.afterRequest())
