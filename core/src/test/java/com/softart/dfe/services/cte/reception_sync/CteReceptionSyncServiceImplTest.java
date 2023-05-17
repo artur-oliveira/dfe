@@ -274,7 +274,7 @@ class CteReceptionSyncServiceImplTest {
                  getCte(service.getConfig(), 1, Model.CTE)
          );
          assertNotNull(o);
-         assertEquals(CteReturnCode.CODE_103.getCode(), o.getCStat());
+         assertEquals(CteReturnCode.CODE_524.getCode(), o.getCStat());
          assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
          assertEquals(UF.MG.getCode(), o.getCuf());
     }

@@ -6,7 +6,7 @@ import lombok.Getter;
 @Getter
 public abstract class AbstractSoapService {
     protected final int RETRY_TIMES_IF_FAIL = Integer.parseInt(System.getProperty("com.softart.dfe.soap.retry", "5"));
-    protected final boolean LAZY_INITIALIZATION = Boolean.parseBoolean(System.getProperty("com.softart.dfe.soap.lazy", "false"));
+    protected final boolean LAZY_INITIALIZATION = Boolean.parseBoolean(System.getProperty("com.softart.dfe.soap.lazy", "true"));
     protected boolean initialized = false;
     protected Config config;
 

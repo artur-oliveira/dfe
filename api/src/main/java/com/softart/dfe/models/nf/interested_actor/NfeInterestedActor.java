@@ -12,6 +12,7 @@ import com.softart.dfe.interfaces.internal.config.Config;
 import com.softart.dfe.interfaces.xml.XMLAdapter;
 import com.softart.dfe.interfaces.xml.generic.DFObject;
 import com.softart.dfe.util.DateUtils;
+import com.softart.dfe.util.DfeOptional;
 import com.softart.dfe.util.StringUtils;
 import com.softart.dfe.util.XMLStringUtils;
 import lombok.*;
@@ -29,7 +30,7 @@ public class NfeInterestedActor implements DFObject, XMLAdapter<NfeInterestedAct
     protected InfEvento infEvento;
 
     public static NfeInterestedActor build(String accessKey, String cpf, String cnpj, String nseq, NFDownloadAuthorization authorization, Config config) {
-        return NfeInterestedActor.builder().infEvento(NfeInterestedActor.InfEvento.builder().chNFe(accessKey).tpAmb(config.environment().getCode()).cnpj(config.cnpj()).cpf(config.cpf()).nSeqEvento(nseq).detEvento(NfeInterestedActor.InfEvento.DetEvento.builder().autXML(NfeInterestedActor.InfEvento.DetEvento.AutXML.builder().cpf(StringUtils.extractDigits(cpf)).cnpj(StringUtils.extractDigits(cnpj)).build()).tpAutorizacao(authorization.getCode()).cOrgaoAutor(config.uf().getCode()).build()).build()).build();
+        return NfeInterestedActor.builder().infEvento(NfeInterestedActor.InfEvento.builder().chNFe(accessKey).tpAmb(config.environment().getCode()).cnpj(config.cnpj()).cpf(config.cpf()).nSeqEvento(nseq).detEvento(NfeInterestedActor.InfEvento.DetEvento.builder().autXML(NfeInterestedActor.InfEvento.DetEvento.AutXML.builder().cpf(DfeOptional.ofEmpty(StringUtils.extractDigits(cpf)).orElse(null)).cnpj(DfeOptional.ofEmpty(StringUtils.extractDigits(cnpj)).orElse(null)).build()).tpAutorizacao(authorization.getCode()).cOrgaoAutor(config.uf().getCode()).build()).build()).build();
     }
 
     @ToString

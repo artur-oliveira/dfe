@@ -57,107 +57,104 @@ public abstract class AbstractNfeSoapService extends AbstractSoapService impleme
         super(config);
     }
 
-    public void initialize(NfeSoapService cached) {
-        try {
-            this.config = cached.getConfig();
-        } catch (Exception ignored) {
-        }
-        if (!LAZY_INITIALIZATION) {
+    public void initialize(NfeSoapService o) {
+        this.config = o.getConfig();
 
+        if (!LAZY_INITIALIZATION) {
             try {
-                this.homAuthorization = cached.homAuthorization();
+                o.homAuthorization();
             } catch (Exception ignored) {
             }
             try {
-                this.homReturnAuthorization = cached.homReturnAuthorization();
+                o.homReturnAuthorization();
             } catch (Exception ignored) {
             }
             try {
-                this.homCancel = cached.homCancel();
+                o.homCancel();
             } catch (Exception ignored) {
             }
             try {
-                this.homInutilization = cached.homInutilization();
+                o.homInutilization();
             } catch (Exception ignored) {
             }
             try {
-                this.homQueryProtocol = cached.homQueryProtocol();
+                o.homQueryProtocol();
             } catch (Exception ignored) {
             }
             try {
-                this.homQueryRegister = cached.homQueryRegister();
+                o.homQueryRegister();
             } catch (Exception ignored) {
             }
             try {
-                this.homQueryStatusService = cached.homQueryStatusService();
+                o.homQueryStatusService();
             } catch (Exception ignored) {
             }
             try {
-                this.prodAuthorization = cached.prodAuthorization();
+                o.prodAuthorization();
             } catch (Exception ignored) {
             }
             try {
-                this.prodReturnAuthorization = cached.prodReturnAuthorization();
+                o.prodReturnAuthorization();
             } catch (Exception ignored) {
             }
             try {
-                this.prodCancel = cached.prodCancel();
+                o.prodCancel();
             } catch (Exception ignored) {
             }
             try {
-                this.prodInutilization = cached.prodInutilization();
+                o.prodInutilization();
             } catch (Exception ignored) {
             }
             try {
-                this.prodQueryStatusService = cached.prodQueryStatusService();
+                o.prodQueryStatusService();
             } catch (Exception ignored) {
             }
             try {
-                this.prodQueryRegister = cached.prodQueryRegister();
+                o.prodQueryRegister();
             } catch (Exception ignored) {
             }
             try {
-                this.homDistribution = cached.homDistribution();
+                o.homDistribution();
             } catch (Exception ignored) {
             }
             try {
-                this.prodDistribution = cached.prodDistribution();
+                o.prodDistribution();
             } catch (Exception ignored) {
             }
             try {
-                this.homEpec = cached.homEpec();
+                o.homEpec();
             } catch (Exception ignored) {
             }
             try {
-                this.prodEpec = cached.prodEpec();
+                o.prodEpec();
             } catch (Exception ignored) {
             }
             try {
-                this.homInterestedActor = cached.homInterestedActor();
+                o.homInterestedActor();
             } catch (Exception ignored) {
             }
             try {
-                this.prodInterestedActor = cached.prodInterestedActor();
+                o.prodInterestedActor();
             } catch (Exception ignored) {
             }
             try {
-                this.homCorrectionLetter = cached.homCorrectionLetter();
+                o.homCorrectionLetter();
             } catch (Exception ignored) {
             }
             try {
-                this.prodCorrectionLetter = cached.prodCorrectionLetter();
+                o.prodCorrectionLetter();
             } catch (Exception ignored) {
             }
             try {
-                this.homManifestation = cached.homManifestation();
+                o.homManifestation();
             } catch (Exception ignored) {
             }
             try {
-                this.prodManifestation = cached.prodManifestation();
+                o.prodManifestation();
             } catch (Exception ignored) {
             }
             try {
-                this.queryGtin = cached.queryGtin();
+                o.queryGtin();
             } catch (Exception ignored) {
             }
         }
@@ -168,110 +165,10 @@ public abstract class AbstractNfeSoapService extends AbstractSoapService impleme
         HttpsURLConnection.setDefaultSSLSocketFactory(SocketFactory.getInstance().context(config).getSocketFactory());
 
         if (!LAZY_INITIALIZATION) {
-            try {
-                this.homAuthorization = this.homAuthorization();
-            } catch (Exception ignored) {
-            }
-            try {
-                this.homReturnAuthorization = this.homReturnAuthorization();
-            } catch (Exception ignored) {
-            }
-            try {
-                this.homCancel = this.homCancel();
-            } catch (Exception ignored) {
-            }
-            try {
-                this.homInutilization = this.homInutilization();
-            } catch (Exception ignored) {
-            }
-            try {
-                this.homQueryProtocol = this.homQueryProtocol();
-            } catch (Exception ignored) {
-            }
-            try {
-                this.homQueryRegister = this.homQueryRegister();
-            } catch (Exception ignored) {
-            }
-            try {
-                this.homQueryStatusService = this.homQueryStatusService();
-            } catch (Exception ignored) {
-            }
-            try {
-                this.prodAuthorization = this.prodAuthorization();
-            } catch (Exception ignored) {
-            }
-            try {
-                this.prodReturnAuthorization = this.prodReturnAuthorization();
-            } catch (Exception ignored) {
-            }
-            try {
-                this.prodCancel = this.prodCancel();
-            } catch (Exception ignored) {
-            }
-            try {
-                this.prodInutilization = this.prodInutilization();
-            } catch (Exception ignored) {
-            }
-            try {
-                this.prodQueryStatusService = this.prodQueryStatusService();
-            } catch (Exception ignored) {
-            }
-            try {
-                this.prodQueryProtocol = this.prodQueryProtocol();
-            } catch (Exception ignored) {
-            }
-            try {
-                this.prodQueryRegister = this.prodQueryRegister();
-            } catch (Exception ignored) {
-            }
-            try {
-                this.homDistribution = this.homDistribution();
-            } catch (Exception ignored) {
-            }
-            try {
-                this.prodDistribution = this.prodDistribution();
-            } catch (Exception ignored) {
-            }
-            try {
-                this.homEpec = this.homEpec();
-            } catch (Exception ignored) {
-            }
-            try {
-                this.prodEpec = this.prodEpec();
-            } catch (Exception ignored) {
-            }
-            try {
-                this.homInterestedActor = this.homInterestedActor();
-            } catch (Exception ignored) {
-            }
-            try {
-                this.prodInterestedActor = this.prodInterestedActor();
-            } catch (Exception ignored) {
-            }
-            try {
-                this.homManifestation = this.homManifestation();
-            } catch (Exception ignored) {
-            }
-            try {
-                this.prodManifestation = this.prodManifestation();
-            } catch (Exception ignored) {
-            }
-            try {
-                this.homCorrectionLetter = this.homCorrectionLetter();
-            } catch (Exception ignored) {
-            }
-            try {
-                this.prodCorrectionLetter = this.prodCorrectionLetter();
-            } catch (Exception ignored) {
-            }
-            try {
-                this.queryGtin = this.queryGtin();
-            } catch (Exception ignored) {
-            }
+            initialize(this);
         }
 
         SoapServiceProxy.getInstance().addNfeService(this);
-
         this.initialized = true;
     }
 
@@ -551,11 +448,11 @@ public abstract class AbstractNfeSoapService extends AbstractSoapService impleme
             return (T) getHomEpec();
         }
         for (int i = 0; i < RETRY_TIMES_IF_FAIL; i++) {
-            setHomEpec(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(getServiceFinderAuthorizer()).environment(Environment.HOMOLOGATION).endpoint(NfePathEndpoint.EVENT_EPEC).build())));
+            setHomEpec(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(NfeAuthorizer.AN).environment(Environment.HOMOLOGATION).endpoint(NfePathEndpoint.EVENT_EPEC).build())));
             if (Objects.nonNull(getHomEpec())) break;
         }
         if (Objects.isNull(getHomEpec())) {
-            setHomEpec(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(getServiceFinderAuthorizer()).environment(Environment.HOMOLOGATION).endpoint(NfePathEndpoint.EVENT_EPEC).build())));
+            setHomEpec(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(NfeAuthorizer.AN).environment(Environment.HOMOLOGATION).endpoint(NfePathEndpoint.EVENT_EPEC).build())));
         }
         return (T) getHomEpec();
     }
@@ -566,11 +463,11 @@ public abstract class AbstractNfeSoapService extends AbstractSoapService impleme
             return (T) getProdEpec();
         }
         for (int i = 0; i < RETRY_TIMES_IF_FAIL; i++) {
-            setProdEpec(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(getServiceFinderAuthorizer()).environment(Environment.PRODUCTION).endpoint(NfePathEndpoint.EVENT_EPEC).build())));
+            setProdEpec(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(NfeAuthorizer.AN).environment(Environment.PRODUCTION).endpoint(NfePathEndpoint.EVENT_EPEC).build())));
             if (Objects.nonNull(getProdEpec())) break;
         }
         if (Objects.isNull(getProdEpec())) {
-            setProdEpec(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(getServiceFinderAuthorizer()).environment(Environment.PRODUCTION).endpoint(NfePathEndpoint.EVENT_EPEC).build())));
+            setProdEpec(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(NfeAuthorizer.AN).environment(Environment.PRODUCTION).endpoint(NfePathEndpoint.EVENT_EPEC).build())));
         }
         return (T) getProdEpec();
     }
@@ -581,11 +478,11 @@ public abstract class AbstractNfeSoapService extends AbstractSoapService impleme
             return (T) getHomInterestedActor();
         }
         for (int i = 0; i < RETRY_TIMES_IF_FAIL; i++) {
-            setHomInterestedActor(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(getServiceFinderAuthorizer()).environment(Environment.HOMOLOGATION).endpoint(NfePathEndpoint.EVENT_INTERESTED_ACTOR).build())));
+            setHomInterestedActor(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(NfeAuthorizer.AN).environment(Environment.HOMOLOGATION).endpoint(NfePathEndpoint.EVENT_INTERESTED_ACTOR).build())));
             if (Objects.nonNull(getHomInterestedActor())) break;
         }
         if (Objects.isNull(getHomInterestedActor())) {
-            setHomInterestedActor(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(getServiceFinderAuthorizer()).environment(Environment.HOMOLOGATION).endpoint(NfePathEndpoint.EVENT_INTERESTED_ACTOR).build())));
+            setHomInterestedActor(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(NfeAuthorizer.AN).environment(Environment.HOMOLOGATION).endpoint(NfePathEndpoint.EVENT_INTERESTED_ACTOR).build())));
         }
         return (T) getHomInterestedActor();
     }
@@ -596,11 +493,11 @@ public abstract class AbstractNfeSoapService extends AbstractSoapService impleme
             return (T) getProdInterestedActor();
         }
         for (int i = 0; i < RETRY_TIMES_IF_FAIL; i++) {
-            setProdInterestedActor(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(getServiceFinderAuthorizer()).environment(Environment.PRODUCTION).endpoint(NfePathEndpoint.EVENT_INTERESTED_ACTOR).build())));
+            setProdInterestedActor(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(NfeAuthorizer.AN).environment(Environment.PRODUCTION).endpoint(NfePathEndpoint.EVENT_INTERESTED_ACTOR).build())));
             if (Objects.nonNull(getProdInterestedActor())) break;
         }
         if (Objects.isNull(getProdInterestedActor())) {
-            setProdInterestedActor(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(getServiceFinderAuthorizer()).environment(Environment.PRODUCTION).endpoint(NfePathEndpoint.EVENT_INTERESTED_ACTOR).build())));
+            setProdInterestedActor(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(NfeAuthorizer.AN).environment(Environment.PRODUCTION).endpoint(NfePathEndpoint.EVENT_INTERESTED_ACTOR).build())));
         }
         return (T) getProdInterestedActor();
     }
@@ -611,11 +508,11 @@ public abstract class AbstractNfeSoapService extends AbstractSoapService impleme
             return (T) getHomManifestation();
         }
         for (int i = 0; i < RETRY_TIMES_IF_FAIL; i++) {
-            setHomManifestation(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(getServiceFinderAuthorizer()).environment(Environment.HOMOLOGATION).endpoint(NfePathEndpoint.EVENT_MANIFESTATION).build())));
+            setHomManifestation(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(NfeAuthorizer.AN).environment(Environment.HOMOLOGATION).endpoint(NfePathEndpoint.EVENT_MANIFESTATION).build())));
             if (Objects.nonNull(getHomManifestation())) break;
         }
         if (Objects.isNull(getHomManifestation())) {
-            setHomManifestation(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(getServiceFinderAuthorizer()).environment(Environment.HOMOLOGATION).endpoint(NfePathEndpoint.EVENT_MANIFESTATION).build())));
+            setHomManifestation(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(NfeAuthorizer.AN).environment(Environment.HOMOLOGATION).endpoint(NfePathEndpoint.EVENT_MANIFESTATION).build())));
         }
         return (T) getHomManifestation();
     }
@@ -626,11 +523,11 @@ public abstract class AbstractNfeSoapService extends AbstractSoapService impleme
             return (T) getProdManifestation();
         }
         for (int i = 0; i < RETRY_TIMES_IF_FAIL; i++) {
-            setProdManifestation(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(getServiceFinderAuthorizer()).environment(Environment.PRODUCTION).endpoint(NfePathEndpoint.EVENT_MANIFESTATION).build())));
+            setProdManifestation(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(NfeAuthorizer.AN).environment(Environment.PRODUCTION).endpoint(NfePathEndpoint.EVENT_MANIFESTATION).build())));
             if (Objects.nonNull(getProdManifestation())) break;
         }
         if (Objects.isNull(getProdManifestation())) {
-            setProdManifestation(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(getServiceFinderAuthorizer()).environment(Environment.PRODUCTION).endpoint(NfePathEndpoint.EVENT_MANIFESTATION).build())));
+            setProdManifestation(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(NfeAuthorizer.AN).environment(Environment.PRODUCTION).endpoint(NfePathEndpoint.EVENT_MANIFESTATION).build())));
         }
         return (T) getProdManifestation();
     }
@@ -641,11 +538,11 @@ public abstract class AbstractNfeSoapService extends AbstractSoapService impleme
             return (T) getQueryGtin();
         }
         for (int i = 0; i < RETRY_TIMES_IF_FAIL; i++) {
-            setQueryGtin(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(getServiceFinderAuthorizer()).environment(Environment.HOMOLOGATION).endpoint(NfePathEndpoint.QUERY_GTIN).build())));
+            setQueryGtin(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(NfeAuthorizer.SVRS).environment(Environment.PRODUCTION).endpoint(NfePathEndpoint.QUERY_GTIN).build())));
             if (Objects.nonNull(getQueryGtin())) break;
         }
         if (Objects.isNull(getQueryGtin())) {
-            setQueryGtin(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(getServiceFinderAuthorizer()).environment(Environment.HOMOLOGATION).endpoint(NfePathEndpoint.QUERY_GTIN).build())));
+            setQueryGtin(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(NfeAuthorizer.SVRS).environment(Environment.PRODUCTION).endpoint(NfePathEndpoint.QUERY_GTIN).build())));
         }
         return (T) getQueryGtin();
     }

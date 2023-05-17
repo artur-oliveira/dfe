@@ -33,6 +33,7 @@ import lombok.Getter;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 import java.util.Objects;
 
 @SuppressWarnings({"unchecked", "unused"})
@@ -47,7 +48,7 @@ public final class NfeAmService extends NfeAnService {
 
     @Override
     public boolean allow(UF uf, Environment environment, NFEmissionType emissionType) {
-        return allow(uf, environment) && Objects.equals(emissionType, NFEmissionType.NORMAL);
+        return allow(uf, environment) && List.of(NFEmissionType.NORMAL, NFEmissionType.EPEC).contains(emissionType);
     }
 
     @Override
@@ -133,7 +134,7 @@ public final class NfeAmService extends NfeAnService {
                 retorno = ((JAXBElement<br.inf.portalfiscal.nfe.event_cancel.TRetEnvEvento>) resultMsg.getContent().get(0)).getValue();
         } else {
             br.inf.portalfiscal.nfe.wsdl.event_cancel.am.hom.RecepcaoEvento4Soap ws = ((br.inf.portalfiscal.nfe.wsdl.event_cancel.am.hom.RecepcaoEvento4) getSoapService().homCancel()).getRecepcaoEvento4Soap12();
-            data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
+            data.configureProvider().configure(ProviderConfig.builder().overridePortAddress("https://homnfe.sefaz.am.gov.br/services2/services/RecepcaoEvento4").port((BindingProvider) ws).config(data.config()).build());
 
             br.inf.portalfiscal.nfe.wsdl.event_cancel.am.hom.NfeDadosMsg msg = new br.inf.portalfiscal.nfe.wsdl.event_cancel.am.hom.ObjectFactory().createNfeDadosMsg();
             msg.getContent().add(envio);
@@ -293,7 +294,7 @@ public final class NfeAmService extends NfeAnService {
                 retorno = ((JAXBElement<br.inf.portalfiscal.nfe.event_correction_letter.TRetEnvEvento>) resultMsg.getContent().get(0)).getValue();
         } else {
             br.inf.portalfiscal.nfe.wsdl.event_correction_letter.am.hom.RecepcaoEvento4Soap ws = ((br.inf.portalfiscal.nfe.wsdl.event_correction_letter.am.hom.RecepcaoEvento4) getSoapService().homCorrectionLetter()).getRecepcaoEvento4Soap12();
-            data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
+            data.configureProvider().configure(ProviderConfig.builder().overridePortAddress("https://homnfe.sefaz.am.gov.br/services2/services/RecepcaoEvento4").port((BindingProvider) ws).config(data.config()).build());
 
             br.inf.portalfiscal.nfe.wsdl.event_correction_letter.am.hom.NfeDadosMsg msg = new br.inf.portalfiscal.nfe.wsdl.event_correction_letter.am.hom.ObjectFactory().createNfeDadosMsg();
             msg.getContent().add(envio);

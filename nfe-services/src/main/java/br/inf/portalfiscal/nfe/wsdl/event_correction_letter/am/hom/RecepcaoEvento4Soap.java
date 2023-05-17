@@ -18,7 +18,7 @@ import jakarta.xml.bind.annotation.XmlSeeAlso;
 @WebService(name = "RecepcaoEvento4Soap", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeRecepcaoEvento4")
 @SOAPBinding(parameterStyle = SOAPBinding.ParameterStyle.BARE)
 @XmlSeeAlso({
-    ObjectFactory.class, br.inf.portalfiscal.nfe.event_interested_actor.ObjectFactory.class
+    ObjectFactory.class, br.inf.portalfiscal.nfe.event_correction_letter.ObjectFactory.class
 })
 public interface RecepcaoEvento4Soap {
 

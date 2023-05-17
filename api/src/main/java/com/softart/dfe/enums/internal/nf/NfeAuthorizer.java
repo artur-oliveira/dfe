@@ -152,7 +152,7 @@ public enum NfeAuthorizer implements NfServiceAllow, NfeURL {
 
         @Override
         public boolean allow(UF uf, Environment environment, NFEmissionType emissionType) {
-            return allow(uf, environment) && Objects.equals(emissionType, NFEmissionType.NORMAL);
+            return allow(uf, environment) && List.of(NFEmissionType.NORMAL, NFEmissionType.EPEC).contains(emissionType);
         }
 
         @Override
@@ -249,7 +249,7 @@ public enum NfeAuthorizer implements NfServiceAllow, NfeURL {
 
         @Override
         public boolean allow(UF uf, Environment environment, NFEmissionType emissionType) {
-            return allow(uf, environment) && Objects.equals(emissionType, NFEmissionType.NORMAL);
+            return allow(uf, environment) && List.of(NFEmissionType.NORMAL, NFEmissionType.EPEC).contains(emissionType);
         }
 
         @Override
@@ -357,7 +357,7 @@ public enum NfeAuthorizer implements NfServiceAllow, NfeURL {
 
         @Override
         public boolean allow(UF uf, Environment environment, NFEmissionType emissionType) {
-            return allow(uf, environment) && Objects.equals(emissionType, NFEmissionType.NORMAL);
+            return allow(uf, environment) && List.of(NFEmissionType.NORMAL, NFEmissionType.EPEC).contains(emissionType);
         }
 
         @Override
@@ -466,7 +466,7 @@ public enum NfeAuthorizer implements NfServiceAllow, NfeURL {
 
         @Override
         public boolean allow(UF uf, Environment environment, NFEmissionType emissionType) {
-            return allow(uf, environment) && Objects.equals(emissionType, NFEmissionType.NORMAL);
+            return allow(uf, environment) && List.of(NFEmissionType.NORMAL, NFEmissionType.EPEC).contains(emissionType);
         }
 
         @Override
@@ -575,7 +575,7 @@ public enum NfeAuthorizer implements NfServiceAllow, NfeURL {
 
         @Override
         public boolean allow(UF uf, Environment environment, NFEmissionType emissionType) {
-            return allow(uf, environment) && Objects.equals(emissionType, NFEmissionType.NORMAL);
+            return allow(uf, environment) && List.of(NFEmissionType.NORMAL, NFEmissionType.EPEC).contains(emissionType);
         }
 
         @Override
@@ -684,7 +684,7 @@ public enum NfeAuthorizer implements NfServiceAllow, NfeURL {
 
         @Override
         public boolean allow(UF uf, Environment environment, NFEmissionType emissionType) {
-            return allow(uf, environment) && Objects.equals(emissionType, NFEmissionType.NORMAL);
+            return allow(uf, environment) && List.of(NFEmissionType.NORMAL, NFEmissionType.EPEC).contains(emissionType);
         }
 
         @Override
@@ -793,7 +793,7 @@ public enum NfeAuthorizer implements NfServiceAllow, NfeURL {
 
         @Override
         public boolean allow(UF uf, Environment environment, NFEmissionType emissionType) {
-            return allow(uf, environment) && Objects.equals(emissionType, NFEmissionType.NORMAL);
+            return allow(uf, environment) && List.of(NFEmissionType.NORMAL, NFEmissionType.EPEC).contains(emissionType);
         }
 
         @Override
@@ -902,7 +902,7 @@ public enum NfeAuthorizer implements NfServiceAllow, NfeURL {
 
         @Override
         public boolean allow(UF uf, Environment environment, NFEmissionType emissionType) {
-            return allow(uf, environment) && Objects.equals(emissionType, NFEmissionType.NORMAL);
+            return allow(uf, environment) && List.of(NFEmissionType.NORMAL, NFEmissionType.EPEC).contains(emissionType);
         }
 
         @Override
@@ -1011,7 +1011,7 @@ public enum NfeAuthorizer implements NfServiceAllow, NfeURL {
 
         @Override
         public boolean allow(UF uf, Environment environment, NFEmissionType emissionType) {
-            return allow(uf, environment) && Objects.equals(emissionType, NFEmissionType.NORMAL);
+            return allow(uf, environment) && List.of(NFEmissionType.NORMAL, NFEmissionType.EPEC).contains(emissionType);
         }
 
         @Override
@@ -1120,7 +1120,7 @@ public enum NfeAuthorizer implements NfServiceAllow, NfeURL {
 
         @Override
         public boolean allow(UF uf, Environment environment, NFEmissionType emissionType) {
-            return allow(uf, environment) && Objects.equals(emissionType, NFEmissionType.NORMAL);
+            return allow(uf, environment) && List.of(NFEmissionType.NORMAL, NFEmissionType.EPEC).contains(emissionType);
         }
 
         @Override
@@ -1229,7 +1229,7 @@ public enum NfeAuthorizer implements NfServiceAllow, NfeURL {
 
         @Override
         public boolean allow(UF uf, Environment environment, NFEmissionType emissionType) {
-            return allow(uf, environment) && Objects.equals(emissionType, NFEmissionType.NORMAL);
+            return allow(uf, environment) && List.of(NFEmissionType.NORMAL, NFEmissionType.EPEC).contains(emissionType);
         }
 
         @Override
@@ -1338,7 +1338,7 @@ public enum NfeAuthorizer implements NfServiceAllow, NfeURL {
 
         @Override
         public boolean allow(UF uf, Environment environment, NFEmissionType emissionType) {
-            return allow(uf, environment) && Objects.equals(emissionType, NFEmissionType.NORMAL);
+            return allow(uf, environment) && List.of(NFEmissionType.NORMAL, NFEmissionType.EPEC).contains(emissionType);
         }
 
         @Override
@@ -1549,7 +1549,7 @@ public enum NfeAuthorizer implements NfServiceAllow, NfeURL {
 
         @Override
         public Collection<UF> allowedUfsHomologation() {
-            return Arrays.asList(UF.AC, UF.AL, UF.AP, UF.CE, UF.DF, UF.ES, UF.MG, UF.PA, UF.PB, UF.RJ, UF.RN, UF.RO, UF.RR, UF.RS, UF.SC, UF.SE, UF.SP, UF.TO);
+            return Arrays.asList(UF.AC, UF.AL, UF.AP, UF.CE, UF.DF, UF.ES, UF.MG, UF.PA, UF.PB, UF.PI, UF.RJ, UF.RN, UF.RO, UF.RR, UF.RS, UF.SC, UF.SE, UF.SP, UF.TO);
         }
 
 

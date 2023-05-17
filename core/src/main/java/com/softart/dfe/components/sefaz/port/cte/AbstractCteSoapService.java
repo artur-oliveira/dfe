@@ -48,88 +48,89 @@ public abstract class AbstractCteSoapService extends AbstractSoapService impleme
         return (CteConfig) super.getConfig();
     }
 
-    public void initialize(CteSoapService cached) {
-        this.config = cached.getConfig();
-
-        try {
-            this.prodDistribution = cached.prodDistribution();
-        } catch (Exception ignored) {
-        }
-        try {
-            this.homDistribution = cached.homDistribution();
-        } catch (Exception ignored) {
-        }
-        try {
-            this.prodEvent = cached.prodEvent();
-        } catch (Exception ignored) {
-        }
-        try {
-            this.homEvent = cached.homEvent();
-        } catch (Exception ignored) {
-        }
-        try {
-            this.prodInutilization = cached.prodInutilization();
-        } catch (Exception ignored) {
-        }
-        try {
-            this.homInutilization = cached.homInutilization();
-        } catch (Exception ignored) {
-        }
-        try {
-            this.prodQueryReceipt = cached.prodQueryReceipt();
-        } catch (Exception ignored) {
-        }
-        try {
-            this.homQueryReceipt = cached.homQueryReceipt();
-        } catch (Exception ignored) {
-        }
-        try {
-            this.prodQuerySituation = cached.prodQuerySituation();
-        } catch (Exception ignored) {
-        }
-        try {
-            this.homQuerySituation = cached.homQuerySituation();
-        } catch (Exception ignored) {
-        }
-        try {
-            this.prodReception = cached.prodReception();
-        } catch (Exception ignored) {
-        }
-        try {
-            this.homReception = cached.homReception();
-        } catch (Exception ignored) {
-        }
-        try {
-            this.prodReceptionGtve = cached.prodReceptionGtve();
-        } catch (Exception ignored) {
-        }
-        try {
-            this.homReceptionGtve = cached.homReceptionGtve();
-        } catch (Exception ignored) {
-        }
-        try {
-            this.prodReceptionOs = cached.prodReceptionOs();
-        } catch (Exception ignored) {
-        }
-        try {
-            this.homReceptionOs = cached.homReceptionOs();
-        } catch (Exception ignored) {
-        }
-        try {
-            this.prodReceptionSync = cached.prodReceptionSync();
-        } catch (Exception ignored) {
-        }
-        try {
-            this.homReceptionSync = cached.homReceptionSync();
-        } catch (Exception ignored) {
-        }
-        try {
-            this.prodStatusService = cached.prodStatusService();
-        } catch (Exception ignored) {
-        }
-        try {
-            this.homStatusService = cached.homStatusService();
-        } catch (Exception ignored) {
+    public void initialize(CteSoapService o) {
+        this.config = o.getConfig();
+        if (!LAZY_INITIALIZATION) {
+            try {
+                o.prodDistribution();
+            } catch (Exception ignored) {
+            }
+            try {
+                o.homDistribution();
+            } catch (Exception ignored) {
+            }
+            try {
+                o.prodEvent();
+            } catch (Exception ignored) {
+            }
+            try {
+                o.homEvent();
+            } catch (Exception ignored) {
+            }
+            try {
+                o.prodInutilization();
+            } catch (Exception ignored) {
+            }
+            try {
+                o.homInutilization();
+            } catch (Exception ignored) {
+            }
+            try {
+                o.prodQueryReceipt();
+            } catch (Exception ignored) {
+            }
+            try {
+                o.homQueryReceipt();
+            } catch (Exception ignored) {
+            }
+            try {
+                o.prodQuerySituation();
+            } catch (Exception ignored) {
+            }
+            try {
+                o.homQuerySituation();
+            } catch (Exception ignored) {
+            }
+            try {
+                o.prodReception();
+            } catch (Exception ignored) {
+            }
+            try {
+                o.homReception();
+            } catch (Exception ignored) {
+            }
+            try {
+                o.prodReceptionGtve();
+            } catch (Exception ignored) {
+            }
+            try {
+                o.homReceptionGtve();
+            } catch (Exception ignored) {
+            }
+            try {
+                o.prodReceptionOs();
+            } catch (Exception ignored) {
+            }
+            try {
+                o.homReceptionOs();
+            } catch (Exception ignored) {
+            }
+            try {
+                o.prodReceptionSync();
+            } catch (Exception ignored) {
+            }
+            try {
+                o.homReceptionSync();
+            } catch (Exception ignored) {
+            }
+            try {
+                o.prodStatusService();
+            } catch (Exception ignored) {
+            }
+            try {
+                o.homStatusService();
+            } catch (Exception ignored) {
+            }
         }
 
         this.initialized = true;
@@ -138,29 +139,11 @@ public abstract class AbstractCteSoapService extends AbstractSoapService impleme
     public void initialize(Config config) throws SSLContextException {
         HttpsURLConnection.setDefaultSSLSocketFactory(SocketFactory.getInstance().context(config).getSocketFactory());
 
-        this.prodDistribution = ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.DISTRIBUTION).authorizer(CteAuthorizer.AN).environment(Environment.PRODUCTION).build()));
-        this.homDistribution = ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.DISTRIBUTION).authorizer(CteAuthorizer.AN).environment(Environment.HOMOLOGATION).build()));
-        this.prodEvent = ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.EVENT).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build()));
-        this.homEvent = ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.EVENT).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build()));
-        this.prodInutilization = ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.INUTILIZATION).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build()));
-        this.homInutilization = ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.INUTILIZATION).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build()));
-        this.prodQueryReceipt = ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.QUERY_RECEIPT).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build()));
-        this.homQueryReceipt = ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.QUERY_RECEIPT).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build()));
-        this.prodQuerySituation = ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.QUERY_SITUATION).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build()));
-        this.homQuerySituation = ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.QUERY_SITUATION).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build()));
-        this.prodReception = ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.RECEPTION).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build()));
-        this.homReception = ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.RECEPTION).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build()));
-        this.prodReceptionGtve = ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.RECEPTION_GTVE).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build()));
-        this.homReceptionGtve = ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.RECEPTION_GTVE).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build()));
-        this.prodReceptionOs = ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.RECEPTION_OS).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build()));
-        this.homReceptionOs = ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.RECEPTION_OS).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build()));
-        this.prodReceptionSync = ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.RECEPTION_SYNC).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build()));
-        this.homReceptionSync = ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.RECEPTION_SYNC).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build()));
-        this.prodStatusService = ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.STATUS_SERVICE).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build()));
-        this.homStatusService = ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.STATUS_SERVICE).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build()));
+        if (!LAZY_INITIALIZATION) {
+            initialize(this);
+        }
 
         SoapServiceProxy.getInstance().addCteService(this);
-
         this.initialized = true;
     }
 
@@ -169,7 +152,15 @@ public abstract class AbstractCteSoapService extends AbstractSoapService impleme
         if (Objects.nonNull(getProdDistribution())) {
             return (T) getProdDistribution();
         }
-        setProdDistribution(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.DISTRIBUTION).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
+        for (int i = 0; i < RETRY_TIMES_IF_FAIL; i++) {
+            setProdDistribution(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.DISTRIBUTION).authorizer(CteAuthorizer.AN).environment(Environment.PRODUCTION).build())));
+            if (Objects.nonNull(getProdDistribution())) {
+                break;
+            }
+        }
+        if (Objects.isNull(getProdDistribution())) {
+            setProdDistribution(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.DISTRIBUTION).authorizer(CteAuthorizer.AN).environment(Environment.PRODUCTION).build())));
+        }
         return (T) getProdDistribution();
     }
 
@@ -178,7 +169,15 @@ public abstract class AbstractCteSoapService extends AbstractSoapService impleme
         if (Objects.nonNull(getHomDistribution())) {
             return (T) getHomDistribution();
         }
-        setHomDistribution(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.DISTRIBUTION).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
+        for (int i = 0; i < RETRY_TIMES_IF_FAIL; i++) {
+            setHomDistribution(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.DISTRIBUTION).authorizer(CteAuthorizer.AN).environment(Environment.HOMOLOGATION).build())));
+            if (Objects.nonNull(getHomDistribution())) {
+                break;
+            }
+        }
+        if (Objects.isNull(getHomDistribution())) {
+            setHomDistribution(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.DISTRIBUTION).authorizer(CteAuthorizer.AN).environment(Environment.HOMOLOGATION).build())));
+        }
         return (T) getHomDistribution();
     }
 
@@ -187,7 +186,15 @@ public abstract class AbstractCteSoapService extends AbstractSoapService impleme
         if (Objects.nonNull(getProdEvent())) {
             return (T) getProdEvent();
         }
-        setProdEvent(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.EVENT).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
+        for (int i = 0; i < RETRY_TIMES_IF_FAIL; i++) {
+            setProdEvent(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.EVENT).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
+            if (Objects.nonNull(getProdEvent())) {
+                break;
+            }
+        }
+        if (Objects.isNull(getProdEvent())) {
+            setProdEvent(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.EVENT).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
+        }
         return (T) getProdEvent();
     }
 
@@ -196,7 +203,15 @@ public abstract class AbstractCteSoapService extends AbstractSoapService impleme
         if (Objects.nonNull(getHomEvent())) {
             return (T) getHomEvent();
         }
-        setHomEvent(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.EVENT).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
+        for (int i = 0; i < RETRY_TIMES_IF_FAIL; i++) {
+            setHomEvent(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.EVENT).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
+            if (Objects.nonNull(getHomEvent())) {
+                break;
+            }
+        }
+        if (Objects.isNull(getHomEvent())) {
+            setHomEvent(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.EVENT).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
+        }
         return (T) getHomEvent();
     }
 
@@ -205,7 +220,15 @@ public abstract class AbstractCteSoapService extends AbstractSoapService impleme
         if (Objects.nonNull(getProdInutilization())) {
             return (T) getProdInutilization();
         }
-        setProdInutilization(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.INUTILIZATION).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
+        for (int i = 0; i < RETRY_TIMES_IF_FAIL; i++) {
+            setProdInutilization(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.INUTILIZATION).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
+            if (Objects.nonNull(getProdInutilization())) {
+                break;
+            }
+        }
+        if (Objects.isNull(getProdInutilization())) {
+            setProdInutilization(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.INUTILIZATION).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
+        }
         return (T) getProdInutilization();
     }
 
@@ -214,7 +237,15 @@ public abstract class AbstractCteSoapService extends AbstractSoapService impleme
         if (Objects.nonNull(getHomInutilization())) {
             return (T) getHomInutilization();
         }
-        setHomInutilization(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.INUTILIZATION).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
+        for (int i = 0; i < RETRY_TIMES_IF_FAIL; i++) {
+            setHomInutilization(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.INUTILIZATION).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
+            if (Objects.nonNull(getHomInutilization())) {
+                break;
+            }
+        }
+        if (Objects.isNull(getHomInutilization())) {
+            setHomInutilization(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.INUTILIZATION).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
+        }
         return (T) getHomInutilization();
     }
 
@@ -223,7 +254,15 @@ public abstract class AbstractCteSoapService extends AbstractSoapService impleme
         if (Objects.nonNull(getProdQueryReceipt())) {
             return (T) getProdQueryReceipt();
         }
-        setProdQueryReceipt(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.QUERY_RECEIPT).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
+        for (int i = 0; i < RETRY_TIMES_IF_FAIL; i++) {
+            setProdQueryReceipt(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.QUERY_RECEIPT).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
+            if (Objects.nonNull(getProdQueryReceipt())) {
+                break;
+            }
+        }
+        if (Objects.isNull(getProdQueryReceipt())) {
+            setProdQueryReceipt(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.QUERY_RECEIPT).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
+        }
         return (T) getProdQueryReceipt();
     }
 
@@ -232,7 +271,15 @@ public abstract class AbstractCteSoapService extends AbstractSoapService impleme
         if (Objects.nonNull(getHomQueryReceipt())) {
             return (T) getHomQueryReceipt();
         }
-        setHomQueryReceipt(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.QUERY_RECEIPT).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
+        for (int i = 0; i < RETRY_TIMES_IF_FAIL; i++) {
+            setHomQueryReceipt(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.QUERY_RECEIPT).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
+            if (Objects.nonNull(getHomQueryReceipt())) {
+                break;
+            }
+        }
+        if (Objects.isNull(getHomQueryReceipt())) {
+            setHomQueryReceipt(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.QUERY_RECEIPT).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
+        }
         return (T) getHomQueryReceipt();
     }
 
@@ -241,7 +288,15 @@ public abstract class AbstractCteSoapService extends AbstractSoapService impleme
         if (Objects.nonNull(getProdQuerySituation())) {
             return (T) getProdQuerySituation();
         }
-        setProdQuerySituation(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.QUERY_SITUATION).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
+        for (int i = 0; i < RETRY_TIMES_IF_FAIL; i++) {
+            setProdQuerySituation(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.QUERY_SITUATION).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
+            if (Objects.nonNull(getProdQuerySituation())) {
+                break;
+            }
+        }
+        if (Objects.isNull(getProdQuerySituation())) {
+            setProdQuerySituation(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.QUERY_SITUATION).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
+        }
         return (T) getProdQuerySituation();
     }
 
@@ -250,7 +305,15 @@ public abstract class AbstractCteSoapService extends AbstractSoapService impleme
         if (Objects.nonNull(getHomQuerySituation())) {
             return (T) getHomQuerySituation();
         }
-        setHomQuerySituation(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.QUERY_SITUATION).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
+        for (int i = 0; i < RETRY_TIMES_IF_FAIL; i++) {
+            setHomQuerySituation(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.QUERY_SITUATION).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
+            if (Objects.nonNull(getHomQuerySituation())) {
+                break;
+            }
+        }
+        if (Objects.isNull(getHomQuerySituation())) {
+            setHomQuerySituation(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.QUERY_SITUATION).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
+        }
         return (T) getHomQuerySituation();
     }
 
@@ -259,7 +322,15 @@ public abstract class AbstractCteSoapService extends AbstractSoapService impleme
         if (Objects.nonNull(getProdReception())) {
             return (T) getProdReception();
         }
-        setProdReception(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.RECEPTION).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
+        for (int i = 0; i < RETRY_TIMES_IF_FAIL; i++) {
+            setProdReception(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.RECEPTION).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
+            if (Objects.nonNull(getProdReception())) {
+                break;
+            }
+        }
+        if (Objects.isNull(getProdReception())) {
+            setProdReception(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.RECEPTION).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
+        }
         return (T) getProdReception();
     }
 
@@ -268,7 +339,15 @@ public abstract class AbstractCteSoapService extends AbstractSoapService impleme
         if (Objects.nonNull(getHomReception())) {
             return (T) getHomReception();
         }
-        setHomReception(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.RECEPTION).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
+        for (int i = 0; i < RETRY_TIMES_IF_FAIL; i++) {
+            setHomReception(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.RECEPTION).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
+            if (Objects.nonNull(getHomReception())) {
+                break;
+            }
+        }
+        if (Objects.isNull(getHomReception())) {
+            setHomReception(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.RECEPTION).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
+        }
         return (T) getHomReception();
     }
 
@@ -277,7 +356,15 @@ public abstract class AbstractCteSoapService extends AbstractSoapService impleme
         if (Objects.nonNull(getProdReceptionGtve())) {
             return (T) getProdReceptionGtve();
         }
-        setProdReceptionGtve(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.RECEPTION_GTVE).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
+        for (int i = 0; i < RETRY_TIMES_IF_FAIL; i++) {
+            setProdReceptionGtve(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.RECEPTION_GTVE).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
+            if (Objects.nonNull(getProdReceptionGtve())) {
+                break;
+            }
+        }
+        if (Objects.isNull(getProdReceptionGtve())) {
+            setProdReceptionGtve(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.RECEPTION_GTVE).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
+        }
         return (T) getProdReceptionGtve();
     }
 
@@ -286,7 +373,15 @@ public abstract class AbstractCteSoapService extends AbstractSoapService impleme
         if (Objects.nonNull(getHomReceptionGtve())) {
             return (T) getHomReceptionGtve();
         }
-        setHomReceptionGtve(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.RECEPTION_GTVE).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
+        for (int i = 0; i < RETRY_TIMES_IF_FAIL; i++) {
+            setHomReceptionGtve(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.RECEPTION_GTVE).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
+            if (Objects.nonNull(getHomReceptionGtve())) {
+                break;
+            }
+        }
+        if (Objects.isNull(getHomReceptionGtve())) {
+            setHomReceptionGtve(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.RECEPTION_GTVE).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
+        }
         return (T) getHomReceptionGtve();
     }
 
@@ -295,7 +390,15 @@ public abstract class AbstractCteSoapService extends AbstractSoapService impleme
         if (Objects.nonNull(getProdReceptionOs())) {
             return (T) getProdReceptionOs();
         }
-        setProdReceptionOs(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.RECEPTION_OS).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
+        for (int i = 0; i < RETRY_TIMES_IF_FAIL; i++) {
+            setProdReceptionOs(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.RECEPTION_OS).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
+            if (Objects.nonNull(getProdReceptionOs())) {
+                break;
+            }
+        }
+        if (Objects.isNull(getProdReceptionOs())) {
+            setProdReceptionOs(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.RECEPTION_OS).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
+        }
         return (T) getProdReceptionOs();
     }
 
@@ -304,7 +407,15 @@ public abstract class AbstractCteSoapService extends AbstractSoapService impleme
         if (Objects.nonNull(getHomReceptionOs())) {
             return (T) getHomReceptionOs();
         }
-        setHomReceptionOs(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.RECEPTION_OS).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
+        for (int i = 0; i < RETRY_TIMES_IF_FAIL; i++) {
+            setHomReceptionOs(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.RECEPTION_OS).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
+            if (Objects.nonNull(getHomReceptionOs())) {
+                break;
+            }
+        }
+        if (Objects.isNull(getHomReceptionOs())) {
+            setHomReceptionOs(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.RECEPTION_OS).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
+        }
         return (T) getHomReceptionOs();
     }
 
@@ -313,7 +424,15 @@ public abstract class AbstractCteSoapService extends AbstractSoapService impleme
         if (Objects.nonNull(getProdReceptionSync())) {
             return (T) getProdReceptionSync();
         }
-        setProdReceptionSync(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.RECEPTION_SYNC).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
+        for (int i = 0; i < RETRY_TIMES_IF_FAIL; i++) {
+            setProdReceptionSync(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.RECEPTION_SYNC).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
+            if (Objects.nonNull(getProdReceptionSync())) {
+                break;
+            }
+        }
+        if (Objects.isNull(getProdReceptionSync())) {
+            setProdReceptionSync(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.RECEPTION_SYNC).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
+        }
         return (T) getProdReceptionSync();
     }
 
@@ -322,7 +441,15 @@ public abstract class AbstractCteSoapService extends AbstractSoapService impleme
         if (Objects.nonNull(getHomReceptionSync())) {
             return (T) getHomReceptionSync();
         }
-        setHomReceptionSync(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.RECEPTION_SYNC).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
+        for (int i = 0; i < RETRY_TIMES_IF_FAIL; i++) {
+            setHomReceptionSync(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.RECEPTION_SYNC).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
+            if (Objects.nonNull(getHomReceptionSync())) {
+                break;
+            }
+        }
+        if (Objects.isNull(getHomReceptionSync())) {
+            setHomReceptionSync(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.RECEPTION_SYNC).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
+        }
         return (T) getHomReceptionSync();
     }
 
@@ -331,7 +458,15 @@ public abstract class AbstractCteSoapService extends AbstractSoapService impleme
         if (Objects.nonNull(getProdStatusService())) {
             return (T) getProdStatusService();
         }
-        setProdStatusService(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.STATUS_SERVICE).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
+        for (int i = 0; i < RETRY_TIMES_IF_FAIL; i++) {
+            setProdStatusService(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.STATUS_SERVICE).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
+            if (Objects.nonNull(getProdStatusService())) {
+                break;
+            }
+        }
+        if (Objects.isNull(getProdStatusService())) {
+            setProdStatusService(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.STATUS_SERVICE).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
+        }
         return (T) getProdStatusService();
     }
 
@@ -340,7 +475,15 @@ public abstract class AbstractCteSoapService extends AbstractSoapService impleme
         if (Objects.nonNull(getHomStatusService())) {
             return (T) getHomStatusService();
         }
-        setHomStatusService(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.STATUS_SERVICE).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
+        for (int i = 0; i < RETRY_TIMES_IF_FAIL; i++) {
+            setHomStatusService(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.STATUS_SERVICE).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
+            if (Objects.nonNull(getHomStatusService())) {
+                break;
+            }
+        }
+        if (Objects.isNull(getHomStatusService())) {
+            setHomStatusService(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getCteServiceClassFor(CteServiceFinder.builder().endpoint(CtePathEndpoint.STATUS_SERVICE).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
+        }
         return (T) getHomStatusService();
     }
 

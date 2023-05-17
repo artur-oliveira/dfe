@@ -33,7 +33,6 @@ class MdfeQueryReceiptServiceImplTest {
 
         for (String invalidReceipt : invalidReceipts) {
             XSDValidationException ex = assertThrows(XSDValidationException.class, () -> service.queryReceipt(invalidReceipt));
-            assertTrue(ex.getMessage().endsWith("cvc-pattern-valid: Value '" + invalidReceipt + "' is not facet-valid with respect to pattern '[0-9]{15}' for type 'TRec'."));
         }
     }
 

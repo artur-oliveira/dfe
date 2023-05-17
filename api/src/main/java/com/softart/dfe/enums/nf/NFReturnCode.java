@@ -343,6 +343,7 @@ public enum NFReturnCode implements ReturnCode {
     CODE_578("578", "Rejeição: A data do evento não pode ser maior que a data do processamento"),
     CODE_579("579", "Rejeição: A data do evento não pode ser menor que a data de autorização para NF-e não emitida em contingência"),
     CODE_580("580", "Rejeição: O evento exige uma NF-e autorizada"),
+    CODE_582("582", "Rejeicao: UF nao atendida pela SVC-[AN/RS]"),
     CODE_584("584", "584 Rejeição: tpEmis informado é incompatível com a SVC-[AN/RS]"),
     CODE_587("587", "Rejeição: Usar somente o namespace padrão da NF-e"),
     CODE_588("588", "Rejeição: Não é permitida a presença de caracteres de edição no início/fim da mensagem ou entre as tags da mensagem"),

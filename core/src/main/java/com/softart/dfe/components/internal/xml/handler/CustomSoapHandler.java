@@ -4,6 +4,7 @@ import com.softart.dfe.components.internal.xml.namespace.NameSpaceCleanerFactory
 import com.softart.dfe.util.Base64Utils;
 import com.softart.dfe.util.GZIPUtils;
 import com.softart.dfe.util.XMLUtils;
+import jakarta.xml.soap.SOAPEnvelope;
 import jakarta.xml.ws.handler.MessageContext;
 import jakarta.xml.ws.handler.soap.SOAPHandler;
 import jakarta.xml.ws.handler.soap.SOAPMessageContext;

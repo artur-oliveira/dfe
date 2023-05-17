@@ -1,8 +1,6 @@
 package br.inf.portalfiscal.nfe.wsdl.inutilization.mg.prod;
 
-import jakarta.xml.bind.annotation.XmlAccessType;
-import jakarta.xml.bind.annotation.XmlAccessorType;
-import jakarta.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +28,8 @@ import java.util.List;
         "retInutNFe"
 })
 public class NFeInutilizacao4Result {
-
+    @XmlMixed
+    @XmlAnyElement(lax = true)
     protected List<Object> retInutNFe;
 
     /**

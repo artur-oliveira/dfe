@@ -46,7 +46,6 @@ public final class CteMsService extends CteAnService {
 
         if (data.config().production()) {
             br.inf.portalfiscal.cte.wsdl.event.ms.prod.CteRecepcaoEventoSoap12 ws = ((br.inf.portalfiscal.cte.wsdl.event.ms.prod.CteRecepcaoEvento) getSoapService().prodEvent()).getCteRecepcaoEventoSoap12();
-
             data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
 
             br.inf.portalfiscal.cte.wsdl.event.ms.prod.CteDadosMsg msg = new br.inf.portalfiscal.cte.wsdl.event.ms.prod.ObjectFactory().createCteDadosMsg();

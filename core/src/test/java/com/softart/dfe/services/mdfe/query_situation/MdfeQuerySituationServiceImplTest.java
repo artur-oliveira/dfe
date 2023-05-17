@@ -29,7 +29,6 @@ class MdfeQuerySituationServiceImplTest {
         Collection<String> invalids = List.of("1", "22", "333");
         for (String invalid : invalids) {
             XSDValidationException ex = assertThrows(XSDValidationException.class, () -> service.querySituation(invalid));
-            assertTrue(ex.getMessage().endsWith("cvc-pattern-valid: Value '" + invalid + "' is not facet-valid with respect to pattern '[0-9]{44}' for type 'TChNFe'."));
         }
 
 

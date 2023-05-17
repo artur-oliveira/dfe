@@ -33,6 +33,7 @@ import lombok.Getter;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 import java.util.Objects;
 
 @Getter
@@ -47,7 +48,7 @@ public final class NfeRsService extends NfeAnService {
 
     @Override
     public boolean allow(UF uf, Environment environment, NFEmissionType emissionType) {
-        return allow(uf, environment) && Objects.equals(emissionType, NFEmissionType.NORMAL);
+        return allow(uf, environment) && List.of(NFEmissionType.NORMAL, NFEmissionType.EPEC).contains(emissionType);
     }
 
     @Override

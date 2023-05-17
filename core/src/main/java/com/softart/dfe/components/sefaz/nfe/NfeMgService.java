@@ -33,6 +33,7 @@ import lombok.Getter;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 import java.util.Objects;
 
 @Getter
@@ -47,7 +48,7 @@ public final class NfeMgService extends NfeAnService {
 
     @Override
     public boolean allow(UF uf, Environment environment, NFEmissionType emissionType) {
-        return allow(uf, environment) && Objects.equals(emissionType, NFEmissionType.NORMAL);
+        return allow(uf, environment) && List.of(NFEmissionType.NORMAL, NFEmissionType.EPEC).contains(emissionType);
     }
 
     @Override
@@ -174,16 +175,16 @@ public final class NfeMgService extends NfeAnService {
             if (!resultMsg.getRetInutNFe().isEmpty())
                 retorno = ((JAXBElement<TRetInutNFe>) resultMsg.getRetInutNFe().get(0)).getValue();
         } else {
-            br.inf.portalfiscal.nfe.wsdl.inutilization.mg.hom.NFeInutilizacao4Soap ws = ((br.inf.portalfiscal.nfe.wsdl.inutilization.mg.hom.NFeInutilizacao4) getSoapService().homInutilization()).getNFeInutilizacao4Soap12();
+            br.inf.portalfiscal.nfe.wsdl.inutilization.mg.hom.NFeInutilizacao4Soap ws = ((br.inf.portalfiscal.nfe.wsdl.inutilization.mg.hom.NFeInutilizacao4) getSoapService().homInutilization()).getNFeInutilizacao4Soap();
             data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
 
             br.inf.portalfiscal.nfe.wsdl.inutilization.mg.hom.NfeDadosMsg msg = new br.inf.portalfiscal.nfe.wsdl.inutilization.mg.hom.ObjectFactory().createNfeDadosMsg();
             msg.getContent().add(envio);
 
-            br.inf.portalfiscal.nfe.wsdl.inutilization.mg.hom.NFeInutilizacao4Result resultMsg = ws.nfeInutilizacaoNF(msg);
+            br.inf.portalfiscal.nfe.wsdl.inutilization.mg.hom.NfeResultMsg resultMsg = ws.nfeInutilizacaoNF(msg);
 
-            if (!resultMsg.getRetInutNFe().isEmpty())
-                retorno = ((JAXBElement<TRetInutNFe>) resultMsg.getRetInutNFe().get(0)).getValue();
+            if (!resultMsg.getContent().isEmpty())
+                retorno = ((JAXBElement<TRetInutNFe>) resultMsg.getContent().get(0)).getValue();
         }
         for (AfterWebServiceRequest<TInutNFe, TRetInutNFe> it : data.afterRequest())
             it.process(new After<>(envio.getValue(), retorno, data.config()));

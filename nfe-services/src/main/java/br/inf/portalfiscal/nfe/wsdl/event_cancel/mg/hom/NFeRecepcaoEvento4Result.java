@@ -1,8 +1,6 @@
 package br.inf.portalfiscal.nfe.wsdl.event_cancel.mg.hom;
 
-import jakarta.xml.bind.annotation.XmlAccessType;
-import jakarta.xml.bind.annotation.XmlAccessorType;
-import jakarta.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +28,8 @@ import java.util.List;
         "retEnvEvento"
 })
 public class NFeRecepcaoEvento4Result {
-
+    @XmlMixed
+    @XmlAnyElement(lax = true)
     protected List<Object> retEnvEvento;
 
     /**
