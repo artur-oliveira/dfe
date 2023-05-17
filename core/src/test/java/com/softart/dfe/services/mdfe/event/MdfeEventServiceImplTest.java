@@ -42,6 +42,7 @@ class MdfeEventServiceImplTest {
         assertEquals(service.getConfig().uf().getCode(), event.getInfEvento().getCOrgao());
 
     }
+}
 
     @Test
     void testDriverInclusion() throws Exception {
