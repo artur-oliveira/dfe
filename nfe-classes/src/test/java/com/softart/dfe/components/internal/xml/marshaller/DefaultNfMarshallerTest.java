@@ -9,72 +9,86 @@ class DefaultNfMarshallerTest {
 
     @Test
     void testCancelNfe() {
-        assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><envEvento xmlns=\"http://www.portalfiscal.inf.br/nfe\"/>", new DefaultNfMarshaller().cancelNfe(new br.inf.portalfiscal.nfe.event_cancel.TEnvEvento()));
+        assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><envEvento xmlns=\"http://www.portalfiscal.inf.br/nfe\"/>",
+                new DefaultNfMarshaller().cancelNfe(new br.inf.portalfiscal.nfe.event_cancel.TEnvEvento()));
     }
 
     @Test
     void testReturnCancelNfe() {
-        assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><retEnvEvento xmlns=\"http://www.portalfiscal.inf.br/nfe\"/>", new DefaultNfMarshaller().returnCancelNfe(new br.inf.portalfiscal.nfe.event_cancel.TRetEnvEvento()));
+        assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><retEnvEvento xmlns=\"http://www.portalfiscal.inf.br/nfe\"/>",
+                new DefaultNfMarshaller().returnCancelNfe(new br.inf.portalfiscal.nfe.event_cancel.TRetEnvEvento()));
     }
 
     @Test
     void testProcCancelNfe() {
-        assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><procEventoNFe xmlns=\"http://www.portalfiscal.inf.br/nfe\"/>", new DefaultNfMarshaller().procCancelNfe(new br.inf.portalfiscal.nfe.event_cancel.TProcEvento()));
+        assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><procEventoNFe xmlns=\"http://www.portalfiscal.inf.br/nfe\"/>",
+                new DefaultNfMarshaller().procCancelNfe(new br.inf.portalfiscal.nfe.event_cancel.TProcEvento()));
     }
 
     @Test
     void testSubstituteCancelNfe() {
-        assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><envEvento xmlns=\"http://www.portalfiscal.inf.br/nfe\"/>", new DefaultNfMarshaller().substituteCancelNfe(new br.inf.portalfiscal.nfe.event_substitute_cancel.TEnvEvento()));
+        assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><envEvento xmlns=\"http://www.portalfiscal.inf.br/nfe\"/>",
+                new DefaultNfMarshaller().substituteCancelNfe(new br.inf.portalfiscal.nfe.event_substitute_cancel.TEnvEvento()));
     }
 
     @Test
     void testReturnSubstituteCancelNfe() {
-        assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><retEnvEvento xmlns=\"http://www.portalfiscal.inf.br/nfe\"/>", new DefaultNfMarshaller().returnSubstituteCancelNfe(new br.inf.portalfiscal.nfe.event_substitute_cancel.TRetEnvEvento()));
+        assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><retEnvEvento xmlns=\"http://www.portalfiscal.inf.br/nfe\"/>",
+                new DefaultNfMarshaller().returnSubstituteCancelNfe(new br.inf.portalfiscal.nfe.event_substitute_cancel.TRetEnvEvento()));
     }
 
     @Test
     void testProcSubstituteCancelNfe() {
-        assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><procEventoNFe xmlns=\"http://www.portalfiscal.inf.br/nfe\"/>", new DefaultNfMarshaller().procSubstituteCancelNfe(new br.inf.portalfiscal.nfe.event_substitute_cancel.TProcEvento()));
+        assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><procEventoNFe xmlns=\"http://www.portalfiscal.inf.br/nfe\"/>",
+                new DefaultNfMarshaller().procSubstituteCancelNfe(new br.inf.portalfiscal.nfe.event_substitute_cancel.TProcEvento()));
     }
 
     @Test
     void testInutNfe() {
-        assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><inutNFe xmlns=\"http://www.portalfiscal.inf.br/nfe\"/>", new DefaultNfMarshaller().inutNfe(new br.inf.portalfiscal.nfe.send.TInutNFe()));
+        assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><inutNFe xmlns=\"http://www.portalfiscal.inf.br/nfe\"/>",
+                new DefaultNfMarshaller().inutNfe(new br.inf.portalfiscal.nfe.send.TInutNFe()));
     }
 
     @Test
     void testReturnInutNfe() {
-        assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><retInutNFe xmlns=\"http://www.portalfiscal.inf.br/nfe\"/>", new DefaultNfMarshaller().returnInutNfe(new br.inf.portalfiscal.nfe.send.TRetInutNFe()));
+        assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><retInutNFe xmlns=\"http://www.portalfiscal.inf.br/nfe\"/>",
+                new DefaultNfMarshaller().returnInutNfe(new br.inf.portalfiscal.nfe.send.TRetInutNFe()));
     }
 
     @Test
     void testProcInutNfe() {
-        assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><ProcInutNFe xmlns=\"http://www.portalfiscal.inf.br/nfe\"/>", new DefaultNfMarshaller().procInutNfe(new br.inf.portalfiscal.nfe.send.TProcInutNFe()));
+        assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><ProcInutNFe xmlns=\"http://www.portalfiscal.inf.br/nfe\"/>",
+                new DefaultNfMarshaller().procInutNfe(new br.inf.portalfiscal.nfe.send.TProcInutNFe()));
     }
 
     @Test
     void testSendNfe() {
-        assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><enviNFe xmlns=\"http://www.portalfiscal.inf.br/nfe\"/>", new DefaultNfMarshaller().sendNfe(new br.inf.portalfiscal.nfe.send.TEnviNFe()));
+        assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><enviNFe xmlns=\"http://www.portalfiscal.inf.br/nfe\"/>",
+                new DefaultNfMarshaller().sendNfe(new br.inf.portalfiscal.nfe.send.TEnviNFe()));
     }
 
     @Test
     void testProcNfe() {
-        assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><nfeProc xmlns=\"http://www.portalfiscal.inf.br/nfe\"/>", new DefaultNfMarshaller().procNfe(new br.inf.portalfiscal.nfe.send.TNfeProc()));
+        assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><nfeProc xmlns=\"http://www.portalfiscal.inf.br/nfe\"/>",
+                new DefaultNfMarshaller().procNfe(new br.inf.portalfiscal.nfe.send.TNfeProc()));
     }
 
     @Test
     void testNfe() {
-        assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><NFe xmlns=\"http://www.portalfiscal.inf.br/nfe\"/>", new DefaultNfMarshaller().nfe(new br.inf.portalfiscal.nfe.send.TNFe()));
+        assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><NFe xmlns=\"http://www.portalfiscal.inf.br/nfe\"/>",
+                new DefaultNfMarshaller().nfe(new br.inf.portalfiscal.nfe.send.TNFe()));
     }
 
     @Test
     void testReturnEnviNfe() {
-        assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><retEnviNFe xmlns=\"http://www.portalfiscal.inf.br/nfe\"/>", new DefaultNfMarshaller().returnEnviNfe(new br.inf.portalfiscal.nfe.send.TRetEnviNFe()));
+        assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><retEnviNFe xmlns=\"http://www.portalfiscal.inf.br/nfe\"/>",
+                new DefaultNfMarshaller().returnEnviNfe(new br.inf.portalfiscal.nfe.send.TRetEnviNFe()));
     }
 
     @Test
     void testQueryReceiptNfe() {
-        assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><consReciNFe xmlns=\"http://www.portalfiscal.inf.br/nfe\"/>", new DefaultNfMarshaller().queryReceiptNfe(new br.inf.portalfiscal.nfe.send.TConsReciNFe()));
+        assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><consReciNFe xmlns=\"http://www.portalfiscal.inf.br/nfe\"/>",
+                new DefaultNfMarshaller().queryReceiptNfe(new br.inf.portalfiscal.nfe.send.TConsReciNFe()));
     }
 
     @Test

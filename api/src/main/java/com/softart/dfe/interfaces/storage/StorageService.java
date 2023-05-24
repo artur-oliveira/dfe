@@ -6,6 +6,7 @@ import com.softart.dfe.models.internal.storage.StorageResult;
 
 import java.io.IOException;
 import java.util.Collection;
+import java.util.Comparator;
 
 /**
  * Declaring a public interface named `StorageService`. This interface defines a set of methods that must be implemented by
@@ -52,6 +53,43 @@ public interface StorageService {
 
 
     /**
+     * This Java function returns the latest StorageResult object for a given Config, StorageKey, and XML file name.
+     *
+     * @param conf    A configuration object that contains information about the system's settings and preferences.
+     * @param key     The `key` parameter is of type `StorageKey` and is used to identify a specific storage location. It could
+     *                be a file path, a database table name, or any other identifier that the implementation of the `getSend` method uses
+     *                to retrieve data. The `getLastSend` method uses
+     * @param xmlName xmlName is a String parameter representing the name of an XML file. It is used as a parameter in the
+     *                method to retrieve the last sent StorageResult for a given Config, StorageKey, and XML file name.
+     * @return The method is returning a `StorageResult` object which represents the last send operation for a given
+     * configuration, storage key, and XML file name. If there are no send operations found for the given parameters, an
+     * `IOException` is thrown with a message indicating that the operation was not found.
+     */
+    default StorageResult getLastSend(Config conf, StorageKey key, String xmlName) throws IOException {
+        return getSend(conf, key, xmlName).stream().min(Comparator.comparing(StorageResult::fileName)).orElseThrow(() -> new IOException("not found proc for conf " + conf + " and key " + key + " and xml " + xmlName));
+    }
+
+    /**
+     * This Java function returns the first StorageResult object from a list of StorageResult objects obtained by calling
+     * the getSend method with given parameters, based on the comparison of their file names, or throws an IOException if
+     * the list is empty.
+     *
+     * @param conf    The `conf` parameter is an object of type `Config` which contains configuration information needed to
+     *                retrieve the desired `StorageResult`.
+     * @param key     The `key` parameter is of type `StorageKey` and is used to identify a specific storage location. It could
+     *                be a file path, a database table name, or any other identifier that the implementation of the `getSend` method uses
+     *                to retrieve data from storage.
+     * @param xmlName xmlName is a String parameter representing the name of an XML file. It is used as a parameter in the
+     *                method to retrieve the first StorageResult object that matches the given configuration, storage key, and XML file
+     *                name.
+     * @return The method `getFirstSend` returns a `StorageResult` object.
+     */
+    default StorageResult getFirstSend(Config conf, StorageKey key, String xmlName) throws IOException {
+        return getSend(conf, key, xmlName).stream().min(Comparator.comparing(StorageResult::fileName)).orElseThrow(() -> new IOException("not found proc for conf " + conf + " and key " + key + " and xml " + xmlName));
+    }
+
+
+    /**
      * * It takes a configuration object, a storage key, a file name, and a file content.
      * * It writes the file content to the file name in the storage location specified by the storage key.
      * * It returns a File object representing the file that was written
@@ -80,6 +118,42 @@ public interface StorageService {
     Collection<StorageResult> getProc(Config conf, StorageKey key, String xmlName) throws IOException;
 
     /**
+     * This Java function returns the latest StorageResult object for a given Config, StorageKey, and XML file name.
+     *
+     * @param conf    A Config object that contains configuration information for the storage system.
+     * @param key     The `key` parameter is a `StorageKey` object that represents the key used to retrieve the `StorageResult`
+     *                object from the storage. It is used as a unique identifier for the data being stored and retrieved.
+     * @param xmlName xmlName is a String parameter representing the name of an XML file. It is used as a parameter in the
+     *                method to retrieve the last processed StorageResult for a given Config and StorageKey.
+     * @return The method is returning a `StorageResult` object which represents the last processed result for a given
+     * configuration, storage key, and XML file name. If there are no processed results found, it throws an `IOException`
+     * with a message indicating that no results were found for the given parameters.
+     */
+    default StorageResult getLastProc(Config conf, StorageKey key, String xmlName) throws IOException {
+        return getProc(conf, key, xmlName).stream().max(Comparator.comparing(StorageResult::fileName)).orElseThrow(() -> new IOException("not found proc for conf " + conf + " and key " + key + " and xml " + xmlName));
+    }
+
+    /**
+     * This Java function returns the first StorageResult object from a list of StorageResult objects obtained by calling
+     * the getProc method, based on the minimum value of the fileName property, or throws an IOException if the list is
+     * empty.
+     *
+     * @param conf    The `conf` parameter is an object of type `Config` which contains configuration information for the
+     *                storage system. It is used to specify various settings such as the storage location, access credentials, and other
+     *                options.
+     * @param key     The `key` parameter is a `StorageKey` object that represents the unique identifier for the storage
+     *                location being accessed. It could be a file path, a database table name, or any other identifier that the storage
+     *                system uses to locate data.
+     * @param xmlName xmlName is a String parameter representing the name of an XML file. It is used as a parameter in the
+     *                method to retrieve a StorageResult object that corresponds to the first process (proc) found in the XML file with
+     *                the given name.
+     * @return The method `getFirstProc` returns a `StorageResult` object.
+     */
+    default StorageResult getFirstProc(Config conf, StorageKey key, String xmlName) throws IOException {
+        return getProc(conf, key, xmlName).stream().min(Comparator.comparing(StorageResult::fileName)).orElseThrow(() -> new IOException("not found proc for conf " + conf + " and key " + key + " and xml " + xmlName));
+    }
+
+    /**
      * It writes the xmlContent to the file specified by xmlName in the directory specified by key.
      *
      * @param conf       The configuration object that contains the information about the storage account.
@@ -105,6 +179,39 @@ public interface StorageService {
      * @return A collection of `StorageResult` objects is being returned.
      */
     Collection<StorageResult> getReturn(Config conf, StorageKey key, String xmlName) throws IOException;
+
+    /**
+     * This Java function returns the last StorageResult object from a list of StorageResult objects obtained by calling
+     * another function with given parameters, or throws an IOException if the list is empty.
+     *
+     * @param conf    A configuration object that contains information about the storage system being used.
+     * @param key     The key is a parameter of type StorageKey. It is used to identify a specific storage location or
+     *                resource. It could be a file path, a database table name, or any other identifier that uniquely identifies the
+     *                storage location.
+     * @param xmlName xmlName is a String parameter representing the name of the XML file. It is used as a parameter in the
+     *                method to retrieve the last return from the storage for a given configuration and storage key.
+     * @return The method is returning a `StorageResult` object.
+     */
+    default StorageResult getLastReturn(Config conf, StorageKey key, String xmlName) throws IOException {
+        return getReturn(conf, key, xmlName).stream().min(Comparator.comparing(StorageResult::fileName)).orElseThrow(() -> new IOException("not found proc for conf " + conf + " and key " + key + " and xml " + xmlName));
+    }
+
+    /**
+     * This Java function returns the first StorageResult object from a list of StorageResult objects obtained by calling
+     * another function, based on a given Config, StorageKey, and XML name.
+     *
+     * @param conf    A configuration object that contains information about the storage system being used.
+     * @param key     The `key` parameter is of type `StorageKey` and is used to identify a specific storage location. It could
+     *                be a file path, a database table name, or any other identifier that the implementation of the `getReturn` method
+     *                uses to retrieve data.
+     * @param xmlName xmlName is a String parameter representing the name of an XML file. It is used as a parameter in the
+     *                method to retrieve a StorageResult object that corresponds to the given configuration, storage key, and XML file
+     *                name.
+     * @return The method `getFirstReturn` returns a `StorageResult` object.
+     */
+    default StorageResult getFirstReturn(Config conf, StorageKey key, String xmlName) throws IOException {
+        return getReturn(conf, key, xmlName).stream().min(Comparator.comparing(StorageResult::fileName)).orElseThrow(() -> new IOException("not found proc for conf " + conf + " and key " + key + " and xml " + xmlName));
+    }
 
     /**
      * "Write the XML to a file and send it to the server."
