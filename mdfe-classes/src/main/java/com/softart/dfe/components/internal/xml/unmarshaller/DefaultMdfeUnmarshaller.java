@@ -58,6 +58,11 @@ final class DefaultMdfeUnmarshaller extends MdfeUnmarshallerFactory {
     }
 
     @Override
+    public JAXBElement<TMdfeProc> mdfeProc(String xml) {
+        return objectFactory.createMdfeProc(XMLUtils.getJaxbElementValue(any(xml).getValue(), TMdfeProc.class, xml));
+    }
+
+    @Override
     public JAXBElement<TConsStatServ> sendStatusService(String xml) {
         return objectFactory.createConsStatServMDFe(XMLUtils.getJaxbElementValue(any(xml).getValue(), TConsStatServ.class, xml));
     }

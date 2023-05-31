@@ -42,7 +42,7 @@
 
     <scm>
         <connection>scm:git:git://github.com/artur-oliveira/dfe.git</connection>
-        <developerConnection>scm:git:ssh://github.com:SeunMatt/mysql-backup4j.git</developerConnection>
+        <developerConnection>scm:git:ssh://github.com/artur-oliveira/dfe/tree/master</developerConnection>
         <url>https://github.com/artur-oliveira/dfe/tree/master</url>
     </scm>
 

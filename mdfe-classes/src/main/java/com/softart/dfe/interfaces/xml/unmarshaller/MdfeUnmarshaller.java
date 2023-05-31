@@ -22,6 +22,8 @@ public interface MdfeUnmarshaller {
 
     JAXBElement<TMDFe> sendReceptionSync(String xml);
 
+    JAXBElement<TMdfeProc> mdfeProc(String xml);
+
     JAXBElement<TConsStatServ> sendStatusService(String xml);
 
     JAXBElement<TRetEvento> returnEvent(Element el);
