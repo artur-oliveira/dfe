@@ -4,8 +4,12 @@ import com.softart.dfe.components.internal.parser.AccessKeyParserFactory;
 import com.softart.dfe.enums.internal.Environment;
 import com.softart.dfe.enums.internal.UF;
 import com.softart.dfe.enums.internal.mdfe.QrCodeMdfeURL;
+import com.softart.dfe.enums.mdfe.identification.MdfeEmissionType;
+import com.softart.dfe.exceptions.security.XMLSignException;
 import com.softart.dfe.exceptions.services.NoProviderFound;
 import com.softart.dfe.models.internal.mdfe.MdfeQrCode;
+
+import java.util.Objects;
 
 /**
  * The QrCodeUrlGenerator class generates a URL for a MDFe QR code based on the provided UF, access key, and environment.
@@ -27,15 +31,35 @@ final class QrCodeUrlGenerator extends QrCodeGeneratorFactory {
      * Eletrônico de Documentos Fiscais) document. The URL includes the MDF-e access key and the environment type (tpAmb).
      * @throws NoProviderFound if no provider is found.
      */
-    String generate(String uf, String accessKey, String tpAmb) throws NoProviderFound {
+    String generateNormal(String uf, String accessKey, String tpAmb) throws NoProviderFound {
         String url = QrCodeMdfeURL.get(UF.valueOfCode(uf), Environment.valueOfCode(tpAmb));
         return url + "?chMDFe=" + AccessKeyParserFactory.mdfe().fromId(accessKey) + "&tpAmb=" + tpAmb;
 
     }
 
+    /**
+     * The function generates a contingency QR code for a MDFe document and signs it with a SHA1 base64 access key.
+     *
+     * @param qrCode The parameter qrCode is an object of type MdfeQrCode, which contains information about the MDF-e
+     *               (Manifesto Eletrônico de Documentos Fiscais) and the configuration for generating the QR Code.
+     * @return The method is returning a String that represents a QR code with a digital signature. The QR code contains
+     * information about a MDF-e (Manifesto Eletrônico de Documentos Fiscais) and the digital signature is generated using
+     * the access key and a SHA1 hash algorithm.
+     */
+    String generateContingency(MdfeQrCode qrCode) throws NoProviderFound, XMLSignException {
+        String qrCodeNormal = generateNormal(qrCode.mdfe().getInfMDFe().getIde().getCuf(), qrCode.mdfe().getInfMDFe().getId(), qrCode.mdfe().getInfMDFe().getIde().getTpAmb());
+        return qrCodeNormal + "&sign=" + qrCode.xmlSigner().signAccessKeyWithSha1Base64(
+                AccessKeyParserFactory.mdfe().fromId(qrCode.mdfe().getInfMDFe().getId()),
+                qrCode.config()
+        );
+    }
+
     @Override
-    public String generate(MdfeQrCode qrCode) throws NoProviderFound {
-        return generate(qrCode.mdfe().getInfMDFe().getIde().getCuf(), qrCode.mdfe().getInfMDFe().getId(), qrCode.mdfe().getInfMDFe().getIde().getTpAmb());
+    public String generate(MdfeQrCode qrCode) throws NoProviderFound, XMLSignException {
+        if (Objects.equals(MdfeEmissionType.valueOfCode(qrCode.mdfe().getInfMDFe().getIde().getTpEmis()), MdfeEmissionType.NORMAL)) {
+            return generateNormal(qrCode.mdfe().getInfMDFe().getIde().getCuf(), qrCode.mdfe().getInfMDFe().getId(), qrCode.mdfe().getInfMDFe().getIde().getTpAmb());
+        }
+        return generateContingency(qrCode);
     }
 
 }

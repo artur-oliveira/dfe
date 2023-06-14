@@ -1,5 +1,6 @@
 package com.softart.dfe.interfaces.internal.mdfe;
 
+import com.softart.dfe.exceptions.security.XMLSignException;
 import com.softart.dfe.exceptions.services.NoProviderFound;
 import com.softart.dfe.models.internal.mdfe.MdfeQrCode;
 
@@ -14,6 +15,6 @@ public interface QrCodeGenerator {
      * @return A String is being returned.
      * @throws NoProviderFound if no provider is found.
      */
-    String generate(MdfeQrCode qrCode) throws NoProviderFound;
+    String generate(MdfeQrCode qrCode) throws NoProviderFound, XMLSignException;
 
 }

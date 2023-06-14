@@ -1,10 +1,13 @@
 import br.inf.portalfiscal.mdfe.classes.TUf;
 import com.softart.dfe.components.internal.certificate.KeyStoreFactory;
 import com.softart.dfe.components.internal.config.PfxMdfeConfigImpl;
+import com.softart.dfe.components.storage.StorageFactory;
+import com.softart.dfe.components.storage.StorageServiceFactory;
 import com.softart.dfe.enums.internal.Environment;
 import com.softart.dfe.enums.internal.Model;
 import com.softart.dfe.enums.internal.UF;
 import com.softart.dfe.enums.internal.city.CityPI;
+import com.softart.dfe.enums.internal.mdfe.MdfeStorageKey;
 import com.softart.dfe.enums.mdfe.event.MdfePaymentOperationShippingType;
 import com.softart.dfe.enums.mdfe.event.MdfePaymentOperationTypeIndicator;
 import com.softart.dfe.enums.mdfe.identification.MdfeEmissionType;
@@ -12,10 +15,12 @@ import com.softart.dfe.enums.mdfe.identification.MdfeEmitterType;
 import com.softart.dfe.enums.mdfe.identification.MdfeModal;
 import com.softart.dfe.enums.mdfe.identification.MdfeProcessEmissionType;
 import com.softart.dfe.interfaces.internal.config.MdfeConfig;
+import com.softart.dfe.interfaces.storage.StorageService;
 import com.softart.dfe.models.mdfe.event.MdfeDfeInclusion;
 import com.softart.dfe.models.mdfe.event.MdfePaymentModification;
 import com.softart.dfe.models.mdfe.event.MdfePaymentOperation;
 import com.softart.dfe.models.mdfe.reception_sync.Mdfe;
+import com.softart.dfe.models.mdfe.reception_sync.MdfeReturn;
 import com.softart.dfe.services.mdfe.distribution.MdfeDistributionOldService;
 import com.softart.dfe.services.mdfe.distribution.MdfeDistributionOldServiceImpl;
 import com.softart.dfe.services.mdfe.event.MdfeEventService;
@@ -35,8 +40,8 @@ import java.util.Collections;
 
 public final class AppMdfe {
     public static void main(String[] args) throws Exception {
-        System.setProperty("com.softart.certificate.path", "path/to/certificate.pfx");
-        System.setProperty("com.softart.certificate.password", "*");
+        System.setProperty("com.softart.dfe.certificate.path", "/home/artur/Documents/Certificate/tartigrado.pfx");
+        System.setProperty("com.softart.dfe.certificate.password", "2023@revgas");
         System.setProperty("com.softart.storage.mdfe.logxml", "false");
         System.setProperty("com.softart.handler.log.request", "false");
         System.setProperty("com.softart.handler.log.response", "false");
@@ -45,15 +50,16 @@ public final class AppMdfe {
 //        statusService();
 //        querySituation("22221211520224000140580010000005611194025753");
 //        queryReceipt("222212115202240");
-        distribution();
+//        distribution();
 //        transportConfirmation("22221211520224000140580010000005611194025753");
 //        driverInclusion("22221211520224000140580010000005611194025753", "Artur Oliveira", "05213730345");
 //        paymentOperation("22221211520224000140580010000005611194025753");
 //        dfeInclusion("22221211520224000140580010000005611194025753");
 //        paymentModification("22221211520224000140580010000005611194025753");
-//        close("22221211520224000140580010000005611194025753");
+        close("22230611520224000140580010000007571494212402");
 //        cancel("22221211520224000140580010000005611194025753");
 //        receptionSync();
+        receptionSyncOffline();
     }
 
     public static Mdfe getMdfe(int number, MdfeConfig config) {
@@ -69,7 +75,6 @@ public final class AppMdfe {
                                 .serie("1")
                                 .nmdf(String.valueOf(number))
                                 .tpAmb(config.environment().getCode())
-                                .tpEmis(MdfeEmissionType.NORMAL.getCode())
                                 .procEmi(MdfeProcessEmissionType.APPLICATION.getCode())
                                 .tpEmis(config.emission().getCode())
                                 .infMunCarrega(Collections.singletonList(Mdfe.InfMDFe.Ide.InfMunCarrega.builder().cMunCarrega(c.getCode()).xMunCarrega(c.getCode()).build()))
@@ -171,6 +176,23 @@ public final class AppMdfe {
         MdfeReceptionSyncService service = new MdfeReceptionSyncServiceImpl(new PfxMdfeConfigImpl(UF.PI, "11520224000140", Environment.HOMOLOGATION, KeyStoreFactory.getInstance()));
 
         System.out.println(service.receptionSync(getMdfe(1, service.getConfig())));
+    }
+
+    public static void receptionSyncOffline() throws Exception {
+        MdfeConfig config = new PfxMdfeConfigImpl(UF.PI, "11520224000140", Environment.HOMOLOGATION, KeyStoreFactory.getInstance(),
+                MdfeEmissionType.CONTINGENCY
+        );
+        MdfeConfig configNormal = new PfxMdfeConfigImpl(UF.PI, "11520224000140", Environment.HOMOLOGATION, KeyStoreFactory.getInstance(),
+                MdfeEmissionType.NORMAL
+        );
+        MdfeReceptionSyncService service = new MdfeReceptionSyncServiceImpl(config);
+        MdfeReturn mdfeReturn = service.receptionSync(getMdfe(758, service.getConfig()));
+
+        System.out.println(mdfeReturn);
+
+        String xmlSend = StorageServiceFactory.file().getFirstSend(config, MdfeStorageKey.MDFE_RECEPTION_SYNC, mdfeReturn.getProtMDFe().getInfProt().getChMDFe()).read();
+
+        System.out.println(new MdfeReceptionSyncServiceImpl(configNormal).receptionSync(xmlSend));
     }
 
     public static void close(String accessKey) throws Exception {

@@ -3,8 +3,11 @@ package com.softart.dfe.enums.internal.mdfe;
 import com.softart.dfe.components.internal.mdfe.QrCodeGeneratorFactory;
 import com.softart.dfe.enums.internal.Environment;
 import com.softart.dfe.enums.internal.UF;
+import com.softart.dfe.exceptions.security.XMLSignException;
 import com.softart.dfe.exceptions.services.NoProviderFound;
 import com.softart.dfe.interfaces.internal.allow.AllowUF;
+import com.softart.dfe.interfaces.internal.config.MdfeConfig;
+import com.softart.dfe.interfaces.xml.XMLSignerService;
 import com.softart.dfe.models.internal.mdfe.MdfeQrCode;
 import com.softart.dfe.models.mdfe.reception_sync.Mdfe;
 
@@ -40,8 +43,8 @@ public enum QrCodeMdfeURL implements AllowUF {
         return environment.production() ? serviceURL.production() : serviceURL.homologation();
     }
 
-    public static String generate(Mdfe mdfe) throws NoProviderFound {
-        return QrCodeGeneratorFactory.getInstance().generate(MdfeQrCode.builder().mdfe(mdfe).build());
+    public static String generate(Mdfe mdfe, MdfeConfig config, XMLSignerService xmlSignerService) throws NoProviderFound, XMLSignException {
+        return QrCodeGeneratorFactory.getInstance().generate(MdfeQrCode.builder().mdfe(mdfe).config(config).xmlSigner(xmlSignerService).build());
     }
 
     public abstract String production();

@@ -43,15 +43,15 @@ public interface MdfeReceptionSyncService extends MdfeSefazService {
     /**
      * It converts the Mdfe object to a MdfeObject object and then calls the function receptionSync(MdfeObject tmdFe)
      *
-     * @param tmdFe The object that contains the data to be sent to the SEFAZ.
+     * @param mdfe The object that contains the data to be sent to the SEFAZ.
      * @return The return is the object MdfeReturn, which contains the response of the webservice.
      */
-    default MdfeReturn receptionSync(Mdfe tmdFe) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
-        return receptionSync(tmdFe.toObject());
+    default MdfeReturn receptionSync(Mdfe mdfe) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+        return receptionSync(Mdfe.build(mdfe, getConfig(), getXmlSigner()).toObject());
     }
 
     default MdfeReturn receptionSync(String xml) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
-        return receptionSync(MdfeUnmarshallerFactory.getInstance().sendReceptionSync(xml).getValue());
+        return receptionSync(Mdfe.builder().build().fromObject(MdfeUnmarshallerFactory.getInstance().sendReceptionSync(xml).getValue()));
     }
 }
 

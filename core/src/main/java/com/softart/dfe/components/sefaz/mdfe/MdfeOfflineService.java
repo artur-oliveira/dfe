@@ -4,6 +4,7 @@ import br.inf.portalfiscal.mdfe.classes.*;
 import br.inf.portalfiscal.mdfe.distribution.DistDFeInt;
 import br.inf.portalfiscal.mdfe.distribution.RetDistDFeInt;
 import com.softart.dfe.components.internal.PairImpl;
+import com.softart.dfe.components.internal.parser.AccessKeyParserFactory;
 import com.softart.dfe.components.internal.xml.marshaller.MdfeMarshallerFactory;
 import com.softart.dfe.components.internal.xml.unmarshaller.MdfeUnmarshallerFactory;
 import com.softart.dfe.enums.internal.Environment;
@@ -25,6 +26,7 @@ import com.softart.dfe.models.internal.Validation;
 import lombok.Getter;
 
 import jakarta.xml.bind.JAXBElement;
+
 import java.util.Collection;
 import java.util.Objects;
 
@@ -123,7 +125,12 @@ public final class MdfeOfflineService implements MdfeService {
             after.process(new After<>(envio.getValue(), new TRetMDFe(), data.config()));
         }
 
-        return new PairImpl<>(envio.getValue(), new TRetMDFe());
+        TRetMDFe retMDFe = new TRetMDFe();
+        retMDFe.setProtMDFe(new TProtMDFe());
+        retMDFe.getProtMDFe().setInfProt(new TProtMDFe.InfProt());
+        retMDFe.getProtMDFe().getInfProt().setChMDFe(AccessKeyParserFactory.mdfe().fromId(envio.getValue().getInfMDFe().getId()));
+
+        return new PairImpl<>(envio.getValue(), retMDFe);
     }
 
     @Override

@@ -11,7 +11,9 @@ import com.softart.dfe.enums.internal.mdfe.QrCodeMdfeURL;
 import com.softart.dfe.enums.mdfe.identification.MdfeProcessEmissionType;
 import com.softart.dfe.enums.mdfe.version.MdfeModalVersion;
 import com.softart.dfe.enums.mdfe.version.MdfeVersion;
+import com.softart.dfe.interfaces.internal.config.MdfeConfig;
 import com.softart.dfe.interfaces.xml.XMLAdapter;
+import com.softart.dfe.interfaces.xml.XMLSignerService;
 import com.softart.dfe.interfaces.xml.generic.DFObject;
 import com.softart.dfe.util.DateUtils;
 import com.softart.dfe.util.StringUtils;
@@ -29,18 +31,14 @@ public final class Mdfe implements DFObject, XMLAdapter<Mdfe, TMDFe> {
     private InfMDFe infMDFe;
     private InfMDFeSupl infMDFeSupl;
 
-    @Override
     @SneakyThrows
-    public TMDFe toObject() {
-        TMDFe tmdFe = XMLAdapter.super.toObject();
-        tmdFe.setInfMDFeSupl(
-                InfMDFeSupl
-                        .builder()
-                        .qrCodMDFe(QrCodeMdfeURL.generate(this))
-                        .build()
-                        .toObject()
-        );
-        return tmdFe;
+    public static Mdfe build(Mdfe mdfe, MdfeConfig config, XMLSignerService xmlSigner) {
+        Mdfe mdfeTemp = Mdfe.builder().build().fromObject(mdfe.toObject());
+        mdfeTemp.setInfMDFeSupl(InfMDFeSupl
+                .builder()
+                .qrCodMDFe(QrCodeMdfeURL.generate(mdfeTemp, config, xmlSigner))
+                .build());
+        return mdfeTemp;
     }
 
     @Data

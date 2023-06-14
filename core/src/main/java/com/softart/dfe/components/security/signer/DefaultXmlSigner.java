@@ -3,6 +3,7 @@ package com.softart.dfe.components.security.signer;
 import com.softart.dfe.exceptions.security.XMLSignException;
 import com.softart.dfe.interfaces.internal.KeyStoreInfo;
 import com.softart.dfe.interfaces.internal.config.Config;
+import com.softart.dfe.util.Base64Utils;
 import com.softart.dfe.util.XMLStringUtils;
 import com.softart.dfe.util.XMLUtils;
 import lombok.Getter;
@@ -25,6 +26,7 @@ import javax.xml.transform.stream.StreamResult;
 import java.io.StringReader;
 import java.io.StringWriter;
 import java.security.KeyStore;
+import java.security.Signature;
 import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -95,6 +97,7 @@ public final class DefaultXmlSigner extends XmlSigner {
         }
     }
 
+    @Override
     public String signEvent(String evento, Config config) throws XMLSignException {
         try {
             return DefaultXmlSigner.sign(evento, config.info(), SIGN_EVENT);
@@ -105,6 +108,7 @@ public final class DefaultXmlSigner extends XmlSigner {
         }
     }
 
+    @Override
     public String signNfe(String evento, Config config) throws XMLSignException {
         try {
             return DefaultXmlSigner.sign(evento, config.info(), SIGN_NFE);
@@ -115,6 +119,7 @@ public final class DefaultXmlSigner extends XmlSigner {
         }
     }
 
+    @Override
     public String signCte(String evento, Config config) throws XMLSignException {
         try {
             return DefaultXmlSigner.sign(evento, config.info(), SIGN_CTE);
@@ -125,11 +130,30 @@ public final class DefaultXmlSigner extends XmlSigner {
         }
     }
 
+    @Override
     public String signMdfe(String evento, Config config) throws XMLSignException {
         try {
             return DefaultXmlSigner.sign(evento, config.info(), SIGN_MDFE);
         } catch (XMLSignException e) {
             throw e;
+        } catch (Exception e) {
+            throw new XMLSignException(e);
+        }
+    }
+
+    @Override
+    public String signAccessKeyWithSha1Base64(String chDFe, Config config) throws XMLSignException {
+        try {
+            final KeyStoreInfo info = config.info();
+            final String certificateAlias = info.getAlias();
+            final KeyStore.PasswordProtection passwordProtection = new KeyStore.PasswordProtection(info.certificatePassword().toCharArray());
+            final KeyStore.PrivateKeyEntry keyEntry = (KeyStore.PrivateKeyEntry) info.certificate().getEntry(certificateAlias, passwordProtection);
+
+            Signature signature = Signature.getInstance("SHA1withRSA");
+            signature.initSign(keyEntry.getPrivateKey());
+            signature.update(chDFe.getBytes());
+
+            return Base64Utils.decodeBinary(signature.sign());
         } catch (Exception e) {
             throw new XMLSignException(e);
         }
