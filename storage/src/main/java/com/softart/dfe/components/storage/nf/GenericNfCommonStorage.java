@@ -12,13 +12,13 @@ import com.softart.dfe.enums.nf.NFReturnCode;
 import com.softart.dfe.exceptions.storage.StorageException;
 import com.softart.dfe.interfaces.storage.Store;
 import com.softart.dfe.interfaces.storage.nf.common.NfCommonStorage;
+import com.softart.dfe.models.internal.storage.StorageResult;
 import com.softart.dfe.models.internal.xml.XMLStore;
 import com.softart.dfe.util.IOUtils;
 
 import java.io.IOException;
 import java.util.Objects;
 
-import static java.io.File.separator;
 
 public abstract class GenericNfCommonStorage extends CommonStorage implements NfCommonStorage {
 
@@ -135,9 +135,10 @@ public abstract class GenericNfCommonStorage extends CommonStorage implements Nf
     protected void storeProcByQueryReceipt(Store<TRetConsReciNFe> o) throws IOException, StorageException {
         if (Objects.isNull(o.data().getProtNFe())) return;
 
+
         String xml = null;
         for (TProtNFe protNFe : o.data().getProtNFe()) {
-            xml = IOUtils.readFileToString(IOUtils.findLastFileByBasePath(String.join(separator, getStorageService().rootPath(o.config()), NFStorageKey.NF_AUTHORIZATION.getForSend(), protNFe.getInfProt().getChNFe())));
+            xml = IOUtils.readFileToString(getStorageService().getSend(o.config(), NFStorageKey.NF_AUTHORIZATION, protNFe.getInfProt().getChNFe()).stream().findFirst().map(StorageResult::file).orElse(null));
             if (Objects.nonNull(xml)) break;
         }
 

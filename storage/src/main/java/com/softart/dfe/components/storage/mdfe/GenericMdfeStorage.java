@@ -10,6 +10,7 @@ import com.softart.dfe.enums.mdfe.MdfeReturnCode;
 import com.softart.dfe.exceptions.storage.StorageException;
 import com.softart.dfe.interfaces.storage.Store;
 import com.softart.dfe.interfaces.storage.mdfe.MdfeStorage;
+import com.softart.dfe.models.internal.storage.StorageResult;
 import com.softart.dfe.models.internal.xml.XMLStore;
 import com.softart.dfe.util.Functions;
 import com.softart.dfe.util.IOUtils;
@@ -92,7 +93,7 @@ public abstract class GenericMdfeStorage extends CommonStorage implements MdfeSt
         String xml;
         TProtMDFe prot = o.data().getProtMDFe();
 
-        xml = IOUtils.readFileToString(IOUtils.findLastFileByBasePath(String.join(IOUtils.separator(), getStorageService().rootPath(o.config()), MdfeStorageKey.MDFE_RECEPTION.getForSend(), prot.getInfProt().getChMDFe())));
+        xml = IOUtils.readFileToString(getStorageService().getSend(o.config(), MdfeStorageKey.MDFE_RECEPTION, prot.getInfProt().getChMDFe()).stream().findFirst().map(StorageResult::file).orElse(null));
 
         if (Objects.isNull(xml)) return;
 

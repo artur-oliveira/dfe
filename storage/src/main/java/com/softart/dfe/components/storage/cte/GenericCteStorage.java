@@ -13,6 +13,7 @@ import com.softart.dfe.exceptions.storage.StorageException;
 import com.softart.dfe.exceptions.xml.MarshallException;
 import com.softart.dfe.interfaces.storage.Store;
 import com.softart.dfe.interfaces.storage.cte.CteStorage;
+import com.softart.dfe.models.internal.storage.StorageResult;
 import com.softart.dfe.models.internal.xml.XMLStore;
 import com.softart.dfe.util.IOUtils;
 import lombok.extern.log4j.Log4j2;
@@ -132,9 +133,10 @@ public abstract class GenericCteStorage extends CommonStorage implements CteStor
 
         String xml = null;
         for (TProtCTe protCTe : o.data().getProtCTe()) {
-            xml = IOUtils.readFileToString(IOUtils.findLastFileByBasePath(String.join(separator, getStorageService().rootPath(o.config()), CteStorageKey.CTE_RECEPTION.getForSend(), protCTe.getInfProt().getChCTe())));
+            xml = IOUtils.readFileToString(getStorageService().getSend(o.config(), CteStorageKey.CTE_RECEPTION, protCTe.getInfProt().getChCTe()).stream().findFirst().map(StorageResult::file).orElse(null));
             if (Objects.nonNull(xml)) break;
         }
+
 
         if (Objects.isNull(xml)) return;
 
