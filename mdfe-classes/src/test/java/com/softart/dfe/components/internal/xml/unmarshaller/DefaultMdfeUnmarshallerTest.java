@@ -43,7 +43,7 @@ class DefaultMdfeUnmarshallerTest {
 
     @Test
     void testMdfeProc() {
-        assertNotNull(new DefaultMdfeUnmarshaller().sendReceptionSync("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><mdfeProc xmlns=\"http://www.portalfiscal.inf.br/mdfe\"/>"));
+        assertNotNull(new DefaultMdfeUnmarshaller().mdfeProc("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><mdfeProc xmlns=\"http://www.portalfiscal.inf.br/mdfe\"/>"));
     }
 
     @Test
