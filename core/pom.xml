@@ -20,26 +20,17 @@
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>io.github.artur-oliveira</groupId>
-            <artifactId>storage</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.github.artur-oliveira</groupId>
-            <artifactId>process</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.github.artur-oliveira</groupId>
-            <artifactId>validation</artifactId>
-            <version>${project.version}</version>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk-s3</artifactId>
+            <version>${aws-java-sdk-s3.version}</version>
         </dependency>
     </dependencies>
 
     <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <aws-java-sdk-s3.version>1.12.466</aws-java-sdk-s3.version>
     </properties>
 
 </project>

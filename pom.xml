@@ -17,11 +17,8 @@
         <module>mdfe-services</module>
         <module>nfe-services</module>
         <module>api</module>
-        <module>storage</module>
-        <module>validation</module>
         <module>core</module>
         <module>app</module>
-        <module>process</module>
     </modules>
 
     <packaging>pom</packaging>
