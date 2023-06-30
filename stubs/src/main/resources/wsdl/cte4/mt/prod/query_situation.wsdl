@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions
+
+        targetNamespace="http://www.portalfiscal.inf.br/cte/wsdl/CTeConsultaV4"
+        xmlns="http://schemas.xmlsoap.org/wsdl/"
+        xmlns:tns="http://www.portalfiscal.inf.br/cte/wsdl/CTeConsultaV4"
+        xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/"
+        xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+        xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+        xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+        xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+        xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+        xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+        xmlns:s="http://www.w3.org/2001/XMLSchema"
+>
+    <types>
+        <s:schema elementFormDefault="qualified"
+                  targetNamespace="http://www.portalfiscal.inf.br/cte/wsdl/CTeConsultaV4">
+            <s:element name="cteDadosMsg">
+                <s:complexType mixed="true">
+                    <s:sequence>
+                        <s:any/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="cteConsultaCTResult">
+                <s:complexType mixed="true">
+                    <s:sequence>
+                        <s:any/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+        </s:schema>
+    </types>
+    <message name="cteConsultaSoap12In">
+        <part name="cteDadosMsg" element="tns:cteDadosMsg"/>
+    </message>
+    <message name="cteConsultaSoap12Out">
+        <part name="cteConsultaCTResult" element="tns:cteConsultaCTResult"/>
+    </message>
+    <portType name="CteConsultaSoap12">
+        <operation name="cteConsulta">
+            <input message="tns:cteConsultaSoap12In"/>
+            <output message="tns:cteConsultaSoap12Out"/>
+        </operation>
+    </portType>
+    <binding name="CteConsultaSoap12" type="tns:CteConsultaSoap12">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="cteConsulta">
+            <soap12:operation style="document"
+                              soapAction="http://www.portalfiscal.inf.br/cte/wsdl/CteConsulta/CTeConsultaV4"
+                              soapActionRequired="false"/>
+            <input>
+                <soap12:body use="literal"/>
+            </input>
+            <output>
+                <soap12:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="CTeConsultaV4">
+        <port name="CTeConsultaV4" binding="tns:CteConsultaSoap12">
+            <soap12:address location="https://cte.sefaz.mt.gov.br/ctews2/services/CTeConsultaV4"/>
+        </port>
+    </service>
+</definitions>

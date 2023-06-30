@@ -642,4 +642,18 @@ public enum Cte4Authorizer implements Cte4URL, CteServiceAllow {
                 .map(String::valueOf)
                 .collect(Collectors.toSet());
     }
+
+    public static void main(String[] args) {
+        for (Cte4Authorizer value : values()) {
+            if (value == Cte4Authorizer.AN || value == Cte4Authorizer.MG) continue;
+
+            for (String s : value.hom()) {
+                System.out.println(s + "?wsdl");
+            }
+            for (String s : value.prod()) {
+                System.out.println(s + "?wsdl");
+            }
+
+        }
+    }
 }

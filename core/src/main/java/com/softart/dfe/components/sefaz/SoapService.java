@@ -4,10 +4,7 @@ import com.softart.dfe.exceptions.port.SoapServiceGeneralException;
 import com.softart.dfe.interfaces.internal.config.CteConfig;
 import com.softart.dfe.interfaces.internal.config.MdfeConfig;
 import com.softart.dfe.interfaces.internal.config.NfConfig;
-import com.softart.dfe.interfaces.sefaz.port.CteSoapService;
-import com.softart.dfe.interfaces.sefaz.port.MdfeSoapService;
-import com.softart.dfe.interfaces.sefaz.port.NfceSoapService;
-import com.softart.dfe.interfaces.sefaz.port.NfeSoapService;
+import com.softart.dfe.interfaces.sefaz.port.*;
 
 import java.util.Collection;
 
@@ -66,6 +63,7 @@ public abstract class SoapService {
      */
     public abstract CteSoapService getCteSoapService(CteConfig config) throws SoapServiceGeneralException;
 
+
     /**
      * This function returns a collection of all the CteSoapService objects that are available for the given NfConfig
      *
@@ -73,6 +71,10 @@ public abstract class SoapService {
      * @return A collection of CteSoapService objects.
      */
     public abstract Collection<? extends CteSoapService> getAllCteSoapService(CteConfig config) throws SoapServiceGeneralException;
+
+    public abstract Collection<? extends Cte4SoapService> getAllCte4SoapService(CteConfig config) throws SoapServiceGeneralException;
+
+    public abstract Cte4SoapService getCte4SoapService(CteConfig config) throws SoapServiceGeneralException;
 
 
     /**

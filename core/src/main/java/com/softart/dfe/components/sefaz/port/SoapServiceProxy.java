@@ -1,17 +1,16 @@
 package com.softart.dfe.components.sefaz.port;
 
 import com.softart.dfe.components.sefaz.port.cte.AbstractCteSoapService;
+import com.softart.dfe.components.sefaz.port.cte4.AbstractCte4SoapService;
 import com.softart.dfe.components.sefaz.port.mdfe.AbstractMdfeSoapService;
 import com.softart.dfe.components.sefaz.port.nfce.AbstractNfceSoapService;
 import com.softart.dfe.components.sefaz.port.nfe.AbstractNfeSoapService;
+import com.softart.dfe.enums.internal.cte.Cte4Authorizer;
 import com.softart.dfe.enums.internal.cte.CteAuthorizer;
 import com.softart.dfe.enums.internal.mdfe.MdfeAuthorizer;
 import com.softart.dfe.enums.internal.nf.NfceAuthorizer;
 import com.softart.dfe.enums.internal.nf.NfeAuthorizer;
-import com.softart.dfe.interfaces.sefaz.port.CteSoapService;
-import com.softart.dfe.interfaces.sefaz.port.MdfeSoapService;
-import com.softart.dfe.interfaces.sefaz.port.NfceSoapService;
-import com.softart.dfe.interfaces.sefaz.port.NfeSoapService;
+import com.softart.dfe.interfaces.sefaz.port.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 
@@ -28,6 +27,7 @@ public final class SoapServiceProxy {
     private final Map<NfeAuthorizer, NfeSoapService> nfeServiceMap = new ConcurrentHashMap<>(DEFAULT_NFE_SERVICE_MAP_CAPACITY);
     private final Map<NfceAuthorizer, NfceSoapService> nfceServiceMap = new ConcurrentHashMap<>(DEFAULT_NFCE_SERVICE_MAP_CAPACITY);
     private final Map<CteAuthorizer, CteSoapService> cteServiceMap = new ConcurrentHashMap<>(DEFAULT_CTE_SERVICE_MAP_CAPACITY);
+    private final Map<Cte4Authorizer, Cte4SoapService> cte4ServiceMap = new ConcurrentHashMap<>(DEFAULT_CTE_SERVICE_MAP_CAPACITY);
     private final Map<MdfeAuthorizer, MdfeSoapService> mdfeServiceMap = new ConcurrentHashMap<>(DEFAULT_MDFE_SERVICE_MAP_CAPACITY);
 
     private SoapServiceProxy() {
@@ -110,6 +110,29 @@ public final class SoapServiceProxy {
      */
     public synchronized void addCteService(AbstractCteSoapService soapService) {
         getInstance().getCteServiceMap().put(soapService.getAuthorizer(), soapService);
+    }
+
+    /**
+     * If the authorizer is already in the map, return the soap service. Otherwise, return null
+     *
+     * @param authorizer The authorizer object that contains the credentials to access the CteSoapService.
+     * @return A CteSoapService object.
+     */
+    public synchronized Cte4SoapService getCte4Service(Cte4Authorizer authorizer) {
+        Cte4SoapService soapService = getInstance().getCte4ServiceMap().get(authorizer);
+        if (Objects.nonNull(soapService)) {
+            return soapService;
+        }
+        return null;
+    }
+
+    /**
+     * This function adds a new CteSoapService to the CteServiceMap
+     *
+     * @param soapService The SOAP service to be added to the list of services.
+     */
+    public synchronized void addCte4Service(AbstractCte4SoapService soapService) {
+        getInstance().getCte4ServiceMap().put(soapService.getAuthorizer(), soapService);
     }
 
     /**

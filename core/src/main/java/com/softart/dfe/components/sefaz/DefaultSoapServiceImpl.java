@@ -2,6 +2,7 @@ package com.softart.dfe.components.sefaz;
 
 import com.softart.dfe.components.sefaz.port.SoapServiceInitializer;
 import com.softart.dfe.components.sefaz.port.cte.AbstractCteSoapService;
+import com.softart.dfe.components.sefaz.port.cte4.AbstractCte4SoapService;
 import com.softart.dfe.components.sefaz.port.mdfe.AbstractMdfeSoapService;
 import com.softart.dfe.components.sefaz.port.nfce.AbstractNfceSoapService;
 import com.softart.dfe.components.sefaz.port.nfe.AbstractNfeSoapService;
@@ -15,10 +16,7 @@ import com.softart.dfe.exceptions.port.SoapServiceNotFoundException;
 import com.softart.dfe.interfaces.internal.config.CteConfig;
 import com.softart.dfe.interfaces.internal.config.MdfeConfig;
 import com.softart.dfe.interfaces.internal.config.NfConfig;
-import com.softart.dfe.interfaces.sefaz.port.CteSoapService;
-import com.softart.dfe.interfaces.sefaz.port.MdfeSoapService;
-import com.softart.dfe.interfaces.sefaz.port.NfceSoapService;
-import com.softart.dfe.interfaces.sefaz.port.NfeSoapService;
+import com.softart.dfe.interfaces.sefaz.port.*;
 import com.softart.dfe.models.internal.reflection.PackageFinder;
 import com.softart.dfe.util.ReflectionUtils;
 import lombok.AccessLevel;
@@ -30,7 +28,6 @@ import java.util.HashSet;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
-import java.util.stream.Collectors;
 
 @Getter(AccessLevel.PRIVATE)
 final class DefaultSoapServiceImpl extends SoapService {
@@ -59,6 +56,14 @@ final class DefaultSoapServiceImpl extends SoapService {
                     .build())
             .stream()
             .map(it -> (AbstractCteSoapService) ReflectionUtils.newInstance(it))
+            .toList();
+    private final Collection<AbstractCte4SoapService> cte4SoapServices = ReflectionUtils.findAllClasses(PackageFinder
+                    .builder()
+                    .packages(Collections.singleton("com.softart.dfe.components.sefaz.port.cte4.impl"))
+                    .assignables(Collections.singleton(AbstractCte4SoapService.class))
+                    .build())
+            .stream()
+            .map(it -> (AbstractCte4SoapService) ReflectionUtils.newInstance(it))
             .toList();
     private final Collection<AbstractMdfeSoapService> mdfeSoapServices = ReflectionUtils.findAllClasses(PackageFinder
                     .builder()
@@ -89,6 +94,15 @@ final class DefaultSoapServiceImpl extends SoapService {
 
     private AbstractCteSoapService getCteSoapService(UF uf, Environment environment, CteEmissionType emissionType) throws SoapServiceGeneralException {
         return ReflectionUtils.newInstance(getCteSoapServices()
+                .stream()
+                .filter(it -> it.getAuthorizer().allow(uf, environment, emissionType))
+                .findFirst()
+                .orElseThrow(SoapServiceNotFoundException::new)
+                .getClass());
+    }
+
+    private AbstractCte4SoapService getCte4SoapService(UF uf, Environment environment, CteEmissionType emissionType) throws SoapServiceGeneralException {
+        return ReflectionUtils.newInstance(getCte4SoapServices()
                 .stream()
                 .filter(it -> it.getAuthorizer().allow(uf, environment, emissionType))
                 .findFirst()
@@ -216,6 +230,48 @@ final class DefaultSoapServiceImpl extends SoapService {
             executorService.submit(() -> {
                 try {
                     SoapServiceInitializer.cte().initialize((AbstractCteSoapService) (it.withConfig(config)));
+                } catch (SoapServiceInitializationException e) {
+                    throw new RuntimeException(e);
+                }
+            });
+        }
+
+        executorService.shutdown();
+        try {
+            if (!executorService.awaitTermination(1, TimeUnit.MINUTES))
+                throw new SoapServiceGeneralException("failed to await termination");
+        } catch (InterruptedException e) {
+            throw new SoapServiceGeneralException(e);
+        }
+        return soapServices;
+    }
+
+    @Override
+    public Cte4SoapService getCte4SoapService(CteConfig config) throws SoapServiceGeneralException {
+        AbstractCte4SoapService service = (AbstractCte4SoapService) getCte4SoapService(config.webServiceUF(), config.environment(), config.emission()).withConfig(config);
+        SoapServiceInitializer.cte4().initialize(service);
+        return service;
+    }
+
+    @Override
+    public Collection<? extends Cte4SoapService> getAllCte4SoapService(CteConfig config) throws SoapServiceGeneralException {
+        Collection<AbstractCte4SoapService> soapServices = new HashSet<>();
+        for (UF uf : UF.states()) {
+            for (Environment environment : Environment.values()) {
+                for (CteEmissionType type : CteEmissionType.cte())
+                    try {
+                        soapServices.add(getCte4SoapService(uf, environment, type));
+                    } catch (SoapServiceNotFoundException ignored) {
+                    }
+            }
+        }
+
+        ExecutorService executorService = Executors.newFixedThreadPool(soapServices.size());
+
+        for (AbstractCte4SoapService it : soapServices) {
+            executorService.submit(() -> {
+                try {
+                    SoapServiceInitializer.cte4().initialize((AbstractCte4SoapService) (it.withConfig(config)));
                 } catch (SoapServiceInitializationException e) {
                     throw new RuntimeException(e);
                 }

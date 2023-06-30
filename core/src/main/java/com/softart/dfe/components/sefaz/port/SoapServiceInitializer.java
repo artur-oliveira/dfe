@@ -3,6 +3,9 @@ package com.softart.dfe.components.sefaz.port;
 import com.softart.dfe.components.sefaz.port.cte.AbstractCteSoapService;
 import com.softart.dfe.components.sefaz.port.cte.initializer.ConfigCteSoapServiceInitializer;
 import com.softart.dfe.components.sefaz.port.cte.initializer.ProxyCteSoapServiceInitializer;
+import com.softart.dfe.components.sefaz.port.cte4.AbstractCte4SoapService;
+import com.softart.dfe.components.sefaz.port.cte4.initializer.ConfigCte4SoapServiceInitializer;
+import com.softart.dfe.components.sefaz.port.cte4.initializer.ProxyCte4SoapServiceInitializer;
 import com.softart.dfe.components.sefaz.port.mdfe.AbstractMdfeSoapService;
 import com.softart.dfe.components.sefaz.port.mdfe.initializer.ConfigMdfeSoapServiceInitializer;
 import com.softart.dfe.components.sefaz.port.mdfe.initializer.ProxyMdfeSoapServiceInitializer;
@@ -50,6 +53,9 @@ public abstract class SoapServiceInitializer<T extends CommonSoapService> {
      */
     public static SoapServiceInitializer<AbstractCteSoapService> cte() {
         return SoapServiceInitializer.link(new ProxyCteSoapServiceInitializer(), new ConfigCteSoapServiceInitializer());
+    }
+    public static SoapServiceInitializer<AbstractCte4SoapService> cte4() {
+        return SoapServiceInitializer.link(new ProxyCte4SoapServiceInitializer(), new ConfigCte4SoapServiceInitializer());
     }
 
     /**
