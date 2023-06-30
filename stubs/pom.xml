@@ -2263,7 +2263,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlLocation>
                                 https://hnfe.fazenda.mg.gov.br/nfe2/services/NFeRetAutorizacao4?wsdl
