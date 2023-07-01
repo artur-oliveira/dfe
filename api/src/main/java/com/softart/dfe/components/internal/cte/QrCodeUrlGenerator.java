@@ -5,9 +5,7 @@ import com.softart.dfe.enums.internal.Environment;
 import com.softart.dfe.enums.internal.UF;
 import com.softart.dfe.enums.internal.cte.QrCodeCteURL;
 import com.softart.dfe.exceptions.services.NoProviderFound;
-import com.softart.dfe.models.internal.cte.CteOsQrCode;
-import com.softart.dfe.models.internal.cte.CteQrCode;
-import com.softart.dfe.models.internal.cte.GtveQrCode;
+import com.softart.dfe.models.internal.cte.*;
 
 /**
  * The QrCodeUrlGenerator class generates a URL for a QR code for a Brazilian Electronic CT-e document based on the UF,
@@ -41,12 +39,27 @@ public class QrCodeUrlGenerator extends QrCodeGeneratorFactory {
     }
 
     @Override
+    public String generate(Cte4QrCode cteQrCode) throws NoProviderFound {
+        return generate(cteQrCode.cte().getInfCte().getIde().getCuf(), cteQrCode.cte().getInfCte().getId(), cteQrCode.cte().getInfCte().getIde().getTpAmb());
+    }
+
+    @Override
     public String generate(GtveQrCode gtveQrCode) throws NoProviderFound {
         return generate(gtveQrCode.gtve().getInfCte().getIde().getCuf(), gtveQrCode.gtve().getInfCte().getId(), gtveQrCode.gtve().getInfCte().getIde().getTpAmb());
     }
 
     @Override
+    public String generate(Gtve4QrCode gtveQrCode) throws NoProviderFound {
+        return generate(gtveQrCode.gtve().getInfCte().getIde().getCuf(), gtveQrCode.gtve().getInfCte().getId(), gtveQrCode.gtve().getInfCte().getIde().getTpAmb());
+    }
+
+    @Override
     public String generate(CteOsQrCode cteOsQrCode) throws NoProviderFound {
+        return generate(cteOsQrCode.cteOs().getInfCte().getIde().getCuf(), cteOsQrCode.cteOs().getInfCte().getId(), cteOsQrCode.cteOs().getInfCte().getIde().getTpAmb());
+    }
+
+    @Override
+    public String generate(CteOs4QrCode cteOsQrCode) throws NoProviderFound {
         return generate(cteOsQrCode.cteOs().getInfCte().getIde().getCuf(), cteOsQrCode.cteOs().getInfCte().getId(), cteOsQrCode.cteOs().getInfCte().getIde().getTpAmb());
     }
 }

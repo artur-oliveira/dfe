@@ -83,7 +83,7 @@ final class DefaultSoapServiceImpl extends SoapService {
                 .getClass());
     }
 
-    private AbstractNfceSoapService getNfceSoapService(UF uf, Environment environment) throws SoapServiceGeneralException {
+    AbstractNfceSoapService getNfceSoapService(UF uf, Environment environment) throws SoapServiceGeneralException {
         return ReflectionUtils.newInstance(getNfceSoapServices()
                 .stream()
                 .filter(it -> it.getAuthorizer().allow(uf, environment))
@@ -92,7 +92,7 @@ final class DefaultSoapServiceImpl extends SoapService {
                 .getClass());
     }
 
-    private AbstractCteSoapService getCteSoapService(UF uf, Environment environment, CteEmissionType emissionType) throws SoapServiceGeneralException {
+    AbstractCteSoapService getCteSoapService(UF uf, Environment environment, CteEmissionType emissionType) throws SoapServiceGeneralException {
         return ReflectionUtils.newInstance(getCteSoapServices()
                 .stream()
                 .filter(it -> it.getAuthorizer().allow(uf, environment, emissionType))
@@ -101,7 +101,7 @@ final class DefaultSoapServiceImpl extends SoapService {
                 .getClass());
     }
 
-    private AbstractCte4SoapService getCte4SoapService(UF uf, Environment environment, CteEmissionType emissionType) throws SoapServiceGeneralException {
+    AbstractCte4SoapService getCte4SoapService(UF uf, Environment environment, CteEmissionType emissionType) throws SoapServiceGeneralException {
         return ReflectionUtils.newInstance(getCte4SoapServices()
                 .stream()
                 .filter(it -> it.getAuthorizer().allow(uf, environment, emissionType))
@@ -110,7 +110,7 @@ final class DefaultSoapServiceImpl extends SoapService {
                 .getClass());
     }
 
-    private AbstractMdfeSoapService getMdfeSoapService(UF uf, Environment environment) throws SoapServiceGeneralException {
+    AbstractMdfeSoapService getMdfeSoapService(UF uf, Environment environment) throws SoapServiceGeneralException {
         return ReflectionUtils.newInstance(getMdfeSoapServices()
                 .stream()
                 .filter(it -> it.getAuthorizer().allow(uf, environment))

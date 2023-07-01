@@ -7,6 +7,7 @@ import com.softart.dfe.interfaces.internal.config.MdfeConfig;
 import com.softart.dfe.interfaces.internal.config.NfceConfig;
 import com.softart.dfe.interfaces.internal.config.NfeConfig;
 import com.softart.dfe.interfaces.sefaz.cte.CteService;
+import com.softart.dfe.interfaces.sefaz.cte4.Cte4Service;
 import com.softart.dfe.interfaces.sefaz.mdfe.MdfeService;
 import com.softart.dfe.interfaces.sefaz.nf.nfce.NfceService;
 import com.softart.dfe.interfaces.sefaz.nf.nfe.NfeService;
@@ -48,6 +49,8 @@ public interface DfeService {
      * @throws SoapServiceGeneralException SoapServiceGeneralException
      */
     CteService getCteService(CteConfig config) throws NoProviderFound, SoapServiceGeneralException;
+
+    Cte4Service getCte4Service(CteConfig config) throws NoProviderFound, SoapServiceGeneralException;
 
     /**
      * This function returns an instance of the MdfeService class, which is the class that will be used to make the

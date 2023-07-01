@@ -57,6 +57,9 @@ public final class XMLStringUtils {
     public static String idEvento(String eventId, String accessKey, String sequenceNumber) {
         return ID_PREFIX + eventId + accessKey + StringUtils.padZeroStart(sequenceNumber, 2);
     }
+    public static String idEventoCte400(String eventId, String accessKey, String sequenceNumber) {
+        return ID_PREFIX + eventId + accessKey + StringUtils.padZeroStart(sequenceNumber, 3);
+    }
 
     /**
      * It takes the parameters and concatenates them in a specific order, padding the serie and start/end numbers with

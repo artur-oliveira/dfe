@@ -4,6 +4,7 @@ import com.softart.dfe.components.security.chain.cache.CertificateChainCacheFact
 import com.softart.dfe.enums.internal.Environment;
 import com.softart.dfe.enums.internal.Model;
 import com.softart.dfe.enums.internal.UF;
+import com.softart.dfe.enums.internal.cte.Cte4Authorizer;
 import com.softart.dfe.enums.internal.cte.CteAuthorizer;
 import com.softart.dfe.enums.internal.mdfe.MdfeAuthorizer;
 import com.softart.dfe.enums.internal.nf.NfceAuthorizer;
@@ -137,6 +138,7 @@ final class CertificateChainServiceImpl extends CertificateChainFactory {
                         for (UF uf : ufs) {
                             try {
                                 hosts.addAll(CteAuthorizer.get(uf, env));
+                                hosts.addAll(Cte4Authorizer.get(uf, env));
                             } catch (NoProviderFound ignored) {
                             }
                         }

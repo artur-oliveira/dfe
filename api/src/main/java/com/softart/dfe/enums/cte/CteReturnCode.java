@@ -220,6 +220,7 @@ public enum CteReturnCode implements ReturnCode {
     CODE_588("588", "Rejeição: Data de entrada em contingência posterior a data de emissão."),
     CODE_589("589", "Rejeição: O lote contém CT-e de mais de um modal"),
     CODE_590("590", "Rejeição: O lote contém CT-e de mais de uma versão de modal"),
+    CODE_595("595", "Rejeicao: Chave de acesso invalida (modelo diferente de 57 ou 67)"),
     CODE_598("598", "Rejeição: Usar somente o namespace padrao do CT-e"),
     CODE_599("599", "Rejeição: Não é permitida a presença de caracteres de edição no início/fim da mensagem ou entre as tags da mensagem"),
     CODE_600("600", "Rejeição: Chave de Acesso difere da existente em BD"),

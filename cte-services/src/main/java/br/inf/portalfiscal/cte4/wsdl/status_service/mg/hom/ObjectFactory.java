@@ -1,11 +1,7 @@
 
 package br.inf.portalfiscal.cte4.wsdl.status_service.mg.hom;
 
-import jakarta.xml.bind.JAXBElement;
-import jakarta.xml.bind.annotation.XmlElementDecl;
 import jakarta.xml.bind.annotation.XmlRegistry;
-
-import javax.xml.namespace.QName;
 
 
 /**
@@ -25,13 +21,22 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private static final QName _CteDadosMsg_QNAME = new QName("http://www.portalfiscal.inf.br/cte/wsdl/CteStatusServico", "cteDadosMsg");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: br.inf.portalfiscal.cte4.wsdl.status_service.mg.hom
      * 
      */
     public ObjectFactory() {
+    }
+
+    /**
+     * Create an instance of {@link CteDadosMsg }
+     * 
+     * @return
+     *     the new instance of {@link CteDadosMsg }
+     */
+    public CteDadosMsg createCteDadosMsg() {
+        return new CteDadosMsg();
     }
 
     /**
@@ -42,19 +47,6 @@ public class ObjectFactory {
      */
     public CteStatusServicoCTResult createCteStatusServicoCTResult() {
         return new CteStatusServicoCTResult();
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Object }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link Object }{@code >}
-     */
-    @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte/wsdl/CteStatusServico", name = "cteDadosMsg")
-    public JAXBElement<Object> createCteDadosMsg(Object value) {
-        return new JAXBElement<>(_CteDadosMsg_QNAME, Object.class, null, value);
     }
 
 }

@@ -4,7 +4,7 @@ import com.softart.dfe.components.sefaz.port.SoapServiceInitializer;
 import com.softart.dfe.components.sefaz.port.SoapServiceProxy;
 import com.softart.dfe.components.sefaz.port.cte4.AbstractCte4SoapService;
 import com.softart.dfe.exceptions.port.SoapServiceInitializationException;
-import com.softart.dfe.interfaces.sefaz.port.CteSoapService;
+import com.softart.dfe.interfaces.sefaz.port.Cte4SoapService;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -16,7 +16,7 @@ public final class ProxyCte4SoapServiceInitializer extends SoapServiceInitialize
 
     @Override
     public void initialize(AbstractCte4SoapService soapService) throws SoapServiceInitializationException {
-        CteSoapService cteService = SoapServiceProxy.getInstance().getCteService(soapService.getAuthorizer());
+        Cte4SoapService cteService = SoapServiceProxy.getInstance().getCte4Service(soapService.getAuthorizer());
         if (Objects.nonNull(cteService)) {
             soapService.initialize(cteService);
         }

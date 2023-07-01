@@ -1,9 +1,6 @@
 package com.softart.dfe.util;
 
-import java.io.BufferedReader;
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.stream.Collectors;
 import java.util.zip.GZIPOutputStream;
@@ -84,7 +81,7 @@ public final class GZIPUtils {
      * @param o The byte array to compress
      * @return A byte array
      */
-    public static byte[] compress(final byte[] o) throws Exception {
+    public static byte[] compress(final byte[] o) throws IOException {
         if (Functions.isNullOrEmpty(o)) return "".getBytes(StandardCharsets.UTF_8);
 
         try (ByteArrayOutputStream byteArrayOutputStream = OutputStreamUtils.newByteArrayOutputStream()) {
@@ -102,7 +99,7 @@ public final class GZIPUtils {
      * @param o The string to compress
      * @return A byte array
      */
-    public static byte[] compress(String o) throws Exception {
+    public static byte[] compress(String o) throws IOException {
         return compress(o.getBytes(StandardCharsets.UTF_8));
     }
 
@@ -112,7 +109,7 @@ public final class GZIPUtils {
      * @param o The string to compress
      * @return A string that is the compressed version of the input string.
      */
-    public static String compressToString(String o) throws Exception {
+    public static String compressToString(String o) throws IOException {
         return new String(compress(o), StandardCharsets.UTF_8);
     }
 

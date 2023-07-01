@@ -15,5 +15,6 @@ public final class S3StorageFactory extends StorageFactory {
     private final NfeStorage nfeStorage = new NfeS3Storage();
     private final NfceStorage nfceStorage = new NfceS3Storage();
     private final CteStorage cteStorage = new CteS3Storage();
+    private final com.softart.dfe.interfaces.storage.cte4.CteStorage cte4Storage = new com.softart.dfe.components.storage.cte4.CteS3Storage();
     private final MdfeStorage mdfeStorage = new MdfeS3Storage();
 }

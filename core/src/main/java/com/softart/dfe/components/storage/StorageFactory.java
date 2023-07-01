@@ -32,6 +32,8 @@ public abstract class StorageFactory {
 
     public abstract CteStorage getCteStorage();
 
+    public abstract com.softart.dfe.interfaces.storage.cte4.CteStorage getCte4Storage();
+
     public abstract MdfeStorage getMdfeStorage();
 
     private static final class HolderS3 {

@@ -8,7 +8,13 @@
     <types>
         <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0"
                    targetNamespace="http://www.portalfiscal.inf.br/cte/wsdl/CteStatusServico">
-            <xs:element name="cteDadosMsg" nillable="true" type="xs:anyType"/>
+            <xs:element name="cteDadosMsg">
+                <xs:complexType mixed="true">
+                    <xs:sequence>
+                        <xs:any processContents="lax" namespace="##other" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
             <xs:element name="cteStatusServicoCTResult">
                 <xs:complexType mixed="true">
                     <xs:sequence>

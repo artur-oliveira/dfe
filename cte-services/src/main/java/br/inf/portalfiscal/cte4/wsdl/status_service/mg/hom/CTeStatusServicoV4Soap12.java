@@ -35,6 +35,6 @@ public interface CTeStatusServicoV4Soap12 {
     @Action(input = "http://www.portalfiscal.inf.br/cte/wsdl/CteStatusServico/cteStatusServicoCT", output = "http://www.portalfiscal.inf.br/cte/wsdl/CteStatusServico/CTeStatusServicoV4Soap12/cteStatusServicoCTResponse")
     public CteStatusServicoCTResult cteStatusServicoCT(
         @WebParam(name = "cteDadosMsg", targetNamespace = "http://www.portalfiscal.inf.br/cte/wsdl/CteStatusServico", partName = "cteDadosMsg")
-        Object cteDadosMsg);
+        CteDadosMsg cteDadosMsg);
 
 }

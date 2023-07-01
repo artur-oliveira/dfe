@@ -8,9 +8,7 @@ import com.softart.dfe.interfaces.internal.allow.AllowUF;
 import com.softart.dfe.models.cte.reception.Cte;
 import com.softart.dfe.models.cte.reception_gtve.Gtve;
 import com.softart.dfe.models.cte.reception_os.CteOs;
-import com.softart.dfe.models.internal.cte.CteOsQrCode;
-import com.softart.dfe.models.internal.cte.CteQrCode;
-import com.softart.dfe.models.internal.cte.GtveQrCode;
+import com.softart.dfe.models.internal.cte.*;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -124,12 +122,23 @@ public enum QrCodeCteURL implements AllowUF {
         return QrCodeGeneratorFactory.getInstance().generate(CteQrCode.builder().cte(cte).build());
     }
 
+    public static String generate(com.softart.dfe.models.cte4.reception_sync.Cte cte) throws NoProviderFound {
+        return QrCodeGeneratorFactory.getInstance().generate(Cte4QrCode.builder().cte(cte).build());
+    }
+
     public static String generate(Gtve gtve) throws NoProviderFound {
         return QrCodeGeneratorFactory.getInstance().generate(GtveQrCode.builder().gtve(gtve).build());
     }
 
+    public static String generate(com.softart.dfe.models.cte4.reception_gtve.Gtve gtve) throws NoProviderFound {
+        return QrCodeGeneratorFactory.getInstance().generate(Gtve4QrCode.builder().gtve(gtve).build());
+    }
+
     public static String generate(CteOs cteOs) throws NoProviderFound {
         return QrCodeGeneratorFactory.getInstance().generate(CteOsQrCode.builder().cteOs(cteOs).build());
+    }
+    public static String generate(com.softart.dfe.models.cte4.reception_os.CteOs cteOs) throws NoProviderFound {
+        return QrCodeGeneratorFactory.getInstance().generate(CteOs4QrCode.builder().cteOs(cteOs).build());
     }
 
     @Override

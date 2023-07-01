@@ -14,6 +14,7 @@ import lombok.Getter;
 final class FileSystemStorageFactory extends StorageFactory {
     private final NfeStorage nfeStorage = new NfeFileSystemStorage();
     private final NfceStorage nfceStorage = new NfceFileSystemStorage();
+    private final com.softart.dfe.interfaces.storage.cte4.CteStorage cte4Storage = new com.softart.dfe.components.storage.cte4.CteFileSystemStorage();
     private final CteStorage cteStorage = new CteFileSystemStorage();
     private final MdfeStorage mdfeStorage = new MdfeFileSystemStorage();
 

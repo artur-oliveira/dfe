@@ -35,6 +35,6 @@ public interface CTeRecepcaoEventoV4Soap12 {
     @Action(input = "http://www.portalfiscal.inf.br/cte/wsdl/CTeRecepcaoEventoV4/cteRecepcaoEvento", output = "http://www.portalfiscal.inf.br/cte/wsdl/CTeRecepcaoEventoV4/CTeRecepcaoEventoV4Soap12/cteRecepcaoEventoResponse")
     public CteRecepcaoEventoResult cteRecepcaoEvento(
         @WebParam(name = "cteDadosMsg", targetNamespace = "http://www.portalfiscal.inf.br/cte/wsdl/CTeRecepcaoEventoV4", partName = "cteDadosMsg")
-        Object cteDadosMsg);
+        CteDadosMsg cteDadosMsg);
 
 }

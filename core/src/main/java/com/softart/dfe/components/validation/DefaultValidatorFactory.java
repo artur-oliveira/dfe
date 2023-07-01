@@ -1,10 +1,12 @@
 package com.softart.dfe.components.validation;
 
 import com.softart.dfe.components.validation.cte.DefaultCteValidator;
+import com.softart.dfe.components.validation.cte4.DefaultCte4Validator;
 import com.softart.dfe.components.validation.mdfe.DefaultMdfeValidator;
 import com.softart.dfe.components.validation.nf.DefaulNfceValidator;
 import com.softart.dfe.components.validation.nf.DefaulNfeValidator;
 import com.softart.dfe.interfaces.validation.cte.CteValidator;
+import com.softart.dfe.interfaces.validation.cte4.Cte4Validator;
 import com.softart.dfe.interfaces.validation.mdfe.MdfeValidator;
 import com.softart.dfe.interfaces.validation.nf.NfceValidator;
 import com.softart.dfe.interfaces.validation.nf.NfeValidator;
@@ -39,6 +41,11 @@ final class DefaultValidatorFactory extends ValidatorFactory {
         return DefaultValidatorFactoryHolder.CTE_INSTANCE;
     }
 
+    @Override
+    public Cte4Validator cte4Validator() {
+        return DefaultValidatorFactoryHolder.CTE4_INSTANCE;
+    }
+
     /**
      * It returns a validator for MDF-e
      *
@@ -52,6 +59,7 @@ final class DefaultValidatorFactory extends ValidatorFactory {
         private static final NfeValidator NFE_INSTANCE = new DefaulNfeValidator();
         private static final NfceValidator NFCE_INSTANCE = new DefaulNfceValidator();
         private static final CteValidator CTE_INSTANCE = new DefaultCteValidator();
+        private static final Cte4Validator CTE4_INSTANCE = new DefaultCte4Validator();
         private static final MdfeValidator MDFE_INSTANCE = new DefaultMdfeValidator();
     }
 }

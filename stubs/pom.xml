@@ -8537,7 +8537,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/mg/prod/reception_sync.wsdl</wsdlFile>
@@ -8559,7 +8559,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/mg/hom/reception_sync.wsdl</wsdlFile>
@@ -8581,7 +8581,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/mg/prod/query_situation.wsdl
@@ -8604,7 +8604,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/mg/hom/query_situation.wsdl</wsdlFile>
@@ -8670,7 +8670,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/mg/prod/event.wsdl</wsdlFile>
@@ -8692,7 +8692,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/mg/hom/event.wsdl</wsdlFile>
@@ -8714,7 +8714,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/mg/prod/reception_os.wsdl</wsdlFile>
@@ -8736,7 +8736,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/mg/hom/reception_os.wsdl</wsdlFile>
@@ -8759,7 +8759,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/mg/prod/reception_gtve.wsdl</wsdlFile>
@@ -8781,7 +8781,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/mg/hom/reception_gtve.wsdl</wsdlFile>
@@ -8803,7 +8803,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/ms/prod/reception_sync.wsdl</wsdlFile>
@@ -8825,7 +8825,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/ms/hom/reception_sync.wsdl</wsdlFile>
@@ -8847,7 +8847,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/ms/prod/query_situation.wsdl
@@ -8870,7 +8870,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/ms/hom/query_situation.wsdl</wsdlFile>
@@ -8892,7 +8892,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/ms/prod/status_service.wsdl</wsdlFile>
@@ -8914,7 +8914,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/ms/hom/status_service.wsdl</wsdlFile>
@@ -8980,7 +8980,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/ms/prod/reception_os.wsdl</wsdlFile>
@@ -9002,7 +9002,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/ms/hom/reception_os.wsdl</wsdlFile>
@@ -9024,7 +9024,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/ms/prod/reception_gtve.wsdl</wsdlFile>
@@ -9046,7 +9046,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/ms/hom/reception_gtve.wsdl</wsdlFile>
@@ -9068,7 +9068,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/mt/prod/reception_sync.wsdl</wsdlFile>
@@ -9090,7 +9090,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/mt/hom/reception_sync.wsdl</wsdlFile>
@@ -9112,7 +9112,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/mt/prod/query_situation.wsdl
@@ -9135,7 +9135,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/mt/hom/query_situation.wsdl</wsdlFile>
@@ -9157,7 +9157,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/mt/prod/status_service.wsdl</wsdlFile>
@@ -9179,7 +9179,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/mt/hom/status_service.wsdl</wsdlFile>
@@ -9201,7 +9201,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/mt/prod/event.wsdl</wsdlFile>
@@ -9223,7 +9223,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/mt/hom/event.wsdl</wsdlFile>
@@ -9245,7 +9245,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/mt/prod/reception_os.wsdl</wsdlFile>
@@ -9267,7 +9267,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/mt/hom/reception_os.wsdl</wsdlFile>
@@ -9289,7 +9289,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/mt/prod/reception_gtve.wsdl</wsdlFile>
@@ -9311,7 +9311,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/mt/hom/reception_gtve.wsdl</wsdlFile>
@@ -9333,7 +9333,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/pr/prod/reception_sync.wsdl</wsdlFile>
@@ -9355,7 +9355,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/pr/hom/reception_sync.wsdl</wsdlFile>
@@ -9377,7 +9377,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/pr/prod/query_situation.wsdl
@@ -9400,7 +9400,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/pr/hom/query_situation.wsdl</wsdlFile>
@@ -9422,7 +9422,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/pr/prod/status_service.wsdl</wsdlFile>
@@ -9444,7 +9444,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/pr/hom/status_service.wsdl</wsdlFile>
@@ -9466,7 +9466,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/pr/prod/event.wsdl</wsdlFile>
@@ -9488,7 +9488,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/pr/hom/event.wsdl</wsdlFile>
@@ -9510,7 +9510,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/pr/prod/reception_os.wsdl</wsdlFile>
@@ -9532,7 +9532,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/pr/hom/reception_os.wsdl</wsdlFile>
@@ -9555,7 +9555,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/pr/prod/reception_gtve.wsdl</wsdlFile>
@@ -9577,7 +9577,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/pr/hom/reception_gtve.wsdl</wsdlFile>
@@ -9599,7 +9599,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/svsp/prod/reception_sync.wsdl
@@ -9622,7 +9622,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/svsp/hom/reception_sync.wsdl
@@ -9645,7 +9645,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/svsp/prod/query_situation.wsdl
@@ -9668,7 +9668,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/svsp/hom/query_situation.wsdl
@@ -9691,7 +9691,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/svsp/prod/status_service.wsdl
@@ -9714,7 +9714,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/svsp/hom/status_service.wsdl
@@ -9737,7 +9737,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/svsp/prod/event.wsdl</wsdlFile>
@@ -9759,7 +9759,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/svsp/hom/event.wsdl</wsdlFile>
@@ -9781,7 +9781,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/svsp/prod/reception_os.wsdl</wsdlFile>
@@ -9803,7 +9803,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/svsp/hom/reception_os.wsdl</wsdlFile>
@@ -9826,7 +9826,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/svsp/prod/reception_gtve.wsdl
@@ -9849,7 +9849,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/svsp/hom/reception_gtve.wsdl
@@ -9872,7 +9872,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/svrs/prod/reception_sync.wsdl
@@ -9895,7 +9895,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/svrs/hom/reception_sync.wsdl
@@ -9918,7 +9918,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/svrs/prod/query_situation.wsdl
@@ -9941,7 +9941,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/svrs/hom/query_situation.wsdl
@@ -9964,7 +9964,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/svrs/prod/status_service.wsdl
@@ -9987,7 +9987,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/svrs/hom/status_service.wsdl
@@ -10010,7 +10010,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/svrs/prod/event.wsdl</wsdlFile>
@@ -10032,7 +10032,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/svrs/hom/event.wsdl</wsdlFile>
@@ -10054,7 +10054,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/svrs/prod/reception_os.wsdl</wsdlFile>
@@ -10076,7 +10076,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/svrs/hom/reception_os.wsdl</wsdlFile>
@@ -10099,7 +10099,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/svrs/prod/reception_gtve.wsdl
@@ -10122,7 +10122,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlFiles>
                                 <wsdlFile>${basedir}/src/main/resources/wsdl/cte4/svrs/hom/reception_gtve.wsdl

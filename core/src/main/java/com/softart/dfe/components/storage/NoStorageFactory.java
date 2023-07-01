@@ -15,6 +15,7 @@ final class NoStorageFactory extends StorageFactory {
     private final NfeStorage nfeStorage = new NfeNoStorage();
     private final NfceStorage nfceStorage = new NfceNoStorage();
     private final CteStorage cteStorage = new CteNoStorage();
+    private final com.softart.dfe.interfaces.storage.cte4.CteStorage cte4Storage = new com.softart.dfe.components.storage.cte4.CteNoStorage();
     private final MdfeStorage mdfeStorage = new MdfeNoStorage();
 
 }
