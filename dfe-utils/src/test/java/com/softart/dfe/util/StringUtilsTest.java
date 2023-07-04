@@ -64,4 +64,9 @@ class StringUtilsTest {
     void padStart() {
         assertEquals("TTTTTA", StringUtils.padStart("A", 6, 'T'));
     }
+
+    @Test
+    void toAscii() {
+        assertEquals("AAAAEEEEIIIIOOOOUUUUC", StringUtils.toAscii("ÁÀÃÂÉÈẼÊÍÌĨÎÓÒÕÔÚÙŨÛÇ"));
+    }
 }

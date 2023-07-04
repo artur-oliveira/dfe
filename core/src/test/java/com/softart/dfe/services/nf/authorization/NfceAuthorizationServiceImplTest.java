@@ -35,7 +35,7 @@ class NfceAuthorizationServiceImplTest {
 
         Nf.InfNFe.Ide ide = Nf.InfNFe.Ide.builder().build();
         ide.setCuf(config.uf().getCode());
-        ide.setNatOp("OPERACAO DE TESTE");
+        ide.setNatOp("OPERAÇÃO DE TESTE");
         ide.setSerie("2");
         ide.setNnf(String.valueOf(number));
         ide.setDhEmi(DateUtils.nowString());
@@ -525,12 +525,17 @@ class NfceAuthorizationServiceImplTest {
 
         assertNotNull(o);
         assertNull(o.getInfRec());
+        assertNotNull(o.getProtNFe());
+        assertNotNull(o.getProtNFe().getInfProt());
         assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
         assertEquals(UF.MT.getCode(), o.getCuf());
+        assertEquals(NFReturnCode.CODE_230.getCode(), o.getProtNFe().getInfProt().getCStat());
     }
 
     @Test
     void testAuthorizationSyncWithEnvironmentIsProductionAndAuthorizerMt() throws Exception {
+        System.setProperty("com.softart.dfe.certificate.path", "/home/artur/Documents/Certificate/tartigrado.pfx");
+        System.setProperty("com.softart.dfe.certificate.password", "2023@revgas");
         NfceAuthorizationService service = new NfceAuthorizationServiceImpl(
                 new PfxNfceConfigImpl(
                         UF.MT,
@@ -547,8 +552,11 @@ class NfceAuthorizationServiceImplTest {
 
         assertNotNull(o);
         assertNull(o.getInfRec());
+        assertNotNull(o.getProtNFe());
+        assertNotNull(o.getProtNFe().getInfProt());
         assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
         assertEquals(UF.MT.getCode(), o.getCuf());
+        assertEquals(NFReturnCode.CODE_230.getCode(), o.getProtNFe().getInfProt().getCStat());
     }
 
     @Test

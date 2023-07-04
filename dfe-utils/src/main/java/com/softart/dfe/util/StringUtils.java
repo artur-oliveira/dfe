@@ -1,10 +1,14 @@
 package com.softart.dfe.util;
 
+import com.softart.dfe.exceptions.DfeUncheckedException;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.text.Normalizer;
 import java.util.Arrays;
 import java.util.Locale;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public final class StringUtils {
@@ -137,11 +141,32 @@ public final class StringUtils {
      * @return A string
      */
     public static <T extends CharSequence> String padStart(T text, int len, Character padChar) {
-        Objects.requireNonNull(text, "cannot padStart null sequence");
-        if (len < 0) throw new IllegalArgumentException("length is less than zero.");
+        Optional.ofNullable(text).orElseThrow(() -> new DfeUncheckedException("cannot padStart null sequence"));
+        if (len < 0) throw new DfeUncheckedException("length is less than zero.");
         if (len <= text.length()) return text.subSequence(0, text.length()).toString();
 
         return String.valueOf(padChar).repeat(Math.max(0, len - text.length())) + text;
+    }
+
+    /**
+     * The function "normalize" takes a string input and returns a normalized version of the string using the NFKD
+     * normalization form, or null if the input is null.
+     *
+     * @param input The input parameter is a string that you want to normalize.
+     * @return The method is returning a normalized version of the input string.
+     */
+    private static String normalize(String input) {
+        return Optional.ofNullable(input).map((it) -> Normalizer.normalize(it, Normalizer.Form.NFKD)).orElse(null);
+    }
+
+    /**
+     * The function converts a string to its ASCII representation by removing any diacritical marks.
+     *
+     * @param input The input parameter is a string that represents the text that you want to convert to ASCII.
+     * @return The method is returning a String.
+     */
+    public static String toAscii(String input) {
+        return Optional.ofNullable(normalize(input)).map(it -> it.replaceAll("\\p{M}", "")).orElse(null);
     }
 
 
