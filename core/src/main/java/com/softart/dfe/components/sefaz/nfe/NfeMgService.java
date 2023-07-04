@@ -77,7 +77,7 @@ public final class NfeMgService extends NfeAnService {
 
         TRetEnviNFe retorno;
         if (data.config().production()) {
-            br.inf.portalfiscal.nfe.wsdl.authorization.mg.prod.NFeAutorizacao4Soap ws = ((br.inf.portalfiscal.nfe.wsdl.authorization.mg.prod.NFeAutorizacao4) getSoapService().prodAuthorization()).getNFeAutorizacao4Soap12();
+            br.inf.portalfiscal.nfe.wsdl.authorization.mg.prod.NFeAutorizacao4Soap ws = ((br.inf.portalfiscal.nfe.wsdl.authorization.mg.prod.NFeAutorizacao4) getSoapService().prodAuthorization()).getNFeAutorizacao4Soap();
             data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
             String gzip;
             try {
@@ -85,11 +85,9 @@ public final class NfeMgService extends NfeAnService {
             } catch (Exception e) {
                 throw new DfeUncheckedException(e);
             }
-            br.inf.portalfiscal.nfe.wsdl.authorization.mg.prod.NfeDadosMsgZip msg = new br.inf.portalfiscal.nfe.wsdl.authorization.mg.prod.NfeDadosMsgZip();
-            msg.getContent().add(gzip);
-            br.inf.portalfiscal.nfe.wsdl.authorization.mg.prod.NFeAutorizacao4LoteResult resultMsg = ws.nfeAutorizacaoLoteZip(msg);
 
-            retorno = ((JAXBElement<TRetEnviNFe>) resultMsg.getRetEnviNFe().get(0)).getValue();
+            br.inf.portalfiscal.nfe.wsdl.authorization.mg.prod.NfeResultMsg resultMsg = ws.nfeAutorizacaoLoteZip(gzip);
+            retorno = ((JAXBElement<TRetEnviNFe>) resultMsg.getContent().get(0)).getValue();
         } else {
             br.inf.portalfiscal.nfe.wsdl.authorization.mg.hom.NFeAutorizacao4Soap ws = ((br.inf.portalfiscal.nfe.wsdl.authorization.mg.hom.NFeAutorizacao4) getSoapService().homAuthorization()).getNFeAutorizacao4Soap();
             data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());

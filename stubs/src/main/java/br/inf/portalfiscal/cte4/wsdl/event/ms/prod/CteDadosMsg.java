@@ -1,11 +1,15 @@
 
-package br.inf.portalfiscal.nfe.wsdl.authorization.mg.prod;
-
-import jakarta.xml.bind.annotation.*;
-import org.w3c.dom.Element;
+package br.inf.portalfiscal.cte4.wsdl.event.ms.prod;
 
 import java.util.ArrayList;
 import java.util.List;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlAnyElement;
+import jakarta.xml.bind.annotation.XmlMixed;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlType;
+import org.w3c.dom.Element;
 
 
 /**
@@ -31,8 +35,8 @@ import java.util.List;
 @XmlType(name = "", propOrder = {
     "content"
 })
-@XmlRootElement(name = "nfeDadosMsg")
-public class NfeDadosMsg {
+@XmlRootElement(name = "cteDadosMsg")
+public class CteDadosMsg {
 
     @XmlMixed
     @XmlAnyElement(lax = true)

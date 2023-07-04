@@ -1,65 +1,74 @@
+
 package br.inf.portalfiscal.nfe.wsdl.authorization.mg.prod;
 
 import jakarta.xml.bind.annotation.*;
+import org.w3c.dom.Element;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
 /**
- * <p>Classe Java de nFeAutorizacao4LoteResult complex type.
- *
- * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- *
+ * <p>Java class for anonymous complex type.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.
+ * 
  * <pre>{@code
- * <complexType name="nFeAutorizacao4LoteResult">
+ * <complexType>
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <sequence>
- *         <element name="retEnviNFe" type="{http://www.w3.org/2001/XMLSchema}anyType" maxOccurs="unbounded" minOccurs="0"/>
+ *         <any processContents='lax' namespace='##other' maxOccurs="unbounded" minOccurs="0"/>
  *       </sequence>
  *     </restriction>
  *   </complexContent>
  * </complexType>
  * }</pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "nFeAutorizacao4LoteResult", propOrder = {
-        "retEnviNFe"
+@XmlType(name = "", propOrder = {
+    "content"
 })
-public class NFeAutorizacao4LoteResult {
+@XmlRootElement(name = "nfeResultMsg")
+public class NfeResultMsg {
 
     @XmlMixed
     @XmlAnyElement(lax = true)
-    protected List<Object> retEnviNFe;
+    protected List<Object> content;
 
     /**
-     * Gets the value of the retEnviNFe property.
-     *
+     * Gets the value of the content property.
+     * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the Jakarta XML Binding object.
-     * This is why there is not a {@code set} method for the retEnviNFe property.
-     *
+     * This is why there is not a {@code set} method for the content property.
+     * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getRetEnviNFe().add(newItem);
+     *    getContent().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Object }
-     *
-     * @return The value of the retEnviNFe property.
+     * {@link String }
+     * {@link Element }
+     * 
+     * 
+     * @return
+     *     The value of the content property.
      */
-    public List<Object> getRetEnviNFe() {
-        if (retEnviNFe == null) {
-            retEnviNFe = new ArrayList<>();
+    public List<Object> getContent() {
+        if (content == null) {
+            content = new ArrayList<>();
         }
-        return this.retEnviNFe;
+        return this.content;
     }
 
 }

@@ -42,10 +42,9 @@ public final class DefaultXmlSigner extends XmlSigner {
     private static final String SIGN_CTE = "infCte";
     private static final String SIGN_MDFE = "infMDFe";
     private static final String SIGN_NFE = "infNFe";
-    private static final String IGNORE_LINE_BREAKS = "com.sun.org.apache.xml.internal.security.ignoreLineBreaks";
 
     public DefaultXmlSigner() {
-        System.setProperty(IGNORE_LINE_BREAKS, "true");
+        System.setProperty("com.sun.org.apache.xml.internal.security.ignoreLineBreaks", "true");
     }
 
     /**
