@@ -1,14 +1,20 @@
 package com.softart.dfe.enums.cte;
 
 import com.softart.dfe.components.internal.DFEnum;
+import com.softart.dfe.exceptions.NoEnumException;
 import com.softart.dfe.interfaces.internal.ReturnCode;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.extern.log4j.Log4j2;
 
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Optional;
 
 @Getter
+@AllArgsConstructor
+@Log4j2
 public enum CteReturnCode implements ReturnCode {
     CODE_100("100", "Autorizado o uso do CT-e"),
     CODE_101("101", "Cancelamento de CT-e homologado"),
@@ -220,7 +226,6 @@ public enum CteReturnCode implements ReturnCode {
     CODE_588("588", "Rejeição: Data de entrada em contingência posterior a data de emissão."),
     CODE_589("589", "Rejeição: O lote contém CT-e de mais de um modal"),
     CODE_590("590", "Rejeição: O lote contém CT-e de mais de uma versão de modal"),
-    CODE_595("595", "Rejeicao: Chave de acesso invalida (modelo diferente de 57 ou 67)"),
     CODE_598("598", "Rejeição: Usar somente o namespace padrao do CT-e"),
     CODE_599("599", "Rejeição: Não é permitida a presença de caracteres de edição no início/fim da mensagem ou entre as tags da mensagem"),
     CODE_600("600", "Rejeição: Chave de Acesso difere da existente em BD"),
@@ -415,21 +420,21 @@ public enum CteReturnCode implements ReturnCode {
     private final String code;
     private final String description;
 
-    CteReturnCode(String code, String description) {
-        this.code = code;
-        this.description = description;
-    }
-
     public static boolean generateProc(CteReturnCode code) {
         return code.generateProc();
     }
 
     public static boolean generateProc(String code) {
-        return valueOfCode(code).generateProc();
+        try {
+            return generateProc(valueOfCode(code));
+        } catch (NoEnumException e) {
+            log.warn("no enum found for code " + e.getValue());
+            return false;
+        }
     }
 
     public static boolean generateProc(Number code) {
-        return valueOfCode(code).generateProc();
+        return generateProc(Optional.ofNullable(code).map(Object::toString).orElse(null));
     }
 
     public static CteReturnCode valueOfCode(String code) {

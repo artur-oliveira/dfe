@@ -1,17 +1,20 @@
 package com.softart.dfe.enums.mdfe;
 
 import com.softart.dfe.components.internal.DFEnum;
-import com.softart.dfe.enums.cte.CteReturnCode;
+import com.softart.dfe.exceptions.NoEnumException;
 import com.softart.dfe.interfaces.internal.ReturnCode;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.extern.log4j.Log4j2;
 
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Optional;
 
 @Getter
 @AllArgsConstructor
+@Log4j2
 public enum MdfeReturnCode implements ReturnCode {
     CODE_100("100", "Autorizado o uso do MDF-e"),
     CODE_101("101", "Cancelamento de MDF-e homologado"),
@@ -226,16 +229,21 @@ public enum MdfeReturnCode implements ReturnCode {
     private final String code;
     private final String description;
 
-    public static boolean generateProc(CteReturnCode code) {
+    public static boolean generateProc(MdfeReturnCode code) {
         return code.generateProc();
     }
 
     public static boolean generateProc(String code) {
-        return valueOfCode(code).generateProc();
+        try {
+            return generateProc(valueOfCode(code));
+        } catch (NoEnumException e) {
+            log.warn("no enum found for code " + e.getValue());
+            return false;
+        }
     }
 
     public static boolean generateProc(Number code) {
-        return valueOfCode(code).generateProc();
+        return generateProc(Optional.ofNullable(code).map(Object::toString).orElse(null));
     }
 
     public static MdfeReturnCode valueOfCode(String code) {

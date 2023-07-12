@@ -1,13 +1,19 @@
 package com.softart.dfe.enums.nf;
 
 import com.softart.dfe.components.internal.DFEnum;
+import com.softart.dfe.exceptions.NoEnumException;
 import com.softart.dfe.interfaces.internal.ReturnCode;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.extern.log4j.Log4j2;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Optional;
 
 @Getter
+@AllArgsConstructor
+@Log4j2
 public enum NFReturnCode implements ReturnCode {
     CODE_100("100", "Autorizado o uso da NF-e"),
     CODE_101("101", "Cancelamento de NF-e homologado"),
@@ -344,7 +350,7 @@ public enum NFReturnCode implements ReturnCode {
     CODE_579("579", "Rejeição: A data do evento não pode ser menor que a data de autorização para NF-e não emitida em contingência"),
     CODE_580("580", "Rejeição: O evento exige uma NF-e autorizada"),
     CODE_582("582", "Rejeicao: UF nao atendida pela SVC-[AN/RS]"),
-    CODE_584("584", "584 Rejeição: tpEmis informado é incompatível com a SVC-[AN/RS]"),
+    CODE_584("584", "Rejeição: tpEmis informado é incompatível com a SVC-[AN/RS]"),
     CODE_587("587", "Rejeição: Usar somente o namespace padrão da NF-e"),
     CODE_588("588", "Rejeição: Não é permitida a presença de caracteres de edição no início/fim da mensagem ou entre as tags da mensagem"),
     CODE_589("589", "Rejeição: Número do NSU informado superior ao maior NSU do Ambiente Nacional"),
@@ -436,6 +442,7 @@ public enum NFReturnCode implements ReturnCode {
     CODE_697("697", "Rejeição: Alíquota interestadual do ICMS com origem diferente do previsto [nItem:999]"),
     CODE_698("698", "Rejeição: Alíquota interestadual do ICMS incompatível com as UF envolvidas na operação [nItem:999]"),
     CODE_699("699", "Rejeição: Percentual do ICMS Interestadual para a UF de destino difere do previsto para o ano da Data de Emissão [nItem: 999]"),
+    CODE_700("700", "Rejeição: Total da quantidade tributada do ICMS monofásico próprio difere do somatório dos itens."),
     CODE_701("701", "Rejeição: Não informado Nota Fiscal referenciada (CFOP de Exportação Indireta) [nItem: nnn]"),
     CODE_701_2("701", "Rejeição: Não informado Nota Fiscal referenciada (Lançamento relativo a Cupom Fiscal) [nItem: nnn]"),
     CODE_702("702", "Rejeição: NFC-e não é aceita pela UF do Emitente"),
@@ -460,6 +467,7 @@ public enum NFReturnCode implements ReturnCode {
     CODE_721("721", "Rejeição: Informado idEstrangeiro e Operação não é com consumidor final."),
     CODE_721_2("721", "Rejeição: Operação interestadual deve informar CNPJ ou CPF"),
     CODE_722("722", "Rejeição: CFOP de Transporte Inexistente"),
+    CODE_723("723", "Rejeição: Total da quantidade tributada do ICMS monofásico sujeito a retenção difere do somatório dos itens."),
     CODE_724("724", "Rejeição: NF-e sem o nome do destinatário"),
     CODE_725("725", "Rejeição: NFC-e com CFOP inválido[nItem:nnn]"),
     CODE_726("726", "Rejeição: NF-e sem a informação de endereço do destinatário"),
@@ -480,9 +488,11 @@ public enum NFReturnCode implements ReturnCode {
     CODE_741("741", "Rejeição: NFC-e com Partilha de ICMS entre UF"),
     CODE_742("742", "Rejeição: NFC-e com grupo do IPI"),
     CODE_743("743", "Rejeição: NFC-e com grupo do II"),
+    CODE_744("744", "Rejeição: Total da quantidade tributada do ICMS monofásico retido anteriormente difere do somatório dos itens."),
     CODE_745("745", "Rejeição: NF-e sem grupo do PIS"),
     CODE_746("746", "Rejeição: NFC-e com grupo do PIS-ST"),
     CODE_748("748", "Rejeição: NF-e sem grupo da COFINS"),
+    CODE_747("747", "Rejeição: Não permitido o preenchimento do grupo de UF de origem do combustível [nItem:999]"),
     CODE_749("749", "Rejeição: NFC-e com grupo da COFINS-ST"),
     CODE_750("750", "Rejeição: NFC-e com valor total superior ao permitido para destinatário não identificado (Código) [Limite]"),
     CODE_751("751", "Rejeição: NFC-e com valor total superior ao permitido para destinatário não identificado (Nome) [Limite]"),
@@ -593,6 +603,9 @@ public enum NFReturnCode implements ReturnCode {
     CODE_904("904", "Rejeição: Informado indevidamente campo valor de pagamento"),
     CODE_905("905", "Rejeição: Campos do grupo Fatura não informados"),
     CODE_906("906", "Rejeição: Não informados os campos para informações do ICMS Efetivo. [nItem: nnn] [NT 2018.005]"),
+    CODE_907("907", "Rejeição: Grupo de combustível não pode ter o índice de mistura do Biodiesel. [nItem:999]"),
+    CODE_908("908", "Rejeição: Obrigatório o preenchimento do índice de mistura do Biodiesel. [nItem:999]"),
+    CODE_909("909", "Rejeição: Obrigatório o preenchimento do grupo de UF de origem do combustível [nItem:999]"),
     CODE_910("910", "Rejeição: Chave de Acesso NF-e Substituta inválida (<nome do campo>) [NT 2018.004]"),
     CODE_911("911", "Rejeição: Chave de Acesso NF-e Substituta incorreta (<nome do campo>) [NT 2018.004]"),
     CODE_912("912", "Rejeição: NF-e Substituta inexistente [NT 2018.004]"),
@@ -621,6 +634,18 @@ public enum NFReturnCode implements ReturnCode {
     CODE_936("936", "Rejeição: Razão Social do emitente diverge do informado no cadastro da SEFAZ"),
     CODE_938("938", "Rejeição: Não informada BCST, pST e ICMSST retido na operação anterior [nItem: 999] [NT 2018.005]"),
     CODE_946("946", "Rejeição: Informado código de benefício fiscal incorreto ou inexistente na UF [nItem: nnn]"),
+    CODE_958("958", "Rejeição: Somatório dos percentuais originários para a UF do combustível diverge de 100."),
+    CODE_959("959", "Rejeição: NF-e não pode ter preenchimento de Grupo de Tributação do ICMS monofásica sobre combustíveis. [nItem:999]"),
+    CODE_960("960", "Rejeição: Obrigatório o preenchimento de Grupo de Tributação do ICMS monofásica sobre combustíveis. [nItem:999]"),
+    CODE_961("961", "Rejeição: Alíquota adrem do imposto difere do definido na legislação para o produto. [nItem:999]"),
+    CODE_962("962", "Rejeição: Valor do ICMS próprio difere do calculado. [nItem:999]"),
+    CODE_963("963", "Rejeição: Alíquota adrem do imposto com retenção difere do definido na legislação para o produto. [nItem:999]"),
+    CODE_964("964", "Rejeição: Valor do ICMS com retenção difere do calculado. [nItem:999]"),
+    CODE_965("965", "Rejeição: Alíquota adrem do imposto retido anteriormente difere do definido na legislação para o produto. [nItem:999]"),
+    CODE_966("966", "Rejeição: Valor do ICMS retido anteriormente difere do calculado. [nItem:999]"),
+    CODE_967("967", "Rejeição: Total do ICMS monofásico próprio difere do somatório dos itens."),
+    CODE_968("968", "Rejeição: Total do ICMS monofásico sujeito a retenção difere do somatório dos itens."),
+    CODE_969("969", "Rejeição: Total do ICMS monofásico retido anteriormente difere do somatório dos itens."),
     CODE_970("970", "Rejeição: Código de País inexistente [local de retirada/entrega] [NT 2018.005]"),
     CODE_971("971", "Rejeição: IE inválida [local de retirada/entrega] [NT 2018.005]"),
     CODE_972("972", "Rejeição: Obrigatória as informações do responsável técnico [NT 2018.005]"),
@@ -639,21 +664,21 @@ public enum NFReturnCode implements ReturnCode {
     private final String code;
     private final String description;
 
-    NFReturnCode(String code, String description) {
-        this.code = code;
-        this.description = description;
-    }
-
     public static boolean generateProc(NFReturnCode code) {
         return code.generateProc();
     }
 
     public static boolean generateProc(String code) {
-        return valueOfCode(code).generateProc();
+        try {
+            return generateProc(valueOfCode(code));
+        } catch (NoEnumException e) {
+            log.warn("no enum found for code " + e.getValue());
+            return false;
+        }
     }
 
     public static boolean generateProc(Number code) {
-        return valueOfCode(code).generateProc();
+        return generateProc(Optional.ofNullable(code).map(Object::toString).orElse(null));
     }
 
     public static NFReturnCode valueOfCode(String code) {

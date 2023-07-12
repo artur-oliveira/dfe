@@ -11,10 +11,13 @@ import java.util.Arrays;
  */
 public class NoEnumException extends DfeUncheckedException {
 
+    private final String value;
     public NoEnumException(String val, DFEnum.Codeable[] values) {
-
         super("the value " + val + " does'nt match any of the following values: " + Arrays.asList(values));
-
+        this.value = val;
     }
 
+    public String getValue() {
+        return value;
+    }
 }
