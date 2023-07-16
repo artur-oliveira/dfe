@@ -12,7 +12,7 @@ import java.net.URL;
  * XML-WS Tools 4.0.1
  * Generated source version: 3.0
  */
-@WebServiceClient(name = "CadConsultaCadastro4", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/CadConsultaCadastro4", wsdlLocation = "https://nfe.fazenda.mg.gov.br/nfe2/services/CadConsultaCadastro4?wsdl")
+@WebServiceClient(name = "CadConsultaCadastro4", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/CadConsultaCadastro4", wsdlLocation = "https://hnfe.fazenda.mg.gov.br/nfe2/services/CadConsultaCadastro4?wsdl")
 public class CadConsultaCadastro4
         extends Service {
 
@@ -56,6 +56,13 @@ public class CadConsultaCadastro4
         super(wsdlLocation, serviceName, features);
     }
 
+    private static URL __getWsdlLocation() {
+        if (CADCONSULTACADASTRO4_EXCEPTION != null) {
+            throw CADCONSULTACADASTRO4_EXCEPTION;
+        }
+        return CADCONSULTACADASTRO4_WSDL_LOCATION;
+    }
+
     /**
      * @return returns CadConsultaCadastro4Soap
      */
@@ -71,13 +78,6 @@ public class CadConsultaCadastro4
     @WebEndpoint(name = "CadConsultaCadastro4Soap")
     public CadConsultaCadastro4Soap getCadConsultaCadastro4Soap(WebServiceFeature... features) {
         return super.getPort(new QName("http://www.portalfiscal.inf.br/nfe/wsdl/CadConsultaCadastro4", "CadConsultaCadastro4Soap"), CadConsultaCadastro4Soap.class, features);
-    }
-
-    private static URL __getWsdlLocation() {
-        if (CADCONSULTACADASTRO4_EXCEPTION != null) {
-            throw CADCONSULTACADASTRO4_EXCEPTION;
-        }
-        return CADCONSULTACADASTRO4_WSDL_LOCATION;
     }
 
 }

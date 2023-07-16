@@ -22,15 +22,14 @@ public interface NFeRecepcaoEvento4Soap {
 
 
     /**
-     * Serviço destinado à recepção de Eventos da
-     * NF-e.
+     * Serviço destinado à recepção de Eventos da NF-e.
      *
      * @param nfeDadosMsg
      * @return returns br.inf.portalfiscal.nfe.wsdl.event_cancel.ba.prod.NfeResultMsg
      */
     @WebMethod(action = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeRecepcaoEvento4/nfeRecepcaoEventoNF")
     @WebResult(name = "nfeResultMsg", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeRecepcaoEvento4", partName = "nfeRecepcaoEventoNFResult")
-    NfeResultMsg nfeRecepcaoEventoNF(
+    public NfeResultMsg nfeRecepcaoEventoNF(
             @WebParam(name = "nfeDadosMsg", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeRecepcaoEvento4", partName = "nfeDadosMsg")
             NfeDadosMsg nfeDadosMsg);
 

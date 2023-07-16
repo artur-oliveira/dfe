@@ -56,6 +56,13 @@ public class MDFeRecepcaoSinc
         super(wsdlLocation, serviceName, features);
     }
 
+    private static URL __getWsdlLocation() {
+        if (MDFERECEPCAOSINC_EXCEPTION != null) {
+            throw MDFERECEPCAOSINC_EXCEPTION;
+        }
+        return MDFERECEPCAOSINC_WSDL_LOCATION;
+    }
+
     /**
      * @return returns MDFeRecepcaoSincSoap12
      */
@@ -65,19 +72,12 @@ public class MDFeRecepcaoSinc
     }
 
     /**
-     * @param features A list of {@link jakarta.xml.ws.WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
+     * @param features A list of {@link WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
      * @return returns MDFeRecepcaoSincSoap12
      */
     @WebEndpoint(name = "MDFeRecepcaoSincSoap12")
     public MDFeRecepcaoSincSoap12 getMDFeRecepcaoSincSoap12(WebServiceFeature... features) {
         return super.getPort(new QName("http://www.portalfiscal.inf.br/mdfe/wsdl/MDFeRecepcaoSinc", "MDFeRecepcaoSincSoap12"), MDFeRecepcaoSincSoap12.class, features);
-    }
-
-    private static URL __getWsdlLocation() {
-        if (MDFERECEPCAOSINC_EXCEPTION != null) {
-            throw MDFERECEPCAOSINC_EXCEPTION;
-        }
-        return MDFERECEPCAOSINC_WSDL_LOCATION;
     }
 
 }

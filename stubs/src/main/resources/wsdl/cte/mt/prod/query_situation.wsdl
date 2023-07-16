@@ -1,129 +1,124 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions targetNamespace="http://www.portalfiscal.inf.br/cte/wsdl/CteConsulta"
-                  xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
-                  xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-                  xmlns:tns="http://www.portalfiscal.inf.br/cte/wsdl/CteConsulta"
-                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions targetNamespace="http://www.portalfiscal.inf.br/cte/wsdl/CteConsulta" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:tns="http://www.portalfiscal.inf.br/cte/wsdl/CteConsulta" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
 
-    <wsdl:types>
+   <wsdl:types>
 
-        <s:schema elementFormDefault="qualified" targetNamespace="http://www.portalfiscal.inf.br/cte/wsdl/CteConsulta">
+      <s:schema elementFormDefault="qualified" targetNamespace="http://www.portalfiscal.inf.br/cte/wsdl/CteConsulta">
 
-            <s:element name="cteDadosMsg">
+         <s:element name="cteDadosMsg">
 
-                <s:complexType mixed="true">
+            <s:complexType mixed="true">
 
-                    <s:sequence>
+               <s:sequence>
 
-                        <s:any/>
+                  <s:any/>
 
-                    </s:sequence>
-
-                </s:complexType>
-
-            </s:element>
-
-            <s:element name="cteConsultaCTResult">
-
-                <s:complexType mixed="true">
-
-                    <s:sequence>
-
-                        <s:any/>
-
-                    </s:sequence>
-
-                </s:complexType>
-
-            </s:element>
-
-            <s:element name="cteCabecMsg" type="tns:cteCabecMsg"/>
-
-            <s:complexType name="cteCabecMsg">
-
-                <s:sequence>
-
-                    <s:element maxOccurs="1" minOccurs="0" name="cUF" type="s:string"/>
-
-                    <s:element maxOccurs="1" minOccurs="0" name="versaoDados" type="s:string"/>
-
-                </s:sequence>
-
-                <s:anyAttribute/>
+               </s:sequence>
 
             </s:complexType>
 
-        </s:schema>
+         </s:element>
 
-    </wsdl:types>
+         <s:element name="cteConsultaCTResult">
 
-    <wsdl:message name="cteConsultaCTSoap12In">
+            <s:complexType mixed="true">
 
-        <wsdl:part element="tns:cteDadosMsg" name="cteDadosMsg"/>
+               <s:sequence>
 
-    </wsdl:message>
+                  <s:any/>
 
-    <wsdl:message name="cteConsultaCTSoap12Out">
+               </s:sequence>
 
-        <wsdl:part element="tns:cteConsultaCTResult" name="cteConsultaCTResult"/>
+            </s:complexType>
 
-    </wsdl:message>
+         </s:element>
 
-    <wsdl:message name="cteConsultaCTcteCabecMsg">
+         <s:element name="cteCabecMsg" type="tns:cteCabecMsg"/>
 
-        <wsdl:part element="tns:cteCabecMsg" name="cteCabecMsg"/>
+         <s:complexType name="cteCabecMsg">
 
-    </wsdl:message>
+            <s:sequence>
 
-    <wsdl:portType name="CteConsultaSoap12">
+               <s:element maxOccurs="1" minOccurs="0" name="cUF" type="s:string"/>
 
-        <wsdl:operation name="cteConsultaCT">
+               <s:element maxOccurs="1" minOccurs="0" name="versaoDados" type="s:string"/>
 
-            <wsdl:input message="tns:cteConsultaCTSoap12In"/>
+            </s:sequence>
 
-            <wsdl:output message="tns:cteConsultaCTSoap12Out"/>
+            <s:anyAttribute/>
 
-        </wsdl:operation>
+         </s:complexType>
 
-    </wsdl:portType>
+      </s:schema>
 
-    <wsdl:binding name="CteConsultaSoap12" type="tns:CteConsultaSoap12">
+   </wsdl:types>
 
-        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+   <wsdl:message name="cteConsultaCTSoap12In">
 
-        <wsdl:operation name="cteConsultaCT">
+      <wsdl:part element="tns:cteDadosMsg" name="cteDadosMsg"/>
 
-            <soap12:operation soapAction="http://www.portalfiscal.inf.br/cte/wsdl/CteConsulta/cteConsultaCT"
-                              style="document"/>
+   </wsdl:message>
 
-            <wsdl:input>
+   <wsdl:message name="cteConsultaCTSoap12Out">
 
-                <soap12:body use="literal"/>
+      <wsdl:part element="tns:cteConsultaCTResult" name="cteConsultaCTResult"/>
 
-                <soap12:header message="tns:cteConsultaCTcteCabecMsg" part="cteCabecMsg" use="literal"/>
+   </wsdl:message>
 
-            </wsdl:input>
+   <wsdl:message name="cteConsultaCTcteCabecMsg">
 
-            <wsdl:output>
+      <wsdl:part element="tns:cteCabecMsg" name="cteCabecMsg"/>
 
-                <soap12:body use="literal"/>
+   </wsdl:message>
 
-                <soap12:header message="tns:cteConsultaCTcteCabecMsg" part="cteCabecMsg" use="literal"/>
+   <wsdl:portType name="CteConsultaSoap12">
 
-            </wsdl:output>
+      <wsdl:operation name="cteConsultaCT">
 
-        </wsdl:operation>
+         <wsdl:input message="tns:cteConsultaCTSoap12In"/>
 
-    </wsdl:binding>
+         <wsdl:output message="tns:cteConsultaCTSoap12Out"/>
 
-    <wsdl:service name="CteConsulta">
+      </wsdl:operation>
 
-        <wsdl:port binding="tns:CteConsultaSoap12" name="CteConsulta">
+   </wsdl:portType>
 
-            <soap12:address location="http://www.sefaz.mt.gov.br/ctews/services/CteConsulta"/>
+   <wsdl:binding name="CteConsultaSoap12" type="tns:CteConsultaSoap12">
 
-        </wsdl:port>
+      <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
 
-    </wsdl:service>
+      <wsdl:operation name="cteConsultaCT">
+
+         <soap12:operation soapAction="http://www.portalfiscal.inf.br/cte/wsdl/CteConsulta/cteConsultaCT" style="document"/>
+
+         <wsdl:input>
+
+            <soap12:body use="literal"/>
+
+            <soap12:header message="tns:cteConsultaCTcteCabecMsg" part="cteCabecMsg" use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output>
+
+            <soap12:body use="literal"/>
+
+            <soap12:header message="tns:cteConsultaCTcteCabecMsg" part="cteCabecMsg" use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="CteConsulta">
+
+      <wsdl:port binding="tns:CteConsultaSoap12" name="CteConsulta">
+
+         <soap12:address location="http://www.sefaz.mt.gov.br/ctews/services/CteConsulta"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
 
 </wsdl:definitions>

@@ -27,7 +27,7 @@ public interface CadConsultaCadastroSoap {
      */
     @WebMethod(action = "http://www.portalfiscal.inf.br/nfe/wsdl/CadConsultaCadastro4/consultaCadastro")
     @WebResult(name = "nfeResultMsg", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/CadConsultaCadastro4", partName = "nfeConsultaCadastroResult")
-    NfeResultMsg consultaCadastro(
+    public NfeResultMsg consultaCadastro(
             @WebParam(name = "nfeDadosMsg", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/CadConsultaCadastro4", partName = "nfeDadosMsg")
             NfeDadosMsg nfeDadosMsg);
 

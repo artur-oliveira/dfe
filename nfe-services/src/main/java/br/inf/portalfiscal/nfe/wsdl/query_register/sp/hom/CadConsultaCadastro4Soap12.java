@@ -22,15 +22,14 @@ public interface CadConsultaCadastro4Soap12 {
 
 
     /**
-     * Consulta Cadastro de Contribuintes do
-     * ICMS
+     * Consulta Cadastro de Contribuintes do ICMS
      *
      * @param nfeDadosMsg
      * @return returns br.inf.portalfiscal.nfe.wsdl.query_register.sp.hom.NfeResultMsg
      */
     @WebMethod(action = "http://www.portalfiscal.inf.br/nfe/wsdl/CadConsultaCadastro4/consultaCadastro")
     @WebResult(name = "nfeResultMsg", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/CadConsultaCadastro4", partName = "consultaCadastroResult")
-    NfeResultMsg consultaCadastro(
+    public NfeResultMsg consultaCadastro(
             @WebParam(name = "nfeDadosMsg", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/CadConsultaCadastro4", partName = "nfeDadosMsg")
             NfeDadosMsg nfeDadosMsg);
 

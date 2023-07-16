@@ -22,15 +22,14 @@ public interface NFeRetAutorizacao4Soap {
 
 
     /**
-     * Serviço destinado a retornar o resultado
-     * do processamento do lote de NF-e
+     * Serviço destinado a retornar o resultado do processamento do lote de NF-e
      *
      * @param nfeDadosMsg
      * @return returns br.inf.portalfiscal.nfe.wsdl.return_authorization.svan.hom.NfeResultMsg
      */
     @WebMethod(action = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeRetAutorizacao4/nfeRetAutorizacaoLote")
     @WebResult(name = "nfeResultMsg", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeRetAutorizacao4", partName = "nfeRetAutorizacaoLoteResult")
-    NfeResultMsg nfeRetAutorizacaoLote(
+    public NfeResultMsg nfeRetAutorizacaoLote(
             @WebParam(name = "nfeDadosMsg", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeRetAutorizacao4", partName = "nfeDadosMsg")
             NfeDadosMsg nfeDadosMsg);
 

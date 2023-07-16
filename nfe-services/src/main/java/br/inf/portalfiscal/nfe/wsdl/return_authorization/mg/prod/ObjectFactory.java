@@ -1,10 +1,6 @@
 package br.inf.portalfiscal.nfe.wsdl.return_authorization.mg.prod;
 
-import jakarta.xml.bind.JAXBElement;
-import jakarta.xml.bind.annotation.XmlElementDecl;
 import jakarta.xml.bind.annotation.XmlRegistry;
-
-import javax.xml.namespace.QName;
 
 
 /**
@@ -23,22 +19,11 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private static final QName _NfeDadosMsg_QNAME = new QName("http://www.portalfiscal.inf.br/nfe/wsdl/NFeRetAutorizacao4", "nfeDadosMsg");
-    private static final QName _NfeResultMsg_QNAME = new QName("http://www.portalfiscal.inf.br/nfe/wsdl/NFeRetAutorizacao4", "nfeResultMsg");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: br.inf.portalfiscal.nfe.wsdl.return_authorization.mg.prod
      */
     public ObjectFactory() {
-    }
-
-    /**
-     * Create an instance of {@link NFeRetAutorizacao4Result }
-     *
-     * @return the new instance of {@link NFeRetAutorizacao4Result }
-     */
-    public NFeRetAutorizacao4Result createNFeRetAutorizacao4Result() {
-        return new NFeRetAutorizacao4Result();
     }
 
     /**
@@ -51,25 +36,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link NfeDadosMsg }{@code >}
+     * Create an instance of {@link NfeResultMsg }
      *
-     * @param value Java instance representing xml element's value.
-     * @return the new instance of {@link JAXBElement }{@code <}{@link NfeDadosMsg }{@code >}
+     * @return the new instance of {@link NfeResultMsg }
      */
-    @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeRetAutorizacao4", name = "nfeDadosMsg")
-    public JAXBElement<NfeDadosMsg> createNfeDadosMsg(NfeDadosMsg value) {
-        return new JAXBElement<>(_NfeDadosMsg_QNAME, NfeDadosMsg.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link NFeRetAutorizacao4Result }{@code >}
-     *
-     * @param value Java instance representing xml element's value.
-     * @return the new instance of {@link JAXBElement }{@code <}{@link NFeRetAutorizacao4Result }{@code >}
-     */
-    @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeRetAutorizacao4", name = "nfeResultMsg")
-    public JAXBElement<NFeRetAutorizacao4Result> createNfeResultMsg(NFeRetAutorizacao4Result value) {
-        return new JAXBElement<>(_NfeResultMsg_QNAME, NFeRetAutorizacao4Result.class, null, value);
+    public NfeResultMsg createNfeResultMsg() {
+        return new NfeResultMsg();
     }
 
 }

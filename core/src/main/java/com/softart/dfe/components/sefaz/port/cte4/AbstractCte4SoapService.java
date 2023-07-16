@@ -33,8 +33,6 @@ public abstract class AbstractCte4SoapService extends AbstractSoapService implem
     private Object homQueryReceipt;
     private Object prodQuerySituation;
     private Object homQuerySituation;
-    private Object prodReception;
-    private Object homReception;
     private Object prodReceptionGtve;
     private Object homReceptionGtve;
     private Object prodReceptionOs;

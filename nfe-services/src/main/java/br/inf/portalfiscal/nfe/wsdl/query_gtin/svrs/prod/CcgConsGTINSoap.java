@@ -29,8 +29,8 @@ public interface CcgConsGTINSoap {
     @WebResult(name = "nfeResultMsg", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/ccgConsGtin")
     @RequestWrapper(localName = "ccgConsGTIN", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/ccgConsGtin", className = "br.inf.portalfiscal.nfe.wsdl.query_gtin.svrs.prod.CcgConsGTIN")
     @ResponseWrapper(localName = "ccgConsGTINResponse", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/ccgConsGtin", className = "br.inf.portalfiscal.nfe.wsdl.query_gtin.svrs.prod.CcgConsGTINResponse")
-    CcgConsGTINResponse.NfeResultMsg ccgConsGTIN(
+    public br.inf.portalfiscal.nfe.wsdl.query_gtin.svrs.prod.CcgConsGTINResponse.NfeResultMsg ccgConsGTIN(
             @WebParam(name = "nfeDadosMsg", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/ccgConsGtin")
-            CcgConsGTIN.NfeDadosMsg nfeDadosMsg);
+            br.inf.portalfiscal.nfe.wsdl.query_gtin.svrs.prod.CcgConsGTIN.NfeDadosMsg nfeDadosMsg);
 
 }

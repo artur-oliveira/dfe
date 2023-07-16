@@ -12,7 +12,7 @@ import java.net.URL;
  * XML-WS Tools 4.0.1
  * Generated source version: 3.0
  */
-@WebServiceClient(name = "CteRecepcao", targetNamespace = "http://www.portalfiscal.inf.br/cte/wsdl/CteRecepcao", wsdlLocation = "https://cte.svrs.rs.gov.br/ws/cterecepcao/CteRecepcao.asmx?wsdl")
+@WebServiceClient(name = "CteRecepcao", targetNamespace = "http://www.portalfiscal.inf.br/cte/wsdl/CteRecepcao", wsdlLocation = "https://cte.svrs.rs.gov.br/ws/cterecepcao/cteRecepcao.asmx?wsdl")
 public class CteRecepcao
         extends Service {
 
@@ -24,7 +24,7 @@ public class CteRecepcao
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("https://cte.svrs.rs.gov.br/ws/cterecepcao/CteRecepcao.asmx?wsdl");
+            url = new URL("https://cte.svrs.rs.gov.br/ws/cterecepcao/cteRecepcao.asmx?wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }
@@ -56,6 +56,13 @@ public class CteRecepcao
         super(wsdlLocation, serviceName, features);
     }
 
+    private static URL __getWsdlLocation() {
+        if (CTERECEPCAO_EXCEPTION != null) {
+            throw CTERECEPCAO_EXCEPTION;
+        }
+        return CTERECEPCAO_WSDL_LOCATION;
+    }
+
     /**
      * @return returns CteRecepcaoSoap12
      */
@@ -65,19 +72,12 @@ public class CteRecepcao
     }
 
     /**
-     * @param features A list of {@link WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
+     * @param features A list of {@link jakarta.xml.ws.WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
      * @return returns CteRecepcaoSoap12
      */
     @WebEndpoint(name = "CteRecepcaoSoap12")
     public CteRecepcaoSoap12 getCteRecepcaoSoap12(WebServiceFeature... features) {
         return super.getPort(new QName("http://www.portalfiscal.inf.br/cte/wsdl/CteRecepcao", "CteRecepcaoSoap12"), CteRecepcaoSoap12.class, features);
-    }
-
-    private static URL __getWsdlLocation() {
-        if (CTERECEPCAO_EXCEPTION != null) {
-            throw CTERECEPCAO_EXCEPTION;
-        }
-        return CTERECEPCAO_WSDL_LOCATION;
     }
 
 }

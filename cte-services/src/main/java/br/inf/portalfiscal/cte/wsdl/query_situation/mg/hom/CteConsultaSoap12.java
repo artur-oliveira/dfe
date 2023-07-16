@@ -6,6 +6,7 @@ import jakarta.jws.WebResult;
 import jakarta.jws.WebService;
 import jakarta.jws.soap.SOAPBinding;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
+import jakarta.xml.ws.Action;
 import jakarta.xml.ws.Holder;
 
 
@@ -23,18 +24,17 @@ public interface CteConsultaSoap12 {
 
 
     /**
-     * Consulta situaÃ§Ã£o atual da CT-e
-     *
+     * @param cteCabecMsg
      * @param cteDadosMsg
      * @return returns br.inf.portalfiscal.cte.wsdl.query_situation.mg.hom.CteConsultaCTResult
      */
     @WebMethod(action = "http://www.portalfiscal.inf.br/cte/wsdl/CteConsulta/cteConsultaCT")
     @WebResult(name = "cteConsultaCTResult", targetNamespace = "http://www.portalfiscal.inf.br/cte/wsdl/CteConsulta", partName = "cteConsultaCTResult")
-    CteConsultaCTResult cteConsultaCT(
+    @Action(input = "http://www.portalfiscal.inf.br/cte/wsdl/CteConsulta/cteConsultaCT", output = "http://www.portalfiscal.inf.br/cte/wsdl/CteConsulta/CteConsultaSoap12/cteConsultaCTResponse")
+    public CteConsultaCTResult cteConsultaCT(
             @WebParam(name = "cteDadosMsg", targetNamespace = "http://www.portalfiscal.inf.br/cte/wsdl/CteConsulta", partName = "cteDadosMsg")
             CteDadosMsg cteDadosMsg,
             @WebParam(name = "cteCabecMsg", targetNamespace = "http://www.portalfiscal.inf.br/cte/wsdl/CteConsulta", header = true, mode = WebParam.Mode.INOUT, partName = "cteCabecMsg")
-            Holder<CteCabecMsg> cteCabecMsg
-            );
+            Holder<CteCabecMsg> cteCabecMsg);
 
 }

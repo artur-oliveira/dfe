@@ -23,14 +23,14 @@ public interface CTeDistribuicaoDFeSoap {
 
     /**
      * @param cteDadosMsg
-     * @return returns br.inf.portalfiscal.cte.wsdl.distribution.an.hom.CteDistDFeInteresseResponse.CteDistDFeInteresseResult
+     * @return returns br.inf.portalfiscal.cte4.wsdl.distribution.an.hom.CteDistDFeInteresseResponse.CteDistDFeInteresseResult
      */
     @WebMethod(action = "http://www.portalfiscal.inf.br/cte/wsdl/CTeDistribuicaoDFe/cteDistDFeInteresse")
     @WebResult(name = "cteDistDFeInteresseResult", targetNamespace = "http://www.portalfiscal.inf.br/cte/wsdl/CTeDistribuicaoDFe")
-    @RequestWrapper(localName = "cteDistDFeInteresse", targetNamespace = "http://www.portalfiscal.inf.br/cte/wsdl/CTeDistribuicaoDFe", className = "br.inf.portalfiscal.cte.wsdl.distribution.an.hom.CteDistDFeInteresse")
-    @ResponseWrapper(localName = "cteDistDFeInteresseResponse", targetNamespace = "http://www.portalfiscal.inf.br/cte/wsdl/CTeDistribuicaoDFe", className = "br.inf.portalfiscal.cte.wsdl.distribution.an.hom.CteDistDFeInteresseResponse")
-    CteDistDFeInteresseResponse.CteDistDFeInteresseResult cteDistDFeInteresse(
+    @RequestWrapper(localName = "cteDistDFeInteresse", targetNamespace = "http://www.portalfiscal.inf.br/cte/wsdl/CTeDistribuicaoDFe", className = "br.inf.portalfiscal.cte4.wsdl.distribution.an.hom.CteDistDFeInteresse")
+    @ResponseWrapper(localName = "cteDistDFeInteresseResponse", targetNamespace = "http://www.portalfiscal.inf.br/cte/wsdl/CTeDistribuicaoDFe", className = "br.inf.portalfiscal.cte4.wsdl.distribution.an.hom.CteDistDFeInteresseResponse")
+    public br.inf.portalfiscal.cte4.wsdl.distribution.an.hom.CteDistDFeInteresseResponse.CteDistDFeInteresseResult cteDistDFeInteresse(
             @WebParam(name = "cteDadosMsg", targetNamespace = "http://www.portalfiscal.inf.br/cte/wsdl/CTeDistribuicaoDFe")
-            CteDistDFeInteresse.CteDadosMsg cteDadosMsg);
+            br.inf.portalfiscal.cte4.wsdl.distribution.an.hom.CteDistDFeInteresse.CteDadosMsg cteDadosMsg);
 
 }

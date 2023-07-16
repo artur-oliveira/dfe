@@ -1,130 +1,124 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions targetNamespace="http://www.portalfiscal.inf.br/cte/wsdl/CteRetRecepcao"
-                  xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
-                  xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-                  xmlns:tns="http://www.portalfiscal.inf.br/cte/wsdl/CteRetRecepcao"
-                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions targetNamespace="http://www.portalfiscal.inf.br/cte/wsdl/CteRetRecepcao" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:tns="http://www.portalfiscal.inf.br/cte/wsdl/CteRetRecepcao" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
 
-    <wsdl:types>
+   <wsdl:types>
 
-        <s:schema elementFormDefault="qualified"
-                  targetNamespace="http://www.portalfiscal.inf.br/cte/wsdl/CteRetRecepcao">
+      <s:schema elementFormDefault="qualified" targetNamespace="http://www.portalfiscal.inf.br/cte/wsdl/CteRetRecepcao">
 
-            <s:element name="cteDadosMsg">
+         <s:element name="cteDadosMsg">
 
-                <s:complexType mixed="true">
+            <s:complexType mixed="true">
 
-                    <s:sequence>
+               <s:sequence>
 
-                        <s:any/>
+                  <s:any/>
 
-                    </s:sequence>
-
-                </s:complexType>
-
-            </s:element>
-
-            <s:element name="cteRetRecepcaoResult">
-
-                <s:complexType mixed="true">
-
-                    <s:sequence>
-
-                        <s:any/>
-
-                    </s:sequence>
-
-                </s:complexType>
-
-            </s:element>
-
-            <s:element name="cteCabecMsg" type="tns:cteCabecMsg"/>
-
-            <s:complexType name="cteCabecMsg">
-
-                <s:sequence>
-
-                    <s:element maxOccurs="1" minOccurs="0" name="cUF" type="s:string"/>
-
-                    <s:element maxOccurs="1" minOccurs="0" name="versaoDados" type="s:string"/>
-
-                </s:sequence>
-
-                <s:anyAttribute/>
+               </s:sequence>
 
             </s:complexType>
 
-        </s:schema>
+         </s:element>
 
-    </wsdl:types>
+         <s:element name="cteRetRecepcaoResult">
 
-    <wsdl:message name="cteRetRecepcaoSoap12In">
+            <s:complexType mixed="true">
 
-        <wsdl:part element="tns:cteDadosMsg" name="cteDadosMsg"/>
+               <s:sequence>
 
-    </wsdl:message>
+                  <s:any/>
 
-    <wsdl:message name="cteRetRecepcaoSoap12Out">
+               </s:sequence>
 
-        <wsdl:part element="tns:cteRetRecepcaoResult" name="cteRetRecepcaoResult"/>
+            </s:complexType>
 
-    </wsdl:message>
+         </s:element>
 
-    <wsdl:message name="cteRetRecepcaocteCabecMsg">
+         <s:element name="cteCabecMsg" type="tns:cteCabecMsg"/>
 
-        <wsdl:part element="tns:cteCabecMsg" name="cteCabecMsg"/>
+         <s:complexType name="cteCabecMsg">
 
-    </wsdl:message>
+            <s:sequence>
 
-    <wsdl:portType name="CteRetRecepcaoSoap12">
+               <s:element maxOccurs="1" minOccurs="0" name="cUF" type="s:string"/>
 
-        <wsdl:operation name="cteRetRecepcao">
+               <s:element maxOccurs="1" minOccurs="0" name="versaoDados" type="s:string"/>
 
-            <wsdl:input message="tns:cteRetRecepcaoSoap12In"/>
+            </s:sequence>
 
-            <wsdl:output message="tns:cteRetRecepcaoSoap12Out"/>
+            <s:anyAttribute/>
 
-        </wsdl:operation>
+         </s:complexType>
 
-    </wsdl:portType>
+      </s:schema>
 
-    <wsdl:binding name="CteRetRecepcaoSoap12" type="tns:CteRetRecepcaoSoap12">
+   </wsdl:types>
 
-        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+   <wsdl:message name="cteRetRecepcaoSoap12In">
 
-        <wsdl:operation name="cteRetRecepcao">
+      <wsdl:part element="tns:cteDadosMsg" name="cteDadosMsg"/>
 
-            <soap12:operation soapAction="http://www.portalfiscal.inf.br/cte/wsdl/CteRetRecepcao/cteRetRecepcao"
-                              style="document"/>
+   </wsdl:message>
 
-            <wsdl:input>
+   <wsdl:message name="cteRetRecepcaoSoap12Out">
 
-                <soap12:body use="literal"/>
+      <wsdl:part element="tns:cteRetRecepcaoResult" name="cteRetRecepcaoResult"/>
 
-                <soap12:header message="tns:cteRetRecepcaocteCabecMsg" part="cteCabecMsg" use="literal"/>
+   </wsdl:message>
 
-            </wsdl:input>
+   <wsdl:message name="cteRetRecepcaocteCabecMsg">
 
-            <wsdl:output>
+      <wsdl:part element="tns:cteCabecMsg" name="cteCabecMsg"/>
 
-                <soap12:body use="literal"/>
+   </wsdl:message>
 
-                <soap12:header message="tns:cteRetRecepcaocteCabecMsg" part="cteCabecMsg" use="literal"/>
+   <wsdl:portType name="CteRetRecepcaoSoap12">
 
-            </wsdl:output>
+      <wsdl:operation name="cteRetRecepcao">
 
-        </wsdl:operation>
+         <wsdl:input message="tns:cteRetRecepcaoSoap12In"/>
 
-    </wsdl:binding>
+         <wsdl:output message="tns:cteRetRecepcaoSoap12Out"/>
 
-    <wsdl:service name="CteRetRecepcao">
+      </wsdl:operation>
 
-        <wsdl:port binding="tns:CteRetRecepcaoSoap12" name="CteRetRecepcaoSoap12">
+   </wsdl:portType>
 
-            <soap12:address location="http://www.sefaz.mt.gov.br/ctews/services/CteRetRecepcao"/>
+   <wsdl:binding name="CteRetRecepcaoSoap12" type="tns:CteRetRecepcaoSoap12">
 
-        </wsdl:port>
+      <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
 
-    </wsdl:service>
+      <wsdl:operation name="cteRetRecepcao">
+
+         <soap12:operation soapAction="http://www.portalfiscal.inf.br/cte/wsdl/CteRetRecepcao/cteRetRecepcao" style="document"/>
+
+         <wsdl:input>
+
+            <soap12:body use="literal"/>
+
+            <soap12:header message="tns:cteRetRecepcaocteCabecMsg" part="cteCabecMsg" use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output>
+
+            <soap12:body use="literal"/>
+
+            <soap12:header message="tns:cteRetRecepcaocteCabecMsg" part="cteCabecMsg" use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="CteRetRecepcao">
+
+      <wsdl:port binding="tns:CteRetRecepcaoSoap12" name="CteRetRecepcaoSoap12">
+
+         <soap12:address location="http://www.sefaz.mt.gov.br/ctews/services/CteRetRecepcao"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
 
 </wsdl:definitions>

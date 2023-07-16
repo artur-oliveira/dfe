@@ -12,7 +12,7 @@ import java.net.URL;
  * XML-WS Tools 4.0.1
  * Generated source version: 3.0
  */
-@WebServiceClient(name = "CteRecepcaoSinc", targetNamespace = "http://www.portalfiscal.inf.br/cte/wsdl/CteRecepcaoSinc", wsdlLocation = "https://cte-homologacao.svrs.rs.gov.br/ws/CTeRecepcaoSinc/CTeRecepcaosinc.asmx?wsdl")
+@WebServiceClient(name = "CteRecepcaoSinc", targetNamespace = "http://www.portalfiscal.inf.br/cte/wsdl/CteRecepcaoSinc", wsdlLocation = "https://cte-homologacao.svrs.rs.gov.br/ws/CTeRecepcaoSinc/CTeRecepcaoSinc.asmx?wsdl")
 public class CteRecepcaoSinc
         extends Service {
 
@@ -24,7 +24,7 @@ public class CteRecepcaoSinc
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("https://cte-homologacao.svrs.rs.gov.br/ws/CTeRecepcaoSinc/CTeRecepcaosinc.asmx?wsdl");
+            url = new URL("https://cte-homologacao.svrs.rs.gov.br/ws/CTeRecepcaoSinc/CTeRecepcaoSinc.asmx?wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }
@@ -56,6 +56,13 @@ public class CteRecepcaoSinc
         super(wsdlLocation, serviceName, features);
     }
 
+    private static URL __getWsdlLocation() {
+        if (CTERECEPCAOSINC_EXCEPTION != null) {
+            throw CTERECEPCAOSINC_EXCEPTION;
+        }
+        return CTERECEPCAOSINC_WSDL_LOCATION;
+    }
+
     /**
      * @return returns CteRecepcaoSincSoap12
      */
@@ -65,19 +72,12 @@ public class CteRecepcaoSinc
     }
 
     /**
-     * @param features A list of {@link WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
+     * @param features A list of {@link jakarta.xml.ws.WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
      * @return returns CteRecepcaoSincSoap12
      */
     @WebEndpoint(name = "CteRecepcaoSincSoap12")
     public CteRecepcaoSincSoap12 getCteRecepcaoSincSoap12(WebServiceFeature... features) {
         return super.getPort(new QName("http://www.portalfiscal.inf.br/cte/wsdl/CteRecepcaoSinc", "CteRecepcaoSincSoap12"), CteRecepcaoSincSoap12.class, features);
-    }
-
-    private static URL __getWsdlLocation() {
-        if (CTERECEPCAOSINC_EXCEPTION != null) {
-            throw CTERECEPCAOSINC_EXCEPTION;
-        }
-        return CTERECEPCAOSINC_WSDL_LOCATION;
     }
 
 }

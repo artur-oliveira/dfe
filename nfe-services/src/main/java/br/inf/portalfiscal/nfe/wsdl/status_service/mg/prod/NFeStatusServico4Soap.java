@@ -6,6 +6,7 @@ import jakarta.jws.WebResult;
 import jakarta.jws.WebService;
 import jakarta.jws.soap.SOAPBinding;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
+import jakarta.xml.ws.Action;
 
 
 /**
@@ -23,11 +24,12 @@ public interface NFeStatusServico4Soap {
 
     /**
      * @param nfeDadosMsg
-     * @return returns br.inf.portalfiscal.nfe.wsdl.status_service.mg.prod.NFeStatusServico4Result
+     * @return returns br.inf.portalfiscal.nfe.wsdl.status_service.mg.prod.NfeResultMsg
      */
     @WebMethod(action = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeStatusServico4/nfeStatusServicoNF")
-    @WebResult(name = "nfeResultMsg", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeStatusServico4", partName = "nfeResultMsg")
-    NFeStatusServico4Result nfeStatusServicoNF(
+    @WebResult(name = "nfeResultMsg", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeStatusServico4", partName = "nfeStatusServicoNFResult")
+    @Action(input = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeStatusServico4/nfeStatusServicoNF", output = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeStatusServico4/NFeStatusServico4Soap/nfeStatusServicoNFResponse")
+    public NfeResultMsg nfeStatusServicoNF(
             @WebParam(name = "nfeDadosMsg", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeStatusServico4", partName = "nfeDadosMsg")
             NfeDadosMsg nfeDadosMsg);
 

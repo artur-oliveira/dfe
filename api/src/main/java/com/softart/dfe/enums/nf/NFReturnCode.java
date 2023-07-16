@@ -22,6 +22,7 @@ public enum NFReturnCode implements ReturnCode {
     CODE_110("110", "Uso Denegado"),
     CODE_111("111", "Consulta cadastro com uma ocorrência"),
     CODE_112("112", "Consulta cadastro com mais de uma ocorrência"),
+    CODE_114("114", "SVC desabilitado pela SEFAZ-Origem"),
     CODE_124("124", "EPEC Autorizado"),
     CODE_128("128", "Lote de Evento Processado"),
     CODE_135("135", "Evento registrado e vinculado a NF-e"),

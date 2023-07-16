@@ -229,7 +229,7 @@ class NfeCancelServiceImplTest {
         );
         ReturnNfeCancel o = service.cancel("22230511520224000140550010000450661287506862", "999999999999999", NFEvent.CANCEL.getDefaultMessage());
         assertNotNull(o);
-//        assertEquals(1, o.getRetEvento().size());
+        assertEquals(1, o.getRetEvento().size());
         assertEquals(NFEvent.CANCEL.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
         assertEquals(UF.MT.getCode(), o.getCOrgao());
         assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());

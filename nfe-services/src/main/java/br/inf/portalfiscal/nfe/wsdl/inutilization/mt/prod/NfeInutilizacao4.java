@@ -56,6 +56,13 @@ public class NfeInutilizacao4
         super(wsdlLocation, serviceName, features);
     }
 
+    private static URL __getWsdlLocation() {
+        if (NFEINUTILIZACAO4_EXCEPTION != null) {
+            throw NFEINUTILIZACAO4_EXCEPTION;
+        }
+        return NFEINUTILIZACAO4_WSDL_LOCATION;
+    }
+
     /**
      * @return returns NfeInutilizacao4Soap
      */
@@ -65,7 +72,7 @@ public class NfeInutilizacao4
     }
 
     /**
-     * @param features A list of {@link WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
+     * @param features A list of {@link jakarta.xml.ws.WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
      * @return returns NfeInutilizacao4Soap
      */
     @WebEndpoint(name = "NfeInutilizacao4Soap12")
@@ -82,19 +89,12 @@ public class NfeInutilizacao4
     }
 
     /**
-     * @param features A list of {@link WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
+     * @param features A list of {@link jakarta.xml.ws.WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
      * @return returns NfeInutilizacao4Soap
      */
     @WebEndpoint(name = "NfeInutilizacao4Soap")
     public NfeInutilizacao4Soap getNfeInutilizacao4Soap(WebServiceFeature... features) {
         return super.getPort(new QName("http://www.portalfiscal.inf.br/nfe/wsdl/NFeInutilizacao4", "NfeInutilizacao4Soap"), NfeInutilizacao4Soap.class, features);
-    }
-
-    private static URL __getWsdlLocation() {
-        if (NFEINUTILIZACAO4_EXCEPTION != null) {
-            throw NFEINUTILIZACAO4_EXCEPTION;
-        }
-        return NFEINUTILIZACAO4_WSDL_LOCATION;
     }
 
 }

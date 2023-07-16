@@ -6,27 +6,27 @@ import com.softart.dfe.exceptions.security.SecurityException;
 import com.softart.dfe.interfaces.internal.config.Config;
 import com.softart.dfe.models.internal.wsdl.ProviderConfig;
 import jakarta.xml.ws.BindingProvider;
-import jakarta.xml.ws.handler.soap.SOAPHandler;
 import lombok.AccessLevel;
 import lombok.Getter;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Objects;
+import java.util.Optional;
 
 @Getter(AccessLevel.PRIVATE)
 final class DefaultConfigureProviderFactory extends ConfigureProviderFactory {
 
     public static final int TIMEOUT_IN_SECS = Integer.parseInt(System.getProperty("com.softart.dfe.ws.timeout", "60"));
-    private static final String SOCKET_FACTORY = "com.sun.xml.internal.ws.transport.https.client.SSLSocketFactory";
+    private static final String SOCKET_FACTORY = "com.sun.xml.ws.transport.https.client.SSLSocketFactory";
     private static final String ENDPOINT_ADDRESS = "jakarta.xml.ws.service.endpoint.address";
-    private static final String CONNECT_TIMEOUT = "com.sun.xml.internal.ws.connect.timeout";
-    private static final String REQUEST_TIMEOUT = "com.sun.xml.internal.ws.request.timeout";
+    private static final String CONNECT_TIMEOUT = "com.sun.xml.ws.connect.timeout";
+    private static final String REQUEST_TIMEOUT = "com.sun.xml.ws.request.timeout";
 
     static {
         System.setProperty("sun.net.client.defaultReadTimeout", Objects.toString(TIMEOUT_IN_SECS * 1000));
         System.setProperty("sun.net.client.defaultConnectTimeout", Objects.toString(TIMEOUT_IN_SECS * 1000));
     }
-
-    private final List<SOAPHandler<?>> handlers = Collections.singletonList(new CustomSoapHandler());
 
     public DefaultConfigureProviderFactory() {
     }
@@ -51,6 +51,25 @@ final class DefaultConfigureProviderFactory extends ConfigureProviderFactory {
         config.port().getRequestContext().put(ENDPOINT_ADDRESS, Optional.ofNullable(config.overridePortAddress()).orElseGet(() -> config.port().getRequestContext().get(ENDPOINT_ADDRESS).toString().replace(":80/", "/").replace("http://", "https://")));
     }
 
+    static void enableDebug() {
+        System.setProperty("com.sun.xml.ws.transport.http.client.HttpTransportPipe.dump", "true");
+        System.setProperty("com.sun.xml.ws.transport.http.HttpAdapter.dump", "true");
+        System.setProperty("com.sun.xml.internal.ws.transport.http.HttpAdapter.dumpTreshold", "999999");
+    }
+
+    static void disableDebug() {
+        System.setProperty("com.sun.xml.ws.transport.http.client.HttpTransportPipe.dump", "false");
+        System.setProperty("com.sun.xml.ws.transport.http.HttpAdapter.dump", "false");
+    }
+
+    private void debug(ProviderConfig config) {
+        if (config.debugMode()) {
+            enableDebug();
+        } else {
+            disableDebug();
+        }
+    }
+
     /**
      * Set the timeout for the request to the value of the `DefaultConfigureProviderFactory.TIMEOUT_IN_SECS` constant
      *
@@ -61,20 +80,23 @@ final class DefaultConfigureProviderFactory extends ConfigureProviderFactory {
         port.getRequestContext().put(REQUEST_TIMEOUT, DefaultConfigureProviderFactory.TIMEOUT_IN_SECS * 1000);
     }
 
+
     /**
-     * Set the handler chain for the binding to the list of handlers.
+     * The function sets a custom SOAP handler for the binding of a provider configuration.
      *
-     * @param ws The web service client object
+     * @param config The "config" parameter is an instance of the ProviderConfig class. It is used to configure the
+     *               provider side of a SOAP web service.
      */
-    private void handler(BindingProvider ws) {
-        ws.getBinding().setHandlerChain(new ArrayList<>(getHandlers()));
+    private void handler(ProviderConfig config) {
+        config.port().getBinding().setHandlerChain(new ArrayList<>(Collections.singletonList(new CustomSoapHandler(config.customResponseNodeCleaners()))));
     }
 
     @Override
     public void configure(ProviderConfig config) throws SecurityException {
         context(config.port(), config.config());
         timeout(config.port());
-        handler(config.port());
+        handler(config);
         useHttps(config);
+        debug(config);
     }
 }

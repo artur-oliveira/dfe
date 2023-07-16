@@ -28,7 +28,6 @@ public abstract class PfxConfigImpl implements Config {
         this.cnpj = cnpj;
         this.environment = environment;
         this.info = info;
-        HttpsURLConnection.setDefaultSSLSocketFactory(SocketFactory.getInstance().context(this).getSocketFactory());
     }
 
     @Override

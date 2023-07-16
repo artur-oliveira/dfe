@@ -22,15 +22,14 @@ public interface NFeStatusServico4Soap {
 
 
     /**
-     * Serviço destinado à consulta do status do
-     * serviço da NF-e.
+     * Serviço destinado à consulta do status do serviço da NF-e.
      *
      * @param nfeDadosMsg
      * @return returns br.inf.portalfiscal.nfe.wsdl.status_service.ba.prod.NfeResultMsg
      */
     @WebMethod(action = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeStatusServico4/nfeStatusServicoNF")
     @WebResult(name = "nfeResultMsg", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeStatusServico4", partName = "nfeStatusServicoNFResult")
-    NfeResultMsg nfeStatusServicoNF(
+    public NfeResultMsg nfeStatusServicoNF(
             @WebParam(name = "nfeDadosMsg", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeStatusServico4", partName = "nfeDadosMsg")
             NfeDadosMsg nfeDadosMsg);
 

@@ -6,6 +6,7 @@ import jakarta.jws.WebResult;
 import jakarta.jws.WebService;
 import jakarta.jws.soap.SOAPBinding;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
+import jakarta.xml.ws.Action;
 import jakarta.xml.ws.Holder;
 
 
@@ -25,11 +26,12 @@ public interface CadConsultaCadastro4Soap {
     /**
      * @param nfeCabecMsg
      * @param nfeDadosMsg
-     * @return returns br.inf.portalfiscal.nfe.wsdl.query_register.mg.prod.ConsultaCadastro4Result
+     * @return returns br.inf.portalfiscal.nfe.wsdl.query_register.mg.hom.ConsultaCadastro4Result
      */
     @WebMethod(action = "http://www.portalfiscal.inf.br/nfe/wsdl/CadConsultaCadastro4/consultaCadastro")
     @WebResult(name = "consultaCadastro4Result", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/CadConsultaCadastro4", partName = "consultaCadastro4Result")
-    ConsultaCadastro4Result consultaCadastro(
+    @Action(input = "http://www.portalfiscal.inf.br/nfe/wsdl/CadConsultaCadastro4/consultaCadastro", output = "http://www.portalfiscal.inf.br/nfe/wsdl/CadConsultaCadastro4/CadConsultaCadastro4Soap/consultaCadastroResponse")
+    public ConsultaCadastro4Result consultaCadastro(
             @WebParam(name = "nfeDadosMsg", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/CadConsultaCadastro4", partName = "nfeDadosMsg")
             NfeDadosMsg nfeDadosMsg,
             @WebParam(name = "nfeCabecMsg", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/CadConsultaCadastro4", header = true, mode = WebParam.Mode.INOUT, partName = "nfeCabecMsg")

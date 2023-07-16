@@ -22,16 +22,14 @@ public interface NFeConsultaProtocolo4Soap {
 
 
     /**
-     * Serviço destinado ao atendimento de
-     * solicitações de consulta da situação atual da NF-e na Base de Dados do Portal da Sefaz Virtual do
-     * Ambiente Nacional
+     * Serviço destinado ao atendimento de solicitações de consulta da situação atual da NF-e na Base de Dados do Portal da Sefaz Virtual do Ambiente Nacional
      *
      * @param nfeDadosMsg
      * @return returns br.inf.portalfiscal.nfe.wsdl.query_protocol.svan.hom.NfeResultMsg
      */
     @WebMethod(action = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeConsultaProtocolo4/nfeConsultaNF")
     @WebResult(name = "nfeResultMsg", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeConsultaProtocolo4", partName = "nfeConsultaNFResult")
-    NfeResultMsg nfeConsultaNF(
+    public NfeResultMsg nfeConsultaNF(
             @WebParam(name = "nfeDadosMsg", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeConsultaProtocolo4", partName = "nfeDadosMsg")
             NfeDadosMsg nfeDadosMsg);
 

@@ -1,12 +1,18 @@
-<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema"
-                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-                  xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-                  xmlns:tns="http://www.portalfiscal.inf.br/nfe/wsdl/NFeStatusServico4"
-                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-                  targetNamespace="http://www.portalfiscal.inf.br/nfe/wsdl/NFeStatusServico4">
+<wsdl:definitions
+    
+     targetNamespace="http://www.portalfiscal.inf.br/nfe/wsdl/NFeStatusServico4"
+     xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+     xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+     xmlns:s="http://www.w3.org/2001/XMLSchema"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+     xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+     xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+     xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/"
+     xmlns:tns="http://www.portalfiscal.inf.br/nfe/wsdl/NFeStatusServico4"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
     <wsdl:types>
-        <s:schema elementFormDefault="qualified"
-                  targetNamespace="http://www.portalfiscal.inf.br/nfe/wsdl/NFeStatusServico4">
+        <s:schema elementFormDefault="qualified" targetNamespace="http://www.portalfiscal.inf.br/nfe/wsdl/NFeStatusServico4">
             <s:element name="nfeDadosMsg">
                 <s:complexType mixed="true">
                     <s:sequence>
@@ -38,8 +44,7 @@
     <wsdl:binding name="NfeStatusServico4Soap" type="tns:NfeStatusServico4Soap">
         <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
         <wsdl:operation name="nfeStatusServicoNF">
-            <soap:operation style="document"
-                            soapAction="http://www.portalfiscal.inf.br/nfe/wsdl/NFeStatusServico4/nfeStatusServicoNF"/>
+            <soap:operation style="document" soapAction="http://www.portalfiscal.inf.br/nfe/wsdl/NFeStatusServico4/nfeStatusServicoNF"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -51,9 +56,8 @@
     <wsdl:binding name="NfeStatusServico4Soap12" type="tns:NfeStatusServico4Soap">
         <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
         <wsdl:operation name="nfeStatusServicoNF">
-            <soap12:operation style="document"
-                              soapAction="http://www.portalfiscal.inf.br/nfe/wsdl/NFeStatusServico4/nfeStatusServicoNF"
-                              soapActionRequired="false"/>
+            <soap12:operation style="document" soapAction="http://www.portalfiscal.inf.br/nfe/wsdl/NFeStatusServico4/nfeStatusServicoNF"
+                 soapActionRequired="false"/>
             <wsdl:input>
                 <soap12:body use="literal"/>
             </wsdl:input>

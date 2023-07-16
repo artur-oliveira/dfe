@@ -28,6 +28,7 @@ import java.util.List;
 @XmlType(name = "", propOrder = {
         "content"
 })
+@XmlRootElement(name = "nfeDadosMsg")
 public class NfeDadosMsg {
 
     @XmlMixed

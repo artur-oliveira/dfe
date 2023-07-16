@@ -40,15 +40,15 @@ import java.util.List;
 @XmlRootElement(name = "cteDistDFeInteresseResponse")
 public class CteDistDFeInteresseResponse {
 
-    protected CteDistDFeInteresseResult cteDistDFeInteresseResult;
+    protected CteDistDFeInteresseResponse.CteDistDFeInteresseResult cteDistDFeInteresseResult;
 
     /**
      * Gets the value of the cteDistDFeInteresseResult property.
      *
      * @return possible object is
-     * {@link CteDistDFeInteresseResult }
+     * {@link CteDistDFeInteresseResponse.CteDistDFeInteresseResult }
      */
-    public CteDistDFeInteresseResult getCteDistDFeInteresseResult() {
+    public CteDistDFeInteresseResponse.CteDistDFeInteresseResult getCteDistDFeInteresseResult() {
         return cteDistDFeInteresseResult;
     }
 
@@ -56,9 +56,9 @@ public class CteDistDFeInteresseResponse {
      * Sets the value of the cteDistDFeInteresseResult property.
      *
      * @param value allowed object is
-     *              {@link CteDistDFeInteresseResult }
+     *              {@link CteDistDFeInteresseResponse.CteDistDFeInteresseResult }
      */
-    public void setCteDistDFeInteresseResult(CteDistDFeInteresseResult value) {
+    public void setCteDistDFeInteresseResult(CteDistDFeInteresseResponse.CteDistDFeInteresseResult value) {
         this.cteDistDFeInteresseResult = value;
     }
 

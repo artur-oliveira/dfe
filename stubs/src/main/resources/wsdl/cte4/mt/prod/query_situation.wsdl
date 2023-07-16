@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <definitions
-
-        targetNamespace="http://www.portalfiscal.inf.br/cte/wsdl/CTeConsultaV4"
-        xmlns="http://schemas.xmlsoap.org/wsdl/"
-        xmlns:tns="http://www.portalfiscal.inf.br/cte/wsdl/CTeConsultaV4"
-        xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/"
-        xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-        xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
-        xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
-        xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
-        xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-        xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-        xmlns:s="http://www.w3.org/2001/XMLSchema"
->
+    
+     targetNamespace="http://www.portalfiscal.inf.br/cte/wsdl/CTeConsultaV4"
+     xmlns="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:tns="http://www.portalfiscal.inf.br/cte/wsdl/CTeConsultaV4"
+     xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/"
+     xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+     xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+     xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+     xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:s="http://www.w3.org/2001/XMLSchema"
+    >
     <types>
-        <s:schema elementFormDefault="qualified"
-                  targetNamespace="http://www.portalfiscal.inf.br/cte/wsdl/CTeConsultaV4">
+        <s:schema elementFormDefault="qualified" targetNamespace="http://www.portalfiscal.inf.br/cte/wsdl/CTeConsultaV4">
             <s:element name="cteDadosMsg">
                 <s:complexType mixed="true">
                     <s:sequence>
@@ -47,9 +46,8 @@
     <binding name="CteConsultaSoap12" type="tns:CteConsultaSoap12">
         <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
         <operation name="cteConsulta">
-            <soap12:operation style="document"
-                              soapAction="http://www.portalfiscal.inf.br/cte/wsdl/CteConsulta/CTeConsultaV4"
-                              soapActionRequired="false"/>
+            <soap12:operation style="document" soapAction="http://www.portalfiscal.inf.br/cte/wsdl/CteConsulta/CTeConsultaV4"
+                 soapActionRequired="false"/>
             <input>
                 <soap12:body use="literal"/>
             </input>

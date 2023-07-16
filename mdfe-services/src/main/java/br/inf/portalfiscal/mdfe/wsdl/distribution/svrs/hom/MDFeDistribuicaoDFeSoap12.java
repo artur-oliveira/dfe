@@ -16,7 +16,7 @@ import jakarta.xml.bind.annotation.XmlSeeAlso;
 @WebService(name = "MDFeDistribuicaoDFeSoap12", targetNamespace = "http://www.portalfiscal.inf.br/mdfe/wsdl/MDFeDistribuicaoDFe")
 @SOAPBinding(parameterStyle = SOAPBinding.ParameterStyle.BARE)
 @XmlSeeAlso({
-        ObjectFactory.class, br.inf.portalfiscal.mdfe.classes.ObjectFactory.class
+        ObjectFactory.class, br.inf.portalfiscal.mdfe.distribution.ObjectFactory.class
 })
 public interface MDFeDistribuicaoDFeSoap12 {
 
@@ -27,7 +27,7 @@ public interface MDFeDistribuicaoDFeSoap12 {
      */
     @WebMethod(action = "http://www.portalfiscal.inf.br/mdfe/wsdl/MDFeDistribuicaoDFe/mdfeDistDFeInteresse")
     @WebResult(name = "mdfeDistDFeInteresseResult", targetNamespace = "http://www.portalfiscal.inf.br/mdfe/wsdl/MDFeDistribuicaoDFe", partName = "mdfeDistDFeInteresseResult")
-    MdfeDistDFeInteresseResult mdfeDistDFeInteresse(
+    public MdfeDistDFeInteresseResult mdfeDistDFeInteresse(
             @WebParam(name = "mdfeDadosMsg", targetNamespace = "http://www.portalfiscal.inf.br/mdfe/wsdl/MDFeDistribuicaoDFe", partName = "mdfeDadosMsg")
             MdfeDadosMsg mdfeDadosMsg);
 

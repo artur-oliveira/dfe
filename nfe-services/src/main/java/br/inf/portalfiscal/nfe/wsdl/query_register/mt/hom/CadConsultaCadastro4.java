@@ -56,6 +56,13 @@ public class CadConsultaCadastro4
         super(wsdlLocation, serviceName, features);
     }
 
+    private static URL __getWsdlLocation() {
+        if (CADCONSULTACADASTRO4_EXCEPTION != null) {
+            throw CADCONSULTACADASTRO4_EXCEPTION;
+        }
+        return CADCONSULTACADASTRO4_WSDL_LOCATION;
+    }
+
     /**
      * @return returns CadConsultaCadastro4Soap12
      */
@@ -65,19 +72,12 @@ public class CadConsultaCadastro4
     }
 
     /**
-     * @param features A list of {@link WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
+     * @param features A list of {@link jakarta.xml.ws.WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
      * @return returns CadConsultaCadastro4Soap12
      */
     @WebEndpoint(name = "CadConsultaCadastro4Soap12")
     public CadConsultaCadastro4Soap12 getCadConsultaCadastro4Soap12(WebServiceFeature... features) {
         return super.getPort(new QName("http://www.portalfiscal.inf.br/nfe/wsdl/CadConsultaCadastro4", "CadConsultaCadastro4Soap12"), CadConsultaCadastro4Soap12.class, features);
-    }
-
-    private static URL __getWsdlLocation() {
-        if (CADCONSULTACADASTRO4_EXCEPTION != null) {
-            throw CADCONSULTACADASTRO4_EXCEPTION;
-        }
-        return CADCONSULTACADASTRO4_WSDL_LOCATION;
     }
 
 }

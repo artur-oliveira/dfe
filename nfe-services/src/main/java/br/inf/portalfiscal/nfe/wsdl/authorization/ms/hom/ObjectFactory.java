@@ -23,6 +23,8 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
+    private static final QName _NfeCabecMsg_QNAME = new QName("http://www.portalfiscal.inf.br/nfe/wsdl/NFeAutorizacao4", "nfeCabecMsg");
+    private static final QName _NfeDadosMsg_QNAME = new QName("http://www.portalfiscal.inf.br/nfe/wsdl/NFeAutorizacao4", "nfeDadosMsg");
     private static final QName _NfeDadosMsgZip_QNAME = new QName("http://www.portalfiscal.inf.br/nfe/wsdl/NFeAutorizacao4", "nfeDadosMsgZip");
 
     /**
@@ -41,21 +43,43 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link NfeDadosMsg }
-     *
-     * @return the new instance of {@link NfeDadosMsg }
-     */
-    public NfeDadosMsg createNfeDadosMsg() {
-        return new NfeDadosMsg();
-    }
-
-    /**
      * Create an instance of {@link NfeResultMsg }
      *
      * @return the new instance of {@link NfeResultMsg }
      */
     public NfeResultMsg createNfeResultMsg() {
         return new NfeResultMsg();
+    }
+
+    /**
+     * Create an instance of {@link NfeResultMsg2 }
+     *
+     * @return the new instance of {@link NfeResultMsg2 }
+     */
+    public NfeResultMsg2 createNfeResultMsg2() {
+        return new NfeResultMsg2();
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link NfeCabecMsg }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link NfeCabecMsg }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeAutorizacao4", name = "nfeCabecMsg")
+    public JAXBElement<NfeCabecMsg> createNfeCabecMsg(NfeCabecMsg value) {
+        return new JAXBElement<>(_NfeCabecMsg_QNAME, NfeCabecMsg.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link NfeResultMsg }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link NfeResultMsg }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeAutorizacao4", name = "nfeDadosMsg")
+    public JAXBElement<NfeResultMsg> createNfeDadosMsg(NfeResultMsg value) {
+        return new JAXBElement<>(_NfeDadosMsg_QNAME, NfeResultMsg.class, null, value);
     }
 
     /**

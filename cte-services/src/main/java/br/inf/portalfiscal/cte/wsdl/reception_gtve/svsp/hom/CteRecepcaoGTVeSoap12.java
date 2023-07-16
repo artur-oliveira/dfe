@@ -22,15 +22,14 @@ public interface CteRecepcaoGTVeSoap12 {
 
 
     /**
-     * Recepção de mensagens de GTVe (modelo
-     * 64).
+     * Recepção de mensagens de GTVe (modelo 64).
      *
      * @param cteDadosMsg
      * @return returns br.inf.portalfiscal.cte.wsdl.reception_gtve.svsp.hom.CteRecepcaoGTVeResult
      */
     @WebMethod(action = "http://www.portalfiscal.inf.br/cte/wsdl/CteRecepcaoGTVe/cteRecepcaoGTVe")
     @WebResult(name = "cteRecepcaoGTVeResult", targetNamespace = "http://www.portalfiscal.inf.br/cte/wsdl/CteRecepcaoGTVe", partName = "cteRecepcaoGTVeResult")
-    CteRecepcaoGTVeResult cteRecepcaoGTVe(
+    public CteRecepcaoGTVeResult cteRecepcaoGTVe(
             @WebParam(name = "cteDadosMsg", targetNamespace = "http://www.portalfiscal.inf.br/cte/wsdl/CteRecepcaoGTVe", partName = "cteDadosMsg")
             String cteDadosMsg);
 

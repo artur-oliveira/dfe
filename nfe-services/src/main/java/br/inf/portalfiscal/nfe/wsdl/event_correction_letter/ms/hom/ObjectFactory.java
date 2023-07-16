@@ -1,6 +1,10 @@
 package br.inf.portalfiscal.nfe.wsdl.event_correction_letter.ms.hom;
 
+import jakarta.xml.bind.JAXBElement;
+import jakarta.xml.bind.annotation.XmlElementDecl;
 import jakarta.xml.bind.annotation.XmlRegistry;
+
+import javax.xml.namespace.QName;
 
 
 /**
@@ -19,20 +23,12 @@ import jakarta.xml.bind.annotation.XmlRegistry;
 @XmlRegistry
 public class ObjectFactory {
 
+    private static final QName _NfeDadosMsg_QNAME = new QName("http://www.portalfiscal.inf.br/nfe/wsdl/NFeRecepcaoEvento4", "nfeDadosMsg");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: br.inf.portalfiscal.nfe.wsdl.event_correction_letter.ms.hom
      */
     public ObjectFactory() {
-    }
-
-    /**
-     * Create an instance of {@link NfeDadosMsg }
-     *
-     * @return the new instance of {@link NfeDadosMsg }
-     */
-    public NfeDadosMsg createNfeDadosMsg() {
-        return new NfeDadosMsg();
     }
 
     /**
@@ -42,6 +38,26 @@ public class ObjectFactory {
      */
     public NfeResultMsg createNfeResultMsg() {
         return new NfeResultMsg();
+    }
+
+    /**
+     * Create an instance of {@link NfeResultMsg2 }
+     *
+     * @return the new instance of {@link NfeResultMsg2 }
+     */
+    public NfeResultMsg2 createNfeResultMsg2() {
+        return new NfeResultMsg2();
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link NfeResultMsg }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link NfeResultMsg }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeRecepcaoEvento4", name = "nfeDadosMsg")
+    public JAXBElement<NfeResultMsg> createNfeDadosMsg(NfeResultMsg value) {
+        return new JAXBElement<>(_NfeDadosMsg_QNAME, NfeResultMsg.class, null, value);
     }
 
 }

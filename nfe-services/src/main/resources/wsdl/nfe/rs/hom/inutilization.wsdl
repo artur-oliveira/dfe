@@ -3,8 +3,8 @@
                   xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
                   xmlns:tns="http://www.portalfiscal.inf.br/nfe/wsdl/NFeInutilizacao4"
                   xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-                  targetNamespace="http://www.portalfiscal.inf.br/nfe/wsdl/NFeInutilizacao4"
-                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  targetNamespace="http://www.portalfiscal.inf.br/nfe/wsdl/NFeInutilizacao4">
     <wsdl:types>
         <s:schema elementFormDefault="qualified"
                   targetNamespace="http://www.portalfiscal.inf.br/nfe/wsdl/NFeInutilizacao4">

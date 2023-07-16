@@ -22,15 +22,14 @@ public interface NFeInutilizacao4Soap {
 
 
     /**
-     * Serviço destinado ao atendimento de
-     * solicitações de inutilização de numeração
+     * Serviço destinado ao atendimento de solicitações de inutilização de numeração
      *
      * @param nfeDadosMsg
      * @return returns br.inf.portalfiscal.nfe.wsdl.inutilization.svan.hom.NfeResultMsg
      */
     @WebMethod(action = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeInutilizacao4/nfeInutilizacaoNF")
     @WebResult(name = "nfeResultMsg", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeInutilizacao4", partName = "nfeInutilizacaoNFResult")
-    NfeResultMsg nfeInutilizacaoNF(
+    public NfeResultMsg nfeInutilizacaoNF(
             @WebParam(name = "nfeDadosMsg", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeInutilizacao4", partName = "nfeDadosMsg")
             NfeDadosMsg nfeDadosMsg);
 
