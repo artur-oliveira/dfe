@@ -24,23 +24,23 @@ public interface NFeAutorizacaoSoap {
 
     /**
      * @param nfeDadosMsg
-     * @return returns br.inf.portalfiscal.nfe.wsdl.authorization.ms.prod.NfeResultMsg
+     * @return returns br.inf.portalfiscal.nfe.wsdl.authorization.ms.prod.NfeResultMsg2
      */
     @WebMethod(action = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeAutorizacao4/nfeAutorizacaoLote")
     @WebResult(name = "nfeResultMsg", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeAutorizacao4", partName = "nfeResultMsg")
     @Action(input = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeAutorizacao4/nfeAutorizacaoLote", output = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeAutorizacao4/NFeAutorizacaoSoap/nfeAutorizacaoLoteResponse")
-    NfeResultMsg nfeAutorizacaoLote(
+    public NfeResultMsg2 nfeAutorizacaoLote(
             @WebParam(name = "nfeDadosMsg", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeAutorizacao4", partName = "nfeDadosMsg")
-            NfeDadosMsg nfeDadosMsg);
+            NfeResultMsg nfeDadosMsg);
 
     /**
      * @param nfeDadosMsgZip
-     * @return returns br.inf.portalfiscal.nfe.wsdl.authorization.ms.prod.NfeResultMsg
+     * @return returns br.inf.portalfiscal.nfe.wsdl.authorization.ms.prod.NfeResultMsg2
      */
     @WebMethod(action = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeAutorizacao4/nfeAutorizacaoLoteZIP")
     @WebResult(name = "nfeResultMsg", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeAutorizacao4", partName = "nfeResultMsg")
     @Action(input = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeAutorizacao4/nfeAutorizacaoLoteZIP", output = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeAutorizacao4/NFeAutorizacaoSoap/nfeAutorizacaoLoteZIPResponse")
-    NfeResultMsg nfeAutorizacaoLoteZIP(
+    public NfeResultMsg2 nfeAutorizacaoLoteZIP(
             @WebParam(name = "nfeDadosMsgZip", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeAutorizacao4", partName = "nfeDadosMsgZip")
             String nfeDadosMsgZip);
 

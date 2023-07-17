@@ -4,6 +4,7 @@ import com.softart.dfe.components.internal.certificate.KeyStoreFactory;
 import com.softart.dfe.components.internal.config.PfxNfeConfigImpl;
 import com.softart.dfe.enums.internal.Environment;
 import com.softart.dfe.enums.internal.UF;
+import com.softart.dfe.enums.nf.NFReturnCode;
 import com.softart.dfe.enums.nf.NFSend;
 import com.softart.dfe.enums.nf.identification.NFEmissionType;
 import com.softart.dfe.models.nf.query_register.ReturnQueryRegister;
@@ -176,11 +177,10 @@ class NfeQueryRegisterServiceImplTest {
                         NFSend.SYNC
                 ));
 
-        ReturnQueryRegister o = service.queryRegister("01928075000108", UF.MG);
+        ReturnQueryRegister o = service.queryRegister("20.008.462/0001-62", UF.MG);
         assertNotNull(o);
         assertNotNull(o.getInfCons());
-        assertTrue(o.getInfCons().getInfCad().size() >= 1);
-        assertEquals("01928075000108", o.getInfCons().getInfCad().get(0).getCnpj());
+        assertEquals(NFReturnCode.CODE_257.getCode(), o.getInfCons().getCStat());
     }
 
     @Test

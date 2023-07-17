@@ -40,15 +40,15 @@ import java.util.List;
 @XmlRootElement(name = "nfeResultMsg")
 public class NfeResultMsg {
 
-    protected ConsultaCadastroResult consultaCadastroResult;
+    protected NfeResultMsg.ConsultaCadastroResult consultaCadastroResult;
 
     /**
      * Gets the value of the consultaCadastroResult property.
      *
      * @return possible object is
-     * {@link ConsultaCadastroResult }
+     * {@link NfeResultMsg.ConsultaCadastroResult }
      */
-    public ConsultaCadastroResult getConsultaCadastroResult() {
+    public NfeResultMsg.ConsultaCadastroResult getConsultaCadastroResult() {
         return consultaCadastroResult;
     }
 
@@ -56,9 +56,9 @@ public class NfeResultMsg {
      * Sets the value of the consultaCadastroResult property.
      *
      * @param value allowed object is
-     *              {@link ConsultaCadastroResult }
+     *              {@link NfeResultMsg.ConsultaCadastroResult }
      */
-    public void setConsultaCadastroResult(ConsultaCadastroResult value) {
+    public void setConsultaCadastroResult(NfeResultMsg.ConsultaCadastroResult value) {
         this.consultaCadastroResult = value;
     }
 

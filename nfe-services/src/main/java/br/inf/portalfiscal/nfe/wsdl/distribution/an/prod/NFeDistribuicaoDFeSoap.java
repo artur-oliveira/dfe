@@ -29,8 +29,8 @@ public interface NFeDistribuicaoDFeSoap {
     @WebResult(name = "nfeDistDFeInteresseResult", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeDistribuicaoDFe")
     @RequestWrapper(localName = "nfeDistDFeInteresse", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeDistribuicaoDFe", className = "br.inf.portalfiscal.nfe.wsdl.distribution.an.prod.NfeDistDFeInteresse")
     @ResponseWrapper(localName = "nfeDistDFeInteresseResponse", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeDistribuicaoDFe", className = "br.inf.portalfiscal.nfe.wsdl.distribution.an.prod.NfeDistDFeInteresseResponse")
-    NfeDistDFeInteresseResponse.NfeDistDFeInteresseResult nfeDistDFeInteresse(
+    public br.inf.portalfiscal.nfe.wsdl.distribution.an.prod.NfeDistDFeInteresseResponse.NfeDistDFeInteresseResult nfeDistDFeInteresse(
             @WebParam(name = "nfeDadosMsg", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeDistribuicaoDFe")
-            NfeDistDFeInteresse.NfeDadosMsg nfeDadosMsg);
+            br.inf.portalfiscal.nfe.wsdl.distribution.an.prod.NfeDistDFeInteresse.NfeDadosMsg nfeDadosMsg);
 
 }

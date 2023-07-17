@@ -160,6 +160,9 @@ class NfceAuthorizationServiceImplTest {
 
         assertNotNull(o);
         assertNull(o.getInfRec());
+        assertNotNull(o.getProtNFe());
+        assertNotNull(o.getProtNFe().getInfProt());
+        assertEquals(NFReturnCode.CODE_464.getCode(), o.getProtNFe().getInfProt().getCStat());
         assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
         assertEquals(UF.AM.getCode(), o.getCuf());
     }
@@ -182,6 +185,9 @@ class NfceAuthorizationServiceImplTest {
 
         assertNotNull(o);
         assertNull(o.getInfRec());
+        assertNotNull(o.getProtNFe());
+        assertNotNull(o.getProtNFe().getInfProt());
+        assertEquals(NFReturnCode.CODE_462.getCode(), o.getProtNFe().getInfProt().getCStat());
         assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
         assertEquals(UF.AM.getCode(), o.getCuf());
     }
@@ -251,6 +257,9 @@ class NfceAuthorizationServiceImplTest {
 
         assertNotNull(o);
         assertNull(o.getInfRec());
+        assertNotNull(o.getProtNFe());
+        assertNotNull(o.getProtNFe().getInfProt());
+        assertEquals(NFReturnCode.CODE_384.getCode(), o.getProtNFe().getInfProt().getCStat());
         assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
         assertEquals(UF.GO.getCode(), o.getCuf());
     }
@@ -273,6 +282,9 @@ class NfceAuthorizationServiceImplTest {
 
         assertNotNull(o);
         assertNull(o.getInfRec());
+        assertNotNull(o.getProtNFe());
+        assertNotNull(o.getProtNFe().getInfProt());
+        assertEquals(NFReturnCode.CODE_384.getCode(), o.getProtNFe().getInfProt().getCStat());
         assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
         assertEquals(UF.GO.getCode(), o.getCuf());
     }
@@ -343,6 +355,9 @@ class NfceAuthorizationServiceImplTest {
 
         assertNotNull(o);
         assertNull(o.getInfRec());
+        assertNotNull(o.getProtNFe());
+        assertNotNull(o.getProtNFe().getInfProt());
+        assertEquals(NFReturnCode.CODE_209.getCode(), o.getProtNFe().getInfProt().getCStat());
         assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
         assertEquals(UF.MG.getCode(), o.getCuf());
     }
@@ -365,6 +380,9 @@ class NfceAuthorizationServiceImplTest {
 
         assertNotNull(o);
         assertNull(o.getInfRec());
+        assertNotNull(o.getProtNFe());
+        assertNotNull(o.getProtNFe().getInfProt());
+        assertEquals(NFReturnCode.CODE_209.getCode(), o.getProtNFe().getInfProt().getCStat());
         assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
         assertEquals(UF.MG.getCode(), o.getCuf());
     }
@@ -434,6 +452,9 @@ class NfceAuthorizationServiceImplTest {
 
         assertNotNull(o);
         assertNull(o.getInfRec());
+        assertNotNull(o.getProtNFe());
+        assertNotNull(o.getProtNFe().getInfProt());
+        assertEquals(NFReturnCode.CODE_209.getCode(), o.getProtNFe().getInfProt().getCStat());
         assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
         assertEquals(UF.MS.getCode(), o.getCuf());
     }
@@ -456,6 +477,9 @@ class NfceAuthorizationServiceImplTest {
 
         assertNotNull(o);
         assertNull(o.getInfRec());
+        assertNotNull(o.getProtNFe());
+        assertNotNull(o.getProtNFe().getInfProt());
+        assertEquals(NFReturnCode.CODE_209.getCode(), o.getProtNFe().getInfProt().getCStat());
         assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
         assertEquals(UF.MS.getCode(), o.getCuf());
     }
@@ -534,8 +558,6 @@ class NfceAuthorizationServiceImplTest {
 
     @Test
     void testAuthorizationSyncWithEnvironmentIsProductionAndAuthorizerMt() throws Exception {
-        System.setProperty("com.softart.dfe.certificate.path", "/home/artur/Documents/Certificate/tartigrado.pfx");
-        System.setProperty("com.softart.dfe.certificate.password", "2023@revgas");
         NfceAuthorizationService service = new NfceAuthorizationServiceImpl(
                 new PfxNfceConfigImpl(
                         UF.MT,
@@ -554,6 +576,7 @@ class NfceAuthorizationServiceImplTest {
         assertNull(o.getInfRec());
         assertNotNull(o.getProtNFe());
         assertNotNull(o.getProtNFe().getInfProt());
+        assertEquals(NFReturnCode.CODE_230.getCode(), o.getProtNFe().getInfProt().getCStat());
         assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
         assertEquals(UF.MT.getCode(), o.getCuf());
         assertEquals(NFReturnCode.CODE_230.getCode(), o.getProtNFe().getInfProt().getCStat());
@@ -624,6 +647,7 @@ class NfceAuthorizationServiceImplTest {
 
         assertNotNull(o);
         assertNull(o.getInfRec());
+        assertEquals(NFReturnCode.CODE_209.getCode(), o.getCStat());
         assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
         assertEquals(UF.PR.getCode(), o.getCuf());
     }
@@ -646,6 +670,7 @@ class NfceAuthorizationServiceImplTest {
 
         assertNotNull(o);
         assertNull(o.getInfRec());
+        assertEquals(NFReturnCode.CODE_209.getCode(), o.getCStat());
         assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
         assertEquals(UF.PR.getCode(), o.getCuf());
     }
@@ -715,6 +740,9 @@ class NfceAuthorizationServiceImplTest {
 
         assertNotNull(o);
         assertNull(o.getInfRec());
+        assertNotNull(o.getProtNFe());
+        assertNotNull(o.getProtNFe().getInfProt());
+        assertEquals(NFReturnCode.CODE_462.getCode(), o.getProtNFe().getInfProt().getCStat());
         assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
         assertEquals(UF.RS.getCode(), o.getCuf());
     }
@@ -737,6 +765,9 @@ class NfceAuthorizationServiceImplTest {
 
         assertNotNull(o);
         assertNull(o.getInfRec());
+        assertNotNull(o.getProtNFe());
+        assertNotNull(o.getProtNFe().getInfProt());
+        assertEquals(NFReturnCode.CODE_462.getCode(), o.getProtNFe().getInfProt().getCStat());
         assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
         assertEquals(UF.RS.getCode(), o.getCuf());
     }
@@ -806,6 +837,9 @@ class NfceAuthorizationServiceImplTest {
 
         assertNotNull(o);
         assertNull(o.getInfRec());
+        assertNotNull(o.getProtNFe());
+        assertNotNull(o.getProtNFe().getInfProt());
+        assertEquals(NFReturnCode.CODE_209.getCode(), o.getProtNFe().getInfProt().getCStat());
         assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
         assertEquals(UF.SP.getCode(), o.getCuf());
     }
@@ -828,6 +862,9 @@ class NfceAuthorizationServiceImplTest {
 
         assertNotNull(o);
         assertNull(o.getInfRec());
+        assertNotNull(o.getProtNFe());
+        assertNotNull(o.getProtNFe().getInfProt());
+        assertEquals(NFReturnCode.CODE_209.getCode(), o.getProtNFe().getInfProt().getCStat());
         assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
         assertEquals(UF.SP.getCode(), o.getCuf());
     }
@@ -897,6 +934,7 @@ class NfceAuthorizationServiceImplTest {
         assertNotNull(o);
         assertNull(o.getInfRec());
         assertNotNull(o.getProtNFe());
+        assertNotNull(o.getProtNFe().getInfProt());
         assertEquals(NFReturnCode.CODE_539.getCode(), o.getProtNFe().getInfProt().getCStat());
         assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
         assertEquals(UF.PI.getCode(), o.getCuf());
@@ -921,6 +959,7 @@ class NfceAuthorizationServiceImplTest {
         assertNotNull(o);
         assertNull(o.getInfRec());
         assertNotNull(o.getProtNFe());
+        assertNotNull(o.getProtNFe().getInfProt());
         assertEquals(NFReturnCode.CODE_539.getCode(), o.getProtNFe().getInfProt().getCStat());
         assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
         assertEquals(UF.PI.getCode(), o.getCuf());

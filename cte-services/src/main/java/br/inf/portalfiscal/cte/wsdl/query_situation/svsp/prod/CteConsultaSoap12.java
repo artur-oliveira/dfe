@@ -30,11 +30,10 @@ public interface CteConsultaSoap12 {
      */
     @WebMethod(action = "http://www.portalfiscal.inf.br/cte/wsdl/CteConsulta/cteConsultaCT")
     @WebResult(name = "cteConsultaCTResult", targetNamespace = "http://www.portalfiscal.inf.br/cte/wsdl/CteConsulta", partName = "cteConsultaCTResult")
-    CteConsultaCTResult cteConsultaCT(
+    public CteConsultaCTResult cteConsultaCT(
             @WebParam(name = "cteDadosMsg", targetNamespace = "http://www.portalfiscal.inf.br/cte/wsdl/CteConsulta", partName = "cteDadosMsg")
             CteDadosMsg cteDadosMsg,
             @WebParam(name = "cteCabecMsg", targetNamespace = "http://www.portalfiscal.inf.br/cte/wsdl/CteConsulta", header = true, mode = WebParam.Mode.INOUT, partName = "cteCabecMsg")
-            Holder<CteCabecMsg> cteCabecMsg
-            );
+            Holder<CteCabecMsg> cteCabecMsg);
 
 }

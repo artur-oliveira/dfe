@@ -8,12 +8,12 @@ import java.util.List;
 
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>Java class for nfeResultMsg complex type.
  *
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>{@code
- * <complexType>
+ * <complexType name="nfeResultMsg">
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <sequence>
@@ -25,10 +25,9 @@ import java.util.List;
  * }</pre>
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
+@XmlType(name = "nfeResultMsg", propOrder = {
         "content"
 })
-@XmlRootElement(name = "nfeResultMsg")
 public class NfeResultMsg {
 
     @XmlMixed

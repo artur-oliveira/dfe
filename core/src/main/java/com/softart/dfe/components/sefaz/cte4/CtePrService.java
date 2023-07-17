@@ -1,7 +1,6 @@
 package com.softart.dfe.components.sefaz.cte4;
 
 import br.inf.portalfiscal.cte.send400.*;
-import br.inf.portalfiscal.cte4.wsdl.reception_sync.pr.prod.CteDadosMsg;
 import com.softart.dfe.components.internal.PairImpl;
 import com.softart.dfe.components.internal.xml.marshaller.CteMarshallerFactory;
 import com.softart.dfe.components.internal.xml.unmarshaller.CteUnmarshallerFactory;

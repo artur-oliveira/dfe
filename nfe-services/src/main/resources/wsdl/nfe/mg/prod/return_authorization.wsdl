@@ -1,24 +1,24 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<wsdl:definitions name="NFeRetAutorizacao4" targetNamespace="http://www.portalfiscal.inf.br/nfe/wsdl/NFeRetAutorizacao4"
-                  xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-                  xmlns:tns="http://www.portalfiscal.inf.br/nfe/wsdl/NFeRetAutorizacao4"
-                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.portalfiscal.inf.br/nfe/wsdl/NFeRetAutorizacao4"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  name="NFeRetAutorizacao4" targetNamespace="http://www.portalfiscal.inf.br/nfe/wsdl/NFeRetAutorizacao4">
     <wsdl:types>
-        <xs:schema elementFormDefault="qualified"
-                   targetNamespace="http://www.portalfiscal.inf.br/nfe/wsdl/NFeAutorizacao4" version="1.0"
-                   xmlns:tns="http://www.portalfiscal.inf.br/nfe/wsdl/NFeAutorizacao4"
-                   xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:schema xmlns:tns="http://www.portalfiscal.inf.br/nfe/wsdl/NFeAutorizacao4"
+                   xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+                   targetNamespace="http://www.portalfiscal.inf.br/nfe/wsdl/NFeAutorizacao4"
+                   version="1.0">
             <xs:complexType name="nFeRetAutorizacao4Result">
                 <xs:sequence>
                     <xs:element maxOccurs="unbounded" minOccurs="0" name="retConsReciNFe" type="xs:anyType"/>
                 </xs:sequence>
             </xs:complexType>
         </xs:schema>
-        <xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
-                    targetNamespace="http://www.portalfiscal.inf.br/nfe/wsdl/NFeRetAutorizacao4"
-                    xmlns:ns0="http://www.portalfiscal.inf.br/nfe/wsdl/NFeAutorizacao4"
-                    xmlns:tns="http://www.portalfiscal.inf.br/nfe/wsdl/NFeRetAutorizacao4"
-                    xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <xsd:schema xmlns:ns0="http://www.portalfiscal.inf.br/nfe/wsdl/NFeAutorizacao4" xmlns:tns="http://www.portalfiscal.inf.br/nfe/wsdl/NFeRetAutorizacao4"
+                    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                    attributeFormDefault="unqualified"
+                    elementFormDefault="qualified"
+                    targetNamespace="http://www.portalfiscal.inf.br/nfe/wsdl/NFeRetAutorizacao4">
             <xsd:import namespace="http://www.portalfiscal.inf.br/nfe/wsdl/NFeAutorizacao4"/>
             <xsd:element name="nfeDadosMsg" nillable="true">
                 <xsd:complexType mixed="true">

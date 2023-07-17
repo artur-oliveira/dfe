@@ -56,6 +56,13 @@ public class MDFeConsulta
         super(wsdlLocation, serviceName, features);
     }
 
+    private static URL __getWsdlLocation() {
+        if (MDFECONSULTA_EXCEPTION != null) {
+            throw MDFECONSULTA_EXCEPTION;
+        }
+        return MDFECONSULTA_WSDL_LOCATION;
+    }
+
     /**
      * @return returns MDFeConsultaSoap12
      */
@@ -65,19 +72,12 @@ public class MDFeConsulta
     }
 
     /**
-     * @param features A list of {@link jakarta.xml.ws.WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
+     * @param features A list of {@link WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
      * @return returns MDFeConsultaSoap12
      */
     @WebEndpoint(name = "MDFeConsultaSoap12")
     public MDFeConsultaSoap12 getMDFeConsultaSoap12(WebServiceFeature... features) {
         return super.getPort(new QName("http://www.portalfiscal.inf.br/mdfe/wsdl/MDFeConsulta", "MDFeConsultaSoap12"), MDFeConsultaSoap12.class, features);
-    }
-
-    private static URL __getWsdlLocation() {
-        if (MDFECONSULTA_EXCEPTION != null) {
-            throw MDFECONSULTA_EXCEPTION;
-        }
-        return MDFECONSULTA_WSDL_LOCATION;
     }
 
 }

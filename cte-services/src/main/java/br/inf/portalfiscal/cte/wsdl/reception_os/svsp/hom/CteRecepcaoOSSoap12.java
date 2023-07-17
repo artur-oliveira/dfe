@@ -22,15 +22,14 @@ public interface CteRecepcaoOSSoap12 {
 
 
     /**
-     * Recepção de mensagens de CT-e (Outros
-     * Serviços)
+     * Recepção de mensagens de CT-e (Outros Serviços)
      *
      * @param cteDadosMsg
      * @return returns br.inf.portalfiscal.cte.wsdl.reception_os.svsp.hom.CteRecepcaoOSResult
      */
     @WebMethod(action = "http://www.portalfiscal.inf.br/cte/wsdl/CteRecepcaoOS/cteRecepcaoOS")
     @WebResult(name = "cteRecepcaoOSResult", targetNamespace = "http://www.portalfiscal.inf.br/cte/wsdl/CteRecepcaoOS", partName = "cteRecepcaoOSResult")
-    CteRecepcaoOSResult cteRecepcaoOS(
+    public CteRecepcaoOSResult cteRecepcaoOS(
             @WebParam(name = "cteDadosMsg", targetNamespace = "http://www.portalfiscal.inf.br/cte/wsdl/CteRecepcaoOS", partName = "cteDadosMsg")
             CteDadosMsg cteDadosMsg);
 

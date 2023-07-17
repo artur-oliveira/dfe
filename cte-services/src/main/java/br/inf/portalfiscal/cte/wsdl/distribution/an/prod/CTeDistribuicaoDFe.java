@@ -56,6 +56,13 @@ public class CTeDistribuicaoDFe
         super(wsdlLocation, serviceName, features);
     }
 
+    private static URL __getWsdlLocation() {
+        if (CTEDISTRIBUICAODFE_EXCEPTION != null) {
+            throw CTEDISTRIBUICAODFE_EXCEPTION;
+        }
+        return CTEDISTRIBUICAODFE_WSDL_LOCATION;
+    }
+
     /**
      * @return returns CTeDistribuicaoDFeSoap
      */
@@ -65,7 +72,7 @@ public class CTeDistribuicaoDFe
     }
 
     /**
-     * @param features A list of {@link WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
+     * @param features A list of {@link jakarta.xml.ws.WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
      * @return returns CTeDistribuicaoDFeSoap
      */
     @WebEndpoint(name = "CTeDistribuicaoDFeSoap")
@@ -82,19 +89,12 @@ public class CTeDistribuicaoDFe
     }
 
     /**
-     * @param features A list of {@link WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
+     * @param features A list of {@link jakarta.xml.ws.WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
      * @return returns CTeDistribuicaoDFeSoap
      */
     @WebEndpoint(name = "CTeDistribuicaoDFeSoap12")
     public CTeDistribuicaoDFeSoap getCTeDistribuicaoDFeSoap12(WebServiceFeature... features) {
         return super.getPort(new QName("http://www.portalfiscal.inf.br/cte/wsdl/CTeDistribuicaoDFe", "CTeDistribuicaoDFeSoap12"), CTeDistribuicaoDFeSoap.class, features);
-    }
-
-    private static URL __getWsdlLocation() {
-        if (CTEDISTRIBUICAODFE_EXCEPTION != null) {
-            throw CTEDISTRIBUICAODFE_EXCEPTION;
-        }
-        return CTEDISTRIBUICAODFE_WSDL_LOCATION;
     }
 
 }

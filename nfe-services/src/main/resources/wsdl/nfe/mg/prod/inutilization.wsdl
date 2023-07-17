@@ -1,13 +1,13 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<wsdl:definitions name="NFeInutilizacao4" targetNamespace="http://www.portalfiscal.inf.br/nfe/wsdl/NFeInutilizacao4"
-                  xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-                  xmlns:tns="http://www.portalfiscal.inf.br/nfe/wsdl/NFeInutilizacao4"
-                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.portalfiscal.inf.br/nfe/wsdl/NFeInutilizacao4"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  name="NFeInutilizacao4"
+                  targetNamespace="http://www.portalfiscal.inf.br/nfe/wsdl/NFeInutilizacao4">
     <wsdl:types>
-        <xs:schema elementFormDefault="qualified"
-                   targetNamespace="http://www.portalfiscal.inf.br/nfe/wsdl/NFeInutilizacao4" version="1.0"
-                   xmlns:tns="http://www.portalfiscal.inf.br/nfe/wsdl/NFeInutilizacao4"
-                   xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:schema xmlns:tns="http://www.portalfiscal.inf.br/nfe/wsdl/NFeInutilizacao4"
+                   xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+                   targetNamespace="http://www.portalfiscal.inf.br/nfe/wsdl/NFeInutilizacao4"
+                   version="1.0">
             <xs:element name="nfeDadosMsg">
                 <xs:complexType mixed="true">
                     <xs:sequence>

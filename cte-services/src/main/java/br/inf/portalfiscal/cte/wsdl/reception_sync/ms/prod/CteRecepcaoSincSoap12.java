@@ -27,7 +27,7 @@ public interface CteRecepcaoSincSoap12 {
      */
     @WebMethod(action = "http://www.portalfiscal.inf.br/cte/wsdl/CteRecepcaoSinc/cteRecepcaoSinc")
     @WebResult(name = "cteRecepcaoSincResult", targetNamespace = "http://www.portalfiscal.inf.br/cte/wsdl/CteRecepcaoSinc", partName = "cteRecepcaoSincResult")
-    CteRecepcaoSincResult cteRecepcaoSinc(
+    public CteRecepcaoSincResult cteRecepcaoSinc(
             @WebParam(name = "cteDadosMsg", targetNamespace = "http://www.portalfiscal.inf.br/cte/wsdl/CteRecepcaoSinc", partName = "cteDadosMsg")
             String cteDadosMsg);
 

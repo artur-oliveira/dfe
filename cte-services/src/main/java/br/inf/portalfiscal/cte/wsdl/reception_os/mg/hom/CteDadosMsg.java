@@ -1,6 +1,7 @@
 package br.inf.portalfiscal.cte.wsdl.reception_os.mg.hom;
 
 import jakarta.xml.bind.annotation.*;
+import org.w3c.dom.Element;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +17,7 @@ import java.util.List;
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <sequence>
- *         <any/>
+ *         <any processContents='lax' namespace='##other' maxOccurs="unbounded" minOccurs="0"/>
  *       </sequence>
  *     </restriction>
  *   </complexContent>
@@ -54,6 +55,7 @@ public class CteDadosMsg {
      * Objects of the following type(s) are allowed in the list
      * {@link Object }
      * {@link String }
+     * {@link Element }
      *
      * @return The value of the content property.
      */

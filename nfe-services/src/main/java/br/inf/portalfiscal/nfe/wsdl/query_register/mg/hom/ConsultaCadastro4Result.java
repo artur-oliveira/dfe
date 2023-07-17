@@ -30,7 +30,9 @@ import java.util.List;
 public class ConsultaCadastro4Result {
 
     @XmlMixed
-    @XmlAnyElement(lax = true)
+    @XmlAnyElement(
+            lax = true
+    )
     protected List<Object> retConsCad;
 
     /**

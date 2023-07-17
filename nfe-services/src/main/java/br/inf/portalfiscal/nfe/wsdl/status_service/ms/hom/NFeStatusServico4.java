@@ -16,7 +16,7 @@ import jakarta.xml.bind.annotation.XmlSeeAlso;
 @WebService(name = "NFeStatusServico4", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeStatusServico4")
 @SOAPBinding(parameterStyle = SOAPBinding.ParameterStyle.BARE)
 @XmlSeeAlso({
-        ObjectFactory.class
+        ObjectFactory.class, br.inf.portalfiscal.nfe.send.ObjectFactory.class
 })
 public interface NFeStatusServico4 {
 
@@ -27,7 +27,7 @@ public interface NFeStatusServico4 {
      */
     @WebMethod(action = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeStatusServico4/nfeStatusServicoNF")
     @WebResult(name = "nfeResultMsg", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeStatusServico4", partName = "nfeStatusServicoNFResult")
-    NfeResultMsg nfeStatusServicoNF(
+    public NfeResultMsg nfeStatusServicoNF(
             @WebParam(name = "nfeDadosMsg", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeStatusServico4", partName = "nfeDadosMsg")
             NfeDadosMsg nfeDadosMsg);
 

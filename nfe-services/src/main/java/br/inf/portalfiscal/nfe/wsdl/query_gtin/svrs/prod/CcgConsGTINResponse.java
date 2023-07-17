@@ -40,15 +40,15 @@ import java.util.List;
 @XmlRootElement(name = "ccgConsGTINResponse")
 public class CcgConsGTINResponse {
 
-    protected NfeResultMsg nfeResultMsg;
+    protected CcgConsGTINResponse.NfeResultMsg nfeResultMsg;
 
     /**
      * Gets the value of the nfeResultMsg property.
      *
      * @return possible object is
-     * {@link NfeResultMsg }
+     * {@link CcgConsGTINResponse.NfeResultMsg }
      */
-    public NfeResultMsg getNfeResultMsg() {
+    public CcgConsGTINResponse.NfeResultMsg getNfeResultMsg() {
         return nfeResultMsg;
     }
 
@@ -56,9 +56,9 @@ public class CcgConsGTINResponse {
      * Sets the value of the nfeResultMsg property.
      *
      * @param value allowed object is
-     *              {@link NfeResultMsg }
+     *              {@link CcgConsGTINResponse.NfeResultMsg }
      */
-    public void setNfeResultMsg(NfeResultMsg value) {
+    public void setNfeResultMsg(CcgConsGTINResponse.NfeResultMsg value) {
         this.nfeResultMsg = value;
     }
 

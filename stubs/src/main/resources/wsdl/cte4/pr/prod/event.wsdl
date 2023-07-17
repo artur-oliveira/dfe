@@ -1,85 +1,68 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-                  xmlns:tns="http://www.portalfiscal.inf.br/cte/wsdl/CTeRecepcaoEventoV4"
-                  xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/"
-                  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
-                  xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema"
-                  xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
-                  targetNamespace="http://www.portalfiscal.inf.br/cte/wsdl/CTeRecepcaoEventoV4">
-    <wsdl:types>
-        <s:schema xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-                  xmlns:tns="http://www.portalfiscal.inf.br/cte/wsdl/CTeRecepcaoEventoV4"
-                  xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/"
-                  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
-                  xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema"
-                  xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
-                  elementFormDefault="qualified"
-                  targetNamespace="http://www.portalfiscal.inf.br/cte/wsdl/CTeRecepcaoEventoV4">
-
-            <s:element name="cteDadosMsg">
-
-                <s:complexType mixed="true">
-
-                    <s:sequence>
-
-                        <s:any/>
-
-                    </s:sequence>
-
-                </s:complexType>
-
-            </s:element>
-
-            <s:element name="cteRecepcaoEventoResult">
-
-                <s:complexType mixed="true">
-
-                    <s:sequence>
-
-                        <s:any/>
-
-                    </s:sequence>
-
-                </s:complexType>
-
-            </s:element>
-
-        </s:schema>
-    </wsdl:types>
-    <wsdl:message name="cteRecepcaoEventoSoap12In">
-        <wsdl:part element="tns:cteDadosMsg" name="cteDadosMsg">
-        </wsdl:part>
-    </wsdl:message>
-    <wsdl:message name="cteRecepcaoEventoSoap12Out">
-        <wsdl:part element="tns:cteRecepcaoEventoResult" name="cteRecepcaoEventoResult">
-        </wsdl:part>
-    </wsdl:message>
-    <wsdl:portType name="CTeRecepcaoEventoV4Soap12">
-        <wsdl:operation name="cteRecepcaoEvento">
-            <wsdl:input message="tns:cteRecepcaoEventoSoap12In">
-            </wsdl:input>
-            <wsdl:output message="tns:cteRecepcaoEventoSoap12Out">
-            </wsdl:output>
-        </wsdl:operation>
-    </wsdl:portType>
-    <wsdl:binding name="CTeRecepcaoEventoV4Soap12" type="tns:CTeRecepcaoEventoV4Soap12">
-        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
-        <wsdl:operation name="cteRecepcaoEvento">
-            <soap12:operation soapAction="http://www.portalfiscal.inf.br/cte/wsdl/CTeRecepcaoEventoV4/cteRecepcaoEvento"
-                              style="document"/>
-            <wsdl:input>
-                <soap12:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap12:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-    </wsdl:binding>
-    <wsdl:service name="CTeRecepcaoEventoV4">
-        <wsdl:port binding="tns:CTeRecepcaoEventoV4Soap12" name="CTeRecepcaoEventoV4Soap12">
-            <soap12:address location="https://10.15.208.47:8443/cte4/CTeRecepcaoEventoV4"/>
-        </wsdl:port>
-    </wsdl:service>
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.portalfiscal.inf.br/cte/wsdl/CTeRecepcaoEventoV4" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://www.portalfiscal.inf.br/cte/wsdl/CTeRecepcaoEventoV4">
+  <wsdl:types>
+<s:schema xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.portalfiscal.inf.br/cte/wsdl/CTeRecepcaoEventoV4" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" elementFormDefault="qualified" targetNamespace="http://www.portalfiscal.inf.br/cte/wsdl/CTeRecepcaoEventoV4">
+			
+  <s:element name="cteDadosMsg">
+				
+    <s:complexType mixed="true">
+					
+      <s:sequence>
+						
+        <s:any/>
+					
+      </s:sequence>
+				
+    </s:complexType>
+			
+  </s:element>
+			
+  <s:element name="cteRecepcaoEventoResult">
+				
+    <s:complexType mixed="true">
+					
+      <s:sequence>
+						
+        <s:any/>
+					
+      </s:sequence>
+				
+    </s:complexType>
+			
+  </s:element>
+		
+</s:schema>
+  </wsdl:types>
+  <wsdl:message name="cteRecepcaoEventoSoap12In">
+    <wsdl:part element="tns:cteDadosMsg" name="cteDadosMsg">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="cteRecepcaoEventoSoap12Out">
+    <wsdl:part element="tns:cteRecepcaoEventoResult" name="cteRecepcaoEventoResult">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="CTeRecepcaoEventoV4Soap12">
+    <wsdl:operation name="cteRecepcaoEvento">
+      <wsdl:input message="tns:cteRecepcaoEventoSoap12In">
+    </wsdl:input>
+      <wsdl:output message="tns:cteRecepcaoEventoSoap12Out">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CTeRecepcaoEventoV4Soap12" type="tns:CTeRecepcaoEventoV4Soap12">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="cteRecepcaoEvento">
+      <soap12:operation soapAction="http://www.portalfiscal.inf.br/cte/wsdl/CTeRecepcaoEventoV4/cteRecepcaoEvento" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CTeRecepcaoEventoV4">
+    <wsdl:port binding="tns:CTeRecepcaoEventoV4Soap12" name="CTeRecepcaoEventoV4Soap12">
+      <soap12:address location="https://10.15.208.47:8443/cte4/CTeRecepcaoEventoV4"/>
+    </wsdl:port>
+  </wsdl:service>
 </wsdl:definitions>

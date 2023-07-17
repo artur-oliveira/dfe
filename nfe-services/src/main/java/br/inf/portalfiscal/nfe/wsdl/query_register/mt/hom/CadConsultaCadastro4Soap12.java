@@ -29,8 +29,8 @@ public interface CadConsultaCadastro4Soap12 {
     @WebResult(name = "consultaCadastroResult", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/CadConsultaCadastro4")
     @RequestWrapper(localName = "consultaCadastro", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/CadConsultaCadastro4", className = "br.inf.portalfiscal.nfe.wsdl.query_register.mt.hom.ConsultaCadastro")
     @ResponseWrapper(localName = "nfeResultMsg", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/CadConsultaCadastro4", className = "br.inf.portalfiscal.nfe.wsdl.query_register.mt.hom.NfeResultMsg")
-    NfeResultMsg.ConsultaCadastroResult consultaCadastro(
+    public br.inf.portalfiscal.nfe.wsdl.query_register.mt.hom.NfeResultMsg.ConsultaCadastroResult consultaCadastro(
             @WebParam(name = "nfeDadosMsg", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/CadConsultaCadastro4")
-            ConsultaCadastro.NfeDadosMsg nfeDadosMsg);
+            br.inf.portalfiscal.nfe.wsdl.query_register.mt.hom.ConsultaCadastro.NfeDadosMsg nfeDadosMsg);
 
 }

@@ -37,7 +37,7 @@ public class CTeCabecMsg {
     protected String cuf;
     protected String versaoDados;
     @XmlAnyAttribute
-    private final Map<QName, String> otherAttributes = new HashMap<>();
+    private Map<QName, String> otherAttributes = new HashMap<>();
 
     /**
      * Gets the value of the cuf property.

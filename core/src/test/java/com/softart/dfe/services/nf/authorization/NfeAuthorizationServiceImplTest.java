@@ -453,7 +453,7 @@ class NfeAuthorizationServiceImplTest {
         assertNotNull(o);
         assertNull(o.getInfRec());
         assertNotNull(o.getProtNFe());
-        assertEquals(NFReturnCode.CODE_230.getCode(), o.getProtNFe().getInfProt().getCStat());
+        assertEquals(NFReturnCode.CODE_209.getCode(), o.getProtNFe().getInfProt().getCStat());
         assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
         assertEquals(UF.MG.getCode(), o.getCuf());
     }
@@ -1083,7 +1083,7 @@ class NfeAuthorizationServiceImplTest {
     void testAuthorizationAsyncWithEnvironmentIsHomologationAndAuthorizerSvcan() throws Exception {
         NfeAuthorizationService service = new NfeAuthorizationServiceImpl(
                 new PfxNfeConfigImpl(
-                        UF.AC,
+                        UF.RJ,
                         "11520224000140",
                         Environment.HOMOLOGATION,
                         KeyStoreFactory.getInstance(),
@@ -1098,7 +1098,7 @@ class NfeAuthorizationServiceImplTest {
         assertNotNull(o.getInfRec());
         assertEquals(NFReturnCode.CODE_103.getCode(), o.getCStat());
         assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
-        assertEquals(UF.AC.getCode(), o.getCuf());
+        assertEquals(UF.RJ.getCode(), o.getCuf());
     }
 
     @Test
@@ -1125,7 +1125,7 @@ class NfeAuthorizationServiceImplTest {
     void testAuthorizationSyncWithEnvironmentIsHomologationAndAuthorizerSvcan() throws Exception {
         NfeAuthorizationService service = new NfeAuthorizationServiceImpl(
                 new PfxNfeConfigImpl(
-                        UF.AC,
+                        UF.RJ,
                         "11520224000140",
                         Environment.HOMOLOGATION,
                         KeyStoreFactory.getInstance(),
@@ -1141,7 +1141,7 @@ class NfeAuthorizationServiceImplTest {
         assertNotNull(o.getProtNFe());
         assertEquals(NFReturnCode.CODE_209.getCode(), o.getProtNFe().getInfProt().getCStat());
         assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
-        assertEquals(UF.AC.getCode(), o.getCuf());
+        assertEquals(UF.RJ.getCode(), o.getCuf());
     }
 
     @Test
@@ -1161,6 +1161,7 @@ class NfeAuthorizationServiceImplTest {
 
         assertNotNull(o);
         assertEquals(UF.AC.getCode(), o.getCuf());
+        assertEquals(NFReturnCode.CODE_114.getCode(), o.getCStat());
     }
 
     @Test
@@ -1246,6 +1247,7 @@ class NfeAuthorizationServiceImplTest {
         assertNotNull(o);
         assertNull(o.getInfRec());
         assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
+        assertEquals(NFReturnCode.CODE_114.getCode(), o.getCStat());
         assertEquals(UF.MT.getCode(), o.getCuf());
     }
 

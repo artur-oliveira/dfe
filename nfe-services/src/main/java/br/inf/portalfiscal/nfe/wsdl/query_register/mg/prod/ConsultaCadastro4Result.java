@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+
 /**
  * <p>Java class for consultaCadastro4Result complex type.
  *
@@ -26,11 +27,13 @@ import java.util.List;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "consultaCadastro4Result", propOrder = {
         "retConsCad"
-})
+}, namespace = "http://www.portalfiscal.inf.br/nfe")
 public class ConsultaCadastro4Result {
 
     @XmlMixed
-    @XmlAnyElement(lax = true)
+    @XmlAnyElement(
+            lax = true
+    )
     protected List<Object> retConsCad;
 
     /**

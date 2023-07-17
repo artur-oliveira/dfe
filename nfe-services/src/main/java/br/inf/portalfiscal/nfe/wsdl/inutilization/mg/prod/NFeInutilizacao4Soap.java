@@ -6,6 +6,7 @@ import jakarta.jws.WebResult;
 import jakarta.jws.WebService;
 import jakarta.jws.soap.SOAPBinding;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
+import jakarta.xml.ws.Action;
 
 
 /**
@@ -23,11 +24,12 @@ public interface NFeInutilizacao4Soap {
 
     /**
      * @param nfeDadosMsg
-     * @return returns br.inf.portalfiscal.nfe.wsdl.inutilization.mg.prod.NFeInutilizacao4Result
+     * @return returns br.inf.portalfiscal.nfe.wsdl.inutilization.mg.prod.NfeResultMsg
      */
     @WebMethod(action = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeInutilizacao4/nfeInutilizacaoNF")
-    @WebResult(name = "nfeResultMsg", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeInutilizacao4", partName = "nfeResultMsg")
-    NFeInutilizacao4Result nfeInutilizacaoNF(
+    @WebResult(name = "nfeResultMsg", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeInutilizacao4", partName = "nfeInutilizacaoNFResult")
+    @Action(input = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeInutilizacao4/nfeInutilizacaoNF", output = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeInutilizacao4/NFeInutilizacao4Soap/nfeInutilizacaoNFResponse")
+    public NfeResultMsg nfeInutilizacaoNF(
             @WebParam(name = "nfeDadosMsg", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeInutilizacao4", partName = "nfeDadosMsg")
             NfeDadosMsg nfeDadosMsg);
 

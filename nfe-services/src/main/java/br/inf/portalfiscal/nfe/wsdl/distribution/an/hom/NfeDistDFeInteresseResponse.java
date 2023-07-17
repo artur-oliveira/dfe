@@ -40,15 +40,15 @@ import java.util.List;
 @XmlRootElement(name = "nfeDistDFeInteresseResponse")
 public class NfeDistDFeInteresseResponse {
 
-    protected NfeDistDFeInteresseResult nfeDistDFeInteresseResult;
+    protected NfeDistDFeInteresseResponse.NfeDistDFeInteresseResult nfeDistDFeInteresseResult;
 
     /**
      * Gets the value of the nfeDistDFeInteresseResult property.
      *
      * @return possible object is
-     * {@link NfeDistDFeInteresseResult }
+     * {@link NfeDistDFeInteresseResponse.NfeDistDFeInteresseResult }
      */
-    public NfeDistDFeInteresseResult getNfeDistDFeInteresseResult() {
+    public NfeDistDFeInteresseResponse.NfeDistDFeInteresseResult getNfeDistDFeInteresseResult() {
         return nfeDistDFeInteresseResult;
     }
 
@@ -56,9 +56,9 @@ public class NfeDistDFeInteresseResponse {
      * Sets the value of the nfeDistDFeInteresseResult property.
      *
      * @param value allowed object is
-     *              {@link NfeDistDFeInteresseResult }
+     *              {@link NfeDistDFeInteresseResponse.NfeDistDFeInteresseResult }
      */
-    public void setNfeDistDFeInteresseResult(NfeDistDFeInteresseResult value) {
+    public void setNfeDistDFeInteresseResult(NfeDistDFeInteresseResponse.NfeDistDFeInteresseResult value) {
         this.nfeDistDFeInteresseResult = value;
     }
 

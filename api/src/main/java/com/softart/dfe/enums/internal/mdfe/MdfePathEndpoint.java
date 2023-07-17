@@ -8,7 +8,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum MdfePathEndpoint implements DFEnum.Codeable {
     RECEPTION("reception", "Recepção"),
-    QUERY_RECEIPT("query_receipt", "Consulta recibo"),
+    QUERY_RECEIPT("return_reception", "Consulta recibo"),
     EVENT("event", "Eventos"),
     QUERY_SITUATION("query_situation", "Consulta situação"),
     STATUS_SERVICE("status_service", "Status do serviço"),

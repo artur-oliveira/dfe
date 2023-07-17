@@ -20,7 +20,7 @@ import java.util.Map;
  *         <element name="cUF" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         <element name="versaoDados" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       </sequence>
- *       <anyAttribute/>
+ *       <anyAttribute processContents='skip' namespace='##other'/>
  *     </restriction>
  *   </complexContent>
  * </complexType>
@@ -37,7 +37,7 @@ public class CteCabecMsg {
     protected String cuf;
     protected String versaoDados;
     @XmlAnyAttribute
-    private final Map<QName, String> otherAttributes = new HashMap<>();
+    private Map<QName, String> otherAttributes = new HashMap<>();
 
     /**
      * Gets the value of the cuf property.

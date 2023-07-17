@@ -38,7 +38,7 @@
   </wsdl:binding>
   <wsdl:service name="CTeRecepcaoOSV4">
     <wsdl:port name="CTeRecepcaoOSV4Soap12" binding="tns:CTeRecepcaoOSV4Soap12">
-      <soap12:address location="https://cte.svrs.rs.gov.br/ws/CTeRecepcaoOsV4/CTeRecepcaoOsV4.asmx" />
+      <soap12:address location="https://cte.svrs.rs.gov.br/ws/CTeRecepcaoOSV4/CTeRecepcaoOSV4.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

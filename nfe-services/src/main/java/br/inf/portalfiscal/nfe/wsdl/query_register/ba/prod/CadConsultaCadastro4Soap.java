@@ -22,15 +22,14 @@ public interface CadConsultaCadastro4Soap {
 
 
     /**
-     * Serviço destinado à consulta no
-     * Cadastro.
+     * Serviço destinado à consulta no Cadastro.
      *
      * @param nfeDadosMsg
      * @return returns br.inf.portalfiscal.nfe.wsdl.query_register.ba.prod.NfeResultMsg
      */
     @WebMethod(action = "http://www.portalfiscal.inf.br/nfe/wsdl/CadConsultaCadastro4/consultaCadastro")
     @WebResult(name = "nfeResultMsg", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/CadConsultaCadastro4", partName = "consultaCadastroResult")
-    NfeResultMsg consultaCadastro(
+    public NfeResultMsg consultaCadastro(
             @WebParam(name = "nfeDadosMsg", targetNamespace = "http://www.portalfiscal.inf.br/nfe/wsdl/CadConsultaCadastro4", partName = "nfeDadosMsg")
             NfeDadosMsg nfeDadosMsg);
 

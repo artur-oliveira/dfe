@@ -32,6 +32,15 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link CteCabecMsg }
+     *
+     * @return the new instance of {@link CteCabecMsg }
+     */
+    public CteCabecMsg createCteCabecMsg() {
+        return new CteCabecMsg();
+    }
+
+    /**
      * Create an instance of {@link CteDadosMsg }
      *
      * @return the new instance of {@link CteDadosMsg }
@@ -47,15 +56,6 @@ public class ObjectFactory {
      */
     public CteStatusServicoCTResult createCteStatusServicoCTResult() {
         return new CteStatusServicoCTResult();
-    }
-
-    /**
-     * Create an instance of {@link CteCabecMsg }
-     *
-     * @return the new instance of {@link CteCabecMsg }
-     */
-    public CteCabecMsg createCteCabecMsg() {
-        return new CteCabecMsg();
     }
 
     /**

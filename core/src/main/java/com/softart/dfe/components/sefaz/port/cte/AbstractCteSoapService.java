@@ -48,8 +48,36 @@ public abstract class AbstractCteSoapService extends AbstractSoapService impleme
         return (CteConfig) super.getConfig();
     }
 
+    void initializeDefault(AbstractCteSoapService abstractCteSoapService) {
+        this.prodDistribution = abstractCteSoapService.prodDistribution;
+        this.homDistribution = abstractCteSoapService.homDistribution;
+        this.prodEvent = abstractCteSoapService.prodEvent;
+        this.homEvent = abstractCteSoapService.homEvent;
+        this.prodInutilization = abstractCteSoapService.prodInutilization;
+        this.homInutilization = abstractCteSoapService.homInutilization;
+        this.prodQueryReceipt = abstractCteSoapService.prodQueryReceipt;
+        this.homQueryReceipt = abstractCteSoapService.homQueryReceipt;
+        this.prodQuerySituation = abstractCteSoapService.prodQuerySituation;
+        this.homQuerySituation = abstractCteSoapService.homQuerySituation;
+        this.prodReception = abstractCteSoapService.prodReception;
+        this.homReception = abstractCteSoapService.homReception;
+        this.prodReceptionGtve = abstractCteSoapService.prodReceptionGtve;
+        this.homReceptionGtve = abstractCteSoapService.homReceptionGtve;
+        this.prodReceptionOs = abstractCteSoapService.prodReceptionOs;
+        this.homReceptionOs = abstractCteSoapService.homReceptionOs;
+        this.prodReceptionSync = abstractCteSoapService.prodReceptionSync;
+        this.homReceptionSync = abstractCteSoapService.homReceptionSync;
+        this.prodStatusService = abstractCteSoapService.prodStatusService;
+        this.homStatusService = abstractCteSoapService.homStatusService;
+    }
+
     public void initialize(CteSoapService o) {
         this.config = o.getConfig();
+
+        if (o instanceof AbstractCteSoapService abstractCteSoapService) {
+            initializeDefault(abstractCteSoapService);
+        }
+
         if (!LAZY_INITIALIZATION) {
             try {
                 o.prodDistribution();
@@ -133,6 +161,7 @@ public abstract class AbstractCteSoapService extends AbstractSoapService impleme
             }
         }
 
+        SoapServiceProxy.getInstance().addCteService(this);
         this.initialized = true;
     }
 

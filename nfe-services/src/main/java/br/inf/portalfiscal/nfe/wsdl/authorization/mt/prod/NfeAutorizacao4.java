@@ -56,6 +56,13 @@ public class NfeAutorizacao4
         super(wsdlLocation, serviceName, features);
     }
 
+    private static URL __getWsdlLocation() {
+        if (NFEAUTORIZACAO4_EXCEPTION != null) {
+            throw NFEAUTORIZACAO4_EXCEPTION;
+        }
+        return NFEAUTORIZACAO4_WSDL_LOCATION;
+    }
+
     /**
      * @return returns NfeAutorizacao4Soap
      */
@@ -65,7 +72,7 @@ public class NfeAutorizacao4
     }
 
     /**
-     * @param features A list of {@link WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
+     * @param features A list of {@link jakarta.xml.ws.WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
      * @return returns NfeAutorizacao4Soap
      */
     @WebEndpoint(name = "NfeAutorizacao4Soap")
@@ -82,19 +89,12 @@ public class NfeAutorizacao4
     }
 
     /**
-     * @param features A list of {@link WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
+     * @param features A list of {@link jakarta.xml.ws.WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
      * @return returns NfeAutorizacao4Soap
      */
     @WebEndpoint(name = "NfeAutorizacao4Soap12")
     public NfeAutorizacao4Soap getNfeAutorizacao4Soap12(WebServiceFeature... features) {
         return super.getPort(new QName("http://www.portalfiscal.inf.br/nfe/wsdl/NFeAutorizacao4", "NfeAutorizacao4Soap12"), NfeAutorizacao4Soap.class, features);
-    }
-
-    private static URL __getWsdlLocation() {
-        if (NFEAUTORIZACAO4_EXCEPTION != null) {
-            throw NFEAUTORIZACAO4_EXCEPTION;
-        }
-        return NFEAUTORIZACAO4_WSDL_LOCATION;
     }
 
 }

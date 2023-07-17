@@ -1,15 +1,7 @@
-<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.4.3.payara-p3 (2.4.3.payara-maintenance-a5c1c68; 2019-06-17T14:04:38+0200) JAXWS-RI/2.3.2.payara-p2 JAXWS-API/2.3.2 JAXB-RI/2.3.2 JAXB-API/2.3.2 git-revision#unknown. -->
-<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-                  xmlns:tns="http://www.portalfiscal.inf.br/cte/wsdl/CteRecepcaoEvento"
-                  xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
-                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-                  targetNamespace="http://www.portalfiscal.inf.br/cte/wsdl/CteRecepcaoEvento">
-    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Serviço destinado à recepção de mensagem de Evento
-        do CT-e
-    </wsdl:documentation>
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.4.3.payara-p3 (2.4.3.payara-maintenance-a5c1c68; 2019-06-17T14:04:38+0200) JAXWS-RI/2.3.2.payara-p2 JAXWS-API/2.3.2 JAXB-RI/2.3.2 JAXB-API/2.3.2 git-revision#unknown. --><wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.portalfiscal.inf.br/cte/wsdl/CteRecepcaoEvento" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://www.portalfiscal.inf.br/cte/wsdl/CteRecepcaoEvento">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Serviço destinado à recepção de mensagem de Evento do CT-e</wsdl:documentation>
     <wsdl:types>
-        <s:schema elementFormDefault="qualified"
-                  targetNamespace="http://www.portalfiscal.inf.br/cte/wsdl/CteRecepcaoEvento">
+        <s:schema elementFormDefault="qualified" targetNamespace="http://www.portalfiscal.inf.br/cte/wsdl/CteRecepcaoEvento">
             <s:element name="cteDadosMsg">
                 <s:complexType mixed="true">
                     <s:sequence>
@@ -53,8 +45,7 @@
     <wsdl:binding name="CteRecepcaoEventoSoap12" type="tns:CteRecepcaoEventoSoap12">
         <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
         <wsdl:operation name="cteRecepcaoEvento">
-            <soap12:operation soapAction="http://www.portalfiscal.inf.br/cte/wsdl/CteRecepcaoEvento/cteRecepcaoEvento"
-                              style="document"/>
+            <soap12:operation soapAction="http://www.portalfiscal.inf.br/cte/wsdl/CteRecepcaoEvento/cteRecepcaoEvento" style="document"/>
             <wsdl:input>
                 <soap12:body use="literal"/>
                 <soap12:header message="tns:cteRecepcaoEventocteCabecMsg" part="cteCabecMsg" use="literal"/>
@@ -66,9 +57,7 @@
         </wsdl:operation>
     </wsdl:binding>
     <wsdl:service name="CteRecepcaoEvento">
-        <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Serviço destinado à recepção de mensagem de
-            Evento do CT-e
-        </wsdl:documentation>
+        <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Serviço destinado à recepção de mensagem de Evento do CT-e</wsdl:documentation>
         <wsdl:port name="CteRecepcaoEventoSoap12" binding="tns:CteRecepcaoEventoSoap12">
             <soap12:address location="https://producao.cte.ms.gov.br:443/ws/CteRecepcaoEvento"/>
         </wsdl:port>

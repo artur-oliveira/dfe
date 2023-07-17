@@ -40,15 +40,15 @@ import java.util.List;
 @XmlRootElement(name = "consultaCadastro")
 public class ConsultaCadastro {
 
-    protected NfeDadosMsg nfeDadosMsg;
+    protected ConsultaCadastro.NfeDadosMsg nfeDadosMsg;
 
     /**
      * Gets the value of the nfeDadosMsg property.
      *
      * @return possible object is
-     * {@link NfeDadosMsg }
+     * {@link ConsultaCadastro.NfeDadosMsg }
      */
-    public NfeDadosMsg getNfeDadosMsg() {
+    public ConsultaCadastro.NfeDadosMsg getNfeDadosMsg() {
         return nfeDadosMsg;
     }
 
@@ -56,9 +56,9 @@ public class ConsultaCadastro {
      * Sets the value of the nfeDadosMsg property.
      *
      * @param value allowed object is
-     *              {@link NfeDadosMsg }
+     *              {@link ConsultaCadastro.NfeDadosMsg }
      */
-    public void setNfeDadosMsg(NfeDadosMsg value) {
+    public void setNfeDadosMsg(ConsultaCadastro.NfeDadosMsg value) {
         this.nfeDadosMsg = value;
     }
 

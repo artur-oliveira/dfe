@@ -56,6 +56,13 @@ public class CteRecepcaoEvento
         super(wsdlLocation, serviceName, features);
     }
 
+    private static URL __getWsdlLocation() {
+        if (CTERECEPCAOEVENTO_EXCEPTION != null) {
+            throw CTERECEPCAOEVENTO_EXCEPTION;
+        }
+        return CTERECEPCAOEVENTO_WSDL_LOCATION;
+    }
+
     /**
      * @return returns CteRecepcaoEventoSoap12
      */
@@ -65,19 +72,12 @@ public class CteRecepcaoEvento
     }
 
     /**
-     * @param features A list of {@link WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
+     * @param features A list of {@link jakarta.xml.ws.WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
      * @return returns CteRecepcaoEventoSoap12
      */
     @WebEndpoint(name = "CteRecepcaoEventoServicePort")
     public CteRecepcaoEventoSoap12 getCteRecepcaoEventoServicePort(WebServiceFeature... features) {
         return super.getPort(new QName("http://www.portalfiscal.inf.br/cte/wsdl/CteRecepcaoEvento", "CteRecepcaoEventoServicePort"), CteRecepcaoEventoSoap12.class, features);
-    }
-
-    private static URL __getWsdlLocation() {
-        if (CTERECEPCAOEVENTO_EXCEPTION != null) {
-            throw CTERECEPCAOEVENTO_EXCEPTION;
-        }
-        return CTERECEPCAOEVENTO_WSDL_LOCATION;
     }
 
 }

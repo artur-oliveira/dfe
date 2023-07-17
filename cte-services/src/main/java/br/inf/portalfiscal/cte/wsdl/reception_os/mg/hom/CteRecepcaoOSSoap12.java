@@ -6,6 +6,8 @@ import jakarta.jws.WebResult;
 import jakarta.jws.WebService;
 import jakarta.jws.soap.SOAPBinding;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
+import jakarta.xml.ws.Action;
+import jakarta.xml.ws.Holder;
 
 
 /**
@@ -22,13 +24,17 @@ public interface CteRecepcaoOSSoap12 {
 
 
     /**
+     * @param cteCabecMsg
      * @param cteDadosMsg
      * @return returns br.inf.portalfiscal.cte.wsdl.reception_os.mg.hom.CteRecepcaoOSResult
      */
     @WebMethod(action = "http://www.portalfiscal.inf.br/cte/wsdl/CteRecepcaoOS/cteRecepcaoOS")
     @WebResult(name = "cteRecepcaoOSResult", targetNamespace = "http://www.portalfiscal.inf.br/cte/wsdl/CteRecepcaoOS", partName = "cteRecepcaoOSResult")
-    CteRecepcaoOSResult cteRecepcaoOS(
+    @Action(input = "http://www.portalfiscal.inf.br/cte/wsdl/CteRecepcaoOS/cteRecepcaoOS", output = "http://www.portalfiscal.inf.br/cte/wsdl/CteRecepcaoOS/CteRecepcaoOSSoap12/cteRecepcaoOSResponse")
+    public CteRecepcaoOSResult cteRecepcaoOS(
             @WebParam(name = "cteDadosMsg", targetNamespace = "http://www.portalfiscal.inf.br/cte/wsdl/CteRecepcaoOS", partName = "cteDadosMsg")
-            CteDadosMsg cteDadosMsg);
+            CteDadosMsg cteDadosMsg,
+            @WebParam(name = "cteCabecMsg", targetNamespace = "http://www.portalfiscal.inf.br/cte/wsdl/CteRecepcaoOS", header = true, mode = WebParam.Mode.INOUT, partName = "cteCabecMsg")
+            Holder<CteCabecMsg> cteCabecMsg);
 
 }

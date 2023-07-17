@@ -70,7 +70,7 @@ class CteReceptionSyncServiceImplTest {
                                 .builder()
                                 .cnpj(config.cnpj())
                                 .xNome("CT-E EMITIDO EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL")
-                                .xFant("Teste")
+                                .xFant("CT-E EMITIDO EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL")
                                 .ie("194739350")
                                 .crt("1")
                                 .enderEmit(Cte.InfCte.TEndeEmi
@@ -89,7 +89,7 @@ class CteReceptionSyncServiceImplTest {
                                 .builder()
                                 .cnpj(config.cnpj())
                                 .xNome("CT-E EMITIDO EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL")
-                                .xFant("Teste")
+                                .xFant("CT-E EMITIDO EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL")
                                 .ie("194739350")
                                 .enderReme(Cte.InfCte.TEndereco
                                         .builder()
@@ -301,7 +301,7 @@ class CteReceptionSyncServiceImplTest {
                 getCte(service.getConfig(), 1, Model.CTE)
         );
         assertNotNull(o);
-        assertEquals(CteReturnCode.CODE_661.getCode(), o.getCStat());
+        assertEquals(CteReturnCode.CODE_524.getCode(), o.getCStat());
         assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
         assertEquals(UF.MT.getCode(), o.getCuf());
     }

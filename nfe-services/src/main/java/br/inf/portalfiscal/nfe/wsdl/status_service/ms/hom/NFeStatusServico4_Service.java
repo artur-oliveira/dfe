@@ -56,6 +56,13 @@ public class NFeStatusServico4_Service
         super(wsdlLocation, serviceName, features);
     }
 
+    private static URL __getWsdlLocation() {
+        if (NFESTATUSSERVICO4_EXCEPTION != null) {
+            throw NFESTATUSSERVICO4_EXCEPTION;
+        }
+        return NFESTATUSSERVICO4_WSDL_LOCATION;
+    }
+
     /**
      * @return returns NFeStatusServico4
      */
@@ -65,19 +72,12 @@ public class NFeStatusServico4_Service
     }
 
     /**
-     * @param features A list of {@link WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
+     * @param features A list of {@link jakarta.xml.ws.WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
      * @return returns NFeStatusServico4
      */
     @WebEndpoint(name = "nfeStatusServico4Soap12")
     public NFeStatusServico4 getNfeStatusServico4Soap12(WebServiceFeature... features) {
         return super.getPort(new QName("http://www.portalfiscal.inf.br/nfe/wsdl/NFeStatusServico4", "nfeStatusServico4Soap12"), NFeStatusServico4.class, features);
-    }
-
-    private static URL __getWsdlLocation() {
-        if (NFESTATUSSERVICO4_EXCEPTION != null) {
-            throw NFESTATUSSERVICO4_EXCEPTION;
-        }
-        return NFESTATUSSERVICO4_WSDL_LOCATION;
     }
 
 }

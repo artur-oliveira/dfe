@@ -1,10 +1,6 @@
 package br.inf.portalfiscal.nfe.wsdl.query_protocol.mg.prod;
 
-import jakarta.xml.bind.JAXBElement;
-import jakarta.xml.bind.annotation.XmlElementDecl;
 import jakarta.xml.bind.annotation.XmlRegistry;
-
-import javax.xml.namespace.QName;
 
 
 /**
@@ -23,7 +19,6 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private static final QName _NfeResultMsg_QNAME = new QName("http://www.portalfiscal.inf.br/nfe/wsdl/NFeConsultaProtocolo4", "nfeResultMsg");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: br.inf.portalfiscal.nfe.wsdl.query_protocol.mg.prod
@@ -47,17 +42,6 @@ public class ObjectFactory {
      */
     public NfeResultMsg createNfeResultMsg() {
         return new NfeResultMsg();
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link NfeResultMsg }{@code >}
-     *
-     * @param value Java instance representing xml element's value.
-     * @return the new instance of {@link JAXBElement }{@code <}{@link NfeResultMsg }{@code >}
-     */
-    @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeConsultaProtocolo4", name = "nfeResultMsg")
-    public JAXBElement<NfeResultMsg> createNfeResultMsg(NfeResultMsg value) {
-        return new JAXBElement<>(_NfeResultMsg_QNAME, NfeResultMsg.class, null, value);
     }
 
 }

@@ -27,7 +27,7 @@ public interface MDFeConsNaoEncSoap12 {
      */
     @WebMethod(action = "http://www.portalfiscal.inf.br/mdfe/wsdl/MDFeConsNaoEnc/mdfeConsNaoEnc")
     @WebResult(name = "mdfeConsNaoEncResult", targetNamespace = "http://www.portalfiscal.inf.br/mdfe/wsdl/MDFeConsNaoEnc", partName = "mdfeConsNaoEncResult")
-    MdfeConsNaoEncResult mdfeConsNaoEnc(
+    public MdfeConsNaoEncResult mdfeConsNaoEnc(
             @WebParam(name = "mdfeDadosMsg", targetNamespace = "http://www.portalfiscal.inf.br/mdfe/wsdl/MDFeConsNaoEnc", partName = "mdfeDadosMsg")
             MdfeDadosMsg mdfeDadosMsg);
 

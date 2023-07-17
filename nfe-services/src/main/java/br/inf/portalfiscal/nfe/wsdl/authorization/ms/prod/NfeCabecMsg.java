@@ -8,12 +8,12 @@ import java.util.Map;
 
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>Java class for nfeCabecMsg complex type.
  *
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>{@code
- * <complexType>
+ * <complexType name="nfeCabecMsg">
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <sequence>
@@ -27,18 +27,17 @@ import java.util.Map;
  * }</pre>
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
+@XmlType(name = "nfeCabecMsg", propOrder = {
         "cuf",
         "versaoDados"
 })
-@XmlRootElement(name = "nfeCabecMsg")
 public class NfeCabecMsg {
 
     @XmlElement(name = "cUF")
     protected String cuf;
     protected String versaoDados;
     @XmlAnyAttribute
-    private final Map<QName, String> otherAttributes = new HashMap<>();
+    private Map<QName, String> otherAttributes = new HashMap<>();
 
     /**
      * Gets the value of the cuf property.

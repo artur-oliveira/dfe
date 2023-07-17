@@ -226,7 +226,7 @@ public final class CteMtService extends CteAnService {
 
         if (data.config().production()) {
             br.inf.portalfiscal.cte4.wsdl.reception_sync.mt.prod.CTeRecepcaoSincSoap12 ws = ((br.inf.portalfiscal.cte4.wsdl.reception_sync.mt.prod.CTeRecepcaoSincV4) getSoapService().prodReceptionSync()).getCTeRecepcaoSincSoap12();
-            data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
+            data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).overridePortAddress("https://cte.sefaz.mt.gov.br/ctews2/services/CTeRecepcaoSincV4").build());
 
             br.inf.portalfiscal.cte4.wsdl.reception_sync.mt.prod.CteRecepcaoSincResult resultMsg;
             try {

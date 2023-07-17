@@ -18,13 +18,13 @@ import java.util.Set;
 public final class SoapServiceMapping {
 
     private final static String PATH_NFE_WSDL = "br.inf.portalfiscal.nfe.wsdl";
+    private final static String PATH_NFCE_WSDL = "br.inf.portalfiscal.nfce.wsdl";
     private final static String PATH_CTE_WSDL = "br.inf.portalfiscal.cte.wsdl";
     private final static String PATH_CTE4_WSDL = "br.inf.portalfiscal.cte4.wsdl";
     private final static String PATH_MDFE_WSDL = "br.inf.portalfiscal.mdfe.wsdl";
-    private final static String PATTERN_NFCE = ".nfce.";
 
-    private final Set<Class<?>> servicesNfe = ReflectionUtils.findAllClasses(PackageFinder.builder().packages(Collections.singletonList(SoapServiceMapping.PATH_NFE_WSDL)).assignables(Collections.singleton(Service.class)).packageAntMatcher(Collections.singleton(SoapServiceMapping.PATTERN_NFCE)).build());
-    private final Set<Class<?>> servicesNfce = ReflectionUtils.findAllClasses(PackageFinder.builder().packages(Collections.singletonList(SoapServiceMapping.PATH_NFE_WSDL)).assignables(Collections.singleton(Service.class)).packageMatchers(Collections.singleton(SoapServiceMapping.PATTERN_NFCE)).build());
+    private final Set<Class<?>> servicesNfe = ReflectionUtils.findAllClasses(PackageFinder.builder().packages(Collections.singletonList(SoapServiceMapping.PATH_NFE_WSDL)).assignables(Collections.singleton(Service.class)).build());
+    private final Set<Class<?>> servicesNfce = ReflectionUtils.findAllClasses(PackageFinder.builder().packages(Collections.singletonList(SoapServiceMapping.PATH_NFCE_WSDL)).assignables(Collections.singleton(Service.class)).build());
     private final Set<Class<?>> servicesCte = ReflectionUtils.findAllClasses(PackageFinder.builder().packages(Collections.singletonList(SoapServiceMapping.PATH_CTE_WSDL)).assignables(Collections.singleton(Service.class)).build());
     private final Set<Class<?>> servicesCte4 = ReflectionUtils.findAllClasses(PackageFinder.builder().packages(Collections.singletonList(SoapServiceMapping.PATH_CTE4_WSDL)).assignables(Collections.singleton(Service.class)).build());
     private final Set<Class<?>> servicesMdfe = ReflectionUtils.findAllClasses(PackageFinder.builder().packages(Collections.singletonList(SoapServiceMapping.PATH_MDFE_WSDL)).assignables(Collections.singleton(Service.class)).build());

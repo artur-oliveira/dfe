@@ -112,10 +112,14 @@ public final class XMLUtils {
      * removed.
      */
     public static String elementToString(Element el) {
+        return elementToString(el, true);
+    }
+
+    public static String elementToString(Element el, boolean clean) {
         try {
             try (StringWriter sw = new StringWriter()) {
                 XMLUtils.getTransformer().transform(new DOMSource(el), new StreamResult(sw));
-                return XMLStringUtils.cleanNamespace(sw.toString());
+                return clean ? XMLStringUtils.cleanNamespace(sw.toString()) : sw.toString();
             }
         } catch (Exception e) {
             throw new MarshallException(e);

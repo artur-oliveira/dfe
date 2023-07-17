@@ -6,6 +6,7 @@ import jakarta.jws.WebResult;
 import jakarta.jws.WebService;
 import jakarta.jws.soap.SOAPBinding;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
+import jakarta.xml.ws.Action;
 import jakarta.xml.ws.Holder;
 
 
@@ -23,18 +24,17 @@ public interface CteStatusServicoSoap12 {
 
 
     /**
-     * Consulta Status do ServiÃ§o
-     *
+     * @param cteCabecMsg
      * @param cteDadosMsg
      * @return returns br.inf.portalfiscal.cte.wsdl.status_service.mg.prod.CteStatusServicoCTResult
      */
     @WebMethod(action = "http://www.portalfiscal.inf.br/cte/wsdl/CteStatusServico/cteStatusServicoCT")
     @WebResult(name = "cteStatusServicoCTResult", targetNamespace = "http://www.portalfiscal.inf.br/cte/wsdl/CteStatusServico", partName = "cteStatusServicoCTResult")
-    CteStatusServicoCTResult cteStatusServicoCT(
+    @Action(input = "http://www.portalfiscal.inf.br/cte/wsdl/CteStatusServico/cteStatusServicoCT", output = "http://www.portalfiscal.inf.br/cte/wsdl/CteStatusServico/CteStatusServicoSoap12/cteStatusServicoCTResponse")
+    public CteStatusServicoCTResult cteStatusServicoCT(
             @WebParam(name = "cteDadosMsg", targetNamespace = "http://www.portalfiscal.inf.br/cte/wsdl/CteStatusServico", partName = "cteDadosMsg")
             CteDadosMsg cteDadosMsg,
             @WebParam(name = "cteCabecMsg", targetNamespace = "http://www.portalfiscal.inf.br/cte/wsdl/CteStatusServico", header = true, mode = WebParam.Mode.INOUT, partName = "cteCabecMsg")
-            Holder<CteCabecMsg> cteCabecMsg
-            );
+            Holder<CteCabecMsg> cteCabecMsg);
 
 }

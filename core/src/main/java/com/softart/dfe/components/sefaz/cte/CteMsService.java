@@ -8,6 +8,7 @@ import com.softart.dfe.components.internal.xml.unmarshaller.CteUnmarshallerFacto
 import com.softart.dfe.enums.cte.identification.CteEmissionType;
 import com.softart.dfe.enums.internal.Environment;
 import com.softart.dfe.enums.internal.UF;
+import com.softart.dfe.exceptions.DfeUncheckedException;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.exceptions.ValidationException;
 import com.softart.dfe.exceptions.security.SecurityException;
@@ -84,51 +85,7 @@ public final class CteMsService extends CteAnService {
 
     @Override
     public <T extends SefazRequest<TInutCTe, TRetInutCTe>> Pair<TInutCTe, TRetInutCTe> inutilization(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = data.signer().signInut(CteMarshallerFactory.getInstance().inutilizationCte(data.data()), data.config());
-        JAXBElement<TInutCTe> envio = CteUnmarshallerFactory.getInstance().inutCte(xml);
-
-        for (Validator<TInutCTe> it : data.validators())
-            it.valid(new Validation<>(envio.getValue(), xml));
-        for (BeforeWebServiceRequest<TInutCTe> it : data.beforeRequest())
-            it.process(new Before<>(envio.getValue(), data.config()));
-
-        TRetInutCTe retorno = null;
-
-        if (data.config().production()) {
-            br.inf.portalfiscal.cte.wsdl.inutilization.ms.prod.CteInutilizacaoSoap12 ws = ((br.inf.portalfiscal.cte.wsdl.inutilization.ms.prod.CteInutilizacao) getSoapService().prodInutilization()).getCteInutilizacaoSoap12();
-
-            data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
-
-            br.inf.portalfiscal.cte.wsdl.inutilization.ms.prod.CteDadosMsg msg = new br.inf.portalfiscal.cte.wsdl.inutilization.ms.prod.ObjectFactory().createCteDadosMsg();
-            msg.getContent().add(envio);
-
-            br.inf.portalfiscal.cte.wsdl.inutilization.ms.prod.CTeCabecMsg cabecMsg = new br.inf.portalfiscal.cte.wsdl.inutilization.ms.prod.ObjectFactory().createCTeCabecMsg();
-            cabecMsg.setCUF(data.config().webServiceUF().getCode());
-            cabecMsg.setVersaoDados(data.data().getVersao());
-
-            br.inf.portalfiscal.cte.wsdl.inutilization.ms.prod.CteInutilizacaoCTResult resultMsg = ws.cteInutilizacaoCT(msg, new Holder<>(cabecMsg));
-
-            if (!resultMsg.getContent().isEmpty())
-                retorno = (TRetInutCTe) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();
-        } else {
-            br.inf.portalfiscal.cte.wsdl.inutilization.ms.hom.CteInutilizacaoSoap12 ws = ((br.inf.portalfiscal.cte.wsdl.inutilization.ms.hom.CteInutilizacao) getSoapService().homInutilization()).getCteInutilizacaoSoap12();
-            data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
-
-            br.inf.portalfiscal.cte.wsdl.inutilization.ms.hom.CteDadosMsg msg = new br.inf.portalfiscal.cte.wsdl.inutilization.ms.hom.ObjectFactory().createCteDadosMsg();
-            msg.getContent().add(envio);
-            br.inf.portalfiscal.cte.wsdl.inutilization.ms.hom.CTeCabecMsg cabecMsg = new br.inf.portalfiscal.cte.wsdl.inutilization.ms.hom.ObjectFactory().createCTeCabecMsg();
-            cabecMsg.setCUF(data.config().webServiceUF().getCode());
-            cabecMsg.setVersaoDados(data.data().getVersao());
-            br.inf.portalfiscal.cte.wsdl.inutilization.ms.hom.CteInutilizacaoCTResult resultMsg = ws.cteInutilizacaoCT(msg, new Holder<>(cabecMsg));
-
-            if (!resultMsg.getContent().isEmpty())
-                retorno = (TRetInutCTe) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();
-        }
-
-        for (AfterWebServiceRequest<TInutCTe, TRetInutCTe> it : data.afterRequest())
-            it.process(new After<>(envio.getValue(), retorno, data.config()));
-
-        return new PairImpl<>(envio.getValue(), retorno);
+        throw new DfeUncheckedException("not implemented inutilization for uf " + data.config().uf() + " at environment " + data.config().environment());
     }
 
     @Override
@@ -356,33 +313,33 @@ public final class CteMsService extends CteAnService {
         TRetConsReciCTe retorno = null;
 
         if (data.config().production()) {
-            br.inf.portalfiscal.cte.wsdl.query_receipt.ms.prod.CteRetRecepcaoSoap12 ws = ((br.inf.portalfiscal.cte.wsdl.query_receipt.ms.prod.CteRetRecepcao) getSoapService().prodQueryReceipt()).getCteRetRecepcaoSoap12();
+            br.inf.portalfiscal.cte.wsdl.return_reception.ms.prod.CteRetRecepcaoSoap12 ws = ((br.inf.portalfiscal.cte.wsdl.return_reception.ms.prod.CteRetRecepcao) getSoapService().prodQueryReceipt()).getCteRetRecepcaoSoap12();
 
             data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
 
-            br.inf.portalfiscal.cte.wsdl.query_receipt.ms.prod.CteDadosMsg msg = new br.inf.portalfiscal.cte.wsdl.query_receipt.ms.prod.ObjectFactory().createCteDadosMsg();
+            br.inf.portalfiscal.cte.wsdl.return_reception.ms.prod.CteDadosMsg msg = new br.inf.portalfiscal.cte.wsdl.return_reception.ms.prod.ObjectFactory().createCteDadosMsg();
             msg.getContent().add(envio);
 
-            br.inf.portalfiscal.cte.wsdl.query_receipt.ms.prod.CTeCabecMsg cabecMsg = new br.inf.portalfiscal.cte.wsdl.query_receipt.ms.prod.ObjectFactory().createCTeCabecMsg();
+            br.inf.portalfiscal.cte.wsdl.return_reception.ms.prod.CTeCabecMsg cabecMsg = new br.inf.portalfiscal.cte.wsdl.return_reception.ms.prod.ObjectFactory().createCTeCabecMsg();
             cabecMsg.setCUF(data.config().webServiceUF().getCode());
             cabecMsg.setVersaoDados(data.data().getVersao());
 
-            br.inf.portalfiscal.cte.wsdl.query_receipt.ms.prod.CteRetRecepcaoResult resultMsg = ws.cteRetRecepcao(msg, new Holder<>(cabecMsg));
+            br.inf.portalfiscal.cte.wsdl.return_reception.ms.prod.CteRetRecepcaoResult resultMsg = ws.cteRetRecepcao(msg, new Holder<>(cabecMsg));
 
             if (!resultMsg.getContent().isEmpty())
                 retorno = (TRetConsReciCTe) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();
         } else {
-            br.inf.portalfiscal.cte.wsdl.query_receipt.ms.hom.CteRetRecepcaoSoap12 ws = ((br.inf.portalfiscal.cte.wsdl.query_receipt.ms.hom.CteRetRecepcao) getSoapService().homQueryReceipt()).getCteRetRecepcaoSoap12();
+            br.inf.portalfiscal.cte.wsdl.return_reception.ms.hom.CteRetRecepcaoSoap12 ws = ((br.inf.portalfiscal.cte.wsdl.return_reception.ms.hom.CteRetRecepcao) getSoapService().homQueryReceipt()).getCteRetRecepcaoSoap12();
             data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
 
-            br.inf.portalfiscal.cte.wsdl.query_receipt.ms.hom.CteDadosMsg msg = new br.inf.portalfiscal.cte.wsdl.query_receipt.ms.hom.ObjectFactory().createCteDadosMsg();
+            br.inf.portalfiscal.cte.wsdl.return_reception.ms.hom.CteDadosMsg msg = new br.inf.portalfiscal.cte.wsdl.return_reception.ms.hom.ObjectFactory().createCteDadosMsg();
             msg.getContent().add(envio);
 
-            br.inf.portalfiscal.cte.wsdl.query_receipt.ms.hom.CTeCabecMsg cabecMsg = new br.inf.portalfiscal.cte.wsdl.query_receipt.ms.hom.ObjectFactory().createCTeCabecMsg();
+            br.inf.portalfiscal.cte.wsdl.return_reception.ms.hom.CTeCabecMsg cabecMsg = new br.inf.portalfiscal.cte.wsdl.return_reception.ms.hom.ObjectFactory().createCTeCabecMsg();
             cabecMsg.setCUF(data.config().webServiceUF().getCode());
             cabecMsg.setVersaoDados(data.data().getVersao());
 
-            br.inf.portalfiscal.cte.wsdl.query_receipt.ms.hom.CteRetRecepcaoResult resultMsg = ws.cteRetRecepcao(msg, new Holder<>(cabecMsg));
+            br.inf.portalfiscal.cte.wsdl.return_reception.ms.hom.CteRetRecepcaoResult resultMsg = ws.cteRetRecepcao(msg, new Holder<>(cabecMsg));
 
             if (!resultMsg.getContent().isEmpty())
                 retorno = (TRetConsReciCTe) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();

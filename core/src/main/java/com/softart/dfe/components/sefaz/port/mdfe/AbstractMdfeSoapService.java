@@ -45,8 +45,33 @@ public abstract class AbstractMdfeSoapService extends AbstractSoapService implem
         return (MdfeConfig) super.getConfig();
     }
 
+    void initializeDefault(AbstractMdfeSoapService abstractMdfeSoapService) {
+        this.receptionHom = abstractMdfeSoapService.receptionHom;
+        this.queryReceiptHom = abstractMdfeSoapService.queryReceiptHom;
+        this.eventHom = abstractMdfeSoapService.eventHom;
+        this.querySituationHom = abstractMdfeSoapService.querySituationHom;
+        this.statusServiceHom = abstractMdfeSoapService.statusServiceHom;
+        this.queryUnclosedHom = abstractMdfeSoapService.queryUnclosedHom;
+        this.distributionHom = abstractMdfeSoapService.distributionHom;
+        this.distributionOldHom = abstractMdfeSoapService.distributionOldHom;
+        this.receptionSyncHom = abstractMdfeSoapService.receptionSyncHom;
+        this.receptionProd = abstractMdfeSoapService.receptionProd;
+        this.queryReceiptProd = abstractMdfeSoapService.queryReceiptProd;
+        this.eventProd = abstractMdfeSoapService.eventProd;
+        this.querySituationProd = abstractMdfeSoapService.querySituationProd;
+        this.statusServiceProd = abstractMdfeSoapService.statusServiceProd;
+        this.queryUnclosedProd = abstractMdfeSoapService.queryUnclosedProd;
+        this.distributionProd = abstractMdfeSoapService.distributionProd;
+        this.distributionOldProd = abstractMdfeSoapService.distributionOldProd;
+        this.receptionSyncProd = abstractMdfeSoapService.receptionSyncProd;
+    }
+
     public void initialize(MdfeSoapService o) {
         this.config = o.getConfig();
+
+        if (o instanceof AbstractMdfeSoapService abstractMdfeSoapService) {
+            initializeDefault(abstractMdfeSoapService);
+        }
 
         if (!LAZY_INITIALIZATION) {
             try {

@@ -32,12 +32,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CteDadosMsg }
+     * Create an instance of {@link CteCabecMsg }
      *
-     * @return the new instance of {@link CteDadosMsg }
+     * @return the new instance of {@link CteCabecMsg }
      */
-    public CteDadosMsg createCteDadosMsg() {
-        return new CteDadosMsg();
+    public CteCabecMsg createCteCabecMsg() {
+        return new CteCabecMsg();
     }
 
     /**
@@ -50,12 +50,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CteCabecMsg }
+     * Create an instance of {@link CteDadosMsg }
      *
-     * @return the new instance of {@link CteCabecMsg }
+     * @return the new instance of {@link CteDadosMsg }
      */
-    public CteCabecMsg createCteCabecMsg() {
-        return new CteCabecMsg();
+    public CteDadosMsg createCteDadosMsg() {
+        return new CteDadosMsg();
     }
 
     /**

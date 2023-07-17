@@ -56,6 +56,13 @@ public class RecepcaoEvento4
         super(wsdlLocation, serviceName, features);
     }
 
+    private static URL __getWsdlLocation() {
+        if (RECEPCAOEVENTO4_EXCEPTION != null) {
+            throw RECEPCAOEVENTO4_EXCEPTION;
+        }
+        return RECEPCAOEVENTO4_WSDL_LOCATION;
+    }
+
     /**
      * @return returns RecepcaoEvento4Soap
      */
@@ -65,19 +72,12 @@ public class RecepcaoEvento4
     }
 
     /**
-     * @param features A list of {@link WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
+     * @param features A list of {@link jakarta.xml.ws.WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
      * @return returns RecepcaoEvento4Soap
      */
     @WebEndpoint(name = "RecepcaoEvento4Soap12")
     public RecepcaoEvento4Soap getRecepcaoEvento4Soap12(WebServiceFeature... features) {
         return super.getPort(new QName("http://www.portalfiscal.inf.br/nfe/wsdl/NFeRecepcaoEvento4", "RecepcaoEvento4Soap12"), RecepcaoEvento4Soap.class, features);
-    }
-
-    private static URL __getWsdlLocation() {
-        if (RECEPCAOEVENTO4_EXCEPTION != null) {
-            throw RECEPCAOEVENTO4_EXCEPTION;
-        }
-        return RECEPCAOEVENTO4_WSDL_LOCATION;
     }
 
 }

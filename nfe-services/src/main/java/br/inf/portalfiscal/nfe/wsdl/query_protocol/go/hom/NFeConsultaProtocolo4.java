@@ -56,6 +56,13 @@ public class NFeConsultaProtocolo4
         super(wsdlLocation, serviceName, features);
     }
 
+    private static URL __getWsdlLocation() {
+        if (NFECONSULTAPROTOCOLO4_EXCEPTION != null) {
+            throw NFECONSULTAPROTOCOLO4_EXCEPTION;
+        }
+        return NFECONSULTAPROTOCOLO4_WSDL_LOCATION;
+    }
+
     /**
      * @return returns NFeConsultaProtocolo4Service
      */
@@ -65,19 +72,12 @@ public class NFeConsultaProtocolo4
     }
 
     /**
-     * @param features A list of {@link WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
+     * @param features A list of {@link jakarta.xml.ws.WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
      * @return returns NFeConsultaProtocolo4Service
      */
     @WebEndpoint(name = "NFeConsultaProtocolo4ServicePort")
     public NFeConsultaProtocolo4Service getNFeConsultaProtocolo4ServicePort(WebServiceFeature... features) {
         return super.getPort(new QName("http://www.portalfiscal.inf.br/nfe/wsdl/NFeConsultaProtocolo4", "NFeConsultaProtocolo4ServicePort"), NFeConsultaProtocolo4Service.class, features);
-    }
-
-    private static URL __getWsdlLocation() {
-        if (NFECONSULTAPROTOCOLO4_EXCEPTION != null) {
-            throw NFECONSULTAPROTOCOLO4_EXCEPTION;
-        }
-        return NFECONSULTAPROTOCOLO4_WSDL_LOCATION;
     }
 
 }

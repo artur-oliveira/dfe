@@ -34,7 +34,6 @@ import lombok.Getter;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
 
 @Getter
 @SuppressWarnings({"unchecked", "unused"})
@@ -407,15 +406,7 @@ public final class NfeRsService extends NfeAnService {
 
             retorno = ((JAXBElement<TRetConsCad>) resultMsg.getContent().get(0)).getValue();
         } else {
-            br.inf.portalfiscal.nfe.wsdl.query_register.rs.hom.CadConsultaCadastro4Soap12 ws = ((br.inf.portalfiscal.nfe.wsdl.query_register.rs.hom.CadConsultaCadastro4) getSoapService().homQueryRegister()).getCadConsultaCadastro4Soap12();
-            data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
-
-            br.inf.portalfiscal.nfe.wsdl.query_register.rs.hom.NfeDadosMsg msg = new br.inf.portalfiscal.nfe.wsdl.query_register.rs.hom.NfeDadosMsg();
-            msg.getContent().add(envio);
-
-            br.inf.portalfiscal.nfe.wsdl.query_register.rs.hom.NfeResultMsg resultMsg = ws.consultaCadastro(msg);
-
-            retorno = ((JAXBElement<TRetConsCad>) resultMsg.getContent().get(0)).getValue();
+            throw new DfeUncheckedException("not implemented query register for uf " + data.config().uf() + " at environment " + data.config().environment().getCode());
         }
         for (AfterWebServiceRequest<TConsCad, TRetConsCad> it : data.afterRequest())
             it.process(new After<>(envio.getValue(), retorno, data.config()));
