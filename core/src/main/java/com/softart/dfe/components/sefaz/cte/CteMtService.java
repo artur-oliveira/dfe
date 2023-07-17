@@ -29,6 +29,7 @@ import jakarta.xml.ws.BindingProvider;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Objects;
+import java.util.Optional;
 
 @SuppressWarnings("unused")
 public final class CteMtService extends CteAnService {
@@ -180,6 +181,8 @@ public final class CteMtService extends CteAnService {
             if (!resultMsg.getContent().isEmpty())
                 retorno = (TRetEnviCTe) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();
         }
+
+        Optional.ofNullable(retorno).orElseThrow(() -> new DfeUncheckedException("no sefaz return for uf " + data.config().uf()));
 
         for (AfterWebServiceRequest<TEnviCTe, TRetEnviCTe> it : data.afterRequest())
             it.process(new After<>(envio.getValue(), retorno, data.config()));

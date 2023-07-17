@@ -11,7 +11,6 @@ import com.softart.dfe.exceptions.security.SSLContextException;
 import com.softart.dfe.interfaces.internal.config.Config;
 import com.softart.dfe.interfaces.internal.config.CteConfig;
 import com.softart.dfe.interfaces.sefaz.port.Cte4SoapService;
-import com.softart.dfe.interfaces.sefaz.port.CteSoapService;
 import com.softart.dfe.models.internal.port.Cte4ServiceFinder;
 import com.softart.dfe.util.ReflectionUtils;
 import lombok.Data;
@@ -47,8 +46,34 @@ public abstract class AbstractCte4SoapService extends AbstractSoapService implem
         return (CteConfig) super.getConfig();
     }
 
+    void initializeDefault(AbstractCte4SoapService abstractCte4SoapService) {
+        this.prodDistribution = abstractCte4SoapService.prodDistribution;
+        this.homDistribution = abstractCte4SoapService.homDistribution;
+        this.prodEvent = abstractCte4SoapService.prodEvent;
+        this.homEvent = abstractCte4SoapService.homEvent;
+        this.prodInutilization = abstractCte4SoapService.prodInutilization;
+        this.homInutilization = abstractCte4SoapService.homInutilization;
+        this.prodQueryReceipt = abstractCte4SoapService.prodQueryReceipt;
+        this.homQueryReceipt = abstractCte4SoapService.homQueryReceipt;
+        this.prodQuerySituation = abstractCte4SoapService.prodQuerySituation;
+        this.homQuerySituation = abstractCte4SoapService.homQuerySituation;
+        this.prodReceptionGtve = abstractCte4SoapService.prodReceptionGtve;
+        this.homReceptionGtve = abstractCte4SoapService.homReceptionGtve;
+        this.prodReceptionOs = abstractCte4SoapService.prodReceptionOs;
+        this.homReceptionOs = abstractCte4SoapService.homReceptionOs;
+        this.prodReceptionSync = abstractCte4SoapService.prodReceptionSync;
+        this.homReceptionSync = abstractCte4SoapService.homReceptionSync;
+        this.prodStatusService = abstractCte4SoapService.prodStatusService;
+        this.homStatusService = abstractCte4SoapService.homStatusService;
+    }
+
     public void initialize(Cte4SoapService o) {
         this.config = o.getConfig();
+
+        if (o instanceof AbstractCte4SoapService abstractCte4SoapService) {
+            initializeDefault(abstractCte4SoapService);
+        }
+
         if (!LAZY_INITIALIZATION) {
             try {
                 o.prodDistribution();
@@ -108,6 +133,7 @@ public abstract class AbstractCte4SoapService extends AbstractSoapService implem
             }
         }
 
+        SoapServiceProxy.getInstance().addCte4Service(this);
         this.initialized = true;
     }
 

@@ -45,8 +45,30 @@ public abstract class AbstractNfceSoapService extends AbstractSoapService implem
         this.config = config;
     }
 
+    public void initializeDefault(AbstractNfceSoapService abstractNfceSoapService) {
+        this.prodAuthorization = abstractNfceSoapService.prodAuthorization;
+        this.homAuthorization = abstractNfceSoapService.homAuthorization;
+        this.prodCancel = abstractNfceSoapService.prodCancel;
+        this.homCancel = abstractNfceSoapService.homCancel;
+        this.prodInutilization = abstractNfceSoapService.prodInutilization;
+        this.homInutilization = abstractNfceSoapService.homInutilization;
+        this.prodQueryProtocol = abstractNfceSoapService.prodQueryProtocol;
+        this.homQueryProtocol = abstractNfceSoapService.homQueryProtocol;
+        this.prodQueryStatusService = abstractNfceSoapService.prodQueryStatusService;
+        this.homQueryStatusService = abstractNfceSoapService.homQueryStatusService;
+        this.prodReturnAuthorization = abstractNfceSoapService.prodReturnAuthorization;
+        this.homReturnAuthorization = abstractNfceSoapService.homReturnAuthorization;
+        this.prodSubstituteCancel = abstractNfceSoapService.prodSubstituteCancel;
+        this.homSubstituteCancel = abstractNfceSoapService.homSubstituteCancel;
+    }
+
     public void initialize(NfceSoapService o) {
         this.config = o.getConfig();
+
+        if (o instanceof AbstractNfceSoapService abstractNfceSoapService) {
+            initializeDefault(abstractNfceSoapService);
+        }
+
         if (!LAZY_INITIALIZATION) {
             try {
                 o.homAuthorization();
@@ -105,6 +127,7 @@ public abstract class AbstractNfceSoapService extends AbstractSoapService implem
             } catch (Exception ignored) {
             }
         }
+        SoapServiceProxy.getInstance().addNfceService(this);
         this.initialized = true;
     }
 

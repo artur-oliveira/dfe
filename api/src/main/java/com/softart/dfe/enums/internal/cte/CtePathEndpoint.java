@@ -8,7 +8,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum CtePathEndpoint implements DFEnum.Codeable {
     AUTHORIZATION("authorization", "Autorização"),
-    QUERY_RECEIPT("query_receipt", "Consulta recibo"),
+    QUERY_RECEIPT("return_reception", "Consulta recibo"),
     INUTILIZATION("inutilization", "Inutilização"),
     QUERY_PROTOCOL("query_protocol", "Consulta protocolo"),
     QUERY_SITUATION("query_situation", "Consulta situação"),

@@ -56,7 +56,7 @@ public final class CteMsService extends CteAnService {
             cabecMsg.setCUF(data.config().webServiceUF().getCode());
             cabecMsg.setVersaoDados(envio.getValue().getVersao());
 
-            br.inf.portalfiscal.cte.wsdl.event.ms.prod.CteRecepcaoEventoResult resultMsg = ws.cteRecepcaoEvento(msg);
+            br.inf.portalfiscal.cte.wsdl.event.ms.prod.CteRecepcaoEventoResult resultMsg = ws.cteRecepcaoEvento(msg, new Holder<>(cabecMsg));
 
             if (!resultMsg.getContent().isEmpty())
                 retorno = (TRetEvento) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();
@@ -71,7 +71,7 @@ public final class CteMsService extends CteAnService {
             cabecMsg.setCUF(data.config().webServiceUF().getCode());
             cabecMsg.setVersaoDados(envio.getValue().getVersao());
 
-            br.inf.portalfiscal.cte.wsdl.event.ms.hom.CteRecepcaoEventoResult resultMsg = ws.cteRecepcaoEvento(msg);
+            br.inf.portalfiscal.cte.wsdl.event.ms.hom.CteRecepcaoEventoResult resultMsg = ws.cteRecepcaoEvento(msg, new Holder<>(cabecMsg));
 
             if (!resultMsg.getContent().isEmpty())
                 retorno = (TRetEvento) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();
@@ -163,7 +163,7 @@ public final class CteMsService extends CteAnService {
             cabecMsg.setCUF(data.config().webServiceUF().getCode());
             cabecMsg.setVersaoDados(data.data().getVersao());
 
-            br.inf.portalfiscal.cte.wsdl.reception.ms.prod.CteRecepcaoLoteResult resultMsg = ws.cteRecepcaoLote(msg);
+            br.inf.portalfiscal.cte.wsdl.reception.ms.prod.CteRecepcaoLoteResult resultMsg = ws.cteRecepcaoLote(msg, new Holder<>(cabecMsg));
 
             if (!resultMsg.getContent().isEmpty())
                 retorno = (TRetEnviCTe) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();
@@ -178,7 +178,7 @@ public final class CteMsService extends CteAnService {
             cabecMsg.setCUF(data.config().webServiceUF().getCode());
             cabecMsg.setVersaoDados(data.data().getVersao());
 
-            br.inf.portalfiscal.cte.wsdl.reception.ms.hom.CteRecepcaoLoteResult resultMsg = ws.cteRecepcaoLote(msg);
+            br.inf.portalfiscal.cte.wsdl.reception.ms.hom.CteRecepcaoLoteResult resultMsg = ws.cteRecepcaoLote(msg, new Holder<>(cabecMsg));
 
             if (!resultMsg.getContent().isEmpty())
                 retorno = (TRetEnviCTe) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();
@@ -324,7 +324,7 @@ public final class CteMsService extends CteAnService {
             cabecMsg.setCUF(data.config().webServiceUF().getCode());
             cabecMsg.setVersaoDados(data.data().getVersao());
 
-            br.inf.portalfiscal.cte.wsdl.return_reception.ms.prod.CteRetRecepcaoResult resultMsg = ws.cteRetRecepcao(msg);
+            br.inf.portalfiscal.cte.wsdl.return_reception.ms.prod.CteRetRecepcaoResult resultMsg = ws.cteRetRecepcao(msg, new Holder<>(cabecMsg));
 
             if (!resultMsg.getContent().isEmpty())
                 retorno = (TRetConsReciCTe) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();
@@ -339,7 +339,7 @@ public final class CteMsService extends CteAnService {
             cabecMsg.setCUF(data.config().webServiceUF().getCode());
             cabecMsg.setVersaoDados(data.data().getVersao());
 
-            br.inf.portalfiscal.cte.wsdl.return_reception.ms.hom.CteRetRecepcaoResult resultMsg = ws.cteRetRecepcao(msg);
+            br.inf.portalfiscal.cte.wsdl.return_reception.ms.hom.CteRetRecepcaoResult resultMsg = ws.cteRetRecepcao(msg, new Holder<>(cabecMsg));
 
             if (!resultMsg.getContent().isEmpty())
                 retorno = (TRetConsReciCTe) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();
@@ -373,7 +373,7 @@ public final class CteMsService extends CteAnService {
             br.inf.portalfiscal.cte.wsdl.status_service.ms.prod.CTeCabecMsg cabecMsg = new br.inf.portalfiscal.cte.wsdl.status_service.ms.prod.ObjectFactory().createCTeCabecMsg();
             cabecMsg.setCUF(data.config().webServiceUF().getCode());
             cabecMsg.setVersaoDados(data.data().getVersao());
-            br.inf.portalfiscal.cte.wsdl.status_service.ms.prod.CteStatusServicoCTResult resultMsg = ws.cteStatusServicoCT(msg);
+            br.inf.portalfiscal.cte.wsdl.status_service.ms.prod.CteStatusServicoCTResult resultMsg = ws.cteStatusServicoCT(msg, new Holder<>(cabecMsg));
 
             if (!resultMsg.getContent().isEmpty())
                 retorno = (TRetConsStatServ) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();
@@ -386,7 +386,7 @@ public final class CteMsService extends CteAnService {
             br.inf.portalfiscal.cte.wsdl.status_service.ms.hom.CTeCabecMsg cabecMsg = new br.inf.portalfiscal.cte.wsdl.status_service.ms.hom.ObjectFactory().createCTeCabecMsg();
             cabecMsg.setCUF(data.config().webServiceUF().getCode());
             cabecMsg.setVersaoDados(data.data().getVersao());
-            br.inf.portalfiscal.cte.wsdl.status_service.ms.hom.CteStatusServicoCTResult resultMsg = ws.cteStatusServicoCT(msg);
+            br.inf.portalfiscal.cte.wsdl.status_service.ms.hom.CteStatusServicoCTResult resultMsg = ws.cteStatusServicoCT(msg, new Holder<>(cabecMsg));
 
             if (!resultMsg.getContent().isEmpty())
                 retorno = (TRetConsStatServ) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();

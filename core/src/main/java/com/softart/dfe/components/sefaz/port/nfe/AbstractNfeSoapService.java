@@ -57,8 +57,40 @@ public abstract class AbstractNfeSoapService extends AbstractSoapService impleme
         super(config);
     }
 
+    void initializeDefault(AbstractNfeSoapService abstractNfeSoapService) {
+        this.homAuthorization = abstractNfeSoapService.homAuthorization;
+        this.homReturnAuthorization = abstractNfeSoapService.homReturnAuthorization;
+        this.homCancel = abstractNfeSoapService.homCancel;
+        this.homInutilization = abstractNfeSoapService.homInutilization;
+        this.homQueryProtocol = abstractNfeSoapService.homQueryProtocol;
+        this.homQueryStatusService = abstractNfeSoapService.homQueryStatusService;
+        this.prodAuthorization = abstractNfeSoapService.prodAuthorization;
+        this.prodReturnAuthorization = abstractNfeSoapService.prodReturnAuthorization;
+        this.prodCancel = abstractNfeSoapService.prodCancel;
+        this.prodInutilization = abstractNfeSoapService.prodInutilization;
+        this.prodQueryStatusService = abstractNfeSoapService.prodQueryStatusService;
+        this.prodQueryProtocol = abstractNfeSoapService.prodQueryProtocol;
+        this.prodQueryRegister = abstractNfeSoapService.prodQueryRegister;
+        this.homQueryRegister = abstractNfeSoapService.homQueryRegister;
+        this.homDistribution = abstractNfeSoapService.homDistribution;
+        this.prodDistribution = abstractNfeSoapService.prodDistribution;
+        this.homEpec = abstractNfeSoapService.homEpec;
+        this.prodEpec = abstractNfeSoapService.prodEpec;
+        this.homInterestedActor = abstractNfeSoapService.homInterestedActor;
+        this.prodInterestedActor = abstractNfeSoapService.prodInterestedActor;
+        this.homCorrectionLetter = abstractNfeSoapService.homCorrectionLetter;
+        this.prodCorrectionLetter = abstractNfeSoapService.prodCorrectionLetter;
+        this.homManifestation = abstractNfeSoapService.homManifestation;
+        this.prodManifestation = abstractNfeSoapService.prodManifestation;
+        this.queryGtin = abstractNfeSoapService.queryGtin;
+    }
+
     public void initialize(NfeSoapService o) {
         this.config = o.getConfig();
+
+        if (o instanceof AbstractNfeSoapService abstractNfeSoapService) {
+            initializeDefault(abstractNfeSoapService);
+        }
 
         if (!LAZY_INITIALIZATION) {
             try {
@@ -158,6 +190,7 @@ public abstract class AbstractNfeSoapService extends AbstractSoapService impleme
             } catch (Exception ignored) {
             }
         }
+        SoapServiceProxy.getInstance().addNfeService(this);
         this.initialized = true;
     }
 

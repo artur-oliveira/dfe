@@ -114,6 +114,8 @@ public interface CteUnmarshaller {
 
     JAXBElement<br.inf.portalfiscal.cte.send400.TConsStatServ> statusService400(String xml);
 
+    JAXBElement<br.inf.portalfiscal.cte.send400.TRetConsStatServ> returnStatusService400(String xml);
+
     JAXBElement<?> any400(Element element);
 
     JAXBElement<?> any400(String xml);

@@ -51,25 +51,6 @@ final class DefaultConfigureProviderFactory extends ConfigureProviderFactory {
         config.port().getRequestContext().put(ENDPOINT_ADDRESS, Optional.ofNullable(config.overridePortAddress()).orElseGet(() -> config.port().getRequestContext().get(ENDPOINT_ADDRESS).toString().replace(":80/", "/").replace("http://", "https://")));
     }
 
-    static void enableDebug() {
-        System.setProperty("com.sun.xml.ws.transport.http.client.HttpTransportPipe.dump", "true");
-        System.setProperty("com.sun.xml.ws.transport.http.HttpAdapter.dump", "true");
-        System.setProperty("com.sun.xml.internal.ws.transport.http.HttpAdapter.dumpTreshold", "999999");
-    }
-
-    static void disableDebug() {
-        System.setProperty("com.sun.xml.ws.transport.http.client.HttpTransportPipe.dump", "false");
-        System.setProperty("com.sun.xml.ws.transport.http.HttpAdapter.dump", "false");
-    }
-
-    private void debug(ProviderConfig config) {
-        if (config.debugMode()) {
-            enableDebug();
-        } else {
-            disableDebug();
-        }
-    }
-
     /**
      * Set the timeout for the request to the value of the `DefaultConfigureProviderFactory.TIMEOUT_IN_SECS` constant
      *
@@ -97,6 +78,5 @@ final class DefaultConfigureProviderFactory extends ConfigureProviderFactory {
         timeout(config.port());
         handler(config);
         useHttps(config);
-        debug(config);
     }
 }

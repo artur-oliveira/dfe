@@ -349,6 +349,10 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
         return cte400fc.createConsStatServCTe(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.TConsStatServ.class, xml));
     }
 
+    @Override
+    public JAXBElement<br.inf.portalfiscal.cte.send400.TRetConsStatServ> returnStatusService400(String xml) {
+        return cte400fc.createRetConsStatServCTe(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.TRetConsStatServ.class, xml));
+    }
 
     @Override
     public JAXBElement<br.inf.portalfiscal.cte.send400.TProtCTe> protCTe400(String xml) {

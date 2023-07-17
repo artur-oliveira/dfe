@@ -21,8 +21,10 @@ import com.softart.dfe.models.internal.Before;
 import com.softart.dfe.models.internal.Validation;
 import com.softart.dfe.models.internal.wsdl.ProviderConfig;
 import com.softart.dfe.util.GZIPUtils;
+import com.softart.dfe.util.XMLUtils;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.ws.BindingProvider;
+import org.w3c.dom.Element;
 
 import java.io.IOException;
 import java.util.Collection;
@@ -278,8 +280,7 @@ public final class CteMgService extends CteAnService {
 
             br.inf.portalfiscal.cte4.wsdl.status_service.mg.prod.CteStatusServicoCTResult resultMsg = ws.cteStatusServicoCT(msg);
 
-            if (!resultMsg.getContent().isEmpty())
-                retorno = (TRetConsStatServ) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();
+            retorno = CteUnmarshallerFactory.getInstance().returnStatusService400(XMLUtils.elementToString((Element) resultMsg.getContent().get(0), false).replace("retConsStatServCte", "retConsStatServCTe")).getValue();
         } else {
             br.inf.portalfiscal.cte4.wsdl.status_service.mg.hom.CTeStatusServicoV4Soap12 ws = ((br.inf.portalfiscal.cte4.wsdl.status_service.mg.hom.CTeStatusServicoV4) getSoapService().homStatusService()).getCTeStatusServicoV4Soap12();
             data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
@@ -289,8 +290,8 @@ public final class CteMgService extends CteAnService {
 
             br.inf.portalfiscal.cte4.wsdl.status_service.mg.hom.CteStatusServicoCTResult resultMsg = ws.cteStatusServicoCT(msg);
 
-            if (!resultMsg.getContent().isEmpty())
-                retorno = (TRetConsStatServ) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();
+            retorno = CteUnmarshallerFactory.getInstance().returnStatusService400(XMLUtils.elementToString((Element) resultMsg.getContent().get(0), false).replace("retConsStatServCte", "retConsStatServCTe")).getValue();
+
         }
 
         for (AfterWebServiceRequest<TConsStatServ, TRetConsStatServ> it : data.afterRequest())

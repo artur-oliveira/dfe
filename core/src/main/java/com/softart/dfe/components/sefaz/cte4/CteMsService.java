@@ -49,7 +49,8 @@ public final class CteMsService extends CteAnService {
 
             data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
 
-            Object msg = new br.inf.portalfiscal.cte4.wsdl.event.ms.prod.ObjectFactory().createCteDadosMsg(envio);
+            br.inf.portalfiscal.cte4.wsdl.event.ms.prod.CteDadosMsg msg = new br.inf.portalfiscal.cte4.wsdl.event.ms.prod.CteDadosMsg();
+            msg.getContent().add(envio);
 
             br.inf.portalfiscal.cte4.wsdl.event.ms.prod.CteRecepcaoEventoResult resultMsg = ws.cteRecepcaoEvento(msg);
 
@@ -59,7 +60,8 @@ public final class CteMsService extends CteAnService {
             br.inf.portalfiscal.cte4.wsdl.event.ms.hom.CTeRecepcaoEventoV4Soap12 ws = ((br.inf.portalfiscal.cte4.wsdl.event.ms.hom.CTeRecepcaoEventoV4Service) getSoapService().homEvent()).getCTeRecepcaoEventoV4Soap12();
             data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
 
-            Object msg = new br.inf.portalfiscal.cte4.wsdl.event.ms.prod.ObjectFactory().createCteDadosMsg(envio);
+            br.inf.portalfiscal.cte4.wsdl.event.ms.hom.CteDadosMsg msg = new br.inf.portalfiscal.cte4.wsdl.event.ms.hom.CteDadosMsg();
+            msg.getContent().add(envio);
 
             br.inf.portalfiscal.cte4.wsdl.event.ms.hom.CteRecepcaoEventoResult resultMsg = ws.cteRecepcaoEvento(msg);
 
