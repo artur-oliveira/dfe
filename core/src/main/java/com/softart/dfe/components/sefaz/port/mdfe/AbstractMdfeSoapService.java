@@ -17,6 +17,7 @@ import lombok.Data;
 
 import javax.net.ssl.HttpsURLConnection;
 import java.util.Objects;
+import java.util.Optional;
 
 @Data
 @SuppressWarnings("unchecked")
@@ -46,24 +47,24 @@ public abstract class AbstractMdfeSoapService extends AbstractSoapService implem
     }
 
     void initializeDefault(AbstractMdfeSoapService abstractMdfeSoapService) {
-        this.receptionHom = abstractMdfeSoapService.receptionHom;
-        this.queryReceiptHom = abstractMdfeSoapService.queryReceiptHom;
-        this.eventHom = abstractMdfeSoapService.eventHom;
-        this.querySituationHom = abstractMdfeSoapService.querySituationHom;
-        this.statusServiceHom = abstractMdfeSoapService.statusServiceHom;
-        this.queryUnclosedHom = abstractMdfeSoapService.queryUnclosedHom;
-        this.distributionHom = abstractMdfeSoapService.distributionHom;
-        this.distributionOldHom = abstractMdfeSoapService.distributionOldHom;
-        this.receptionSyncHom = abstractMdfeSoapService.receptionSyncHom;
-        this.receptionProd = abstractMdfeSoapService.receptionProd;
-        this.queryReceiptProd = abstractMdfeSoapService.queryReceiptProd;
-        this.eventProd = abstractMdfeSoapService.eventProd;
-        this.querySituationProd = abstractMdfeSoapService.querySituationProd;
-        this.statusServiceProd = abstractMdfeSoapService.statusServiceProd;
-        this.queryUnclosedProd = abstractMdfeSoapService.queryUnclosedProd;
-        this.distributionProd = abstractMdfeSoapService.distributionProd;
-        this.distributionOldProd = abstractMdfeSoapService.distributionOldProd;
-        this.receptionSyncProd = abstractMdfeSoapService.receptionSyncProd;
+        this.receptionHom = Optional.ofNullable(abstractMdfeSoapService.receptionHom).orElse(this.receptionHom);
+        this.queryReceiptHom = Optional.ofNullable(abstractMdfeSoapService.queryReceiptHom).orElse(this.queryReceiptHom);
+        this.eventHom = Optional.ofNullable(abstractMdfeSoapService.eventHom).orElse(this.eventHom);
+        this.querySituationHom = Optional.ofNullable(abstractMdfeSoapService.querySituationHom).orElse(this.querySituationHom);
+        this.statusServiceHom = Optional.ofNullable(abstractMdfeSoapService.statusServiceHom).orElse(this.statusServiceHom);
+        this.queryUnclosedHom = Optional.ofNullable(abstractMdfeSoapService.queryUnclosedHom).orElse(this.queryUnclosedHom);
+        this.distributionHom = Optional.ofNullable(abstractMdfeSoapService.distributionHom).orElse(this.distributionHom);
+        this.distributionOldHom = Optional.ofNullable(abstractMdfeSoapService.distributionOldHom).orElse(this.distributionOldHom);
+        this.receptionSyncHom = Optional.ofNullable(abstractMdfeSoapService.receptionSyncHom).orElse(this.receptionSyncHom);
+        this.receptionProd = Optional.ofNullable(abstractMdfeSoapService.receptionProd).orElse(this.receptionProd);
+        this.queryReceiptProd = Optional.ofNullable(abstractMdfeSoapService.queryReceiptProd).orElse(this.queryReceiptProd);
+        this.eventProd = Optional.ofNullable(abstractMdfeSoapService.eventProd).orElse(this.eventProd);
+        this.querySituationProd = Optional.ofNullable(abstractMdfeSoapService.querySituationProd).orElse(this.querySituationProd);
+        this.statusServiceProd = Optional.ofNullable(abstractMdfeSoapService.statusServiceProd).orElse(this.statusServiceProd);
+        this.queryUnclosedProd = Optional.ofNullable(abstractMdfeSoapService.queryUnclosedProd).orElse(this.queryUnclosedProd);
+        this.distributionProd = Optional.ofNullable(abstractMdfeSoapService.distributionProd).orElse(this.distributionProd);
+        this.distributionOldProd = Optional.ofNullable(abstractMdfeSoapService.distributionOldProd).orElse(this.distributionOldProd);
+        this.receptionSyncProd = Optional.ofNullable(abstractMdfeSoapService.receptionSyncProd).orElse(this.receptionSyncProd);
     }
 
     public void initialize(MdfeSoapService o) {

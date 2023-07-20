@@ -7890,7 +7890,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>none</phase>
+                        <phase>generate-sources</phase>
                         <configuration>
                             <wsdlLocation>
                                 https://cte.sefaz.mt.gov.br/ctews2/services/CTeRecepcaoEventoV4?wsdl
@@ -7910,7 +7910,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>none</phase>
+                        <phase>generate-sources</phase>
                         <configuration>
                             <wsdlLocation>
                                 https://cte.sefaz.mt.gov.br/ctews2/services/CTeRecepcaoSincV4?wsdl
@@ -7930,7 +7930,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>none</phase>
+                        <phase>generate-sources</phase>
                         <configuration>
                             <wsdlLocation>
                                 https://cte.sefaz.mt.gov.br/ctews/services/CTeRecepcaoOSV4?wsdl
@@ -7950,7 +7950,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>none</phase>
+                        <phase>generate-sources</phase>
                         <configuration>
                             <wsdlLocation>
                                 https://cte.sefaz.mt.gov.br/ctews2/services/CTeRecepcaoGTVeV4?wsdl
@@ -7970,7 +7970,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>none</phase>
+                        <phase>generate-sources</phase>
                         <configuration>
                             <wsdlLocation>
                                 https://cte.sefaz.mt.gov.br/ctews2/services/CTeConsultaV4?wsdl
@@ -7991,7 +7991,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>none</phase>
+                        <phase>generate-sources</phase>
                         <configuration>
                             <wsdlLocation>
                                 https://cte.sefaz.mt.gov.br/ctews2/services/CTeStatusServicoV4?wsdl
@@ -8011,7 +8011,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>none</phase>
+                        <phase>generate-sources</phase>
                         <configuration>
                             <wsdlLocation>
                                 https://homologacao.sefaz.mt.gov.br/ctews2/services/CTeRecepcaoEventoV4?wsdl
@@ -8031,7 +8031,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>none</phase>
+                        <phase>generate-sources</phase>
                         <configuration>
                             <wsdlLocation>
                                 https://homologacao.sefaz.mt.gov.br/ctews2/services/CTeRecepcaoSincV4?wsdl
@@ -8051,7 +8051,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>none</phase>
+                        <phase>generate-sources</phase>
                         <configuration>
                             <wsdlLocation>
                                 https://homologacao.sefaz.mt.gov.br/ctews/services/CTeRecepcaoOSV4?wsdl
@@ -8071,7 +8071,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>none</phase>
+                        <phase>generate-sources</phase>
                         <configuration>
                             <wsdlLocation>
                                 https://homologacao.sefaz.mt.gov.br/ctews2/services/CTeRecepcaoGTVeV4?wsdl
@@ -8091,7 +8091,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>none</phase>
+                        <phase>generate-sources</phase>
                         <configuration>
                             <wsdlLocation>
                                 https://homologacao.sefaz.mt.gov.br/ctews2/services/CTeConsultaV4?wsdl
@@ -8111,7 +8111,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>none</phase>
+                        <phase>generate-sources</phase>
                         <configuration>
                             <wsdlLocation>
                                 https://homologacao.sefaz.mt.gov.br/ctews2/services/CTeStatusServicoV4?wsdl

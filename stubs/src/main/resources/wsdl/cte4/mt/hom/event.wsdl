@@ -37,16 +37,16 @@
     <message name="cteRecepcaoEventoSoap12Out">
         <part name="cteRecepcaoEventoResult" element="tns:cteRecepcaoEventoResult"/>
     </message>
-    <portType name="CTeRecepcaoEventoSoap12">
+    <portType name="CTeRecepcaoEventoV4Soap12">
         <operation name="cteRecepcaoEvento">
             <input message="tns:cteRecepcaoEventoSoap12In"/>
             <output message="tns:cteRecepcaoEventoSoap12Out"/>
         </operation>
     </portType>
-    <binding name="CTeRecepcaoEventoSoap12" type="tns:CTeRecepcaoEventoSoap12">
+    <binding name="CTeRecepcaoEventoV4Soap12" type="tns:CTeRecepcaoEventoV4Soap12">
         <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
         <operation name="cteRecepcaoEvento">
-            <soap12:operation style="document" soapAction="http://www.portalfiscal.inf.br/cte/wsdl/CTeRecepcaoEvento/CTeRecepcaoEventoV4"
+            <soap12:operation style="document" soapAction="http://www.portalfiscal.inf.br/cte/wsdl/CTeRecepcaoEventoV4/cteRecepcaoEvento"
                  soapActionRequired="false"/>
             <input>
                 <soap12:body use="literal"/>
@@ -57,8 +57,8 @@
         </operation>
     </binding>
     <service name="CTeRecepcaoEventoV4">
-        <port name="CTeRecepcaoEventoSoap12" binding="tns:CTeRecepcaoEventoSoap12">
-            <soap12:address location="https://homologacao.sefaz.mt.gov.br/ctews2/services/CTeRecepcaoEventoV4"/>
+        <port name="CTeRecepcaoEventoV4Soap12" binding="tns:CTeRecepcaoEventoV4Soap12">
+            <soap12:address location="https://cte.sefaz.mt.gov.br/ctews2/services/CTeRecepcaoEventoV4"/>
         </port>
     </service>
 </definitions>

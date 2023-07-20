@@ -52,7 +52,7 @@
     </binding>
     <service name="CTeRecepcaoSincV4">
         <port name="CTeRecepcaoSincSoap12" binding="tns:CTeRecepcaoSincSoap12">
-            <soap12:address location="https://homologacao.sefaz.mt.gov.br/ctews2/services/CTeRecepcaoSincV4"/>
+            <soap12:address location="https://cte.sefaz.mt.gov.br/ctews2/services/CTeRecepcaoSincV4"/>
         </port>
     </service>
 </definitions>
