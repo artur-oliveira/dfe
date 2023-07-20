@@ -18,6 +18,7 @@ import lombok.SneakyThrows;
 
 import javax.net.ssl.HttpsURLConnection;
 import java.util.Objects;
+import java.util.Optional;
 
 @Data
 @SuppressWarnings("unchecked")
@@ -46,20 +47,20 @@ public abstract class AbstractNfceSoapService extends AbstractSoapService implem
     }
 
     public void initializeDefault(AbstractNfceSoapService abstractNfceSoapService) {
-        this.prodAuthorization = abstractNfceSoapService.prodAuthorization;
-        this.homAuthorization = abstractNfceSoapService.homAuthorization;
-        this.prodCancel = abstractNfceSoapService.prodCancel;
-        this.homCancel = abstractNfceSoapService.homCancel;
-        this.prodInutilization = abstractNfceSoapService.prodInutilization;
-        this.homInutilization = abstractNfceSoapService.homInutilization;
-        this.prodQueryProtocol = abstractNfceSoapService.prodQueryProtocol;
-        this.homQueryProtocol = abstractNfceSoapService.homQueryProtocol;
-        this.prodQueryStatusService = abstractNfceSoapService.prodQueryStatusService;
-        this.homQueryStatusService = abstractNfceSoapService.homQueryStatusService;
-        this.prodReturnAuthorization = abstractNfceSoapService.prodReturnAuthorization;
-        this.homReturnAuthorization = abstractNfceSoapService.homReturnAuthorization;
-        this.prodSubstituteCancel = abstractNfceSoapService.prodSubstituteCancel;
-        this.homSubstituteCancel = abstractNfceSoapService.homSubstituteCancel;
+        this.prodAuthorization = Optional.ofNullable(abstractNfceSoapService.prodAuthorization).orElse(this.prodAuthorization);
+        this.homAuthorization = Optional.ofNullable(abstractNfceSoapService.homAuthorization).orElse(this.homAuthorization);
+        this.prodCancel = Optional.ofNullable(abstractNfceSoapService.prodCancel).orElse(this.prodCancel);
+        this.homCancel = Optional.ofNullable(abstractNfceSoapService.homCancel).orElse(this.homCancel);
+        this.prodInutilization = Optional.ofNullable(abstractNfceSoapService.prodInutilization).orElse(this.prodInutilization);
+        this.homInutilization = Optional.ofNullable(abstractNfceSoapService.homInutilization).orElse(this.homInutilization);
+        this.prodQueryProtocol = Optional.ofNullable(abstractNfceSoapService.prodQueryProtocol).orElse(this.prodQueryProtocol);
+        this.homQueryProtocol = Optional.ofNullable(abstractNfceSoapService.homQueryProtocol).orElse(this.homQueryProtocol);
+        this.prodQueryStatusService = Optional.ofNullable(abstractNfceSoapService.prodQueryStatusService).orElse(this.prodQueryStatusService);
+        this.homQueryStatusService = Optional.ofNullable(abstractNfceSoapService.homQueryStatusService).orElse(this.homQueryStatusService);
+        this.prodReturnAuthorization = Optional.ofNullable(abstractNfceSoapService.prodReturnAuthorization).orElse(this.prodReturnAuthorization);
+        this.homReturnAuthorization = Optional.ofNullable(abstractNfceSoapService.homReturnAuthorization).orElse(this.homReturnAuthorization);
+        this.prodSubstituteCancel = Optional.ofNullable(abstractNfceSoapService.prodSubstituteCancel).orElse(this.prodSubstituteCancel);
+        this.homSubstituteCancel = Optional.ofNullable(abstractNfceSoapService.homSubstituteCancel).orElse(this.homSubstituteCancel);
     }
 
     public void initialize(NfceSoapService o) {

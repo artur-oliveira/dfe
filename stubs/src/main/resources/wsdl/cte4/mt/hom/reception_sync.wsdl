@@ -16,7 +16,7 @@
     <types>
         <s:schema elementFormDefault="qualified" targetNamespace="http://www.portalfiscal.inf.br/cte/wsdl/CTeRecepcaoSincV4">
             <s:element name="cteDadosMsg" type="s:string"/>
-            <s:element name="cteRecepcaoSincResult">
+            <s:element name="cteRecepcaoResult">
                 <s:complexType mixed="true">
                     <s:sequence>
                         <s:any/>
@@ -25,22 +25,22 @@
             </s:element>
         </s:schema>
     </types>
-    <message name="cteRecepcaoSincSoap12In">
+    <message name="cteRecepcaoSoap12In">
         <part name="cteDadosMsg" element="tns:cteDadosMsg"/>
     </message>
-    <message name="cteRecepcaoSincSoap12Out">
-        <part name="cteRecepcaoSincResult" element="tns:cteRecepcaoSincResult"/>
+    <message name="cteRecepcaoSoap12Out">
+        <part name="cteRecepcaoResult" element="tns:cteRecepcaoResult"/>
     </message>
-    <portType name="CTeRecepcaoSincSoap12">
-        <operation name="cteRecepcaoSinc">
-            <input message="tns:cteRecepcaoSincSoap12In"/>
-            <output message="tns:cteRecepcaoSincSoap12Out"/>
+    <portType name="CTeRecepcaoSincV4Soap12">
+        <operation name="cteRecepcao">
+            <input message="tns:cteRecepcaoSoap12In"/>
+            <output message="tns:cteRecepcaoSoap12Out"/>
         </operation>
     </portType>
-    <binding name="CTeRecepcaoSincSoap12" type="tns:CTeRecepcaoSincSoap12">
+    <binding name="CTeRecepcaoSincV4Soap12" type="tns:CTeRecepcaoSincV4Soap12">
         <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
-        <operation name="cteRecepcaoSinc">
-            <soap12:operation style="document" soapAction="http://www.portalfiscal.inf.br/cte/wsdl/CteRecepcaoSincV4/cteRecepcaoSincV4"
+        <operation name="cteRecepcao">
+            <soap12:operation style="document" soapAction="http://www.portalfiscal.inf.br/cte/wsdl/CTeRecepcaoSincV4/cteRecepcao"
                  soapActionRequired="false"/>
             <input>
                 <soap12:body use="literal"/>
@@ -51,8 +51,8 @@
         </operation>
     </binding>
     <service name="CTeRecepcaoSincV4">
-        <port name="CTeRecepcaoSincSoap12" binding="tns:CTeRecepcaoSincSoap12">
-            <soap12:address location="https://homologacao.sefaz.mt.gov.br/ctews2/services/CTeRecepcaoSincV4"/>
+        <port name="CTeRecepcaoSincV4Soap12" binding="tns:CTeRecepcaoSincV4Soap12">
+            <soap12:address location="https://cte.sefaz.mt.gov.br/ctews2/services/CTeRecepcaoSincV4"/>
         </port>
     </service>
 </definitions>
