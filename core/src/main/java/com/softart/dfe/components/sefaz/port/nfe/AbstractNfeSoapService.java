@@ -60,30 +60,30 @@ public abstract class AbstractNfeSoapService extends AbstractSoapService impleme
 
     void initializeDefault(AbstractNfeSoapService abstractNfeSoapService) {
         this.homAuthorization = Optional.ofNullable(abstractNfeSoapService.homAuthorization).orElse(this.homAuthorization);
-        this.homReturnAuthorization = Optional.ofNullable(abstractNfeSoapService.homReturnAuthorization).orElse(this.homAuthorization);
-        this.homCancel = Optional.ofNullable(abstractNfeSoapService.homCancel).orElse(this.homAuthorization);
-        this.homInutilization = Optional.ofNullable(abstractNfeSoapService.homInutilization).orElse(this.homAuthorization);
-        this.homQueryProtocol = Optional.ofNullable(abstractNfeSoapService.homQueryProtocol).orElse(this.homAuthorization);
-        this.homQueryStatusService = Optional.ofNullable(abstractNfeSoapService.homQueryStatusService).orElse(this.homAuthorization);
-        this.prodAuthorization = Optional.ofNullable(abstractNfeSoapService.prodAuthorization).orElse(this.homAuthorization);
-        this.prodReturnAuthorization = Optional.ofNullable(abstractNfeSoapService.prodReturnAuthorization).orElse(this.homAuthorization);
-        this.prodCancel = Optional.ofNullable(abstractNfeSoapService.prodCancel).orElse(this.homAuthorization);
-        this.prodInutilization = Optional.ofNullable(abstractNfeSoapService.prodInutilization).orElse(this.homAuthorization);
-        this.prodQueryStatusService = Optional.ofNullable(abstractNfeSoapService.prodQueryStatusService).orElse(this.homAuthorization);
-        this.prodQueryProtocol = Optional.ofNullable(abstractNfeSoapService.prodQueryProtocol).orElse(this.homAuthorization);
-        this.prodQueryRegister = Optional.ofNullable(abstractNfeSoapService.prodQueryRegister).orElse(this.homAuthorization);
-        this.homQueryRegister = Optional.ofNullable(abstractNfeSoapService.homQueryRegister).orElse(this.homAuthorization);
-        this.homDistribution = Optional.ofNullable(abstractNfeSoapService.homDistribution).orElse(this.homAuthorization);
-        this.prodDistribution = Optional.ofNullable(abstractNfeSoapService.prodDistribution).orElse(this.homAuthorization);
-        this.homEpec = Optional.ofNullable(abstractNfeSoapService.homEpec).orElse(this.homAuthorization);
-        this.prodEpec = Optional.ofNullable(abstractNfeSoapService.prodEpec).orElse(this.homAuthorization);
-        this.homInterestedActor = Optional.ofNullable(abstractNfeSoapService.homInterestedActor).orElse(this.homAuthorization);
-        this.prodInterestedActor = Optional.ofNullable(abstractNfeSoapService.prodInterestedActor).orElse(this.homAuthorization);
-        this.homCorrectionLetter = Optional.ofNullable(abstractNfeSoapService.homCorrectionLetter).orElse(this.homAuthorization);
-        this.prodCorrectionLetter = Optional.ofNullable(abstractNfeSoapService.prodCorrectionLetter).orElse(this.homAuthorization);
-        this.homManifestation = Optional.ofNullable(abstractNfeSoapService.homManifestation).orElse(this.homAuthorization);
-        this.prodManifestation = Optional.ofNullable(abstractNfeSoapService.prodManifestation).orElse(this.homAuthorization);
-        this.queryGtin = Optional.ofNullable(abstractNfeSoapService.queryGtin).orElse(this.homAuthorization);
+        this.homReturnAuthorization = Optional.ofNullable(abstractNfeSoapService.homReturnAuthorization).orElse(this.homReturnAuthorization);
+        this.homCancel = Optional.ofNullable(abstractNfeSoapService.homCancel).orElse(this.homCancel);
+        this.homInutilization = Optional.ofNullable(abstractNfeSoapService.homInutilization).orElse(this.homInutilization);
+        this.homQueryProtocol = Optional.ofNullable(abstractNfeSoapService.homQueryProtocol).orElse(this.homQueryProtocol);
+        this.homQueryStatusService = Optional.ofNullable(abstractNfeSoapService.homQueryStatusService).orElse(this.homQueryStatusService);
+        this.prodAuthorization = Optional.ofNullable(abstractNfeSoapService.prodAuthorization).orElse(this.prodAuthorization);
+        this.prodReturnAuthorization = Optional.ofNullable(abstractNfeSoapService.prodReturnAuthorization).orElse(this.prodReturnAuthorization);
+        this.prodCancel = Optional.ofNullable(abstractNfeSoapService.prodCancel).orElse(this.prodCancel);
+        this.prodInutilization = Optional.ofNullable(abstractNfeSoapService.prodInutilization).orElse(this.prodInutilization);
+        this.prodQueryStatusService = Optional.ofNullable(abstractNfeSoapService.prodQueryStatusService).orElse(this.prodQueryStatusService);
+        this.prodQueryProtocol = Optional.ofNullable(abstractNfeSoapService.prodQueryProtocol).orElse(this.prodQueryProtocol);
+        this.prodQueryRegister = Optional.ofNullable(abstractNfeSoapService.prodQueryRegister).orElse(this.prodQueryRegister);
+        this.homQueryRegister = Optional.ofNullable(abstractNfeSoapService.homQueryRegister).orElse(this.homQueryRegister);
+        this.homDistribution = Optional.ofNullable(abstractNfeSoapService.homDistribution).orElse(this.homDistribution);
+        this.prodDistribution = Optional.ofNullable(abstractNfeSoapService.prodDistribution).orElse(this.prodDistribution);
+        this.homEpec = Optional.ofNullable(abstractNfeSoapService.homEpec).orElse(this.homEpec);
+        this.prodEpec = Optional.ofNullable(abstractNfeSoapService.prodEpec).orElse(this.prodEpec);
+        this.homInterestedActor = Optional.ofNullable(abstractNfeSoapService.homInterestedActor).orElse(this.homInterestedActor);
+        this.prodInterestedActor = Optional.ofNullable(abstractNfeSoapService.prodInterestedActor).orElse(this.prodInterestedActor);
+        this.homCorrectionLetter = Optional.ofNullable(abstractNfeSoapService.homCorrectionLetter).orElse(this.homCorrectionLetter);
+        this.prodCorrectionLetter = Optional.ofNullable(abstractNfeSoapService.prodCorrectionLetter).orElse(this.prodCorrectionLetter);
+        this.homManifestation = Optional.ofNullable(abstractNfeSoapService.homManifestation).orElse(this.homManifestation);
+        this.prodManifestation = Optional.ofNullable(abstractNfeSoapService.prodManifestation).orElse(this.prodManifestation);
+        this.queryGtin = Optional.ofNullable(abstractNfeSoapService.queryGtin).orElse(this.queryGtin);
     }
 
     public void initialize(NfeSoapService o) {

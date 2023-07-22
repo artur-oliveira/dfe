@@ -17,6 +17,7 @@ import lombok.Data;
 
 import javax.net.ssl.HttpsURLConnection;
 import java.util.Objects;
+import java.util.Optional;
 
 @Data
 @SuppressWarnings("unchecked")
@@ -49,26 +50,26 @@ public abstract class AbstractCteSoapService extends AbstractSoapService impleme
     }
 
     void initializeDefault(AbstractCteSoapService abstractCteSoapService) {
-        this.prodDistribution = abstractCteSoapService.prodDistribution;
-        this.homDistribution = abstractCteSoapService.homDistribution;
-        this.prodEvent = abstractCteSoapService.prodEvent;
-        this.homEvent = abstractCteSoapService.homEvent;
-        this.prodInutilization = abstractCteSoapService.prodInutilization;
-        this.homInutilization = abstractCteSoapService.homInutilization;
-        this.prodQueryReceipt = abstractCteSoapService.prodQueryReceipt;
-        this.homQueryReceipt = abstractCteSoapService.homQueryReceipt;
-        this.prodQuerySituation = abstractCteSoapService.prodQuerySituation;
-        this.homQuerySituation = abstractCteSoapService.homQuerySituation;
-        this.prodReception = abstractCteSoapService.prodReception;
-        this.homReception = abstractCteSoapService.homReception;
-        this.prodReceptionGtve = abstractCteSoapService.prodReceptionGtve;
-        this.homReceptionGtve = abstractCteSoapService.homReceptionGtve;
-        this.prodReceptionOs = abstractCteSoapService.prodReceptionOs;
-        this.homReceptionOs = abstractCteSoapService.homReceptionOs;
-        this.prodReceptionSync = abstractCteSoapService.prodReceptionSync;
-        this.homReceptionSync = abstractCteSoapService.homReceptionSync;
-        this.prodStatusService = abstractCteSoapService.prodStatusService;
-        this.homStatusService = abstractCteSoapService.homStatusService;
+        this.prodDistribution = Optional.ofNullable(abstractCteSoapService.prodDistribution).orElse(this.prodDistribution);
+        this.homDistribution = Optional.ofNullable(abstractCteSoapService.homDistribution).orElse(this.homDistribution);
+        this.prodEvent = Optional.ofNullable(abstractCteSoapService.prodEvent).orElse(this.prodEvent);
+        this.homEvent = Optional.ofNullable(abstractCteSoapService.homEvent).orElse(this.homEvent);
+        this.prodInutilization = Optional.ofNullable(abstractCteSoapService.prodInutilization).orElse(this.prodInutilization);
+        this.homInutilization = Optional.ofNullable(abstractCteSoapService.homInutilization).orElse(this.homInutilization);
+        this.prodQueryReceipt = Optional.ofNullable(abstractCteSoapService.prodQueryReceipt).orElse(this.prodQueryReceipt);
+        this.homQueryReceipt = Optional.ofNullable(abstractCteSoapService.homQueryReceipt).orElse(this.homQueryReceipt);
+        this.prodQuerySituation = Optional.ofNullable(abstractCteSoapService.prodQuerySituation).orElse(this.prodQuerySituation);
+        this.homQuerySituation = Optional.ofNullable(abstractCteSoapService.homQuerySituation).orElse(this.homQuerySituation);
+        this.prodReception = Optional.ofNullable(abstractCteSoapService.prodReception).orElse(this.prodReception);
+        this.homReception = Optional.ofNullable(abstractCteSoapService.homReception).orElse(this.homReception);
+        this.prodReceptionGtve = Optional.ofNullable(abstractCteSoapService.prodReceptionGtve).orElse(this.prodReceptionGtve);
+        this.homReceptionGtve = Optional.ofNullable(abstractCteSoapService.homReceptionGtve).orElse(this.homReceptionGtve);
+        this.prodReceptionOs = Optional.ofNullable(abstractCteSoapService.prodReceptionOs).orElse(this.prodReceptionOs);
+        this.homReceptionOs = Optional.ofNullable(abstractCteSoapService.homReceptionOs).orElse(this.homReceptionOs);
+        this.prodReceptionSync = Optional.ofNullable(abstractCteSoapService.prodReceptionSync).orElse(this.prodReceptionSync);
+        this.homReceptionSync = Optional.ofNullable(abstractCteSoapService.homReceptionSync).orElse(this.homReceptionSync);
+        this.prodStatusService = Optional.ofNullable(abstractCteSoapService.prodStatusService).orElse(this.prodStatusService);
+        this.homStatusService = Optional.ofNullable(abstractCteSoapService.homStatusService).orElse(this.homStatusService);
     }
 
     public void initialize(CteSoapService o) {
