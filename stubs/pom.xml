@@ -4008,7 +4008,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlLocation>
                                 https://www.svc.fazenda.gov.br/NFeRecepcaoEvento4/NFeRecepcaoEvento4.asmx?wsdl
@@ -4040,7 +4040,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlLocation>
                                 https://www.svc.fazenda.gov.br/NFeRecepcaoEvento4/NFeRecepcaoEvento4.asmx?wsdl
@@ -4072,7 +4072,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlLocation>
                                 https://www.svc.fazenda.gov.br/NFeAutorizacao4/NFeAutorizacao4.asmx?wsdl
@@ -4104,7 +4104,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlLocation>
                                 https://www.svc.fazenda.gov.br/NFeInutilizacao4/NFeInutilizacao4.asmx?wsdl
@@ -4136,7 +4136,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlLocation>
                                 https://www.svc.fazenda.gov.br/NFeConsultaProtocolo4/NFeConsultaProtocolo4.asmx?wsdl
@@ -4168,7 +4168,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlLocation>
                                 https://www.svc.fazenda.gov.br/NFeRetAutorizacao4/NFeRetAutorizacao4.asmx?wsdl
@@ -4200,7 +4200,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlLocation>
                                 https://www.svc.fazenda.gov.br/NFeStatusServico4/NFeStatusServico4.asmx?wsdl
@@ -4232,7 +4232,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlLocation>
                                 https://hom.svc.fazenda.gov.br/NFeRecepcaoEvento4/NFeRecepcaoEvento4.asmx?wsdl
@@ -4264,7 +4264,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlLocation>
                                 https://hom.svc.fazenda.gov.br/NFeRecepcaoEvento4/NFeRecepcaoEvento4.asmx?wsdl
@@ -4296,7 +4296,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlLocation>
                                 https://hom.svc.fazenda.gov.br/NFeAutorizacao4/NFeAutorizacao4.asmx?wsdl
@@ -4328,7 +4328,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlLocation>
                                 https://hom.svc.fazenda.gov.br/NFeInutilizacao4/NFeInutilizacao4.asmx?wsdl
@@ -4360,7 +4360,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlLocation>
                                 https://hom.svc.fazenda.gov.br/NFeConsultaProtocolo4/NFeConsultaProtocolo4.asmx?wsdl
@@ -4392,7 +4392,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlLocation>
                                 https://hom.svc.fazenda.gov.br/NFeRetAutorizacao4/NFeRetAutorizacao4.asmx?wsdl
@@ -4424,7 +4424,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlLocation>
                                 https://hom.svc.fazenda.gov.br/NFeStatusServico4/NFeStatusServico4.asmx?wsdl
@@ -7890,7 +7890,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlLocation>
                                 https://cte.sefaz.mt.gov.br/ctews2/services/CTeRecepcaoEventoV4?wsdl
@@ -7910,7 +7910,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlLocation>
                                 https://cte.sefaz.mt.gov.br/ctews2/services/CTeRecepcaoSincV4?wsdl
@@ -7930,7 +7930,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlLocation>
                                 https://cte.sefaz.mt.gov.br/ctews/services/CTeRecepcaoOSV4?wsdl
@@ -7950,7 +7950,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlLocation>
                                 https://cte.sefaz.mt.gov.br/ctews2/services/CTeRecepcaoGTVeV4?wsdl
@@ -7970,7 +7970,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlLocation>
                                 https://cte.sefaz.mt.gov.br/ctews2/services/CTeConsultaV4?wsdl
@@ -7991,7 +7991,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlLocation>
                                 https://cte.sefaz.mt.gov.br/ctews2/services/CTeStatusServicoV4?wsdl
@@ -8011,7 +8011,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlLocation>
                                 https://homologacao.sefaz.mt.gov.br/ctews2/services/CTeRecepcaoEventoV4?wsdl
@@ -8031,7 +8031,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlLocation>
                                 https://homologacao.sefaz.mt.gov.br/ctews2/services/CTeRecepcaoSincV4?wsdl
@@ -8051,7 +8051,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlLocation>
                                 https://homologacao.sefaz.mt.gov.br/ctews/services/CTeRecepcaoOSV4?wsdl
@@ -8071,7 +8071,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlLocation>
                                 https://homologacao.sefaz.mt.gov.br/ctews2/services/CTeRecepcaoGTVeV4?wsdl
@@ -8091,7 +8091,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlLocation>
                                 https://homologacao.sefaz.mt.gov.br/ctews2/services/CTeConsultaV4?wsdl
@@ -8111,7 +8111,7 @@
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
-                        <phase>generate-sources</phase>
+                        <phase>none</phase>
                         <configuration>
                             <wsdlLocation>
                                 https://homologacao.sefaz.mt.gov.br/ctews2/services/CTeStatusServicoV4?wsdl

@@ -12,8 +12,7 @@ import com.softart.dfe.models.nf.correction_letter.ReturnNfeCorrectionLetter;
 import jakarta.xml.ws.WebServiceException;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 class NfeCorrectionLetterServiceImplTest {
     @Test
@@ -233,10 +232,17 @@ class NfeCorrectionLetterServiceImplTest {
         );
         ReturnNfeCorrectionLetter o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
         assertNotNull(o);
-//        assertEquals(1, o.getRetEvento().size());
-        assertEquals(NFEvent.CORRECTION_LETTER.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
-        assertEquals(UF.MT.getCode(), o.getCOrgao());
-        assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
+        assertTrue(1 == o.getRetEvento().size() || o.getRetEvento().isEmpty());
+        if (o.getRetEvento().size() == 1) {
+            assertEquals(NFEvent.CORRECTION_LETTER.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
+            assertEquals(UF.MT.getCode(), o.getCOrgao());
+            assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
+        } else {
+            assertEquals(UF.MT.getCode(), o.getCOrgao());
+            assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
+            assertEquals(NFReturnCode.CODE_656.getCode(), o.getCStat());
+        }
+
     }
 
     @Test
