@@ -192,5 +192,10 @@ final class DefaultMdfeUnmarshaller extends MdfeUnmarshallerFactory {
     public JAXBElement<EvPagtoOperMDFe> evPagtoOperMDFe(String xml) {
         return objectFactory.createEvPagtoOperMDFe(XMLUtils.getJaxbElementValue(any(xml).getValue(), EvPagtoOperMDFe.class, xml));
     }
+
+    @Override
+    public TMdfeProc mdfeProc() {
+        return objectFactory.createTMdfeProc();
+    }
 }
 

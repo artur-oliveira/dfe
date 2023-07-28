@@ -62,11 +62,11 @@ public class CTeConsultaV4
     /**
      * 
      * @return
-     *     returns CteConsultaSoap12
+     *     returns CTeConsultaV4Soap12
      */
-    @WebEndpoint(name = "CTeConsultaV4")
-    public CteConsultaSoap12 getCTeConsultaV4() {
-        return super.getPort(new QName("http://www.portalfiscal.inf.br/cte/wsdl/CTeConsultaV4", "CTeConsultaV4"), CteConsultaSoap12.class);
+    @WebEndpoint(name = "CTeConsultaV4Soap12")
+    public CTeConsultaV4Soap12 getCTeConsultaV4Soap12() {
+        return super.getPort(new QName("http://www.portalfiscal.inf.br/cte/wsdl/CTeConsultaV4", "CTeConsultaV4Soap12"), CTeConsultaV4Soap12.class);
     }
 
     /**
@@ -74,11 +74,11 @@ public class CTeConsultaV4
      * @param features
      *     A list of {@link WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
      * @return
-     *     returns CteConsultaSoap12
+     *     returns CTeConsultaV4Soap12
      */
-    @WebEndpoint(name = "CTeConsultaV4")
-    public CteConsultaSoap12 getCTeConsultaV4(WebServiceFeature... features) {
-        return super.getPort(new QName("http://www.portalfiscal.inf.br/cte/wsdl/CTeConsultaV4", "CTeConsultaV4"), CteConsultaSoap12.class, features);
+    @WebEndpoint(name = "CTeConsultaV4Soap12")
+    public CTeConsultaV4Soap12 getCTeConsultaV4Soap12(WebServiceFeature... features) {
+        return super.getPort(new QName("http://www.portalfiscal.inf.br/cte/wsdl/CTeConsultaV4", "CTeConsultaV4Soap12"), CTeConsultaV4Soap12.class, features);
     }
 
     private static URL __getWsdlLocation() {

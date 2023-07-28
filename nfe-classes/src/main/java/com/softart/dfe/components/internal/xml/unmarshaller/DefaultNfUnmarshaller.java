@@ -320,4 +320,69 @@ final class DefaultNfUnmarshaller extends NfUnmarshallerFactory {
     public JAXBElement<TRetConsCad> returnQueryRegister(String xml) {
         return sendNfeObjectFactory.createRetConsCad(XMLUtils.getJaxbElementValue(anySendNfe(xml).getValue(), TRetConsCad.class, xml));
     }
+
+    @Override
+    public TNfeProc nfeProc() {
+        return sendNfeObjectFactory.createTNfeProc();
+    }
+
+    @Override
+    public TNFe.InfNFe.Det.Imposto imposto() {
+        return sendNfeObjectFactory.createTNFeInfNFeDetImposto();
+    }
+
+    @Override
+    public JAXBElement<TConsStatServ> consStatServ(TConsStatServ o) {
+        return sendNfeObjectFactory.createConsStatServ(o);
+    }
+
+    @Override
+    public JAXBElement<String> vTotTrib(String o) {
+        return sendNfeObjectFactory.createTNFeInfNFeDetImpostoVTotTrib(o);
+    }
+
+    @Override
+    public JAXBElement<TNFe.InfNFe.Det.Imposto.ICMS> icms(TNFe.InfNFe.Det.Imposto.ICMS o) {
+        return sendNfeObjectFactory.createTNFeInfNFeDetImpostoICMS(o);
+    }
+
+    @Override
+    public JAXBElement<TNFe.InfNFe.Det.Imposto.PIS> pis(TNFe.InfNFe.Det.Imposto.PIS o) {
+        return sendNfeObjectFactory.createTNFeInfNFeDetImpostoPIS(o);
+    }
+
+    @Override
+    public JAXBElement<TNFe.InfNFe.Det.Imposto.PISST> pisst(TNFe.InfNFe.Det.Imposto.PISST o) {
+        return sendNfeObjectFactory.createTNFeInfNFeDetImpostoPISST(o);
+    }
+
+    @Override
+    public JAXBElement<TNFe.InfNFe.Det.Imposto.COFINS> cofins(TNFe.InfNFe.Det.Imposto.COFINS o) {
+        return sendNfeObjectFactory.createTNFeInfNFeDetImpostoCOFINS(o);
+    }
+
+    @Override
+    public JAXBElement<TNFe.InfNFe.Det.Imposto.COFINSST> cofinsst(TNFe.InfNFe.Det.Imposto.COFINSST o) {
+        return sendNfeObjectFactory.createTNFeInfNFeDetImpostoCOFINSST(o);
+    }
+
+    @Override
+    public JAXBElement<TIpi> ipi(TIpi o) {
+        return sendNfeObjectFactory.createTNFeInfNFeDetImpostoIPI(o);
+    }
+
+    @Override
+    public JAXBElement<TNFe.InfNFe.Det.Imposto.II> ii(TNFe.InfNFe.Det.Imposto.II o) {
+        return sendNfeObjectFactory.createTNFeInfNFeDetImpostoII(o);
+    }
+
+    @Override
+    public JAXBElement<TNFe.InfNFe.Det.Imposto.ISSQN> issqn(TNFe.InfNFe.Det.Imposto.ISSQN o) {
+        return sendNfeObjectFactory.createTNFeInfNFeDetImpostoISSQN(o);
+    }
+
+    @Override
+    public JAXBElement<TNFe.InfNFe.Det.Imposto.ICMSUFDest> icmsufdest(TNFe.InfNFe.Det.Imposto.ICMSUFDest o) {
+        return sendNfeObjectFactory.createTNFeInfNFeDetImpostoICMSUFDest(o);
+    }
 }

@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.security.KeyStore;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
+import java.security.UnrecoverableEntryException;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.util.Arrays;
@@ -45,5 +46,15 @@ final class KeyStoreParserServiceImpl extends KeyStoreParserFactory {
     @Override
     public Date getExpiration(KeyStore keyStore) throws KeyStoreException {
         return getCertificate(keyStore).getNotAfter();
+    }
+
+    @Override
+    public KeyStore.PasswordProtection getPasswordProtection(String password) {
+        return new KeyStore.PasswordProtection(password.toCharArray());
+    }
+
+    @Override
+    public KeyStore.PrivateKeyEntry getPrivateKeyEntry(String alias, String password, KeyStore keyStore) throws KeyStoreException, UnrecoverableEntryException, NoSuchAlgorithmException {
+        return (KeyStore.PrivateKeyEntry) keyStore.getEntry(alias, getPasswordProtection(password));
     }
 }

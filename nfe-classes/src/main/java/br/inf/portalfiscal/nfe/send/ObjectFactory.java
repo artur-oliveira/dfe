@@ -31,32 +31,32 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _ConsCad_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "ConsCad");
-    private final static QName _ConsReciNFe_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "consReciNFe");
-    private final static QName _ConsSitNFe_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "consSitNFe");
-    private final static QName _ConsStatServ_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "consStatServ");
-    private final static QName _EnviNFe_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "enviNFe");
-    private final static QName _InutNFe_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "inutNFe");
-    private final static QName _NFe_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "NFe");
-    private final static QName _ProcInutNFe_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "ProcInutNFe");
-    private final static QName _NfeProc_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "nfeProc");
-    private final static QName _RetConsCad_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "retConsCad");
-    private final static QName _RetConsReciNFe_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "retConsReciNFe");
-    private final static QName _RetConsSitNFe_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "retConsSitNFe");
-    private final static QName _RetConsStatServ_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "retConsStatServ");
-    private final static QName _RetEnviNFe_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "retEnviNFe");
-    private final static QName _RetInutNFe_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "retInutNFe");
-    private final static QName _Signature_QNAME = new QName("http://www.w3.org/2000/09/xmldsig#", "Signature");
-    private final static QName _TNFeInfNFeDetImpostoVTotTrib_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "vTotTrib");
-    private final static QName _TNFeInfNFeDetImpostoICMS_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "ICMS");
-    private final static QName _TNFeInfNFeDetImpostoIPI_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "IPI");
-    private final static QName _TNFeInfNFeDetImpostoII_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "II");
-    private final static QName _TNFeInfNFeDetImpostoISSQN_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "ISSQN");
-    private final static QName _TNFeInfNFeDetImpostoPIS_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "PIS");
-    private final static QName _TNFeInfNFeDetImpostoPISST_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "PISST");
-    private final static QName _TNFeInfNFeDetImpostoCOFINS_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "COFINS");
-    private final static QName _TNFeInfNFeDetImpostoCOFINSST_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "COFINSST");
-    private final static QName _TNFeInfNFeDetImpostoICMSUFDest_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "ICMSUFDest");
+    public final static QName _ConsCad_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "ConsCad");
+    public final static QName _ConsReciNFe_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "consReciNFe");
+    public final static QName _ConsSitNFe_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "consSitNFe");
+    public final static QName _ConsStatServ_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "consStatServ");
+    public final static QName _EnviNFe_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "enviNFe");
+    public final static QName _InutNFe_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "inutNFe");
+    public final static QName _NFe_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "NFe");
+    public final static QName _ProcInutNFe_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "ProcInutNFe");
+    public final static QName _NfeProc_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "nfeProc");
+    public final static QName _RetConsCad_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "retConsCad");
+    public final static QName _RetConsReciNFe_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "retConsReciNFe");
+    public final static QName _RetConsSitNFe_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "retConsSitNFe");
+    public final static QName _RetConsStatServ_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "retConsStatServ");
+    public final static QName _RetEnviNFe_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "retEnviNFe");
+    public final static QName _RetInutNFe_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "retInutNFe");
+    public final static QName _Signature_QNAME = new QName("http://www.w3.org/2000/09/xmldsig#", "Signature");
+    public final static QName _TNFeInfNFeDetImpostoVTotTrib_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "vTotTrib");
+    public final static QName _TNFeInfNFeDetImpostoICMS_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "ICMS");
+    public final static QName _TNFeInfNFeDetImpostoIPI_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "IPI");
+    public final static QName _TNFeInfNFeDetImpostoII_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "II");
+    public final static QName _TNFeInfNFeDetImpostoISSQN_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "ISSQN");
+    public final static QName _TNFeInfNFeDetImpostoPIS_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "PIS");
+    public final static QName _TNFeInfNFeDetImpostoPISST_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "PISST");
+    public final static QName _TNFeInfNFeDetImpostoCOFINS_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "COFINS");
+    public final static QName _TNFeInfNFeDetImpostoCOFINSST_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "COFINSST");
+    public final static QName _TNFeInfNFeDetImpostoICMSUFDest_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "ICMSUFDest");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: br.inf.portalfiscal.nfe.send

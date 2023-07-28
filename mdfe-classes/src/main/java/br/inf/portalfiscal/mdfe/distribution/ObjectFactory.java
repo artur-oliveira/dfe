@@ -8,43 +8,41 @@
 
 package br.inf.portalfiscal.mdfe.distribution;
 
-import javax.xml.namespace.QName;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlElementDecl;
 import jakarta.xml.bind.annotation.XmlRegistry;
 
+import javax.xml.namespace.QName;
+
 
 /**
- * This object contains factory methods for each 
- * Java content interface and Java element interface 
- * generated in the br.inf.portalfiscal.mdfe.distribution package. 
- * <p>An ObjectFactory allows you to programatically 
- * construct new instances of the Java representation 
- * for XML content. The Java representation of XML 
- * content can consist of schema derived interfaces 
- * and classes representing the binding of schema 
- * type definitions, element declarations and model 
- * groups.  Factory methods for each of these are 
+ * This object contains factory methods for each
+ * Java content interface and Java element interface
+ * generated in the br.inf.portalfiscal.mdfe.distribution package.
+ * <p>An ObjectFactory allows you to programatically
+ * construct new instances of the Java representation
+ * for XML content. The Java representation of XML
+ * content can consist of schema derived interfaces
+ * and classes representing the binding of schema
+ * type definitions, element declarations and model
+ * groups.  Factory methods for each of these are
  * provided in this class.
- * 
  */
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _DistDFeInt_QNAME = new QName("http://www.portalfiscal.inf.br/mdfe", "distDFeInt");
-    private final static QName _RetDistDFeInt_QNAME = new QName("http://www.portalfiscal.inf.br/mdfe", "retDistDFeInt");
-    private final static QName _Signature_QNAME = new QName("http://www.w3.org/2000/09/xmldsig#", "Signature");
+    public final static QName _DistDFeInt_QNAME = new QName("http://www.portalfiscal.inf.br/mdfe", "distDFeInt");
+    public final static QName _RetDistDFeInt_QNAME = new QName("http://www.portalfiscal.inf.br/mdfe", "retDistDFeInt");
+    public final static QName _Signature_QNAME = new QName("http://www.w3.org/2000/09/xmldsig#", "Signature");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: br.inf.portalfiscal.mdfe.distribution
-     * 
      */
     public ObjectFactory() {
     }
 
     /**
      * Create an instance of {@link ReferenceType }
-     * 
      */
     public ReferenceType createReferenceType() {
         return new ReferenceType();
@@ -52,7 +50,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SignedInfoType }
-     * 
      */
     public SignedInfoType createSignedInfoType() {
         return new SignedInfoType();
@@ -60,7 +57,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DistDFeInt }
-     * 
      */
     public DistDFeInt createDistDFeInt() {
         return new DistDFeInt();
@@ -68,7 +64,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link RetDistDFeInt }
-     * 
      */
     public RetDistDFeInt createRetDistDFeInt() {
         return new RetDistDFeInt();
@@ -76,7 +71,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ConsNSU }
-     * 
      */
     public ConsNSU createConsNSU() {
         return new ConsNSU();
@@ -84,7 +78,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DistNSU }
-     * 
      */
     public DistNSU createDistNSU() {
         return new DistNSU();
@@ -92,7 +85,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DocZip }
-     * 
      */
     public DocZip createDocZip() {
         return new DocZip();
@@ -100,7 +92,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link LoteDistDFeInt }
-     * 
      */
     public LoteDistDFeInt createLoteDistDFeInt() {
         return new LoteDistDFeInt();
@@ -108,7 +99,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SignatureType }
-     * 
      */
     public SignatureType createSignatureType() {
         return new SignatureType();
@@ -116,7 +106,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SignatureValueType }
-     * 
      */
     public SignatureValueType createSignatureValueType() {
         return new SignatureValueType();
@@ -124,7 +113,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TransformsType }
-     * 
      */
     public TransformsType createTransformsType() {
         return new TransformsType();
@@ -132,7 +120,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TransformType }
-     * 
      */
     public TransformType createTransformType() {
         return new TransformType();
@@ -140,7 +127,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link KeyInfoType }
-     * 
      */
     public KeyInfoType createKeyInfoType() {
         return new KeyInfoType();
@@ -148,7 +134,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link X509DataType }
-     * 
      */
     public X509DataType createX509DataType() {
         return new X509DataType();
@@ -156,7 +141,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ReferenceType.DigestMethod }
-     * 
      */
     public ReferenceType.DigestMethod createReferenceTypeDigestMethod() {
         return new ReferenceType.DigestMethod();
@@ -164,7 +148,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SignedInfoType.CanonicalizationMethod }
-     * 
      */
     public SignedInfoType.CanonicalizationMethod createSignedInfoTypeCanonicalizationMethod() {
         return new SignedInfoType.CanonicalizationMethod();
@@ -172,7 +155,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link SignedInfoType.SignatureMethod }
-     * 
      */
     public SignedInfoType.SignatureMethod createSignedInfoTypeSignatureMethod() {
         return new SignedInfoType.SignatureMethod();
@@ -180,11 +162,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link DistDFeInt }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link DistDFeInt }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link DistDFeInt }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "distDFeInt")
     public JAXBElement<DistDFeInt> createDistDFeInt(DistDFeInt value) {
@@ -193,11 +173,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link RetDistDFeInt }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link RetDistDFeInt }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link RetDistDFeInt }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/mdfe", name = "retDistDFeInt")
     public JAXBElement<RetDistDFeInt> createRetDistDFeInt(RetDistDFeInt value) {
@@ -206,11 +184,9 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link SignatureType }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link SignatureType }{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return the new instance of {@link JAXBElement }{@code <}{@link SignatureType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.w3.org/2000/09/xmldsig#", name = "Signature")
     public JAXBElement<SignatureType> createSignature(SignatureType value) {

@@ -31,8 +31,8 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _ConsGTIN_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "consGTIN");
-    private final static QName _RetConsGTIN_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "retConsGTIN");
+    public final static QName _ConsGTIN_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "consGTIN");
+    public final static QName _RetConsGTIN_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "retConsGTIN");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: br.inf.portalfiscal.nfe.gtin

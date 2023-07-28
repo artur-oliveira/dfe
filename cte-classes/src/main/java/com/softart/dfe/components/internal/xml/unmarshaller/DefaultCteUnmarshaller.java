@@ -290,6 +290,26 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
     }
 
     @Override
+    public JAXBElement<TCteProc> cteProc(String xml) {
+        return fc.createCteProc(XMLUtils.getJaxbElementValue(any300(xml).getValue(), TCteProc.class, xml));
+    }
+
+    @Override
+    public JAXBElement<TCteOSProc> cteOsProc(String xml) {
+        return fc.createCteOSProc(XMLUtils.getJaxbElementValue(any300(xml).getValue(), TCteOSProc.class, xml));
+    }
+
+    @Override
+    public JAXBElement<TGTVeProc> gtveProc(String xml) {
+        return fc.createGTVeProc(XMLUtils.getJaxbElementValue(any300(xml).getValue(), TGTVeProc.class, xml));
+    }
+
+    @Override
+    public TCteProc cteProc() {
+        return fc.createTCteProc();
+    }
+
+    @Override
     public JAXBElement<?> any400(Element element) {
         return any400(XMLUtils.elementToString(element));
     }
@@ -559,5 +579,25 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
     @Override
     public JAXBElement<br.inf.portalfiscal.cte.send400.Duto> duto400(String xml) {
         return cte400fc.createDuto(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.Duto.class, xml));
+    }
+
+    @Override
+    public JAXBElement<br.inf.portalfiscal.cte.send400.TCteProc> cteProc400(String xml) {
+        return cte400fc.createCteProc(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.TCteProc.class, xml));
+    }
+
+    @Override
+    public JAXBElement<br.inf.portalfiscal.cte.send400.TCteOSProc> cteOsProc400(String xml) {
+        return cte400fc.createCteOSProc(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.TCteOSProc.class, xml));
+    }
+
+    @Override
+    public JAXBElement<br.inf.portalfiscal.cte.send400.TGTVeProc> gtveProc400(String xml) {
+        return cte400fc.createGTVeProc(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.TGTVeProc.class, xml));
+    }
+
+    @Override
+    public br.inf.portalfiscal.cte.send400.TCteProc cteProc400() {
+        return cte400fc.createTCteProc();
     }
 }

@@ -25,9 +25,7 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.StringReader;
 import java.io.StringWriter;
-import java.security.KeyStore;
 import java.security.Signature;
-import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -58,15 +56,12 @@ public final class DefaultXmlSigner extends XmlSigner {
     private static String sign(String xml, KeyStoreInfo info, String signable) throws XMLSignException {
         try (StringReader reader = new StringReader(xml)) {
             try (StringWriter writer = new StringWriter()) {
-                final String certificateAlias = info.getAlias();
-                final KeyStore.PasswordProtection passwordProtection = new KeyStore.PasswordProtection(info.certificatePassword().toCharArray());
-                final KeyStore.PrivateKeyEntry keyEntry = (KeyStore.PrivateKeyEntry) info.certificate().getEntry(certificateAlias, passwordProtection);
                 final XMLSignatureFactory signatureFactory = XMLSignatureFactory.getInstance();
                 final List<Transform> transforms = new ArrayList<>(2);
                 transforms.add(signatureFactory.newTransform(Transform.ENVELOPED, (TransformParameterSpec) null));
                 transforms.add(signatureFactory.newTransform(C14NEXC, (TransformParameterSpec) null));
                 final KeyInfoFactory keyInfoFactory = signatureFactory.getKeyInfoFactory();
-                final X509Data x509Data = keyInfoFactory.newX509Data(Collections.singletonList((X509Certificate) keyEntry.getCertificate()));
+                final X509Data x509Data = keyInfoFactory.newX509Data(Collections.singletonList(info.getKeyEntryCertificate()));
                 final KeyInfo keyInfo = keyInfoFactory.newKeyInfo(Collections.singletonList(x509Data));
                 final DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
                 documentBuilderFactory.setNamespaceAware(true);
@@ -80,7 +75,7 @@ public final class DefaultXmlSigner extends XmlSigner {
                     final Reference reference = signatureFactory.newReference("#" + id, signatureFactory.newDigestMethod(DigestMethod.SHA1, null), transforms, null, null);
                     final SignedInfo signedInfo = signatureFactory.newSignedInfo(signatureFactory.newCanonicalizationMethod(CanonicalizationMethod.INCLUSIVE, (C14NMethodParameterSpec) null), signatureFactory.newSignatureMethod(SignatureMethod.RSA_SHA1, null), Collections.singletonList(reference));
                     final XMLSignature signature = signatureFactory.newXMLSignature(signedInfo, keyInfo);
-                    signature.sign(new DOMSignContext(keyEntry.getPrivateKey(), element.getParentNode()));
+                    signature.sign(new DOMSignContext(info.getKeyEntryPrivateKey(), element.getParentNode()));
                 }
                 XMLUtils.getTransformer().transform(new DOMSource(document), new StreamResult(writer));
                 return writer.toString();
@@ -148,13 +143,9 @@ public final class DefaultXmlSigner extends XmlSigner {
     @Override
     public String signAccessKeyWithSha1Base64(String chDFe, Config config) throws XMLSignException {
         try {
-            final KeyStoreInfo info = config.info();
-            final String certificateAlias = info.getAlias();
-            final KeyStore.PasswordProtection passwordProtection = new KeyStore.PasswordProtection(info.certificatePassword().toCharArray());
-            final KeyStore.PrivateKeyEntry keyEntry = (KeyStore.PrivateKeyEntry) info.certificate().getEntry(certificateAlias, passwordProtection);
 
             Signature signature = Signature.getInstance("SHA1withRSA");
-            signature.initSign(keyEntry.getPrivateKey());
+            signature.initSign(config.info().getKeyEntryPrivateKey());
             signature.update(chDFe.getBytes());
 
             return Base64Utils.decodeBinary(signature.sign());

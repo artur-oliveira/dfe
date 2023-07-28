@@ -3,6 +3,7 @@ package com.softart.dfe.models.nf.authorization;
 import br.inf.portalfiscal.nfe.send.*;
 import com.softart.dfe.components.internal.AccessKeyGenerator;
 import com.softart.dfe.components.internal.ProjectProperties;
+import com.softart.dfe.components.internal.xml.unmarshaller.NfUnmarshallerFactory;
 import com.softart.dfe.enums.general.Country;
 import com.softart.dfe.enums.internal.Model;
 import com.softart.dfe.enums.nf.identification.NFEmissionType;
@@ -662,30 +663,28 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
 
                 @Override
                 public TNFe.InfNFe.Det.Imposto toObject() {
-                    TNFe.InfNFe.Det.Imposto imposto = new TNFe.InfNFe.Det.Imposto();
-                    ObjectFactory fc = new ObjectFactory();
+                    TNFe.InfNFe.Det.Imposto imposto = NfUnmarshallerFactory.getInstance().imposto();
 
                     if (Objects.nonNull(getVTotTrib()))
-                        imposto.getContent().add(fc.createTNFeInfNFeDetImpostoVTotTrib(getVTotTrib()));
+                        imposto.getContent().add(NfUnmarshallerFactory.getInstance().vTotTrib(getVTotTrib()));
                     if (Objects.nonNull(getIcms()))
-                        imposto.getContent().add(fc.createTNFeInfNFeDetImpostoICMS(getIcms().toObject()));
-                    if (Objects.nonNull(getIcmsufDest()))
-                        imposto.getContent().add(fc.createTNFeInfNFeDetImpostoICMSUFDest(getIcmsufDest().toObject()));
+                        imposto.getContent().add(NfUnmarshallerFactory.getInstance().icms(getIcms().toObject()));
                     if (Objects.nonNull(getIpi()))
-                        imposto.getContent().add(fc.createTNFeInfNFeDetImpostoIPI(getIpi().toObject()));
+                        imposto.getContent().add(NfUnmarshallerFactory.getInstance().ipi(getIpi().toObject()));
                     if (Objects.nonNull(getIi()))
-                        imposto.getContent().add(fc.createTNFeInfNFeDetImpostoII(getIi().toObject()));
-                    if (Objects.nonNull(getPis()))
-                        imposto.getContent().add(fc.createTNFeInfNFeDetImpostoPIS(getPis().toObject()));
-                    if (Objects.nonNull(getPisst()))
-                        imposto.getContent().add(fc.createTNFeInfNFeDetImpostoPISST(getPisst().toObject()));
-                    if (Objects.nonNull(getCofins()))
-                        imposto.getContent().add(fc.createTNFeInfNFeDetImpostoCOFINS(getCofins().toObject()));
-                    if (Objects.nonNull(getCofinsst()))
-                        imposto.getContent().add(fc.createTNFeInfNFeDetImpostoCOFINSST(getCofinsst().toObject()));
+                        imposto.getContent().add(NfUnmarshallerFactory.getInstance().ii(getIi().toObject()));
                     if (Objects.nonNull(getIssqn()))
-                        imposto.getContent().add((fc.createTNFeInfNFeDetImpostoISSQN(getIssqn().toObject())));
-
+                        imposto.getContent().add((NfUnmarshallerFactory.getInstance().issqn(getIssqn().toObject())));
+                    if (Objects.nonNull(getPis()))
+                        imposto.getContent().add(NfUnmarshallerFactory.getInstance().pis(getPis().toObject()));
+                    if (Objects.nonNull(getPisst()))
+                        imposto.getContent().add(NfUnmarshallerFactory.getInstance().pisst(getPisst().toObject()));
+                    if (Objects.nonNull(getCofins()))
+                        imposto.getContent().add(NfUnmarshallerFactory.getInstance().cofins(getCofins().toObject()));
+                    if (Objects.nonNull(getCofinsst()))
+                        imposto.getContent().add(NfUnmarshallerFactory.getInstance().cofinsst(getCofinsst().toObject()));
+                    if (Objects.nonNull(getIcmsufDest()))
+                        imposto.getContent().add(NfUnmarshallerFactory.getInstance().icmsufdest(getIcmsufDest().toObject()));
                     return imposto;
                 }
 

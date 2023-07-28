@@ -14,6 +14,7 @@ import com.softart.dfe.enums.nf.NFSend;
 import com.softart.dfe.enums.nf.identification.*;
 import com.softart.dfe.enums.nf.payment.NFPaymentIndicative;
 import com.softart.dfe.enums.nf.payment.NFPaymentType;
+import com.softart.dfe.exceptions.sefaz.InvalidSefazResponseException;
 import com.softart.dfe.interfaces.internal.config.NfConfig;
 import com.softart.dfe.models.nf.authorization.Nf;
 import com.softart.dfe.models.nf.authorization.ReturnSendNf;
@@ -381,13 +382,8 @@ class NfeAuthorizationServiceImplTest {
                 )
         );
 
-        ReturnSendNf o = service.authorization(Arrays.asList(getNf(service.getConfig(), 1, Model.NFE), getNf(service.getConfig(), 1, Model.NFE)));
+        assertThrows(InvalidSefazResponseException.class, () -> service.authorization(Arrays.asList(getNf(service.getConfig(), 1, Model.NFE), getNf(service.getConfig(), 1, Model.NFE))));
 
-        assertNotNull(o);
-        assertNotNull(o.getInfRec());
-        assertEquals(NFReturnCode.CODE_103.getCode(), o.getCStat());
-        assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
-        assertEquals(UF.MG.getCode(), o.getCuf());
     }
 
     @Test

@@ -100,6 +100,14 @@ public interface CteUnmarshaller {
 
     JAXBElement<br.inf.portalfiscal.cte.send.TEnviCTe> enviCte(String xml);
 
+    JAXBElement<br.inf.portalfiscal.cte.send.TCteProc> cteProc(String xml);
+
+    JAXBElement<br.inf.portalfiscal.cte.send.TCteOSProc> cteOsProc(String xml);
+
+    JAXBElement<br.inf.portalfiscal.cte.send.TGTVeProc> gtveProc(String xml);
+
+    br.inf.portalfiscal.cte.send.TCteProc cteProc();
+
     JAXBElement<br.inf.portalfiscal.cte.send400.TEvento> eventCte400(String xml);
 
     JAXBElement<br.inf.portalfiscal.cte.send400.TInutCTe> inutCte400(String xml);
@@ -199,4 +207,12 @@ public interface CteUnmarshaller {
     JAXBElement<br.inf.portalfiscal.cte.send400.TProtGTVe> protGTVe400(Element element);
 
     JAXBElement<br.inf.portalfiscal.cte.send400.TProtGTVe> protGTVe400(String xml);
+
+    JAXBElement<br.inf.portalfiscal.cte.send400.TCteProc> cteProc400(String xml);
+
+    JAXBElement<br.inf.portalfiscal.cte.send400.TCteOSProc> cteOsProc400(String xml);
+
+    JAXBElement<br.inf.portalfiscal.cte.send400.TGTVeProc> gtveProc400(String xml);
+
+    br.inf.portalfiscal.cte.send400.TCteProc cteProc400();
 }

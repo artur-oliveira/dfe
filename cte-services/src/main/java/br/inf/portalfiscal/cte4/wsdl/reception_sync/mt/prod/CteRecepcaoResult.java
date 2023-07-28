@@ -30,8 +30,8 @@ import java.util.List;
 @XmlType(name = "", propOrder = {
     "content"
 })
-@XmlRootElement(name = "cteRecepcaoSincResult")
-public class CteRecepcaoSincResult {
+@XmlRootElement(name = "cteRecepcaoResult")
+public class CteRecepcaoResult {
 
     @XmlMixed
     @XmlAnyElement(lax = true)

@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.security.KeyStore;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
+import java.security.UnrecoverableEntryException;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.util.Date;
@@ -81,5 +82,26 @@ public interface KeyStoreParserService {
      * @throws KeyStoreException KeyStoreException
      */
     Date getExpiration(KeyStore keyStore) throws KeyStoreException;
+
+    /**
+     * The function getPasswordProtection returns a PasswordProtection object for a given password.
+     *
+     * @param password The password to protect the KeyStore.
+     * @return The method is returning a PasswordProtection object.
+     */
+    KeyStore.PasswordProtection getPasswordProtection(String password);
+
+    /**
+     * The function returns a private key entry from a KeyStore using the specified alias and password.
+     *
+     * @param alias    The alias is a unique identifier for a specific entry in the keystore. It is used to retrieve the
+     *                 private key entry associated with the alias.
+     * @param password The password is a string that is used to protect the private key entry in the keystore. It is used
+     *                 to verify the integrity of the keystore and to unlock the private key entry.
+     * @param keyStore The `keyStore` parameter is an instance of the `KeyStore` class. It represents a storage facility
+     *                 for cryptographic keys and certificates. It can be used to load, store, and manage keys and certificates.
+     * @return The method is returning a KeyStore.PrivateKeyEntry object.
+     */
+    KeyStore.PrivateKeyEntry getPrivateKeyEntry(String alias, String password, KeyStore keyStore) throws KeyStoreException, UnrecoverableEntryException, NoSuchAlgorithmException;
 
 }

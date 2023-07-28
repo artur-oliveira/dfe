@@ -11,7 +11,7 @@ import javax.xml.namespace.QName;
 /**
  * This object contains factory methods for each 
  * Java content interface and Java element interface 
- * generated in the br.inf.portalfiscal.cte4.wsdl.reception_sync.mt.prod package. 
+ * generated in the br.inf.portalfiscal.cte4.wsdl.reception_sync.mt.hom package. 
  * <p>An ObjectFactory allows you to programatically 
  * construct new instances of the Java representation 
  * for XML content. The Java representation of XML 
@@ -28,20 +28,20 @@ public class ObjectFactory {
     private static final QName _CteDadosMsg_QNAME = new QName("http://www.portalfiscal.inf.br/cte/wsdl/CTeRecepcaoSincV4", "cteDadosMsg");
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: br.inf.portalfiscal.cte4.wsdl.reception_sync.mt.prod
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: br.inf.portalfiscal.cte4.wsdl.reception_sync.mt.hom
      * 
      */
     public ObjectFactory() {
     }
 
     /**
-     * Create an instance of {@link CteRecepcaoSincResult }
+     * Create an instance of {@link CteRecepcaoResult }
      * 
      * @return
-     *     the new instance of {@link CteRecepcaoSincResult }
+     *     the new instance of {@link CteRecepcaoResult }
      */
-    public CteRecepcaoSincResult createCteRecepcaoSincResult() {
-        return new CteRecepcaoSincResult();
+    public CteRecepcaoResult createCteRecepcaoResult() {
+        return new CteRecepcaoResult();
     }
 
     /**

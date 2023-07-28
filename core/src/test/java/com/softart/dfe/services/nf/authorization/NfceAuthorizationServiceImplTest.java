@@ -210,8 +210,7 @@ class NfceAuthorizationServiceImplTest {
         ReturnSendNf o = service.authorization(Arrays.asList(getNf(service.getConfig(), 1, Model.NFCE), getNf(service.getConfig(), 1, Model.NFCE)));
 
         assertNotNull(o);
-        assertNotNull(o.getInfRec());
-        assertEquals(NFReturnCode.CODE_103.getCode(), o.getCStat());
+        assertNull(o.getInfRec());
         assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
         assertEquals(UF.GO.getCode(), o.getCuf());
     }
@@ -502,8 +501,8 @@ class NfceAuthorizationServiceImplTest {
         ReturnSendNf o = service.authorization(Arrays.asList(getNf(service.getConfig(), 1, Model.NFCE), getNf(service.getConfig(), 1, Model.NFCE)));
 
         assertNotNull(o);
-        assertNotNull(o.getInfRec());
-        assertEquals(NFReturnCode.CODE_103.getCode(), o.getCStat());
+        assertNull(o.getInfRec());
+        assertEquals(NFReturnCode.CODE_126.getCode(), o.getCStat());
         assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
         assertEquals(UF.MT.getCode(), o.getCuf());
     }
@@ -693,8 +692,8 @@ class NfceAuthorizationServiceImplTest {
         ReturnSendNf o = service.authorization(Arrays.asList(getNf(service.getConfig(), 1, Model.NFCE), getNf(service.getConfig(), 1, Model.NFCE)));
 
         assertNotNull(o);
-        assertNotNull(o.getInfRec());
-        assertEquals(NFReturnCode.CODE_103.getCode(), o.getCStat());
+        assertNull(o.getInfRec());
+        assertEquals(NFReturnCode.CODE_126.getCode(), o.getCStat());
         assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
         assertEquals(UF.RS.getCode(), o.getCuf());
     }
@@ -790,8 +789,8 @@ class NfceAuthorizationServiceImplTest {
         ReturnSendNf o = service.authorization(Arrays.asList(getNf(service.getConfig(), 1, Model.NFCE), getNf(service.getConfig(), 1, Model.NFCE)));
 
         assertNotNull(o);
-        assertNotNull(o.getInfRec());
-        assertEquals(NFReturnCode.CODE_103.getCode(), o.getCStat());
+        assertNull(o.getInfRec());
+        assertEquals(NFReturnCode.CODE_126.getCode(), o.getCStat());
         assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
         assertEquals(UF.SP.getCode(), o.getCuf());
     }
@@ -886,8 +885,8 @@ class NfceAuthorizationServiceImplTest {
         ReturnSendNf o = service.authorization(Arrays.asList(getNf(service.getConfig(), 1, Model.NFCE), getNf(service.getConfig(), 1, Model.NFCE)));
 
         assertNotNull(o);
-        assertNotNull(o.getInfRec());
-        assertEquals(NFReturnCode.CODE_103.getCode(), o.getCStat());
+        assertNull(o.getInfRec());
+        assertEquals(NFReturnCode.CODE_126.getCode(), o.getCStat());
         assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
         assertEquals(UF.PI.getCode(), o.getCuf());
     }

@@ -13,6 +13,7 @@ import com.softart.dfe.exceptions.DfeUncheckedException;
 import com.softart.dfe.exceptions.ProcessException;
 import com.softart.dfe.exceptions.ValidationException;
 import com.softart.dfe.exceptions.security.SecurityException;
+import com.softart.dfe.exceptions.sefaz.InvalidSefazResponseException;
 import com.softart.dfe.interfaces.internal.Pair;
 import com.softart.dfe.interfaces.process.AfterWebServiceRequest;
 import com.softart.dfe.interfaces.process.BeforeWebServiceRequest;
@@ -182,7 +183,7 @@ public final class CteMtService extends CteAnService {
                 retorno = (TRetEnviCTe) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();
         }
 
-        Optional.ofNullable(retorno).orElseThrow(() -> new DfeUncheckedException("no sefaz return for uf " + data.config().uf()));
+        Optional.ofNullable(retorno).orElseThrow(InvalidSefazResponseException::new);
 
         for (AfterWebServiceRequest<TEnviCTe, TRetEnviCTe> it : data.afterRequest())
             it.process(new After<>(envio.getValue(), retorno, data.config()));

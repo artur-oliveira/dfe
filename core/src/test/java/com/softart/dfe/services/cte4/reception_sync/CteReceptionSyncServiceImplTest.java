@@ -16,6 +16,7 @@ import com.softart.dfe.models.cte4.reception_sync.Cte;
 import com.softart.dfe.models.cte4.reception_sync.CteReturn;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
 import java.util.Collections;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -69,8 +70,8 @@ class CteReceptionSyncServiceImplTest {
                         .emit(Cte.InfCte.Emit
                                 .builder()
                                 .cnpj(config.cnpj())
-                                .xNome("CT-E EMITIDO EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL")
-                                .xFant("CT-E EMITIDO EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL")
+                                .xNome(Arrays.asList(UF.MG, UF.MT).contains(config.uf()) ? "CT-E EMITIDO EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL" : "CTE EMITIDO EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL")
+                                .xFant(Arrays.asList(UF.MG, UF.MT).contains(config.uf()) ? "CT-E EMITIDO EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL" : "CTE EMITIDO EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL")
                                 .ie("194739350")
                                 .crt("1")
                                 .enderEmit(Cte.InfCte.TEndeEmi
@@ -88,8 +89,8 @@ class CteReceptionSyncServiceImplTest {
                         .rem(Cte.InfCte.Rem
                                 .builder()
                                 .cnpj(config.cnpj())
-                                .xNome("CT-E EMITIDO EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL")
-                                .xFant("CT-E EMITIDO EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL")
+                                .xNome(Arrays.asList(UF.MG, UF.MT).contains(config.uf()) ? "CT-E EMITIDO EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL" : "CTE EMITIDO EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL")
+                                .xFant(Arrays.asList(UF.MG, UF.MT).contains(config.uf()) ? "CT-E EMITIDO EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL" : "CTE EMITIDO EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL")
                                 .ie("194739350")
                                 .enderReme(Cte.InfCte.TEndereco
                                         .builder()
@@ -106,7 +107,7 @@ class CteReceptionSyncServiceImplTest {
                         .exped(Cte.InfCte.Exped
                                 .builder()
                                 .cnpj(config.cnpj())
-                                .xNome("CT-E EMITIDO EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL")
+                                .xNome(Arrays.asList(UF.MG, UF.MT).contains(config.uf()) ? "CT-E EMITIDO EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL" : "CTE EMITIDO EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL")
                                 .ie("194739350")
                                 .enderExped(Cte.InfCte.TEndereco
                                         .builder()
@@ -123,7 +124,7 @@ class CteReceptionSyncServiceImplTest {
                         .receb(Cte.InfCte.Receb
                                 .builder()
                                 .cnpj(config.cnpj())
-                                .xNome("CT-E EMITIDO EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL")
+                                .xNome(Arrays.asList(UF.MG, UF.MT).contains(config.uf()) ? "CT-E EMITIDO EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL" : "CTE EMITIDO EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL")
                                 .ie("194739350")
                                 .enderReceb(Cte.InfCte.TEndereco
                                         .builder()
@@ -140,7 +141,7 @@ class CteReceptionSyncServiceImplTest {
                         .dest(Cte.InfCte.Dest
                                 .builder()
                                 .cnpj(config.cnpj())
-                                .xNome("CT-E EMITIDO EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL")
+                                .xNome(Arrays.asList(UF.MG, UF.MT).contains(config.uf()) ? "CT-E EMITIDO EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL" : "CTE EMITIDO EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL")
                                 .ie("194739350")
                                 .enderDest(Cte.InfCte.TEndereco
                                         .builder()

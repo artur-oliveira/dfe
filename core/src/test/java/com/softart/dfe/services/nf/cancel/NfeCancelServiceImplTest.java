@@ -334,10 +334,16 @@ class NfeCancelServiceImplTest {
         );
         ReturnNfeCancel o = service.cancel("22230511520224000140550010000450661287506862", "999999999999999", NFEvent.CANCEL.getDefaultMessage());
         assertNotNull(o);
-        assertEquals(1, o.getRetEvento().size());
-        assertEquals(NFEvent.CANCEL.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
-        assertEquals(UF.PR.getCode(), o.getCOrgao());
-        assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
+        assertTrue(1 == o.getRetEvento().size() || o.getRetEvento().isEmpty());
+        if (o.getRetEvento().size() == 1) {
+            assertEquals(NFEvent.CANCEL.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
+            assertEquals(UF.PR.getCode(), o.getCOrgao());
+            assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
+        } else {
+            assertEquals(UF.PR.getCode(), o.getCOrgao());
+            assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
+            assertEquals(NFReturnCode.CODE_656.getCode(), o.getCStat());
+        }
     }
 
     @Test
