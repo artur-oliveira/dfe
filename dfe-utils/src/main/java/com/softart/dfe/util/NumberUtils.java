@@ -17,7 +17,7 @@ public final class NumberUtils {
     }
 
     /**
-     *  Generates a random number with the specified number of digits
+     * Generates a random number with the specified number of digits
      *
      * @return A random number of the specified length.
      */
