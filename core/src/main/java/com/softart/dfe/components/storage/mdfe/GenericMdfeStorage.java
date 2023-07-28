@@ -98,7 +98,7 @@ public abstract class GenericMdfeStorage extends CommonStorage implements MdfeSt
         if (Objects.isNull(xml)) return;
 
         TEnviMDFe envi = MdfeUnmarshallerFactory.getInstance().sendReception(xml).getValue();
-        TMdfeProc proc = new ObjectFactory().createTMdfeProc();
+        TMdfeProc proc = MdfeUnmarshallerFactory.getInstance().mdfeProc();
         proc.setProtMDFe(prot);
         proc.setMDFe(envi.getMDFe());
         proc.setVersao(envi.getVersao());

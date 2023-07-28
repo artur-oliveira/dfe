@@ -15,23 +15,23 @@ import jakarta.xml.bind.annotation.XmlSeeAlso;
  * Generated source version: 3.0
  * 
  */
-@WebService(name = "CteConsultaSoap12", targetNamespace = "http://www.portalfiscal.inf.br/cte/wsdl/CTeConsultaV4")
+@WebService(name = "CTeConsultaV4Soap12", targetNamespace = "http://www.portalfiscal.inf.br/cte/wsdl/CTeConsultaV4")
 @SOAPBinding(parameterStyle = SOAPBinding.ParameterStyle.BARE)
 @XmlSeeAlso({
 ObjectFactory.class, br.inf.portalfiscal.cte.send400.ObjectFactory.class
 })
-public interface CteConsultaSoap12 {
+public interface CTeConsultaV4Soap12 {
 
 
     /**
      * 
      * @param cteDadosMsg
      * @return
-     *     returns br.inf.portalfiscal.cte4.wsdl.query_situation.mt.prod.CteConsultaCTResult
+     *     returns br.inf.portalfiscal.cte4.wsdl.query_situation.mt.hom.CteConsultaCTResult
      */
-    @WebMethod(action = "http://www.portalfiscal.inf.br/cte/wsdl/CteConsulta/CTeConsultaV4")
+    @WebMethod(action = "http://www.portalfiscal.inf.br/cte/wsdl/CTeConsultaV4/cteConsultaCT")
     @WebResult(name = "cteConsultaCTResult", targetNamespace = "http://www.portalfiscal.inf.br/cte/wsdl/CTeConsultaV4", partName = "cteConsultaCTResult")
-    public CteConsultaCTResult cteConsulta(
+    public CteConsultaCTResult cteConsultaCT(
         @WebParam(name = "cteDadosMsg", targetNamespace = "http://www.portalfiscal.inf.br/cte/wsdl/CTeConsultaV4", partName = "cteDadosMsg")
         CteDadosMsg cteDadosMsg);
 

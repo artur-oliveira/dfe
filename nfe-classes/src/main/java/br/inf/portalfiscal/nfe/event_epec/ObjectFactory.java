@@ -31,23 +31,23 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _DescEvento_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "descEvento");
-    private final static QName _TpAutor_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "tpAutor");
-    private final static QName _VerAplic_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "verAplic");
-    private final static QName _DhEmi_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "dhEmi");
-    private final static QName _TpNF_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "tpNF");
-    private final static QName _COrgaoAutor_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "cOrgaoAutor");
-    private final static QName _IE_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "IE");
-    private final static QName _UF_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "UF");
-    private final static QName _VNF_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "vNF");
-    private final static QName _VICMS_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "vICMS");
-    private final static QName _VST_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "vST");
-    private final static QName _Evento_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "evento");
-    private final static QName _DetEvento_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "detEvento");
-    private final static QName _EnvEvento_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "envEvento");
-    private final static QName _ProcEventoNFe_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "procEventoNFe");
-    private final static QName _RetEnvEvento_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "retEnvEvento");
-    private final static QName _Signature_QNAME = new QName("http://www.w3.org/2000/09/xmldsig#", "Signature");
+    public final static QName _DescEvento_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "descEvento");
+    public final static QName _TpAutor_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "tpAutor");
+    public final static QName _VerAplic_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "verAplic");
+    public final static QName _DhEmi_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "dhEmi");
+    public final static QName _TpNF_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "tpNF");
+    public final static QName _COrgaoAutor_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "cOrgaoAutor");
+    public final static QName _IE_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "IE");
+    public final static QName _UF_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "UF");
+    public final static QName _VNF_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "vNF");
+    public final static QName _VICMS_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "vICMS");
+    public final static QName _VST_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "vST");
+    public final static QName _Evento_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "evento");
+    public final static QName _DetEvento_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "detEvento");
+    public final static QName _EnvEvento_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "envEvento");
+    public final static QName _ProcEventoNFe_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "procEventoNFe");
+    public final static QName _RetEnvEvento_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "retEnvEvento");
+    public final static QName _Signature_QNAME = new QName("http://www.w3.org/2000/09/xmldsig#", "Signature");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: br.inf.portalfiscal.nfe.event_epec

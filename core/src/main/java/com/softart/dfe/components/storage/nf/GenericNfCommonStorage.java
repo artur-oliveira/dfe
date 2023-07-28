@@ -147,7 +147,7 @@ public abstract class GenericNfCommonStorage extends CommonStorage implements Nf
         TEnviNFe tEnviNFe = NfUnmarshallerFactory.getInstance().enviNfe(xml).getValue();
         String versao = tEnviNFe.getNFe().stream().findFirst().orElseThrow(RuntimeException::new).getInfNFe().getVersao();
         for (TProtNFe protNFe : o.data().getProtNFe()) {
-            TNfeProc proc = new ObjectFactory().createTNfeProc();
+            TNfeProc proc = NfUnmarshallerFactory.getInstance().nfeProc();
             proc.setProtNFe(protNFe);
             proc.setNFe(tEnviNFe.getNFe().stream().filter(it -> it.getInfNFe().getId().contains(protNFe.getInfProt().getChNFe())).findFirst().orElse(null));
             proc.setVersao(versao);

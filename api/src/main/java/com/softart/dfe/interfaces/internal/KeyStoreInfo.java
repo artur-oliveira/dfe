@@ -1,10 +1,10 @@
 package com.softart.dfe.interfaces.internal;
 
-import com.softart.dfe.enums.internal.KeyType;
-import com.softart.dfe.exceptions.security.CertificateException;
-
-import java.io.InputStream;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509KeyManager;
 import java.security.KeyStore;
+import java.security.PrivateKey;
+import java.security.cert.X509Certificate;
 import java.time.ZonedDateTime;
 
 /**
@@ -16,75 +16,56 @@ import java.time.ZonedDateTime;
 public interface KeyStoreInfo {
 
     /**
-     * Loads a certificate from the given input stream
-     *
-     * @param inputStream The input stream of the certificate.
-     * @param type        The type of the certificate. For example, X.509.
-     */
-    void loadCertificate(InputStream inputStream, String type) throws CertificateException;
-
-    /**
-     * Loads a certificate from an input stream
-     *
-     * @param inputStream The input stream of the certificate file.
-     */
-    default void loadCertificate(InputStream inputStream) throws CertificateException {
-        loadCertificate(inputStream, KeyType.PFX.getType());
-    }
-
-
-    /**
-     * Loads a certificate chain from the specified input stream
-     *
-     * @param inputStream The input stream containing the certificates.
-     * @param type        The type of the certificate chain.
-     */
-    void loadCertificateChain(InputStream inputStream, String type) throws CertificateException;
-
-    /**
-     * Loads a certificate chain from an input stream.
-     *
-     * @param inputStream The input stream of the certificate chain file.
-     */
-    default void loadCertificateChain(InputStream inputStream) throws CertificateException {
-        loadCertificateChain(inputStream, KeyType.JKS.getType());
-    }
-
-    /**
-     * This function returns a KeyStore object that contains the certificate that was used to sign the JAR file.
-     *
-     * @return A KeyStore object.
-     */
-    KeyStore certificate() throws CertificateException;
-
-    /**
-     * Returns the password for the certificate
-     *
-     * @return The password for the certificate.
-     */
-    String certificatePassword();
-
-    /**
-     * Returns the certificate chain associated with this keystore entry.
-     *
-     * @return A KeyStore object that contains the certificate chain.
-     */
-    KeyStore certificateChain() throws CertificateException;
-
-    /**
-     * Returns the password for the certificate chain file
-     *
-     * @return A String
-     */
-    String certificateChainPassword();
-
-    /**
      * Returns the alias of the certificate.
      *
      * @return The alias of the certificate.
      */
     String getAlias();
 
+    /**
+     * The function `getKeyEntry()` returns a `KeyStore.PrivateKeyEntry` object.
+     *
+     * @return The method `getKeyEntry()` is returning a `KeyStore.PrivateKeyEntry` object.
+     */
+    KeyStore.PrivateKeyEntry getKeyEntry();
+
+    /**
+     * The function `getKeyManagers()` returns an array of X509KeyManager objects.
+     *
+     * @return An array of X509KeyManager objects is being returned.
+     */
+    X509KeyManager[] getKeyManagers();
+
+    /**
+     * The function "getTrustManagers" returns an array of TrustManagers.
+     *
+     * @return An array of TrustManager objects is being returned.
+     */
+    TrustManager[] getTrustManagers();
+
+    /**
+     * The function returns the private key associated with a key entry.
+     *
+     * @return The private key associated with the key entry.
+     */
+    default PrivateKey getKeyEntryPrivateKey() {
+        return getKeyEntry().getPrivateKey();
+    }
+
+    /**
+     * The function returns the X509Certificate associated with the key entry.
+     *
+     * @return The method is returning an X509Certificate object.
+     */
+    default X509Certificate getKeyEntryCertificate() {
+        return (X509Certificate) getKeyEntry().getCertificate();
+    }
+
+    /**
+     * The function "getExpiration" returns a ZonedDateTime object representing the expiration date.
+     *
+     * @return The method getExpiration() is returning a ZonedDateTime object.
+     */
     ZonedDateTime getExpiration();
 
 }

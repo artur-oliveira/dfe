@@ -11,6 +11,7 @@ import com.softart.dfe.enums.internal.Environment;
 import com.softart.dfe.enums.internal.Model;
 import com.softart.dfe.enums.internal.UF;
 import com.softart.dfe.enums.internal.city.CityPI;
+import com.softart.dfe.exceptions.sefaz.InvalidSefazResponseException;
 import com.softart.dfe.interfaces.internal.config.CteConfig;
 import com.softart.dfe.models.cte.reception.Cte;
 import com.softart.dfe.models.cte.reception.CteReturnSend;
@@ -18,8 +19,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 class CteReceptionServiceImplTest {
 
@@ -298,13 +298,9 @@ class CteReceptionServiceImplTest {
         CteReceptionService service = new CteReceptionServiceImpl(
                 new PfxCteConfigImpl(UF.MT, "11520224000140", Environment.HOMOLOGATION, KeyStoreFactory.getInstance())
         );
-        CteReturnSend o = service.reception(
+        assertThrows(InvalidSefazResponseException.class, () -> service.reception(
                 getCte(service.getConfig(), 1, Model.CTE)
-        );
-        assertNotNull(o);
-        assertEquals(CteReturnCode.CODE_203.getCode(), o.getCStat());
-        assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
-        assertEquals(UF.MT.getCode(), o.getCuf());
+        ));
     }
 
     @Test
@@ -312,12 +308,9 @@ class CteReceptionServiceImplTest {
         CteReceptionService service = new CteReceptionServiceImpl(
                 new PfxCteConfigImpl(UF.MT, "11520224000140", Environment.PRODUCTION, KeyStoreFactory.getInstance())
         );
-        CteReturnSend o = service.reception(
+        assertThrows(InvalidSefazResponseException.class, () -> service.reception(
                 getCte(service.getConfig(), 1, Model.CTE)
-        );
-        assertEquals(CteReturnCode.CODE_203.getCode(), o.getCStat());
-        assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
-        assertEquals(UF.MT.getCode(), o.getCuf());
+        ));
     }
 
     @Test

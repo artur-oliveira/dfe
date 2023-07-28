@@ -143,7 +143,7 @@ public abstract class GenericCteStorage extends CommonStorage implements CteStor
         TEnviCTe tEnviNFe = CteUnmarshallerFactory.getInstance().enviCte(xml).getValue();
 
         for (TProtCTe protCTe : o.data().getProtCTe()) {
-            TCteProc proc = new ObjectFactory().createTCteProc();
+            TCteProc proc = CteUnmarshallerFactory.getInstance().cteProc();;
             proc.setProtCTe(protCTe);
             proc.setCTe(tEnviNFe.getCTe().stream().filter(it -> it.getInfCte().getId().contains(protCTe.getInfProt().getChCTe())).findFirst().orElse(null));
             proc.setVersao(proc.getCTe().getInfCte().getVersao());

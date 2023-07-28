@@ -31,11 +31,11 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _DistDFeInt_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "distDFeInt");
-    private final static QName _ResEvento_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "resEvento");
-    private final static QName _ResNFe_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "resNFe");
-    private final static QName _RetDistDFeInt_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "retDistDFeInt");
-    private final static QName _Signature_QNAME = new QName("http://www.w3.org/2000/09/xmldsig#", "Signature");
+    public final static QName _DistDFeInt_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "distDFeInt");
+    public final static QName _ResEvento_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "resEvento");
+    public final static QName _ResNFe_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "resNFe");
+    public final static QName _RetDistDFeInt_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "retDistDFeInt");
+    public final static QName _Signature_QNAME = new QName("http://www.w3.org/2000/09/xmldsig#", "Signature");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: br.inf.portalfiscal.nfe.distribution

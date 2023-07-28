@@ -31,9 +31,9 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _DistDFeInt_QNAME = new QName("http://www.portalfiscal.inf.br/cte", "distDFeInt");
-    private final static QName _RetDistDFeInt_QNAME = new QName("http://www.portalfiscal.inf.br/cte", "retDistDFeInt");
-    private final static QName _Signature_QNAME = new QName("http://www.w3.org/2000/09/xmldsig#", "Signature");
+    public final static QName _DistDFeInt_QNAME = new QName("http://www.portalfiscal.inf.br/cte", "distDFeInt");
+    public final static QName _RetDistDFeInt_QNAME = new QName("http://www.portalfiscal.inf.br/cte", "retDistDFeInt");
+    public final static QName _Signature_QNAME = new QName("http://www.w3.org/2000/09/xmldsig#", "Signature");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: br.inf.portalfiscal.cte.distribution

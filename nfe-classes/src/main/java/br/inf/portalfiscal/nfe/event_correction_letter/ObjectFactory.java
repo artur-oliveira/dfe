@@ -31,12 +31,12 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _Evento_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "evento");
-    private final static QName _DetEvento_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "detEvento");
-    private final static QName _EnvEvento_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "envEvento");
-    private final static QName _ProcEventoNFe_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "procEventoNFe");
-    private final static QName _RetEnvEvento_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "retEnvEvento");
-    private final static QName _Signature_QNAME = new QName("http://www.w3.org/2000/09/xmldsig#", "Signature");
+    public final static QName _Evento_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "evento");
+    public final static QName _DetEvento_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "detEvento");
+    public final static QName _EnvEvento_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "envEvento");
+    public final static QName _ProcEventoNFe_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "procEventoNFe");
+    public final static QName _RetEnvEvento_QNAME = new QName("http://www.portalfiscal.inf.br/nfe", "retEnvEvento");
+    public final static QName _Signature_QNAME = new QName("http://www.w3.org/2000/09/xmldsig#", "Signature");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: br.inf.portalfiscal.nfe.event_correction_letter

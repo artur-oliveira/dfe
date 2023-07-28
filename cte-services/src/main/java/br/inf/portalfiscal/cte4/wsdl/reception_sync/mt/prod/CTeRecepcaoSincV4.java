@@ -62,11 +62,11 @@ public class CTeRecepcaoSincV4
     /**
      * 
      * @return
-     *     returns CTeRecepcaoSincSoap12
+     *     returns CTeRecepcaoSincV4Soap12
      */
-    @WebEndpoint(name = "CTeRecepcaoSincSoap12")
-    public CTeRecepcaoSincSoap12 getCTeRecepcaoSincSoap12() {
-        return super.getPort(new QName("http://www.portalfiscal.inf.br/cte/wsdl/CTeRecepcaoSincV4", "CTeRecepcaoSincSoap12"), CTeRecepcaoSincSoap12.class);
+    @WebEndpoint(name = "CTeRecepcaoSincV4Soap12")
+    public CTeRecepcaoSincV4Soap12 getCTeRecepcaoSincV4Soap12() {
+        return super.getPort(new QName("http://www.portalfiscal.inf.br/cte/wsdl/CTeRecepcaoSincV4", "CTeRecepcaoSincV4Soap12"), CTeRecepcaoSincV4Soap12.class);
     }
 
     /**
@@ -74,11 +74,11 @@ public class CTeRecepcaoSincV4
      * @param features
      *     A list of {@link WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
      * @return
-     *     returns CTeRecepcaoSincSoap12
+     *     returns CTeRecepcaoSincV4Soap12
      */
-    @WebEndpoint(name = "CTeRecepcaoSincSoap12")
-    public CTeRecepcaoSincSoap12 getCTeRecepcaoSincSoap12(WebServiceFeature... features) {
-        return super.getPort(new QName("http://www.portalfiscal.inf.br/cte/wsdl/CTeRecepcaoSincV4", "CTeRecepcaoSincSoap12"), CTeRecepcaoSincSoap12.class, features);
+    @WebEndpoint(name = "CTeRecepcaoSincV4Soap12")
+    public CTeRecepcaoSincV4Soap12 getCTeRecepcaoSincV4Soap12(WebServiceFeature... features) {
+        return super.getPort(new QName("http://www.portalfiscal.inf.br/cte/wsdl/CTeRecepcaoSincV4", "CTeRecepcaoSincV4Soap12"), CTeRecepcaoSincV4Soap12.class, features);
     }
 
     private static URL __getWsdlLocation() {
