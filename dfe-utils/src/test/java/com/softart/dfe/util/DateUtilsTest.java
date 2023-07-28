@@ -6,7 +6,7 @@ import java.time.*;
 import java.time.temporal.ChronoField;
 import java.util.Objects;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class DateUtilsTest {
 

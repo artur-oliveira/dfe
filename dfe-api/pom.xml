@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>dfe</artifactId>
+        <groupId>io.github.artur-oliveira</groupId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>dfe-api</artifactId>
+    <name>DF-e Api</name>
+    <description>Contains all interfaces and components to connect to the Sefaz WebServices</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.github.artur-oliveira</groupId>
+            <artifactId>dfe-stubs</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.artur-oliveira</groupId>
+            <artifactId>dfe-utils</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.artur-oliveira</groupId>
+            <artifactId>dfe-cte-services</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.artur-oliveira</groupId>
+            <artifactId>dfe-nfe-services</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.artur-oliveira</groupId>
+            <artifactId>dfe-mdfe-services</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+
+</project>

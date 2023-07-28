@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+                  xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+                  xmlns:tns="http://www.portalfiscal.inf.br/cte/wsdl/CteRecepcaoGTVe"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  targetNamespace="http://www.portalfiscal.inf.br/cte/wsdl/CteRecepcaoGTVe">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Serviço destinado à recepção de mensagens de GTVe
+        (modelo 64).
+    </wsdl:documentation>
+    <wsdl:types>
+        <s:schema elementFormDefault="qualified"
+                  targetNamespace="http://www.portalfiscal.inf.br/cte/wsdl/CteRecepcaoGTVe">
+            <s:element name="cteDadosMsg" type="s:string"/>
+            <s:element name="cteRecepcaoGTVeResult">
+                <s:complexType mixed="true">
+                    <s:sequence>
+                        <s:any/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+        </s:schema>
+    </wsdl:types>
+    <wsdl:message name="cteRecepcaoGTVeSoap12In">
+        <wsdl:part name="cteDadosMsg" element="tns:cteDadosMsg"/>
+    </wsdl:message>
+    <wsdl:message name="cteRecepcaoGTVeSoap12Out">
+        <wsdl:part name="cteRecepcaoGTVeResult" element="tns:cteRecepcaoGTVeResult"/>
+    </wsdl:message>
+    <wsdl:portType name="CteRecepcaoGTVeSoap12">
+        <wsdl:operation name="cteRecepcaoGTVe">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Recepção de mensagens de GTVe (modelo
+                64).
+            </wsdl:documentation>
+            <wsdl:input message="tns:cteRecepcaoGTVeSoap12In"/>
+            <wsdl:output message="tns:cteRecepcaoGTVeSoap12Out"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="CteRecepcaoGTVeSoap12" type="tns:CteRecepcaoGTVeSoap12">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="cteRecepcaoGTVe">
+            <soap12:operation soapAction="http://www.portalfiscal.inf.br/cte/wsdl/CteRecepcaoGTVe/cteRecepcaoGTVe"
+                              style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="CteRecepcaoGTVe">
+        <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Serviço destinado à recepção de mensagens de
+            GTVe (modelo 64).
+        </wsdl:documentation>
+        <wsdl:port name="CteRecepcaoGTVeSoap12" binding="tns:CteRecepcaoGTVeSoap12">
+            <soap12:address location="https://nfe.fazenda.sp.gov.br/cteWEB/services/cteRecepcaoGTVe.asmx"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

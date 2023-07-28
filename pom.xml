@@ -1,4 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.github.artur-oliveira</groupId>
@@ -8,17 +8,17 @@
     <description>Projeto que unifica os WebServices de NF-e, NFC-e, CT-e e MDF-e</description>
     <url>https://github.com/artur-oliveira/dfe</url>
     <modules>
-        <module>stubs</module>
+        <module>dfe-stubs</module>
         <module>dfe-utils</module>
-        <module>nfe-classes</module>
-        <module>cte-classes</module>
-        <module>mdfe-classes</module>
-        <module>cte-services</module>
-        <module>mdfe-services</module>
-        <module>nfe-services</module>
-        <module>api</module>
-        <module>core</module>
-        <module>app</module>
+        <module>dfe-nfe-classes</module>
+        <module>dfe-nfe-services</module>
+        <module>dfe-cte-classes</module>
+        <module>dfe-cte-services</module>
+        <module>dfe-mdfe-classes</module>
+        <module>dfe-mdfe-services</module>
+        <module>dfe-api</module>
+        <module>dfe-core</module>
+        <module>dfe-examples</module>
     </modules>
 
     <packaging>pom</packaging>
