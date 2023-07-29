@@ -10,6 +10,7 @@ import com.softart.dfe.components.storage.common.CommonStorage;
 import com.softart.dfe.enums.internal.nf.NFStorageKey;
 import com.softart.dfe.enums.nf.NFReturnCode;
 import com.softart.dfe.exceptions.storage.StorageException;
+import com.softart.dfe.interfaces.internal.config.Config;
 import com.softart.dfe.interfaces.storage.Store;
 import com.softart.dfe.interfaces.storage.nf.common.NfCommonStorage;
 import com.softart.dfe.models.internal.storage.StorageResult;
@@ -17,7 +18,10 @@ import com.softart.dfe.models.internal.xml.XMLStore;
 import com.softart.dfe.util.IOUtils;
 
 import java.io.IOException;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Objects;
+import java.util.Optional;
 
 
 public abstract class GenericNfCommonStorage extends CommonStorage implements NfCommonStorage {
@@ -132,28 +136,43 @@ public abstract class GenericNfCommonStorage extends CommonStorage implements Nf
         }
     }
 
-    protected void storeProcByQueryReceipt(Store<TRetConsReciNFe> o) throws IOException, StorageException {
-        if (Objects.isNull(o.data().getProtNFe())) return;
-
-
+    protected TEnviNFe getEnviNFeByProt(Collection<TProtNFe> protNFes, Config config) throws IOException {
         String xml = null;
-        for (TProtNFe protNFe : o.data().getProtNFe()) {
-            xml = IOUtils.readFileToString(getStorageService().getSend(o.config(), NFStorageKey.NF_AUTHORIZATION, protNFe.getInfProt().getChNFe()).stream().findFirst().map(StorageResult::file).orElse(null));
+        for (TProtNFe protNFe : protNFes) {
+            xml = IOUtils.readFileToString(getStorageService().getSend(config, NFStorageKey.NF_AUTHORIZATION, protNFe.getInfProt().getChNFe()).stream().findFirst().map(StorageResult::file).orElse(null));
             if (Objects.nonNull(xml)) break;
         }
+        return Optional.ofNullable(xml).map(it -> NfUnmarshallerFactory.getInstance().enviNfe(it).getValue()).orElse(null);
+    }
 
-        if (Objects.isNull(xml)) return;
 
-        TEnviNFe tEnviNFe = NfUnmarshallerFactory.getInstance().enviNfe(xml).getValue();
-        String versao = tEnviNFe.getNFe().stream().findFirst().orElseThrow(RuntimeException::new).getInfNFe().getVersao();
-        for (TProtNFe protNFe : o.data().getProtNFe()) {
-            TNfeProc proc = NfUnmarshallerFactory.getInstance().nfeProc();
-            proc.setProtNFe(protNFe);
-            proc.setNFe(tEnviNFe.getNFe().stream().filter(it -> it.getInfNFe().getId().contains(protNFe.getInfProt().getChNFe())).findFirst().orElse(null));
-            proc.setVersao(versao);
-
-            storeProcNfe(new XMLStore<>(proc, o.config(), NfMarshallerFactory.getInstance().procNfe(proc)));
+    protected void storeProcByProt(TEnviNFe enviNFe, Collection<TProtNFe> protNFes, Config config) throws StorageException {
+        for (TProtNFe protNFe : protNFes) {
+            TNFe nfe = enviNFe.getNFe().stream().filter(it -> AccessKeyParserFactory.nfe().fromId(it.getInfNFe().getId()).equals(protNFe.getInfProt().getChNFe())).findFirst().orElse(null);
+            if (Objects.isNull(nfe)) {
+                continue;
+            }
+            TNfeProc nfeProc = NfUnmarshallerFactory.getInstance().nfeProc();
+            nfeProc.setNFe(nfe);
+            nfeProc.setVersao(nfe.getInfNFe().getVersao());
+            nfeProc.setProtNFe(protNFe);
+            storeProcNfe(new XMLStore<>(nfeProc, config, NfMarshallerFactory.getInstance().procNfe(nfeProc)));
         }
+    }
+
+    protected void storeProcByQueryProtocol(Store<TRetConsSitNFe> o) throws IOException, StorageException {
+        if (Objects.isNull(o.data().getProtNFe())) return;
+        Collection<TProtNFe> protNFes = Collections.singletonList(o.data().getProtNFe());
+        TEnviNFe tEnviNFe = getEnviNFeByProt(protNFes, o.config());
+        if (Objects.isNull(tEnviNFe)) return;
+        storeProcByProt(tEnviNFe, protNFes, o.config());
+    }
+
+    protected void storeProcByQueryReceipt(Store<TRetConsReciNFe> o) throws IOException, StorageException {
+        if (Objects.isNull(o.data().getProtNFe())) return;
+        TEnviNFe tEnviNFe = getEnviNFeByProt(o.data().getProtNFe(), o.config());
+        if (Objects.isNull(tEnviNFe)) return;
+        storeProcByProt(tEnviNFe, o.data().getProtNFe(), o.config());
     }
 
     @Override
@@ -184,6 +203,7 @@ public abstract class GenericNfCommonStorage extends CommonStorage implements Nf
         try {
             if (Objects.nonNull(o.data()) && Objects.nonNull(o.xml())) {
                 getStorageService().writeReturn(o, NFStorageKey.NF_QUERY_PROTOCOL, xmlNameWithTime(o.data().getChNFe()));
+                storeProcByQueryProtocol(o);
             }
         } catch (Exception e) {
             throw new StorageException(e);
