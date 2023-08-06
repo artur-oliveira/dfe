@@ -3,6 +3,7 @@ package com.softart.dfe.components.storage.mdfe;
 import br.inf.portalfiscal.mdfe.classes.*;
 import com.softart.dfe.components.internal.parser.AccessKeyParserFactory;
 import com.softart.dfe.components.internal.xml.marshaller.MdfeMarshallerFactory;
+import com.softart.dfe.components.internal.xml.objectfactory.MdfeObjectFactoryWrapperFactory;
 import com.softart.dfe.components.internal.xml.unmarshaller.MdfeUnmarshallerFactory;
 import com.softart.dfe.components.storage.common.CommonStorage;
 import com.softart.dfe.enums.internal.mdfe.MdfeStorageKey;
@@ -98,7 +99,7 @@ public abstract class GenericMdfeStorage extends CommonStorage implements MdfeSt
         if (Objects.isNull(xml)) return;
 
         TEnviMDFe envi = MdfeUnmarshallerFactory.getInstance().sendReception(xml).getValue();
-        TMdfeProc proc = MdfeUnmarshallerFactory.getInstance().mdfeProc();
+        TMdfeProc proc = MdfeObjectFactoryWrapperFactory.getInstance().mdfeProc();
         proc.setProtMDFe(prot);
         proc.setMDFe(envi.getMDFe());
         proc.setVersao(envi.getVersao());

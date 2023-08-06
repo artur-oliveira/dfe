@@ -26,6 +26,24 @@ class DefaultNfMarshallerTest {
     }
 
     @Test
+    void testEventNfe() {
+        assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><envEvento xmlns=\"http://www.portalfiscal.inf.br/nfe\"/>",
+                new DefaultNfMarshaller().eventNfe(new br.inf.portalfiscal.nfe.event_generic.TEnvEvento()));
+    }
+
+    @Test
+    void testReturnEventNfe() {
+        assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><retEnvEvento xmlns=\"http://www.portalfiscal.inf.br/nfe\"/>",
+                new DefaultNfMarshaller().returnEventNfe(new br.inf.portalfiscal.nfe.event_generic.TRetEnvEvento()));
+    }
+
+    @Test
+    void testProcEventNfe() {
+        assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><procEventoNFe xmlns=\"http://www.portalfiscal.inf.br/nfe\"/>",
+                new DefaultNfMarshaller().procEventNfe(new br.inf.portalfiscal.nfe.event_generic.TProcEvento()));
+    }
+
+    @Test
     void testSubstituteCancelNfe() {
         assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><envEvento xmlns=\"http://www.portalfiscal.inf.br/nfe\"/>",
                 new DefaultNfMarshaller().substituteCancelNfe(new br.inf.portalfiscal.nfe.event_substitute_cancel.TEnvEvento()));

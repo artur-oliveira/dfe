@@ -68,5 +68,4 @@ public interface MdfeUnmarshaller {
 
     JAXBElement<EvPagtoOperMDFe> evPagtoOperMDFe(String xml);
 
-    TMdfeProc mdfeProc();
 }

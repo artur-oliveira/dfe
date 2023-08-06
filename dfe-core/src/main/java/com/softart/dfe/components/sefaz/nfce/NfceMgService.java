@@ -5,6 +5,7 @@ import br.inf.portalfiscal.nfe.event_substitute_cancel.TRetEnvEvento;
 import br.inf.portalfiscal.nfe.send.*;
 import com.softart.dfe.components.internal.PairImpl;
 import com.softart.dfe.components.internal.xml.marshaller.NfMarshallerFactory;
+import com.softart.dfe.components.internal.xml.objectfactory.NfObjectFactoryWrapperFactory;
 import com.softart.dfe.components.internal.xml.unmarshaller.NfUnmarshallerFactory;
 import com.softart.dfe.enums.internal.Environment;
 import com.softart.dfe.enums.internal.UF;
@@ -264,7 +265,7 @@ public final class NfceMgService implements NfceService {
     @Override
     public <T extends SefazRequest<TConsStatServ, TRetConsStatServ>> Pair<TConsStatServ, TRetConsStatServ> queryStatusService(T data) throws SecurityException, ValidationException, ProcessException {
         String xml = NfMarshallerFactory.getInstance().queryStatusServiceNfe(data.data());
-        JAXBElement<TConsStatServ> envio = NfUnmarshallerFactory.getInstance().consStatServ(data.data());
+        JAXBElement<TConsStatServ> envio = NfObjectFactoryWrapperFactory.getInstance().consStatServ(data.data());
 
         for (Validator<TConsStatServ> it : data.validators())
             it.valid(new Validation<>(envio.getValue(), xml));

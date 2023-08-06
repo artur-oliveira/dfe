@@ -10,6 +10,7 @@ import lombok.SneakyThrows;
 @AllArgsConstructor(access = AccessLevel.PACKAGE)
 final class DefaultNfContext extends NfContextFactory {
 
+    public final JAXBContext nfeEventContext;
     public final JAXBContext nfeCancelContext;
     public final JAXBContext nfeSubstituteCancelContext;
     public final JAXBContext nfeSendContext;
@@ -22,6 +23,9 @@ final class DefaultNfContext extends NfContextFactory {
 
     @SneakyThrows
     DefaultNfContext() {
+        // EVENT
+
+        this.nfeEventContext = JAXBContext.newInstance("br.inf.portalfiscal.nfe.event_generic");
         // CANCEL
         this.nfeCancelContext = JAXBContext.newInstance("br.inf.portalfiscal.nfe.event_cancel");
 

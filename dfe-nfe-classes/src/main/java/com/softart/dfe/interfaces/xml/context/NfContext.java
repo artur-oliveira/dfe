@@ -4,6 +4,8 @@ import jakarta.xml.bind.JAXBContext;
 
 public interface NfContext {
 
+    JAXBContext getNfeEventContext();
+
     /**
      * Returns a JAXBContext object for the NFeCancel class
      *

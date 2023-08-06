@@ -5,6 +5,7 @@ import br.inf.portalfiscal.nfe.gtin.TRetConsGTIN;
 import br.inf.portalfiscal.nfe.send.*;
 import com.softart.dfe.components.internal.parser.AccessKeyParserFactory;
 import com.softart.dfe.components.internal.xml.marshaller.NfMarshallerFactory;
+import com.softart.dfe.components.internal.xml.objectfactory.NfObjectFactoryWrapperFactory;
 import com.softart.dfe.components.internal.xml.unmarshaller.NfUnmarshallerFactory;
 import com.softart.dfe.components.storage.common.CommonStorage;
 import com.softart.dfe.enums.internal.nf.NFStorageKey;
@@ -152,7 +153,7 @@ public abstract class GenericNfCommonStorage extends CommonStorage implements Nf
             if (Objects.isNull(nfe)) {
                 continue;
             }
-            TNfeProc nfeProc = NfUnmarshallerFactory.getInstance().nfeProc();
+            TNfeProc nfeProc = NfObjectFactoryWrapperFactory.getInstance().nfeProc();
             nfeProc.setNFe(nfe);
             nfeProc.setVersao(nfe.getInfNFe().getVersao());
             nfeProc.setProtNFe(protNFe);

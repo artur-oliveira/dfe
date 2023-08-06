@@ -5,6 +5,7 @@ import br.inf.portalfiscal.cte.distribution.RetDistDFeInt;
 import br.inf.portalfiscal.cte.send.*;
 import com.softart.dfe.components.internal.parser.AccessKeyParserFactory;
 import com.softart.dfe.components.internal.xml.marshaller.CteMarshallerFactory;
+import com.softart.dfe.components.internal.xml.objectfactory.CteObjectFactoryWrapperFactory;
 import com.softart.dfe.components.internal.xml.unmarshaller.CteUnmarshallerFactory;
 import com.softart.dfe.components.storage.common.CommonStorage;
 import com.softart.dfe.enums.cte.CteReturnCode;
@@ -141,7 +142,7 @@ public abstract class GenericCteStorage extends CommonStorage implements CteStor
         TEnviCTe tEnviNFe = CteUnmarshallerFactory.getInstance().enviCte(xml).getValue();
 
         for (TProtCTe protCTe : o.data().getProtCTe()) {
-            TCteProc proc = CteUnmarshallerFactory.getInstance().cteProc();
+            TCteProc proc = CteObjectFactoryWrapperFactory.getInstance().cteProc();
             ;
             proc.setProtCTe(protCTe);
             proc.setCTe(tEnviNFe.getCTe().stream().filter(it -> it.getInfCte().getId().contains(protCTe.getInfProt().getChCTe())).findFirst().orElse(null));

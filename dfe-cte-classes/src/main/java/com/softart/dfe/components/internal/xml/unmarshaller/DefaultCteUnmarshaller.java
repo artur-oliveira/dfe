@@ -5,6 +5,7 @@ import br.inf.portalfiscal.cte.distribution.RetDistDFeInt;
 import br.inf.portalfiscal.cte.send.*;
 import com.softart.dfe.components.internal.xml.context.CteContextFactory;
 import com.softart.dfe.components.internal.xml.marshaller.CteMarshallerFactory;
+import com.softart.dfe.components.internal.xml.objectfactory.CteObjectFactoryWrapperFactory;
 import com.softart.dfe.exceptions.xml.MarshallException;
 import com.softart.dfe.exceptions.xml.UnmarshallException;
 import com.softart.dfe.util.XMLUtils;
@@ -16,11 +17,6 @@ import java.io.StringReader;
 
 final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
-    private final br.inf.portalfiscal.cte.send.ObjectFactory fc = new br.inf.portalfiscal.cte.send.ObjectFactory();
-    private final br.inf.portalfiscal.cte.send400.ObjectFactory cte400fc = new br.inf.portalfiscal.cte.send400.ObjectFactory();
-    private final br.inf.portalfiscal.cte.distribution.ObjectFactory distFc = new br.inf.portalfiscal.cte.distribution.ObjectFactory();
-
-
     @Override
     public JAXBElement<DistDFeInt> distributionCte(String xml) {
         try {
@@ -30,9 +26,9 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
                     if (!(((JAXBElement<?>) o).getValue() instanceof DistDFeInt)) {
                         throw new UnmarshallException("cannot convert to DistDFeInt", xml);
                     }
-                    return distFc.createDistDFeInt((DistDFeInt) ((JAXBElement<?>) o).getValue());
+                    return CteObjectFactoryWrapperFactory.getInstance().getDistributionObjectFactory().createDistDFeInt((DistDFeInt) ((JAXBElement<?>) o).getValue());
                 }
-                return distFc.createDistDFeInt((DistDFeInt) o);
+                return CteObjectFactoryWrapperFactory.getInstance().getDistributionObjectFactory().createDistDFeInt((DistDFeInt) o);
             }
         } catch (JAXBException e) {
             throw new MarshallException(e, xml);
@@ -48,9 +44,9 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
                     if (!(((JAXBElement<?>) o).getValue() instanceof RetDistDFeInt)) {
                         throw new UnmarshallException("cannot convert to RetDistDFeInt", xml);
                     }
-                    return distFc.createRetDistDFeInt((RetDistDFeInt) ((JAXBElement<?>) o).getValue());
+                    return CteObjectFactoryWrapperFactory.getInstance().getDistributionObjectFactory().createRetDistDFeInt((RetDistDFeInt) ((JAXBElement<?>) o).getValue());
                 }
-                return distFc.createRetDistDFeInt((RetDistDFeInt) o);
+                return CteObjectFactoryWrapperFactory.getInstance().getDistributionObjectFactory().createRetDistDFeInt((RetDistDFeInt) o);
             }
         } catch (JAXBException e) {
             throw new MarshallException(e, xml);
@@ -59,47 +55,47 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<TEvento> eventCte(String xml) {
-        return fc.createEventoCTe(XMLUtils.getJaxbElementValue(any300(xml).getValue(), TEvento.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createEventoCTe(XMLUtils.getJaxbElementValue(any300(xml).getValue(), TEvento.class, xml));
     }
 
     @Override
     public JAXBElement<TInutCTe> inutCte(String xml) {
-        return fc.createInutCTe(XMLUtils.getJaxbElementValue(any300(xml).getValue(), TInutCTe.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createInutCTe(XMLUtils.getJaxbElementValue(any300(xml).getValue(), TInutCTe.class, xml));
     }
 
     @Override
     public JAXBElement<TConsSitCTe> querySituationCte(String xml) {
-        return fc.createConsSitCTe(XMLUtils.getJaxbElementValue(any300(xml).getValue(), TConsSitCTe.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createConsSitCTe(XMLUtils.getJaxbElementValue(any300(xml).getValue(), TConsSitCTe.class, xml));
     }
 
     @Override
     public JAXBElement<TEnviCTe> receptionCte(String xml) {
-        return fc.createEnviCTe(XMLUtils.getJaxbElementValue(any300(xml).getValue(), TEnviCTe.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createEnviCTe(XMLUtils.getJaxbElementValue(any300(xml).getValue(), TEnviCTe.class, xml));
     }
 
     @Override
     public JAXBElement<TGTVe> receptionGtve(String xml) {
-        return fc.createGTVe(XMLUtils.getJaxbElementValue(any300(xml).getValue(), TGTVe.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createGTVe(XMLUtils.getJaxbElementValue(any300(xml).getValue(), TGTVe.class, xml));
     }
 
     @Override
     public JAXBElement<TCTeOS> receptionCteOs(String xml) {
-        return fc.createCTeOS(XMLUtils.getJaxbElementValue(any300(xml).getValue(), TCTeOS.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createCTeOS(XMLUtils.getJaxbElementValue(any300(xml).getValue(), TCTeOS.class, xml));
     }
 
     @Override
     public JAXBElement<TCTe> receptionCteSync(String xml) {
-        return fc.createCTe(XMLUtils.getJaxbElementValue(any300(xml).getValue(), TCTe.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createCTe(XMLUtils.getJaxbElementValue(any300(xml).getValue(), TCTe.class, xml));
     }
 
     @Override
     public JAXBElement<TConsReciCTe> queryReceipt(String xml) {
-        return fc.createConsReciCTe(XMLUtils.getJaxbElementValue(any300(xml).getValue(), TConsReciCTe.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createConsReciCTe(XMLUtils.getJaxbElementValue(any300(xml).getValue(), TConsReciCTe.class, xml));
     }
 
     @Override
     public JAXBElement<TConsStatServ> statusService(String xml) {
-        return fc.createConsStatServCte(XMLUtils.getJaxbElementValue(any300(xml).getValue(), TConsStatServ.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createConsStatServCte(XMLUtils.getJaxbElementValue(any300(xml).getValue(), TConsStatServ.class, xml));
     }
 
 
@@ -136,7 +132,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<EvCancCTe> evCancCTe(String xml) {
-        return fc.createEvCancCTe(XMLUtils.getJaxbElementValue(any300(xml).getValue(), EvCancCTe.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createEvCancCTe(XMLUtils.getJaxbElementValue(any300(xml).getValue(), EvCancCTe.class, xml));
     }
 
     @Override
@@ -146,7 +142,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<EvCancCECTe> evCancCECTe(String xml) {
-        return fc.createEvCancCECTe(XMLUtils.getJaxbElementValue(any300(xml).getValue(), EvCancCECTe.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createEvCancCECTe(XMLUtils.getJaxbElementValue(any300(xml).getValue(), EvCancCECTe.class, xml));
     }
 
     @Override
@@ -156,7 +152,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<EvCCeCTe> evCCeCTe(String xml) {
-        return fc.createEvCCeCTe(XMLUtils.getJaxbElementValue(any300(xml).getValue(), EvCCeCTe.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createEvCCeCTe(XMLUtils.getJaxbElementValue(any300(xml).getValue(), EvCCeCTe.class, xml));
     }
 
     @Override
@@ -166,7 +162,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<EvCECTe> evCECTe(String xml) {
-        return fc.createEvCECTe(XMLUtils.getJaxbElementValue(any300(xml).getValue(), EvCECTe.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createEvCECTe(XMLUtils.getJaxbElementValue(any300(xml).getValue(), EvCECTe.class, xml));
     }
 
     @Override
@@ -176,7 +172,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<EvEPECCTe> evEPECCTe(String xml) {
-        return fc.createEvEPECCTe(XMLUtils.getJaxbElementValue(any300(xml).getValue(), EvEPECCTe.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createEvEPECCTe(XMLUtils.getJaxbElementValue(any300(xml).getValue(), EvEPECCTe.class, xml));
     }
 
     @Override
@@ -186,7 +182,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<EvGTV> evGTV(String xml) {
-        return fc.createEvGTV(XMLUtils.getJaxbElementValue(any300(xml).getValue(), EvGTV.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createEvGTV(XMLUtils.getJaxbElementValue(any300(xml).getValue(), EvGTV.class, xml));
     }
 
     @Override
@@ -196,7 +192,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<EvPrestDesacordo> evPrestDesacordo(String xml) {
-        return fc.createEvPrestDesacordo(XMLUtils.getJaxbElementValue(any300(xml).getValue(), EvPrestDesacordo.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createEvPrestDesacordo(XMLUtils.getJaxbElementValue(any300(xml).getValue(), EvPrestDesacordo.class, xml));
     }
 
     @Override
@@ -206,7 +202,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<EvRegMultimodal> evRegMultimodal(String xml) {
-        return fc.createEvRegMultimodal(XMLUtils.getJaxbElementValue(any300(xml).getValue(), EvRegMultimodal.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createEvRegMultimodal(XMLUtils.getJaxbElementValue(any300(xml).getValue(), EvRegMultimodal.class, xml));
     }
 
     @Override
@@ -216,7 +212,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<Rodo> rodo(String xml) {
-        return fc.createRodo(XMLUtils.getJaxbElementValue(any300(xml).getValue(), Rodo.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createRodo(XMLUtils.getJaxbElementValue(any300(xml).getValue(), Rodo.class, xml));
     }
 
     @Override
@@ -226,7 +222,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<Aereo> aereo(String xml) {
-        return fc.createAereo(XMLUtils.getJaxbElementValue(any300(xml).getValue(), Aereo.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createAereo(XMLUtils.getJaxbElementValue(any300(xml).getValue(), Aereo.class, xml));
     }
 
     @Override
@@ -236,7 +232,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<Ferrov> ferrov(String xml) {
-        return fc.createFerrov(XMLUtils.getJaxbElementValue(any300(xml).getValue(), Ferrov.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createFerrov(XMLUtils.getJaxbElementValue(any300(xml).getValue(), Ferrov.class, xml));
     }
 
     @Override
@@ -246,7 +242,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<Aquav> aquav(String xml) {
-        return fc.createAquav(XMLUtils.getJaxbElementValue(any300(xml).getValue(), Aquav.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createAquav(XMLUtils.getJaxbElementValue(any300(xml).getValue(), Aquav.class, xml));
     }
 
     @Override
@@ -256,7 +252,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<Multimodal> multimodal(String xml) {
-        return fc.createMultimodal(XMLUtils.getJaxbElementValue(any300(xml).getValue(), Multimodal.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createMultimodal(XMLUtils.getJaxbElementValue(any300(xml).getValue(), Multimodal.class, xml));
     }
 
     @Override
@@ -266,17 +262,17 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<TProtCTe> protCTe(String xml) {
-        return fc.createProtCTe(XMLUtils.getJaxbElementValue(any300(xml).getValue(), TProtCTe.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createProtCTe(XMLUtils.getJaxbElementValue(any300(xml).getValue(), TProtCTe.class, xml));
     }
 
     @Override
     public JAXBElement<TProtCTeOS> protCTeOS(String xml) {
-        return fc.createProtCTeOS(XMLUtils.getJaxbElementValue(any300(xml).getValue(), TProtCTeOS.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createProtCTeOS(XMLUtils.getJaxbElementValue(any300(xml).getValue(), TProtCTeOS.class, xml));
     }
 
     @Override
     public JAXBElement<TProtGTVe> protGTVe(String xml) {
-        return fc.createProtGTVe(XMLUtils.getJaxbElementValue(any300(xml).getValue(), TProtGTVe.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createProtGTVe(XMLUtils.getJaxbElementValue(any300(xml).getValue(), TProtGTVe.class, xml));
     }
 
     @Override
@@ -286,27 +282,22 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<TEnviCTe> enviCte(String xml) {
-        return fc.createEnviCTe(XMLUtils.getJaxbElementValue(any300(xml).getValue(), TEnviCTe.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createEnviCTe(XMLUtils.getJaxbElementValue(any300(xml).getValue(), TEnviCTe.class, xml));
     }
 
     @Override
     public JAXBElement<TCteProc> cteProc(String xml) {
-        return fc.createCteProc(XMLUtils.getJaxbElementValue(any300(xml).getValue(), TCteProc.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createCteProc(XMLUtils.getJaxbElementValue(any300(xml).getValue(), TCteProc.class, xml));
     }
 
     @Override
     public JAXBElement<TCteOSProc> cteOsProc(String xml) {
-        return fc.createCteOSProc(XMLUtils.getJaxbElementValue(any300(xml).getValue(), TCteOSProc.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createCteOSProc(XMLUtils.getJaxbElementValue(any300(xml).getValue(), TCteOSProc.class, xml));
     }
 
     @Override
     public JAXBElement<TGTVeProc> gtveProc(String xml) {
-        return fc.createGTVeProc(XMLUtils.getJaxbElementValue(any300(xml).getValue(), TGTVeProc.class, xml));
-    }
-
-    @Override
-    public TCteProc cteProc() {
-        return fc.createTCteProc();
+        return CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createGTVeProc(XMLUtils.getJaxbElementValue(any300(xml).getValue(), TGTVeProc.class, xml));
     }
 
     @Override
@@ -336,47 +327,47 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<br.inf.portalfiscal.cte.send400.TEvento> eventCte400(String xml) {
-        return cte400fc.createEventoCTe(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.TEvento.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCte4ObjectFactory().createEventoCTe(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.TEvento.class, xml));
     }
 
     @Override
     public JAXBElement<br.inf.portalfiscal.cte.send400.TInutCTe> inutCte400(String xml) {
-        return cte400fc.createInutCTe(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.TInutCTe.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCte4ObjectFactory().createInutCTe(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.TInutCTe.class, xml));
     }
 
     @Override
     public JAXBElement<br.inf.portalfiscal.cte.send400.TConsSitCTe> querySituationCte400(String xml) {
-        return cte400fc.createConsSitCTe(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.TConsSitCTe.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCte4ObjectFactory().createConsSitCTe(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.TConsSitCTe.class, xml));
     }
 
     @Override
     public JAXBElement<br.inf.portalfiscal.cte.send400.TGTVe> receptionGtve400(String xml) {
-        return cte400fc.createGTVe(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.TGTVe.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCte4ObjectFactory().createGTVe(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.TGTVe.class, xml));
     }
 
     @Override
     public JAXBElement<br.inf.portalfiscal.cte.send400.TCTeOS> receptionCteOs400(String xml) {
-        return cte400fc.createCTeOS(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.TCTeOS.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCte4ObjectFactory().createCTeOS(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.TCTeOS.class, xml));
     }
 
     @Override
     public JAXBElement<br.inf.portalfiscal.cte.send400.TCTe> receptionCteSync400(String xml) {
-        return cte400fc.createCTe(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.TCTe.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCte4ObjectFactory().createCTe(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.TCTe.class, xml));
     }
 
     @Override
     public JAXBElement<br.inf.portalfiscal.cte.send400.TConsStatServ> statusService400(String xml) {
-        return cte400fc.createConsStatServCTe(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.TConsStatServ.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCte4ObjectFactory().createConsStatServCTe(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.TConsStatServ.class, xml));
     }
 
     @Override
     public JAXBElement<br.inf.portalfiscal.cte.send400.TRetConsStatServ> returnStatusService400(String xml) {
-        return cte400fc.createRetConsStatServCTe(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.TRetConsStatServ.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCte4ObjectFactory().createRetConsStatServCTe(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.TRetConsStatServ.class, xml));
     }
 
     @Override
     public JAXBElement<br.inf.portalfiscal.cte.send400.TProtCTe> protCTe400(String xml) {
-        return cte400fc.createProtCTe(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.TProtCTe.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCte4ObjectFactory().createProtCTe(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.TProtCTe.class, xml));
     }
 
 
@@ -387,7 +378,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<br.inf.portalfiscal.cte.send400.EvCancCTe> evCancCTe400(String xml) {
-        return cte400fc.createEvCancCTe(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.EvCancCTe.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCte4ObjectFactory().createEvCancCTe(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.EvCancCTe.class, xml));
     }
 
     @Override
@@ -397,7 +388,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<br.inf.portalfiscal.cte.send400.EvCancCECTe> evCancCECTe400(String xml) {
-        return cte400fc.createEvCancCECTe(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.EvCancCECTe.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCte4ObjectFactory().createEvCancCECTe(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.EvCancCECTe.class, xml));
     }
 
     @Override
@@ -407,7 +398,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<br.inf.portalfiscal.cte.send400.EvCCeCTe> evCCeCTe400(String xml) {
-        return cte400fc.createEvCCeCTe(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.EvCCeCTe.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCte4ObjectFactory().createEvCCeCTe(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.EvCCeCTe.class, xml));
     }
 
     @Override
@@ -417,7 +408,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<br.inf.portalfiscal.cte.send400.EvCECTe> evCECTe400(String xml) {
-        return cte400fc.createEvCECTe(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.EvCECTe.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCte4ObjectFactory().createEvCECTe(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.EvCECTe.class, xml));
     }
 
     @Override
@@ -428,7 +419,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<br.inf.portalfiscal.cte.send400.EvEPECCTe> evEPECCTe400(String xml) {
-        return cte400fc.createEvEPECCTe(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.EvEPECCTe.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCte4ObjectFactory().createEvEPECCTe(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.EvEPECCTe.class, xml));
     }
 
     @Override
@@ -438,7 +429,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<br.inf.portalfiscal.cte.send400.EvGTV> evGTV400(String xml) {
-        return cte400fc.createEvGTV(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.EvGTV.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCte4ObjectFactory().createEvGTV(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.EvGTV.class, xml));
     }
 
     @Override
@@ -448,7 +439,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<br.inf.portalfiscal.cte.send400.EvPrestDesacordo> evPrestDesacordo400(String xml) {
-        return cte400fc.createEvPrestDesacordo(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.EvPrestDesacordo.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCte4ObjectFactory().createEvPrestDesacordo(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.EvPrestDesacordo.class, xml));
     }
 
     @Override
@@ -458,7 +449,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<br.inf.portalfiscal.cte.send400.EvCancPrestDesacordo> evCancPrestDesacordo400(String xml) {
-        return cte400fc.createEvCancPrestDesacordo(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.EvCancPrestDesacordo.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCte4ObjectFactory().createEvCancPrestDesacordo(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.EvCancPrestDesacordo.class, xml));
     }
 
     @Override
@@ -468,7 +459,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<br.inf.portalfiscal.cte.send400.EvIECTe> evIECTe400(String xml) {
-        return cte400fc.createEvIECTe(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.EvIECTe.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCte4ObjectFactory().createEvIECTe(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.EvIECTe.class, xml));
     }
 
     @Override
@@ -478,7 +469,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<br.inf.portalfiscal.cte.send400.EvCancIECTe> evCancIECTe400(String xml) {
-        return cte400fc.createEvCancIECTe(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.EvCancIECTe.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCte4ObjectFactory().createEvCancIECTe(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.EvCancIECTe.class, xml));
     }
 
     @Override
@@ -488,7 +479,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<br.inf.portalfiscal.cte.send400.EvRegMultimodal> evRegMultimodal400(String xml) {
-        return cte400fc.createEvRegMultimodal(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.EvRegMultimodal.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCte4ObjectFactory().createEvRegMultimodal(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.EvRegMultimodal.class, xml));
     }
 
     @Override
@@ -498,7 +489,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<br.inf.portalfiscal.cte.send400.TProtCTeOS> protCTeOS400(String xml) {
-        return cte400fc.createProtCTeOS(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.TProtCTeOS.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCte4ObjectFactory().createProtCTeOS(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.TProtCTeOS.class, xml));
     }
 
     @Override
@@ -508,7 +499,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<br.inf.portalfiscal.cte.send400.TProtGTVe> protGTVe400(String xml) {
-        return cte400fc.createProtGTVe(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.TProtGTVe.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCte4ObjectFactory().createProtGTVe(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.TProtGTVe.class, xml));
     }
 
     @Override
@@ -518,7 +509,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<br.inf.portalfiscal.cte.send400.Rodo> rodo400(String xml) {
-        return cte400fc.createRodo(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.Rodo.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCte4ObjectFactory().createRodo(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.Rodo.class, xml));
     }
 
     @Override
@@ -528,7 +519,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<Duto> duto(String xml) {
-        return fc.createDuto(XMLUtils.getJaxbElementValue(any300(xml).getValue(), Duto.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createDuto(XMLUtils.getJaxbElementValue(any300(xml).getValue(), Duto.class, xml));
     }
 
     @Override
@@ -538,7 +529,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<br.inf.portalfiscal.cte.send400.Aereo> aereo400(String xml) {
-        return cte400fc.createAereo(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.Aereo.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCte4ObjectFactory().createAereo(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.Aereo.class, xml));
     }
 
     @Override
@@ -548,7 +539,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<br.inf.portalfiscal.cte.send400.Ferrov> ferrov400(String xml) {
-        return cte400fc.createFerrov(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.Ferrov.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCte4ObjectFactory().createFerrov(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.Ferrov.class, xml));
     }
 
     @Override
@@ -558,7 +549,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<br.inf.portalfiscal.cte.send400.Aquav> aquav400(String xml) {
-        return cte400fc.createAquav(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.Aquav.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCte4ObjectFactory().createAquav(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.Aquav.class, xml));
     }
 
     @Override
@@ -568,7 +559,7 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<br.inf.portalfiscal.cte.send400.Multimodal> multimodal400(String xml) {
-        return cte400fc.createMultimodal(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.Multimodal.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCte4ObjectFactory().createMultimodal(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.Multimodal.class, xml));
     }
 
     @Override
@@ -578,26 +569,21 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
 
     @Override
     public JAXBElement<br.inf.portalfiscal.cte.send400.Duto> duto400(String xml) {
-        return cte400fc.createDuto(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.Duto.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCte4ObjectFactory().createDuto(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.Duto.class, xml));
     }
 
     @Override
     public JAXBElement<br.inf.portalfiscal.cte.send400.TCteProc> cteProc400(String xml) {
-        return cte400fc.createCteProc(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.TCteProc.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCte4ObjectFactory().createCteProc(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.TCteProc.class, xml));
     }
 
     @Override
     public JAXBElement<br.inf.portalfiscal.cte.send400.TCteOSProc> cteOsProc400(String xml) {
-        return cte400fc.createCteOSProc(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.TCteOSProc.class, xml));
+        return CteObjectFactoryWrapperFactory.getInstance().getCte4ObjectFactory().createCteOSProc(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.TCteOSProc.class, xml));
     }
 
     @Override
     public JAXBElement<br.inf.portalfiscal.cte.send400.TGTVeProc> gtveProc400(String xml) {
-        return cte400fc.createGTVeProc(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.TGTVeProc.class, xml));
-    }
-
-    @Override
-    public br.inf.portalfiscal.cte.send400.TCteProc cteProc400() {
-        return cte400fc.createTCteProc();
+        return CteObjectFactoryWrapperFactory.getInstance().getCte4ObjectFactory().createGTVeProc(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.TGTVeProc.class, xml));
     }
 }
