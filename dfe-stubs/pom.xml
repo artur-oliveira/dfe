@@ -64,7 +64,7 @@
                 <executions>
                     <!-- BEGIN NFE -->
                     <execution>
-                        <id>nfe_interested_actor</id>
+                        <id>nfe_interested_actor_event</id>
                         <goals>
                             <goal>xjc</goal>
                         </goals>
@@ -98,6 +98,26 @@
                             </sources>
                             <outputDirectory>${basedir}/src/generated</outputDirectory>
                             <packageName>br.inf.portalfiscal.nfe.event_cancel</packageName>
+                            <clearOutputDir>false</clearOutputDir>
+                            <extension>true</extension>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>nfe_generic_event</id>
+                        <goals>
+                            <goal>xjc</goal>
+                        </goals>
+                        <phase>none</phase>
+                        <configuration>
+                            <xjbSources>
+                                <xjbSource>src/main/resources/binding.xjb</xjbSource>
+                            </xjbSources>
+                            <sources>
+                                <source>${basedir}/src/main/resources/xsds/nfe/Evento_Generico_PL_v1.01</source>
+                            </sources>
+                            <outputDirectory>${basedir}/src/generated</outputDirectory>
+                            <packageName>br.inf.portalfiscal.nfe.event_generic</packageName>
                             <clearOutputDir>false</clearOutputDir>
                             <extension>true</extension>
                         </configuration>

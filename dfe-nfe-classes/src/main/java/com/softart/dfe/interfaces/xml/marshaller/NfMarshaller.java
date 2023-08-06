@@ -10,6 +10,24 @@ import jakarta.xml.bind.JAXBElement;
 @SuppressWarnings("unused")
 public interface NfMarshaller {
 
+    String eventNfe(br.inf.portalfiscal.nfe.event_generic.TEnvEvento o);
+
+    default String eventNfe(JAXBElement<br.inf.portalfiscal.nfe.event_generic.TEnvEvento> o) {
+        return eventNfe(o.getValue());
+    }
+
+    String returnEventNfe(br.inf.portalfiscal.nfe.event_generic.TRetEnvEvento o);
+
+    default String returnEventNfe(JAXBElement<br.inf.portalfiscal.nfe.event_generic.TRetEnvEvento> o) {
+        return returnEventNfe(o.getValue());
+    }
+
+    String procEventNfe(br.inf.portalfiscal.nfe.event_generic.TProcEvento o);
+
+    default String procEventNfe(JAXBElement<br.inf.portalfiscal.nfe.event_generic.TProcEvento> o) {
+        return procEventNfe(o.getValue());
+    }
+
     String cancelNfe(br.inf.portalfiscal.nfe.event_cancel.TEnvEvento o);
 
     default String cancelNfe(JAXBElement<br.inf.portalfiscal.nfe.event_cancel.TEnvEvento> o) {

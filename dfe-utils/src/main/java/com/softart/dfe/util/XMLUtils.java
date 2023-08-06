@@ -100,7 +100,7 @@ public final class XMLUtils {
     @SuppressWarnings("unchecked")
     public static <T> T getJaxbElementValue(Object o, Class<T> expected, String xml) {
         if (!Objects.equals(o.getClass(), expected))
-            throw new UnmarshallException("cannot convert to " + expected.getSimpleName(), xml);
+            throw new UnmarshallException("cannot convert object of class " + o.getClass().getName() + " to " + expected.getName(), xml);
         return (T) o;
     }
 

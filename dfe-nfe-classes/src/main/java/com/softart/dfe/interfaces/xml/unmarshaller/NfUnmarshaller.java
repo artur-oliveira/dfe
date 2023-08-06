@@ -6,6 +6,12 @@ import jakarta.xml.bind.JAXBElement;
 import org.w3c.dom.Element;
 
 public interface NfUnmarshaller {
+    JAXBElement<br.inf.portalfiscal.nfe.event_generic.TEnvEvento> eventNfe(String xml);
+
+    JAXBElement<br.inf.portalfiscal.nfe.event_generic.TRetEnvEvento> returnEventNfe(String xml);
+
+    JAXBElement<br.inf.portalfiscal.nfe.event_generic.TProcEvento> procEventNfe(String xml);
+
     JAXBElement<br.inf.portalfiscal.nfe.event_cancel.TEnvEvento> cancelNfe(String xml);
 
     JAXBElement<br.inf.portalfiscal.nfe.event_cancel.TRetEnvEvento> returnCancelNfe(String xml);
@@ -70,6 +76,8 @@ public interface NfUnmarshaller {
 
     JAXBElement<?> anyCancelNfe(String xml);
 
+    JAXBElement<?> anyEventNfe(String xml);
+
     JAXBElement<?> anySubstituteCancelNfe(Element el);
 
     JAXBElement<?> anySubstituteCancelNfe(String xml);
@@ -94,29 +102,4 @@ public interface NfUnmarshaller {
 
     JAXBElement<?> anyDistributionNfe(String xml);
 
-    TNfeProc nfeProc();
-
-    TNFe.InfNFe.Det.Imposto imposto();
-
-    JAXBElement<TConsStatServ> consStatServ(TConsStatServ o);
-
-    JAXBElement<String> vTotTrib(String o);
-
-    JAXBElement<TNFe.InfNFe.Det.Imposto.ICMS> icms(TNFe.InfNFe.Det.Imposto.ICMS o);
-
-    JAXBElement<TNFe.InfNFe.Det.Imposto.PIS> pis(TNFe.InfNFe.Det.Imposto.PIS o);
-
-    JAXBElement<TNFe.InfNFe.Det.Imposto.PISST> pisst(TNFe.InfNFe.Det.Imposto.PISST o);
-
-    JAXBElement<TNFe.InfNFe.Det.Imposto.COFINS> cofins(TNFe.InfNFe.Det.Imposto.COFINS o);
-
-    JAXBElement<TNFe.InfNFe.Det.Imposto.COFINSST> cofinsst(TNFe.InfNFe.Det.Imposto.COFINSST o);
-
-    JAXBElement<TIpi> ipi(TIpi o);
-
-    JAXBElement<TNFe.InfNFe.Det.Imposto.II> ii(TNFe.InfNFe.Det.Imposto.II o);
-
-    JAXBElement<TNFe.InfNFe.Det.Imposto.ISSQN> issqn(TNFe.InfNFe.Det.Imposto.ISSQN o);
-
-    JAXBElement<TNFe.InfNFe.Det.Imposto.ICMSUFDest> icmsufdest(TNFe.InfNFe.Det.Imposto.ICMSUFDest o);
 }

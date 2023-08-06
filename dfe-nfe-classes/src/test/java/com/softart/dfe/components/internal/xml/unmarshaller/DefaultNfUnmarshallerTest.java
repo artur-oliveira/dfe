@@ -22,6 +22,21 @@ class DefaultNfUnmarshallerTest {
     }
 
     @Test
+    void testEventNfe() {
+        assertDoesNotThrow(() -> new DefaultNfUnmarshaller().eventNfe("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><envEvento xmlns=\"http://www.portalfiscal.inf.br/nfe\"/>"));
+    }
+
+    @Test
+    void testReturnEventNfe() {
+        assertDoesNotThrow(() -> new DefaultNfUnmarshaller().returnEventNfe("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><retEnvEvento xmlns=\"http://www.portalfiscal.inf.br/nfe\"/>"));
+    }
+
+    @Test
+    void testProcEventNfe() {
+        assertDoesNotThrow(() -> new DefaultNfUnmarshaller().procEventNfe("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><procEventoNFe xmlns=\"http://www.portalfiscal.inf.br/nfe\"/>"));
+    }
+
+    @Test
     void testSubstituteCancelNfe() {
         assertDoesNotThrow(() -> new DefaultNfUnmarshaller().substituteCancelNfe("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><envEvento xmlns=\"http://www.portalfiscal.inf.br/nfe\"/>"));
     }
