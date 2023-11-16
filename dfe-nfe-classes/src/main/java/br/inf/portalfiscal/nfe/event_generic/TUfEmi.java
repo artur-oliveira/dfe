@@ -14,7 +14,7 @@ import jakarta.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for TUfEmi.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
  * <pre>
  * &lt;simpleType name="TUfEmi"&gt;
@@ -50,7 +50,6 @@ import jakarta.xml.bind.annotation.XmlType;
  *   &lt;/restriction&gt;
  * &lt;/simpleType&gt;
  * </pre>
- * 
  */
 @XmlType(name = "TUfEmi", namespace = "http://www.portalfiscal.inf.br/nfe")
 @XmlEnum
@@ -84,12 +83,12 @@ public enum TUfEmi {
     SP,
     TO;
 
-    public String value() {
-        return name();
-    }
-
     public static TUfEmi fromValue(String v) {
         return valueOf(v);
+    }
+
+    public String value() {
+        return name();
     }
 
 }

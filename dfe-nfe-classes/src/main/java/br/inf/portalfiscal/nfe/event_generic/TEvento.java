@@ -8,32 +8,26 @@
 
 package br.inf.portalfiscal.nfe.event_generic;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import javax.xml.namespace.QName;
 import com.softart.dfe.interfaces.xml.generic.XML;
-import jakarta.xml.bind.annotation.XmlAccessType;
-import jakarta.xml.bind.annotation.XmlAccessorType;
-import jakarta.xml.bind.annotation.XmlAnyAttribute;
-import jakarta.xml.bind.annotation.XmlAnyElement;
-import jakarta.xml.bind.annotation.XmlAttribute;
-import jakarta.xml.bind.annotation.XmlElement;
-import jakarta.xml.bind.annotation.XmlID;
-import jakarta.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.*;
 import jakarta.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import org.w3c.dom.Element;
 
+import javax.xml.namespace.QName;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 
 /**
  * Tipo Evento
- * 
+ *
  * <p>Java class for TEvento complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="TEvento"&gt;
  *   &lt;complexContent&gt;
@@ -106,17 +100,14 @@ import org.w3c.dom.Element;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TEvento", namespace = "http://www.portalfiscal.inf.br/nfe", propOrder = {
-    "infEvento",
-    "signature"
+        "infEvento",
+        "signature"
 })
 public class TEvento
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected TEvento.InfEvento infEvento;
@@ -127,11 +118,9 @@ public class TEvento
 
     /**
      * Gets the value of the infEvento property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TEvento.InfEvento }
-     *     
+     *
+     * @return possible object is
+     * {@link TEvento.InfEvento }
      */
     public TEvento.InfEvento getInfEvento() {
         return infEvento;
@@ -139,27 +128,23 @@ public class TEvento
 
     /**
      * Sets the value of the infEvento property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TEvento.InfEvento }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link TEvento.InfEvento }
      */
     public void setInfEvento(TEvento.InfEvento value) {
         this.infEvento = value;
     }
 
     public boolean isSetInfEvento() {
-        return (this.infEvento!= null);
+        return (this.infEvento != null);
     }
 
     /**
      * Gets the value of the signature property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link SignatureType }
-     *     
+     *
+     * @return possible object is
+     * {@link SignatureType }
      */
     public SignatureType getSignature() {
         return signature;
@@ -167,27 +152,23 @@ public class TEvento
 
     /**
      * Sets the value of the signature property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link SignatureType }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link SignatureType }
      */
     public void setSignature(SignatureType value) {
         this.signature = value;
     }
 
     public boolean isSetSignature() {
-        return (this.signature!= null);
+        return (this.signature != null);
     }
 
     /**
      * Gets the value of the versao property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVersao() {
         return versao;
@@ -195,26 +176,24 @@ public class TEvento
 
     /**
      * Sets the value of the versao property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVersao(String value) {
         this.versao = value;
     }
 
     public boolean isSetVersao() {
-        return (this.versao!= null);
+        return (this.versao != null);
     }
 
 
     /**
      * <p>Java class for anonymous complex type.
-     * 
+     *
      * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
+     *
      * <pre>
      * &lt;complexType&gt;
      *   &lt;complexContent&gt;
@@ -275,25 +254,22 @@ public class TEvento
      *   &lt;/complexContent&gt;
      * &lt;/complexType&gt;
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "cOrgao",
-        "tpAmb",
-        "cnpj",
-        "cpf",
-        "chNFe",
-        "dhEvento",
-        "tpEvento",
-        "nSeqEvento",
-        "verEvento",
-        "detEvento"
+            "cOrgao",
+            "tpAmb",
+            "cnpj",
+            "cpf",
+            "chNFe",
+            "dhEvento",
+            "tpEvento",
+            "nSeqEvento",
+            "verEvento",
+            "detEvento"
     })
     public static class InfEvento
-        implements XML
-    {
+            implements XML {
 
         @XmlElement(namespace = "http://www.portalfiscal.inf.br/nfe", required = true)
         protected String cOrgao;
@@ -322,11 +298,9 @@ public class TEvento
 
         /**
          * Gets the value of the cOrgao property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getCOrgao() {
             return cOrgao;
@@ -334,27 +308,23 @@ public class TEvento
 
         /**
          * Sets the value of the cOrgao property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setCOrgao(String value) {
             this.cOrgao = value;
         }
 
         public boolean isSetCOrgao() {
-            return (this.cOrgao!= null);
+            return (this.cOrgao != null);
         }
 
         /**
          * Gets the value of the tpAmb property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getTpAmb() {
             return tpAmb;
@@ -362,27 +332,23 @@ public class TEvento
 
         /**
          * Sets the value of the tpAmb property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setTpAmb(String value) {
             this.tpAmb = value;
         }
 
         public boolean isSetTpAmb() {
-            return (this.tpAmb!= null);
+            return (this.tpAmb != null);
         }
 
         /**
          * Gets the value of the cnpj property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getCNPJ() {
             return cnpj;
@@ -390,27 +356,23 @@ public class TEvento
 
         /**
          * Sets the value of the cnpj property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setCNPJ(String value) {
             this.cnpj = value;
         }
 
         public boolean isSetCNPJ() {
-            return (this.cnpj!= null);
+            return (this.cnpj != null);
         }
 
         /**
          * Gets the value of the cpf property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getCPF() {
             return cpf;
@@ -418,27 +380,23 @@ public class TEvento
 
         /**
          * Sets the value of the cpf property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setCPF(String value) {
             this.cpf = value;
         }
 
         public boolean isSetCPF() {
-            return (this.cpf!= null);
+            return (this.cpf != null);
         }
 
         /**
          * Gets the value of the chNFe property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getChNFe() {
             return chNFe;
@@ -446,27 +404,23 @@ public class TEvento
 
         /**
          * Sets the value of the chNFe property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setChNFe(String value) {
             this.chNFe = value;
         }
 
         public boolean isSetChNFe() {
-            return (this.chNFe!= null);
+            return (this.chNFe != null);
         }
 
         /**
          * Gets the value of the dhEvento property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getDhEvento() {
             return dhEvento;
@@ -474,27 +428,23 @@ public class TEvento
 
         /**
          * Sets the value of the dhEvento property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setDhEvento(String value) {
             this.dhEvento = value;
         }
 
         public boolean isSetDhEvento() {
-            return (this.dhEvento!= null);
+            return (this.dhEvento != null);
         }
 
         /**
          * Gets the value of the tpEvento property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getTpEvento() {
             return tpEvento;
@@ -502,27 +452,23 @@ public class TEvento
 
         /**
          * Sets the value of the tpEvento property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setTpEvento(String value) {
             this.tpEvento = value;
         }
 
         public boolean isSetTpEvento() {
-            return (this.tpEvento!= null);
+            return (this.tpEvento != null);
         }
 
         /**
          * Gets the value of the nSeqEvento property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getNSeqEvento() {
             return nSeqEvento;
@@ -530,27 +476,23 @@ public class TEvento
 
         /**
          * Sets the value of the nSeqEvento property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setNSeqEvento(String value) {
             this.nSeqEvento = value;
         }
 
         public boolean isSetNSeqEvento() {
-            return (this.nSeqEvento!= null);
+            return (this.nSeqEvento != null);
         }
 
         /**
          * Gets the value of the verEvento property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getVerEvento() {
             return verEvento;
@@ -558,27 +500,23 @@ public class TEvento
 
         /**
          * Sets the value of the verEvento property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setVerEvento(String value) {
             this.verEvento = value;
         }
 
         public boolean isSetVerEvento() {
-            return (this.verEvento!= null);
+            return (this.verEvento != null);
         }
 
         /**
          * Gets the value of the detEvento property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link TEvento.InfEvento.DetEvento }
-         *     
+         *
+         * @return possible object is
+         * {@link TEvento.InfEvento.DetEvento }
          */
         public TEvento.InfEvento.DetEvento getDetEvento() {
             return detEvento;
@@ -586,27 +524,23 @@ public class TEvento
 
         /**
          * Sets the value of the detEvento property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link TEvento.InfEvento.DetEvento }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link TEvento.InfEvento.DetEvento }
          */
         public void setDetEvento(TEvento.InfEvento.DetEvento value) {
             this.detEvento = value;
         }
 
         public boolean isSetDetEvento() {
-            return (this.detEvento!= null);
+            return (this.detEvento != null);
         }
 
         /**
          * Gets the value of the id property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getId() {
             return id;
@@ -614,26 +548,24 @@ public class TEvento
 
         /**
          * Sets the value of the id property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setId(String value) {
             this.id = value;
         }
 
         public boolean isSetId() {
-            return (this.id!= null);
+            return (this.id != null);
         }
 
 
         /**
          * <p>Java class for anonymous complex type.
-         * 
+         *
          * <p>The following schema fragment specifies the expected content contained within this class.
-         * 
+         *
          * <pre>
          * &lt;complexType&gt;
          *   &lt;complexContent&gt;
@@ -646,16 +578,13 @@ public class TEvento
          *   &lt;/complexContent&gt;
          * &lt;/complexType&gt;
          * </pre>
-         * 
-         * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "any"
+                "any"
         })
         public static class DetEvento
-            implements XML
-        {
+                implements XML {
 
             @XmlAnyElement
             protected List<Element> any;
@@ -664,25 +593,23 @@ public class TEvento
 
             /**
              * Gets the value of the any property.
-             * 
+             *
              * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the Jakarta XML Binding object.
              * This is why there is not a <CODE>set</CODE> method for the any property.
-             * 
+             *
              * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getAny().add(newItem);
              * </pre>
-             * 
-             * 
+             *
+             *
              * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link Element }
-             * 
-             * 
              */
             public List<Element> getAny() {
                 if (any == null) {
@@ -692,7 +619,7 @@ public class TEvento
             }
 
             public boolean isSetAny() {
-                return ((this.any!= null)&&(!this.any.isEmpty()));
+                return ((this.any != null) && (!this.any.isEmpty()));
             }
 
             public void unsetAny() {
@@ -701,17 +628,15 @@ public class TEvento
 
             /**
              * Gets a map that contains attributes that aren't bound to any typed property on this class.
-             * 
+             *
              * <p>
-             * the map is keyed by the name of the attribute and 
+             * the map is keyed by the name of the attribute and
              * the value is the string value of the attribute.
-             * 
+             * <p>
              * the map returned by this method is live, and you can add new attribute
              * by updating the map directly. Because of this design, there's no setter.
-             * 
-             * 
-             * @return
-             *     always non-null
+             *
+             * @return always non-null
              */
             public Map<QName, String> getOtherAttributes() {
                 return otherAttributes;

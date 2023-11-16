@@ -9,23 +9,18 @@
 package br.inf.portalfiscal.nfe.event_generic;
 
 import com.softart.dfe.interfaces.xml.generic.XML;
-import jakarta.xml.bind.annotation.XmlAccessType;
-import jakarta.xml.bind.annotation.XmlAccessorType;
-import jakarta.xml.bind.annotation.XmlAttribute;
-import jakarta.xml.bind.annotation.XmlElement;
-import jakarta.xml.bind.annotation.XmlID;
-import jakarta.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.*;
 import jakarta.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
  * Tipo retorno do Evento
- * 
+ *
  * <p>Java class for TRetEvento complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="TRetEvento"&gt;
  *   &lt;complexContent&gt;
@@ -107,17 +102,14 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TRetEvento", namespace = "http://www.portalfiscal.inf.br/nfe", propOrder = {
-    "infEvento",
-    "signature"
+        "infEvento",
+        "signature"
 })
 public class TRetEvento
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected TRetEvento.InfEvento infEvento;
@@ -128,11 +120,9 @@ public class TRetEvento
 
     /**
      * Gets the value of the infEvento property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TRetEvento.InfEvento }
-     *     
+     *
+     * @return possible object is
+     * {@link TRetEvento.InfEvento }
      */
     public TRetEvento.InfEvento getInfEvento() {
         return infEvento;
@@ -140,27 +130,23 @@ public class TRetEvento
 
     /**
      * Sets the value of the infEvento property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TRetEvento.InfEvento }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link TRetEvento.InfEvento }
      */
     public void setInfEvento(TRetEvento.InfEvento value) {
         this.infEvento = value;
     }
 
     public boolean isSetInfEvento() {
-        return (this.infEvento!= null);
+        return (this.infEvento != null);
     }
 
     /**
      * Gets the value of the signature property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link SignatureType }
-     *     
+     *
+     * @return possible object is
+     * {@link SignatureType }
      */
     public SignatureType getSignature() {
         return signature;
@@ -168,27 +154,23 @@ public class TRetEvento
 
     /**
      * Sets the value of the signature property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link SignatureType }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link SignatureType }
      */
     public void setSignature(SignatureType value) {
         this.signature = value;
     }
 
     public boolean isSetSignature() {
-        return (this.signature!= null);
+        return (this.signature != null);
     }
 
     /**
      * Gets the value of the versao property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVersao() {
         return versao;
@@ -196,26 +178,24 @@ public class TRetEvento
 
     /**
      * Sets the value of the versao property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVersao(String value) {
         this.versao = value;
     }
 
     public boolean isSetVersao() {
-        return (this.versao!= null);
+        return (this.versao != null);
     }
 
 
     /**
      * <p>Java class for anonymous complex type.
-     * 
+     *
      * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
+     *
      * <pre>
      * &lt;complexType&gt;
      *   &lt;complexContent&gt;
@@ -285,30 +265,27 @@ public class TRetEvento
      *   &lt;/complexContent&gt;
      * &lt;/complexType&gt;
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "tpAmb",
-        "verAplic",
-        "cOrgao",
-        "cStat",
-        "xMotivo",
-        "chNFe",
-        "tpEvento",
-        "xEvento",
-        "nSeqEvento",
-        "cOrgaoAutor",
-        "cnpjDest",
-        "cpfDest",
-        "emailDest",
-        "dhRegEvento",
-        "nProt"
+            "tpAmb",
+            "verAplic",
+            "cOrgao",
+            "cStat",
+            "xMotivo",
+            "chNFe",
+            "tpEvento",
+            "xEvento",
+            "nSeqEvento",
+            "cOrgaoAutor",
+            "cnpjDest",
+            "cpfDest",
+            "emailDest",
+            "dhRegEvento",
+            "nProt"
     })
     public static class InfEvento
-        implements XML
-    {
+            implements XML {
 
         @XmlElement(namespace = "http://www.portalfiscal.inf.br/nfe", required = true)
         protected String tpAmb;
@@ -347,11 +324,9 @@ public class TRetEvento
 
         /**
          * Gets the value of the tpAmb property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getTpAmb() {
             return tpAmb;
@@ -359,27 +334,23 @@ public class TRetEvento
 
         /**
          * Sets the value of the tpAmb property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setTpAmb(String value) {
             this.tpAmb = value;
         }
 
         public boolean isSetTpAmb() {
-            return (this.tpAmb!= null);
+            return (this.tpAmb != null);
         }
 
         /**
          * Gets the value of the verAplic property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getVerAplic() {
             return verAplic;
@@ -387,27 +358,23 @@ public class TRetEvento
 
         /**
          * Sets the value of the verAplic property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setVerAplic(String value) {
             this.verAplic = value;
         }
 
         public boolean isSetVerAplic() {
-            return (this.verAplic!= null);
+            return (this.verAplic != null);
         }
 
         /**
          * Gets the value of the cOrgao property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getCOrgao() {
             return cOrgao;
@@ -415,27 +382,23 @@ public class TRetEvento
 
         /**
          * Sets the value of the cOrgao property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setCOrgao(String value) {
             this.cOrgao = value;
         }
 
         public boolean isSetCOrgao() {
-            return (this.cOrgao!= null);
+            return (this.cOrgao != null);
         }
 
         /**
          * Gets the value of the cStat property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getCStat() {
             return cStat;
@@ -443,27 +406,23 @@ public class TRetEvento
 
         /**
          * Sets the value of the cStat property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setCStat(String value) {
             this.cStat = value;
         }
 
         public boolean isSetCStat() {
-            return (this.cStat!= null);
+            return (this.cStat != null);
         }
 
         /**
          * Gets the value of the xMotivo property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getXMotivo() {
             return xMotivo;
@@ -471,27 +430,23 @@ public class TRetEvento
 
         /**
          * Sets the value of the xMotivo property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setXMotivo(String value) {
             this.xMotivo = value;
         }
 
         public boolean isSetXMotivo() {
-            return (this.xMotivo!= null);
+            return (this.xMotivo != null);
         }
 
         /**
          * Gets the value of the chNFe property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getChNFe() {
             return chNFe;
@@ -499,27 +454,23 @@ public class TRetEvento
 
         /**
          * Sets the value of the chNFe property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setChNFe(String value) {
             this.chNFe = value;
         }
 
         public boolean isSetChNFe() {
-            return (this.chNFe!= null);
+            return (this.chNFe != null);
         }
 
         /**
          * Gets the value of the tpEvento property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getTpEvento() {
             return tpEvento;
@@ -527,27 +478,23 @@ public class TRetEvento
 
         /**
          * Sets the value of the tpEvento property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setTpEvento(String value) {
             this.tpEvento = value;
         }
 
         public boolean isSetTpEvento() {
-            return (this.tpEvento!= null);
+            return (this.tpEvento != null);
         }
 
         /**
          * Gets the value of the xEvento property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getXEvento() {
             return xEvento;
@@ -555,27 +502,23 @@ public class TRetEvento
 
         /**
          * Sets the value of the xEvento property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setXEvento(String value) {
             this.xEvento = value;
         }
 
         public boolean isSetXEvento() {
-            return (this.xEvento!= null);
+            return (this.xEvento != null);
         }
 
         /**
          * Gets the value of the nSeqEvento property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getNSeqEvento() {
             return nSeqEvento;
@@ -583,27 +526,23 @@ public class TRetEvento
 
         /**
          * Sets the value of the nSeqEvento property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setNSeqEvento(String value) {
             this.nSeqEvento = value;
         }
 
         public boolean isSetNSeqEvento() {
-            return (this.nSeqEvento!= null);
+            return (this.nSeqEvento != null);
         }
 
         /**
          * Gets the value of the cOrgaoAutor property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getCOrgaoAutor() {
             return cOrgaoAutor;
@@ -611,27 +550,23 @@ public class TRetEvento
 
         /**
          * Sets the value of the cOrgaoAutor property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setCOrgaoAutor(String value) {
             this.cOrgaoAutor = value;
         }
 
         public boolean isSetCOrgaoAutor() {
-            return (this.cOrgaoAutor!= null);
+            return (this.cOrgaoAutor != null);
         }
 
         /**
          * Gets the value of the cnpjDest property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getCNPJDest() {
             return cnpjDest;
@@ -639,27 +574,23 @@ public class TRetEvento
 
         /**
          * Sets the value of the cnpjDest property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setCNPJDest(String value) {
             this.cnpjDest = value;
         }
 
         public boolean isSetCNPJDest() {
-            return (this.cnpjDest!= null);
+            return (this.cnpjDest != null);
         }
 
         /**
          * Gets the value of the cpfDest property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getCPFDest() {
             return cpfDest;
@@ -667,27 +598,23 @@ public class TRetEvento
 
         /**
          * Sets the value of the cpfDest property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setCPFDest(String value) {
             this.cpfDest = value;
         }
 
         public boolean isSetCPFDest() {
-            return (this.cpfDest!= null);
+            return (this.cpfDest != null);
         }
 
         /**
          * Gets the value of the emailDest property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getEmailDest() {
             return emailDest;
@@ -695,27 +622,23 @@ public class TRetEvento
 
         /**
          * Sets the value of the emailDest property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setEmailDest(String value) {
             this.emailDest = value;
         }
 
         public boolean isSetEmailDest() {
-            return (this.emailDest!= null);
+            return (this.emailDest != null);
         }
 
         /**
          * Gets the value of the dhRegEvento property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getDhRegEvento() {
             return dhRegEvento;
@@ -723,27 +646,23 @@ public class TRetEvento
 
         /**
          * Sets the value of the dhRegEvento property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setDhRegEvento(String value) {
             this.dhRegEvento = value;
         }
 
         public boolean isSetDhRegEvento() {
-            return (this.dhRegEvento!= null);
+            return (this.dhRegEvento != null);
         }
 
         /**
          * Gets the value of the nProt property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getNProt() {
             return nProt;
@@ -751,27 +670,23 @@ public class TRetEvento
 
         /**
          * Sets the value of the nProt property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setNProt(String value) {
             this.nProt = value;
         }
 
         public boolean isSetNProt() {
-            return (this.nProt!= null);
+            return (this.nProt != null);
         }
 
         /**
          * Gets the value of the id property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getId() {
             return id;
@@ -779,18 +694,16 @@ public class TRetEvento
 
         /**
          * Sets the value of the id property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setId(String value) {
             this.id = value;
         }
 
         public boolean isSetId() {
-            return (this.id!= null);
+            return (this.id != null);
         }
 
     }

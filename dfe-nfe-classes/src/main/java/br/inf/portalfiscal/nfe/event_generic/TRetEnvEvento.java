@@ -8,23 +8,20 @@
 
 package br.inf.portalfiscal.nfe.event_generic;
 
+import com.softart.dfe.interfaces.xml.generic.XML;
+import jakarta.xml.bind.annotation.*;
+
 import java.util.ArrayList;
 import java.util.List;
-import com.softart.dfe.interfaces.xml.generic.XML;
-import jakarta.xml.bind.annotation.XmlAccessType;
-import jakarta.xml.bind.annotation.XmlAccessorType;
-import jakarta.xml.bind.annotation.XmlAttribute;
-import jakarta.xml.bind.annotation.XmlElement;
-import jakarta.xml.bind.annotation.XmlType;
 
 
 /**
  * Tipo Retorno de Lote de Envio
- * 
+ *
  * <p>Java class for TRetEnvEvento complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="TRetEnvEvento"&gt;
  *   &lt;complexContent&gt;
@@ -50,22 +47,19 @@ import jakarta.xml.bind.annotation.XmlType;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TRetEnvEvento", namespace = "http://www.portalfiscal.inf.br/nfe", propOrder = {
-    "idLote",
-    "tpAmb",
-    "verAplic",
-    "cOrgao",
-    "cStat",
-    "xMotivo",
-    "retEvento"
+        "idLote",
+        "tpAmb",
+        "verAplic",
+        "cOrgao",
+        "cStat",
+        "xMotivo",
+        "retEvento"
 })
 public class TRetEnvEvento
-    implements XML
-{
+        implements XML {
 
     @XmlElement(required = true)
     protected String idLote;
@@ -85,11 +79,9 @@ public class TRetEnvEvento
 
     /**
      * Gets the value of the idLote property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getIdLote() {
         return idLote;
@@ -97,27 +89,23 @@ public class TRetEnvEvento
 
     /**
      * Sets the value of the idLote property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setIdLote(String value) {
         this.idLote = value;
     }
 
     public boolean isSetIdLote() {
-        return (this.idLote!= null);
+        return (this.idLote != null);
     }
 
     /**
      * Gets the value of the tpAmb property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getTpAmb() {
         return tpAmb;
@@ -125,27 +113,23 @@ public class TRetEnvEvento
 
     /**
      * Sets the value of the tpAmb property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setTpAmb(String value) {
         this.tpAmb = value;
     }
 
     public boolean isSetTpAmb() {
-        return (this.tpAmb!= null);
+        return (this.tpAmb != null);
     }
 
     /**
      * Gets the value of the verAplic property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVerAplic() {
         return verAplic;
@@ -153,27 +137,23 @@ public class TRetEnvEvento
 
     /**
      * Sets the value of the verAplic property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVerAplic(String value) {
         this.verAplic = value;
     }
 
     public boolean isSetVerAplic() {
-        return (this.verAplic!= null);
+        return (this.verAplic != null);
     }
 
     /**
      * Gets the value of the cOrgao property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCOrgao() {
         return cOrgao;
@@ -181,27 +161,23 @@ public class TRetEnvEvento
 
     /**
      * Sets the value of the cOrgao property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCOrgao(String value) {
         this.cOrgao = value;
     }
 
     public boolean isSetCOrgao() {
-        return (this.cOrgao!= null);
+        return (this.cOrgao != null);
     }
 
     /**
      * Gets the value of the cStat property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCStat() {
         return cStat;
@@ -209,27 +185,23 @@ public class TRetEnvEvento
 
     /**
      * Sets the value of the cStat property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCStat(String value) {
         this.cStat = value;
     }
 
     public boolean isSetCStat() {
-        return (this.cStat!= null);
+        return (this.cStat != null);
     }
 
     /**
      * Gets the value of the xMotivo property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getXMotivo() {
         return xMotivo;
@@ -237,41 +209,37 @@ public class TRetEnvEvento
 
     /**
      * Sets the value of the xMotivo property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setXMotivo(String value) {
         this.xMotivo = value;
     }
 
     public boolean isSetXMotivo() {
-        return (this.xMotivo!= null);
+        return (this.xMotivo != null);
     }
 
     /**
      * Gets the value of the retEvento property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the Jakarta XML Binding object.
      * This is why there is not a <CODE>set</CODE> method for the retEvento property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getRetEvento().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link TRetEvento }
-     * 
-     * 
      */
     public List<TRetEvento> getRetEvento() {
         if (retEvento == null) {
@@ -281,7 +249,7 @@ public class TRetEnvEvento
     }
 
     public boolean isSetRetEvento() {
-        return ((this.retEvento!= null)&&(!this.retEvento.isEmpty()));
+        return ((this.retEvento != null) && (!this.retEvento.isEmpty()));
     }
 
     public void unsetRetEvento() {
@@ -290,11 +258,9 @@ public class TRetEnvEvento
 
     /**
      * Gets the value of the versao property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVersao() {
         return versao;
@@ -302,18 +268,16 @@ public class TRetEnvEvento
 
     /**
      * Sets the value of the versao property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVersao(String value) {
         this.versao = value;
     }
 
     public boolean isSetVersao() {
-        return (this.versao!= null);
+        return (this.versao != null);
     }
 
 }

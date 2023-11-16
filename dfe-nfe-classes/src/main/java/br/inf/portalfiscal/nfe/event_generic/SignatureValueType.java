@@ -9,22 +9,16 @@
 package br.inf.portalfiscal.nfe.event_generic;
 
 import com.softart.dfe.interfaces.xml.generic.XML;
-import jakarta.xml.bind.annotation.XmlAccessType;
-import jakarta.xml.bind.annotation.XmlAccessorType;
-import jakarta.xml.bind.annotation.XmlAttribute;
-import jakarta.xml.bind.annotation.XmlID;
-import jakarta.xml.bind.annotation.XmlSchemaType;
-import jakarta.xml.bind.annotation.XmlType;
-import jakarta.xml.bind.annotation.XmlValue;
+import jakarta.xml.bind.annotation.*;
 import jakarta.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
  * <p>Java class for SignatureValueType complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="SignatureValueType"&gt;
  *   &lt;simpleContent&gt;
@@ -34,16 +28,13 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *   &lt;/simpleContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "SignatureValueType", propOrder = {
-    "value"
+        "value"
 })
 public class SignatureValueType
-    implements XML
-{
+        implements XML {
 
     @XmlValue
     protected byte[] value;
@@ -55,10 +46,9 @@ public class SignatureValueType
 
     /**
      * Gets the value of the value property.
-     * 
-     * @return
-     *     possible object is
-     *     byte[]
+     *
+     * @return possible object is
+     * byte[]
      */
     public byte[] getValue() {
         return value;
@@ -66,26 +56,23 @@ public class SignatureValueType
 
     /**
      * Sets the value of the value property.
-     * 
-     * @param value
-     *     allowed object is
-     *     byte[]
+     *
+     * @param value allowed object is
+     *              byte[]
      */
     public void setValue(byte[] value) {
         this.value = value;
     }
 
     public boolean isSetValue() {
-        return (this.value!= null);
+        return (this.value != null);
     }
 
     /**
      * Gets the value of the id property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getId() {
         return id;
@@ -93,18 +80,16 @@ public class SignatureValueType
 
     /**
      * Sets the value of the id property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setId(String value) {
         this.id = value;
     }
 
     public boolean isSetId() {
-        return (this.id!= null);
+        return (this.id != null);
     }
 
 }

@@ -9,22 +9,16 @@
 package br.inf.portalfiscal.nfe.event_generic;
 
 import com.softart.dfe.interfaces.xml.generic.XML;
-import jakarta.xml.bind.annotation.XmlAccessType;
-import jakarta.xml.bind.annotation.XmlAccessorType;
-import jakarta.xml.bind.annotation.XmlAttribute;
-import jakarta.xml.bind.annotation.XmlElement;
-import jakarta.xml.bind.annotation.XmlID;
-import jakarta.xml.bind.annotation.XmlSchemaType;
-import jakarta.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.*;
 import jakarta.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
  * <p>Java class for SignedInfoType complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="SignedInfoType"&gt;
  *   &lt;complexContent&gt;
@@ -55,18 +49,15 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "SignedInfoType", propOrder = {
-    "canonicalizationMethod",
-    "signatureMethod",
-    "reference"
+        "canonicalizationMethod",
+        "signatureMethod",
+        "reference"
 })
 public class SignedInfoType
-    implements XML
-{
+        implements XML {
 
     @XmlElement(name = "CanonicalizationMethod", required = true)
     protected SignedInfoType.CanonicalizationMethod canonicalizationMethod;
@@ -82,11 +73,9 @@ public class SignedInfoType
 
     /**
      * Gets the value of the canonicalizationMethod property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link SignedInfoType.CanonicalizationMethod }
-     *     
+     *
+     * @return possible object is
+     * {@link SignedInfoType.CanonicalizationMethod }
      */
     public SignedInfoType.CanonicalizationMethod getCanonicalizationMethod() {
         return canonicalizationMethod;
@@ -94,27 +83,23 @@ public class SignedInfoType
 
     /**
      * Sets the value of the canonicalizationMethod property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link SignedInfoType.CanonicalizationMethod }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link SignedInfoType.CanonicalizationMethod }
      */
     public void setCanonicalizationMethod(SignedInfoType.CanonicalizationMethod value) {
         this.canonicalizationMethod = value;
     }
 
     public boolean isSetCanonicalizationMethod() {
-        return (this.canonicalizationMethod!= null);
+        return (this.canonicalizationMethod != null);
     }
 
     /**
      * Gets the value of the signatureMethod property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link SignedInfoType.SignatureMethod }
-     *     
+     *
+     * @return possible object is
+     * {@link SignedInfoType.SignatureMethod }
      */
     public SignedInfoType.SignatureMethod getSignatureMethod() {
         return signatureMethod;
@@ -122,27 +107,23 @@ public class SignedInfoType
 
     /**
      * Sets the value of the signatureMethod property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link SignedInfoType.SignatureMethod }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link SignedInfoType.SignatureMethod }
      */
     public void setSignatureMethod(SignedInfoType.SignatureMethod value) {
         this.signatureMethod = value;
     }
 
     public boolean isSetSignatureMethod() {
-        return (this.signatureMethod!= null);
+        return (this.signatureMethod != null);
     }
 
     /**
      * Gets the value of the reference property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ReferenceType }
-     *     
+     *
+     * @return possible object is
+     * {@link ReferenceType }
      */
     public ReferenceType getReference() {
         return reference;
@@ -150,27 +131,23 @@ public class SignedInfoType
 
     /**
      * Sets the value of the reference property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link ReferenceType }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link ReferenceType }
      */
     public void setReference(ReferenceType value) {
         this.reference = value;
     }
 
     public boolean isSetReference() {
-        return (this.reference!= null);
+        return (this.reference != null);
     }
 
     /**
      * Gets the value of the id property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getId() {
         return id;
@@ -178,26 +155,24 @@ public class SignedInfoType
 
     /**
      * Sets the value of the id property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setId(String value) {
         this.id = value;
     }
 
     public boolean isSetId() {
-        return (this.id!= null);
+        return (this.id != null);
     }
 
 
     /**
      * <p>Java class for anonymous complex type.
-     * 
+     *
      * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
+     *
      * <pre>
      * &lt;complexType&gt;
      *   &lt;complexContent&gt;
@@ -207,14 +182,11 @@ public class SignedInfoType
      *   &lt;/complexContent&gt;
      * &lt;/complexType&gt;
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "")
     public static class CanonicalizationMethod
-        implements XML
-    {
+            implements XML {
 
         @XmlAttribute(name = "Algorithm", required = true)
         @XmlSchemaType(name = "anyURI")
@@ -222,11 +194,9 @@ public class SignedInfoType
 
         /**
          * Gets the value of the algorithm property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getAlgorithm() {
             if (algorithm == null) {
@@ -238,18 +208,16 @@ public class SignedInfoType
 
         /**
          * Sets the value of the algorithm property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setAlgorithm(String value) {
             this.algorithm = value;
         }
 
         public boolean isSetAlgorithm() {
-            return (this.algorithm!= null);
+            return (this.algorithm != null);
         }
 
     }
@@ -257,9 +225,9 @@ public class SignedInfoType
 
     /**
      * <p>Java class for anonymous complex type.
-     * 
+     *
      * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
+     *
      * <pre>
      * &lt;complexType&gt;
      *   &lt;complexContent&gt;
@@ -269,14 +237,11 @@ public class SignedInfoType
      *   &lt;/complexContent&gt;
      * &lt;/complexType&gt;
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "")
     public static class SignatureMethod
-        implements XML
-    {
+            implements XML {
 
         @XmlAttribute(name = "Algorithm", required = true)
         @XmlSchemaType(name = "anyURI")
@@ -284,11 +249,9 @@ public class SignedInfoType
 
         /**
          * Gets the value of the algorithm property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getAlgorithm() {
             if (algorithm == null) {
@@ -300,18 +263,16 @@ public class SignedInfoType
 
         /**
          * Sets the value of the algorithm property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setAlgorithm(String value) {
             this.algorithm = value;
         }
 
         public boolean isSetAlgorithm() {
-            return (this.algorithm!= null);
+            return (this.algorithm != null);
         }
 
     }
