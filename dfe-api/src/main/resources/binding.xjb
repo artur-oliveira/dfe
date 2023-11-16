@@ -4,7 +4,7 @@
                 typesafeEnumMaxMembers="1000"
                 optionalProperty="isSet"
                 generateIsSetMethod="true">
-            <xjc:superInterface name="com.softart.dfe.interfaces.xml.generic.XML"/>
+            <xjc:superInterface name="org.dfe.interfaces.xml.generic.XML"/>
         </jxb:globalBindings>
     </jxb:bindings>
 </jxb:bindings>
