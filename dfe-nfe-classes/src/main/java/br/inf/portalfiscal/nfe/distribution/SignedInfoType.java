@@ -8,10 +8,11 @@
 
 package br.inf.portalfiscal.nfe.distribution;
 
-import org.dfe.interfaces.xml.generic.XML;
+import br.inf.portalfiscal.nfe.event_correction_letter.ReferenceType;
 import jakarta.xml.bind.annotation.*;
 import jakarta.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import org.dfe.interfaces.xml.generic.XML;
 
 import java.util.Objects;
 
@@ -66,7 +67,7 @@ public class SignedInfoType
     @XmlElement(name = "SignatureMethod", required = true)
     protected SignatureMethod signatureMethod;
     @XmlElement(name = "Reference", required = true)
-    protected ReferenceType reference;
+    protected br.inf.portalfiscal.nfe.event_correction_letter.ReferenceType reference;
     @XmlAttribute(name = "Id")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlID
@@ -125,9 +126,9 @@ public class SignedInfoType
      * Gets the value of the reference property.
      *
      * @return possible object is
-     * {@link ReferenceType }
+     * {@link br.inf.portalfiscal.nfe.event_correction_letter.ReferenceType }
      */
-    public ReferenceType getReference() {
+    public br.inf.portalfiscal.nfe.event_correction_letter.ReferenceType getReference() {
         return reference;
     }
 
@@ -135,7 +136,7 @@ public class SignedInfoType
      * Sets the value of the reference property.
      *
      * @param value allowed object is
-     *              {@link ReferenceType }
+     *              {@link br.inf.portalfiscal.nfe.event_correction_letter.ReferenceType }
      */
     public void setReference(ReferenceType value) {
         this.reference = value;

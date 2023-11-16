@@ -8,10 +8,10 @@
 
 package br.inf.portalfiscal.cte.distribution;
 
-import org.dfe.interfaces.xml.generic.XML;
 import jakarta.xml.bind.annotation.*;
 import jakarta.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import org.dfe.interfaces.xml.generic.XML;
 
 import java.util.Objects;
 
@@ -53,7 +53,7 @@ import java.util.Objects;
  * </pre>
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ReferenceType", propOrder = {
+@XmlType(name = "ReferenceType", namespace = "http://www.w3.org/2000/09/xmldsig#", propOrder = {
         "transforms",
         "digestMethod",
         "digestValue"

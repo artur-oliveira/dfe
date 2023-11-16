@@ -8,8 +8,8 @@
 
 package br.inf.portalfiscal.nfe.send;
 
-import org.dfe.interfaces.xml.generic.XML;
 import jakarta.xml.bind.annotation.*;
+import org.dfe.interfaces.xml.generic.XML;
 
 import java.util.ArrayList;
 import java.util.List;

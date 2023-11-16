@@ -8,10 +8,10 @@
 
 package br.inf.portalfiscal.cte.distribution;
 
-import org.dfe.interfaces.xml.generic.XML;
 import jakarta.xml.bind.annotation.*;
 import jakarta.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import org.dfe.interfaces.xml.generic.XML;
 
 
 /**
@@ -33,7 +33,7 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * </pre>
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "KeyInfoType", propOrder = {
+@XmlType(name = "KeyInfoType", namespace = "http://www.w3.org/2000/09/xmldsig#", propOrder = {
         "x509Data"
 })
 public class KeyInfoType

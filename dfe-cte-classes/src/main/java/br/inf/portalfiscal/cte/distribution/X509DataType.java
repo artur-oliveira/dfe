@@ -8,11 +8,11 @@
 
 package br.inf.portalfiscal.cte.distribution;
 
-import org.dfe.interfaces.xml.generic.XML;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+import org.dfe.interfaces.xml.generic.XML;
 
 
 /**
@@ -33,7 +33,7 @@ import jakarta.xml.bind.annotation.XmlType;
  * </pre>
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "X509DataType", propOrder = {
+@XmlType(name = "X509DataType", namespace = "http://www.w3.org/2000/09/xmldsig#", propOrder = {
         "x509Certificate"
 })
 public class X509DataType
