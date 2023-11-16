@@ -3,8 +3,10 @@ package org.dfe.components.security.chain.cache;
 import com.amazonaws.services.s3.model.AmazonS3Exception;
 import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.S3Object;
+import org.dfe.exceptions.DfeOptionalException;
 import org.dfe.interfaces.security.CertificateChain;
 import org.dfe.util.DateUtils;
+import org.dfe.util.DfeOptional;
 import org.dfe.util.IOUtils;
 import org.dfe.util.S3Utils;
 
@@ -20,10 +22,14 @@ final class CertificateChainCacheS3 extends CertificateChainCacheFactory {
         return String.join("/", "chain", chain.fileName());
     }
 
+    String getBucket() {
+        return DfeOptional.ofEmpty(System.getProperty("org.dfe.chain.cache.s3.bucket")).orElseThrow(() -> new DfeOptionalException("org.dfe.chain.cache.s3.bucket must be set"));
+    }
+
     @Override
     public byte[] getFromCache(CertificateChain certificateChain) throws IOException {
         try {
-            S3Object object = S3Utils.getObject(getKeyName(certificateChain));
+            S3Object object = S3Utils.getObject(getBucket(), getKeyName(certificateChain));
 
             if (ChronoUnit.DAYS.between(DateUtils.localDate(object.getObjectMetadata().getLastModified()), LocalDate.now()) < DAYS_IN_CACHE) {
                 try (InputStream is = object.getObjectContent()) {
