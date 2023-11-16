@@ -337,7 +337,7 @@ public abstract class AbstractNfeSoapService extends AbstractSoapService impleme
         if (Objects.nonNull(getHomDistribution())) {
             return (T) getHomDistribution();
         }
-        setHomDistribution(newServiceInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(NfeAuthorizer.AM).environment(Environment.HOMOLOGATION).endpoint(NfePathEndpoint.DISTRIBUTION).build())));
+        setHomDistribution(newServiceInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(NfeAuthorizer.AN).environment(Environment.HOMOLOGATION).endpoint(NfePathEndpoint.DISTRIBUTION).build())));
         return (T) getHomDistribution();
     }
 
