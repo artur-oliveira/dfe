@@ -3,6 +3,7 @@ package org.dfe.components.security.socket;
 import org.dfe.exceptions.security.SSLContextException;
 import org.dfe.exceptions.security.SecurityException;
 import org.dfe.interfaces.security.SocketFactoryService;
+import org.dfe.models.internal.security.DfeX509KeyManager;
 
 import javax.net.ssl.*;
 import java.security.KeyStore;
@@ -17,7 +18,7 @@ public abstract class SocketFactory implements SocketFactoryService {
      *                         This chain is used to establish trust in the remote server during SSL/TLS communication.
      * @return The method is returning an array of TrustManagers.
      */
-    public static TrustManager[] createTrustManagers(KeyStore certificateChain) throws SecurityException {
+    public static TrustManager[] createTrustManagers(final KeyStore certificateChain) throws SecurityException {
         try {
             final TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
             trustManagerFactory.init(certificateChain);
@@ -25,6 +26,10 @@ public abstract class SocketFactory implements SocketFactoryService {
         } catch (Exception e) {
             throw new SSLContextException(e);
         }
+    }
+
+    public static KeyManager[] createKeyManagers(final KeyStore keyStore, final String password, final String alias) throws SecurityException {
+        return new KeyManager[]{new DfeX509KeyManager(getKeyManagerForKeystore(keyStore, password), alias)};
     }
 
     /**
@@ -35,7 +40,7 @@ public abstract class SocketFactory implements SocketFactoryService {
      * @param password The password to access the keystore.
      * @return A X509KeyManager
      */
-    public static X509KeyManager getKeyManagerForKeystore(KeyStore keyStore, String password) throws SSLContextException {
+    private static X509KeyManager getKeyManagerForKeystore(final KeyStore keyStore, final String password) throws SSLContextException {
         try {
             KeyManagerFactory keyManagerFactory = KeyManagerFactory.getInstance("SunX509", "SunJSSE");
             keyManagerFactory.init(keyStore, password.toCharArray());

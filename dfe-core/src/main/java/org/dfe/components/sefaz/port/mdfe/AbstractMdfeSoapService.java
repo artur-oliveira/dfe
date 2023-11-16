@@ -1,5 +1,6 @@
 package org.dfe.components.sefaz.port.mdfe;
 
+import lombok.Data;
 import org.dfe.components.security.socket.SocketFactory;
 import org.dfe.components.sefaz.port.AbstractSoapService;
 import org.dfe.components.sefaz.port.SoapServiceMapping;
@@ -12,8 +13,6 @@ import org.dfe.interfaces.internal.config.Config;
 import org.dfe.interfaces.internal.config.MdfeConfig;
 import org.dfe.interfaces.sefaz.port.MdfeSoapService;
 import org.dfe.models.internal.port.MdfeServiceFinder;
-import org.dfe.util.ReflectionUtils;
-import lombok.Data;
 
 import javax.net.ssl.HttpsURLConnection;
 import java.util.Objects;
@@ -168,15 +167,7 @@ public abstract class AbstractMdfeSoapService extends AbstractSoapService implem
         if (Objects.nonNull(getReceptionHom())) {
             return (T) getReceptionHom();
         }
-        for (int i = 0; i < RETRY_TIMES_IF_FAIL; i++) {
-            setReceptionHom(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.RECEPTION).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
-            if (Objects.nonNull(getReceptionHom())) {
-                break;
-            }
-        }
-        if (Objects.isNull(getReceptionHom())) {
-            setReceptionHom(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.RECEPTION).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
-        }
+        setReceptionHom(newServiceInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.RECEPTION).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
         return (T) getReceptionHom();
     }
 
@@ -185,15 +176,7 @@ public abstract class AbstractMdfeSoapService extends AbstractSoapService implem
         if (Objects.nonNull(getQueryReceiptHom())) {
             return (T) getQueryReceiptHom();
         }
-        for (int i = 0; i < RETRY_TIMES_IF_FAIL; i++) {
-            setQueryReceiptHom(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.QUERY_RECEIPT).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
-            if (Objects.nonNull(getQueryReceiptHom())) {
-                break;
-            }
-        }
-        if (Objects.isNull(getQueryReceiptHom())) {
-            setQueryReceiptHom(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.QUERY_RECEIPT).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
-        }
+        setQueryReceiptHom(newServiceInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.QUERY_RECEIPT).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
         return (T) getQueryReceiptHom();
     }
 
@@ -202,15 +185,7 @@ public abstract class AbstractMdfeSoapService extends AbstractSoapService implem
         if (Objects.nonNull(getEventHom())) {
             return (T) getEventHom();
         }
-        for (int i = 0; i < RETRY_TIMES_IF_FAIL; i++) {
-            setEventHom(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.EVENT).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
-            if (Objects.nonNull(getEventHom())) {
-                break;
-            }
-        }
-        if (Objects.isNull(getEventHom())) {
-            setEventHom(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.EVENT).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
-        }
+        setEventHom(newServiceInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.EVENT).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
         return (T) getEventHom();
     }
 
@@ -219,15 +194,7 @@ public abstract class AbstractMdfeSoapService extends AbstractSoapService implem
         if (Objects.nonNull(getQuerySituationHom())) {
             return (T) getQuerySituationHom();
         }
-        for (int i = 0; i < RETRY_TIMES_IF_FAIL; i++) {
-            setQuerySituationHom(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.QUERY_SITUATION).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
-            if (Objects.nonNull(getQuerySituationHom())) {
-                break;
-            }
-        }
-        if (Objects.isNull(getQuerySituationHom())) {
-            setQuerySituationHom(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.QUERY_SITUATION).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
-        }
+        setQuerySituationHom(newServiceInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.QUERY_SITUATION).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
         return (T) getQuerySituationHom();
     }
 
@@ -236,15 +203,7 @@ public abstract class AbstractMdfeSoapService extends AbstractSoapService implem
         if (Objects.nonNull(getStatusServiceHom())) {
             return (T) getStatusServiceHom();
         }
-        for (int i = 0; i < RETRY_TIMES_IF_FAIL; i++) {
-            setStatusServiceHom(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.STATUS_SERVICE).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
-            if (Objects.nonNull(getStatusServiceHom())) {
-                break;
-            }
-        }
-        if (Objects.isNull(getStatusServiceHom())) {
-            setStatusServiceHom(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.STATUS_SERVICE).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
-        }
+        setStatusServiceHom(newServiceInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.STATUS_SERVICE).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
         return (T) getStatusServiceHom();
     }
 
@@ -253,15 +212,7 @@ public abstract class AbstractMdfeSoapService extends AbstractSoapService implem
         if (Objects.nonNull(getQueryUnclosedHom())) {
             return (T) getQueryUnclosedHom();
         }
-        for (int i = 0; i < RETRY_TIMES_IF_FAIL; i++) {
-            setQueryUnclosedHom(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.QUERY_UNCLOSED).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
-            if (Objects.nonNull(getQueryUnclosedHom())) {
-                break;
-            }
-        }
-        if (Objects.isNull(getQueryUnclosedHom())) {
-            setQueryUnclosedHom(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.QUERY_UNCLOSED).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
-        }
+        setQueryUnclosedHom(newServiceInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.QUERY_UNCLOSED).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
         return (T) getQueryUnclosedHom();
     }
 
@@ -270,15 +221,7 @@ public abstract class AbstractMdfeSoapService extends AbstractSoapService implem
         if (Objects.nonNull(getDistributionHom())) {
             return (T) getDistributionHom();
         }
-        for (int i = 0; i < RETRY_TIMES_IF_FAIL; i++) {
-            setDistributionHom(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.DISTRIBUTION).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
-            if (Objects.nonNull(getDistributionHom())) {
-                break;
-            }
-        }
-        if (Objects.isNull(getDistributionHom())) {
-            setDistributionHom(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.DISTRIBUTION).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
-        }
+        setDistributionHom(newServiceInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.DISTRIBUTION).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
         return (T) getDistributionHom();
     }
 
@@ -287,15 +230,7 @@ public abstract class AbstractMdfeSoapService extends AbstractSoapService implem
         if (Objects.nonNull(getDistributionOldHom())) {
             return (T) getDistributionOldHom();
         }
-        for (int i = 0; i < RETRY_TIMES_IF_FAIL; i++) {
-            setDistributionOldHom(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.DISTRIBUTION_OLD).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
-            if (Objects.nonNull(getDistributionOldHom())) {
-                break;
-            }
-        }
-        if (Objects.isNull(getDistributionOldHom())) {
-            setDistributionOldHom(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.DISTRIBUTION_OLD).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
-        }
+        setDistributionOldHom(newServiceInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.DISTRIBUTION_OLD).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
         return (T) getDistributionOldHom();
     }
 
@@ -304,15 +239,7 @@ public abstract class AbstractMdfeSoapService extends AbstractSoapService implem
         if (Objects.nonNull(getReceptionSyncHom())) {
             return (T) getReceptionSyncHom();
         }
-        for (int i = 0; i < RETRY_TIMES_IF_FAIL; i++) {
-            setReceptionSyncHom(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.RECEPTION_SYNC).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
-            if (Objects.nonNull(getReceptionSyncHom())) {
-                break;
-            }
-        }
-        if (Objects.isNull(getReceptionSyncHom())) {
-            setReceptionSyncHom(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.RECEPTION_SYNC).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
-        }
+        setReceptionSyncHom(newServiceInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.RECEPTION_SYNC).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
         return (T) getReceptionSyncHom();
     }
 
@@ -321,15 +248,7 @@ public abstract class AbstractMdfeSoapService extends AbstractSoapService implem
         if (Objects.nonNull(getReceptionProd())) {
             return (T) getReceptionProd();
         }
-        for (int i = 0; i < RETRY_TIMES_IF_FAIL; i++) {
-            setReceptionProd(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.RECEPTION).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
-            if (Objects.nonNull(getReceptionProd())) {
-                break;
-            }
-        }
-        if (Objects.isNull(getReceptionProd())) {
-            setReceptionProd(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.RECEPTION).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
-        }
+        setReceptionProd(newServiceInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.RECEPTION).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
         return (T) getReceptionProd();
     }
 
@@ -338,15 +257,7 @@ public abstract class AbstractMdfeSoapService extends AbstractSoapService implem
         if (Objects.nonNull(getQueryReceiptProd())) {
             return (T) getQueryReceiptProd();
         }
-        for (int i = 0; i < RETRY_TIMES_IF_FAIL; i++) {
-            setQueryReceiptProd(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.QUERY_RECEIPT).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
-            if (Objects.nonNull(getQueryReceiptProd())) {
-                break;
-            }
-        }
-        if (Objects.isNull(getQueryReceiptProd())) {
-            setQueryReceiptProd(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.QUERY_RECEIPT).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
-        }
+        setQueryReceiptProd(newServiceInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.QUERY_RECEIPT).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
         return (T) getQueryReceiptProd();
     }
 
@@ -355,15 +266,7 @@ public abstract class AbstractMdfeSoapService extends AbstractSoapService implem
         if (Objects.nonNull(getEventProd())) {
             return (T) getEventProd();
         }
-        for (int i = 0; i < RETRY_TIMES_IF_FAIL; i++) {
-            setEventProd(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.EVENT).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
-            if (Objects.nonNull(getEventProd())) {
-                break;
-            }
-        }
-        if (Objects.isNull(getEventProd())) {
-            setEventProd(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.EVENT).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
-        }
+        setEventProd(newServiceInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.EVENT).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
         return (T) getEventProd();
     }
 
@@ -372,15 +275,7 @@ public abstract class AbstractMdfeSoapService extends AbstractSoapService implem
         if (Objects.nonNull(getQuerySituationProd())) {
             return (T) getQuerySituationProd();
         }
-        for (int i = 0; i < RETRY_TIMES_IF_FAIL; i++) {
-            setQuerySituationProd(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.QUERY_SITUATION).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
-            if (Objects.nonNull(getQuerySituationProd())) {
-                break;
-            }
-        }
-        if (Objects.isNull(getQuerySituationProd())) {
-            setQuerySituationProd(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.QUERY_SITUATION).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
-        }
+        setQuerySituationProd(newServiceInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.QUERY_SITUATION).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
         return (T) getQuerySituationProd();
     }
 
@@ -389,15 +284,7 @@ public abstract class AbstractMdfeSoapService extends AbstractSoapService implem
         if (Objects.nonNull(getStatusServiceProd())) {
             return (T) getStatusServiceProd();
         }
-        for (int i = 0; i < RETRY_TIMES_IF_FAIL; i++) {
-            setStatusServiceProd(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.STATUS_SERVICE).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
-            if (Objects.nonNull(getStatusServiceProd())) {
-                break;
-            }
-        }
-        if (Objects.isNull(getStatusServiceProd())) {
-            setStatusServiceProd(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.STATUS_SERVICE).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
-        }
+        setStatusServiceProd(newServiceInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.STATUS_SERVICE).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
         return (T) getStatusServiceProd();
     }
 
@@ -406,15 +293,7 @@ public abstract class AbstractMdfeSoapService extends AbstractSoapService implem
         if (Objects.nonNull(getQueryUnclosedProd())) {
             return (T) getQueryUnclosedProd();
         }
-        for (int i = 0; i < RETRY_TIMES_IF_FAIL; i++) {
-            setQueryUnclosedProd(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.QUERY_UNCLOSED).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
-            if (Objects.nonNull(getQueryUnclosedProd())) {
-                break;
-            }
-        }
-        if (Objects.isNull(getQueryUnclosedProd())) {
-            setQueryUnclosedProd(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.QUERY_UNCLOSED).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
-        }
+        setQueryUnclosedProd(newServiceInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.QUERY_UNCLOSED).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
         return (T) getQueryUnclosedProd();
     }
 
@@ -423,15 +302,7 @@ public abstract class AbstractMdfeSoapService extends AbstractSoapService implem
         if (Objects.nonNull(getDistributionProd())) {
             return (T) getDistributionProd();
         }
-        for (int i = 0; i < RETRY_TIMES_IF_FAIL; i++) {
-            setDistributionProd(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.DISTRIBUTION).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
-            if (Objects.nonNull(getDistributionProd())) {
-                break;
-            }
-        }
-        if (Objects.isNull(getDistributionProd())) {
-            setDistributionProd(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.DISTRIBUTION).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
-        }
+        setDistributionProd(newServiceInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.DISTRIBUTION).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
         return (T) getDistributionProd();
     }
 
@@ -440,15 +311,7 @@ public abstract class AbstractMdfeSoapService extends AbstractSoapService implem
         if (Objects.nonNull(getDistributionOldProd())) {
             return (T) getDistributionOldProd();
         }
-        for (int i = 0; i < RETRY_TIMES_IF_FAIL; i++) {
-            setDistributionOldProd(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.DISTRIBUTION_OLD).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
-            if (Objects.nonNull(getDistributionOldProd())) {
-                break;
-            }
-        }
-        if (Objects.isNull(getDistributionOldProd())) {
-            setDistributionOldProd(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.DISTRIBUTION_OLD).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
-        }
+        setDistributionOldProd(newServiceInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.DISTRIBUTION_OLD).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
         return (T) getDistributionOldProd();
     }
 
@@ -457,15 +320,7 @@ public abstract class AbstractMdfeSoapService extends AbstractSoapService implem
         if (Objects.nonNull(getReceptionSyncProd())) {
             return (T) getReceptionSyncProd();
         }
-        for (int i = 0; i < RETRY_TIMES_IF_FAIL; i++) {
-            setReceptionSyncProd(ReflectionUtils.safeNewInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.RECEPTION_SYNC).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
-            if (Objects.nonNull(getReceptionSyncProd())) {
-                break;
-            }
-        }
-        if (Objects.isNull(getReceptionSyncProd())) {
-            setReceptionSyncProd(ReflectionUtils.newInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.RECEPTION_SYNC).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
-        }
+        setReceptionSyncProd(newServiceInstance(SoapServiceMapping.getInstance().getMdfeServiceClassFor(MdfeServiceFinder.builder().endpoint(MdfePathEndpoint.RECEPTION_SYNC).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
         return (T) getReceptionSyncProd();
     }
 
