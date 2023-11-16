@@ -3,14 +3,14 @@ package org.dfe.components.internal.xml.unmarshaller;
 import br.inf.portalfiscal.cte.distribution.DistDFeInt;
 import br.inf.portalfiscal.cte.distribution.RetDistDFeInt;
 import br.inf.portalfiscal.cte.send.*;
+import jakarta.xml.bind.JAXBElement;
+import jakarta.xml.bind.JAXBException;
 import org.dfe.components.internal.xml.context.CteContextFactory;
 import org.dfe.components.internal.xml.marshaller.CteMarshallerFactory;
 import org.dfe.components.internal.xml.objectfactory.CteObjectFactoryWrapperFactory;
 import org.dfe.exceptions.xml.MarshallException;
 import org.dfe.exceptions.xml.UnmarshallException;
 import org.dfe.util.XMLUtils;
-import jakarta.xml.bind.JAXBElement;
-import jakarta.xml.bind.JAXBException;
 import org.w3c.dom.Element;
 
 import java.io.StringReader;
@@ -56,6 +56,11 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
     @Override
     public JAXBElement<TEvento> eventCte(String xml) {
         return CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createEventoCTe(XMLUtils.getJaxbElementValue(any300(xml).getValue(), TEvento.class, xml));
+    }
+
+    @Override
+    public JAXBElement<TProcEvento> procEventCte(String xml) {
+        return CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createProcEventoCTe(XMLUtils.getJaxbElementValue(any300(xml).getValue(), TProcEvento.class, xml));
     }
 
     @Override
@@ -328,6 +333,11 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
     @Override
     public JAXBElement<br.inf.portalfiscal.cte.send400.TEvento> eventCte400(String xml) {
         return CteObjectFactoryWrapperFactory.getInstance().getCte4ObjectFactory().createEventoCTe(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.TEvento.class, xml));
+    }
+
+    @Override
+    public JAXBElement<br.inf.portalfiscal.cte.send400.TProcEvento> procEventCte400(String xml) {
+        return CteObjectFactoryWrapperFactory.getInstance().getCte4ObjectFactory().createProcEventoCTe(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.TProcEvento.class, xml));
     }
 
     @Override

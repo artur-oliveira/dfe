@@ -8,7 +8,11 @@ import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Marshaller;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
 
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerConfigurationException;
@@ -17,6 +21,7 @@ import javax.xml.transform.dom.DOMResult;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.IOException;
+import java.io.StringReader;
 import java.io.StringWriter;
 import java.util.Objects;
 
@@ -62,6 +67,22 @@ public final class XMLUtils {
             return ((Document) res.getNode()).getDocumentElement();
         } catch (JAXBException e) {
             throw new MarshallException(e);
+        }
+    }
+
+    /**
+     * This Java function converts an XML string into a Document object.
+     *
+     * @param xml The parameter "xml" is a string that represents an XML document. This method takes this string as input
+     *            and converts it into a Document object, which can be used to manipulate the contents of the XML document
+     *            programmatically.
+     * @return The method `toDocument` returns a `Document` object, which represents an XML document.
+     */
+    public static Document toDocument(String xml) throws ParserConfigurationException, IOException, SAXException {
+        try (StringReader sr = new StringReader(xml)) {
+            InputSource inputSource = new InputSource();
+            inputSource.setCharacterStream(sr);
+            return DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(inputSource);
         }
     }
 

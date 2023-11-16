@@ -12,7 +12,7 @@ public abstract class CommonStorage {
      * @return A string that is a combination of the prefix, the current time, a random UUID, and the file extension.
      */
     protected String xmlNameWithTime(Object prefix) {
-        return prefix + "-" + System.currentTimeMillis() + "-" + UUID.randomUUID() + ".xml";
+        return (prefix.toString().isEmpty() ? "" : prefix + "_") + System.currentTimeMillis() + "-" + UUID.randomUUID() + ".xml";
     }
 
     /**
