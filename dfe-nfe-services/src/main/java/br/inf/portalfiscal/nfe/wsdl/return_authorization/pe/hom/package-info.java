@@ -1,0 +1,5 @@
+/**
+ * Servico destinado a retornar o resultado do processamento do lote de NFe
+ */
+@jakarta.xml.bind.annotation.XmlSchema(namespace = "http://www.portalfiscal.inf.br/nfe/wsdl/NFeRetAutorizacao4")
+package br.inf.portalfiscal.nfe.wsdl.return_authorization.pe.hom;
