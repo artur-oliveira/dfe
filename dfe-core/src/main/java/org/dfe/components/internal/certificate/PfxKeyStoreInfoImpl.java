@@ -10,6 +10,7 @@ import org.dfe.models.internal.security.Certificate;
 import org.dfe.util.DateUtils;
 import org.dfe.util.InputStreamUtils;
 
+import javax.net.ssl.KeyManager;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509KeyManager;
 import java.io.InputStream;
@@ -22,7 +23,7 @@ public class PfxKeyStoreInfoImpl extends KeyStoreFactory {
     private KeyStore certificateKeyStore;
     private String certificateAlias;
     private KeyStore.PrivateKeyEntry keyEntry;
-    private X509KeyManager[] keyManagers;
+    private KeyManager[] keyManagers;
     private TrustManager[] trustManagers;
     private ZonedDateTime certificateExpiration;
     private KeyStore certificateChainKeyStore;
@@ -53,7 +54,7 @@ public class PfxKeyStoreInfoImpl extends KeyStoreFactory {
                 if (ZonedDateTime.now().isAfter(getExpiration())) {
                     throw new ExpiredCertificateException("certificate expired at " + this.certificateExpiration);
                 }
-                this.keyManagers = new X509KeyManager[]{SocketFactory.getKeyManagerForKeystore(this.certificateKeyStore, certificatePassword)};
+                this.keyManagers = SocketFactory.createKeyManagers(this.certificateKeyStore, certificatePassword, this.certificateAlias);
                 this.keyEntry = KeyStoreParserFactory.getInstance().getPrivateKeyEntry(this.certificateAlias, certificatePassword, this.certificateKeyStore);
             } catch (Exception e) {
                 throw new CertificateException(e);
@@ -97,7 +98,7 @@ public class PfxKeyStoreInfoImpl extends KeyStoreFactory {
     }
 
     @Override
-    public X509KeyManager[] getKeyManagers() {
+    public KeyManager[] getKeyManagers() {
         return keyManagers;
     }
 

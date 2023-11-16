@@ -1,7 +1,7 @@
 package org.dfe.interfaces.internal;
 
+import javax.net.ssl.KeyManager;
 import javax.net.ssl.TrustManager;
-import javax.net.ssl.X509KeyManager;
 import java.security.KeyStore;
 import java.security.PrivateKey;
 import java.security.cert.X509Certificate;
@@ -32,9 +32,9 @@ public interface KeyStoreInfo {
     /**
      * The function `getKeyManagers()` returns an array of X509KeyManager objects.
      *
-     * @return An array of X509KeyManager objects is being returned.
+     * @return An array of KeyManager objects is being returned.
      */
-    X509KeyManager[] getKeyManagers();
+    KeyManager[] getKeyManagers();
 
     /**
      * The function "getTrustManagers" returns an array of TrustManagers.
