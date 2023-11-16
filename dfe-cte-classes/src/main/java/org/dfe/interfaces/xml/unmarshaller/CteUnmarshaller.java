@@ -10,6 +10,8 @@ public interface CteUnmarshaller {
 
     JAXBElement<br.inf.portalfiscal.cte.send.TEvento> eventCte(String xml);
 
+    JAXBElement<br.inf.portalfiscal.cte.send.TProcEvento> procEventCte(String xml);
+
     JAXBElement<br.inf.portalfiscal.cte.send.TInutCTe> inutCte(String xml);
 
     JAXBElement<br.inf.portalfiscal.cte.send.TConsSitCTe> querySituationCte(String xml);
@@ -21,6 +23,8 @@ public interface CteUnmarshaller {
     JAXBElement<br.inf.portalfiscal.cte.send.TCTeOS> receptionCteOs(String xml);
 
     JAXBElement<br.inf.portalfiscal.cte.send.TCTe> receptionCteSync(String xml);
+
+    JAXBElement<br.inf.portalfiscal.cte.send.TCteProc> cteProc(String xml);
 
     JAXBElement<br.inf.portalfiscal.cte.send.TConsReciCTe> queryReceipt(String xml);
 
@@ -100,13 +104,13 @@ public interface CteUnmarshaller {
 
     JAXBElement<br.inf.portalfiscal.cte.send.TEnviCTe> enviCte(String xml);
 
-    JAXBElement<br.inf.portalfiscal.cte.send.TCteProc> cteProc(String xml);
-
     JAXBElement<br.inf.portalfiscal.cte.send.TCteOSProc> cteOsProc(String xml);
 
     JAXBElement<br.inf.portalfiscal.cte.send.TGTVeProc> gtveProc(String xml);
 
     JAXBElement<br.inf.portalfiscal.cte.send400.TEvento> eventCte400(String xml);
+
+    JAXBElement<br.inf.portalfiscal.cte.send400.TProcEvento> procEventCte400(String xml);
 
     JAXBElement<br.inf.portalfiscal.cte.send400.TInutCTe> inutCte400(String xml);
 
@@ -117,6 +121,8 @@ public interface CteUnmarshaller {
     JAXBElement<br.inf.portalfiscal.cte.send400.TCTeOS> receptionCteOs400(String xml);
 
     JAXBElement<br.inf.portalfiscal.cte.send400.TCTe> receptionCteSync400(String xml);
+
+    JAXBElement<br.inf.portalfiscal.cte.send400.TCteProc> cteProc400(String xml);
 
     JAXBElement<br.inf.portalfiscal.cte.send400.TConsStatServ> statusService400(String xml);
 
@@ -205,8 +211,6 @@ public interface CteUnmarshaller {
     JAXBElement<br.inf.portalfiscal.cte.send400.TProtGTVe> protGTVe400(Element element);
 
     JAXBElement<br.inf.portalfiscal.cte.send400.TProtGTVe> protGTVe400(String xml);
-
-    JAXBElement<br.inf.portalfiscal.cte.send400.TCteProc> cteProc400(String xml);
 
     JAXBElement<br.inf.portalfiscal.cte.send400.TCteOSProc> cteOsProc400(String xml);
 

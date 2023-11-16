@@ -2,15 +2,11 @@ package org.dfe.util;
 
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
-import com.amazonaws.services.s3.model.ObjectMetadata;
-import com.amazonaws.services.s3.model.PutObjectRequest;
-import com.amazonaws.services.s3.model.PutObjectResult;
-import com.amazonaws.services.s3.model.S3Object;
+import com.amazonaws.services.s3.model.*;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Collection;
-import java.util.stream.Collectors;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 
@@ -52,6 +48,10 @@ public final class S3Utils {
         return putObject(clientInstance(), bucket, key, content);
     }
 
+    public static PutObjectResult putObject(String bucket, String key, byte[] bytes) throws IOException {
+        return putObject(clientInstance(), bucket, key, bytes);
+    }
+
     public static PutObjectResult putObject(String key, byte[] bytes, ObjectMetadata metadata) throws IOException {
         return putObject(clientInstance(), requiredBucket(), key, bytes, metadata);
     }
@@ -76,17 +76,15 @@ public final class S3Utils {
         return RequireUtils.nonNull(System.getProperty("org.dfe.s3.bucket"), "org.dfe.s3.bucket must be set in order to use this method");
     }
 
-    public static Collection<S3Object> listObjects(AmazonS3 client, String bucket, String key) {
-        return client.listObjectsV2(bucket, key).getObjectSummaries().stream().map(it -> {
-            return getObject(client, it.getBucketName(), it.getKey());
-        }).collect(Collectors.toList());
+    public static Collection<S3ObjectSummary> listObjects(AmazonS3 client, String bucket, String key) {
+        return client.listObjectsV2(bucket, key).getObjectSummaries();
     }
 
-    public static Collection<S3Object> listObjects(String bucket, String key) {
+    public static Collection<S3ObjectSummary> listObjects(String bucket, String key) {
         return listObjects(clientInstance(), bucket, key);
     }
 
-    public static Collection<S3Object> listObjects(String key) {
+    public static Collection<S3ObjectSummary> listObjects(String key) {
         return listObjects(requiredBucket(), key);
     }
 

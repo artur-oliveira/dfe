@@ -2,6 +2,7 @@ package org.dfe.interfaces.storage;
 
 import org.dfe.interfaces.internal.StorageKey;
 import org.dfe.interfaces.internal.config.Config;
+import org.dfe.models.internal.storage.RootPath;
 import org.dfe.models.internal.storage.StorageResult;
 
 import java.io.IOException;
@@ -21,7 +22,7 @@ public interface StorageService {
      * @param config The configuration object that contains the configuration for the application.
      * @return A string
      */
-    String rootPath(Config config);
+    String rootPath(RootPath config);
 
     /**
      * It writes the xmlContent to a file in the local file system.

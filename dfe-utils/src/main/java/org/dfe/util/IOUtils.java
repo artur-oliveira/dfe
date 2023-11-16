@@ -1,5 +1,7 @@
 package org.dfe.util;
 
+import lombok.SneakyThrows;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
@@ -67,7 +69,8 @@ public final class IOUtils {
      * @param f The file to get the creation date of.
      * @return A LocalDateTime object
      */
-    public static LocalDateTime creationDate(File f) throws IOException {
+    @SneakyThrows
+    public static LocalDateTime creationDate(File f) {
         if (Objects.isNull(f) || !f.exists()) return null;
 
         BasicFileAttributes attr = Files.readAttributes(f.toPath(), BasicFileAttributes.class);
@@ -92,8 +95,23 @@ public final class IOUtils {
         return Files.write(path, bytes, StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING).toFile();
     }
 
+    public static String getFileNamePreffix(String fileName) {
+        int lastIndexOfPathSeparator = fileName.lastIndexOf("/");
+
+        if (lastIndexOfPathSeparator != 1) {
+            fileName = fileName.substring(lastIndexOfPathSeparator + 1);
+        }
+
+        return fileName.substring(0, fileName.lastIndexOf(".") != -1 ? fileName.lastIndexOf(".") : fileName.length());
+    }
+
+    public static String getFileNameSuffix(String fileName) {
+        return fileName.contains(".") ? fileName.substring(fileName.indexOf(".")) : null;
+    }
+
     public static File writeTemp(String fileName, byte[] bytes) throws IOException {
-        final Path path = Files.createTempFile(fileName.substring(0, fileName.indexOf(".") - 1), fileName.substring(fileName.indexOf(".")));
+
+        final Path path = Files.createTempFile(getFileNamePreffix(fileName), getFileNameSuffix(fileName));
 
         if (!path.getParent().toFile().exists()) Files.createDirectories(path.getParent());
         if (!path.toFile().exists()) Files.createFile(path);

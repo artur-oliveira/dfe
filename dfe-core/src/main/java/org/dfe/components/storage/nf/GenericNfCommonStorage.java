@@ -140,7 +140,7 @@ public abstract class GenericNfCommonStorage extends CommonStorage implements Nf
     protected TEnviNFe getEnviNFeByProt(Collection<TProtNFe> protNFes, Config config) throws IOException {
         String xml = null;
         for (TProtNFe protNFe : protNFes) {
-            xml = IOUtils.readFileToString(getStorageService().getSend(config, NFStorageKey.NF_AUTHORIZATION, protNFe.getInfProt().getChNFe()).stream().findFirst().map(StorageResult::file).orElse(null));
+            xml = IOUtils.readFileToString(getStorageService().getFirstSend(config, NFStorageKey.NF_AUTHORIZATION, protNFe.getInfProt().getChNFe()).file());
             if (Objects.nonNull(xml)) break;
         }
         return Optional.ofNullable(xml).map(it -> NfUnmarshallerFactory.getInstance().enviNfe(it).getValue()).orElse(null);

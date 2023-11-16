@@ -94,7 +94,7 @@ public abstract class GenericMdfeStorage extends CommonStorage implements MdfeSt
         String xml;
         TProtMDFe prot = o.data().getProtMDFe();
 
-        xml = IOUtils.readFileToString(getStorageService().getSend(o.config(), MdfeStorageKey.MDFE_RECEPTION, prot.getInfProt().getChMDFe()).stream().findFirst().map(StorageResult::file).orElse(null));
+        xml = IOUtils.readFileToString(getStorageService().getFirstSend(o.config(), MdfeStorageKey.MDFE_RECEPTION, prot.getInfProt().getChMDFe()).file());
 
         if (Objects.isNull(xml)) return;
 

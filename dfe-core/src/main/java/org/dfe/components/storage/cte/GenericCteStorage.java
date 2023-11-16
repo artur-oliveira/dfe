@@ -132,10 +132,9 @@ public abstract class GenericCteStorage extends CommonStorage implements CteStor
 
         String xml = null;
         for (TProtCTe protCTe : o.data().getProtCTe()) {
-            xml = IOUtils.readFileToString(getStorageService().getSend(o.config(), CteStorageKey.CTE_RECEPTION, protCTe.getInfProt().getChCTe()).stream().findFirst().map(StorageResult::file).orElse(null));
+            xml = IOUtils.readFileToString(getStorageService().getFirstSend(o.config(), CteStorageKey.CTE_RECEPTION, protCTe.getInfProt().getChCTe()).file());
             if (Objects.nonNull(xml)) break;
         }
-
 
         if (Objects.isNull(xml)) return;
 
@@ -143,7 +142,6 @@ public abstract class GenericCteStorage extends CommonStorage implements CteStor
 
         for (TProtCTe protCTe : o.data().getProtCTe()) {
             TCteProc proc = CteObjectFactoryWrapperFactory.getInstance().cteProc();
-            ;
             proc.setProtCTe(protCTe);
             proc.setCTe(tEnviNFe.getCTe().stream().filter(it -> it.getInfCte().getId().contains(protCTe.getInfProt().getChCTe())).findFirst().orElse(null));
             proc.setVersao(proc.getCTe().getInfCte().getVersao());
