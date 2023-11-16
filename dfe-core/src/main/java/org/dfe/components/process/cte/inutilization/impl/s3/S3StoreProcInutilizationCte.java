@@ -1,0 +1,13 @@
+package org.dfe.components.process.cte.inutilization.impl.s3;
+
+import org.dfe.components.process.cte.inutilization.StoreProcInutilizationCte;
+import org.dfe.components.storage.StorageFactory;
+import org.dfe.interfaces.storage.cte.CteInutilizationStorage;
+
+final class S3StoreProcInutilizationCte extends StoreProcInutilizationCte {
+
+    @Override
+    protected CteInutilizationStorage getStorage() {
+        return StorageFactory.s3().getCteStorage();
+    }
+}

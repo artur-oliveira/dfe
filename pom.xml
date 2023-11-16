@@ -18,7 +18,6 @@
         <module>dfe-mdfe-services</module>
         <module>dfe-api</module>
         <module>dfe-core</module>
-        <module>dfe-examples</module>
     </modules>
 
     <packaging>pom</packaging>

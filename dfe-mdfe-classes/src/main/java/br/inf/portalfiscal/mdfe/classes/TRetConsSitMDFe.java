@@ -8,7 +8,7 @@
 
 package br.inf.portalfiscal.mdfe.classes;
 
-import com.softart.dfe.interfaces.xml.generic.XML;
+import org.dfe.interfaces.xml.generic.XML;
 import jakarta.xml.bind.annotation.*;
 import org.w3c.dom.Element;
 

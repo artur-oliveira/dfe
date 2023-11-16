@@ -8,7 +8,7 @@
 
 package br.inf.portalfiscal.cte.distribution;
 
-import com.softart.dfe.interfaces.xml.generic.XML;
+import org.dfe.interfaces.xml.generic.XML;
 import jakarta.xml.bind.annotation.*;
 
 

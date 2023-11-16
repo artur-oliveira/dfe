@@ -1,0 +1,13 @@
+package org.dfe.components.process.cte.query_situation.impl.s3;
+
+import org.dfe.components.process.cte.query_situation.StoreQuerySituationCte;
+import org.dfe.components.storage.StorageFactory;
+import org.dfe.interfaces.storage.cte.CteQuerySituationStorage;
+
+final class S3StoreQuerySituationCte extends StoreQuerySituationCte {
+
+    @Override
+    protected CteQuerySituationStorage getStorage() {
+        return StorageFactory.s3().getCteStorage();
+    }
+}
