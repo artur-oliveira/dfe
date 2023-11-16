@@ -8,11 +8,12 @@
 
 package br.inf.portalfiscal.nfe.distribution;
 
-import org.dfe.interfaces.xml.generic.XML;
+import br.inf.portalfiscal.nfe.event_correction_letter.TransformType;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+import org.dfe.interfaces.xml.generic.XML;
 
 import java.util.ArrayList;
 import java.util.List;

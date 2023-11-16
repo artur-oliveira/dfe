@@ -8,10 +8,11 @@
 
 package br.inf.portalfiscal.nfe.distribution;
 
-import org.dfe.interfaces.xml.generic.XML;
+import br.inf.portalfiscal.nfe.event_correction_letter.TransformsType;
 import jakarta.xml.bind.annotation.*;
 import jakarta.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import org.dfe.interfaces.xml.generic.XML;
 
 import java.util.Objects;
 
@@ -62,7 +63,7 @@ public class ReferenceType
         implements XML {
 
     @XmlElement(name = "Transforms", required = true)
-    protected TransformsType transforms;
+    protected br.inf.portalfiscal.nfe.event_correction_letter.TransformsType transforms;
     @XmlElement(name = "DigestMethod", required = true)
     protected DigestMethod digestMethod;
     @XmlElement(name = "DigestValue", required = true)
@@ -82,9 +83,9 @@ public class ReferenceType
      * Gets the value of the transforms property.
      *
      * @return possible object is
-     * {@link TransformsType }
+     * {@link br.inf.portalfiscal.nfe.event_correction_letter.TransformsType }
      */
-    public TransformsType getTransforms() {
+    public br.inf.portalfiscal.nfe.event_correction_letter.TransformsType getTransforms() {
         return transforms;
     }
 
@@ -92,7 +93,7 @@ public class ReferenceType
      * Sets the value of the transforms property.
      *
      * @param value allowed object is
-     *              {@link TransformsType }
+     *              {@link br.inf.portalfiscal.nfe.event_correction_letter.TransformsType }
      */
     public void setTransforms(TransformsType value) {
         this.transforms = value;

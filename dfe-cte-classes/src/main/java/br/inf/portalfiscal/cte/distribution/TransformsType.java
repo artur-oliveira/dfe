@@ -8,11 +8,11 @@
 
 package br.inf.portalfiscal.cte.distribution;
 
-import org.dfe.interfaces.xml.generic.XML;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+import org.dfe.interfaces.xml.generic.XML;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +36,7 @@ import java.util.List;
  * </pre>
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TransformsType", propOrder = {
+@XmlType(name = "TransformsType", namespace = "http://www.w3.org/2000/09/xmldsig#", propOrder = {
         "transform"
 })
 public class TransformsType

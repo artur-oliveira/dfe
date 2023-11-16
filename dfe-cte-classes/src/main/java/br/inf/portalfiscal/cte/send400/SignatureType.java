@@ -8,10 +8,10 @@
 
 package br.inf.portalfiscal.cte.send400;
 
-import org.dfe.interfaces.xml.generic.XML;
 import jakarta.xml.bind.annotation.*;
 import jakarta.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import org.dfe.interfaces.xml.generic.XML;
 
 
 /**

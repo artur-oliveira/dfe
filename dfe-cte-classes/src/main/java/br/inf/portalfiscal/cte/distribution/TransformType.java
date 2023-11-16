@@ -8,8 +8,8 @@
 
 package br.inf.portalfiscal.cte.distribution;
 
-import org.dfe.interfaces.xml.generic.XML;
 import jakarta.xml.bind.annotation.*;
+import org.dfe.interfaces.xml.generic.XML;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +34,7 @@ import java.util.List;
  * </pre>
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TransformType", propOrder = {
+@XmlType(name = "TransformType", namespace = "http://www.w3.org/2000/09/xmldsig#", propOrder = {
         "xPath"
 })
 public class TransformType
