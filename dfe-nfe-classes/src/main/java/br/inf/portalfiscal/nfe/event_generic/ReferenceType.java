@@ -9,22 +9,16 @@
 package br.inf.portalfiscal.nfe.event_generic;
 
 import com.softart.dfe.interfaces.xml.generic.XML;
-import jakarta.xml.bind.annotation.XmlAccessType;
-import jakarta.xml.bind.annotation.XmlAccessorType;
-import jakarta.xml.bind.annotation.XmlAttribute;
-import jakarta.xml.bind.annotation.XmlElement;
-import jakarta.xml.bind.annotation.XmlID;
-import jakarta.xml.bind.annotation.XmlSchemaType;
-import jakarta.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.*;
 import jakarta.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
  * <p>Java class for ReferenceType complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="ReferenceType"&gt;
  *   &lt;complexContent&gt;
@@ -55,18 +49,15 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ReferenceType", propOrder = {
-    "transforms",
-    "digestMethod",
-    "digestValue"
+        "transforms",
+        "digestMethod",
+        "digestValue"
 })
 public class ReferenceType
-    implements XML
-{
+        implements XML {
 
     @XmlElement(name = "Transforms", required = true)
     protected TransformsType transforms;
@@ -87,11 +78,9 @@ public class ReferenceType
 
     /**
      * Gets the value of the transforms property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TransformsType }
-     *     
+     *
+     * @return possible object is
+     * {@link TransformsType }
      */
     public TransformsType getTransforms() {
         return transforms;
@@ -99,27 +88,23 @@ public class ReferenceType
 
     /**
      * Sets the value of the transforms property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TransformsType }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link TransformsType }
      */
     public void setTransforms(TransformsType value) {
         this.transforms = value;
     }
 
     public boolean isSetTransforms() {
-        return (this.transforms!= null);
+        return (this.transforms != null);
     }
 
     /**
      * Gets the value of the digestMethod property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ReferenceType.DigestMethod }
-     *     
+     *
+     * @return possible object is
+     * {@link ReferenceType.DigestMethod }
      */
     public ReferenceType.DigestMethod getDigestMethod() {
         return digestMethod;
@@ -127,26 +112,23 @@ public class ReferenceType
 
     /**
      * Sets the value of the digestMethod property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link ReferenceType.DigestMethod }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link ReferenceType.DigestMethod }
      */
     public void setDigestMethod(ReferenceType.DigestMethod value) {
         this.digestMethod = value;
     }
 
     public boolean isSetDigestMethod() {
-        return (this.digestMethod!= null);
+        return (this.digestMethod != null);
     }
 
     /**
      * Gets the value of the digestValue property.
-     * 
-     * @return
-     *     possible object is
-     *     byte[]
+     *
+     * @return possible object is
+     * byte[]
      */
     public byte[] getDigestValue() {
         return digestValue;
@@ -154,26 +136,23 @@ public class ReferenceType
 
     /**
      * Sets the value of the digestValue property.
-     * 
-     * @param value
-     *     allowed object is
-     *     byte[]
+     *
+     * @param value allowed object is
+     *              byte[]
      */
     public void setDigestValue(byte[] value) {
         this.digestValue = value;
     }
 
     public boolean isSetDigestValue() {
-        return (this.digestValue!= null);
+        return (this.digestValue != null);
     }
 
     /**
      * Gets the value of the id property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getId() {
         return id;
@@ -181,27 +160,23 @@ public class ReferenceType
 
     /**
      * Sets the value of the id property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setId(String value) {
         this.id = value;
     }
 
     public boolean isSetId() {
-        return (this.id!= null);
+        return (this.id != null);
     }
 
     /**
      * Gets the value of the uri property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getURI() {
         return uri;
@@ -209,27 +184,23 @@ public class ReferenceType
 
     /**
      * Sets the value of the uri property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setURI(String value) {
         this.uri = value;
     }
 
     public boolean isSetURI() {
-        return (this.uri!= null);
+        return (this.uri != null);
     }
 
     /**
      * Gets the value of the type property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getType() {
         return type;
@@ -237,26 +208,24 @@ public class ReferenceType
 
     /**
      * Sets the value of the type property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setType(String value) {
         this.type = value;
     }
 
     public boolean isSetType() {
-        return (this.type!= null);
+        return (this.type != null);
     }
 
 
     /**
      * <p>Java class for anonymous complex type.
-     * 
+     *
      * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
+     *
      * <pre>
      * &lt;complexType&gt;
      *   &lt;complexContent&gt;
@@ -266,14 +235,11 @@ public class ReferenceType
      *   &lt;/complexContent&gt;
      * &lt;/complexType&gt;
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "")
     public static class DigestMethod
-        implements XML
-    {
+            implements XML {
 
         @XmlAttribute(name = "Algorithm", required = true)
         @XmlSchemaType(name = "anyURI")
@@ -281,11 +247,9 @@ public class ReferenceType
 
         /**
          * Gets the value of the algorithm property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getAlgorithm() {
             if (algorithm == null) {
@@ -297,18 +261,16 @@ public class ReferenceType
 
         /**
          * Sets the value of the algorithm property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setAlgorithm(String value) {
             this.algorithm = value;
         }
 
         public boolean isSetAlgorithm() {
-            return (this.algorithm!= null);
+            return (this.algorithm != null);
         }
 
     }

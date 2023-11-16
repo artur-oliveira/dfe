@@ -17,9 +17,9 @@ import jakarta.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for X509DataType complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="X509DataType"&gt;
  *   &lt;complexContent&gt;
@@ -31,26 +31,22 @@ import jakarta.xml.bind.annotation.XmlType;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "X509DataType", propOrder = {
-    "x509Certificate"
+        "x509Certificate"
 })
 public class X509DataType
-    implements XML
-{
+        implements XML {
 
     @XmlElement(name = "X509Certificate", required = true)
     protected byte[] x509Certificate;
 
     /**
      * Gets the value of the x509Certificate property.
-     * 
-     * @return
-     *     possible object is
-     *     byte[]
+     *
+     * @return possible object is
+     * byte[]
      */
     public byte[] getX509Certificate() {
         return x509Certificate;
@@ -58,17 +54,16 @@ public class X509DataType
 
     /**
      * Sets the value of the x509Certificate property.
-     * 
-     * @param value
-     *     allowed object is
-     *     byte[]
+     *
+     * @param value allowed object is
+     *              byte[]
      */
     public void setX509Certificate(byte[] value) {
         this.x509Certificate = value;
     }
 
     public boolean isSetX509Certificate() {
-        return (this.x509Certificate!= null);
+        return (this.x509Certificate != null);
     }
 
 }

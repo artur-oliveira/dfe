@@ -9,22 +9,16 @@
 package br.inf.portalfiscal.nfe.event_generic;
 
 import com.softart.dfe.interfaces.xml.generic.XML;
-import jakarta.xml.bind.annotation.XmlAccessType;
-import jakarta.xml.bind.annotation.XmlAccessorType;
-import jakarta.xml.bind.annotation.XmlAttribute;
-import jakarta.xml.bind.annotation.XmlElement;
-import jakarta.xml.bind.annotation.XmlID;
-import jakarta.xml.bind.annotation.XmlSchemaType;
-import jakarta.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.*;
 import jakarta.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
  * <p>Java class for SignatureType complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="SignatureType"&gt;
  *   &lt;complexContent&gt;
@@ -39,18 +33,15 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "SignatureType", propOrder = {
-    "signedInfo",
-    "signatureValue",
-    "keyInfo"
+        "signedInfo",
+        "signatureValue",
+        "keyInfo"
 })
 public class SignatureType
-    implements XML
-{
+        implements XML {
 
     @XmlElement(name = "SignedInfo", required = true)
     protected SignedInfoType signedInfo;
@@ -66,11 +57,9 @@ public class SignatureType
 
     /**
      * Gets the value of the signedInfo property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link SignedInfoType }
-     *     
+     *
+     * @return possible object is
+     * {@link SignedInfoType }
      */
     public SignedInfoType getSignedInfo() {
         return signedInfo;
@@ -78,27 +67,23 @@ public class SignatureType
 
     /**
      * Sets the value of the signedInfo property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link SignedInfoType }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link SignedInfoType }
      */
     public void setSignedInfo(SignedInfoType value) {
         this.signedInfo = value;
     }
 
     public boolean isSetSignedInfo() {
-        return (this.signedInfo!= null);
+        return (this.signedInfo != null);
     }
 
     /**
      * Gets the value of the signatureValue property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link SignatureValueType }
-     *     
+     *
+     * @return possible object is
+     * {@link SignatureValueType }
      */
     public SignatureValueType getSignatureValue() {
         return signatureValue;
@@ -106,27 +91,23 @@ public class SignatureType
 
     /**
      * Sets the value of the signatureValue property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link SignatureValueType }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link SignatureValueType }
      */
     public void setSignatureValue(SignatureValueType value) {
         this.signatureValue = value;
     }
 
     public boolean isSetSignatureValue() {
-        return (this.signatureValue!= null);
+        return (this.signatureValue != null);
     }
 
     /**
      * Gets the value of the keyInfo property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link KeyInfoType }
-     *     
+     *
+     * @return possible object is
+     * {@link KeyInfoType }
      */
     public KeyInfoType getKeyInfo() {
         return keyInfo;
@@ -134,27 +115,23 @@ public class SignatureType
 
     /**
      * Sets the value of the keyInfo property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link KeyInfoType }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link KeyInfoType }
      */
     public void setKeyInfo(KeyInfoType value) {
         this.keyInfo = value;
     }
 
     public boolean isSetKeyInfo() {
-        return (this.keyInfo!= null);
+        return (this.keyInfo != null);
     }
 
     /**
      * Gets the value of the id property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getId() {
         return id;
@@ -162,18 +139,16 @@ public class SignatureType
 
     /**
      * Sets the value of the id property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setId(String value) {
         this.id = value;
     }
 
     public boolean isSetId() {
-        return (this.id!= null);
+        return (this.id != null);
     }
 
 }

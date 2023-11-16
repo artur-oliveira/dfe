@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema"
-                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.portalfiscal.inf.br/cte/wsdl/CTeRecepcaoOSV4"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:tns="http://www.portalfiscal.inf.br/cte/wsdl/CTeRecepcaoOSV4"
                   xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
                   xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
                   targetNamespace="http://www.portalfiscal.inf.br/cte/wsdl/CTeRecepcaoOSV4"

@@ -8,21 +8,18 @@
 
 package br.inf.portalfiscal.nfe.event_generic;
 
+import com.softart.dfe.interfaces.xml.generic.XML;
+import jakarta.xml.bind.annotation.*;
+
 import java.util.ArrayList;
 import java.util.List;
-import com.softart.dfe.interfaces.xml.generic.XML;
-import jakarta.xml.bind.annotation.XmlAccessType;
-import jakarta.xml.bind.annotation.XmlAccessorType;
-import jakarta.xml.bind.annotation.XmlAttribute;
-import jakarta.xml.bind.annotation.XmlElement;
-import jakarta.xml.bind.annotation.XmlType;
 
 
 /**
  * <p>Java class for TransformType complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="TransformType"&gt;
  *   &lt;complexContent&gt;
@@ -35,16 +32,13 @@ import jakarta.xml.bind.annotation.XmlType;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TransformType", propOrder = {
-    "xPath"
+        "xPath"
 })
 public class TransformType
-    implements XML
-{
+        implements XML {
 
     @XmlElement(name = "XPath")
     protected List<String> xPath;
@@ -53,25 +47,23 @@ public class TransformType
 
     /**
      * Gets the value of the xPath property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the Jakarta XML Binding object.
      * This is why there is not a <CODE>set</CODE> method for the xPath property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getXPath().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link String }
-     * 
-     * 
      */
     public List<String> getXPath() {
         if (xPath == null) {
@@ -81,7 +73,7 @@ public class TransformType
     }
 
     public boolean isSetXPath() {
-        return ((this.xPath!= null)&&(!this.xPath.isEmpty()));
+        return ((this.xPath != null) && (!this.xPath.isEmpty()));
     }
 
     public void unsetXPath() {
@@ -90,11 +82,9 @@ public class TransformType
 
     /**
      * Gets the value of the algorithm property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getAlgorithm() {
         return algorithm;
@@ -102,18 +92,16 @@ public class TransformType
 
     /**
      * Sets the value of the algorithm property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setAlgorithm(String value) {
         this.algorithm = value;
     }
 
     public boolean isSetAlgorithm() {
-        return (this.algorithm!= null);
+        return (this.algorithm != null);
     }
 
 }

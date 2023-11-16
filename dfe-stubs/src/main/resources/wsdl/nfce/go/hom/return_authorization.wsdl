@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is JAX-WS RI 2.3.0-wls122140-b221116.0611 svn-revision#e80cc14f7d7c7ce39446b2db53387251ca55e7a7. -->
-<definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.portalfiscal.inf.br/nfe/wsdl/NFeRetAutorizacao4"
+<definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+             xmlns:tns="http://www.portalfiscal.inf.br/nfe/wsdl/NFeRetAutorizacao4"
              xmlns="http://schemas.xmlsoap.org/wsdl/"
              name="NFeRetAutorizacao4"
              targetNamespace="http://www.portalfiscal.inf.br/nfe/wsdl/NFeRetAutorizacao4">
