@@ -13,48 +13,36 @@ import java.util.Collections;
 public enum QueryNfceURL implements AllowUF {
 
     AC {
-        protected String url() {
+        @Override
+        public String production() {
             return "www.sefaznet.ac.gov.br/nfce/consulta";
         }
 
         @Override
-        public String production() {
-            return url();
-        }
-
-        @Override
         public String homologation() {
-            return url();
+            return "http://hml.sefaznet.ac.gov.br/nfce/consulta";
         }
     },
     AL {
-        protected String url() {
-            return "www.sefaz.al.gov.br/nfce/consulta";
-        }
-
         @Override
         public String production() {
-            return url();
+            return "http://nfce.sefaz.al.gov.br/consultaNFCe.htm";
         }
 
         @Override
         public String homologation() {
-            return url();
+            return "http://nfce.sefaz.al.gov.br/consultaNFCe.htm";
         }
     },
     AP {
-        protected String url() {
-            return "www.sefaz.ap.gov.br/nfce/consulta";
-        }
-
         @Override
         public String production() {
-            return url();
+            return "https://www.sefaz.ap.gov.br/sate/seg/SEGf_AcessarFuncao.jsp?cdFuncao=FIS_1261";
         }
 
         @Override
         public String homologation() {
-            return url();
+            return "https://www.sefaz.ap.gov.br/sate1/seg/SEGf_AcessarFuncao.jsp?cdFuncao=FIS_1261";
         }
     },
     AM {
@@ -75,121 +63,114 @@ public enum QueryNfceURL implements AllowUF {
     BA {
         @Override
         public String production() {
-            return "www.sefaz.ba.gov.br/nfce/consulta";
+            return "nfe.sefaz.ba.gov.br/servicos/nfce/default.aspx";
         }
 
         @Override
         public String homologation() {
-            return "http://hinternet.sefaz.ba.gov.br/nfce/consulta";
+            return "http://hnfe.sefaz.ba.gov.br/servicos/nfce/default.aspx";
+        }
+    },
+    CE {
+        @Override
+        public String production() {
+            return "http://nfceh.sefaz.ce.gov.br/pages/consultaNota.jsf";
+        }
+
+        @Override
+        public String homologation() {
+            return "http://nfce.sefaz.ce.gov.br/pages/consultaNota.jsf";
         }
     },
     DF {
-        protected String url() {
-            return "www.fazenda.df.gov.br/nfce/consulta";
-        }
-
         @Override
         public String production() {
-            return url();
+            return "http://dec.fazenda.df.gov.br/NFCE/";
         }
 
         @Override
         public String homologation() {
-            return url();
-        }
-    },
-    ES {
-        protected String url() {
-            return "www.sefaz.es.gov.br/nfce/consulta";
-        }
-
-        @Override
-        public String production() {
-            return url();
-        }
-
-        @Override
-        public String homologation() {
-            return url();
+            return "http://dec.fazenda.df.gov.br/NFCE/";
         }
     },
     GO {
-        protected String url() {
-            return "www.sefaz.go.gov.br/nfce/consulta";
-        }
-
         @Override
         public String production() {
-            return url();
+            return "http://nfe.sefaz.go.gov.br/nfeweb/sites/nfce/danfeNFCe";
         }
 
         @Override
         public String homologation() {
-            return url();
+            return "http://homolog.sefaz.go.gov.br/nfeweb/sites/nfce/danfeNFCe";
         }
-    }, MA {
-        protected String url() {
-            return "www.sefaz.ma.gov.br/nfce/consulta";
-        }
-
+    },
+    ES {
         @Override
         public String production() {
-            return url();
+            return "http://app.sefaz.es.gov.br/ConsultaNFCe";
         }
 
         @Override
         public String homologation() {
-            return url();
+            return "www.sefaz.es.gov.br/nfce/consulta";
         }
-    }, MS {
-        protected String url() {
-            return "www.dfe.ms.gov.br/nfce/consulta";
-        }
-
+    },
+    MA {
         @Override
         public String production() {
-            return url();
+            return "http://www.sefaz.ma.gov.br/nfce/consulta/";
         }
 
         @Override
         public String homologation() {
-            return url();
+            return "http://www.hom.nfce.sefaz.ma.gov.br/portal/consultarNFCe.jsp";
         }
-    }, MT {
+    },
+    MT {
         @Override
         public String production() {
-            return "http://homologacao.sefaz.mt.gov.br/nfce/consultanfce";
-        }
-
-        @Override
-        public String homologation() {
             return "http://www.sefaz.mt.gov.br/nfce/consultanfce";
         }
-    }, MG {
+
+        @Override
+        public String homologation() {
+            return "http://homologacao.sefaz.mt.gov.br/nfce/consultanfce";
+        }
+    },
+    MS {
         @Override
         public String production() {
-            return "http://nfce.fazenda.mg.gov.br/portalnfce ";
+            return "http://www.dfe.ms.gov.br/nfce";
         }
 
         @Override
         public String homologation() {
-            return "http://hnfce.fazenda.mg.gov.br/portalnfce/";
+            return "http://www.dfe.ms.gov.br/nfce";
         }
-    }, PA {
-        protected String url() {
-            return "www.sefa.pa.gov.br/nfce/consulta";
-        }
-
+    },
+    MG {
         @Override
         public String production() {
-            return url();
+            return "https://portalsped.fazenda.mg.gov.br/portalnfce";
         }
 
         @Override
         public String homologation() {
-            return url();
+            return "https://hportalsped.fazenda.mg.gov.br/portalnfce";
         }
-    }, PB {
+    },
+    PA {
+        @Override
+        public String production() {
+            return "https://appnfc.sefa.pa.gov.br/portal/view/consultas/nfce/consultanfce.seam";
+        }
+
+        @Override
+        public String homologation() {
+            return "https://appnfc.sefa.pa.gov.br/portal/view/consultas/nfce/consultanfce.seam";
+        }
+    },
+    PB {
         @Override
         public String production() {
             return "www.receita.pb.gov.br/nfce/consulta";
@@ -199,152 +180,132 @@ public enum QueryNfceURL implements AllowUF {
         public String homologation() {
             return "www.receita.pb.gov.br/nfcehom";
         }
-    }, PE {
-        protected String url() {
+    },
+    PR {
+        @Override
+        public String production() {
+            return "http://www.fazenda.pr.gov.br";
+        }
+
+        @Override
+        public String homologation() {
+            return "http://www.fazenda.pr.gov.br";
+        }
+    },
+    PE {
+        @Override
+        public String production() {
             return "nfce.sefaz.pe.gov.br/nfce/consulta";
         }
 
         @Override
+        public String homologation() {
+            return "nfce.sefaz.pe.gov.br/nfce/consulta";
+        }
+    },
+    PI {
+        @Override
         public String production() {
-            return url();
+            return "http://www.sefaz.pi.gov.br/nfce/consulta";
         }
 
         @Override
         public String homologation() {
-            return url();
+            return "http://www.sefaz.pi.gov.br/nfce/consulta";
         }
-    }, PI {
-        protected String url() {
-            return "www.sefaz.pi.gov.br/nfce/consulta";
-        }
-
+    },
+    RJ {
         @Override
         public String production() {
-            return url();
-        }
-
-        @Override
-        public String homologation() {
-            return url();
-        }
-    }, PR {
-        protected String url() {
-            return "www.fazenda.pr.gov.br/nfce/consulta";
-        }
-
-        @Override
-        public String production() {
-            return url();
-        }
-
-        @Override
-        public String homologation() {
-            return url();
-        }
-    }, RJ {
-        protected String url() {
             return "www.fazenda.rj.gov.br/nfce/consulta";
         }
 
         @Override
+        public String homologation() {
+            return "www.fazenda.rj.gov.br/nfce/consulta";
+        }
+    },
+    RN {
+        @Override
         public String production() {
-            return url();
+            return "http://nfce.set.rn.gov.br/consultarNFCe.aspx";
         }
 
         @Override
         public String homologation() {
-            return url();
+            return "http://nfce.set.rn.gov.br/consultarNFCe.aspx";
         }
-    }, RN {
-        protected String url() {
-            return "www.set.rn.gov.br/nfce/consulta";
-        }
-
+    },
+    RS {
         @Override
         public String production() {
-            return url();
+            return "https://www.sefaz.rs.gov.br/NFCE/NFCE-COM.aspx";
         }
 
         @Override
         public String homologation() {
-            return url();
+            return "https://www.sefaz.rs.gov.br/NFCE/NFCE-COM.aspx";
         }
-    }, RO {
-        protected String url() {
-            return "www.sefin.ro.gov.br/nfce/consulta";
-        }
-
+    },
+    RO {
         @Override
         public String production() {
-            return url();
+            return "http://www.nfce.sefin.ro.gov.br";
         }
 
         @Override
         public String homologation() {
-            return url();
+            return "http://www.nfce.sefin.ro.gov.br";
         }
-    }, RR {
-        protected String url() {
-            return "www.sefaz.rr.gov.br/nfce/consulta";
-        }
-
+    },
+    RR {
         @Override
         public String production() {
-            return url();
+            return "https://www.sefaz.rr.gov.br/nfce/servlet/wp_consulta_nfce";
         }
 
         @Override
         public String homologation() {
-            return url();
+            return "http://200.174.88.103:8080/nfce/servlet/wp_consulta_nfce";
         }
-    }, RS {
-        protected String url() {
-            return "www.sefaz.rs.gov.br/nfce/consulta";
-        }
-
+    },
+    SP {
         @Override
         public String production() {
-            return url();
+            return "https://www.nfce.fazenda.sp.gov.br/NFCeConsultaPublica";
         }
 
         @Override
         public String homologation() {
-            return url();
+            return "https://www.homologacao.nfce.fazenda.sp.gov.br/NFCeConsultaPublica";
         }
-    }, SC {
+    },
+    SC {
         @Override
         public String production() {
-            return "https://sat.sef.sc.gov.br/nfce/consulta";
+            return " https://sat.sef.sc.gov.br/nfce/consulta";
         }
 
         @Override
         public String homologation() {
             return "https://hom.sat.sef.sc.gov.br/nfce/consulta";
         }
-    }, SP {
+    },
+    SE {
         @Override
         public String production() {
-            return "https://www.nfce.fazenda.sp.gov.br/consulta";
+            return "http://www.nfce.se.gov.br/portal/portalNoticias.jsp";
         }
 
         @Override
         public String homologation() {
-            return "https://www.homologacao.nfce.fazenda.sp.gov.br/consulta";
+            return "http://www.hom.nfe.se.gov.br/portal/portalNoticias.jsp";
         }
-    }, SE {
+    },
+    TO {
         @Override
         public String production() {
-            return "http://www.nfce.se.gov.br/nfce/consulta";
-        }
-
-        @Override
-        public String homologation() {
-            return "http://www.hom.nfe.se.gov.br/nfce/consulta";
-        }
-    }, TO {
-        @Override
-        public String production() {
-            return "www.sefaz.to.gov.br/nfce/consulta";
+            return "http://www.sefaz.to.gov.br/nfce/consulta.jsf";
         }
 
         @Override

@@ -21,12 +21,12 @@ public enum QrCodeNfceURL implements AllowUF {
     AC {
         @Override
         public String production() {
-            return "http://www.sefaznet.ac.gov.br/nfce/qrcode";
+            return "http://hml.sefaznet.ac.gov.br/nfce/qrcode";
         }
 
         @Override
         public String homologation() {
-            return "http://www.hml.sefaznet.ac.gov.br/nfce/qrcode";
+            return "http://hml.sefaznet.ac.gov.br/nfce/qrcode";
         }
     },
     AL {
@@ -43,7 +43,7 @@ public enum QrCodeNfceURL implements AllowUF {
     AP {
         @Override
         public String production() {
-            return "https://www.sefaz.ap.gov.br/nfce/nfcep.php";
+            return "https://www.sefaz.ap.gov.br/nfce/nfce.php";
         }
 
         @Override
@@ -54,45 +54,34 @@ public enum QrCodeNfceURL implements AllowUF {
     AM {
         @Override
         public String production() {
-            return "https://sistemas.sefaz.am.gov.br/nfceweb/consultarNFCe.jsp";
+            return "http://sistemas.sefaz.am.gov.br/nfceweb/consultarNFCe.jsp";
         }
 
         @Override
         public String homologation() {
-            return "https://sistemas.sefaz.am.gov.br/nfceweb-hom/consultarNFCe.jsp";
+            return "http://homnfce.sefaz.am.gov.br/nfceweb/consultarNFCe.jsp";
         }
     },
     BA {
         @Override
         public String production() {
-            return "http://nfe.sefaz.ba.gov.br/servicos/nfce/qrcode.aspx";
+            return "http://nfe.sefaz.ba.gov.br/servicos/nfce/modulos/geral/NFCEC_consulta_chave_acesso.aspx";
         }
 
         @Override
         public String homologation() {
-            return "http://hnfe.sefaz.ba.gov.br/servicos/nfce/qrcode.aspx";
+            return "http://hnfe.sefaz.ba.gov.br/servicos/nfce/modulos/geral/NFCEC_consulta_chave_acesso.aspx";
         }
     },
     DF {
         @Override
         public String production() {
-            return "http://www.fazenda.df.gov.br/nfce/qrcode";
+            return "http://dec.fazenda.df.gov.br/ConsultarNFCe.aspx";
         }
 
         @Override
         public String homologation() {
-            return "http://www.fazenda.df.gov.br/nfce/qrcode";
-        }
-    },
-    ES {
-        @Override
-        public String production() {
-            return "http://app.sefaz.es.gov.br/ConsultaNFCe/";
-        }
-
-        @Override
-        public String homologation() {
-            return "http://homologacao.sefaz.es.gov.br/ConsultaNFCe";
+            return "http://dec.fazenda.df.gov.br/ConsultarNFCe.aspx";
         }
     },
     GO {
@@ -106,15 +95,26 @@ public enum QrCodeNfceURL implements AllowUF {
             return "http://homolog.sefaz.go.gov.br/nfeweb/sites/nfce/danfeNFCe";
         }
     },
-    MA {
+    ES {
         @Override
         public String production() {
-            return "nfce.sefaz.ma.gov.br/portal/consultarNFCe.jsp";
+            return "http://app.sefaz.es.gov.br/ConsultaNFCe/qrcode.aspx";
         }
 
         @Override
         public String homologation() {
-            return "homologacao.sefaz.ma.gov.br/portal/consultarNFCe.jsp";
+            return "http://homologacao.sefaz.es.gov.br/ConsultaNFCe/qrcode.aspx";
+        }
+    },
+    MA {
+        @Override
+        public String production() {
+            return "http://www.nfce.sefaz.ma.gov.br/portal/consultarNFCe.jsp";
+        }
+
+        @Override
+        public String homologation() {
+            return "http://www.hom.nfce.sefaz.ma.gov.br/portal/consultarNFCe.jsp";
         }
     },
     MT {
@@ -164,12 +164,12 @@ public enum QrCodeNfceURL implements AllowUF {
     PB {
         @Override
         public String production() {
-            return "http://www.sefaz.pb.gov.br/nfce";
+            return "http://www.receita.pb.gov.br/nfce";
         }
 
         @Override
         public String homologation() {
-            return "http://www.sefaz.pb.gov.br/nfcehom";
+            return "http://www.receita.pb.gov.br/nfcehom";
         }
     },
     PR {
@@ -186,12 +186,12 @@ public enum QrCodeNfceURL implements AllowUF {
     PE {
         @Override
         public String production() {
-            return "http://nfce.sefaz.pe.gov.br/nfce/consulta";
+            return "http://nfce.sefaz.pe.gov.br/nfce-web/consultarNFCe";
         }
 
         @Override
         public String homologation() {
-            return "http://nfcehomolog.sefaz.pe.gov.br/nfce/consulta";
+            return "http://nfcehomolog.sefaz.pe.gov.br/nfce-web/consultarNFCe";
         }
     },
     PI {
@@ -260,6 +260,17 @@ public enum QrCodeNfceURL implements AllowUF {
             return "http://200.174.88.103:8080/nfce/servlet/qrcode";
         }
     },
+    SP {
+        @Override
+        public String production() {
+            return "https://www.nfce.fazenda.sp.gov.br/NFCeConsultaPublica/Paginas/ConsultaQRCode.aspx";
+        }
+
+        @Override
+        public String homologation() {
+            return "https://www.homologacao.nfce.fazenda.sp.gov.br/NFCeConsultaPublica/Paginas/ConsultaQRCode.aspx";
+        }
+    },
     SC {
         @Override
         public String production() {
@@ -271,26 +282,15 @@ public enum QrCodeNfceURL implements AllowUF {
             return "https://hom.sat.sef.sc.gov.br/nfce/consulta";
         }
     },
-    SP {
-        @Override
-        public String production() {
-            return "https://www.nfce.fazenda.sp.gov.br/qrcode";
-        }
-
-        @Override
-        public String homologation() {
-            return "https://www.homologacao.nfce.fazenda.sp.gov.br/qrcode";
-        }
-    },
     SE {
         @Override
         public String production() {
-            return "http://www.nfce.se.gov.br/nfce/qrcode";
+            return "http://www.nfce.se.gov.br/portal/consultarNFCe.jsp";
         }
 
         @Override
         public String homologation() {
-            return "http://www.hom.nfe.se.gov.br/nfce/qrcode";
+            return "http://www.hom.nfe.se.gov.br/portal/consultarNFCe.jsp";
         }
     },
     TO {
