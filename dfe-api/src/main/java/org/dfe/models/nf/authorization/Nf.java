@@ -1539,6 +1539,12 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
                 protected String vst;
                 protected String vfcpst;
                 protected String vfcpstRet;
+                protected String qbcMono;
+                protected String vicmsMono;
+                protected String qbcMonoReten;
+                protected String vicmsMonoReten;
+                protected String qbcMonoRet;
+                protected String vicmsMonoRet;
                 protected String vProd;
                 protected String vFrete;
                 protected String vSeg;
