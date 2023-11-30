@@ -1,6 +1,7 @@
 package org.dfe.models.nf.authorization;
 
 import br.inf.portalfiscal.nfe.send.*;
+import jakarta.xml.bind.annotation.XmlElement;
 import org.dfe.components.internal.AccessKeyGenerator;
 import org.dfe.components.internal.ProjectProperties;
 import org.dfe.components.internal.xml.objectfactory.NfObjectFactoryWrapperFactory;
@@ -614,7 +615,8 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
                     protected TUf ufCons;
                     protected CIDE cide;
                     protected Encerrante encerrante;
-
+                    protected String pBio;
+                    protected List<OrigComb> origComb;
                     @Getter
                     @Setter
                     @Builder
@@ -639,6 +641,18 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
                         protected String nTanque;
                         protected String vEncIni;
                         protected String vEncFin;
+                    }
+
+                    @Getter
+                    @Setter
+                    @Builder
+                    @ToString
+                    @AllArgsConstructor
+                    @NoArgsConstructor
+                    public static class OrigComb implements DFObject, XMLAdapter<OrigComb, TNFe.InfNFe.Det.Prod.Comb.OrigComb> {
+                        protected String indImport;
+                        protected String cufOrig;
+                        protected String pOrig;
                     }
                 }
             }
