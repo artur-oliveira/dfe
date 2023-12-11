@@ -12,7 +12,6 @@ import org.dfe.util.InputStreamUtils;
 
 import javax.net.ssl.KeyManager;
 import javax.net.ssl.TrustManager;
-import javax.net.ssl.X509KeyManager;
 import java.io.InputStream;
 import java.security.KeyStore;
 import java.time.ZonedDateTime;
@@ -32,19 +31,20 @@ public class PfxKeyStoreInfoImpl extends KeyStoreFactory {
         this(InputStreamUtils.newFileInputStream(certPath), certPassword, InputStreamUtils.newFileInputStream(chainPath), chainPassword);
     }
 
-    /**
-     * @see KeyStoreFactory
-     */
-    public PfxKeyStoreInfoImpl(InputStream cert, String certPassword) throws CertificateException {
-        this(cert, certPassword, InputStreamUtils.newByteArrayInputStream(CertificateChainFactory.getInstance().generate(Certificate.builder().build())), CertificateChainFactory.getInstance().getPassword());
+    public PfxKeyStoreInfoImpl(final InputStream cert, String certPassword) throws CertificateException {
+        this(cert, certPassword, CertificateChainFactory.getInstance().generate(Certificate.builder().build()), CertificateChainFactory.getInstance().getPassword());
     }
 
-    public PfxKeyStoreInfoImpl(InputStream cert, String certPassword, InputStream chain, String certChainPassword) throws CertificateException {
+    public PfxKeyStoreInfoImpl(final InputStream cert, String certPassword, final byte[] certChain, String certChainPassword) throws CertificateException {
+        this(cert, certPassword, InputStreamUtils.newByteArrayInputStream(certChain), certChainPassword);
+    }
+
+    public PfxKeyStoreInfoImpl(final InputStream cert, String certPassword, final InputStream chain, String certChainPassword) throws CertificateException {
         loadCertificate(cert, KeyType.PFX.getType(), certPassword);
         loadCertificateChain(chain, KeyType.JKS.getType(), certChainPassword);
     }
 
-    public void loadCertificate(InputStream inputStream, String type, String certificatePassword) throws CertificateException {
+    public void loadCertificate(final InputStream inputStream, String type, String certificatePassword) throws CertificateException {
         if (Objects.isNull(certificateKeyStore)) {
             try {
                 this.certificateKeyStore = KeyStoreParserFactory.getInstance().read(inputStream, type, certificatePassword);
@@ -65,9 +65,9 @@ public class PfxKeyStoreInfoImpl extends KeyStoreFactory {
             throw new CertificateException("Certificate cannot be null");
     }
 
-    public void loadCertificateChain(InputStream inputStream, String type, String certificateChainPassword) throws CertificateException {
+    public void loadCertificateChain(final InputStream inputStream, String type, String certificateChainPassword) throws CertificateException {
         if (Objects.isNull(certificateChainKeyStore)) {
-            try (InputStream is = inputStream) {
+            try (final InputStream is = inputStream) {
                 certificateChainKeyStore = KeyStore.getInstance(type);
                 certificateChainKeyStore.load(is, certificateChainPassword.toCharArray());
                 this.trustManagers = SocketFactory.createTrustManagers(certificateChainKeyStore);

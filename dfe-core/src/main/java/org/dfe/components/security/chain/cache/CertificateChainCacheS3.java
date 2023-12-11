@@ -15,15 +15,24 @@ import java.io.InputStream;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
+import java.util.Date;
+import java.util.Objects;
 
 final class CertificateChainCacheS3 extends CertificateChainCacheFactory {
+
+    private final boolean enableDayCache = DfeOptional.ofEmpty(System.getProperty("org.dfe.chain.cache.s3.enable-day-cache")).map(Boolean::parseBoolean).orElse(true);
+    private final String bucket = DfeOptional.ofEmpty(System.getProperty("org.dfe.chain.cache.s3.bucket")).orElseThrow(() -> new DfeOptionalException("org.dfe.chain.cache.s3.bucket must be set"));
 
     String getKeyName(CertificateChain chain) {
         return String.join("/", "chain", chain.fileName());
     }
 
     String getBucket() {
-        return DfeOptional.ofEmpty(System.getProperty("org.dfe.chain.cache.s3.bucket")).orElseThrow(() -> new DfeOptionalException("org.dfe.chain.cache.s3.bucket must be set"));
+        return bucket;
+    }
+
+    boolean canUseCache(Date cacheDate) {
+        return (Objects.nonNull(cacheDate) && ChronoUnit.DAYS.between(DateUtils.localDate(cacheDate), LocalDate.now()) < DAYS_IN_CACHE) || !enableDayCache;
     }
 
     @Override
@@ -31,7 +40,7 @@ final class CertificateChainCacheS3 extends CertificateChainCacheFactory {
         try {
             S3Object object = S3Utils.getObject(getBucket(), getKeyName(certificateChain));
 
-            if (ChronoUnit.DAYS.between(DateUtils.localDate(object.getObjectMetadata().getLastModified()), LocalDate.now()) < DAYS_IN_CACHE) {
+            if (canUseCache(object.getObjectMetadata().getLastModified())) {
                 try (InputStream is = object.getObjectContent()) {
                     return IOUtils.readAllBytes(is);
                 }
