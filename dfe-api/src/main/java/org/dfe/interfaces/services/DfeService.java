@@ -6,7 +6,6 @@ import org.dfe.interfaces.internal.config.CteConfig;
 import org.dfe.interfaces.internal.config.MdfeConfig;
 import org.dfe.interfaces.internal.config.NfceConfig;
 import org.dfe.interfaces.internal.config.NfeConfig;
-import org.dfe.interfaces.sefaz.cte.CteService;
 import org.dfe.interfaces.sefaz.cte4.Cte4Service;
 import org.dfe.interfaces.sefaz.mdfe.MdfeService;
 import org.dfe.interfaces.sefaz.nf.nfce.NfceService;
@@ -39,16 +38,6 @@ public interface DfeService {
      * @throws SoapServiceGeneralException SoapServiceGeneralException
      */
     NfceService getNfceService(NfceConfig config) throws NoProviderFound, SoapServiceGeneralException;
-
-    /**
-     * This function returns a CteService object that can be used to make calls to the CteService web service
-     *
-     * @param config The configuration object that contains the information needed to connect to the service.
-     * @return A CteService object.
-     * @throws NoProviderFound             NoProviderFound
-     * @throws SoapServiceGeneralException SoapServiceGeneralException
-     */
-    CteService getCteService(CteConfig config) throws NoProviderFound, SoapServiceGeneralException;
 
     Cte4Service getCte4Service(CteConfig config) throws NoProviderFound, SoapServiceGeneralException;
 

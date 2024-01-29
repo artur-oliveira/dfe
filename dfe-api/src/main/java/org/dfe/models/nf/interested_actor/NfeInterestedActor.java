@@ -1,6 +1,7 @@
 package org.dfe.models.nf.interested_actor;
 
 import br.inf.portalfiscal.nfe.event_interested_actor.TEvento;
+import lombok.*;
 import org.dfe.components.internal.ProjectProperties;
 import org.dfe.enums.internal.UF;
 import org.dfe.enums.nf.NFAuthor;
@@ -14,7 +15,6 @@ import org.dfe.util.DateUtils;
 import org.dfe.util.DfeOptional;
 import org.dfe.util.StringUtils;
 import org.dfe.util.XMLStringUtils;
-import lombok.*;
 
 @Getter
 @Setter
@@ -72,6 +72,9 @@ public class NfeInterestedActor implements DFObject, XMLAdapter<NfeInterestedAct
         @AllArgsConstructor
         @NoArgsConstructor
         public static class DetEvento implements DFObject, XMLAdapter<DetEvento, TEvento.InfEvento.DetEvento> {
+
+            public static final String CONDITION = "O emitente ou destinatário da NF-e, declara que permite o transportador declarado no campo CNPJ/CPF deste evento a autorizar os transportadores subcontratados ou redespachados a terem acesso ao download da NF-e";
+
             @Builder.Default
             protected String versao = NFEventVersion.getDefault().getVersion();
             @Builder.Default
@@ -85,7 +88,7 @@ public class NfeInterestedActor implements DFObject, XMLAdapter<NfeInterestedAct
             @Builder.Default
             protected String tpAutorizacao = NFDownloadAuthorization.YES.getCode();
             @Builder.Default
-            protected String xCondUso = "O emitente ou destinatário da NF-e, declara que permite o transportador declarado no campo CNPJ/CPF deste evento a autorizar os transportadores subcontratados ou redespachados a terem acesso ao download da NF-e";
+            protected String xCondUso = DetEvento.CONDITION;
 
             @ToString
             @Getter

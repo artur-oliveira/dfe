@@ -4,7 +4,10 @@ import org.dfe.exceptions.port.SoapServiceGeneralException;
 import org.dfe.interfaces.internal.config.CteConfig;
 import org.dfe.interfaces.internal.config.MdfeConfig;
 import org.dfe.interfaces.internal.config.NfConfig;
-import org.dfe.interfaces.sefaz.port.*;
+import org.dfe.interfaces.sefaz.port.Cte4SoapService;
+import org.dfe.interfaces.sefaz.port.MdfeSoapService;
+import org.dfe.interfaces.sefaz.port.NfceSoapService;
+import org.dfe.interfaces.sefaz.port.NfeSoapService;
 
 import java.util.Collection;
 
@@ -55,27 +58,9 @@ public abstract class SoapService {
      */
     public abstract Collection<? extends NfceSoapService> getAllNfceSoapService(NfConfig config) throws SoapServiceGeneralException;
 
-    /**
-     * This function returns a CteSoapService object that can be used to make calls to the CteSoapService
-     *
-     * @param config The configuration object that contains the information needed to connect to the CTE service.
-     * @return A CteSoapService object.
-     */
-    public abstract CteSoapService getCteSoapService(CteConfig config) throws SoapServiceGeneralException;
-
-
-    /**
-     * This function returns a collection of all the CteSoapService objects that are available for the given NfConfig
-     *
-     * @param config The configuration object that contains the information about the NF-e server.
-     * @return A collection of CteSoapService objects.
-     */
-    public abstract Collection<? extends CteSoapService> getAllCteSoapService(CteConfig config) throws SoapServiceGeneralException;
-
     public abstract Collection<? extends Cte4SoapService> getAllCte4SoapService(CteConfig config) throws SoapServiceGeneralException;
 
     public abstract Cte4SoapService getCte4SoapService(CteConfig config) throws SoapServiceGeneralException;
-
 
     /**
      * It returns a MdfeSoapService object, which is a class that implements the MdfeSoapService interface

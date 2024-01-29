@@ -1,8 +1,8 @@
 package org.dfe.interfaces.process.cte4;
 
 import org.dfe.interfaces.process.DfProcess;
-import org.dfe.interfaces.process.cte.distribution.AfterDistribution;
-import org.dfe.interfaces.process.cte.distribution.BeforeDistribution;
+import org.dfe.interfaces.process.cte4.distribution.AfterDistribution;
+import org.dfe.interfaces.process.cte4.distribution.BeforeDistribution;
 import org.dfe.interfaces.process.cte4.event.AfterEvent;
 import org.dfe.interfaces.process.cte4.event.BeforeEvent;
 import org.dfe.interfaces.process.cte4.query_situation.AfterQuerySituation;

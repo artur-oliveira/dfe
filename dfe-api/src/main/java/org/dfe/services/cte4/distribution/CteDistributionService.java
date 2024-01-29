@@ -7,13 +7,13 @@ import org.dfe.exceptions.port.SoapServiceGeneralException;
 import org.dfe.exceptions.security.SecurityException;
 import org.dfe.exceptions.services.NoProviderFound;
 import org.dfe.interfaces.internal.config.CteConfig;
-import org.dfe.interfaces.services.CteSefazService;
-import org.dfe.models.cte.distribution.CteDistribution;
-import org.dfe.models.cte.distribution.CteDistributionRequest;
-import org.dfe.models.cte.distribution.CteReturnDistribution;
+import org.dfe.interfaces.services.Cte4SefazService;
+import org.dfe.models.cte4.distribution.CteDistribution;
+import org.dfe.models.cte4.distribution.CteDistributionRequest;
+import org.dfe.models.cte4.distribution.CteReturnDistribution;
 import org.dfe.util.StringUtils;
 
-public interface CteDistributionService extends CteSefazService {
+public interface CteDistributionService extends Cte4SefazService {
 
     /**
      * A function that returns a CteReturnDistribution object.
@@ -33,7 +33,7 @@ public interface CteDistributionService extends CteSefazService {
                                         .config(config)
                                         .beforeRequest(getProcess().beforeDistribution())
                                         .afterRequest(getProcess().afterDistribution())
-                                        .validators(getValidatorFactory().cteValidator().distributionValidators())
+                                        .validators(getValidatorFactory().cte4Validator().distributionValidators())
                                         .configureProvider(getConfigureProviderFactory())
                                         .build())
                                 .second()

@@ -1,6 +1,5 @@
 package org.dfe.components.process;
 
-import org.dfe.components.process.cte.CteProcessFactory;
 import org.dfe.components.process.cte4.Cte4ProcessFactory;
 import org.dfe.components.process.mdfe.MdfeProcessFactory;
 import org.dfe.components.process.nf.NfProcessFactory;
@@ -20,8 +19,6 @@ public abstract class ProcessFactory {
     }
 
     public abstract NfProcessFactory nf();
-
-    public abstract CteProcessFactory cte();
 
     public abstract Cte4ProcessFactory cte4();
 

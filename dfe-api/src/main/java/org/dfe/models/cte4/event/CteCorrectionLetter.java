@@ -1,6 +1,7 @@
 package org.dfe.models.cte4.event;
 
 import br.inf.portalfiscal.cte.send400.TEvento;
+import lombok.*;
 import org.dfe.components.internal.xml.marshaller.CteMarshallerFactory;
 import org.dfe.components.internal.xml.unmarshaller.CteUnmarshallerFactory;
 import org.dfe.enums.cte.CteEvent;
@@ -10,7 +11,6 @@ import org.dfe.interfaces.xml.XMLAdapter;
 import org.dfe.interfaces.xml.generic.DFObject;
 import org.dfe.util.DateUtils;
 import org.dfe.util.XMLStringUtils;
-import lombok.*;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -114,13 +114,16 @@ public final class CteCorrectionLetter implements DFObject, XMLAdapter<CteCorrec
             @NoArgsConstructor
             @Builder
             public static final class EvCCeCTe implements DFObject, XMLAdapter<EvCCeCTe, br.inf.portalfiscal.cte.send400.EvCCeCTe> {
+                public static final String CONDITION_1 = "A Carta de Correção é disciplinada pelo Art. 58-B do CONVÊNIO/SINIEF 06/89: Fica permitida a utilização de carta de correção, para regularização de erro ocorrido na emissão de documentos fiscais relativos à prestação de serviço de transporte, desde que o erro não esteja relacionado com: I - as variáveis que determinam o valor do imposto tais como: base de cálculo, alíquota, diferença de preço, quantidade, valor da prestação;II - a correção de dados cadastrais que implique mudança do emitente, tomador, remetente ou do destinatário;III - a data de emissão ou de saída.";
+                public static final String CONDITION_2 = "A Carta de Correcao e disciplinada pelo Art. 58-B do CONVENIO/SINIEF 06/89: Fica permitida a utilizacao de carta de correcao, para regularizacao de erro ocorrido na emissao de documentos fiscais relativos a prestacao de servico de transporte, desde que o erro nao esteja relacionado com: I - as variaveis que determinam o valor do imposto tais como: base de calculo, aliquota, diferenca de preco, quantidade, valor da prestacao;II - a correcao de dados cadastrais que implique mudanca do emitente, tomador, remetente ou do destinatario;III - a data de emissao ou de saida.";
+
                 @Builder.Default
                 private String descEvento = CteEvent.CORRECTION_LETTER.getDescription();
 
                 @Builder.Default
                 private List<InfCorrecao> infCorrecao = new ArrayList<>();
                 @Builder.Default
-                private String xCondUso = "A Carta de Correção é disciplinada pelo Art. 58-B do CONVÊNIO/SINIEF 06/89: Fica permitida a utilização de carta de correção, para regularização de erro ocorrido na emissão de documentos fiscais relativos à prestação de serviço de transporte, desde que o erro não esteja relacionado com: I - as variáveis que determinam o valor do imposto tais como: base de cálculo, alíquota, diferença de preço, quantidade, valor da prestação;II - a correção de dados cadastrais que implique mudança do emitente, tomador, remetente ou do destinatário;III - a data de emissão ou de saída.";
+                private String xCondUso = EvCCeCTe.CONDITION_1;
 
                 @Data
                 @AllArgsConstructor

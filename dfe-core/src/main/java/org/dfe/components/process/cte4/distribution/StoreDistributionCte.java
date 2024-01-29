@@ -4,7 +4,7 @@ import br.inf.portalfiscal.cte.distribution.DistDFeInt;
 import org.dfe.components.internal.xml.marshaller.CteMarshallerFactory;
 import org.dfe.exceptions.ProcessException;
 import org.dfe.interfaces.process.BeforeRequest;
-import org.dfe.interfaces.process.cte.distribution.BeforeDistribution;
+import org.dfe.interfaces.process.cte4.distribution.BeforeDistribution;
 import org.dfe.interfaces.storage.cte.CteDistributionStorage;
 import org.dfe.models.internal.xml.XMLStore;
 

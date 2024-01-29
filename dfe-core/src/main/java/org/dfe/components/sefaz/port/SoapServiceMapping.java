@@ -18,13 +18,11 @@ public final class SoapServiceMapping {
 
     private final static String PATH_NFE_WSDL = "br.inf.portalfiscal.nfe.wsdl";
     private final static String PATH_NFCE_WSDL = "br.inf.portalfiscal.nfce.wsdl";
-    private final static String PATH_CTE_WSDL = "br.inf.portalfiscal.cte.wsdl";
     private final static String PATH_CTE4_WSDL = "br.inf.portalfiscal.cte4.wsdl";
     private final static String PATH_MDFE_WSDL = "br.inf.portalfiscal.mdfe.wsdl";
 
     private final Set<Class<?>> servicesNfe = ReflectionUtils.findAllClasses(PackageFinder.builder().packages(Collections.singletonList(SoapServiceMapping.PATH_NFE_WSDL)).assignables(Collections.singleton(Service.class)).build());
     private final Set<Class<?>> servicesNfce = ReflectionUtils.findAllClasses(PackageFinder.builder().packages(Collections.singletonList(SoapServiceMapping.PATH_NFCE_WSDL)).assignables(Collections.singleton(Service.class)).build());
-    private final Set<Class<?>> servicesCte = ReflectionUtils.findAllClasses(PackageFinder.builder().packages(Collections.singletonList(SoapServiceMapping.PATH_CTE_WSDL)).assignables(Collections.singleton(Service.class)).build());
     private final Set<Class<?>> servicesCte4 = ReflectionUtils.findAllClasses(PackageFinder.builder().packages(Collections.singletonList(SoapServiceMapping.PATH_CTE4_WSDL)).assignables(Collections.singleton(Service.class)).build());
     private final Set<Class<?>> servicesMdfe = ReflectionUtils.findAllClasses(PackageFinder.builder().packages(Collections.singletonList(SoapServiceMapping.PATH_MDFE_WSDL)).assignables(Collections.singleton(Service.class)).build());
 
@@ -63,15 +61,6 @@ public final class SoapServiceMapping {
         return getServicesNfce().stream().filter(finder::found).findFirst().orElse(null);
     }
 
-    /**
-     * Return the first CteService class that matches the given CteServiceFinder.
-     *
-     * @param finder a lambda expression that returns true if the service is found.
-     * @return A class object.
-     */
-    public Class<?> getCteServiceClassFor(CteServiceFinder finder) {
-        return getServicesCte().stream().filter(finder::found).findFirst().orElse(null);
-    }
 
     public Class<?> getCte4ServiceClassFor(Cte4ServiceFinder finder) {
         return getServicesCte4().stream().filter(finder::found).findFirst().orElse(null);
