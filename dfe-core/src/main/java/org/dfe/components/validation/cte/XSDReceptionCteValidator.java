@@ -18,9 +18,14 @@ public final class XSDReceptionCteValidator implements CteReceptionCteValidator 
     public void valid(Validation<TEnviCTe> o) throws ValidationException {
         CteVersion eventVersion = CteVersion.valueOfVersion(o.value().getVersao());
         XMLValidatorFactory.getInstance().validateXML(new XMLValidation(eventVersion.getXsdPath("enviCTe_v"), o.xml()));
+
         if (Objects.equals(eventVersion, CteVersion.VERSION_400)) {
 
             for (TCTe it : o.value().getCTe()) {
+                if (Objects.isNull(it.getInfCte().getInfCTeNorm()) || Objects.isNull(it.getInfCte().getInfCTeNorm().getInfModal())) {
+                    continue;
+                }
+
                 switch (CteModal.valueOfCode(it.getInfCte().getIde().getModal())) {
                     case AEREO ->
                             XMLValidatorFactory.getInstance().validateXML(new XMLValidation(eventVersion.getXsdPath("cteModalAereo_v"), CteMarshallerFactory.getInstance().any400(it.getInfCte().getInfCTeNorm().getInfModal().getAny())));
