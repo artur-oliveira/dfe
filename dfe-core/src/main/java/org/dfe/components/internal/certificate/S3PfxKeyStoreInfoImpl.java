@@ -9,5 +9,9 @@ public final class S3PfxKeyStoreInfoImpl extends PfxKeyStoreInfoImpl {
         super(S3Utils.clientInstance().getObject(bucket, key).getObjectContent(), certificatePassword);
     }
 
+    public S3PfxKeyStoreInfoImpl(String bucket, String key, String certificatePassword, final byte[] certificateChain, final String certificateChainPassword) throws CertificateException {
+        super(S3Utils.clientInstance().getObject(bucket, key).getObjectContent(), certificatePassword, certificateChain, certificateChainPassword);
+    }
+
 
 }

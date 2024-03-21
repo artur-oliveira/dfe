@@ -18,6 +18,10 @@ public final class XSDReceptionCteSyncValidator implements Cte4ReceptionCteSyncV
         CteVersion eventVersion = CteVersion.valueOfVersion(o.value().getInfCte().getVersao());
         XMLValidatorFactory.getInstance().validateXML(new XMLValidation(eventVersion.getXsdPath("cte_v"), o.xml()));
 
+        if (Objects.isNull(o.value().getInfCte().getInfCTeNorm()) || Objects.isNull(o.value().getInfCte().getInfCTeNorm().getInfModal())) {
+            return;
+        }
+
         if (Objects.equals(eventVersion, CteVersion.VERSION_400)) {
             switch (CteModal.valueOfCode(o.value().getInfCte().getIde().getModal())) {
                 case AEREO ->

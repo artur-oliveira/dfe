@@ -184,7 +184,7 @@ public final class Cte implements DFObject, XMLAdapter<Cte, TCTe> {
         private VPrest vPrest;
         private Imp imp;
         private InfCTeNorm infCTeNorm;
-        private InfCteComp infCteComp;
+        private List<InfCteComp> infCteComp;
         private List<AutXML> autXML;
         private TRespTec infRespTec;
         private InfSolicNFF infSolicNFF;
