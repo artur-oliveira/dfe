@@ -1,8 +1,8 @@
 package org.dfe.components.process.cte4.distribution.impl.nostore;
 
 import org.dfe.components.process.cte4.distribution.impl.DistributionCteProcessFactory;
-import org.dfe.interfaces.process.cte.distribution.AfterDistribution;
-import org.dfe.interfaces.process.cte.distribution.BeforeDistribution;
+import org.dfe.interfaces.process.cte4.distribution.AfterDistribution;
+import org.dfe.interfaces.process.cte4.distribution.BeforeDistribution;
 
 import java.util.Collection;
 import java.util.Collections;

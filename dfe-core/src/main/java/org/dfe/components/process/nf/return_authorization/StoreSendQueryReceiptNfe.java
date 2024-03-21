@@ -1,13 +1,13 @@
 package org.dfe.components.process.nf.return_authorization;
 
 import br.inf.portalfiscal.nfe.send.TConsReciNFe;
+import lombok.extern.log4j.Log4j2;
 import org.dfe.components.internal.xml.marshaller.NfMarshallerFactory;
 import org.dfe.exceptions.ProcessException;
 import org.dfe.interfaces.process.BeforeRequest;
 import org.dfe.interfaces.process.nf.return_authorization.BeforeReturnAuthorization;
 import org.dfe.interfaces.storage.nf.common.NfReturnAuthorizationStorage;
 import org.dfe.models.internal.xml.XMLStore;
-import lombok.extern.log4j.Log4j2;
 
 import java.util.Objects;
 

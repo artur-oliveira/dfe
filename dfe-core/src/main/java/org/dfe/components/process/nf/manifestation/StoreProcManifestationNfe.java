@@ -3,13 +3,13 @@ package org.dfe.components.process.nf.manifestation;
 import br.inf.portalfiscal.nfe.event_manifestation.TEnvEvento;
 import br.inf.portalfiscal.nfe.event_manifestation.TProcEvento;
 import br.inf.portalfiscal.nfe.event_manifestation.TRetEnvEvento;
+import lombok.extern.log4j.Log4j2;
 import org.dfe.components.internal.xml.marshaller.NfMarshallerFactory;
 import org.dfe.exceptions.ProcessException;
 import org.dfe.interfaces.process.AfterRequest;
 import org.dfe.interfaces.process.nf.manifestation.AfterManifestation;
 import org.dfe.interfaces.storage.nf.NfeManifestationStorage;
 import org.dfe.models.internal.xml.XMLStore;
-import lombok.extern.log4j.Log4j2;
 
 import java.util.Objects;
 

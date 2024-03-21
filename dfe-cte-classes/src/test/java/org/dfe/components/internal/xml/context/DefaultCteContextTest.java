@@ -7,11 +7,6 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 class DefaultCteContextTest {
 
     @Test
-    void testGetCteSendContext() {
-        assertNotNull(new DefaultCteContext().getCteSendContext());
-    }
-
-    @Test
     void testGetCte400SendContext() {
         assertNotNull(new DefaultCteContext().getCte400SendContext());
     }

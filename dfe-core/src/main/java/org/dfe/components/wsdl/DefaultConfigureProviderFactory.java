@@ -1,13 +1,13 @@
 package org.dfe.components.wsdl;
 
+import jakarta.xml.ws.BindingProvider;
+import lombok.AccessLevel;
+import lombok.Getter;
 import org.dfe.components.internal.xml.handler.CustomSoapHandler;
 import org.dfe.components.security.socket.SocketFactory;
 import org.dfe.exceptions.security.SecurityException;
 import org.dfe.interfaces.internal.config.Config;
 import org.dfe.models.internal.wsdl.ProviderConfig;
-import jakarta.xml.ws.BindingProvider;
-import lombok.AccessLevel;
-import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.Collections;

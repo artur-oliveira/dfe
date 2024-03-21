@@ -1,8 +1,6 @@
 package org.dfe.components.sefaz.port;
 
-import org.dfe.components.sefaz.port.cte.AbstractCteSoapService;
-import org.dfe.components.sefaz.port.cte.initializer.ConfigCteSoapServiceInitializer;
-import org.dfe.components.sefaz.port.cte.initializer.ProxyCteSoapServiceInitializer;
+import lombok.Data;
 import org.dfe.components.sefaz.port.cte4.AbstractCte4SoapService;
 import org.dfe.components.sefaz.port.cte4.initializer.ConfigCte4SoapServiceInitializer;
 import org.dfe.components.sefaz.port.cte4.initializer.ProxyCte4SoapServiceInitializer;
@@ -17,7 +15,6 @@ import org.dfe.components.sefaz.port.nfe.initializer.ConfigNfeSoapServiceInitial
 import org.dfe.components.sefaz.port.nfe.initializer.ProxyNfeSoapServiceInitializer;
 import org.dfe.exceptions.port.SoapServiceInitializationException;
 import org.dfe.interfaces.sefaz.port.CommonSoapService;
-import lombok.Data;
 
 import java.util.Objects;
 
@@ -43,16 +40,6 @@ public abstract class SoapServiceInitializer<T extends CommonSoapService> {
      */
     public static SoapServiceInitializer<AbstractNfceSoapService> nfce() {
         return SoapServiceInitializer.link(new ProxyNfceSoapServiceInitializer(), new ConfigNfceSoapServiceInitializer());
-    }
-
-    /**
-     * "Create a new instance of the ProxyCteSoapServiceInitializer class and pass it to the
-     * ConfigCteSoapServiceInitializer class, then return the result of the ConfigCteSoapServiceInitializer class."
-     *
-     * @return A SoapServiceInitializer object.
-     */
-    public static SoapServiceInitializer<AbstractCteSoapService> cte() {
-        return SoapServiceInitializer.link(new ProxyCteSoapServiceInitializer(), new ConfigCteSoapServiceInitializer());
     }
 
     public static SoapServiceInitializer<AbstractCte4SoapService> cte4() {

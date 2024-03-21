@@ -4,6 +4,8 @@ import br.inf.portalfiscal.nfe.distribution.TDistDFeInt;
 import br.inf.portalfiscal.nfe.distribution.TRetDistDFeInt;
 import br.inf.portalfiscal.nfe.event_manifestation.TEnvEvento;
 import br.inf.portalfiscal.nfe.event_manifestation.TRetEnvEvento;
+import jakarta.xml.bind.JAXBElement;
+import jakarta.xml.ws.BindingProvider;
 import org.dfe.components.internal.PairImpl;
 import org.dfe.components.internal.xml.marshaller.NfMarshallerFactory;
 import org.dfe.components.internal.xml.unmarshaller.NfUnmarshallerFactory;
@@ -20,8 +22,6 @@ import org.dfe.models.internal.After;
 import org.dfe.models.internal.Before;
 import org.dfe.models.internal.Validation;
 import org.dfe.models.internal.wsdl.ProviderConfig;
-import jakarta.xml.bind.JAXBElement;
-import jakarta.xml.ws.BindingProvider;
 
 @SuppressWarnings("unchecked")
 public abstract class NfeAnService implements NfeService {

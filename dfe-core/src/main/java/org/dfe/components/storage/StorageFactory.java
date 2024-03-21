@@ -1,6 +1,5 @@
 package org.dfe.components.storage;
 
-import org.dfe.interfaces.storage.cte.CteStorage;
 import org.dfe.interfaces.storage.mdfe.MdfeStorage;
 import org.dfe.interfaces.storage.nf.NfceStorage;
 import org.dfe.interfaces.storage.nf.NfeStorage;
@@ -29,8 +28,6 @@ public abstract class StorageFactory {
     public abstract NfeStorage getNfeStorage();
 
     public abstract NfceStorage getNfceStorage();
-
-    public abstract CteStorage getCteStorage();
 
     public abstract org.dfe.interfaces.storage.cte4.CteStorage getCte4Storage();
 

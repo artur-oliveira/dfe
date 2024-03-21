@@ -5,10 +5,9 @@ import org.dfe.enums.internal.Environment;
 import org.dfe.enums.internal.UF;
 import org.dfe.exceptions.services.NoProviderFound;
 import org.dfe.interfaces.internal.allow.AllowUF;
-import org.dfe.models.cte.reception.Cte;
-import org.dfe.models.cte.reception_gtve.Gtve;
-import org.dfe.models.cte.reception_os.CteOs;
-import org.dfe.models.internal.cte.*;
+import org.dfe.models.internal.cte.Cte4QrCode;
+import org.dfe.models.internal.cte.CteOs4QrCode;
+import org.dfe.models.internal.cte.Gtve4QrCode;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -118,24 +117,12 @@ public enum QrCodeCteURL implements AllowUF {
         return environment.production() ? serviceURL.production() : serviceURL.homologation();
     }
 
-    public static String generate(Cte cte) throws NoProviderFound {
-        return QrCodeGeneratorFactory.getInstance().generate(CteQrCode.builder().cte(cte).build());
-    }
-
     public static String generate(org.dfe.models.cte4.reception_sync.Cte cte) throws NoProviderFound {
         return QrCodeGeneratorFactory.getInstance().generate(Cte4QrCode.builder().cte(cte).build());
     }
 
-    public static String generate(Gtve gtve) throws NoProviderFound {
-        return QrCodeGeneratorFactory.getInstance().generate(GtveQrCode.builder().gtve(gtve).build());
-    }
-
     public static String generate(org.dfe.models.cte4.reception_gtve.Gtve gtve) throws NoProviderFound {
         return QrCodeGeneratorFactory.getInstance().generate(Gtve4QrCode.builder().gtve(gtve).build());
-    }
-
-    public static String generate(CteOs cteOs) throws NoProviderFound {
-        return QrCodeGeneratorFactory.getInstance().generate(CteOsQrCode.builder().cteOs(cteOs).build());
     }
 
     public static String generate(org.dfe.models.cte4.reception_os.CteOs cteOs) throws NoProviderFound {

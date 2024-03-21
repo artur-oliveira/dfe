@@ -1,6 +1,5 @@
 package org.dfe.components.process;
 
-import org.dfe.components.process.cte.CteProcessFactory;
 import org.dfe.components.process.cte4.Cte4ProcessFactory;
 import org.dfe.components.process.mdfe.MdfeProcessFactory;
 import org.dfe.components.process.nf.NfProcessFactory;
@@ -10,11 +9,6 @@ final class DefaultS3StorageProcessFactory extends ProcessFactory {
     @Override
     public NfProcessFactory nf() {
         return NfProcessFactory.s3StorageProcess();
-    }
-
-    @Override
-    public CteProcessFactory cte() {
-        return CteProcessFactory.s3StorageProcess();
     }
 
     @Override

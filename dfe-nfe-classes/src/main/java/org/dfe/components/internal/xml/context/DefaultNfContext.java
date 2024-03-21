@@ -25,33 +25,33 @@ final class DefaultNfContext extends NfContextFactory {
     DefaultNfContext() {
         // EVENT
 
-        this.nfeEventContext = JAXBContext.newInstance("br.inf.portalfiscal.nfe.event_generic");
+        this.nfeEventContext = JAXBContext.newInstance(br.inf.portalfiscal.nfe.event_generic.ObjectFactory.class);
         // CANCEL
-        this.nfeCancelContext = JAXBContext.newInstance("br.inf.portalfiscal.nfe.event_cancel");
+        this.nfeCancelContext = JAXBContext.newInstance(br.inf.portalfiscal.nfe.event_cancel.ObjectFactory.class);
 
         // SUBSTITUTE CANCEL
-        this.nfeSubstituteCancelContext = JAXBContext.newInstance("br.inf.portalfiscal.nfe.event_substitute_cancel");
+        this.nfeSubstituteCancelContext = JAXBContext.newInstance(br.inf.portalfiscal.nfe.event_substitute_cancel.ObjectFactory.class);
 
         // SEND
-        this.nfeSendContext = JAXBContext.newInstance("br.inf.portalfiscal.nfe.send");
+        this.nfeSendContext = JAXBContext.newInstance(br.inf.portalfiscal.nfe.send.ObjectFactory.class);
 
         // DISTRIBUTION
-        this.nfeDistributionContext = JAXBContext.newInstance("br.inf.portalfiscal.nfe.distribution");
+        this.nfeDistributionContext = JAXBContext.newInstance(br.inf.portalfiscal.nfe.distribution.ObjectFactory.class);
 
         // MANIFESTATION
-        this.nfeManifestationContext = JAXBContext.newInstance("br.inf.portalfiscal.nfe.event_manifestation");
+        this.nfeManifestationContext = JAXBContext.newInstance(br.inf.portalfiscal.nfe.event_manifestation.ObjectFactory.class);
 
         // EPEC
-        this.nfeEpecContext = JAXBContext.newInstance("br.inf.portalfiscal.nfe.event_epec");
+        this.nfeEpecContext = JAXBContext.newInstance(br.inf.portalfiscal.nfe.event_epec.ObjectFactory.class);
 
         // CORRECTION LETTER
-        this.nfeCorrectionLetterContext = JAXBContext.newInstance("br.inf.portalfiscal.nfe.event_correction_letter");
+        this.nfeCorrectionLetterContext = JAXBContext.newInstance(br.inf.portalfiscal.nfe.event_correction_letter.ObjectFactory.class);
 
         // INTERESTED ACTOR
-        this.nfeInterestedActorContext = JAXBContext.newInstance("br.inf.portalfiscal.nfe.event_interested_actor");
+        this.nfeInterestedActorContext = JAXBContext.newInstance(br.inf.portalfiscal.nfe.event_interested_actor.ObjectFactory.class);
 
         // GTIN
-        this.nfeGtinContext = JAXBContext.newInstance("br.inf.portalfiscal.nfe.gtin");
+        this.nfeGtinContext = JAXBContext.newInstance(br.inf.portalfiscal.nfe.gtin.ObjectFactory.class);
     }
 
 }

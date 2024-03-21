@@ -94,12 +94,12 @@ public abstract class GenericCteStorage extends CommonStorage implements CteStor
 
                 if (Objects.nonNull(o.data().getProtCTe())) {
                     try {
-                        accessKey = CteUnmarshallerFactory.getInstance().protCTe(o.data().getProtCTe().getAny()).getValue().getInfProt().getChCTe();
+                        accessKey = CteUnmarshallerFactory.getInstance().protCTe400(o.data().getProtCTe().getAny()).getValue().getInfProt().getChCTe();
                     } catch (MarshallException e1) {
                         try {
-                            accessKey = CteUnmarshallerFactory.getInstance().protCTeOS(o.data().getProtCTe().getAny()).getValue().getInfProt().getChCTe();
+                            accessKey = CteUnmarshallerFactory.getInstance().protCTeOS400(o.data().getProtCTe().getAny()).getValue().getInfProt().getChCTe();
                         } catch (MarshallException e2) {
-                            accessKey = CteUnmarshallerFactory.getInstance().protGTVe(o.data().getProtCTe().getAny()).getValue().getInfProt().getChCTe();
+                            accessKey = CteUnmarshallerFactory.getInstance().protGTVe400(o.data().getProtCTe().getAny()).getValue().getInfProt().getChCTe();
                         }
                     }
                 }

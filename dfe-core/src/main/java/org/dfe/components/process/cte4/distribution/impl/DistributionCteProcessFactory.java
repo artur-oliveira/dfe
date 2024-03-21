@@ -6,8 +6,8 @@ import org.dfe.components.process.cte4.distribution.impl.file.FileSystemDistribu
 import org.dfe.components.process.cte4.distribution.impl.nostore.NoStoreDistributionCteFactory;
 import org.dfe.components.process.cte4.distribution.impl.s3.S3DistributionCteFactory;
 import org.dfe.interfaces.process.ProcessFactory;
-import org.dfe.interfaces.process.cte.distribution.AfterDistribution;
-import org.dfe.interfaces.process.cte.distribution.BeforeDistribution;
+import org.dfe.interfaces.process.cte4.distribution.AfterDistribution;
+import org.dfe.interfaces.process.cte4.distribution.BeforeDistribution;
 
 import java.util.Collection;
 

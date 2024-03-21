@@ -1,11 +1,11 @@
 package org.dfe.components.sefaz.port.nfe.initializer;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.dfe.components.sefaz.port.SoapServiceInitializer;
 import org.dfe.components.sefaz.port.nfe.AbstractNfeSoapService;
 import org.dfe.exceptions.port.SoapServiceInitializationException;
 import org.dfe.exceptions.security.SSLContextException;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 @EqualsAndHashCode(callSuper = true)
 @Data

@@ -3,6 +3,7 @@ package org.dfe.components.sefaz.nfce;
 import br.inf.portalfiscal.nfe.event_substitute_cancel.TEnvEvento;
 import br.inf.portalfiscal.nfe.event_substitute_cancel.TRetEnvEvento;
 import br.inf.portalfiscal.nfe.send.*;
+import jakarta.xml.bind.JAXBElement;
 import org.dfe.components.internal.PairImpl;
 import org.dfe.components.internal.xml.marshaller.NfMarshallerFactory;
 import org.dfe.components.internal.xml.unmarshaller.NfUnmarshallerFactory;
@@ -22,7 +23,6 @@ import org.dfe.interfaces.validation.Validator;
 import org.dfe.models.internal.After;
 import org.dfe.models.internal.Before;
 import org.dfe.models.internal.Validation;
-import jakarta.xml.bind.JAXBElement;
 
 import java.util.Collection;
 import java.util.Objects;

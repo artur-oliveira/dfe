@@ -2,15 +2,14 @@ package org.dfe.components.internal.xml.marshaller;
 
 import br.inf.portalfiscal.cte.distribution.DistDFeInt;
 import br.inf.portalfiscal.cte.distribution.RetDistDFeInt;
-import br.inf.portalfiscal.cte.send.*;
+import jakarta.xml.bind.JAXBElement;
+import jakarta.xml.bind.JAXBException;
+import jakarta.xml.bind.Marshaller;
 import org.dfe.components.internal.xml.context.CteContextFactory;
 import org.dfe.components.internal.xml.objectfactory.CteObjectFactoryWrapperFactory;
 import org.dfe.exceptions.xml.MarshallException;
 import org.dfe.util.XMLStringUtils;
 import org.dfe.util.XMLUtils;
-import jakarta.xml.bind.JAXBElement;
-import jakarta.xml.bind.JAXBException;
-import jakarta.xml.bind.Marshaller;
 import org.w3c.dom.Element;
 
 import javax.xml.transform.dom.DOMSource;
@@ -18,14 +17,6 @@ import javax.xml.transform.stream.StreamResult;
 import java.io.StringWriter;
 
 final class DefaultCteMarshaller extends CteMarshallerFactory {
-
-    Marshaller cteSendMarshaller() {
-        try {
-            return CteContextFactory.getInstance().getCteSendContext().createMarshaller();
-        } catch (JAXBException e) {
-            throw new MarshallException(e);
-        }
-    }
 
     Marshaller cteSend400Marshaller() {
         try {
@@ -37,10 +28,6 @@ final class DefaultCteMarshaller extends CteMarshallerFactory {
 
     String marshallDistribution(JAXBElement<?> el) {
         return XMLUtils.marshall(CteContextFactory.getInstance().getCteDistributionContext(), el);
-    }
-
-    String marshallSend(JAXBElement<?> el) {
-        return XMLUtils.marshall(CteContextFactory.getInstance().getCteSendContext(), el);
     }
 
     String marshallSend400(JAXBElement<?> el) {
@@ -55,127 +42,6 @@ final class DefaultCteMarshaller extends CteMarshallerFactory {
     @Override
     public String returnDistributionCte(RetDistDFeInt data) {
         return marshallDistribution(CteObjectFactoryWrapperFactory.getInstance().getDistributionObjectFactory().createRetDistDFeInt(data));
-    }
-
-    @Override
-    public String eventCte(TEvento data) {
-        return marshallSend(CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createEventoCTe(data));
-    }
-
-    @Override
-    public String returnEventCte(TRetEvento data) {
-        return marshallSend(CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createRetEventoCTe(data));
-    }
-
-    @Override
-    public String procEventCte(TProcEvento data) {
-        return marshallSend(CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createProcEventoCTe(data));
-    }
-
-    @Override
-    public String inutilizationCte(TInutCTe data) {
-        return marshallSend(CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createInutCTe(data));
-    }
-
-    @Override
-    public String returnInutilizationCte(TRetInutCTe data) {
-        return marshallSend(CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createRetInutCTe(data));
-    }
-
-    @Override
-    public String procInutilizationCte(TProcInutCTe data) {
-        return marshallSend(CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createProcInutCTe(data));
-    }
-
-    @Override
-    public String querySituationCte(TConsSitCTe data) {
-        return marshallSend(CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createConsSitCTe(data));
-    }
-
-    @Override
-    public String returnQuerySituationCte(TRetConsSitCTe data) {
-        return marshallSend(CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createRetConsSitCTe(data));
-    }
-
-    @Override
-    public String receptionCte(TEnviCTe data) {
-        return marshallSend(CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createEnviCTe(data));
-    }
-
-    @Override
-    public String returnReceptionCte(TRetEnviCTe data) {
-        return marshallSend(CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createRetEnviCte(data));
-    }
-
-    @Override
-    public String cteProc(TCteProc data) {
-        return marshallSend(CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createCteProc(data));
-    }
-
-    @Override
-    public String receptionGtve(TGTVe data) {
-        return marshallSend(CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createGTVe(data));
-    }
-
-
-    @Override
-    public String returnReceptionGtve(TRetGTVe data) {
-        return marshallSend(CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createRetGTVe(data));
-    }
-
-    @Override
-    public String gtveProc(TGTVeProc data) {
-        return marshallSend(CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createGTVeProc(data));
-    }
-
-    @Override
-    public String receptionCteOs(TCTeOS data) {
-        return marshallSend(CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createCTeOS(data));
-    }
-
-    @Override
-    public String returnReceptionCteOs(TRetCTeOS data) {
-        return marshallSend(CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createRetCTeOS(data));
-    }
-
-    @Override
-    public String cteOsProc(TCteOSProc data) {
-        return marshallSend(CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createCteOSProc(data));
-    }
-
-    @Override
-    public String receptionCteSync(TCTe data) {
-        return marshallSend(CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createCTe(data));
-    }
-
-    @Override
-    public String returnReceptionCteSync(TRetCTe data) {
-        return marshallSend(CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createRetCTe(data));
-    }
-
-    @Override
-    public String cteProcSync(TCteProc data) {
-        return marshallSend(CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createCteProc(data));
-    }
-
-    @Override
-    public String queryReceipt(TConsReciCTe data) {
-        return marshallSend(CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createConsReciCTe(data));
-    }
-
-    @Override
-    public String returnQueryReceipt(TRetConsReciCTe data) {
-        return marshallSend(CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createRetConsReciCTe(data));
-    }
-
-    @Override
-    public String statusService(TConsStatServ data) {
-        return marshallSend(CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createConsStatServCte(data));
-    }
-
-    @Override
-    public String returnStatusService(TRetConsStatServ data) {
-        return marshallSend(CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createRetConsStatServCte(data));
     }
 
 
@@ -360,81 +226,6 @@ final class DefaultCteMarshaller extends CteMarshallerFactory {
         } catch (Exception e) {
             throw new MarshallException(e);
         }
-    }
-
-    @Override
-    public Element toElement(EvCancCTe o) {
-        return XMLUtils.toElement(CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createEvCancCTe(o), cteSendMarshaller());
-    }
-
-    @Override
-    public Element toElement(RodoOS o) {
-        return XMLUtils.toElement(CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createRodoOS(o), cteSendMarshaller());
-    }
-
-    @Override
-    public Element toElement(EvCCeCTe o) {
-        return XMLUtils.toElement(CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createEvCCeCTe(o), cteSendMarshaller());
-    }
-
-    @Override
-    public Element toElement(EvCECTe o) {
-        return XMLUtils.toElement(CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createEvCECTe(o), cteSendMarshaller());
-    }
-
-    @Override
-    public Element toElement(EvCancCECTe o) {
-        return XMLUtils.toElement(CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createEvCancCECTe(o), cteSendMarshaller());
-    }
-
-    @Override
-    public Element toElement(EvEPECCTe o) {
-        return XMLUtils.toElement(CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createEvEPECCTe(o), cteSendMarshaller());
-    }
-
-    @Override
-    public Element toElement(EvGTV o) {
-        return XMLUtils.toElement(CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createEvGTV(o), cteSendMarshaller());
-    }
-
-    @Override
-    public Element toElement(EvRegMultimodal o) {
-        return XMLUtils.toElement(CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createEvRegMultimodal(o), cteSendMarshaller());
-    }
-
-    @Override
-    public Element toElement(EvPrestDesacordo o) {
-        return XMLUtils.toElement(CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createEvPrestDesacordo(o), cteSendMarshaller());
-    }
-
-    @Override
-    public Element toElement(Rodo o) {
-        return XMLUtils.toElement(CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createRodo(o), cteSendMarshaller());
-    }
-
-    @Override
-    public Element toElement(Aereo o) {
-        return XMLUtils.toElement(CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createAereo(o), cteSendMarshaller());
-    }
-
-    @Override
-    public Element toElement(Aquav o) {
-        return XMLUtils.toElement(CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createAquav(o), cteSendMarshaller());
-    }
-
-    @Override
-    public Element toElement(Duto o) {
-        return XMLUtils.toElement(CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createDuto(o), cteSendMarshaller());
-    }
-
-    @Override
-    public Element toElement(Ferrov o) {
-        return XMLUtils.toElement(CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createFerrov(o), cteSendMarshaller());
-    }
-
-    @Override
-    public Element toElement(Multimodal o) {
-        return XMLUtils.toElement(CteObjectFactoryWrapperFactory.getInstance().getCteObjectFactory().createMultimodal(o), cteSendMarshaller());
     }
 
     @Override

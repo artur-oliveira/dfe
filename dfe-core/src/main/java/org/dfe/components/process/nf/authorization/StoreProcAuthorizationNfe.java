@@ -2,13 +2,13 @@ package org.dfe.components.process.nf.authorization;
 
 import br.inf.portalfiscal.nfe.send.TEnviNFe;
 import br.inf.portalfiscal.nfe.send.TRetEnviNFe;
+import lombok.extern.log4j.Log4j2;
 import org.dfe.components.internal.xml.marshaller.NfMarshallerFactory;
 import org.dfe.exceptions.ProcessException;
 import org.dfe.interfaces.process.AfterRequest;
 import org.dfe.interfaces.process.nf.authorization.AfterAuthorization;
 import org.dfe.interfaces.storage.nf.common.NfAuthorizationStorage;
 import org.dfe.models.internal.xml.XMLStore;
-import lombok.extern.log4j.Log4j2;
 
 import java.util.Objects;
 

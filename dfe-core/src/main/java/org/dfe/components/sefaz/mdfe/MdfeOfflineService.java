@@ -3,6 +3,8 @@ package org.dfe.components.sefaz.mdfe;
 import br.inf.portalfiscal.mdfe.classes.*;
 import br.inf.portalfiscal.mdfe.distribution.DistDFeInt;
 import br.inf.portalfiscal.mdfe.distribution.RetDistDFeInt;
+import jakarta.xml.bind.JAXBElement;
+import lombok.Getter;
 import org.dfe.components.internal.PairImpl;
 import org.dfe.components.internal.parser.AccessKeyParserFactory;
 import org.dfe.components.internal.xml.marshaller.MdfeMarshallerFactory;
@@ -23,8 +25,6 @@ import org.dfe.interfaces.validation.Validator;
 import org.dfe.models.internal.After;
 import org.dfe.models.internal.Before;
 import org.dfe.models.internal.Validation;
-import jakarta.xml.bind.JAXBElement;
-import lombok.Getter;
 
 import java.util.Collection;
 import java.util.Objects;

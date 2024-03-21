@@ -2,13 +2,13 @@ package org.dfe.components.process.nf.query_protocol;
 
 import br.inf.portalfiscal.nfe.send.TConsSitNFe;
 import br.inf.portalfiscal.nfe.send.TRetConsSitNFe;
+import lombok.extern.log4j.Log4j2;
 import org.dfe.components.internal.xml.marshaller.NfMarshallerFactory;
 import org.dfe.exceptions.ProcessException;
 import org.dfe.interfaces.process.AfterRequest;
 import org.dfe.interfaces.process.nf.query_protocol.AfterQueryProtocol;
 import org.dfe.interfaces.storage.nf.common.NfQueryProtocolStorage;
 import org.dfe.models.internal.xml.XMLStore;
-import lombok.extern.log4j.Log4j2;
 
 import java.util.Objects;
 

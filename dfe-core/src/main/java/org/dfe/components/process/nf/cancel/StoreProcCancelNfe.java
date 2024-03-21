@@ -3,13 +3,13 @@ package org.dfe.components.process.nf.cancel;
 import br.inf.portalfiscal.nfe.event_cancel.TEnvEvento;
 import br.inf.portalfiscal.nfe.event_cancel.TProcEvento;
 import br.inf.portalfiscal.nfe.event_cancel.TRetEnvEvento;
+import lombok.extern.log4j.Log4j2;
 import org.dfe.components.internal.xml.marshaller.NfMarshallerFactory;
 import org.dfe.exceptions.ProcessException;
 import org.dfe.interfaces.process.AfterRequest;
 import org.dfe.interfaces.process.nf.cancel.AfterCancel;
 import org.dfe.interfaces.storage.nf.common.NfCancelStorage;
 import org.dfe.models.internal.xml.XMLStore;
-import lombok.extern.log4j.Log4j2;
 
 import java.util.Objects;
 
