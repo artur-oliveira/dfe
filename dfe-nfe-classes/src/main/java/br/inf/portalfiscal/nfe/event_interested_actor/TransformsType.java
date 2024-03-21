@@ -8,7 +8,7 @@
 
 package br.inf.portalfiscal.nfe.event_interested_actor;
 
-import br.inf.portalfiscal.nfe.event_correction_letter.TransformType;
+
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;

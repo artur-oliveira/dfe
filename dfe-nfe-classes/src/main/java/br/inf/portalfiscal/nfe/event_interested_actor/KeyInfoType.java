@@ -8,7 +8,7 @@
 
 package br.inf.portalfiscal.nfe.event_interested_actor;
 
-import br.inf.portalfiscal.nfe.event_correction_letter.X509DataType;
+
 import jakarta.xml.bind.annotation.*;
 import jakarta.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
@@ -41,7 +41,7 @@ public class KeyInfoType
         implements XML {
 
     @XmlElement(name = "X509Data", required = true)
-    protected br.inf.portalfiscal.nfe.event_correction_letter.X509DataType x509Data;
+    protected X509DataType x509Data;
     @XmlAttribute(name = "Id")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlID
@@ -52,9 +52,9 @@ public class KeyInfoType
      * Gets the value of the x509Data property.
      *
      * @return possible object is
-     * {@link br.inf.portalfiscal.nfe.event_correction_letter.X509DataType }
+     * {@link X509DataType }
      */
-    public br.inf.portalfiscal.nfe.event_correction_letter.X509DataType getX509Data() {
+    public X509DataType getX509Data() {
         return x509Data;
     }
 
@@ -62,7 +62,7 @@ public class KeyInfoType
      * Sets the value of the x509Data property.
      *
      * @param value allowed object is
-     *              {@link br.inf.portalfiscal.nfe.event_correction_letter.X509DataType }
+     *              {@link X509DataType }
      */
     public void setX509Data(X509DataType value) {
         this.x509Data = value;
