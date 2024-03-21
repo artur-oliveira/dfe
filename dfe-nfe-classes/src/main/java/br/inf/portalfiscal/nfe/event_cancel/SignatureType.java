@@ -8,9 +8,7 @@
 
 package br.inf.portalfiscal.nfe.event_cancel;
 
-import br.inf.portalfiscal.nfe.event_correction_letter.KeyInfoType;
-import br.inf.portalfiscal.nfe.event_correction_letter.SignatureValueType;
-import br.inf.portalfiscal.nfe.event_correction_letter.SignedInfoType;
+
 import jakarta.xml.bind.annotation.*;
 import jakarta.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
@@ -49,7 +47,7 @@ public class SignatureType
     @XmlElement(name = "SignedInfo", required = true)
     protected SignedInfoType signedInfo;
     @XmlElement(name = "SignatureValue", required = true)
-    protected br.inf.portalfiscal.nfe.event_correction_letter.SignatureValueType signatureValue;
+    protected SignatureValueType signatureValue;
     @XmlElement(name = "KeyInfo", required = true)
     protected KeyInfoType keyInfo;
     @XmlAttribute(name = "Id")
@@ -86,9 +84,9 @@ public class SignatureType
      * Gets the value of the signatureValue property.
      *
      * @return possible object is
-     * {@link br.inf.portalfiscal.nfe.event_correction_letter.SignatureValueType }
+     * {@link SignatureValueType }
      */
-    public br.inf.portalfiscal.nfe.event_correction_letter.SignatureValueType getSignatureValue() {
+    public SignatureValueType getSignatureValue() {
         return signatureValue;
     }
 
@@ -96,7 +94,7 @@ public class SignatureType
      * Sets the value of the signatureValue property.
      *
      * @param value allowed object is
-     *              {@link br.inf.portalfiscal.nfe.event_correction_letter.SignatureValueType }
+     *              {@link SignatureValueType }
      */
     public void setSignatureValue(SignatureValueType value) {
         this.signatureValue = value;
