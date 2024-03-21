@@ -1,12 +1,12 @@
 package org.dfe.components.sefaz.port.nfce.initializer;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.dfe.components.sefaz.port.SoapServiceInitializer;
 import org.dfe.components.sefaz.port.SoapServiceProxy;
 import org.dfe.components.sefaz.port.nfce.AbstractNfceSoapService;
 import org.dfe.exceptions.port.SoapServiceInitializationException;
 import org.dfe.interfaces.sefaz.port.NfceSoapService;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 import java.util.Objects;
 

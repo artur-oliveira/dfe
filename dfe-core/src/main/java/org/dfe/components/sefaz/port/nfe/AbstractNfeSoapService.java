@@ -14,7 +14,6 @@ import org.dfe.interfaces.internal.config.Config;
 import org.dfe.interfaces.internal.config.NfConfig;
 import org.dfe.interfaces.sefaz.port.NfeSoapService;
 import org.dfe.models.internal.port.NfeServiceFinder;
-import org.dfe.util.ReflectionUtils;
 
 import javax.net.ssl.HttpsURLConnection;
 import java.util.Objects;

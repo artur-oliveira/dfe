@@ -2,13 +2,13 @@ package org.dfe.components.process.nf.query_status_service;
 
 import br.inf.portalfiscal.nfe.send.TConsStatServ;
 import br.inf.portalfiscal.nfe.send.TRetConsStatServ;
+import lombok.extern.log4j.Log4j2;
 import org.dfe.components.internal.xml.marshaller.NfMarshallerFactory;
 import org.dfe.exceptions.ProcessException;
 import org.dfe.interfaces.process.AfterRequest;
 import org.dfe.interfaces.process.nf.query_status_service.AfterQueryStatusService;
 import org.dfe.interfaces.storage.nf.common.NfQueryStatusServiceStorage;
 import org.dfe.models.internal.xml.XMLStore;
-import lombok.extern.log4j.Log4j2;
 
 import java.util.Objects;
 

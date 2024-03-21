@@ -962,7 +962,7 @@ public final class Cte implements DFObject, XMLAdapter<Cte, TCTe> {
 
                 @Override
                 public InfModal fromObject(TCTe.InfCte.InfCTeNorm.InfModal o) {
-                    Object el = CteUnmarshallerFactory.getInstance().any300(o.getAny()).getValue();
+                    Object el = CteUnmarshallerFactory.getInstance().any400(o.getAny()).getValue();
 
                     if (el instanceof br.inf.portalfiscal.cte.send400.Rodo) {
                         setRodo(Rodo.builder().build().fromObject((br.inf.portalfiscal.cte.send400.Rodo) el));

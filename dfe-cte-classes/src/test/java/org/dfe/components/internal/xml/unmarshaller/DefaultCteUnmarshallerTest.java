@@ -23,46 +23,6 @@ class DefaultCteUnmarshallerTest {
     }
 
     @Test
-    void testEvCancCTe() {
-        assertNotNull(new DefaultCteUnmarshaller().evCancCTe("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><evCancCTe xmlns=\"http://www.portalfiscal.inf.br/cte\"/>"));
-    }
-
-    @Test
-    void testEvCancCECTe() {
-        assertNotNull(new DefaultCteUnmarshaller().evCancCECTe("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><evCancCECTe xmlns=\"http://www.portalfiscal.inf.br/cte\"/>"));
-    }
-
-    @Test
-    void testEvCCeCTe() {
-        assertNotNull(new DefaultCteUnmarshaller().evCCeCTe("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><evCCeCTe xmlns=\"http://www.portalfiscal.inf.br/cte\"/>"));
-    }
-
-    @Test
-    void testEvCECTe() {
-        assertNotNull(new DefaultCteUnmarshaller().evCECTe("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><evCECTe xmlns=\"http://www.portalfiscal.inf.br/cte\"/>"));
-    }
-
-    @Test
-    void testEvEPECCTe() {
-        assertNotNull(new DefaultCteUnmarshaller().evEPECCTe("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><evEPECCTe xmlns=\"http://www.portalfiscal.inf.br/cte\"/>"));
-    }
-
-    @Test
-    void testEvGTV() {
-        assertNotNull(new DefaultCteUnmarshaller().evGTV("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><evGTV xmlns=\"http://www.portalfiscal.inf.br/cte\"/>"));
-    }
-
-    @Test
-    void testEvPrestDesacordo() {
-        assertNotNull(new DefaultCteUnmarshaller().evPrestDesacordo("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><evPrestDesacordo xmlns=\"http://www.portalfiscal.inf.br/cte\"/>"));
-    }
-
-    @Test
-    void testEvRegMultimodal() {
-        assertNotNull(new DefaultCteUnmarshaller().evRegMultimodal("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><evRegMultimodal xmlns=\"http://www.portalfiscal.inf.br/cte\"/>"));
-    }
-
-    @Test
     void testEventCte400() {
         assertNotNull(new DefaultCteUnmarshaller().eventCte400("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><eventoCTe xmlns=\"http://www.portalfiscal.inf.br/cte\"/>"));
     }

@@ -1,6 +1,6 @@
 package org.dfe.components.sefaz;
 
-import org.dfe.components.sefaz.cte.CteAnService;
+import lombok.Getter;
 import org.dfe.components.sefaz.nfe.NfeAnService;
 import org.dfe.exceptions.port.SoapServiceGeneralException;
 import org.dfe.exceptions.services.NoProviderFound;
@@ -8,14 +8,12 @@ import org.dfe.interfaces.internal.config.CteConfig;
 import org.dfe.interfaces.internal.config.MdfeConfig;
 import org.dfe.interfaces.internal.config.NfceConfig;
 import org.dfe.interfaces.internal.config.NfeConfig;
-import org.dfe.interfaces.sefaz.cte.CteService;
 import org.dfe.interfaces.sefaz.cte4.Cte4Service;
 import org.dfe.interfaces.sefaz.mdfe.MdfeService;
 import org.dfe.interfaces.sefaz.nf.nfce.NfceService;
 import org.dfe.interfaces.sefaz.nf.nfe.NfeService;
 import org.dfe.models.internal.reflection.PackageFinder;
 import org.dfe.util.ReflectionUtils;
-import lombok.Getter;
 
 import java.util.Collection;
 import java.util.Collections;

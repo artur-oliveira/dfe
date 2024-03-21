@@ -6,7 +6,7 @@ import org.dfe.components.internal.xml.marshaller.CteMarshallerFactory;
 import org.dfe.exceptions.ProcessException;
 import org.dfe.interfaces.process.AfterRequest;
 import org.dfe.interfaces.process.cte4.distribution.AfterDistribution;
-import org.dfe.interfaces.storage.cte.CteDistributionStorage;
+import org.dfe.interfaces.storage.cte4.CteDistributionStorage;
 import org.dfe.models.internal.xml.XMLStore;
 
 import java.util.Objects;

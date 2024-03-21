@@ -1,11 +1,9 @@
 package org.dfe.components.validation;
 
-import org.dfe.components.validation.cte.DefaultCteValidator;
 import org.dfe.components.validation.cte4.DefaultCte4Validator;
 import org.dfe.components.validation.mdfe.DefaultMdfeValidator;
 import org.dfe.components.validation.nf.DefaulNfceValidator;
 import org.dfe.components.validation.nf.DefaulNfeValidator;
-import org.dfe.interfaces.validation.cte.CteValidator;
 import org.dfe.interfaces.validation.cte4.Cte4Validator;
 import org.dfe.interfaces.validation.mdfe.MdfeValidator;
 import org.dfe.interfaces.validation.nf.NfceValidator;
@@ -31,16 +29,6 @@ final class DefaultValidatorFactory extends ValidatorFactory {
         return DefaultValidatorFactoryHolder.NFCE_INSTANCE;
     }
 
-    /**
-     * If the CTE validator has not been initialized, initialize it and return it. Otherwise, return the already
-     * initialized CTE validator.
-     *
-     * @return A validator instance.
-     */
-    public CteValidator cteValidator() {
-        return DefaultValidatorFactoryHolder.CTE_INSTANCE;
-    }
-
     @Override
     public Cte4Validator cte4Validator() {
         return DefaultValidatorFactoryHolder.CTE4_INSTANCE;
@@ -58,7 +46,6 @@ final class DefaultValidatorFactory extends ValidatorFactory {
     private static final class DefaultValidatorFactoryHolder {
         private static final NfeValidator NFE_INSTANCE = new DefaulNfeValidator();
         private static final NfceValidator NFCE_INSTANCE = new DefaulNfceValidator();
-        private static final CteValidator CTE_INSTANCE = new DefaultCteValidator();
         private static final Cte4Validator CTE4_INSTANCE = new DefaultCte4Validator();
         private static final MdfeValidator MDFE_INSTANCE = new DefaultMdfeValidator();
     }

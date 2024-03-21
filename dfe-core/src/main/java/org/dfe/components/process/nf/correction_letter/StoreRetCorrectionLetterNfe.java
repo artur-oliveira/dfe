@@ -3,13 +3,13 @@ package org.dfe.components.process.nf.correction_letter;
 import br.inf.portalfiscal.nfe.event_correction_letter.TEnvEvento;
 import br.inf.portalfiscal.nfe.event_correction_letter.TRetEnvEvento;
 import br.inf.portalfiscal.nfe.event_correction_letter.TretEvento;
+import lombok.extern.log4j.Log4j2;
 import org.dfe.components.internal.xml.marshaller.NfMarshallerFactory;
 import org.dfe.exceptions.ProcessException;
 import org.dfe.interfaces.process.AfterRequest;
 import org.dfe.interfaces.process.nf.correction_letter.AfterCorrectionLetter;
 import org.dfe.interfaces.storage.nf.NfeCorrectionLetterStorage;
 import org.dfe.models.internal.xml.XMLStore;
-import lombok.extern.log4j.Log4j2;
 
 import java.util.Objects;
 import java.util.Optional;

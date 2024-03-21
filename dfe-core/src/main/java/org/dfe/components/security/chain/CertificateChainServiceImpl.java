@@ -5,7 +5,6 @@ import org.dfe.enums.internal.Environment;
 import org.dfe.enums.internal.Model;
 import org.dfe.enums.internal.UF;
 import org.dfe.enums.internal.cte.Cte4Authorizer;
-import org.dfe.enums.internal.cte.CteAuthorizer;
 import org.dfe.enums.internal.mdfe.MdfeAuthorizer;
 import org.dfe.enums.internal.nf.NfceAuthorizer;
 import org.dfe.enums.internal.nf.NfeAuthorizer;
@@ -137,7 +136,6 @@ final class CertificateChainServiceImpl extends CertificateChainFactory {
                     for (Environment env : environments) {
                         for (UF uf : ufs) {
                             try {
-                                hosts.addAll(CteAuthorizer.get(uf, env));
                                 hosts.addAll(Cte4Authorizer.get(uf, env));
                             } catch (NoProviderFound ignored) {
                             }

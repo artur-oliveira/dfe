@@ -1,5 +1,6 @@
 package org.dfe.components.sefaz.port;
 
+import lombok.Data;
 import org.dfe.components.sefaz.port.cte4.AbstractCte4SoapService;
 import org.dfe.components.sefaz.port.cte4.initializer.ConfigCte4SoapServiceInitializer;
 import org.dfe.components.sefaz.port.cte4.initializer.ProxyCte4SoapServiceInitializer;
@@ -14,7 +15,6 @@ import org.dfe.components.sefaz.port.nfe.initializer.ConfigNfeSoapServiceInitial
 import org.dfe.components.sefaz.port.nfe.initializer.ProxyNfeSoapServiceInitializer;
 import org.dfe.exceptions.port.SoapServiceInitializationException;
 import org.dfe.interfaces.sefaz.port.CommonSoapService;
-import lombok.Data;
 
 import java.util.Objects;
 

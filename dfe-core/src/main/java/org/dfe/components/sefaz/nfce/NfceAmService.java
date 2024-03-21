@@ -1,6 +1,9 @@
 package org.dfe.components.sefaz.nfce;
 
 import br.inf.portalfiscal.nfe.send.*;
+import jakarta.xml.bind.JAXBElement;
+import jakarta.xml.ws.BindingProvider;
+import lombok.Getter;
 import org.dfe.components.internal.PairImpl;
 import org.dfe.components.internal.xml.marshaller.NfMarshallerFactory;
 import org.dfe.components.internal.xml.objectfactory.NfObjectFactoryWrapperFactory;
@@ -24,9 +27,6 @@ import org.dfe.models.internal.Before;
 import org.dfe.models.internal.Validation;
 import org.dfe.models.internal.wsdl.ProviderConfig;
 import org.dfe.util.GZIPUtils;
-import jakarta.xml.bind.JAXBElement;
-import jakarta.xml.ws.BindingProvider;
-import lombok.Getter;
 
 import java.util.Collection;
 import java.util.Collections;

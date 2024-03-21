@@ -1,5 +1,7 @@
 package org.dfe.components.sefaz.port;
 
+import lombok.AccessLevel;
+import lombok.Getter;
 import org.dfe.components.sefaz.port.cte4.AbstractCte4SoapService;
 import org.dfe.components.sefaz.port.mdfe.AbstractMdfeSoapService;
 import org.dfe.components.sefaz.port.nfce.AbstractNfceSoapService;
@@ -8,9 +10,10 @@ import org.dfe.enums.internal.cte.Cte4Authorizer;
 import org.dfe.enums.internal.mdfe.MdfeAuthorizer;
 import org.dfe.enums.internal.nf.NfceAuthorizer;
 import org.dfe.enums.internal.nf.NfeAuthorizer;
-import org.dfe.interfaces.sefaz.port.*;
-import lombok.AccessLevel;
-import lombok.Getter;
+import org.dfe.interfaces.sefaz.port.Cte4SoapService;
+import org.dfe.interfaces.sefaz.port.MdfeSoapService;
+import org.dfe.interfaces.sefaz.port.NfceSoapService;
+import org.dfe.interfaces.sefaz.port.NfeSoapService;
 
 import java.util.Map;
 import java.util.Objects;
