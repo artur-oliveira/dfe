@@ -21,8 +21,8 @@ public final class FileSystemStorageService extends StorageServiceFactory {
 
     @Override
     public String rootPath(RootPath rootPath) {
-        Config config = rootPath.config();
-        return String.join(IOUtils.separator(), IOUtils.homeDir(), "xmls", config.environment().getRootPath(), config.cnpj(), rootPath.key(), DateUtils.currentyear(), StringUtils.padZeroStart(DateUtils.currentMonth(), 2));
+        Config config = rootPath.getConfig();
+        return String.join(IOUtils.separator(), IOUtils.homeDir(), "xmls", config.environment().getRootPath(), config.cnpj(), rootPath.getKeyString(), DateUtils.currentyear(), StringUtils.padZeroStart(DateUtils.currentMonth(), 2));
     }
 
     /**
@@ -102,6 +102,14 @@ public final class FileSystemStorageService extends StorageServiceFactory {
     @Override
     public Collection<StorageResult> getProc(Config conf, StorageKey key, String xmlName) {
         return IOUtils.findFilesByBasePath(String.join(IOUtils.separator(), rootPath(new RootPath(conf, key.getForProcessed())), xmlName))
+                .stream()
+                .map(it -> StorageResult.builder().file(it).build())
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public Collection<StorageResult> getProc(RootPath rootPath) throws IOException {
+        return IOUtils.findFilesByBasePath(String.join(IOUtils.separator(), rootPath(rootPath), rootPath.getXmlName()))
                 .stream()
                 .map(it -> StorageResult.builder().file(it).build())
                 .collect(Collectors.toList());

@@ -3,9 +3,6 @@ package org.dfe.components.sefaz.nfe;
 import br.inf.portalfiscal.nfe.gtin.TConsGTIN;
 import br.inf.portalfiscal.nfe.gtin.TRetConsGTIN;
 import br.inf.portalfiscal.nfe.send.*;
-import jakarta.xml.bind.JAXBElement;
-import jakarta.xml.ws.BindingProvider;
-import lombok.Getter;
 import org.dfe.components.internal.PairImpl;
 import org.dfe.components.internal.xml.marshaller.NfMarshallerFactory;
 import org.dfe.components.internal.xml.objectfactory.NfObjectFactoryWrapperFactory;
@@ -30,6 +27,9 @@ import org.dfe.models.internal.Validation;
 import org.dfe.models.internal.wsdl.ProviderConfig;
 import org.dfe.util.GZIPUtils;
 import org.dfe.util.StringUtils;
+import jakarta.xml.bind.JAXBElement;
+import jakarta.xml.ws.BindingProvider;
+import lombok.Getter;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -112,7 +112,7 @@ public final class NfeMtService extends NfeAnService {
 
     @Override
     public <T extends SefazRequest<br.inf.portalfiscal.nfe.event_cancel.TEnvEvento, br.inf.portalfiscal.nfe.event_cancel.TRetEnvEvento>> Pair<br.inf.portalfiscal.nfe.event_cancel.TEnvEvento, br.inf.portalfiscal.nfe.event_cancel.TRetEnvEvento> cancel(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = data.signer().signEvent(NfMarshallerFactory.getInstance().cancelNfe(data.data()), data.config());
+        String xml = data.signer().signEvent(StringUtils.toAscii(NfMarshallerFactory.getInstance().cancelNfe(data.data())), data.config());
         JAXBElement<br.inf.portalfiscal.nfe.event_cancel.TEnvEvento> envio = NfUnmarshallerFactory.getInstance().cancelNfe(xml);
 
         for (Validator<br.inf.portalfiscal.nfe.event_cancel.TEnvEvento> it : data.validators())
@@ -272,7 +272,7 @@ public final class NfeMtService extends NfeAnService {
 
     @Override
     public <T extends SefazRequest<br.inf.portalfiscal.nfe.event_correction_letter.TEnvEvento, br.inf.portalfiscal.nfe.event_correction_letter.TRetEnvEvento>> Pair<br.inf.portalfiscal.nfe.event_correction_letter.TEnvEvento, br.inf.portalfiscal.nfe.event_correction_letter.TRetEnvEvento> correctionLetter(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = data.signer().signEvent(NfMarshallerFactory.getInstance().correctionLetterNfe(data.data()), data.config());
+        String xml = data.signer().signEvent(StringUtils.toAscii(NfMarshallerFactory.getInstance().correctionLetterNfe(data.data())), data.config());
         JAXBElement<br.inf.portalfiscal.nfe.event_correction_letter.TEnvEvento> envio = NfUnmarshallerFactory.getInstance().correctionLetterNfe(xml);
 
         for (Validator<br.inf.portalfiscal.nfe.event_correction_letter.TEnvEvento> it : data.validators())

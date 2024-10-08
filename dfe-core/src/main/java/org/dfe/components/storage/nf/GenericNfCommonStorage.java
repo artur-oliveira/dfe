@@ -14,7 +14,6 @@ import org.dfe.exceptions.storage.StorageException;
 import org.dfe.interfaces.internal.config.Config;
 import org.dfe.interfaces.storage.Store;
 import org.dfe.interfaces.storage.nf.common.NfCommonStorage;
-import org.dfe.models.internal.storage.StorageResult;
 import org.dfe.models.internal.xml.XMLStore;
 import org.dfe.util.IOUtils;
 
@@ -31,7 +30,7 @@ public abstract class GenericNfCommonStorage extends CommonStorage implements Nf
     public void storeProcCancel(Store<br.inf.portalfiscal.nfe.event_cancel.TProcEvento> o) throws StorageException {
         try {
             if (Objects.nonNull(o.data()) && Objects.nonNull(o.data().getEvento()) && Objects.nonNull(o.data().getRetEvento()) && Objects.nonNull(o.xml()) && NFReturnCode.generateProc(o.data().getRetEvento().getInfEvento().getCStat())) {
-                getStorageService().writeProc(o, NFStorageKey.NF_EVENT, xmlNameWithTime(o.data().getEvento().getInfEvento().getChNFe() + "-" + o.data().getEvento().getInfEvento().getTpEvento() + "-" + o.data().getEvento().getInfEvento().getNSeqEvento()));
+                getStorageService().writeProc(o, NFStorageKey.NF_EVENT, o.data().getEvento().getInfEvento().getChNFe() + "-" + o.data().getEvento().getInfEvento().getTpEvento() + "-" + o.data().getEvento().getInfEvento().getNSeqEvento() + ".xml");
             }
         } catch (Exception e) {
             throw new StorageException(e);
@@ -69,7 +68,7 @@ public abstract class GenericNfCommonStorage extends CommonStorage implements Nf
         try {
             if (Objects.nonNull(o.data()) && Objects.nonNull(o.data().getInutNFe()) && Objects.nonNull(o.data().getRetInutNFe()) && Objects.nonNull(o.xml()) && NFReturnCode.generateProc(o.data().getRetInutNFe().getInfInut().getCStat())) {
                 String keyName = String.join("_", o.data().getInutNFe().getInfInut().getMod(), o.data().getInutNFe().getInfInut().getSerie(), o.data().getInutNFe().getInfInut().getNNFIni(), o.data().getInutNFe().getInfInut().getNNFFin());
-                getStorageService().writeProc(o.config(), NFStorageKey.NF_INUTILIZATION, xmlNameWithTime(keyName), o.xml());
+                getStorageService().writeProc(o, NFStorageKey.NF_INUTILIZATION, keyName + ".xml");
             }
         } catch (Exception e) {
             throw new StorageException(e);
@@ -103,8 +102,8 @@ public abstract class GenericNfCommonStorage extends CommonStorage implements Nf
     @Override
     public void storeProcNfe(Store<TNfeProc> o) throws StorageException {
         try {
-            if (Objects.nonNull(o.data()) && Objects.nonNull(o.data().getNFe()) && Objects.nonNull(o.data().getProtNFe()) && Objects.nonNull(o.data().getProtNFe().getInfProt()) && Objects.nonNull(o.xml()) && NFReturnCode.generateProc(o.data().getProtNFe().getInfProt().getCStat())) {
-                getStorageService().writeProc(o, NFStorageKey.NF_AUTHORIZATION, xmlNameWithTime(o.data().getProtNFe().getInfProt().getChNFe()));
+            if (Objects.nonNull(o.data()) && Objects.nonNull(o.data().getNFe()) && Objects.nonNull(o.data().getProtNFe()) && Objects.nonNull(o.data().getProtNFe().getInfProt()) && Objects.nonNull(o.data().getProtNFe().getInfProt().getNProt()) && Objects.nonNull(o.xml()) && NFReturnCode.generateProc(o.data().getProtNFe().getInfProt().getCStat())) {
+                getStorageService().writeProc(o, NFStorageKey.NF_AUTHORIZATION, o.data().getProtNFe().getInfProt().getChNFe() + ".xml");
             }
         } catch (Exception e) {
             throw new StorageException(e);

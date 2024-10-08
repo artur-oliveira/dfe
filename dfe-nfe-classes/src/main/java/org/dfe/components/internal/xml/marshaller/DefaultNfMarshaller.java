@@ -5,10 +5,10 @@ import br.inf.portalfiscal.nfe.distribution.TRetDistDFeInt;
 import br.inf.portalfiscal.nfe.gtin.TConsGTIN;
 import br.inf.portalfiscal.nfe.gtin.TRetConsGTIN;
 import br.inf.portalfiscal.nfe.send.*;
+import jakarta.xml.bind.JAXBElement;
 import org.dfe.components.internal.xml.context.NfContextFactory;
 import org.dfe.components.internal.xml.objectfactory.NfObjectFactoryWrapperFactory;
 import org.dfe.util.XMLUtils;
-import jakarta.xml.bind.JAXBElement;
 
 final class DefaultNfMarshaller extends NfMarshallerFactory {
 

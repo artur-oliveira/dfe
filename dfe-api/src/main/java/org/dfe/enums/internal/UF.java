@@ -1,10 +1,10 @@
 package org.dfe.enums.internal;
 
 import br.inf.portalfiscal.nfe.send.TNFe;
+import lombok.Getter;
 import org.dfe.components.internal.DFEnum;
 import org.dfe.enums.internal.city.*;
 import org.dfe.models.nf.authorization.Nf;
-import lombok.Getter;
 
 import java.util.*;
 import java.util.stream.Collectors;

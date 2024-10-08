@@ -1,10 +1,10 @@
 package org.dfe.models.nf.query_gtin;
 
 import br.inf.portalfiscal.nfe.gtin.TConsGTIN;
+import lombok.*;
 import org.dfe.enums.nf.version.NFGtinVersion;
 import org.dfe.interfaces.xml.XMLAdapter;
 import org.dfe.interfaces.xml.generic.DFObject;
-import lombok.*;
 
 @Getter
 @Setter

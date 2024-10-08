@@ -83,7 +83,7 @@ public final class CteDeliveryReceipt implements DFObject, XMLAdapter<CteDeliver
         private String id;
 
         @Override
-        public br.inf.portalfiscal.cte.send400.TEvento.InfEvento toObject() {
+        public TEvento.InfEvento toObject() {
             TEvento.InfEvento evento = XMLAdapter.super.toObject();
             setId(XMLStringUtils.idEventoCte400(getTpEvento(), getChCTe(), getNSeqEvento()));
             evento.setId(getId());
@@ -94,7 +94,7 @@ public final class CteDeliveryReceipt implements DFObject, XMLAdapter<CteDeliver
         @AllArgsConstructor
         @NoArgsConstructor
         @Builder
-        public static final class DetEvento implements DFObject, XMLAdapter<DetEvento, br.inf.portalfiscal.cte.send400.TEvento.InfEvento.DetEvento> {
+        public static final class DetEvento implements DFObject, XMLAdapter<DetEvento, TEvento.InfEvento.DetEvento> {
 
             private EvCECTe event;
 
@@ -103,15 +103,15 @@ public final class CteDeliveryReceipt implements DFObject, XMLAdapter<CteDeliver
 
             @Override
             @SneakyThrows
-            public br.inf.portalfiscal.cte.send400.TEvento.InfEvento.DetEvento toObject() {
-                br.inf.portalfiscal.cte.send400.TEvento.InfEvento.DetEvento evento = new br.inf.portalfiscal.cte.send400.TEvento.InfEvento.DetEvento();
+            public TEvento.InfEvento.DetEvento toObject() {
+                TEvento.InfEvento.DetEvento evento = new TEvento.InfEvento.DetEvento();
                 evento.setVersaoEvento(getVersaoEvento());
                 evento.setAny(CteMarshallerFactory.getInstance().toElement(getEvent().toObject()));
                 return evento;
             }
 
             @Override
-            public DetEvento fromObject(br.inf.portalfiscal.cte.send400.TEvento.InfEvento.DetEvento o) {
+            public DetEvento fromObject(TEvento.InfEvento.DetEvento o) {
                 DetEvento evento = DetEvento.builder().build();
                 evento.setVersaoEvento(evento.getVersaoEvento());
                 evento.setEvent(EvCECTe.builder().build().fromObject(CteUnmarshallerFactory.getInstance().evCECTe400(o.getAny()).getValue()));

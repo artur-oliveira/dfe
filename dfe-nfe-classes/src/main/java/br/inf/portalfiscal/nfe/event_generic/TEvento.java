@@ -8,10 +8,10 @@
 
 package br.inf.portalfiscal.nfe.event_generic;
 
-import org.dfe.interfaces.xml.generic.XML;
 import jakarta.xml.bind.annotation.*;
 import jakarta.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import org.dfe.interfaces.xml.generic.XML;
 import org.w3c.dom.Element;
 
 import javax.xml.namespace.QName;
@@ -110,7 +110,7 @@ public class TEvento
         implements XML {
 
     @XmlElement(required = true)
-    protected TEvento.InfEvento infEvento;
+    protected InfEvento infEvento;
     @XmlElement(name = "Signature", namespace = "http://www.w3.org/2000/09/xmldsig#", required = true)
     protected SignatureType signature;
     @XmlAttribute(name = "versao", required = true)
@@ -120,9 +120,9 @@ public class TEvento
      * Gets the value of the infEvento property.
      *
      * @return possible object is
-     * {@link TEvento.InfEvento }
+     * {@link InfEvento }
      */
-    public TEvento.InfEvento getInfEvento() {
+    public InfEvento getInfEvento() {
         return infEvento;
     }
 
@@ -130,9 +130,9 @@ public class TEvento
      * Sets the value of the infEvento property.
      *
      * @param value allowed object is
-     *              {@link TEvento.InfEvento }
+     *              {@link InfEvento }
      */
-    public void setInfEvento(TEvento.InfEvento value) {
+    public void setInfEvento(InfEvento value) {
         this.infEvento = value;
     }
 
@@ -290,7 +290,7 @@ public class TEvento
         @XmlElement(namespace = "http://www.portalfiscal.inf.br/nfe", required = true)
         protected String verEvento;
         @XmlElement(namespace = "http://www.portalfiscal.inf.br/nfe", required = true)
-        protected TEvento.InfEvento.DetEvento detEvento;
+        protected DetEvento detEvento;
         @XmlAttribute(name = "Id", required = true)
         @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
         @XmlID
@@ -516,9 +516,9 @@ public class TEvento
          * Gets the value of the detEvento property.
          *
          * @return possible object is
-         * {@link TEvento.InfEvento.DetEvento }
+         * {@link DetEvento }
          */
-        public TEvento.InfEvento.DetEvento getDetEvento() {
+        public DetEvento getDetEvento() {
             return detEvento;
         }
 
@@ -526,9 +526,9 @@ public class TEvento
          * Sets the value of the detEvento property.
          *
          * @param value allowed object is
-         *              {@link TEvento.InfEvento.DetEvento }
+         *              {@link DetEvento }
          */
-        public void setDetEvento(TEvento.InfEvento.DetEvento value) {
+        public void setDetEvento(DetEvento value) {
             this.detEvento = value;
         }
 

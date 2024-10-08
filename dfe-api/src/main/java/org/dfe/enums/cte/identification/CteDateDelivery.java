@@ -1,8 +1,8 @@
 package org.dfe.enums.cte.identification;
 
-import org.dfe.components.internal.DFEnum;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import org.dfe.components.internal.DFEnum;
 
 @Getter
 @RequiredArgsConstructor

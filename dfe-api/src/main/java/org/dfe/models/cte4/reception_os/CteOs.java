@@ -3,6 +3,7 @@ package org.dfe.models.cte4.reception_os;
 import br.inf.portalfiscal.cte.send400.TCTeOS;
 import br.inf.portalfiscal.cte.send400.TUFSemEX;
 import br.inf.portalfiscal.cte.send400.TUf;
+import lombok.*;
 import org.dfe.components.internal.AccessKeyGenerator;
 import org.dfe.components.internal.ProjectProperties;
 import org.dfe.components.internal.xml.marshaller.CteMarshallerFactory;
@@ -17,7 +18,6 @@ import org.dfe.util.DateUtils;
 import org.dfe.util.RequireUtils;
 import org.dfe.util.StringUtils;
 import org.dfe.util.XMLStringUtils;
-import lombok.*;
 
 import java.util.List;
 import java.util.Objects;

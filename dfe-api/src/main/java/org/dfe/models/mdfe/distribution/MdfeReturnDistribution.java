@@ -32,7 +32,7 @@ public class MdfeReturnDistribution implements DFObject, XMLAdapter<MdfeReturnDi
     @ToString
     @AllArgsConstructor
     @NoArgsConstructor
-    public static class LoteDistDFeInt implements DFObject, XMLAdapter<LoteDistDFeInt, br.inf.portalfiscal.mdfe.classes.TLoteDistDFe> {
+    public static class LoteDistDFeInt implements DFObject, XMLAdapter<LoteDistDFeInt, TLoteDistDFe> {
         protected List<Proc> docZip;
 
         @Getter

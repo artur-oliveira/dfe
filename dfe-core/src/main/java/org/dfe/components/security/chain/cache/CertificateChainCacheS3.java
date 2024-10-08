@@ -21,14 +21,14 @@ import java.util.Objects;
 final class CertificateChainCacheS3 extends CertificateChainCacheFactory {
 
     private final boolean enableDayCache = DfeOptional.ofEmpty(System.getProperty("org.dfe.chain.cache.s3.enable-day-cache")).map(Boolean::parseBoolean).orElse(true);
-    private final String bucket = System.getProperty("org.dfe.chain.cache.s3.bucket");
+    private final String bucket = DfeOptional.ofEmpty(System.getProperty("org.dfe.chain.cache.s3.bucket")).orElseThrow(() -> new DfeOptionalException("org.dfe.chain.cache.s3.bucket must be set"));
 
     String getKeyName(CertificateChain chain) {
         return String.join("/", "chain", chain.fileName());
     }
 
     String getBucket() {
-        return DfeOptional.ofEmpty(bucket).orElseThrow(() -> new DfeOptionalException("org.dfe.chain.cache.s3.bucket must be set"));
+        return bucket;
     }
 
     boolean canUseCache(Date cacheDate) {
@@ -52,8 +52,6 @@ final class CertificateChainCacheS3 extends CertificateChainCacheFactory {
 
     @Override
     public void addToCache(CertificateChain certificateChain, byte[] bytes) throws IOException {
-        ObjectMetadata metadata = new ObjectMetadata();
-        metadata.setExpirationTime(DateUtils.date(LocalDateTime.now().plusDays(DAYS_IN_CACHE)));
-        S3Utils.putObject(getKeyName(certificateChain), bytes, metadata);
+        S3Utils.putObject(getBucket(), getKeyName(certificateChain), bytes);
     }
 }

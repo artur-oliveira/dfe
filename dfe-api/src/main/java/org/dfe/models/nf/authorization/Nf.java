@@ -1,7 +1,7 @@
 package org.dfe.models.nf.authorization;
 
 import br.inf.portalfiscal.nfe.send.*;
-import jakarta.xml.bind.annotation.XmlElement;
+import lombok.*;
 import org.dfe.components.internal.AccessKeyGenerator;
 import org.dfe.components.internal.ProjectProperties;
 import org.dfe.components.internal.xml.objectfactory.NfObjectFactoryWrapperFactory;
@@ -14,7 +14,6 @@ import org.dfe.interfaces.xml.generic.DFObject;
 import org.dfe.util.DateUtils;
 import org.dfe.util.StringUtils;
 import org.dfe.util.XMLStringUtils;
-import lombok.*;
 
 import java.util.List;
 import java.util.Objects;
@@ -194,11 +193,11 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
             @NoArgsConstructor
             public static class NFref implements DFObject, XMLAdapter<NFref, TNFe.InfNFe.Ide.NFref> {
                 protected String refNFe;
+                protected String refNFeSig;
                 protected RefNF refNF;
                 protected RefNFP refNFP;
                 protected String refCTe;
                 protected RefECF refECF;
-
 
                 @Getter
                 @Setter
@@ -413,6 +412,7 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
                 protected String indEscala;
                 protected String cnpjFab;
                 protected String cBenef;
+                protected List<GCred> gCred;
                 protected String extipi;
                 protected String cfop;
                 protected String uCom;
@@ -449,6 +449,18 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
                 @ToString
                 @AllArgsConstructor
                 @NoArgsConstructor
+                public static class GCred implements DFObject, XMLAdapter<GCred, TNFe.InfNFe.Det.Prod.GCred> {
+                    protected String cCredPresumido;
+                    protected String pCredPresumido;
+                    protected String vCredPresumido;
+                }
+
+                @Getter
+                @Setter
+                @Builder
+                @ToString
+                @AllArgsConstructor
+                @NoArgsConstructor
                 public static class DI implements DFObject, XMLAdapter<DI, TNFe.InfNFe.Det.Prod.DI> {
                     protected String ndi;
                     protected String ddi;
@@ -458,6 +470,7 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
                     protected String tpViaTransp;
                     protected String vafrmm;
                     protected String tpIntermedio;
+                    protected String cpf;
                     protected String cnpj;
                     protected TUfEmi ufTerceiro;
                     protected String cExportador;
@@ -617,6 +630,7 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
                     protected Encerrante encerrante;
                     protected String pBio;
                     protected List<OrigComb> origComb;
+
                     @Getter
                     @Setter
                     @Builder
@@ -1092,6 +1106,7 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
                         protected String vfcp;
                         protected String vicmsDeson;
                         protected String motDesICMS;
+                        protected String indDeduzDeson;
                     }
 
                     @Getter
@@ -1114,6 +1129,7 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
                         protected String vfcpst;
                         protected String vicmsDeson;
                         protected String motDesICMS;
+                        protected String indDeduzDeson;
                     }
 
                     @Getter
@@ -1127,6 +1143,7 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
                         protected String cst;
                         protected String vicmsDeson;
                         protected String motDesICMS;
+                        protected String indDeduzDeson;
                     }
 
                     @Getter
@@ -1140,6 +1157,7 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
                         protected String cst;
                         protected String modBC;
                         protected String pRedBC;
+                        protected String cBenefRBC;
                         protected String vbc;
                         protected String picms;
                         protected String vicmsOp;
@@ -1163,9 +1181,14 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
                     public static class ICMS53 implements DFObject, XMLAdapter<ICMS53, TNFe.InfNFe.Det.Imposto.ICMS.ICMS53> {
                         protected String orig;
                         protected String cst;
+                        protected String qbcMono;
+                        protected String adRemICMS;
+                        protected String vicmsMonoOp;
+                        protected String pDif;
+                        protected String vicmsMonoDif;
+                        protected String vicmsMono;
                         protected String qbcMonoDif;
                         protected String adRemICMSDif;
-                        protected String vicmsMonoDif;
                     }
 
                     @Getter
@@ -1234,6 +1257,7 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
                         protected String motDesICMS;
                         protected String vicmsstDeson;
                         protected String motDesICMSST;
+                        protected String indDeduzDeson;
                     }
 
                     @Getter
@@ -1256,6 +1280,9 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
                         protected String vbcst;
                         protected String picmsst;
                         protected String vicmsst;
+                        protected String vbcfcpst;
+                        protected String pfcpst;
+                        protected String vfcpst;
                         protected String pbcOp;
                         protected TUf ufst;
                     }
@@ -1314,6 +1341,7 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
                         protected String motDesICMS;
                         protected String vicmsstDeson;
                         protected String motDesICMSST;
+                        protected String indDeduzDeson;
                     }
 
                     @Getter
@@ -1756,6 +1784,9 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
                 protected String tPag;
                 protected String xPag;
                 protected String vPag;
+                protected String dPag;
+                protected String cnpjPag;
+                protected TUfEmi ufPag;
                 protected Card card;
 
                 @Getter
@@ -1769,6 +1800,8 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
                     protected String cnpj;
                     protected String tBand;
                     protected String cAut;
+                    protected String cnpjReceb;
+                    protected String idTermPag;
                 }
             }
         }
@@ -1828,6 +1861,7 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
             public static class ProcRef implements DFObject, XMLAdapter<ProcRef, TNFe.InfNFe.InfAdic.ProcRef> {
                 protected String nProc;
                 protected String indProc;
+                protected String tpAto;
             }
         }
 

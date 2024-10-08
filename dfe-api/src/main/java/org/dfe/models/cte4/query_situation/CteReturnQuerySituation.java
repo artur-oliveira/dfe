@@ -147,13 +147,13 @@ public class CteReturnQuerySituation implements DFObject, XMLAdapter<CteReturnQu
     @ToString
     @AllArgsConstructor
     @NoArgsConstructor
-    public static class ProcEventoCTe implements DFObject, XMLAdapter<ProcEventoCTe, br.inf.portalfiscal.cte.send400.TRetConsSitCTe.ProcEventoCTe> {
+    public static class ProcEventoCTe implements DFObject, XMLAdapter<ProcEventoCTe, TRetConsSitCTe.ProcEventoCTe> {
 
         protected CteReturnEvent retEvento;
         protected String versao;
 
         @Override
-        public ProcEventoCTe fromObject(br.inf.portalfiscal.cte.send400.TRetConsSitCTe.ProcEventoCTe o) {
+        public ProcEventoCTe fromObject(TRetConsSitCTe.ProcEventoCTe o) {
             ProcEventoCTe proc = XMLAdapter.super.fromObject(o);
 
             if (o.getAny() instanceof JAXBElement) {

@@ -2,8 +2,6 @@ package org.dfe.components.sefaz.cte4;
 
 import br.inf.portalfiscal.cte.distribution.DistDFeInt;
 import br.inf.portalfiscal.cte.distribution.RetDistDFeInt;
-import jakarta.xml.bind.JAXBElement;
-import jakarta.xml.ws.BindingProvider;
 import org.dfe.components.internal.PairImpl;
 import org.dfe.components.internal.xml.marshaller.CteMarshallerFactory;
 import org.dfe.components.internal.xml.unmarshaller.CteUnmarshallerFactory;
@@ -21,6 +19,8 @@ import org.dfe.models.internal.After;
 import org.dfe.models.internal.Before;
 import org.dfe.models.internal.Validation;
 import org.dfe.models.internal.wsdl.ProviderConfig;
+import jakarta.xml.bind.JAXBElement;
+import jakarta.xml.ws.BindingProvider;
 
 public abstract class CteAnService implements Cte4Service {
 

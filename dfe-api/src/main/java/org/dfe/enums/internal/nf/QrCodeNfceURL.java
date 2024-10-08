@@ -164,12 +164,12 @@ public enum QrCodeNfceURL implements AllowUF {
     PB {
         @Override
         public String production() {
-            return "http://www.receita.pb.gov.br/nfce";
+            return "http://www.sefaz.pb.gov.br/nfce";
         }
 
         @Override
         public String homologation() {
-            return "http://www.receita.pb.gov.br/nfcehom";
+            return "http://www.sefaz.pb.gov.br/nfcehom";
         }
     },
     PR {
@@ -285,12 +285,12 @@ public enum QrCodeNfceURL implements AllowUF {
     SE {
         @Override
         public String production() {
-            return "http://www.nfce.se.gov.br/portal/consultarNFCe.jsp";
+            return "http://www.nfce.se.gov.br/nfce/qrcode";
         }
 
         @Override
         public String homologation() {
-            return "http://www.hom.nfe.se.gov.br/portal/consultarNFCe.jsp";
+            return "http://www.hom.nfe.se.gov.br/nfce/qrcode";
         }
     },
     TO {

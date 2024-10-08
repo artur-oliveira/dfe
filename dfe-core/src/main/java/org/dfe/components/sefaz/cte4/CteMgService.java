@@ -279,8 +279,12 @@ public final class CteMgService extends CteAnService {
             msg.getContent().add(envio);
 
             br.inf.portalfiscal.cte4.wsdl.status_service.mg.prod.CteStatusServicoCTResult resultMsg = ws.cteStatusServicoCT(msg);
-
-            retorno = CteUnmarshallerFactory.getInstance().returnStatusService400(XMLUtils.elementToString((Element) resultMsg.getContent().get(0), false).replace("retConsStatServCte", "retConsStatServCTe")).getValue();
+            Object content = resultMsg.getContent().get(0);
+            if (content instanceof Element) {
+                retorno = CteUnmarshallerFactory.getInstance().returnStatusService400(XMLUtils.elementToString((Element) content, false).replace("retConsStatServCte", "retConsStatServCTe")).getValue();
+            } else {
+                retorno = (TRetConsStatServ) ((JAXBElement<?>) content).getValue();
+            }
         } else {
             br.inf.portalfiscal.cte4.wsdl.status_service.mg.hom.CTeStatusServicoV4Soap12 ws = ((br.inf.portalfiscal.cte4.wsdl.status_service.mg.hom.CTeStatusServicoV4) getSoapService().homStatusService()).getCTeStatusServicoV4Soap12();
             data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
@@ -290,8 +294,12 @@ public final class CteMgService extends CteAnService {
 
             br.inf.portalfiscal.cte4.wsdl.status_service.mg.hom.CteStatusServicoCTResult resultMsg = ws.cteStatusServicoCT(msg);
 
-            retorno = CteUnmarshallerFactory.getInstance().returnStatusService400(XMLUtils.elementToString((Element) resultMsg.getContent().get(0), false).replace("retConsStatServCte", "retConsStatServCTe")).getValue();
-
+            Object content = resultMsg.getContent().get(0);
+            if (content instanceof Element) {
+                retorno = CteUnmarshallerFactory.getInstance().returnStatusService400(XMLUtils.elementToString((Element) content, false).replace("retConsStatServCte", "retConsStatServCTe")).getValue();
+            } else {
+                retorno = (TRetConsStatServ) ((JAXBElement<?>) content).getValue();
+            }
         }
 
         for (AfterWebServiceRequest<TConsStatServ, TRetConsStatServ> it : data.afterRequest())

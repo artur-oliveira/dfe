@@ -1,5 +1,8 @@
 package org.dfe.components.security.chain;
 
+import lombok.Getter;
+import lombok.SneakyThrows;
+import lombok.extern.log4j.Log4j2;
 import org.dfe.components.security.chain.cache.CertificateChainCacheFactory;
 import org.dfe.enums.internal.Environment;
 import org.dfe.enums.internal.Model;
@@ -11,9 +14,6 @@ import org.dfe.enums.internal.nf.NfeAuthorizer;
 import org.dfe.exceptions.services.NoProviderFound;
 import org.dfe.interfaces.security.CertificateChain;
 import org.dfe.util.OutputStreamUtils;
-import lombok.Getter;
-import lombok.SneakyThrows;
-import lombok.extern.log4j.Log4j2;
 
 import javax.net.ssl.*;
 import java.io.ByteArrayOutputStream;
@@ -61,6 +61,8 @@ final class CertificateChainServiceImpl extends CertificateChainFactory {
                 final String alias = String.format("%s.%s", host, i + 1);
                 keyStore.setCertificateEntry(alias, certificate);
             }
+        } else {
+            log.warn("cannot get chain for host: {}", host);
         }
     }
 
@@ -78,13 +80,15 @@ final class CertificateChainServiceImpl extends CertificateChainFactory {
                     }
                 }).distinct().sorted().collect(Collectors.toList());
 
-                log.info(urls.size() + " HOSTS FOR GENERATING CERTIFICATES CHAIN");
+                log.info("{} HOSTS FOR GENERATING CERTIFICATES CHAIN", urls.size());
 
                 for (String url : urls) {
                     get(keyStore, url);
-                    log.debug("GENERATED FOR HOST: " + url);
+                    log.debug("GENERATED FOR HOST: {}", url);
                 }
                 keyStore.store(out, DEFAULT_PASSWORD.toCharArray());
+
+                log.info("CERTIFICATE CHAIN GENERATED");
                 return out.toByteArray();
             }
         } catch (IOException | GeneralSecurityException e) {
@@ -163,6 +167,11 @@ final class CertificateChainServiceImpl extends CertificateChainFactory {
     public byte[] generate(CertificateChain generate) {
         byte[] cached = getFromCache(generate);
         if (Objects.nonNull(cached)) return cached;
+        return addToCache(generate, generateForUrls(getUrls(generate)));
+    }
+
+    @Override
+    public byte[] forceGenerate(CertificateChain generate) {
         return addToCache(generate, generateForUrls(getUrls(generate)));
     }
 

@@ -1,12 +1,12 @@
 package org.dfe.models.nf.inut;
 
 import br.inf.portalfiscal.nfe.send.TInutNFe;
+import lombok.*;
 import org.dfe.enums.nf.NFEvent;
 import org.dfe.enums.nf.version.NFVersion;
 import org.dfe.interfaces.xml.XMLAdapter;
 import org.dfe.interfaces.xml.generic.DFObject;
 import org.dfe.util.XMLStringUtils;
-import lombok.*;
 
 @Getter
 @Setter

@@ -1,12 +1,12 @@
 package org.dfe.models.nf.authorization;
 
 import br.inf.portalfiscal.nfe.send.TNfeProc;
-import org.dfe.interfaces.xml.XMLAdapter;
-import org.dfe.interfaces.xml.generic.DFObject;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.dfe.interfaces.xml.XMLAdapter;
+import org.dfe.interfaces.xml.generic.DFObject;
 
 @Data
 @Builder

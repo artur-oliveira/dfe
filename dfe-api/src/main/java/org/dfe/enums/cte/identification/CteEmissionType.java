@@ -1,7 +1,7 @@
 package org.dfe.enums.cte.identification;
 
-import org.dfe.components.internal.DFEnum;
 import lombok.Getter;
+import org.dfe.components.internal.DFEnum;
 
 import java.util.Arrays;
 import java.util.Collection;

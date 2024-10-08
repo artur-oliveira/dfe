@@ -3,6 +3,7 @@ package org.dfe.models.cte4.reception_gtve;
 import br.inf.portalfiscal.cte.send400.TGTVe;
 import br.inf.portalfiscal.cte.send400.TUFSemEX;
 import br.inf.portalfiscal.cte.send400.TUf;
+import lombok.*;
 import org.dfe.components.internal.AccessKeyGenerator;
 import org.dfe.components.internal.ProjectProperties;
 import org.dfe.enums.cte.identification.CteType;
@@ -14,7 +15,6 @@ import org.dfe.util.DateUtils;
 import org.dfe.util.RequireUtils;
 import org.dfe.util.StringUtils;
 import org.dfe.util.XMLStringUtils;
-import lombok.*;
 
 import java.util.List;
 import java.util.Objects;

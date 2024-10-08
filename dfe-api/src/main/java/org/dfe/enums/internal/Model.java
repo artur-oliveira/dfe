@@ -1,7 +1,8 @@
 package org.dfe.enums.internal;
 
-import org.dfe.components.internal.DFEnum;
 import lombok.Getter;
+import org.dfe.components.internal.DFEnum;
+import org.dfe.components.internal.parser.AccessKeyParserFactory;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -29,6 +30,23 @@ public enum Model implements DFEnum.Codeable {
 
     public static Model valueOfCode(String code) {
         return DFEnum.valueOfCode(values(), code);
+    }
+
+    public AccessKeyParserFactory parser() {
+        switch (this) {
+            case CTE, GTVE, CTE_OS -> {
+                return AccessKeyParserFactory.cte();
+            }
+            case NFE, NFCE -> {
+                return AccessKeyParserFactory.nfe();
+            }
+            case MDFE -> {
+                return AccessKeyParserFactory.mdfe();
+            }
+            default -> {
+                return AccessKeyParserFactory.any();
+            }
+        }
     }
 
 }

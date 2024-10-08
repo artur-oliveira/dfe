@@ -1,12 +1,12 @@
 package org.dfe.models.mdfe.query_unclosed;
 
 import br.inf.portalfiscal.mdfe.classes.TRetConsMDFeNaoEnc;
-import org.dfe.interfaces.xml.XMLAdapter;
-import org.dfe.interfaces.xml.generic.DFObject;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.dfe.interfaces.xml.XMLAdapter;
+import org.dfe.interfaces.xml.generic.DFObject;
 
 import java.util.List;
 

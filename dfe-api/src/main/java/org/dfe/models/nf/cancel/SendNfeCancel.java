@@ -1,6 +1,7 @@
 package org.dfe.models.nf.cancel;
 
 import br.inf.portalfiscal.nfe.event_cancel.TEnvEvento;
+import lombok.*;
 import org.dfe.enums.nf.version.NFEventVersion;
 import org.dfe.interfaces.internal.config.Config;
 import org.dfe.interfaces.internal.config.NfConfig;
@@ -8,7 +9,6 @@ import org.dfe.interfaces.xml.XMLAdapter;
 import org.dfe.interfaces.xml.generic.DFObject;
 import org.dfe.models.nf.authorization.NfProcessed;
 import org.dfe.util.StringUtils;
-import lombok.*;
 
 import java.util.Collections;
 import java.util.List;

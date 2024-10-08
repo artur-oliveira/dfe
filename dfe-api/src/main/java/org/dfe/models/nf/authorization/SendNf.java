@@ -1,6 +1,7 @@
 package org.dfe.models.nf.authorization;
 
 import br.inf.portalfiscal.nfe.send.TEnviNFe;
+import lombok.*;
 import org.dfe.enums.internal.Environment;
 import org.dfe.enums.internal.UF;
 import org.dfe.enums.internal.nf.QrCodeNfceURL;
@@ -14,7 +15,6 @@ import org.dfe.interfaces.xml.XMLAdapter;
 import org.dfe.interfaces.xml.XMLSignerService;
 import org.dfe.interfaces.xml.generic.DFObject;
 import org.dfe.util.StringUtils;
-import lombok.*;
 
 import java.security.GeneralSecurityException;
 import java.util.ArrayList;

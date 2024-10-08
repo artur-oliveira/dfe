@@ -118,6 +118,8 @@ public interface StorageService {
      */
     Collection<StorageResult> getProc(Config conf, StorageKey key, String xmlName) throws IOException;
 
+    Collection<StorageResult> getProc(RootPath rootPath) throws IOException;
+
     /**
      * This Java function returns the latest StorageResult object for a given Config, StorageKey, and XML file name.
      *

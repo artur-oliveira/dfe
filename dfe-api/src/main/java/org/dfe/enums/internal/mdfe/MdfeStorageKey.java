@@ -1,9 +1,9 @@
 package org.dfe.enums.internal.mdfe;
 
 import br.inf.portalfiscal.mdfe.classes.ObjectFactory;
-import org.dfe.interfaces.internal.StorageKey;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import org.dfe.interfaces.internal.StorageKey;
 
 @Getter
 @AllArgsConstructor

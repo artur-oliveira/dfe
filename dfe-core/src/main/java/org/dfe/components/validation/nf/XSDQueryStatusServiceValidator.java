@@ -10,6 +10,6 @@ import org.dfe.models.internal.xml.XMLValidation;
 final class XSDQueryStatusServiceValidator implements NfQueryStatusServiceValidator {
     @Override
     public void valid(Validation<TConsStatServ> o) throws ValidationException {
-        XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/nfe/PL_009k_NT2023_001_v110a/consStatServ_v4.00.xsd", o.xml()));
+        XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/nfe/PL_009o_NT2024_001_v100/consStatServ_v4.00.xsd", o.xml()));
     }
 }

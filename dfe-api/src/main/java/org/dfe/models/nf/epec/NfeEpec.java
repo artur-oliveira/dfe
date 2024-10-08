@@ -2,6 +2,7 @@ package org.dfe.models.nf.epec;
 
 import br.inf.portalfiscal.nfe.event_epec.TEvento;
 import br.inf.portalfiscal.nfe.event_epec.TUf;
+import lombok.*;
 import org.dfe.components.internal.ProjectProperties;
 import org.dfe.enums.internal.UF;
 import org.dfe.enums.nf.NFAuthor;
@@ -11,7 +12,6 @@ import org.dfe.interfaces.xml.XMLAdapter;
 import org.dfe.interfaces.xml.generic.DFObject;
 import org.dfe.util.DateUtils;
 import org.dfe.util.XMLStringUtils;
-import lombok.*;
 
 @Getter
 @Setter

@@ -21,10 +21,10 @@ import java.util.concurrent.ConcurrentHashMap;
 
 @Getter(AccessLevel.PRIVATE)
 public final class SoapServiceProxy {
-    private final static int DEFAULT_NFE_SERVICE_MAP_CAPACITY = Integer.parseInt(System.getProperty("org.dfe.sefaz.port.proxy.map.capacity.nfe", "100"));
-    private final static int DEFAULT_NFCE_SERVICE_MAP_CAPACITY = Integer.parseInt(System.getProperty("org.dfe.sefaz.port.proxy.map.capacity.nfce", "100"));
-    private final static int DEFAULT_CTE_SERVICE_MAP_CAPACITY = Integer.parseInt(System.getProperty("org.dfe.sefaz.port.proxy.map.capacity.cte", "100"));
-    private final static int DEFAULT_MDFE_SERVICE_MAP_CAPACITY = Integer.parseInt(System.getProperty("org.dfe.sefaz.port.proxy.map.capacity.mdfe", "100"));
+    private final static int DEFAULT_NFE_SERVICE_MAP_CAPACITY = Integer.parseInt(System.getProperty("org.dfe.sefaz.port.proxy.map.capacity.nfe", "10"));
+    private final static int DEFAULT_NFCE_SERVICE_MAP_CAPACITY = Integer.parseInt(System.getProperty("org.dfe.sefaz.port.proxy.map.capacity.nfce", "10"));
+    private final static int DEFAULT_CTE_SERVICE_MAP_CAPACITY = Integer.parseInt(System.getProperty("org.dfe.sefaz.port.proxy.map.capacity.cte", "10"));
+    private final static int DEFAULT_MDFE_SERVICE_MAP_CAPACITY = Integer.parseInt(System.getProperty("org.dfe.sefaz.port.proxy.map.capacity.mdfe", "10"));
     private final Map<NfeAuthorizer, NfeSoapService> nfeServiceMap = new ConcurrentHashMap<>(DEFAULT_NFE_SERVICE_MAP_CAPACITY);
     private final Map<NfceAuthorizer, NfceSoapService> nfceServiceMap = new ConcurrentHashMap<>(DEFAULT_NFCE_SERVICE_MAP_CAPACITY);
     private final Map<Cte4Authorizer, Cte4SoapService> cte4ServiceMap = new ConcurrentHashMap<>(DEFAULT_CTE_SERVICE_MAP_CAPACITY);
