@@ -1,8 +1,6 @@
 package org.dfe.components.sefaz.cte4;
 
 import br.inf.portalfiscal.cte.send400.*;
-import jakarta.xml.bind.JAXBElement;
-import jakarta.xml.ws.BindingProvider;
 import org.dfe.components.internal.PairImpl;
 import org.dfe.components.internal.xml.marshaller.CteMarshallerFactory;
 import org.dfe.components.internal.xml.unmarshaller.CteUnmarshallerFactory;
@@ -23,6 +21,8 @@ import org.dfe.models.internal.Before;
 import org.dfe.models.internal.Validation;
 import org.dfe.models.internal.wsdl.ProviderConfig;
 import org.dfe.util.GZIPUtils;
+import jakarta.xml.bind.JAXBElement;
+import jakarta.xml.ws.BindingProvider;
 
 import java.io.IOException;
 import java.util.Arrays;

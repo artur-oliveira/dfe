@@ -9,9 +9,9 @@ import org.dfe.components.process.cte4.reception_gtve.impl.GtveProcessFactory;
 import org.dfe.components.process.cte4.reception_os.impl.CteOsProcessFactory;
 import org.dfe.components.process.cte4.reception_sync.impl.CteSyncProcessFactory;
 import org.dfe.components.process.cte4.status_service.impl.StatusServiceCteProcessFactory;
+import org.dfe.interfaces.process.cte4.Cte4ProcessService;
 import org.dfe.interfaces.process.cte4.distribution.AfterDistribution;
 import org.dfe.interfaces.process.cte4.distribution.BeforeDistribution;
-import org.dfe.interfaces.process.cte4.Cte4ProcessService;
 import org.dfe.interfaces.process.cte4.event.AfterEvent;
 import org.dfe.interfaces.process.cte4.event.BeforeEvent;
 import org.dfe.interfaces.process.cte4.query_situation.AfterQuerySituation;
@@ -28,15 +28,18 @@ import org.dfe.interfaces.process.cte4.status_service.BeforeStatusService;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 
 public abstract class Cte4Process implements Cte4ProcessService {
     public static Cte4Process getInstance() {
-        return switch (System.getProperty("org.dfe.process.cte4", "default")) {
-            case "s3" -> HolderS3.INSTANCE;
-            default -> Holder.INSTANCE;
-        };
+        final String process = System.getProperty("org.dfe.process.cte4", "default");
+        if (Objects.equals(process, "s3")) {
+            return HolderS3.INSTANCE;
+        } else {
+            return Holder.INSTANCE;
+        }
     }
 
     public abstract List<Cte4ProcessFactory> getProcessFactories();

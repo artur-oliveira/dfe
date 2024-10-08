@@ -1,12 +1,12 @@
 package org.dfe.models.mdfe.reception;
 
 import br.inf.portalfiscal.mdfe.classes.TRetEnviMDFe;
-import org.dfe.interfaces.xml.XMLAdapter;
-import org.dfe.interfaces.xml.generic.DFObject;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.dfe.interfaces.xml.XMLAdapter;
+import org.dfe.interfaces.xml.generic.DFObject;
 
 import javax.xml.datatype.XMLGregorianCalendar;
 import java.math.BigInteger;

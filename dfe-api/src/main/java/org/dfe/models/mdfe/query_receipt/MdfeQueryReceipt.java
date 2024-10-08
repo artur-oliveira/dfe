@@ -1,14 +1,14 @@
 package org.dfe.models.mdfe.query_receipt;
 
 import br.inf.portalfiscal.mdfe.classes.TConsReciMDFe;
-import org.dfe.enums.mdfe.version.MdfeVersion;
-import org.dfe.interfaces.internal.config.MdfeConfig;
-import org.dfe.interfaces.xml.XMLAdapter;
-import org.dfe.interfaces.xml.generic.DFObject;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.dfe.enums.mdfe.version.MdfeVersion;
+import org.dfe.interfaces.internal.config.MdfeConfig;
+import org.dfe.interfaces.xml.XMLAdapter;
+import org.dfe.interfaces.xml.generic.DFObject;
 
 @AllArgsConstructor
 @NoArgsConstructor

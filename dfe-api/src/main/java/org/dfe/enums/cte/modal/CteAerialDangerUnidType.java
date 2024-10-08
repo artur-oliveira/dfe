@@ -1,8 +1,8 @@
 package org.dfe.enums.cte.modal;
 
-import org.dfe.components.internal.DFEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import org.dfe.components.internal.DFEnum;
 
 @Getter
 @AllArgsConstructor

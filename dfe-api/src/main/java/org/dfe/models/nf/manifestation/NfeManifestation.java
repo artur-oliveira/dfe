@@ -1,12 +1,12 @@
 package org.dfe.models.nf.manifestation;
 
 import br.inf.portalfiscal.nfe.event_manifestation.TEvento;
+import lombok.*;
 import org.dfe.enums.nf.version.NFEventVersion;
 import org.dfe.interfaces.xml.XMLAdapter;
 import org.dfe.interfaces.xml.generic.DFObject;
 import org.dfe.util.DateUtils;
 import org.dfe.util.XMLStringUtils;
-import lombok.*;
 
 @Getter
 @Setter

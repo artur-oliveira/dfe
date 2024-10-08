@@ -1,9 +1,9 @@
 package org.dfe.models.nf.authorization;
 
 import br.inf.portalfiscal.nfe.send.TRetEnviNFe;
+import lombok.*;
 import org.dfe.interfaces.xml.XMLAdapter;
 import org.dfe.interfaces.xml.generic.DFObject;
-import lombok.*;
 
 @Getter
 @Setter

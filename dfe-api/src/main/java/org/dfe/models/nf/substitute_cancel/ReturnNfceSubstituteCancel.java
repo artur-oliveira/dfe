@@ -3,9 +3,9 @@ package org.dfe.models.nf.substitute_cancel;
 
 import br.inf.portalfiscal.nfe.event_substitute_cancel.SignatureType;
 import br.inf.portalfiscal.nfe.event_substitute_cancel.TRetEnvEvento;
+import lombok.*;
 import org.dfe.interfaces.xml.XMLAdapter;
 import org.dfe.interfaces.xml.generic.DFObject;
-import lombok.*;
 
 import java.util.List;
 

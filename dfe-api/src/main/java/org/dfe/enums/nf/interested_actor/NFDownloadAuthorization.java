@@ -1,7 +1,7 @@
 package org.dfe.enums.nf.interested_actor;
 
-import org.dfe.components.internal.DFEnum;
 import lombok.Getter;
+import org.dfe.components.internal.DFEnum;
 
 @Getter
 public enum NFDownloadAuthorization implements DFEnum.Codeable {

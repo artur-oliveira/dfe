@@ -1,6 +1,7 @@
 package org.dfe.models.nf.manifestation;
 
 import br.inf.portalfiscal.nfe.event_manifestation.TEnvEvento;
+import lombok.*;
 import org.dfe.enums.internal.UF;
 import org.dfe.enums.nf.NFEvent;
 import org.dfe.enums.nf.version.NFEventVersion;
@@ -9,7 +10,6 @@ import org.dfe.interfaces.internal.config.Config;
 import org.dfe.interfaces.xml.XMLAdapter;
 import org.dfe.interfaces.xml.generic.DFObject;
 import org.dfe.util.StringUtils;
-import lombok.*;
 
 import java.util.Collections;
 import java.util.List;

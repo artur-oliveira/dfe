@@ -13,5 +13,4 @@ public final class S3PfxKeyStoreInfoImpl extends PfxKeyStoreInfoImpl {
         super(S3Utils.clientInstance().getObject(bucket, key).getObjectContent(), certificatePassword, certificateChain, certificateChainPassword);
     }
 
-
 }

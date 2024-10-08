@@ -23,7 +23,7 @@ public class MdfeReturnDistributionOld implements DFObject, XMLAdapter<MdfeRetur
     protected String dhResp;
     protected String ultNSU;
     protected String maxNSU;
-    protected MdfeReturnDistributionOld.LoteDistDFeInt loteDistDFeInt;
+    protected LoteDistDFeInt loteDistDFeInt;
     protected String versao;
 
     @Getter
@@ -32,8 +32,8 @@ public class MdfeReturnDistributionOld implements DFObject, XMLAdapter<MdfeRetur
     @ToString
     @AllArgsConstructor
     @NoArgsConstructor
-    public static class LoteDistDFeInt implements DFObject, XMLAdapter<MdfeReturnDistributionOld.LoteDistDFeInt, br.inf.portalfiscal.mdfe.distribution.LoteDistDFeInt> {
-        protected List<MdfeReturnDistributionOld.LoteDistDFeInt.DocZip> docZip;
+    public static class LoteDistDFeInt implements DFObject, XMLAdapter<LoteDistDFeInt, br.inf.portalfiscal.mdfe.distribution.LoteDistDFeInt> {
+        protected List<DocZip> docZip;
 
 
         @Getter
@@ -42,7 +42,7 @@ public class MdfeReturnDistributionOld implements DFObject, XMLAdapter<MdfeRetur
         @ToString
         @AllArgsConstructor
         @NoArgsConstructor
-        public static class DocZip implements DFObject, XMLAdapter<MdfeReturnDistributionOld.LoteDistDFeInt.DocZip, br.inf.portalfiscal.mdfe.distribution.DocZip> {
+        public static class DocZip implements DFObject, XMLAdapter<DocZip, br.inf.portalfiscal.mdfe.distribution.DocZip> {
             protected String value;
             protected String nsu;
             protected String schema;
@@ -63,8 +63,8 @@ public class MdfeReturnDistributionOld implements DFObject, XMLAdapter<MdfeRetur
             }
 
             @Override
-            public MdfeReturnDistributionOld.LoteDistDFeInt.DocZip fromObject(br.inf.portalfiscal.mdfe.distribution.DocZip o) {
-                MdfeReturnDistributionOld.LoteDistDFeInt.DocZip docZip = MdfeReturnDistributionOld.LoteDistDFeInt.DocZip.builder().build();
+            public DocZip fromObject(br.inf.portalfiscal.mdfe.distribution.DocZip o) {
+                DocZip docZip = DocZip.builder().build();
                 docZip.setNsu(o.getNSU());
                 docZip.setSchema(o.getSchema());
                 try {

@@ -48,9 +48,8 @@ public class NfceSubstituteCancel implements DFObject, XMLAdapter<NfceSubstitute
         protected DetEvento detEvento;
         protected String id;
 
-        public static NfceSubstituteCancel.InfEvento build(String accessKey, String accessKeyRef, String protocol, String justification, String sequence, Config conf) {
-            return NfceSubstituteCancel
-                    .InfEvento
+        public static InfEvento build(String accessKey, String accessKeyRef, String protocol, String justification, String sequence, Config conf) {
+            return InfEvento
                     .builder()
                     .chNFe(accessKey)
                     .nSeqEvento(sequence)
@@ -58,7 +57,7 @@ public class NfceSubstituteCancel implements DFObject, XMLAdapter<NfceSubstitute
                     .cpf(conf.cpf())
                     .cOrgao(conf.uf().getCode())
                     .tpAmb(conf.environment().getCode())
-                    .detEvento(NfceSubstituteCancel.InfEvento.DetEvento
+                    .detEvento(DetEvento
                             .builder()
                             .chNFeRef(accessKeyRef)
                             .cOrgaoAutor(conf.uf().getCode())

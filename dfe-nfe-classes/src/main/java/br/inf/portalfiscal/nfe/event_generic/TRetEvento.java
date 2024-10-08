@@ -8,10 +8,10 @@
 
 package br.inf.portalfiscal.nfe.event_generic;
 
-import org.dfe.interfaces.xml.generic.XML;
 import jakarta.xml.bind.annotation.*;
 import jakarta.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import org.dfe.interfaces.xml.generic.XML;
 
 
 /**
@@ -112,7 +112,7 @@ public class TRetEvento
         implements XML {
 
     @XmlElement(required = true)
-    protected TRetEvento.InfEvento infEvento;
+    protected InfEvento infEvento;
     @XmlElement(name = "Signature", namespace = "http://www.w3.org/2000/09/xmldsig#")
     protected SignatureType signature;
     @XmlAttribute(name = "versao", required = true)
@@ -122,9 +122,9 @@ public class TRetEvento
      * Gets the value of the infEvento property.
      *
      * @return possible object is
-     * {@link TRetEvento.InfEvento }
+     * {@link InfEvento }
      */
-    public TRetEvento.InfEvento getInfEvento() {
+    public InfEvento getInfEvento() {
         return infEvento;
     }
 
@@ -132,9 +132,9 @@ public class TRetEvento
      * Sets the value of the infEvento property.
      *
      * @param value allowed object is
-     *              {@link TRetEvento.InfEvento }
+     *              {@link InfEvento }
      */
-    public void setInfEvento(TRetEvento.InfEvento value) {
+    public void setInfEvento(InfEvento value) {
         this.infEvento = value;
     }
 

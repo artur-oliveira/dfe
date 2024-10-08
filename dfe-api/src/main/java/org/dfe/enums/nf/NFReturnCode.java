@@ -1,11 +1,11 @@
 package org.dfe.enums.nf;
 
-import org.dfe.components.internal.DFEnum;
-import org.dfe.exceptions.NoEnumException;
-import org.dfe.interfaces.internal.ReturnCode;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.extern.log4j.Log4j2;
+import org.dfe.components.internal.DFEnum;
+import org.dfe.exceptions.NoEnumException;
+import org.dfe.interfaces.internal.ReturnCode;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -41,6 +41,7 @@ public enum NFReturnCode implements ReturnCode {
     CODE_142("142", "Ambiente de Contingência EPEC bloqueado para o Emitente"),
     CODE_150("150", "Autorizado o uso da NF-e, autorização fora de prazo"),
     CODE_151("151", "Cancelamento de NF-e homologado fora de prazo"),
+    CODE_155("155", "Cancelamento homologado fora de prazo"),
 
     CODE_301("301", "Uso Denegado: Irregularidade fiscal do emitente"),
     CODE_302("302", "Uso Denegado: Irregularidade fiscal do destinatário"),
@@ -661,7 +662,7 @@ public enum NFReturnCode implements ReturnCode {
 
     public static final Collection<NFReturnCode> denied = Arrays.asList(CODE_110, CODE_301, CODE_302, CODE_303);
     public static final Collection<NFReturnCode> authorized = Arrays.asList(CODE_100, CODE_150);
-    public static final Collection<NFReturnCode> general = Arrays.asList(CODE_101, CODE_102, CODE_135, CODE_136, CODE_151);
+    public static final Collection<NFReturnCode> general = Arrays.asList(CODE_101, CODE_102, CODE_135, CODE_136, CODE_151, CODE_155);
 
     private final String code;
     private final String description;
@@ -674,7 +675,7 @@ public enum NFReturnCode implements ReturnCode {
         try {
             return generateProc(valueOfCode(code));
         } catch (NoEnumException e) {
-            log.warn("no enum found for code " + e.getValue());
+            log.warn("no enum found for code {}", e.getValue());
             return false;
         }
     }

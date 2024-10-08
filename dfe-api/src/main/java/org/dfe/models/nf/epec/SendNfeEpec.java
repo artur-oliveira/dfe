@@ -2,6 +2,7 @@ package org.dfe.models.nf.epec;
 
 import br.inf.portalfiscal.nfe.event_epec.TEnvEvento;
 import br.inf.portalfiscal.nfe.event_epec.TUf;
+import lombok.*;
 import org.dfe.components.internal.parser.AccessKeyParserFactory;
 import org.dfe.enums.internal.UF;
 import org.dfe.enums.nf.identification.NFType;
@@ -12,7 +13,6 @@ import org.dfe.interfaces.xml.XMLAdapter;
 import org.dfe.interfaces.xml.generic.DFObject;
 import org.dfe.models.nf.authorization.Nf;
 import org.dfe.util.StringUtils;
-import lombok.*;
 
 import java.util.Collections;
 import java.util.List;

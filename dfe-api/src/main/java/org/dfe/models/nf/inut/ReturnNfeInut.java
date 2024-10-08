@@ -1,9 +1,9 @@
 package org.dfe.models.nf.inut;
 
 import br.inf.portalfiscal.nfe.send.TRetInutNFe;
+import lombok.*;
 import org.dfe.interfaces.xml.XMLAdapter;
 import org.dfe.interfaces.xml.generic.DFObject;
-import lombok.*;
 
 @Getter
 @Setter

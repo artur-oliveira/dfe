@@ -1,7 +1,7 @@
 package org.dfe.enums.general;
 
-import org.dfe.components.internal.DFEnum;
 import lombok.Getter;
+import org.dfe.components.internal.DFEnum;
 
 @Getter
 public enum Country implements DFEnum.Codeable {

@@ -3,9 +3,9 @@ package org.dfe.models.nf.epec;
 
 import br.inf.portalfiscal.nfe.event_epec.SignatureType;
 import br.inf.portalfiscal.nfe.event_epec.TRetEnvEvento;
+import lombok.*;
 import org.dfe.interfaces.xml.XMLAdapter;
 import org.dfe.interfaces.xml.generic.DFObject;
-import lombok.*;
 
 import java.util.List;
 

@@ -1,9 +1,9 @@
 package org.dfe.components.internal;
 
-import org.dfe.interfaces.internal.Pair;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+import org.dfe.interfaces.internal.Pair;
 
 @RequiredArgsConstructor
 @Getter

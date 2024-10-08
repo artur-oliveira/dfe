@@ -4,9 +4,11 @@ import org.dfe.interfaces.internal.AccessKeyParser;
 
 public abstract class AccessKeyParserFactory implements AccessKeyParser {
 
-    private static final int YEAR_OFFSET = 2000;
-
     AccessKeyParserFactory() {
+    }
+
+    public static AccessKeyParserFactory any() {
+        return Holder.ANY;
     }
 
     public static AccessKeyParserFactory nfe() {
@@ -22,9 +24,9 @@ public abstract class AccessKeyParserFactory implements AccessKeyParser {
     }
 
     static final class Holder {
+        final static AccessKeyParserFactory ANY = new AccessKeyParserFactoryImpl();
         final static AccessKeyParserFactory NFE = new NfAccessKeyParser();
         final static AccessKeyParserFactory CTE = new CteAccessKeyParser();
         final static AccessKeyParserFactory MDFE = new MdfeAccessKeyParser();
-
     }
 }

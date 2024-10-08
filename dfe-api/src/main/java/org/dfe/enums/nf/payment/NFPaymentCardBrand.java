@@ -1,7 +1,7 @@
 package org.dfe.enums.nf.payment;
 
-import org.dfe.components.internal.DFEnum;
 import lombok.Getter;
+import org.dfe.components.internal.DFEnum;
 
 @Getter
 public enum NFPaymentCardBrand implements DFEnum.Codeable {

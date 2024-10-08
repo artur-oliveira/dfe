@@ -17,6 +17,14 @@ public interface CertificateChainService {
     byte[] generate(CertificateChain generate);
 
     /**
+     * Generates a certificate chain from the given params, without cache
+     *
+     * @param generate certificate params
+     * @return certificate chain bytes
+     */
+    byte[] forceGenerate(CertificateChain generate);
+
+    /**
      * This function returns the password.
      *
      * @return The password.

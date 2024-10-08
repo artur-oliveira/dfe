@@ -1,9 +1,9 @@
 package org.dfe.enums.mdfe;
 
-import org.dfe.components.internal.DFEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import org.dfe.components.internal.DFEnum;
 
 @Getter
 @AllArgsConstructor

@@ -1,9 +1,9 @@
 package org.dfe.models.nf.distribution;
 
 import br.inf.portalfiscal.nfe.distribution.TDistDFeInt;
+import lombok.*;
 import org.dfe.interfaces.xml.XMLAdapter;
 import org.dfe.interfaces.xml.generic.DFObject;
-import lombok.*;
 
 @Getter
 @Setter

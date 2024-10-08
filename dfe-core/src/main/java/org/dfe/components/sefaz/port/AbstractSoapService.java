@@ -42,5 +42,4 @@ public abstract class AbstractSoapService {
         }
         return instance;
     }
-
 }

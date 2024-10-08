@@ -1,6 +1,7 @@
 package org.dfe.models.mdfe.event;
 
 import br.inf.portalfiscal.mdfe.classes.TEvento;
+import lombok.*;
 import org.dfe.components.internal.xml.marshaller.MdfeMarshallerFactory;
 import org.dfe.components.internal.xml.unmarshaller.MdfeUnmarshallerFactory;
 import org.dfe.enums.mdfe.MdfeEvent;
@@ -10,7 +11,6 @@ import org.dfe.interfaces.xml.XMLAdapter;
 import org.dfe.interfaces.xml.generic.DFObject;
 import org.dfe.util.DateUtils;
 import org.dfe.util.XMLStringUtils;
-import lombok.*;
 
 @Data
 @AllArgsConstructor

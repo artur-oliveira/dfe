@@ -1,8 +1,6 @@
 package org.dfe.components.sefaz.cte4;
 
 import br.inf.portalfiscal.cte.send400.*;
-import jakarta.xml.bind.JAXBElement;
-import jakarta.xml.ws.BindingProvider;
 import org.dfe.components.internal.PairImpl;
 import org.dfe.components.internal.xml.marshaller.CteMarshallerFactory;
 import org.dfe.components.internal.xml.unmarshaller.CteUnmarshallerFactory;
@@ -23,6 +21,9 @@ import org.dfe.models.internal.Before;
 import org.dfe.models.internal.Validation;
 import org.dfe.models.internal.wsdl.ProviderConfig;
 import org.dfe.util.GZIPUtils;
+import jakarta.xml.bind.JAXBElement;
+import jakarta.xml.ws.BindingProvider;
+import org.dfe.util.StringUtils;
 
 import java.io.IOException;
 import java.util.Collection;
@@ -34,7 +35,7 @@ public final class CteMtService extends CteAnService {
 
     @Override
     public <T extends SefazRequest<TEvento, TRetEvento>> Pair<TEvento, TRetEvento> event(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = data.signer().signEvent(CteMarshallerFactory.getInstance().eventCte(data.data()), data.config());
+        String xml = data.signer().signEvent(StringUtils.toAscii(CteMarshallerFactory.getInstance().eventCte(data.data())), data.config());
         JAXBElement<TEvento> envio = CteUnmarshallerFactory.getInstance().eventCte400(xml);
 
         for (Validator<TEvento> it : data.validators())
@@ -212,7 +213,7 @@ public final class CteMtService extends CteAnService {
 
     @Override
     public <T extends SefazRequest<TCTe, TRetCTe>> Pair<TCTe, TRetCTe> receptionSync(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = data.signer().signCte(CteMarshallerFactory.getInstance().receptionCteSync(data.data()), data.config());
+        String xml = data.signer().signCte(StringUtils.toAscii(CteMarshallerFactory.getInstance().receptionCteSync(data.data())), data.config());
         JAXBElement<TCTe> envio = CteUnmarshallerFactory.getInstance().receptionCteSync400(xml);
 
         for (Validator<TCTe> it : data.validators())

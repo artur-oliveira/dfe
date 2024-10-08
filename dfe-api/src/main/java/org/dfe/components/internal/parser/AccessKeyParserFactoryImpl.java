@@ -13,19 +13,6 @@ class AccessKeyParserFactoryImpl extends AccessKeyParserFactory {
 
     private static final int YEAR_OFFSET = 2000;
 
-
-    public static AccessKeyParserFactoryImpl nfe() {
-        return Holder.NFE;
-    }
-
-    public static AccessKeyParserFactoryImpl cte() {
-        return Holder.CTE;
-    }
-
-    public static AccessKeyParserFactoryImpl mdfe() {
-        return Holder.MDFE;
-    }
-
     @Override
     public String fromId(String id) {
         return DfeOptional.ofLength(DfeOptional.ofLengthGte(id, 44).orElseThrow(() -> new AccessKeyParserException("chave de acesso inválida: " + id)).replace(idPrefix(), StringUtils.empty()), 44).orElseThrow(() -> new AccessKeyParserException("chave de acesso de tamanho inválido: " + id));
@@ -88,12 +75,5 @@ class AccessKeyParserFactoryImpl extends AccessKeyParserFactory {
         } else {
             throw new AccessKeyParserException("não foi possível formatar a chave de acesso: " + ch);
         }
-    }
-
-    static final class Holder {
-        final static AccessKeyParserFactoryImpl NFE = new NfAccessKeyParser();
-        final static AccessKeyParserFactoryImpl CTE = new CteAccessKeyParser();
-        final static AccessKeyParserFactoryImpl MDFE = new MdfeAccessKeyParser();
-
     }
 }

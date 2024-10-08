@@ -52,7 +52,7 @@ public final class CteMultiModal implements DFObject, XMLAdapter<CteMultiModal, 
     @AllArgsConstructor
     @NoArgsConstructor
     @Builder
-    public static final class InfEvento implements DFObject, XMLAdapter<InfEvento, br.inf.portalfiscal.cte.send400.TEvento.InfEvento> {
+    public static final class InfEvento implements DFObject, XMLAdapter<InfEvento, TEvento.InfEvento> {
         private String cOrgao;
         private String tpAmb;
         private String cnpj;
@@ -67,8 +67,8 @@ public final class CteMultiModal implements DFObject, XMLAdapter<CteMultiModal, 
         private String id;
 
         @Override
-        public br.inf.portalfiscal.cte.send400.TEvento.InfEvento toObject() {
-            br.inf.portalfiscal.cte.send400.TEvento.InfEvento evento = XMLAdapter.super.toObject();
+        public TEvento.InfEvento toObject() {
+            TEvento.InfEvento evento = XMLAdapter.super.toObject();
             setId(XMLStringUtils.idEventoCte400(getTpEvento(), getChCTe(), getNSeqEvento()));
             evento.setId(getId());
             return evento;

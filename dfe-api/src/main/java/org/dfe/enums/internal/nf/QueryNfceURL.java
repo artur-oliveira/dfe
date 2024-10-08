@@ -173,12 +173,12 @@ public enum QueryNfceURL implements AllowUF {
     PB {
         @Override
         public String production() {
-            return "www.receita.pb.gov.br/nfce/consulta";
+            return "http://www.sefaz.pb.gov.br/nfce";
         }
 
         @Override
         public String homologation() {
-            return "www.receita.pb.gov.br/nfcehom";
+            return "http://www.sefaz.pb.gov.br/nfcehom";
         }
     },
     PR {
@@ -294,12 +294,12 @@ public enum QueryNfceURL implements AllowUF {
     SE {
         @Override
         public String production() {
-            return "http://www.nfce.se.gov.br/portal/portalNoticias.jsp";
+            return "http://www.nfce.se.gov.br/nfce/consulta";
         }
 
         @Override
         public String homologation() {
-            return "http://www.hom.nfe.se.gov.br/portal/portalNoticias.jsp";
+            return "http://www.hom.nfe.se.gov.br/nfce/consulta";
         }
     },
     TO {

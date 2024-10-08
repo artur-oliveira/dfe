@@ -2,9 +2,9 @@ package org.dfe.models.nf.cancel;
 
 
 import br.inf.portalfiscal.nfe.event_cancel.TProcEvento;
+import lombok.*;
 import org.dfe.interfaces.xml.XMLAdapter;
 import org.dfe.interfaces.xml.generic.DFObject;
-import lombok.*;
 
 
 @Getter

@@ -8,8 +8,8 @@
 
 package br.inf.portalfiscal.nfe.event_substitute_cancel;
 
-import org.dfe.interfaces.xml.generic.XML;
 import jakarta.xml.bind.annotation.*;
+import org.dfe.interfaces.xml.generic.XML;
 
 
 /**
