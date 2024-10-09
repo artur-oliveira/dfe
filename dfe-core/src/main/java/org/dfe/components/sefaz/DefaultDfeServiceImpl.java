@@ -1,5 +1,6 @@
 package org.dfe.components.sefaz;
 
+import lombok.Getter;
 import org.dfe.components.sefaz.nfe.NfeAnService;
 import org.dfe.exceptions.port.SoapServiceGeneralException;
 import org.dfe.exceptions.services.NoProviderFound;
@@ -11,9 +12,12 @@ import org.dfe.interfaces.sefaz.cte4.Cte4Service;
 import org.dfe.interfaces.sefaz.mdfe.MdfeService;
 import org.dfe.interfaces.sefaz.nf.nfce.NfceService;
 import org.dfe.interfaces.sefaz.nf.nfe.NfeService;
+import org.dfe.interfaces.sefaz.port.Cte4SoapService;
+import org.dfe.interfaces.sefaz.port.MdfeSoapService;
+import org.dfe.interfaces.sefaz.port.NfceSoapService;
+import org.dfe.interfaces.sefaz.port.NfeSoapService;
 import org.dfe.models.internal.reflection.PackageFinder;
 import org.dfe.util.ReflectionUtils;
-import lombok.Getter;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -29,21 +33,29 @@ final class DefaultDfeServiceImpl extends DfeServiceFactory {
 
     @Override
     public NfceService getNfceService(NfceConfig config) throws NoProviderFound, SoapServiceGeneralException {
-        return Optional.ofNullable(ReflectionUtils.newInstance(getNfceServices().stream().filter(it -> it.allow(config.webServiceUF(), config.environment(), config.emission())).findFirst().orElseThrow(NoProviderFound::new).getClass())).orElseThrow(NoProviderFound::new).withSoapService(SoapService.getInstance().getNfceSoapService(config));
+        NfceService nfceService = Optional.ofNullable(ReflectionUtils.newInstance(getNfceServices().stream().filter(it -> it.allow(config.webServiceUF(), config.environment(), config.emission())).findFirst().orElseThrow(NoProviderFound::new).getClass())).orElseThrow(NoProviderFound::new);
+        NfceSoapService nfceSoapService = SoapService.getInstance().getNfceSoapService(config);
+        return nfceService.withSoapService(nfceSoapService);
     }
 
     @Override
     public NfeService getNfeService(NfeConfig config) throws NoProviderFound, SoapServiceGeneralException {
-        return Optional.ofNullable(ReflectionUtils.newInstance(getNfeServices().stream().filter(it -> it.allow(config.webServiceUF(), config.environment(), config.emission())).findFirst().orElseThrow(NoProviderFound::new).getClass())).orElseThrow(NoProviderFound::new).withSoapService(SoapService.getInstance().getNfeSoapService(config));
+        NfeService nfeService = Optional.ofNullable(ReflectionUtils.newInstance(getNfeServices().stream().filter(it -> it.allow(config.webServiceUF(), config.environment(), config.emission())).findFirst().orElseThrow(NoProviderFound::new).getClass())).orElseThrow(NoProviderFound::new);
+        NfeSoapService nfeSoapService = SoapService.getInstance().getNfeSoapService(config);
+        return nfeService.withSoapService(nfeSoapService);
     }
 
     @Override
     public Cte4Service getCte4Service(CteConfig config) throws NoProviderFound, SoapServiceGeneralException {
-        return Optional.ofNullable(ReflectionUtils.newInstance(getCte4Services().stream().filter(it -> it.allow(config.webServiceUF(), config.environment(), config.emission())).findFirst().orElseThrow(NoProviderFound::new).getClass())).orElseThrow(NoProviderFound::new).withSoapService(SoapService.getInstance().getCte4SoapService(config));
+        Cte4Service cteService = Optional.ofNullable(ReflectionUtils.newInstance(getCte4Services().stream().filter(it -> it.allow(config.webServiceUF(), config.environment(), config.emission())).findFirst().orElseThrow(NoProviderFound::new).getClass())).orElseThrow(NoProviderFound::new);
+        Cte4SoapService cteSoapService = SoapService.getInstance().getCte4SoapService(config);
+        return cteService.withSoapService(cteSoapService);
     }
 
     @Override
     public MdfeService getMdfeService(MdfeConfig config) throws NoProviderFound, SoapServiceGeneralException {
-        return Optional.ofNullable(ReflectionUtils.newInstance(getMdfeServices().stream().filter(it -> it.allow(config.webServiceUF(), config.environment(), config.emission())).findFirst().orElseThrow(NoProviderFound::new).getClass())).orElseThrow(NoProviderFound::new).withSoapService(SoapService.getInstance().getMdfeSoapService(config));
+        MdfeService mdfeService = Optional.ofNullable(ReflectionUtils.newInstance(getMdfeServices().stream().filter(it -> it.allow(config.webServiceUF(), config.environment(), config.emission())).findFirst().orElseThrow(NoProviderFound::new).getClass())).orElseThrow(NoProviderFound::new);
+        MdfeSoapService mdfeSoapService = SoapService.getInstance().getMdfeSoapService(config);
+        return mdfeService.withSoapService(mdfeSoapService);
     }
 }

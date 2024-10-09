@@ -8,11 +8,10 @@ import org.dfe.util.ReflectionUtils;
 
 import javax.net.ssl.HttpsURLConnection;
 import java.util.Objects;
+import java.util.function.Supplier;
 
 @Getter
 public abstract class AbstractSoapService {
-    protected final int RETRY_TIMES_IF_FAIL = Integer.parseInt(System.getProperty("org.dfe.soap.retry", "5"));
-    protected final boolean LAZY_INITIALIZATION = Boolean.parseBoolean(System.getProperty("org.dfe.soap.lazy", "true"));
     protected boolean initialized = false;
     protected Config config;
 
@@ -29,11 +28,18 @@ public abstract class AbstractSoapService {
         return this;
     }
 
+    protected void safeInititialization(Supplier<Void> function) {
+        try {
+            function.get();
+        } catch (Exception ignored) {
+        }
+    }
+
     @SneakyThrows
     protected <T> T newServiceInstance(Class<T> clazz) {
         HttpsURLConnection.setDefaultSSLSocketFactory(SocketFactory.getInstance().context(getConfig()).getSocketFactory());
         T instance = null;
-        for (int i = 0; i < RETRY_TIMES_IF_FAIL; i++) {
+        for (int i = 0; i < SoapConfigurationProperties.RETRY_TIMES_IF_FAIL; i++) {
             instance = ReflectionUtils.safeNewInstance(clazz);
             if (Objects.nonNull(instance)) break;
         }

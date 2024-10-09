@@ -85,6 +85,36 @@ public abstract class AbstractNfeSoapService extends AbstractSoapService impleme
         this.queryGtin = Optional.ofNullable(abstractNfeSoapService.queryGtin).orElse(this.queryGtin);
     }
 
+    void fullInitialization(NfeSoapService o) {
+        // Initialize homologation services
+        safeInititialization(o::homAuthorization);
+        safeInititialization(o::homReturnAuthorization);
+        safeInititialization(o::homCancel);
+        safeInititialization(o::homInutilization);
+        safeInititialization(o::homQueryProtocol);
+        safeInititialization(o::homQueryRegister);
+        safeInititialization(o::homQueryStatusService);
+        safeInititialization(o::homInterestedActor);
+        safeInititialization(o::homEpec);
+        safeInititialization(o::homDistribution);
+        safeInititialization(o::homCorrectionLetter);
+        safeInititialization(o::homManifestation);
+
+        // Initialize production services
+        safeInititialization(o::prodAuthorization);
+        safeInititialization(o::prodReturnAuthorization);
+        safeInititialization(o::prodCancel);
+        safeInititialization(o::prodInutilization);
+        safeInititialization(o::prodQueryStatusService);
+        safeInititialization(o::prodQueryRegister);
+        safeInititialization(o::prodDistribution);
+        safeInititialization(o::prodEpec);
+        safeInititialization(o::prodInterestedActor);
+        safeInititialization(o::prodCorrectionLetter);
+        safeInititialization(o::prodManifestation);
+        safeInititialization(o::queryGtin);
+    }
+
     public void initialize(NfeSoapService o) {
         this.config = o.getConfig();
 
@@ -92,103 +122,8 @@ public abstract class AbstractNfeSoapService extends AbstractSoapService impleme
             initializeDefault(abstractNfeSoapService);
         }
 
-        if (!LAZY_INITIALIZATION) {
-            try {
-                o.homAuthorization();
-            } catch (Exception ignored) {
-            }
-            try {
-                o.homReturnAuthorization();
-            } catch (Exception ignored) {
-            }
-            try {
-                o.homCancel();
-            } catch (Exception ignored) {
-            }
-            try {
-                o.homInutilization();
-            } catch (Exception ignored) {
-            }
-            try {
-                o.homQueryProtocol();
-            } catch (Exception ignored) {
-            }
-            try {
-                o.homQueryRegister();
-            } catch (Exception ignored) {
-            }
-            try {
-                o.homQueryStatusService();
-            } catch (Exception ignored) {
-            }
-            try {
-                o.prodAuthorization();
-            } catch (Exception ignored) {
-            }
-            try {
-                o.prodReturnAuthorization();
-            } catch (Exception ignored) {
-            }
-            try {
-                o.prodCancel();
-            } catch (Exception ignored) {
-            }
-            try {
-                o.prodInutilization();
-            } catch (Exception ignored) {
-            }
-            try {
-                o.prodQueryStatusService();
-            } catch (Exception ignored) {
-            }
-            try {
-                o.prodQueryRegister();
-            } catch (Exception ignored) {
-            }
-            try {
-                o.homDistribution();
-            } catch (Exception ignored) {
-            }
-            try {
-                o.prodDistribution();
-            } catch (Exception ignored) {
-            }
-            try {
-                o.homEpec();
-            } catch (Exception ignored) {
-            }
-            try {
-                o.prodEpec();
-            } catch (Exception ignored) {
-            }
-            try {
-                o.homInterestedActor();
-            } catch (Exception ignored) {
-            }
-            try {
-                o.prodInterestedActor();
-            } catch (Exception ignored) {
-            }
-            try {
-                o.homCorrectionLetter();
-            } catch (Exception ignored) {
-            }
-            try {
-                o.prodCorrectionLetter();
-            } catch (Exception ignored) {
-            }
-            try {
-                o.homManifestation();
-            } catch (Exception ignored) {
-            }
-            try {
-                o.prodManifestation();
-            } catch (Exception ignored) {
-            }
-            try {
-                o.queryGtin();
-            } catch (Exception ignored) {
-            }
+        if (!NfeSoapConfigurationProperties.LAZY_INITIALIZATION) {
+            fullInitialization(o);
         }
         SoapServiceProxy.getInstance().addNfeService(this);
         this.initialized = true;
@@ -197,7 +132,7 @@ public abstract class AbstractNfeSoapService extends AbstractSoapService impleme
     public void initialize(Config config) throws SSLContextException {
         HttpsURLConnection.setDefaultSSLSocketFactory(SocketFactory.getInstance().context(config).getSocketFactory());
 
-        if (!LAZY_INITIALIZATION) {
+        if (!NfeSoapConfigurationProperties.LAZY_INITIALIZATION) {
             initialize(this);
         }
 
@@ -210,8 +145,11 @@ public abstract class AbstractNfeSoapService extends AbstractSoapService impleme
         if (Objects.nonNull(getHomAuthorization())) {
             return (T) getHomAuthorization();
         }
-        setHomAuthorization(newServiceInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(getServiceFinderAuthorizer()).environment(Environment.HOMOLOGATION).endpoint(NfePathEndpoint.AUTHORIZATION).build())));
-        return (T) getHomAuthorization();
+        Object o = newServiceInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(getServiceFinderAuthorizer()).environment(Environment.HOMOLOGATION).endpoint(NfePathEndpoint.AUTHORIZATION).build()));
+        if (NfeSoapConfigurationProperties.CACHE_HOM_AUTHORIZATION) {
+            setHomAuthorization(o);
+        }
+        return (T) o;
     }
 
     @Override
@@ -219,8 +157,11 @@ public abstract class AbstractNfeSoapService extends AbstractSoapService impleme
         if (Objects.nonNull(getHomCancel())) {
             return (T) getHomCancel();
         }
-        setHomCancel(newServiceInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(getServiceFinderAuthorizer()).environment(Environment.HOMOLOGATION).endpoint(NfePathEndpoint.EVENT_CANCEL).build())));
-        return (T) getHomCancel();
+        Object o = newServiceInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(getServiceFinderAuthorizer()).environment(Environment.HOMOLOGATION).endpoint(NfePathEndpoint.EVENT_CANCEL).build()));
+        if (NfeSoapConfigurationProperties.CACHE_HOM_CANCEL) {
+            setHomCancel(o);
+        }
+        return (T) o;
     }
 
     @Override
@@ -228,8 +169,11 @@ public abstract class AbstractNfeSoapService extends AbstractSoapService impleme
         if (Objects.nonNull(getHomInutilization())) {
             return (T) getHomInutilization();
         }
-        setHomInutilization(newServiceInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(getServiceFinderAuthorizer()).environment(Environment.HOMOLOGATION).endpoint(NfePathEndpoint.INUTILIZATION).build())));
-        return (T) getHomInutilization();
+        Object o = newServiceInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(getServiceFinderAuthorizer()).environment(Environment.HOMOLOGATION).endpoint(NfePathEndpoint.INUTILIZATION).build()));
+        if (NfeSoapConfigurationProperties.CACHE_HOM_INUTILIZATION) {
+            setHomInutilization(o);
+        }
+        return (T) o;
     }
 
     @Override
@@ -237,8 +181,11 @@ public abstract class AbstractNfeSoapService extends AbstractSoapService impleme
         if (Objects.nonNull(getHomCorrectionLetter())) {
             return (T) getHomCorrectionLetter();
         }
-        setHomCorrectionLetter(newServiceInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(getServiceFinderAuthorizer()).environment(Environment.HOMOLOGATION).endpoint(NfePathEndpoint.EVENT_CORRECTION_LETTER).build())));
-        return (T) getHomCorrectionLetter();
+        Object o = newServiceInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(getServiceFinderAuthorizer()).environment(Environment.HOMOLOGATION).endpoint(NfePathEndpoint.EVENT_CORRECTION_LETTER).build()));
+        if (NfeSoapConfigurationProperties.CACHE_HOM_CORRECTION_LETTER) {
+            setHomCorrectionLetter(o);
+        }
+        return (T) o;
     }
 
     @Override
@@ -246,8 +193,11 @@ public abstract class AbstractNfeSoapService extends AbstractSoapService impleme
         if (Objects.nonNull(getProdCorrectionLetter())) {
             return (T) getProdCorrectionLetter();
         }
-        setProdCorrectionLetter(newServiceInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(getServiceFinderAuthorizer()).environment(Environment.PRODUCTION).endpoint(NfePathEndpoint.EVENT_CORRECTION_LETTER).build())));
-        return (T) getProdCorrectionLetter();
+        Object o = newServiceInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(getServiceFinderAuthorizer()).environment(Environment.PRODUCTION).endpoint(NfePathEndpoint.EVENT_CORRECTION_LETTER).build()));
+        if (NfeSoapConfigurationProperties.CACHE_PROD_CORRECTION_LETTER) {
+            setProdCorrectionLetter(o);
+        }
+        return (T) o;
     }
 
     @Override
@@ -255,8 +205,11 @@ public abstract class AbstractNfeSoapService extends AbstractSoapService impleme
         if (Objects.nonNull(getHomQueryProtocol())) {
             return (T) getHomQueryProtocol();
         }
-        setHomQueryProtocol(newServiceInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(getServiceFinderAuthorizer()).environment(Environment.HOMOLOGATION).endpoint(NfePathEndpoint.QUERY_PROTOCOL).build())));
-        return (T) getHomQueryProtocol();
+        Object o = newServiceInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(getServiceFinderAuthorizer()).environment(Environment.HOMOLOGATION).endpoint(NfePathEndpoint.QUERY_PROTOCOL).build()));
+        if (NfeSoapConfigurationProperties.CACHE_HOM_QUERY_PROTOCOL) {
+            setHomQueryProtocol(o);
+        }
+        return (T) o;
     }
 
     @Override
@@ -264,8 +217,11 @@ public abstract class AbstractNfeSoapService extends AbstractSoapService impleme
         if (Objects.nonNull(getHomQueryStatusService())) {
             return (T) getHomQueryStatusService();
         }
-        setHomQueryStatusService(newServiceInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(getServiceFinderAuthorizer()).environment(Environment.HOMOLOGATION).endpoint(NfePathEndpoint.STATUS_SERVICE).build())));
-        return (T) getHomQueryStatusService();
+        Object o = newServiceInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(getServiceFinderAuthorizer()).environment(Environment.HOMOLOGATION).endpoint(NfePathEndpoint.STATUS_SERVICE).build()));
+        if (NfeSoapConfigurationProperties.CACHE_HOM_QUERY_STATUS_SERVICE) {
+            setHomQueryStatusService(o);
+        }
+        return (T) o;
     }
 
     @Override
@@ -273,8 +229,11 @@ public abstract class AbstractNfeSoapService extends AbstractSoapService impleme
         if (Objects.nonNull(getHomReturnAuthorization())) {
             return (T) getHomReturnAuthorization();
         }
-        setHomReturnAuthorization(newServiceInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(getServiceFinderAuthorizer()).environment(Environment.HOMOLOGATION).endpoint(NfePathEndpoint.RETURN_AUTHORIZATION).build())));
-        return (T) getHomReturnAuthorization();
+        Object o = newServiceInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(getServiceFinderAuthorizer()).environment(Environment.HOMOLOGATION).endpoint(NfePathEndpoint.RETURN_AUTHORIZATION).build()));
+        if (NfeSoapConfigurationProperties.CACHE_HOM_RETURN_AUTHORIZATION) {
+            setHomReturnAuthorization(o);
+        }
+        return (T) o;
     }
 
     @Override
@@ -282,8 +241,11 @@ public abstract class AbstractNfeSoapService extends AbstractSoapService impleme
         if (Objects.nonNull(getProdAuthorization())) {
             return (T) getProdAuthorization();
         }
-        setProdAuthorization(newServiceInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(getServiceFinderAuthorizer()).environment(Environment.PRODUCTION).endpoint(NfePathEndpoint.AUTHORIZATION).build())));
-        return (T) getProdAuthorization();
+        Object o = newServiceInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(getServiceFinderAuthorizer()).environment(Environment.PRODUCTION).endpoint(NfePathEndpoint.AUTHORIZATION).build()));
+        if (NfeSoapConfigurationProperties.CACHE_PROD_AUTHORIZATION) {
+            setProdAuthorization(o);
+        }
+        return (T) o;
     }
 
     @Override
@@ -291,8 +253,11 @@ public abstract class AbstractNfeSoapService extends AbstractSoapService impleme
         if (Objects.nonNull(getProdReturnAuthorization())) {
             return (T) getProdReturnAuthorization();
         }
-        setProdReturnAuthorization(newServiceInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(getServiceFinderAuthorizer()).environment(Environment.PRODUCTION).endpoint(NfePathEndpoint.RETURN_AUTHORIZATION).build())));
-        return (T) getProdReturnAuthorization();
+        Object o = newServiceInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(getServiceFinderAuthorizer()).environment(Environment.PRODUCTION).endpoint(NfePathEndpoint.RETURN_AUTHORIZATION).build()));
+        if (NfeSoapConfigurationProperties.CACHE_PROD_RETURN_AUTHORIZATION) {
+            setProdReturnAuthorization(o);
+        }
+        return (T) o;
     }
 
     @Override
@@ -300,8 +265,11 @@ public abstract class AbstractNfeSoapService extends AbstractSoapService impleme
         if (Objects.nonNull(getProdCancel())) {
             return (T) getProdCancel();
         }
-        setProdCancel(newServiceInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(getServiceFinderAuthorizer()).environment(Environment.PRODUCTION).endpoint(NfePathEndpoint.EVENT_CANCEL).build())));
-        return (T) getProdCancel();
+        Object o = newServiceInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(getServiceFinderAuthorizer()).environment(Environment.PRODUCTION).endpoint(NfePathEndpoint.EVENT_CANCEL).build()));
+        if (NfeSoapConfigurationProperties.CACHE_PROD_CANCEL) {
+            setProdCancel(o);
+        }
+        return (T) o;
     }
 
     @Override
@@ -309,8 +277,11 @@ public abstract class AbstractNfeSoapService extends AbstractSoapService impleme
         if (Objects.nonNull(getProdInutilization())) {
             return (T) getProdInutilization();
         }
-        setProdInutilization(newServiceInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(getServiceFinderAuthorizer()).environment(Environment.PRODUCTION).endpoint(NfePathEndpoint.INUTILIZATION).build())));
-        return (T) getProdInutilization();
+        Object o = newServiceInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(getServiceFinderAuthorizer()).environment(Environment.PRODUCTION).endpoint(NfePathEndpoint.INUTILIZATION).build()));
+        if (NfeSoapConfigurationProperties.CACHE_PROD_INUTILIZATION) {
+            setProdInutilization(o);
+        }
+        return (T) o;
     }
 
     @Override
@@ -318,8 +289,11 @@ public abstract class AbstractNfeSoapService extends AbstractSoapService impleme
         if (Objects.nonNull(getProdQueryStatusService())) {
             return (T) getProdQueryStatusService();
         }
-        setProdQueryStatusService(newServiceInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(getServiceFinderAuthorizer()).environment(Environment.PRODUCTION).endpoint(NfePathEndpoint.STATUS_SERVICE).build())));
-        return (T) getProdQueryStatusService();
+        Object o = newServiceInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(getServiceFinderAuthorizer()).environment(Environment.PRODUCTION).endpoint(NfePathEndpoint.STATUS_SERVICE).build()));
+        if (NfeSoapConfigurationProperties.CACHE_PROD_QUERY_STATUS_SERVICE) {
+            setProdQueryStatusService(o);
+        }
+        return (T) o;
     }
 
     @Override
@@ -327,8 +301,11 @@ public abstract class AbstractNfeSoapService extends AbstractSoapService impleme
         if (Objects.nonNull(getProdQueryProtocol())) {
             return (T) getProdQueryProtocol();
         }
-        setProdQueryProtocol(newServiceInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(getServiceFinderAuthorizer()).environment(Environment.PRODUCTION).endpoint(NfePathEndpoint.QUERY_PROTOCOL).build())));
-        return (T) getProdQueryProtocol();
+        Object o = newServiceInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(getServiceFinderAuthorizer()).environment(Environment.PRODUCTION).endpoint(NfePathEndpoint.QUERY_PROTOCOL).build()));
+        if (NfeSoapConfigurationProperties.CACHE_PROD_QUERY_PROTOCOL) {
+            setProdQueryProtocol(o);
+        }
+        return (T) o;
     }
 
     @Override
@@ -336,8 +313,11 @@ public abstract class AbstractNfeSoapService extends AbstractSoapService impleme
         if (Objects.nonNull(getHomDistribution())) {
             return (T) getHomDistribution();
         }
-        setHomDistribution(newServiceInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(NfeAuthorizer.AN).environment(Environment.HOMOLOGATION).endpoint(NfePathEndpoint.DISTRIBUTION).build())));
-        return (T) getHomDistribution();
+        Object o = newServiceInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(NfeAuthorizer.AN).environment(Environment.HOMOLOGATION).endpoint(NfePathEndpoint.DISTRIBUTION).build()));
+        if (NfeSoapConfigurationProperties.CACHE_HOM_DISTRIBUTION) {
+            setHomDistribution(o);
+        }
+        return (T) o;
     }
 
     @Override
@@ -345,8 +325,11 @@ public abstract class AbstractNfeSoapService extends AbstractSoapService impleme
         if (Objects.nonNull(getProdDistribution())) {
             return (T) getProdDistribution();
         }
-        setProdDistribution(newServiceInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(NfeAuthorizer.AN).environment(Environment.PRODUCTION).endpoint(NfePathEndpoint.DISTRIBUTION).build())));
-        return (T) getProdDistribution();
+        Object o = newServiceInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(NfeAuthorizer.AN).environment(Environment.PRODUCTION).endpoint(NfePathEndpoint.DISTRIBUTION).build()));
+        if (NfeSoapConfigurationProperties.CACHE_PROD_DISTRIBUTION) {
+            setProdDistribution(o);
+        }
+        return (T) o;
     }
 
     @Override
@@ -354,8 +337,11 @@ public abstract class AbstractNfeSoapService extends AbstractSoapService impleme
         if (Objects.nonNull(getHomQueryRegister())) {
             return (T) getHomQueryRegister();
         }
-        setHomQueryRegister(newServiceInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(getServiceFinderAuthorizer()).environment(Environment.HOMOLOGATION).endpoint(NfePathEndpoint.QUERY_REGISTER).build())));
-        return (T) getHomQueryRegister();
+        Object o = newServiceInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(getServiceFinderAuthorizer()).environment(Environment.HOMOLOGATION).endpoint(NfePathEndpoint.QUERY_REGISTER).build()));
+        if (NfeSoapConfigurationProperties.CACHE_HOM_QUERY_REGISTER) {
+            setHomQueryRegister(o);
+        }
+        return (T) o;
     }
 
     @Override
@@ -363,8 +349,11 @@ public abstract class AbstractNfeSoapService extends AbstractSoapService impleme
         if (Objects.nonNull(getProdQueryRegister())) {
             return (T) getProdQueryRegister();
         }
-        setProdQueryRegister(newServiceInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(getServiceFinderAuthorizer()).environment(Environment.PRODUCTION).endpoint(NfePathEndpoint.QUERY_REGISTER).build())));
-        return (T) getProdQueryRegister();
+        Object o = newServiceInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(getServiceFinderAuthorizer()).environment(Environment.PRODUCTION).endpoint(NfePathEndpoint.QUERY_REGISTER).build()));
+        if (NfeSoapConfigurationProperties.CACHE_PROD_QUERY_REGISTER) {
+            setProdQueryRegister(o);
+        }
+        return (T) o;
     }
 
     @Override
@@ -372,8 +361,11 @@ public abstract class AbstractNfeSoapService extends AbstractSoapService impleme
         if (Objects.nonNull(getHomEpec())) {
             return (T) getHomEpec();
         }
-        setHomEpec(newServiceInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(NfeAuthorizer.AN).environment(Environment.HOMOLOGATION).endpoint(NfePathEndpoint.EVENT_EPEC).build())));
-        return (T) getHomEpec();
+        Object o = newServiceInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(NfeAuthorizer.AN).environment(Environment.HOMOLOGATION).endpoint(NfePathEndpoint.EVENT_EPEC).build()));
+        if (NfeSoapConfigurationProperties.CACHE_HOM_EPEC) {
+            setHomEpec(o);
+        }
+        return (T) o;
     }
 
     @Override
@@ -381,8 +373,11 @@ public abstract class AbstractNfeSoapService extends AbstractSoapService impleme
         if (Objects.nonNull(getProdEpec())) {
             return (T) getProdEpec();
         }
-        setProdEpec(newServiceInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(NfeAuthorizer.AN).environment(Environment.PRODUCTION).endpoint(NfePathEndpoint.EVENT_EPEC).build())));
-        return (T) getProdEpec();
+        Object o = newServiceInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(NfeAuthorizer.AN).environment(Environment.PRODUCTION).endpoint(NfePathEndpoint.EVENT_EPEC).build()));
+        if (NfeSoapConfigurationProperties.CACHE_PROD_EPEC) {
+            setProdEpec(o);
+        }
+        return (T) o;
     }
 
     @Override
@@ -390,8 +385,11 @@ public abstract class AbstractNfeSoapService extends AbstractSoapService impleme
         if (Objects.nonNull(getHomInterestedActor())) {
             return (T) getHomInterestedActor();
         }
-        setHomInterestedActor(newServiceInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(NfeAuthorizer.AN).environment(Environment.HOMOLOGATION).endpoint(NfePathEndpoint.EVENT_INTERESTED_ACTOR).build())));
-        return (T) getHomInterestedActor();
+        Object o = newServiceInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(NfeAuthorizer.AN).environment(Environment.HOMOLOGATION).endpoint(NfePathEndpoint.EVENT_INTERESTED_ACTOR).build()));
+        if (NfeSoapConfigurationProperties.CACHE_HOM_INTERESTED_ACTOR) {
+            setHomInterestedActor(o);
+        }
+        return (T) o;
     }
 
     @Override
@@ -399,8 +397,11 @@ public abstract class AbstractNfeSoapService extends AbstractSoapService impleme
         if (Objects.nonNull(getProdInterestedActor())) {
             return (T) getProdInterestedActor();
         }
-        setProdInterestedActor(newServiceInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(NfeAuthorizer.AN).environment(Environment.PRODUCTION).endpoint(NfePathEndpoint.EVENT_INTERESTED_ACTOR).build())));
-        return (T) getProdInterestedActor();
+        Object o = newServiceInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(NfeAuthorizer.AN).environment(Environment.PRODUCTION).endpoint(NfePathEndpoint.EVENT_INTERESTED_ACTOR).build()));
+        if (NfeSoapConfigurationProperties.CACHE_PROD_INTERESTED_ACTOR) {
+            setProdInterestedActor(o);
+        }
+        return (T) o;
     }
 
     @Override
@@ -408,8 +409,11 @@ public abstract class AbstractNfeSoapService extends AbstractSoapService impleme
         if (Objects.nonNull(getHomManifestation())) {
             return (T) getHomManifestation();
         }
-        setHomManifestation(newServiceInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(NfeAuthorizer.AN).environment(Environment.HOMOLOGATION).endpoint(NfePathEndpoint.EVENT_MANIFESTATION).build())));
-        return (T) getHomManifestation();
+        Object o = newServiceInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(NfeAuthorizer.AN).environment(Environment.HOMOLOGATION).endpoint(NfePathEndpoint.EVENT_MANIFESTATION).build()));
+        if (NfeSoapConfigurationProperties.CACHE_HOM_MANIFESTATION) {
+            setHomManifestation(o);
+        }
+        return (T) o;
     }
 
     @Override
@@ -417,8 +421,11 @@ public abstract class AbstractNfeSoapService extends AbstractSoapService impleme
         if (Objects.nonNull(getProdManifestation())) {
             return (T) getProdManifestation();
         }
-        setProdManifestation(newServiceInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(NfeAuthorizer.AN).environment(Environment.PRODUCTION).endpoint(NfePathEndpoint.EVENT_MANIFESTATION).build())));
-        return (T) getProdManifestation();
+        Object o = newServiceInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(NfeAuthorizer.AN).environment(Environment.PRODUCTION).endpoint(NfePathEndpoint.EVENT_MANIFESTATION).build()));
+        if (NfeSoapConfigurationProperties.CACHE_PROD_MANIFESTATION) {
+            setProdManifestation(o);
+        }
+        return (T) o;
     }
 
     @Override
@@ -426,8 +433,11 @@ public abstract class AbstractNfeSoapService extends AbstractSoapService impleme
         if (Objects.nonNull(getQueryGtin())) {
             return (T) getQueryGtin();
         }
-        setQueryGtin(newServiceInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(NfeAuthorizer.SVRS).environment(Environment.PRODUCTION).endpoint(NfePathEndpoint.QUERY_GTIN).build())));
-        return (T) getQueryGtin();
+        Object o = newServiceInstance(SoapServiceMapping.getInstance().getNfeServiceClassFor(NfeServiceFinder.builder().authorizer(NfeAuthorizer.SVRS).environment(Environment.PRODUCTION).endpoint(NfePathEndpoint.QUERY_GTIN).build()));
+        if (NfeSoapConfigurationProperties.CACHE_QUERY_GTIN) {
+            setQueryGtin(o);
+        }
+        return (T) o;
     }
 
     @Override
