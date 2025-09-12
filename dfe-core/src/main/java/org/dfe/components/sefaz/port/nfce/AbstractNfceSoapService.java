@@ -24,8 +24,8 @@ import java.util.Optional;
 public abstract class AbstractNfceSoapService extends AbstractSoapService implements NfceSoapService {
     private Object prodAuthorization;
     private Object homAuthorization;
-    private Object prodCancel;
-    private Object homCancel;
+    private Object prodEvent;
+    private Object homEvent;
     private Object prodInutilization;
     private Object homInutilization;
     private Object prodQueryProtocol;
@@ -34,8 +34,6 @@ public abstract class AbstractNfceSoapService extends AbstractSoapService implem
     private Object homQueryStatusService;
     private Object prodReturnAuthorization;
     private Object homReturnAuthorization;
-    private Object prodSubstituteCancel;
-    private Object homSubstituteCancel;
 
     public AbstractNfceSoapService() {
     }
@@ -48,8 +46,8 @@ public abstract class AbstractNfceSoapService extends AbstractSoapService implem
     public void initializeDefault(AbstractNfceSoapService abstractNfceSoapService) {
         this.prodAuthorization = Optional.ofNullable(abstractNfceSoapService.prodAuthorization).orElse(this.prodAuthorization);
         this.homAuthorization = Optional.ofNullable(abstractNfceSoapService.homAuthorization).orElse(this.homAuthorization);
-        this.prodCancel = Optional.ofNullable(abstractNfceSoapService.prodCancel).orElse(this.prodCancel);
-        this.homCancel = Optional.ofNullable(abstractNfceSoapService.homCancel).orElse(this.homCancel);
+        this.prodEvent = Optional.ofNullable(abstractNfceSoapService.prodEvent).orElse(this.prodEvent);
+        this.homEvent = Optional.ofNullable(abstractNfceSoapService.homEvent).orElse(this.homEvent);
         this.prodInutilization = Optional.ofNullable(abstractNfceSoapService.prodInutilization).orElse(this.prodInutilization);
         this.homInutilization = Optional.ofNullable(abstractNfceSoapService.homInutilization).orElse(this.homInutilization);
         this.prodQueryProtocol = Optional.ofNullable(abstractNfceSoapService.prodQueryProtocol).orElse(this.prodQueryProtocol);
@@ -58,8 +56,21 @@ public abstract class AbstractNfceSoapService extends AbstractSoapService implem
         this.homQueryStatusService = Optional.ofNullable(abstractNfceSoapService.homQueryStatusService).orElse(this.homQueryStatusService);
         this.prodReturnAuthorization = Optional.ofNullable(abstractNfceSoapService.prodReturnAuthorization).orElse(this.prodReturnAuthorization);
         this.homReturnAuthorization = Optional.ofNullable(abstractNfceSoapService.homReturnAuthorization).orElse(this.homReturnAuthorization);
-        this.prodSubstituteCancel = Optional.ofNullable(abstractNfceSoapService.prodSubstituteCancel).orElse(this.prodSubstituteCancel);
-        this.homSubstituteCancel = Optional.ofNullable(abstractNfceSoapService.homSubstituteCancel).orElse(this.homSubstituteCancel);
+    }
+
+    void fullInitialization(NfceSoapService o) {
+        safeInititialization(o::homAuthorization);
+        safeInititialization(o::homReturnAuthorization);
+        safeInititialization(o::homEvent);
+        safeInititialization(o::homInutilization);
+        safeInititialization(o::homQueryProtocol);
+        safeInititialization(o::homQueryStatusService);
+        safeInititialization(o::prodAuthorization);
+        safeInititialization(o::prodReturnAuthorization);
+        safeInititialization(o::prodEvent);
+        safeInititialization(o::prodInutilization);
+        safeInititialization(o::prodQueryStatusService);
+        safeInititialization(o::prodQueryProtocol);
     }
 
     public void initialize(NfceSoapService o) {
@@ -69,63 +80,8 @@ public abstract class AbstractNfceSoapService extends AbstractSoapService implem
             initializeDefault(abstractNfceSoapService);
         }
 
-        if (!LAZY_INITIALIZATION) {
-            try {
-                o.homAuthorization();
-            } catch (Exception ignored) {
-            }
-            try {
-                o.homReturnAuthorization();
-            } catch (Exception ignored) {
-            }
-            try {
-                o.homCancel();
-            } catch (Exception ignored) {
-            }
-            try {
-                o.homInutilization();
-            } catch (Exception ignored) {
-            }
-            try {
-                o.homQueryProtocol();
-            } catch (Exception ignored) {
-            }
-            try {
-                o.homQueryStatusService();
-            } catch (Exception ignored) {
-            }
-            try {
-                o.prodAuthorization();
-            } catch (Exception ignored) {
-            }
-            try {
-                o.prodReturnAuthorization();
-            } catch (Exception ignored) {
-            }
-            try {
-                o.prodCancel();
-            } catch (Exception ignored) {
-            }
-            try {
-                o.prodInutilization();
-            } catch (Exception ignored) {
-            }
-            try {
-                o.prodQueryStatusService();
-            } catch (Exception ignored) {
-            }
-            try {
-                o.prodQueryProtocol();
-            } catch (Exception ignored) {
-            }
-            try {
-                o.homSubstituteCancel();
-            } catch (Exception ignored) {
-            }
-            try {
-                o.prodSubstituteCancel();
-            } catch (Exception ignored) {
-            }
+        if (!NfceSoapConfigurationProperties.LAZY_INITIALIZATION) {
+            fullInitialization(o);
         }
         SoapServiceProxy.getInstance().addNfceService(this);
         this.initialized = true;
@@ -133,7 +89,7 @@ public abstract class AbstractNfceSoapService extends AbstractSoapService implem
 
     public void initialize(Config config) throws SSLContextException {
         HttpsURLConnection.setDefaultSSLSocketFactory(SocketFactory.getInstance().context(config).getSocketFactory());
-        if (!LAZY_INITIALIZATION) {
+        if (!NfceSoapConfigurationProperties.LAZY_INITIALIZATION) {
             initialize(this);
         }
         SoapServiceProxy.getInstance().addNfceService(this);
@@ -145,8 +101,11 @@ public abstract class AbstractNfceSoapService extends AbstractSoapService implem
         if (Objects.nonNull(getProdAuthorization())) {
             return (T) getProdAuthorization();
         }
-        setProdAuthorization(newServiceInstance(SoapServiceMapping.getInstance().getNfceServiceClassFor(NfceServiceFinder.builder().authorizer(getAuthorizer()).environment(Environment.PRODUCTION).endpoint(NfcePathEndpoint.AUTHORIZATION).build())));
-        return (T) getProdAuthorization();
+        Object o = newServiceInstance(SoapServiceMapping.getInstance().getNfceServiceClassFor(NfceServiceFinder.builder().authorizer(getAuthorizer()).environment(Environment.PRODUCTION).endpoint(NfcePathEndpoint.AUTHORIZATION).build()));
+        if (NfceSoapConfigurationProperties.CACHE_PROD_AUTHORIZATION) {
+            setProdAuthorization(o);
+        }
+        return (T) o;
     }
 
     @Override
@@ -154,26 +113,35 @@ public abstract class AbstractNfceSoapService extends AbstractSoapService implem
         if (Objects.nonNull(getHomAuthorization())) {
             return (T) getHomAuthorization();
         }
-        setHomAuthorization(newServiceInstance(SoapServiceMapping.getInstance().getNfceServiceClassFor(NfceServiceFinder.builder().authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).endpoint(NfcePathEndpoint.AUTHORIZATION).build())));
-        return (T) getHomAuthorization();
+        Object o = newServiceInstance(SoapServiceMapping.getInstance().getNfceServiceClassFor(NfceServiceFinder.builder().authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).endpoint(NfcePathEndpoint.AUTHORIZATION).build()));
+        if (NfceSoapConfigurationProperties.CACHE_HOM_AUTHORIZATION) {
+            setHomAuthorization(o);
+        }
+        return (T) o;
     }
 
     @Override
-    public <T> T prodCancel() {
-        if (Objects.nonNull(getProdCancel())) {
-            return (T) getProdCancel();
+    public <T> T prodEvent() {
+        if (Objects.nonNull(getProdEvent())) {
+            return (T) getProdEvent();
         }
-        setProdCancel(newServiceInstance(SoapServiceMapping.getInstance().getNfceServiceClassFor(NfceServiceFinder.builder().authorizer(getAuthorizer()).environment(Environment.PRODUCTION).endpoint(NfcePathEndpoint.EVENT_CANCEL).build())));
-        return (T) getProdCancel();
+        Object o = newServiceInstance(SoapServiceMapping.getInstance().getNfceServiceClassFor(NfceServiceFinder.builder().authorizer(getAuthorizer()).environment(Environment.PRODUCTION).endpoint(NfcePathEndpoint.EVENT).build()));
+        if (NfceSoapConfigurationProperties.CACHE_PROD_EVENT) {
+            setProdEvent(o);
+        }
+        return (T) o;
     }
 
     @Override
-    public <T> T homCancel() {
-        if (Objects.nonNull(getHomCancel())) {
-            return (T) getHomCancel();
+    public <T> T homEvent() {
+        if (Objects.nonNull(getHomEvent())) {
+            return (T) getHomEvent();
         }
-        setHomCancel(newServiceInstance(SoapServiceMapping.getInstance().getNfceServiceClassFor(NfceServiceFinder.builder().authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).endpoint(NfcePathEndpoint.EVENT_CANCEL).build())));
-        return (T) getHomCancel();
+        Object o = newServiceInstance(SoapServiceMapping.getInstance().getNfceServiceClassFor(NfceServiceFinder.builder().authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).endpoint(NfcePathEndpoint.EVENT).build()));
+        if (NfceSoapConfigurationProperties.CACHE_HOM_EVENT) {
+            setHomEvent(o);
+        }
+        return (T) o;
     }
 
     @Override
@@ -181,8 +149,11 @@ public abstract class AbstractNfceSoapService extends AbstractSoapService implem
         if (Objects.nonNull(getProdInutilization())) {
             return (T) getProdInutilization();
         }
-        setProdInutilization(newServiceInstance(SoapServiceMapping.getInstance().getNfceServiceClassFor(NfceServiceFinder.builder().authorizer(getAuthorizer()).environment(Environment.PRODUCTION).endpoint(NfcePathEndpoint.INUTILIZATION).build())));
-        return (T) getProdInutilization();
+        Object o = newServiceInstance(SoapServiceMapping.getInstance().getNfceServiceClassFor(NfceServiceFinder.builder().authorizer(getAuthorizer()).environment(Environment.PRODUCTION).endpoint(NfcePathEndpoint.INUTILIZATION).build()));
+        if (NfceSoapConfigurationProperties.CACHE_PROD_INUTILIZATION) {
+            setProdInutilization(o);
+        }
+        return (T) o;
     }
 
     @Override
@@ -190,8 +161,11 @@ public abstract class AbstractNfceSoapService extends AbstractSoapService implem
         if (Objects.nonNull(getHomInutilization())) {
             return (T) getHomInutilization();
         }
-        setHomInutilization(newServiceInstance(SoapServiceMapping.getInstance().getNfceServiceClassFor(NfceServiceFinder.builder().authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).endpoint(NfcePathEndpoint.INUTILIZATION).build())));
-        return (T) getHomInutilization();
+        Object o = newServiceInstance(SoapServiceMapping.getInstance().getNfceServiceClassFor(NfceServiceFinder.builder().authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).endpoint(NfcePathEndpoint.INUTILIZATION).build()));
+        if (NfceSoapConfigurationProperties.CACHE_HOM_INUTILIZATION) {
+            setHomInutilization(o);
+        }
+        return (T) o;
     }
 
     @Override
@@ -199,8 +173,11 @@ public abstract class AbstractNfceSoapService extends AbstractSoapService implem
         if (Objects.nonNull(getProdQueryProtocol())) {
             return (T) getProdQueryProtocol();
         }
-        setProdQueryProtocol(newServiceInstance(SoapServiceMapping.getInstance().getNfceServiceClassFor(NfceServiceFinder.builder().authorizer(getAuthorizer()).environment(Environment.PRODUCTION).endpoint(NfcePathEndpoint.QUERY_PROTOCOL).build())));
-        return (T) getProdQueryProtocol();
+        Object o = newServiceInstance(SoapServiceMapping.getInstance().getNfceServiceClassFor(NfceServiceFinder.builder().authorizer(getAuthorizer()).environment(Environment.PRODUCTION).endpoint(NfcePathEndpoint.QUERY_PROTOCOL).build()));
+        if (NfceSoapConfigurationProperties.CACHE_PROD_QUERY_PROTOCOL) {
+            setProdQueryProtocol(o);
+        }
+        return (T) o;
     }
 
     @Override
@@ -208,8 +185,11 @@ public abstract class AbstractNfceSoapService extends AbstractSoapService implem
         if (Objects.nonNull(getHomQueryProtocol())) {
             return (T) getHomQueryProtocol();
         }
-        setHomQueryProtocol(newServiceInstance(SoapServiceMapping.getInstance().getNfceServiceClassFor(NfceServiceFinder.builder().authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).endpoint(NfcePathEndpoint.QUERY_PROTOCOL).build())));
-        return (T) getHomQueryProtocol();
+        Object o = newServiceInstance(SoapServiceMapping.getInstance().getNfceServiceClassFor(NfceServiceFinder.builder().authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).endpoint(NfcePathEndpoint.QUERY_PROTOCOL).build()));
+        if (NfceSoapConfigurationProperties.CACHE_HOM_QUERY_PROTOCOL) {
+            setHomQueryProtocol(o);
+        }
+        return (T) o;
     }
 
     @Override
@@ -217,8 +197,11 @@ public abstract class AbstractNfceSoapService extends AbstractSoapService implem
         if (Objects.nonNull(getProdQueryStatusService())) {
             return (T) getProdQueryStatusService();
         }
-        setProdQueryStatusService(newServiceInstance(SoapServiceMapping.getInstance().getNfceServiceClassFor(NfceServiceFinder.builder().authorizer(getAuthorizer()).environment(Environment.PRODUCTION).endpoint(NfcePathEndpoint.STATUS_SERVICE).build())));
-        return (T) getProdQueryStatusService();
+        Object o = newServiceInstance(SoapServiceMapping.getInstance().getNfceServiceClassFor(NfceServiceFinder.builder().authorizer(getAuthorizer()).environment(Environment.PRODUCTION).endpoint(NfcePathEndpoint.STATUS_SERVICE).build()));
+        if (NfceSoapConfigurationProperties.CACHE_PROD_QUERY_STATUS_SERVICE) {
+            setProdQueryStatusService(o);
+        }
+        return (T) o;
     }
 
     @Override
@@ -226,8 +209,11 @@ public abstract class AbstractNfceSoapService extends AbstractSoapService implem
         if (Objects.nonNull(getHomQueryStatusService())) {
             return (T) getHomQueryStatusService();
         }
-        setHomQueryStatusService(newServiceInstance(SoapServiceMapping.getInstance().getNfceServiceClassFor(NfceServiceFinder.builder().authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).endpoint(NfcePathEndpoint.STATUS_SERVICE).build())));
-        return (T) getHomQueryStatusService();
+        Object o = newServiceInstance(SoapServiceMapping.getInstance().getNfceServiceClassFor(NfceServiceFinder.builder().authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).endpoint(NfcePathEndpoint.STATUS_SERVICE).build()));
+        if (NfceSoapConfigurationProperties.CACHE_HOM_QUERY_STATUS_SERVICE) {
+            setHomQueryStatusService(o);
+        }
+        return (T) o;
     }
 
     @Override
@@ -235,8 +221,11 @@ public abstract class AbstractNfceSoapService extends AbstractSoapService implem
         if (Objects.nonNull(getProdReturnAuthorization())) {
             return (T) getProdReturnAuthorization();
         }
-        setProdReturnAuthorization(newServiceInstance(SoapServiceMapping.getInstance().getNfceServiceClassFor(NfceServiceFinder.builder().authorizer(getAuthorizer()).environment(Environment.PRODUCTION).endpoint(NfcePathEndpoint.RETURN_AUTHORIZATION).build())));
-        return (T) getProdReturnAuthorization();
+        Object o = newServiceInstance(SoapServiceMapping.getInstance().getNfceServiceClassFor(NfceServiceFinder.builder().authorizer(getAuthorizer()).environment(Environment.PRODUCTION).endpoint(NfcePathEndpoint.RETURN_AUTHORIZATION).build()));
+        if (NfceSoapConfigurationProperties.CACHE_PROD_RETURN_AUTHORIZATION) {
+            setProdReturnAuthorization(o);
+        }
+        return (T) o;
     }
 
     @Override
@@ -244,26 +233,11 @@ public abstract class AbstractNfceSoapService extends AbstractSoapService implem
         if (Objects.nonNull(getHomReturnAuthorization())) {
             return (T) getHomReturnAuthorization();
         }
-        setHomReturnAuthorization(newServiceInstance(SoapServiceMapping.getInstance().getNfceServiceClassFor(NfceServiceFinder.builder().authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).endpoint(NfcePathEndpoint.RETURN_AUTHORIZATION).build())));
-        return (T) getHomReturnAuthorization();
-    }
-
-    @Override
-    public <T> T prodSubstituteCancel() {
-        if (Objects.nonNull(getProdSubstituteCancel())) {
-            return (T) getProdSubstituteCancel();
+        Object o = newServiceInstance(SoapServiceMapping.getInstance().getNfceServiceClassFor(NfceServiceFinder.builder().authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).endpoint(NfcePathEndpoint.RETURN_AUTHORIZATION).build()));
+        if (NfceSoapConfigurationProperties.CACHE_HOM_RETURN_AUTHORIZATION) {
+            setHomReturnAuthorization(o);
         }
-        setProdSubstituteCancel(newServiceInstance(SoapServiceMapping.getInstance().getNfceServiceClassFor(NfceServiceFinder.builder().authorizer(getAuthorizer()).environment(Environment.PRODUCTION).endpoint(NfcePathEndpoint.EVENT_SUBSTITUTE_CANCEL).build())));
-        return (T) getProdSubstituteCancel();
-    }
-
-    @Override
-    public <T> T homSubstituteCancel() {
-        if (Objects.nonNull(getHomSubstituteCancel())) {
-            return (T) getHomSubstituteCancel();
-        }
-        setHomSubstituteCancel(newServiceInstance(SoapServiceMapping.getInstance().getNfceServiceClassFor(NfceServiceFinder.builder().authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).endpoint(NfcePathEndpoint.EVENT_SUBSTITUTE_CANCEL).build())));
-        return (T) getHomSubstituteCancel();
+        return (T) o;
     }
 
     public abstract NfceAuthorizer getAuthorizer();

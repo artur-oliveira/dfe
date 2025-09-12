@@ -29,7 +29,7 @@ class NfeQueryRegisterServiceImplTest {
         assertNotNull(o);
         assertNotNull(o.getInfCons());
         assertTrue(o.getInfCons().getInfCad().size() >= 1);
-        assertEquals("84308980000184", o.getInfCons().getInfCad().get(0).getCnpj());
+        assertEquals("84308980000184", o.getInfCons().getInfCad().getFirst().getCnpj());
     }
 
     @Test
@@ -48,7 +48,7 @@ class NfeQueryRegisterServiceImplTest {
         assertNotNull(o);
         assertNotNull(o.getInfCons());
         assertTrue(o.getInfCons().getInfCad().size() >= 1);
-        assertEquals("12229415000110", o.getInfCons().getInfCad().get(0).getCnpj());
+        assertEquals("12229415000110", o.getInfCons().getInfCad().getFirst().getCnpj());
     }
 
     @Test
@@ -86,7 +86,7 @@ class NfeQueryRegisterServiceImplTest {
         assertNotNull(o);
         assertNotNull(o.getInfCons());
         assertTrue(o.getInfCons().getInfCad().size() >= 1);
-        assertEquals("15139629000194", o.getInfCons().getInfCad().get(0).getCnpj());
+        assertEquals("15139629000194", o.getInfCons().getInfCad().getFirst().getCnpj());
     }
 
     @Test
@@ -105,7 +105,7 @@ class NfeQueryRegisterServiceImplTest {
         assertNotNull(o);
         assertNotNull(o.getInfCons());
         assertTrue(o.getInfCons().getInfCad().size() >= 1);
-        assertEquals("12361267000193", o.getInfCons().getInfCad().get(0).getCnpj());
+        assertEquals("12361267000193", o.getInfCons().getInfCad().getFirst().getCnpj());
     }
 
     @Test
@@ -124,7 +124,7 @@ class NfeQueryRegisterServiceImplTest {
         assertNotNull(o);
         assertNotNull(o.getInfCons());
         assertTrue(o.getInfCons().getInfCad().size() >= 1);
-        assertEquals("17457404000101", o.getInfCons().getInfCad().get(0).getCnpj());
+        assertEquals("17457404000101", o.getInfCons().getInfCad().getFirst().getCnpj());
     }
 
     @Test
@@ -162,7 +162,7 @@ class NfeQueryRegisterServiceImplTest {
         assertNotNull(o);
         assertNotNull(o.getInfCons());
         assertTrue(o.getInfCons().getInfCad().size() >= 1);
-        assertEquals("01543032000104", o.getInfCons().getInfCad().get(0).getCnpj());
+        assertEquals("01543032000104", o.getInfCons().getInfCad().getFirst().getCnpj());
     }
 
     @Test
@@ -180,7 +180,7 @@ class NfeQueryRegisterServiceImplTest {
         ReturnQueryRegister o = service.queryRegister("20.008.462/0001-62", UF.MG);
         assertNotNull(o);
         assertNotNull(o.getInfCons());
-        assertEquals(NFReturnCode.CODE_257.getCode(), o.getInfCons().getCStat());
+        assertEquals(NFReturnCode.CODE_111.getCode(), o.getInfCons().getCStat());
     }
 
     @Test
@@ -199,7 +199,7 @@ class NfeQueryRegisterServiceImplTest {
         assertNotNull(o);
         assertNotNull(o.getInfCons());
         assertTrue(o.getInfCons().getInfCad().size() >= 1);
-        assertEquals("29059865000105", o.getInfCons().getInfCad().get(0).getCnpj());
+        assertEquals("29059865000105", o.getInfCons().getInfCad().getFirst().getCnpj());
     }
 
     @Test
@@ -218,7 +218,7 @@ class NfeQueryRegisterServiceImplTest {
         assertNotNull(o);
         assertNotNull(o.getInfCons());
         assertTrue(o.getInfCons().getInfCad().size() >= 1);
-        assertEquals("17356474000173", o.getInfCons().getInfCad().get(0).getCnpj());
+        assertEquals("17356474000173", o.getInfCons().getInfCad().getFirst().getCnpj());
     }
 
     @Test
@@ -237,7 +237,7 @@ class NfeQueryRegisterServiceImplTest {
         assertNotNull(o);
         assertNotNull(o.getInfCons());
         assertTrue(o.getInfCons().getInfCad().size() >= 1);
-        assertEquals("12094570000177", o.getInfCons().getInfCad().get(0).getCnpj());
+        assertEquals("12094570000177", o.getInfCons().getInfCad().getFirst().getCnpj());
     }
 
     @Test
@@ -276,7 +276,7 @@ class NfeQueryRegisterServiceImplTest {
         assertNotNull(o);
         assertNotNull(o.getInfCons());
         assertTrue(o.getInfCons().getInfCad().size() >= 1);
-        assertEquals("10835932000108", o.getInfCons().getInfCad().get(0).getCnpj());
+        assertEquals("10835932000108", o.getInfCons().getInfCad().getFirst().getCnpj());
     }
 
     @Test
@@ -295,7 +295,7 @@ class NfeQueryRegisterServiceImplTest {
         assertNotNull(o);
         assertNotNull(o.getInfCons());
         assertTrue(o.getInfCons().getInfCad().size() >= 1);
-        assertEquals("11520224000140", o.getInfCons().getInfCad().get(0).getCnpj());
+        assertEquals("11520224000140", o.getInfCons().getInfCad().getFirst().getCnpj());
     }
 
     @Test
@@ -314,7 +314,7 @@ class NfeQueryRegisterServiceImplTest {
         assertNotNull(o);
         assertNotNull(o.getInfCons());
         assertTrue(o.getInfCons().getInfCad().size() >= 1);
-        assertEquals("61082962000121", o.getInfCons().getInfCad().get(0).getCnpj());
+        assertEquals("61082962000121", o.getInfCons().getInfCad().getFirst().getCnpj());
     }
 
     @Test
@@ -333,7 +333,7 @@ class NfeQueryRegisterServiceImplTest {
         assertNotNull(o);
         assertNotNull(o.getInfCons());
         assertTrue(o.getInfCons().getInfCad().size() >= 1);
-        assertEquals("33592510000154", o.getInfCons().getInfCad().get(0).getCnpj());
+        assertEquals("33592510000154", o.getInfCons().getInfCad().getFirst().getCnpj());
     }
 
     @Test
@@ -352,7 +352,7 @@ class NfeQueryRegisterServiceImplTest {
         assertNotNull(o);
         assertNotNull(o.getInfCons());
         assertTrue(o.getInfCons().getInfCad().size() >= 1);
-        assertEquals("23314594000100", o.getInfCons().getInfCad().get(0).getCnpj());
+        assertEquals("23314594000100", o.getInfCons().getInfCad().getFirst().getCnpj());
     }
 
     @Test
@@ -370,8 +370,8 @@ class NfeQueryRegisterServiceImplTest {
         ReturnQueryRegister o = service.queryRegister("02016440000162", UF.RS);
         assertNotNull(o);
         assertNotNull(o.getInfCons());
-        assertTrue(o.getInfCons().getInfCad().size() >= 1);
-        assertEquals("2016440000162", o.getInfCons().getCnpj());
+        assertFalse(o.getInfCons().getInfCad().isEmpty());
+        assertEquals("02016440000162", o.getInfCons().getCnpj());
     }
 
     @Test
@@ -428,7 +428,7 @@ class NfeQueryRegisterServiceImplTest {
         assertNotNull(o);
         assertNotNull(o.getInfCons());
         assertTrue(o.getInfCons().getInfCad().size() >= 1);
-        assertEquals("81611931000128", o.getInfCons().getInfCad().get(0).getCnpj());
+        assertEquals("81611931000128", o.getInfCons().getInfCad().getFirst().getCnpj());
     }
 
     @Test
@@ -447,7 +447,7 @@ class NfeQueryRegisterServiceImplTest {
         assertNotNull(o);
         assertNotNull(o.getInfCons());
         assertTrue(o.getInfCons().getInfCad().size() >= 1);
-        assertEquals("13017462000163", o.getInfCons().getInfCad().get(0).getCnpj());
+        assertEquals("13017462000163", o.getInfCons().getInfCad().getFirst().getCnpj());
     }
 
     @Test

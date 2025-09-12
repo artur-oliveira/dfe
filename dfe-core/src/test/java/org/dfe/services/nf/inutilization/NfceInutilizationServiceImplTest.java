@@ -1,5 +1,6 @@
 package org.dfe.services.nf.inutilization;
 
+import jakarta.xml.ws.WebServiceException;
 import org.dfe.components.internal.certificate.KeyStoreFactory;
 import org.dfe.components.internal.config.PfxNfceConfigImpl;
 import org.dfe.enums.internal.Environment;
@@ -8,7 +9,6 @@ import org.dfe.enums.nf.NFEvent;
 import org.dfe.enums.nf.NFSend;
 import org.dfe.enums.nf.identification.NFEmissionType;
 import org.dfe.models.nf.inut.ReturnNfeInut;
-import jakarta.xml.ws.WebServiceException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -50,6 +50,44 @@ class NfceInutilizationServiceImplTest {
         ReturnNfeInut o = service.inutilization(1, 1, 1, NFEvent.INUTILIZATION.getDefaultMessage());
         assertNotNull(o);
         assertEquals(UF.AM.getCode(), o.getInfInut().getCuf());
+        assertEquals(Environment.PRODUCTION.getCode(), o.getInfInut().getTpAmb());
+    }
+
+    @Test
+    void testInutilizationWithEnvironmentIsHomologationAndAuthorizerCe() throws Exception {
+        NfceInutilizationService service = new NfceInutilizationServiceImpl(
+                new PfxNfceConfigImpl(
+                        UF.CE,
+                        "11520224000140",
+                        Environment.HOMOLOGATION,
+                        KeyStoreFactory.getInstance(),
+                        NFEmissionType.NORMAL,
+                        NFSend.SYNC,
+                        "1",
+                        "115202241607220426225340")
+        );
+        ReturnNfeInut o = service.inutilization(1, 1, 1, NFEvent.INUTILIZATION.getDefaultMessage());
+        assertNotNull(o);
+        assertEquals(UF.CE.getCode(), o.getInfInut().getCuf());
+        assertEquals(Environment.HOMOLOGATION.getCode(), o.getInfInut().getTpAmb());
+    }
+
+    @Test
+    void testInutilizationWithEnvironmentIsProductionAndAuthorizerCe() throws Exception {
+        NfceInutilizationService service = new NfceInutilizationServiceImpl(
+                new PfxNfceConfigImpl(
+                        UF.CE,
+                        "11520224000140",
+                        Environment.PRODUCTION,
+                        KeyStoreFactory.getInstance(),
+                        NFEmissionType.NORMAL,
+                        NFSend.SYNC,
+                        "1",
+                        "115202241607220426225340")
+        );
+        ReturnNfeInut o = service.inutilization(1, 1, 1, NFEvent.INUTILIZATION.getDefaultMessage());
+        assertNotNull(o);
+        assertEquals(UF.CE.getCode(), o.getInfInut().getCuf());
         assertEquals(Environment.PRODUCTION.getCode(), o.getInfInut().getTpAmb());
     }
 

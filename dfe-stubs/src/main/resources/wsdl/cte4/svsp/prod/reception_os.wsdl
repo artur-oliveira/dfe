@@ -2,11 +2,17 @@
 <wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
                   xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
                   xmlns:tns="http://www.portalfiscal.inf.br/cte/wsdl/CTeRecepcaoOSV4"
+                  xmlns:jaxws="https://jakarta.ee/xml/ns/jaxws"
                   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
                   targetNamespace="http://www.portalfiscal.inf.br/cte/wsdl/CTeRecepcaoOSV4">
-    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Serviço destinado à recepção de mensagens de CT-e
+    <wsdl:documentation
+            xmlns:jaxws="https://jakarta.ee/xml/ns/jaxws"
+            xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Serviço destinado à recepção de mensagens de CT-e
         (Outros Serviços).
     </wsdl:documentation>
+    <jaxws:bindings>
+        <jaxws:enableAsyncMapping>true</jaxws:enableAsyncMapping>
+    </jaxws:bindings>
     <wsdl:types>
         <s:schema elementFormDefault="qualified"
                   targetNamespace="http://www.portalfiscal.inf.br/cte/wsdl/CTeRecepcaoOSV4">
@@ -28,7 +34,9 @@
     </wsdl:message>
     <wsdl:portType name="CTeRecepcaoOSV4Soap12">
         <wsdl:operation name="cteRecepcaoOS">
-            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Recepção CTeOS (modelo 67)
+            <wsdl:documentation
+                    xmlns:jaxws="https://jakarta.ee/xml/ns/jaxws"
+                    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Recepção CTeOS (modelo 67)
             </wsdl:documentation>
             <wsdl:input message="tns:cteRecepcaoOSSoap12In"/>
             <wsdl:output message="tns:cteRecepcaoOSSoap12Out"/>
@@ -48,7 +56,9 @@
         </wsdl:operation>
     </wsdl:binding>
     <wsdl:service name="CTeRecepcaoOSV4">
-        <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Serviço destinado à recepção de mensagens de
+        <wsdl:documentation
+                xmlns:jaxws="https://jakarta.ee/xml/ns/jaxws"
+                xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Serviço destinado à recepção de mensagens de
             CT-e (Outros Serviços).
         </wsdl:documentation>
         <wsdl:port name="CTeRecepcaoOSV4Soap12" binding="tns:CTeRecepcaoOSV4Soap12">

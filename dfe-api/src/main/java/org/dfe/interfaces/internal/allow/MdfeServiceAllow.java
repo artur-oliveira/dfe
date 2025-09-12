@@ -3,6 +3,8 @@ package org.dfe.interfaces.internal.allow;
 import org.dfe.enums.internal.Environment;
 import org.dfe.enums.internal.UF;
 import org.dfe.enums.mdfe.identification.MdfeEmissionType;
+import org.dfe.interfaces.internal.config.CteConfig;
+import org.dfe.interfaces.internal.config.MdfeConfig;
 
 /**
  * The code is defining a Java interface named `MdfeServiceAllow` that extends another interface named `AllowUF`. This
@@ -28,4 +30,7 @@ public interface MdfeServiceAllow extends AllowUF {
      */
     boolean allow(UF uf, Environment environment, MdfeEmissionType emissionType);
 
+    default boolean allow(MdfeConfig config) {
+        return allow(config.webServiceUF(), config.environment(), config.emission());
+    }
 }

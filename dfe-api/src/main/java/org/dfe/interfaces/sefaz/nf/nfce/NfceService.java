@@ -10,7 +10,7 @@ import org.dfe.interfaces.sefaz.port.NfceSoapService;
  * interface also declares two methods: `getSoapService()` and `withSoapService()`, which any class implementing
  * `NfceService` must provide implementations for.
  */
-public interface NfceService extends NfCommonService, NfceSubstituteCancel {
+public interface NfceService extends NfCommonService {
 
 
     /**

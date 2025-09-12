@@ -5,11 +5,13 @@ import org.dfe.enums.internal.UF;
 import org.dfe.enums.nf.identification.NFEmissionType;
 import org.dfe.exceptions.services.NoProviderFound;
 import org.dfe.interfaces.internal.allow.NfServiceAllow;
+import org.dfe.interfaces.internal.config.NfeConfig;
 import org.dfe.interfaces.internal.nf.NfeURL;
 import org.dfe.util.ClassUtils;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @SuppressWarnings("unused")
 public enum NfeAuthorizer implements NfServiceAllow, NfeURL {
@@ -122,7 +124,6 @@ public enum NfeAuthorizer implements NfServiceAllow, NfeURL {
             return null;
         }
     },
-
 
     SVRS {
         public Collection<UF> ufs() {
@@ -452,7 +453,6 @@ public enum NfeAuthorizer implements NfServiceAllow, NfeURL {
         }
     },
 
-
     GO {
         @Override
         public Collection<UF> allowedUfsProduction() {
@@ -560,7 +560,6 @@ public enum NfeAuthorizer implements NfServiceAllow, NfeURL {
             return "https://hom1.nfe.fazenda.gov.br/NFeDistribuicaoDFe/NFeDistribuicaoDFe.asmx";
         }
     },
-
 
     MG {
         @Override
@@ -670,7 +669,6 @@ public enum NfeAuthorizer implements NfServiceAllow, NfeURL {
         }
     },
 
-
     MS {
         @Override
         public Collection<UF> allowedUfsProduction() {
@@ -778,7 +776,6 @@ public enum NfeAuthorizer implements NfServiceAllow, NfeURL {
             return "https://hom1.nfe.fazenda.gov.br/NFeDistribuicaoDFe/NFeDistribuicaoDFe.asmx";
         }
     },
-
 
     MT {
         @Override
@@ -888,7 +885,6 @@ public enum NfeAuthorizer implements NfServiceAllow, NfeURL {
         }
     },
 
-
     PE {
         @Override
         public Collection<UF> allowedUfsProduction() {
@@ -996,7 +992,6 @@ public enum NfeAuthorizer implements NfServiceAllow, NfeURL {
             return "https://hom1.nfe.fazenda.gov.br/NFeDistribuicaoDFe/NFeDistribuicaoDFe.asmx";
         }
     },
-
 
     PR {
         @Override
@@ -1106,7 +1101,6 @@ public enum NfeAuthorizer implements NfServiceAllow, NfeURL {
         }
     },
 
-
     RS {
         @Override
         public Collection<UF> allowedUfsProduction() {
@@ -1215,7 +1209,6 @@ public enum NfeAuthorizer implements NfServiceAllow, NfeURL {
         }
     },
 
-
     SP {
         @Override
         public Collection<UF> allowedUfsProduction() {
@@ -1323,7 +1316,6 @@ public enum NfeAuthorizer implements NfServiceAllow, NfeURL {
             return "https://hom1.nfe.fazenda.gov.br/NFeDistribuicaoDFe/NFeDistribuicaoDFe.asmx";
         }
     },
-
 
     SVAN {
         @Override
@@ -1540,7 +1532,6 @@ public enum NfeAuthorizer implements NfServiceAllow, NfeURL {
         }
     },
 
-
     SVCAN {
         @Override
         public Collection<UF> allowedUfsProduction() {
@@ -1656,6 +1647,11 @@ public enum NfeAuthorizer implements NfServiceAllow, NfeURL {
         if (serviceURL.isEmpty()) throw new NoProviderFound(uf);
 
         return environment.production() ? serviceURL.stream().map(it -> new ArrayList<>(it.prod())).flatMap(List::stream).collect(Collectors.toList()) : serviceURL.stream().map(it -> new ArrayList<>(it.hom())).flatMap(List::stream).collect(Collectors.toList());
+    }
+
+    public static NfeAuthorizer valueOfConfig(NfeConfig config) throws NoProviderFound {
+        // The AN Authorizer must be explicitly set
+        return Stream.of(values()).filter(it -> !it.equals(NfeAuthorizer.AN)).filter(it -> it.allow(config)).findFirst().orElseThrow(() -> new NoProviderFound(config.webServiceUF()));
     }
 
     public Collection<String> hom() {

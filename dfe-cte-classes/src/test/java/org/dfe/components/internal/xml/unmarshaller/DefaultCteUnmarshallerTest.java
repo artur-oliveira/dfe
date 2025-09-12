@@ -28,11 +28,6 @@ class DefaultCteUnmarshallerTest {
     }
 
     @Test
-    void testInutCte400() {
-        assertNotNull(new DefaultCteUnmarshaller().inutCte400("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><inutCTe xmlns=\"http://www.portalfiscal.inf.br/cte\"/>"));
-    }
-
-    @Test
     void testQuerySituationCte400() {
         assertNotNull(new DefaultCteUnmarshaller().querySituationCte400("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><consSitCTe xmlns=\"http://www.portalfiscal.inf.br/cte\"/>"));
     }

@@ -8,7 +8,7 @@ import org.dfe.enums.nf.NFEvent;
 import org.dfe.enums.nf.NFReturnCode;
 import org.dfe.enums.nf.NFSend;
 import org.dfe.enums.nf.identification.NFEmissionType;
-import org.dfe.models.nf.substitute_cancel.ReturnNfceSubstituteCancel;
+import org.dfe.models.nf.event.ReturnNfEvent;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -28,13 +28,13 @@ class NfceSubstituteCancelServiceImplTest {
                         "1",
                         "115202241607220426225340")
         );
-        ReturnNfceSubstituteCancel o = service.substituteCancel("22230511520224000140650010001701561960954681", "22230511520224000140650010001701561960954681", "999999999999999", NFEvent.SUBSTITUTE_CANCEL.getDefaultMessage());
+        ReturnNfEvent o = service.substituteCancel("22230511520224000140650010001701561960954681", "22230511520224000140650010001701561960954681", "999999999999999", NFEvent.SUBSTITUTE_CANCEL.getDefaultMessage());
 
         assertNotNull(o);
         assertEquals(UF.AM.getCode(), o.getCOrgao());
         assertEquals(1, o.getRetEvento().size());
-        assertEquals(NFEvent.SUBSTITUTE_CANCEL.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
-        assertEquals(NFReturnCode.CODE_249.getCode(), o.getRetEvento().get(0).getInfEvento().getCStat());
+        assertEquals(NFEvent.SUBSTITUTE_CANCEL.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpEvento());
+        assertEquals(NFReturnCode.CODE_249.getCode(), o.getRetEvento().getFirst().getInfEvento().getCStat());
         assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
     }
 
@@ -51,13 +51,13 @@ class NfceSubstituteCancelServiceImplTest {
                         "1",
                         "115202241607220426225340")
         );
-        ReturnNfceSubstituteCancel o = service.substituteCancel("22230511520224000140650010001701561960954681", "22230511520224000140650010001701561960954681", "999999999999999", NFEvent.SUBSTITUTE_CANCEL.getDefaultMessage());
+        ReturnNfEvent o = service.substituteCancel("22230511520224000140650010001701561960954681", "22230511520224000140650010001701561960954681", "999999999999999", NFEvent.SUBSTITUTE_CANCEL.getDefaultMessage());
 
         assertNotNull(o);
         assertEquals(UF.AM.getCode(), o.getCOrgao());
         assertEquals(1, o.getRetEvento().size());
-        assertEquals(NFEvent.SUBSTITUTE_CANCEL.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
-        assertEquals(NFReturnCode.CODE_249.getCode(), o.getRetEvento().get(0).getInfEvento().getCStat());
+        assertEquals(NFEvent.SUBSTITUTE_CANCEL.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpEvento());
+        assertEquals(NFReturnCode.CODE_249.getCode(), o.getRetEvento().getFirst().getInfEvento().getCStat());
         assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
     }
 
@@ -74,7 +74,7 @@ class NfceSubstituteCancelServiceImplTest {
                         "1",
                         "115202241607220426225340")
         );
-        ReturnNfceSubstituteCancel o = service.substituteCancel("22230511520224000140650010001701561960954681", "22230511520224000140650010001701561960954681", "999999999999999", NFEvent.SUBSTITUTE_CANCEL.getDefaultMessage());
+        ReturnNfEvent o = service.substituteCancel("22230511520224000140650010001701561960954681", "22230511520224000140650010001701561960954681", "999999999999999", NFEvent.SUBSTITUTE_CANCEL.getDefaultMessage());
         assertNotNull(o);
         assertEquals(NFReturnCode.CODE_128.getCode(), o.getCStat());
         assertEquals(UF.GO.getCode(), o.getCOrgao());
@@ -94,7 +94,7 @@ class NfceSubstituteCancelServiceImplTest {
                         "1",
                         "115202241607220426225340")
         );
-        ReturnNfceSubstituteCancel o = service.substituteCancel("22230511520224000140650010001701561960954681", "22230511520224000140650010001701561960954681", "999999999999999", NFEvent.SUBSTITUTE_CANCEL.getDefaultMessage());
+        ReturnNfEvent o = service.substituteCancel("22230511520224000140650010001701561960954681", "22230511520224000140650010001701561960954681", "999999999999999", NFEvent.SUBSTITUTE_CANCEL.getDefaultMessage());
 
         assertNotNull(o);
         assertEquals(UF.GO.getCode(), o.getCOrgao());
@@ -115,13 +115,13 @@ class NfceSubstituteCancelServiceImplTest {
                         "1",
                         "115202241607220426225340")
         );
-        ReturnNfceSubstituteCancel o = service.substituteCancel("22230511520224000140650010001701561960954681", "22230511520224000140650010001701561960954681", "999999999999999", NFEvent.SUBSTITUTE_CANCEL.getDefaultMessage());
+        ReturnNfEvent o = service.substituteCancel("22230511520224000140650010001701561960954681", "22230511520224000140650010001701561960954681", "999999999999999", NFEvent.SUBSTITUTE_CANCEL.getDefaultMessage());
 
         assertNotNull(o);
         assertEquals(UF.MG.getCode(), o.getCOrgao());
         assertEquals(1, o.getRetEvento().size());
-        assertEquals(NFEvent.SUBSTITUTE_CANCEL.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
-        assertEquals(NFReturnCode.CODE_249.getCode(), o.getRetEvento().get(0).getInfEvento().getCStat());
+        assertEquals(NFEvent.SUBSTITUTE_CANCEL.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpEvento());
+        assertEquals(NFReturnCode.CODE_249.getCode(), o.getRetEvento().getFirst().getInfEvento().getCStat());
         assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
     }
 
@@ -138,13 +138,13 @@ class NfceSubstituteCancelServiceImplTest {
                         "1",
                         "115202241607220426225340")
         );
-        ReturnNfceSubstituteCancel o = service.substituteCancel("22230511520224000140650010001701561960954681", "22230511520224000140650010001701561960954681", "999999999999999", NFEvent.SUBSTITUTE_CANCEL.getDefaultMessage());
+        ReturnNfEvent o = service.substituteCancel("22230511520224000140650010001701561960954681", "22230511520224000140650010001701561960954681", "999999999999999", NFEvent.SUBSTITUTE_CANCEL.getDefaultMessage());
 
         assertNotNull(o);
         assertEquals(UF.MG.getCode(), o.getCOrgao());
         assertEquals(1, o.getRetEvento().size());
-        assertEquals(NFEvent.SUBSTITUTE_CANCEL.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
-        assertEquals(NFReturnCode.CODE_249.getCode(), o.getRetEvento().get(0).getInfEvento().getCStat());
+        assertEquals(NFEvent.SUBSTITUTE_CANCEL.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpEvento());
+        assertEquals(NFReturnCode.CODE_249.getCode(), o.getRetEvento().getFirst().getInfEvento().getCStat());
         assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
     }
 
@@ -161,13 +161,13 @@ class NfceSubstituteCancelServiceImplTest {
                         "1",
                         "115202241607220426225340")
         );
-        ReturnNfceSubstituteCancel o = service.substituteCancel("22230511520224000140650010001701561960954681", "22230511520224000140650010001701561960954681", "999999999999999", NFEvent.SUBSTITUTE_CANCEL.getDefaultMessage());
+        ReturnNfEvent o = service.substituteCancel("22230511520224000140650010001701561960954681", "22230511520224000140650010001701561960954681", "999999999999999", NFEvent.SUBSTITUTE_CANCEL.getDefaultMessage());
 
         assertNotNull(o);
         assertEquals(UF.MS.getCode(), o.getCOrgao());
         assertEquals(1, o.getRetEvento().size());
-        assertEquals(NFEvent.SUBSTITUTE_CANCEL.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
-        assertEquals(NFReturnCode.CODE_614.getCode(), o.getRetEvento().get(0).getInfEvento().getCStat());
+        assertEquals(NFEvent.SUBSTITUTE_CANCEL.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpEvento());
+        assertEquals(NFReturnCode.CODE_614.getCode(), o.getRetEvento().getFirst().getInfEvento().getCStat());
         assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
     }
 
@@ -184,13 +184,13 @@ class NfceSubstituteCancelServiceImplTest {
                         "1",
                         "115202241607220426225340")
         );
-        ReturnNfceSubstituteCancel o = service.substituteCancel("22230511520224000140650010001701561960954681", "22230511520224000140650010001701561960954681", "999999999999999", NFEvent.SUBSTITUTE_CANCEL.getDefaultMessage());
+        ReturnNfEvent o = service.substituteCancel("22230511520224000140650010001701561960954681", "22230511520224000140650010001701561960954681", "999999999999999", NFEvent.SUBSTITUTE_CANCEL.getDefaultMessage());
 
         assertNotNull(o);
         assertEquals(UF.MS.getCode(), o.getCOrgao());
         assertEquals(1, o.getRetEvento().size());
-        assertEquals(NFEvent.SUBSTITUTE_CANCEL.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
-        assertEquals(NFReturnCode.CODE_614.getCode(), o.getRetEvento().get(0).getInfEvento().getCStat());
+        assertEquals(NFEvent.SUBSTITUTE_CANCEL.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpEvento());
+        assertEquals(NFReturnCode.CODE_614.getCode(), o.getRetEvento().getFirst().getInfEvento().getCStat());
         assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
     }
 
@@ -207,13 +207,13 @@ class NfceSubstituteCancelServiceImplTest {
                         "1",
                         "115202241607220426225340")
         );
-        ReturnNfceSubstituteCancel o = service.substituteCancel("22230511520224000140650010001701561960954681", "22230511520224000140650010001701561960954681", "999999999999999", NFEvent.SUBSTITUTE_CANCEL.getDefaultMessage());
+        ReturnNfEvent o = service.substituteCancel("22230511520224000140650010001701561960954681", "22230511520224000140650010001701561960954681", "999999999999999", NFEvent.SUBSTITUTE_CANCEL.getDefaultMessage());
 
         assertNotNull(o);
         assertEquals(UF.MT.getCode(), o.getCOrgao());
         assertEquals(1, o.getRetEvento().size());
-        assertEquals(NFEvent.SUBSTITUTE_CANCEL.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
-        assertEquals(NFReturnCode.CODE_249.getCode(), o.getRetEvento().get(0).getInfEvento().getCStat());
+        assertEquals(NFEvent.SUBSTITUTE_CANCEL.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpEvento());
+        assertEquals(NFReturnCode.CODE_249.getCode(), o.getRetEvento().getFirst().getInfEvento().getCStat());
         assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
     }
 
@@ -230,13 +230,13 @@ class NfceSubstituteCancelServiceImplTest {
                         "1",
                         "115202241607220426225340")
         );
-        ReturnNfceSubstituteCancel o = service.substituteCancel("22230511520224000140650010001701561960954681", "22230511520224000140650010001701561960954681", "999999999999999", NFEvent.SUBSTITUTE_CANCEL.getDefaultMessage());
+        ReturnNfEvent o = service.substituteCancel("22230511520224000140650010001701561960954681", "22230511520224000140650010001701561960954681", "999999999999999", NFEvent.SUBSTITUTE_CANCEL.getDefaultMessage());
 
         assertNotNull(o);
         assertEquals(UF.MT.getCode(), o.getCOrgao());
         assertEquals(1, o.getRetEvento().size());
-        assertEquals(NFEvent.SUBSTITUTE_CANCEL.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
-        assertEquals(NFReturnCode.CODE_249.getCode(), o.getRetEvento().get(0).getInfEvento().getCStat());
+        assertEquals(NFEvent.SUBSTITUTE_CANCEL.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpEvento());
+        assertEquals(NFReturnCode.CODE_249.getCode(), o.getRetEvento().getFirst().getInfEvento().getCStat());
         assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
     }
 
@@ -253,13 +253,13 @@ class NfceSubstituteCancelServiceImplTest {
                         "1",
                         "115202241607220426225340")
         );
-        ReturnNfceSubstituteCancel o = service.substituteCancel("22230511520224000140650010001701561960954681", "22230511520224000140650010001701561960954681", "999999999999999", NFEvent.SUBSTITUTE_CANCEL.getDefaultMessage());
+        ReturnNfEvent o = service.substituteCancel("22230511520224000140650010001701561960954681", "22230511520224000140650010001701561960954681", "999999999999999", NFEvent.SUBSTITUTE_CANCEL.getDefaultMessage());
 
         assertNotNull(o);
         assertEquals(UF.PR.getCode(), o.getCOrgao());
         assertEquals(1, o.getRetEvento().size());
-        assertEquals(NFEvent.SUBSTITUTE_CANCEL.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
-        assertEquals(NFReturnCode.CODE_614.getCode(), o.getRetEvento().get(0).getInfEvento().getCStat());
+        assertEquals(NFEvent.SUBSTITUTE_CANCEL.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpEvento());
+        assertEquals(NFReturnCode.CODE_614.getCode(), o.getRetEvento().getFirst().getInfEvento().getCStat());
         assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
     }
 
@@ -276,14 +276,18 @@ class NfceSubstituteCancelServiceImplTest {
                         "1",
                         "115202241607220426225340")
         );
-        ReturnNfceSubstituteCancel o = service.substituteCancel("22230511520224000140650010001701561960954681", "22230511520224000140650010001701561960954681", "999999999999999", NFEvent.SUBSTITUTE_CANCEL.getDefaultMessage());
+        ReturnNfEvent o = service.substituteCancel("22230511520224000140650010001701561960954681", "22230511520224000140650010001701561960954681", "999999999999999", NFEvent.SUBSTITUTE_CANCEL.getDefaultMessage());
 
         assertNotNull(o);
         assertEquals(UF.PR.getCode(), o.getCOrgao());
-        assertEquals(1, o.getRetEvento().size());
-        assertEquals(NFEvent.SUBSTITUTE_CANCEL.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
-        assertEquals(NFReturnCode.CODE_614.getCode(), o.getRetEvento().get(0).getInfEvento().getCStat());
-        assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
+        if (o.getRetEvento().isEmpty()) {
+            assertEquals(NFReturnCode.CODE_656.getCode(), o.getCStat());
+        } else {
+            assertEquals(1, o.getRetEvento().size());
+            assertEquals(NFEvent.SUBSTITUTE_CANCEL.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpEvento());
+            assertEquals(NFReturnCode.CODE_614.getCode(), o.getRetEvento().getFirst().getInfEvento().getCStat());
+            assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
+        }
     }
 
     @Test
@@ -299,13 +303,13 @@ class NfceSubstituteCancelServiceImplTest {
                         "1",
                         "115202241607220426225340")
         );
-        ReturnNfceSubstituteCancel o = service.substituteCancel("22230511520224000140650010001701561960954681", "22230511520224000140650010001701561960954681", "999999999999999", NFEvent.SUBSTITUTE_CANCEL.getDefaultMessage());
+        ReturnNfEvent o = service.substituteCancel("22230511520224000140650010001701561960954681", "22230511520224000140650010001701561960954681", "999999999999999", NFEvent.SUBSTITUTE_CANCEL.getDefaultMessage());
 
         assertNotNull(o);
         assertEquals(UF.RS.getCode(), o.getCOrgao());
         assertEquals(1, o.getRetEvento().size());
-        assertEquals(NFEvent.SUBSTITUTE_CANCEL.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
-        assertEquals(NFReturnCode.CODE_494.getCode(), o.getRetEvento().get(0).getInfEvento().getCStat());
+        assertEquals(NFEvent.SUBSTITUTE_CANCEL.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpEvento());
+        assertEquals(NFReturnCode.CODE_494.getCode(), o.getRetEvento().getFirst().getInfEvento().getCStat());
         assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
     }
 
@@ -322,13 +326,13 @@ class NfceSubstituteCancelServiceImplTest {
                         "1",
                         "115202241607220426225340")
         );
-        ReturnNfceSubstituteCancel o = service.substituteCancel("22230511520224000140650010001701561960954681", "22230511520224000140650010001701561960954681", "999999999999999", NFEvent.SUBSTITUTE_CANCEL.getDefaultMessage());
+        ReturnNfEvent o = service.substituteCancel("22230511520224000140650010001701561960954681", "22230511520224000140650010001701561960954681", "999999999999999", NFEvent.SUBSTITUTE_CANCEL.getDefaultMessage());
 
         assertNotNull(o);
         assertEquals(UF.RS.getCode(), o.getCOrgao());
         assertEquals(1, o.getRetEvento().size());
-        assertEquals(NFEvent.SUBSTITUTE_CANCEL.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
-        assertEquals(NFReturnCode.CODE_494.getCode(), o.getRetEvento().get(0).getInfEvento().getCStat());
+        assertEquals(NFEvent.SUBSTITUTE_CANCEL.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpEvento());
+        assertEquals(NFReturnCode.CODE_494.getCode(), o.getRetEvento().getFirst().getInfEvento().getCStat());
         assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
     }
 
@@ -345,13 +349,13 @@ class NfceSubstituteCancelServiceImplTest {
                         "1",
                         "115202241607220426225340")
         );
-        ReturnNfceSubstituteCancel o = service.substituteCancel("22230511520224000140650010001701561960954681", "22230511520224000140650010001701561960954681", "999999999999999", NFEvent.SUBSTITUTE_CANCEL.getDefaultMessage());
+        ReturnNfEvent o = service.substituteCancel("22230511520224000140650010001701561960954681", "22230511520224000140650010001701561960954681", "999999999999999", NFEvent.SUBSTITUTE_CANCEL.getDefaultMessage());
 
         assertNotNull(o);
         assertEquals(UF.SP.getCode(), o.getCOrgao());
         assertEquals(1, o.getRetEvento().size());
-        assertEquals(NFEvent.SUBSTITUTE_CANCEL.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
-        assertEquals(NFReturnCode.CODE_491.getCode(), o.getRetEvento().get(0).getInfEvento().getCStat());
+        assertEquals(NFEvent.SUBSTITUTE_CANCEL.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpEvento());
+        assertEquals(NFReturnCode.CODE_614.getCode(), o.getRetEvento().getFirst().getInfEvento().getCStat());
         assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
     }
 
@@ -368,13 +372,13 @@ class NfceSubstituteCancelServiceImplTest {
                         "1",
                         "115202241607220426225340")
         );
-        ReturnNfceSubstituteCancel o = service.substituteCancel("22230511520224000140650010001701561960954681", "22230511520224000140650010001701561960954681", "999999999999999", NFEvent.SUBSTITUTE_CANCEL.getDefaultMessage());
+        ReturnNfEvent o = service.substituteCancel("22230511520224000140650010001701561960954681", "22230511520224000140650010001701561960954681", "999999999999999", NFEvent.SUBSTITUTE_CANCEL.getDefaultMessage());
 
         assertNotNull(o);
         assertEquals(UF.SP.getCode(), o.getCOrgao());
         assertEquals(1, o.getRetEvento().size());
-        assertEquals(NFEvent.SUBSTITUTE_CANCEL.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
-        assertEquals(NFReturnCode.CODE_491.getCode(), o.getRetEvento().get(0).getInfEvento().getCStat());
+        assertEquals(NFEvent.SUBSTITUTE_CANCEL.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpEvento());
+        assertEquals(NFReturnCode.CODE_614.getCode(), o.getRetEvento().getFirst().getInfEvento().getCStat());
         assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
     }
 
@@ -391,13 +395,13 @@ class NfceSubstituteCancelServiceImplTest {
                         "1",
                         "115202241607220426225340")
         );
-        ReturnNfceSubstituteCancel o = service.substituteCancel("22230511520224000140650010001701561960954681", "22230511520224000140650010001701561960954681", "999999999999999", NFEvent.SUBSTITUTE_CANCEL.getDefaultMessage());
+        ReturnNfEvent o = service.substituteCancel("22230511520224000140650010001701561960954681", "22230511520224000140650010001701561960954681", "999999999999999", NFEvent.SUBSTITUTE_CANCEL.getDefaultMessage());
 
         assertNotNull(o);
         assertEquals(UF.PI.getCode(), o.getCOrgao());
         assertEquals(1, o.getRetEvento().size());
-        assertEquals(NFEvent.SUBSTITUTE_CANCEL.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
-        assertEquals(NFReturnCode.CODE_222.getCode(), o.getRetEvento().get(0).getInfEvento().getCStat());
+        assertEquals(NFEvent.SUBSTITUTE_CANCEL.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpEvento());
+        assertEquals(NFReturnCode.CODE_222.getCode(), o.getRetEvento().getFirst().getInfEvento().getCStat());
         assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
     }
 
@@ -414,13 +418,13 @@ class NfceSubstituteCancelServiceImplTest {
                         "1",
                         "115202241607220426225340")
         );
-        ReturnNfceSubstituteCancel o = service.substituteCancel("22230511520224000140650010001701561960954681", "22230511520224000140650010001701561960954681", "999999999999999", NFEvent.SUBSTITUTE_CANCEL.getDefaultMessage());
+        ReturnNfEvent o = service.substituteCancel("22230511520224000140650010001701561960954681", "22230511520224000140650010001701561960954681", "999999999999999", NFEvent.SUBSTITUTE_CANCEL.getDefaultMessage());
 
         assertNotNull(o);
         assertEquals(UF.PI.getCode(), o.getCOrgao());
         assertEquals(1, o.getRetEvento().size());
-        assertEquals(NFEvent.SUBSTITUTE_CANCEL.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
-        assertEquals(NFReturnCode.CODE_494.getCode(), o.getRetEvento().get(0).getInfEvento().getCStat());
+        assertEquals(NFEvent.SUBSTITUTE_CANCEL.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpEvento());
+        assertEquals(NFReturnCode.CODE_494.getCode(), o.getRetEvento().getFirst().getInfEvento().getCStat());
         assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
     }
 }

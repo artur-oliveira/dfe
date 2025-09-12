@@ -20,7 +20,6 @@ import org.dfe.models.nf.authorization.ReturnSendNf;
 import org.dfe.util.DateUtils;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
 import java.util.Collections;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -96,51 +95,6 @@ class NfceAuthorizationServiceImplTest {
         return nfe;
     }
 
-    @Test
-    void testAuthorizationAsyncWithEnvironmentIsHomologationAndAuthorizerAm() throws Exception {
-        NfceAuthorizationService service = new NfceAuthorizationServiceImpl(
-                new PfxNfceConfigImpl(
-                        UF.AM,
-                        "11520224000140",
-                        Environment.HOMOLOGATION,
-                        KeyStoreFactory.getInstance(),
-                        NFEmissionType.NORMAL,
-                        NFSend.ASYNC,
-                        "1",
-                        "115202241607220426225340")
-        );
-
-        ReturnSendNf o = service.authorization(Arrays.asList(getNf(service.getConfig(), 1, Model.NFCE), getNf(service.getConfig(), 1, Model.NFCE)));
-
-        assertNotNull(o);
-        assertNotNull(o.getInfRec());
-        assertEquals(NFReturnCode.CODE_103.getCode(), o.getCStat());
-        assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
-        assertEquals(UF.AM.getCode(), o.getCuf());
-    }
-
-    @Test
-    void testAuthorizationAsyncWithEnvironmentIsProductionAndAuthorizerAm() throws Exception {
-        NfceAuthorizationService service = new NfceAuthorizationServiceImpl(
-                new PfxNfceConfigImpl(
-                        UF.AM,
-                        "11520224000140",
-                        Environment.PRODUCTION,
-                        KeyStoreFactory.getInstance(),
-                        NFEmissionType.NORMAL,
-                        NFSend.ASYNC,
-                        "1",
-                        "115202241607220426225340")
-        );
-
-        ReturnSendNf o = service.authorization(Arrays.asList(getNf(service.getConfig(), 1, Model.NFCE), getNf(service.getConfig(), 1, Model.NFCE)));
-
-        assertNotNull(o);
-        assertNotNull(o.getInfRec());
-        assertEquals(NFReturnCode.CODE_103.getCode(), o.getCStat());
-        assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
-        assertEquals(UF.AM.getCode(), o.getCuf());
-    }
 
     @Test
     void testAuthorizationSyncWithEnvironmentIsHomologationAndAuthorizerAm() throws Exception {
@@ -192,51 +146,6 @@ class NfceAuthorizationServiceImplTest {
         assertEquals(UF.AM.getCode(), o.getCuf());
     }
 
-    @Test
-    void testAuthorizationAsyncWithEnvironmentIsHomologationAndAuthorizerGo() throws Exception {
-
-        NfceAuthorizationService service = new NfceAuthorizationServiceImpl(
-                new PfxNfceConfigImpl(
-                        UF.GO,
-                        "11520224000140",
-                        Environment.HOMOLOGATION,
-                        KeyStoreFactory.getInstance(),
-                        NFEmissionType.NORMAL,
-                        NFSend.ASYNC,
-                        "1",
-                        "115202241607220426225340")
-        );
-
-        ReturnSendNf o = service.authorization(Arrays.asList(getNf(service.getConfig(), 1, Model.NFCE), getNf(service.getConfig(), 1, Model.NFCE)));
-
-        assertNotNull(o);
-        assertNull(o.getInfRec());
-        assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
-        assertEquals(UF.GO.getCode(), o.getCuf());
-    }
-
-    @Test
-    void testAuthorizationAsyncWithEnvironmentIsProductionAndAuthorizerGo() throws Exception {
-        NfceAuthorizationService service = new NfceAuthorizationServiceImpl(
-                new PfxNfceConfigImpl(
-                        UF.GO,
-                        "11520224000140",
-                        Environment.PRODUCTION,
-                        KeyStoreFactory.getInstance(),
-                        NFEmissionType.NORMAL,
-                        NFSend.ASYNC,
-                        "1",
-                        "115202241607220426225340")
-        );
-
-        ReturnSendNf o = service.authorization(Arrays.asList(getNf(service.getConfig(), 1, Model.NFCE), getNf(service.getConfig(), 1, Model.NFCE)));
-
-        assertNotNull(o);
-        assertNotNull(o.getInfRec());
-        assertEquals(NFReturnCode.CODE_103.getCode(), o.getCStat());
-        assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
-        assertEquals(UF.GO.getCode(), o.getCuf());
-    }
 
     @Test
     void testAuthorizationSyncWithEnvironmentIsHomologationAndAuthorizerGo() throws Exception {
@@ -286,54 +195,6 @@ class NfceAuthorizationServiceImplTest {
         assertEquals(NFReturnCode.CODE_384.getCode(), o.getProtNFe().getInfProt().getCStat());
         assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
         assertEquals(UF.GO.getCode(), o.getCuf());
-    }
-
-
-    @Test
-    void testAuthorizationAsyncWithEnvironmentIsHomologationAndAuthorizerMg() throws Exception {
-
-        NfceAuthorizationService service = new NfceAuthorizationServiceImpl(
-                new PfxNfceConfigImpl(
-                        UF.MG,
-                        "11520224000140",
-                        Environment.HOMOLOGATION,
-                        KeyStoreFactory.getInstance(),
-                        NFEmissionType.NORMAL,
-                        NFSend.ASYNC,
-                        "1",
-                        "115202241607220426225340")
-        );
-
-        ReturnSendNf o = service.authorization(Arrays.asList(getNf(service.getConfig(), 1, Model.NFCE), getNf(service.getConfig(), 1, Model.NFCE)));
-
-        assertNotNull(o);
-        assertNotNull(o.getInfRec());
-        assertEquals(NFReturnCode.CODE_103.getCode(), o.getCStat());
-        assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
-        assertEquals(UF.MG.getCode(), o.getCuf());
-    }
-
-    @Test
-    void testAuthorizationAsyncWithEnvironmentIsProductionAndAuthorizerMg() throws Exception {
-        NfceAuthorizationService service = new NfceAuthorizationServiceImpl(
-                new PfxNfceConfigImpl(
-                        UF.MG,
-                        "11520224000140",
-                        Environment.PRODUCTION,
-                        KeyStoreFactory.getInstance(),
-                        NFEmissionType.NORMAL,
-                        NFSend.ASYNC,
-                        "1",
-                        "115202241607220426225340")
-        );
-
-        ReturnSendNf o = service.authorization(Arrays.asList(getNf(service.getConfig(), 1, Model.NFCE), getNf(service.getConfig(), 1, Model.NFCE)));
-
-        assertNotNull(o);
-        assertNotNull(o.getInfRec());
-        assertEquals(NFReturnCode.CODE_103.getCode(), o.getCStat());
-        assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
-        assertEquals(UF.MG.getCode(), o.getCuf());
     }
 
     @Test
@@ -386,52 +247,6 @@ class NfceAuthorizationServiceImplTest {
         assertEquals(UF.MG.getCode(), o.getCuf());
     }
 
-    @Test
-    void testAuthorizationAsyncWithEnvironmentIsHomologationAndAuthorizerMs() throws Exception {
-
-        NfceAuthorizationService service = new NfceAuthorizationServiceImpl(
-                new PfxNfceConfigImpl(
-                        UF.MS,
-                        "11520224000140",
-                        Environment.HOMOLOGATION,
-                        KeyStoreFactory.getInstance(),
-                        NFEmissionType.NORMAL,
-                        NFSend.ASYNC,
-                        "1",
-                        "115202241607220426225340")
-        );
-
-        ReturnSendNf o = service.authorization(Arrays.asList(getNf(service.getConfig(), 1, Model.NFCE), getNf(service.getConfig(), 1, Model.NFCE)));
-
-        assertNotNull(o);
-        assertNotNull(o.getInfRec());
-        assertEquals(NFReturnCode.CODE_103.getCode(), o.getCStat());
-        assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
-        assertEquals(UF.MS.getCode(), o.getCuf());
-    }
-
-    @Test
-    void testAuthorizationAsyncWithEnvironmentIsProductionAndAuthorizerMs() throws Exception {
-        NfceAuthorizationService service = new NfceAuthorizationServiceImpl(
-                new PfxNfceConfigImpl(
-                        UF.MS,
-                        "11520224000140",
-                        Environment.PRODUCTION,
-                        KeyStoreFactory.getInstance(),
-                        NFEmissionType.NORMAL,
-                        NFSend.ASYNC,
-                        "1",
-                        "115202241607220426225340")
-        );
-
-        ReturnSendNf o = service.authorization(Arrays.asList(getNf(service.getConfig(), 1, Model.NFCE), getNf(service.getConfig(), 1, Model.NFCE)));
-
-        assertNotNull(o);
-        assertNotNull(o.getInfRec());
-        assertEquals(NFReturnCode.CODE_103.getCode(), o.getCStat());
-        assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
-        assertEquals(UF.MS.getCode(), o.getCuf());
-    }
 
     @Test
     void testAuthorizationSyncWithEnvironmentIsHomologationAndAuthorizerMs() throws Exception {
@@ -481,53 +296,6 @@ class NfceAuthorizationServiceImplTest {
         assertEquals(NFReturnCode.CODE_209.getCode(), o.getProtNFe().getInfProt().getCStat());
         assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
         assertEquals(UF.MS.getCode(), o.getCuf());
-    }
-
-    @Test
-    void testAuthorizationAsyncWithEnvironmentIsHomologationAndAuthorizerMt() throws Exception {
-
-        NfceAuthorizationService service = new NfceAuthorizationServiceImpl(
-                new PfxNfceConfigImpl(
-                        UF.MT,
-                        "11520224000140",
-                        Environment.HOMOLOGATION,
-                        KeyStoreFactory.getInstance(),
-                        NFEmissionType.NORMAL,
-                        NFSend.ASYNC,
-                        "1",
-                        "115202241607220426225340")
-        );
-
-        ReturnSendNf o = service.authorization(Arrays.asList(getNf(service.getConfig(), 1, Model.NFCE), getNf(service.getConfig(), 1, Model.NFCE)));
-
-        assertNotNull(o);
-        assertNull(o.getInfRec());
-        assertEquals(NFReturnCode.CODE_126.getCode(), o.getCStat());
-        assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
-        assertEquals(UF.MT.getCode(), o.getCuf());
-    }
-
-    @Test
-    void testAuthorizationAsyncWithEnvironmentIsProductionAndAuthorizerMt() throws Exception {
-        NfceAuthorizationService service = new NfceAuthorizationServiceImpl(
-                new PfxNfceConfigImpl(
-                        UF.MT,
-                        "11520224000140",
-                        Environment.PRODUCTION,
-                        KeyStoreFactory.getInstance(),
-                        NFEmissionType.NORMAL,
-                        NFSend.ASYNC,
-                        "1",
-                        "115202241607220426225340")
-        );
-
-        ReturnSendNf o = service.authorization(Arrays.asList(getNf(service.getConfig(), 1, Model.NFCE), getNf(service.getConfig(), 1, Model.NFCE)));
-
-        assertNotNull(o);
-        assertNotNull(o.getInfRec());
-        assertEquals(NFReturnCode.CODE_103.getCode(), o.getCStat());
-        assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
-        assertEquals(UF.MT.getCode(), o.getCuf());
     }
 
     @Test
@@ -581,52 +349,6 @@ class NfceAuthorizationServiceImplTest {
         assertEquals(NFReturnCode.CODE_230.getCode(), o.getProtNFe().getInfProt().getCStat());
     }
 
-    @Test
-    void testAuthorizationAsyncWithEnvironmentIsHomologationAndAuthorizerPr() throws Exception {
-
-        NfceAuthorizationService service = new NfceAuthorizationServiceImpl(
-                new PfxNfceConfigImpl(
-                        UF.PR,
-                        "11520224000140",
-                        Environment.HOMOLOGATION,
-                        KeyStoreFactory.getInstance(),
-                        NFEmissionType.NORMAL,
-                        NFSend.ASYNC,
-                        "1",
-                        "115202241607220426225340")
-        );
-
-        ReturnSendNf o = service.authorization(Arrays.asList(getNf(service.getConfig(), 1, Model.NFCE), getNf(service.getConfig(), 1, Model.NFCE)));
-
-        assertNotNull(o);
-        assertNotNull(o.getInfRec());
-        assertEquals(NFReturnCode.CODE_103.getCode(), o.getCStat());
-        assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
-        assertEquals(UF.PR.getCode(), o.getCuf());
-    }
-
-    @Test
-    void testAuthorizationAsyncWithEnvironmentIsProductionAndAuthorizerPr() throws Exception {
-        NfceAuthorizationService service = new NfceAuthorizationServiceImpl(
-                new PfxNfceConfigImpl(
-                        UF.PR,
-                        "11520224000140",
-                        Environment.PRODUCTION,
-                        KeyStoreFactory.getInstance(),
-                        NFEmissionType.NORMAL,
-                        NFSend.ASYNC,
-                        "1",
-                        "115202241607220426225340")
-        );
-
-        ReturnSendNf o = service.authorization(Arrays.asList(getNf(service.getConfig(), 1, Model.NFCE), getNf(service.getConfig(), 1, Model.NFCE)));
-
-        assertNotNull(o);
-        assertNotNull(o.getInfRec());
-        assertEquals(NFReturnCode.CODE_103.getCode(), o.getCStat());
-        assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
-        assertEquals(UF.PR.getCode(), o.getCuf());
-    }
 
     @Test
     void testAuthorizationSyncWithEnvironmentIsHomologationAndAuthorizerPr() throws Exception {
@@ -674,52 +396,6 @@ class NfceAuthorizationServiceImplTest {
         assertEquals(UF.PR.getCode(), o.getCuf());
     }
 
-    @Test
-    void testAuthorizationAsyncWithEnvironmentIsHomologationAndAuthorizerRs() throws Exception {
-
-        NfceAuthorizationService service = new NfceAuthorizationServiceImpl(
-                new PfxNfceConfigImpl(
-                        UF.RS,
-                        "11520224000140",
-                        Environment.HOMOLOGATION,
-                        KeyStoreFactory.getInstance(),
-                        NFEmissionType.NORMAL,
-                        NFSend.ASYNC,
-                        "1",
-                        "115202241607220426225340")
-        );
-
-        ReturnSendNf o = service.authorization(Arrays.asList(getNf(service.getConfig(), 1, Model.NFCE), getNf(service.getConfig(), 1, Model.NFCE)));
-
-        assertNotNull(o);
-        assertNull(o.getInfRec());
-        assertEquals(NFReturnCode.CODE_126.getCode(), o.getCStat());
-        assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
-        assertEquals(UF.RS.getCode(), o.getCuf());
-    }
-
-    @Test
-    void testAuthorizationAsyncWithEnvironmentIsProductionAndAuthorizerRs() throws Exception {
-        NfceAuthorizationService service = new NfceAuthorizationServiceImpl(
-                new PfxNfceConfigImpl(
-                        UF.RS,
-                        "11520224000140",
-                        Environment.PRODUCTION,
-                        KeyStoreFactory.getInstance(),
-                        NFEmissionType.NORMAL,
-                        NFSend.ASYNC,
-                        "1",
-                        "115202241607220426225340")
-        );
-
-        ReturnSendNf o = service.authorization(Arrays.asList(getNf(service.getConfig(), 1, Model.NFCE), getNf(service.getConfig(), 1, Model.NFCE)));
-
-        assertNotNull(o);
-        assertNotNull(o.getInfRec());
-        assertEquals(NFReturnCode.CODE_103.getCode(), o.getCStat());
-        assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
-        assertEquals(UF.RS.getCode(), o.getCuf());
-    }
 
     @Test
     void testAuthorizationSyncWithEnvironmentIsHomologationAndAuthorizerRs() throws Exception {
@@ -772,53 +448,6 @@ class NfceAuthorizationServiceImplTest {
     }
 
     @Test
-    void testAuthorizationAsyncWithEnvironmentIsHomologationAndAuthorizerSp() throws Exception {
-
-        NfceAuthorizationService service = new NfceAuthorizationServiceImpl(
-                new PfxNfceConfigImpl(
-                        UF.SP,
-                        "11520224000140",
-                        Environment.HOMOLOGATION,
-                        KeyStoreFactory.getInstance(),
-                        NFEmissionType.NORMAL,
-                        NFSend.ASYNC,
-                        "1",
-                        "115202241607220426225340")
-        );
-
-        ReturnSendNf o = service.authorization(Arrays.asList(getNf(service.getConfig(), 1, Model.NFCE), getNf(service.getConfig(), 1, Model.NFCE)));
-
-        assertNotNull(o);
-        assertNull(o.getInfRec());
-        assertEquals(NFReturnCode.CODE_126.getCode(), o.getCStat());
-        assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
-        assertEquals(UF.SP.getCode(), o.getCuf());
-    }
-
-    @Test
-    void testAuthorizationAsyncWithEnvironmentIsProductionAndAuthorizerSp() throws Exception {
-        NfceAuthorizationService service = new NfceAuthorizationServiceImpl(
-                new PfxNfceConfigImpl(
-                        UF.SP,
-                        "11520224000140",
-                        Environment.PRODUCTION,
-                        KeyStoreFactory.getInstance(),
-                        NFEmissionType.NORMAL,
-                        NFSend.ASYNC,
-                        "1",
-                        "115202241607220426225340")
-        );
-
-        ReturnSendNf o = service.authorization(Arrays.asList(getNf(service.getConfig(), 1, Model.NFCE), getNf(service.getConfig(), 1, Model.NFCE)));
-
-        assertNotNull(o);
-        assertNotNull(o.getInfRec());
-        assertEquals(NFReturnCode.CODE_103.getCode(), o.getCStat());
-        assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
-        assertEquals(UF.SP.getCode(), o.getCuf());
-    }
-
-    @Test
     void testAuthorizationSyncWithEnvironmentIsHomologationAndAuthorizerSp() throws Exception {
         NfceAuthorizationService service = new NfceAuthorizationServiceImpl(
                 new PfxNfceConfigImpl(
@@ -868,51 +497,6 @@ class NfceAuthorizationServiceImplTest {
         assertEquals(UF.SP.getCode(), o.getCuf());
     }
 
-    @Test
-    void testAuthorizationAsyncWithEnvironmentIsHomologationAndAuthorizerSvrs() throws Exception {
-        NfceAuthorizationService service = new NfceAuthorizationServiceImpl(
-                new PfxNfceConfigImpl(
-                        UF.PI,
-                        "11520224000140",
-                        Environment.HOMOLOGATION,
-                        KeyStoreFactory.getInstance(),
-                        NFEmissionType.NORMAL,
-                        NFSend.ASYNC,
-                        "1",
-                        "115202241607220426225340")
-        );
-
-        ReturnSendNf o = service.authorization(Arrays.asList(getNf(service.getConfig(), 1, Model.NFCE), getNf(service.getConfig(), 1, Model.NFCE)));
-
-        assertNotNull(o);
-        assertNull(o.getInfRec());
-        assertEquals(NFReturnCode.CODE_126.getCode(), o.getCStat());
-        assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
-        assertEquals(UF.PI.getCode(), o.getCuf());
-    }
-
-    @Test
-    void testAuthorizationAsyncWithEnvironmentIsProductionAndAuthorizerSvrs() throws Exception {
-        NfceAuthorizationService service = new NfceAuthorizationServiceImpl(
-                new PfxNfceConfigImpl(
-                        UF.PI,
-                        "11520224000140",
-                        Environment.PRODUCTION,
-                        KeyStoreFactory.getInstance(),
-                        NFEmissionType.NORMAL,
-                        NFSend.ASYNC,
-                        "1",
-                        "115202241607220426225340")
-        );
-
-        ReturnSendNf o = service.authorization(Arrays.asList(getNf(service.getConfig(), 1, Model.NFCE), getNf(service.getConfig(), 1, Model.NFCE)));
-
-        assertNotNull(o);
-        assertNotNull(o.getInfRec());
-        assertEquals(NFReturnCode.CODE_103.getCode(), o.getCStat());
-        assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
-        assertEquals(UF.PI.getCode(), o.getCuf());
-    }
 
     @Test
     void testAuthorizationSyncWithEnvironmentIsHomologationAndAuthorizerSvrs() throws Exception {

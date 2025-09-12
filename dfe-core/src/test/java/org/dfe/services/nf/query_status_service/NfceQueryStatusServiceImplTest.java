@@ -53,6 +53,47 @@ class NfceQueryStatusServiceImplTest {
         assertEquals(service.getConfig().environment().getCode(), o.getTpAmb());
     }
 
+
+    @Test
+    void testQueryStatusServiceWithEnvironmentIsHomologationAndAuthorizerCe() throws Exception {
+        NfceQueryStatusService service = new NfceQueryStatusServiceImpl(
+                new PfxNfceConfigImpl(
+                        UF.CE,
+                        "11520224000140",
+                        Environment.HOMOLOGATION,
+                        KeyStoreFactory.getInstance(),
+                        NFEmissionType.NORMAL,
+                        NFSend.SYNC,
+                        "1",
+                        "115202241607220426225340"
+                )
+        );
+        ReturnQueryStatusServiceNf o = service.queryStatusService();
+        assertNotNull(o);
+        assertEquals(service.getConfig().uf().getCode(), o.getCuf());
+        assertEquals(service.getConfig().environment().getCode(), o.getTpAmb());
+    }
+
+    @Test
+    void testQueryStatusServiceWithEnvironmentIsProductionAndAuthorizerCe() throws Exception {
+        NfceQueryStatusService service = new NfceQueryStatusServiceImpl(
+                new PfxNfceConfigImpl(
+                        UF.CE,
+                        "11520224000140",
+                        Environment.PRODUCTION,
+                        KeyStoreFactory.getInstance(),
+                        NFEmissionType.NORMAL,
+                        NFSend.SYNC,
+                        "1",
+                        "115202241607220426225340"
+                )
+        );
+        ReturnQueryStatusServiceNf o = service.queryStatusService();
+        assertNotNull(o);
+        assertEquals(service.getConfig().uf().getCode(), o.getCuf());
+        assertEquals(service.getConfig().environment().getCode(), o.getTpAmb());
+    }
+
     @Test
     void testQueryStatusServiceWithEnvironmentIsHomologationAndAuthorizerGo() throws Exception {
         NfceQueryStatusService service = new NfceQueryStatusServiceImpl(

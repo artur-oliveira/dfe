@@ -14,19 +14,6 @@ import jakarta.xml.ws.BindingProvider;
 public interface ConfigureProvider {
 
     /**
-     * This is a deprecated method in the `ConfigureProvider` interface that takes a `BindingProvider` object and a
-     * `Config` object as parameters and configures the provider with the specified configuration. It throws a
-     * `SecurityException` if there is a security issue. This method is deprecated, which means it is no longer recommended
-     * to use it and may be removed in future versions.
-     *
-     * @throws SecurityException SecurityException
-     */
-    @Deprecated
-    default void configure(BindingProvider port, Config config) throws SecurityException {
-        configure(ProviderConfig.builder().config(config).port(port).build());
-    }
-
-    /**
      * Configures the provider with the specified configuration
      *
      * @param config The configuration object that contains the configuration parameters for the provider.

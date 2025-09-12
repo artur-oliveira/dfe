@@ -3,9 +3,9 @@ package org.dfe.components.storage.cte4;
 import br.inf.portalfiscal.cte.distribution.DistDFeInt;
 import br.inf.portalfiscal.cte.distribution.RetDistDFeInt;
 import br.inf.portalfiscal.cte.send400.*;
+import lombok.extern.log4j.Log4j2;
 import org.dfe.interfaces.storage.Store;
 import org.dfe.interfaces.storage.cte4.CteStorage;
-import lombok.extern.log4j.Log4j2;
 
 @Log4j2
 public final class CteNoStorage implements CteStorage {

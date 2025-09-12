@@ -1,8 +1,8 @@
 package org.dfe.enums.internal.city;
 
+import lombok.Getter;
 import org.dfe.components.internal.DFEnum;
 import org.dfe.enums.internal.UF;
-import lombok.Getter;
 
 @Getter
 public enum CityPA implements DFEnum.Codeable {

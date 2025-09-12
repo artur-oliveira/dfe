@@ -1,13 +1,19 @@
 package org.dfe.services.mdfe.status_service;
 
+import br.inf.portalfiscal.mdfe.classes.TRetConsStatServ;
 import org.dfe.enums.internal.Environment;
+import org.dfe.enums.internal.Model;
 import org.dfe.enums.internal.UF;
+import org.dfe.exceptions.CircuitBreakerException;
 import org.dfe.exceptions.ProcessException;
 import org.dfe.exceptions.ValidationException;
 import org.dfe.exceptions.port.SoapServiceGeneralException;
 import org.dfe.exceptions.security.SecurityException;
 import org.dfe.exceptions.services.NoProviderFound;
+import org.dfe.interfaces.circuitbreaker.DfeOperation;
+import org.dfe.interfaces.internal.Pair;
 import org.dfe.interfaces.internal.config.MdfeConfig;
+import org.dfe.interfaces.sefaz.mdfe.MdfeService;
 import org.dfe.interfaces.services.MdfeSefazService;
 import org.dfe.models.mdfe.status_service.MdfeReturnStatusService;
 import org.dfe.models.mdfe.status_service.MdfeStatusService;
@@ -22,23 +28,25 @@ public interface MdfeStatusServiceService extends MdfeSefazService {
      * @param environment Environment.PRODUCTION or Environment.HOMOLOGATION
      * @return A MdfeReturnStatusService object.
      */
-    default MdfeReturnStatusService statusService(UF uf, Environment environment) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default MdfeReturnStatusService statusService(UF uf, Environment environment) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         MdfeConfig config = getConfig().withWebServiceUf(uf).withEnviroment(environment);
-        return MdfeReturnStatusService
+        MdfeService service = getProviderFactory().getMdfeService(config);
+        Pair<?, TRetConsStatServ> res = getCircuitBreakerRegistry().get(
+                config.environment(),
+                Model.MDFE,
+                config.webServiceUF(),
+                DfeOperation.STATUS_SERVICE
+        ).execute(() -> service.statusService(MdfeStatusServiceRequest
                 .builder()
-                .build()
-                .fromObject(getProviderFactory()
-                        .getMdfeService(config)
-                        .statusService(MdfeStatusServiceRequest
-                                .builder()
-                                .data(MdfeStatusService.builder().tpAmb(environment.getCode()).build().toObject())
-                                .config(config)
-                                .signer(getXmlSigner())
-                                .validators(getValidatorFactory().mdfeValidator().statusServiceValidators())
-                                .afterRequest(getProcess().afterStatusService())
-                                .beforeRequest(getProcess().beforeStatusService())
-                                .configureProvider(getConfigureProviderFactory())
-                                .build()));
+                .data(MdfeStatusService.builder().tpAmb(environment.getCode()).build().toObject())
+                .config(config)
+                .signer(getXmlSigner())
+                .validators(getValidatorFactory().mdfeValidator().statusServiceValidators())
+                .afterRequest(getProcess().afterStatusService())
+                .beforeRequest(getProcess().beforeStatusService())
+                .configureProvider(getConfigureProviderFactory())
+                .build()));
+        return new MdfeReturnStatusService().fromObject(res);
     }
 
     /**
@@ -46,11 +54,11 @@ public interface MdfeStatusServiceService extends MdfeSefazService {
      *
      * @return A service that can be used to query the status of a MDFe.
      */
-    default MdfeReturnStatusService statusService(Environment environment) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default MdfeReturnStatusService statusService(Environment environment) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return statusService(getConfig().uf(), environment);
     }
 
-    default MdfeReturnStatusService statusService() throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default MdfeReturnStatusService statusService() throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return statusService(getConfig().environment());
     }
 

@@ -1,7 +1,10 @@
 package org.dfe.util;
 
+import org.dfe.models.internal.xml.NamespaceCleaner;
+
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Objects;
 
 public final class XMLStringUtils {
     public static final String ID_ATTRIBUTE = "Id";
@@ -30,19 +33,49 @@ public final class XMLStringUtils {
      * @return The string with the namespaces removed.
      */
     public static String cleanNamespace(String str) {
+        return cleanNamespace(str, null);
+    }
+
+    /**
+     * It removes all the namespaces prefixes from the XML string
+     *
+     * @param str              the string to be cleaned
+     * @param rootNamespaceUri the root object namespace URI
+     * @return The string with the namespaces removed.
+     */
+    public static String cleanNamespace(String str, String rootNamespaceUri) {
+        return cleanNamespace(NamespaceCleaner
+                .builder()
+                .xml(str)
+                .rootNamespace(rootNamespaceUri)
+                .build());
+    }
+
+    public static String cleanNamespace(NamespaceCleaner cleaner) {
+        String xml = cleaner.xml();
         for (int i = 1; i <= MAX_NAMESPACE_REPLACING; i++) {
             for (String ns : DFE_NAMESPACES) {
-                str = str.replace(String.format(" xmlns=\"http://www.w3.org/2000/09/xmldsig#\" xmlns:ns%d=\"%s\"", i, ns), String.format(" xmlns=\"%s\"", ns));
+                xml = xml.replace(String.format(" xmlns=\"http://www.w3.org/2000/09/xmldsig#\" xmlns:ns%d=\"%s\"", i, ns), String.format(" xmlns=\"%s\"", ns));
             }
         }
         for (int i = 1; i <= MAX_NAMESPACE_REPLACING; i++) {
             for (String ns : CURRENT_NAMESPACES) {
-                str = str.replace(String.format(" xmlns:ns%d=\"%s\"", i, ns), StringUtils.empty());
+                xml = xml.replace(String.format(" xmlns:ns%d=\"%s\"", i, ns), StringUtils.empty());
             }
-            str = str.replace(String.format("<ns%d:Signature>", i), XMLStringUtils.SIGNATURE_PREFIX);
-            str = str.replace(String.format("ns%d:", i), StringUtils.empty());
+            xml = xml.replace(String.format("<ns%d:Signature>", i), XMLStringUtils.SIGNATURE_PREFIX);
+            xml = xml.replace(String.format("ns%d:", i), StringUtils.empty());
         }
-        return str.replace("<Signature>", "<Signature xmlns=\"http://www.w3.org/2000/09/xmldsig#\">");
+        if (Objects.nonNull(cleaner.rootNamespace())) {
+            xml = xml.replace("http://www.w3.org/2000/09/xmldsig#", cleaner.rootNamespace());
+        }
+        if (Objects.nonNull(cleaner.jaxbElement())) {
+            final String ns = cleaner.jaxbElement().getName().getNamespaceURI();
+            final String localpart = cleaner.jaxbElement().getName().getLocalPart();
+            final String xmlns = "xmlns=\"" + ns + "\"";
+            xml = xml.replace(xmlns, "")
+                    .replace("<" + localpart, "<" + localpart + " " + xmlns);
+        }
+        return xml.replace("<Signature>", "<Signature xmlns=\"http://www.w3.org/2000/09/xmldsig#\">");
     }
 
     /**

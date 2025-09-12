@@ -1,27 +1,12 @@
 package org.dfe.interfaces.xml.objectfactory;
 
-import br.inf.portalfiscal.nfe.send.TConsStatServ;
-import br.inf.portalfiscal.nfe.send.TIpi;
-import br.inf.portalfiscal.nfe.send.TNFe;
-import br.inf.portalfiscal.nfe.send.TNfeProc;
+import br.inf.portalfiscal.nfe.send.*;
 import jakarta.xml.bind.JAXBElement;
 
 public interface NfObjectFactoryWrapper {
     br.inf.portalfiscal.nfe.send.ObjectFactory getSendNfeObjectFactory();
 
     br.inf.portalfiscal.nfe.event_generic.ObjectFactory getEventNfeObjectFactory();
-
-    br.inf.portalfiscal.nfe.event_cancel.ObjectFactory getCancelNfeObjectFactory();
-
-    br.inf.portalfiscal.nfe.event_substitute_cancel.ObjectFactory getSubstituteCancelNfeObjectFactory();
-
-    br.inf.portalfiscal.nfe.event_correction_letter.ObjectFactory getCorrectionLetterNfeObjectFactory();
-
-    br.inf.portalfiscal.nfe.event_epec.ObjectFactory getEpecNfeObjectFactory();
-
-    br.inf.portalfiscal.nfe.event_manifestation.ObjectFactory getManifestationNfeObjectFactory();
-
-    br.inf.portalfiscal.nfe.event_interested_actor.ObjectFactory getInterestedActorNfeObjectFactory();
 
     br.inf.portalfiscal.nfe.gtin.ObjectFactory getGtinNfeObjectFactory();
 
@@ -52,4 +37,8 @@ public interface NfObjectFactoryWrapper {
     JAXBElement<TNFe.InfNFe.Det.Imposto.ISSQN> issqn(TNFe.InfNFe.Det.Imposto.ISSQN o);
 
     JAXBElement<TNFe.InfNFe.Det.Imposto.ICMSUFDest> icmsufdest(TNFe.InfNFe.Det.Imposto.ICMSUFDest o);
+
+    JAXBElement<TIS> is(TIS o);
+
+    JAXBElement<TTribNFe> ibsCbs(TTribNFe o);
 }

@@ -1,11 +1,11 @@
 package org.dfe.enums.cte;
 
-import org.dfe.components.internal.DFEnum;
-import org.dfe.exceptions.NoEnumException;
-import org.dfe.interfaces.internal.ReturnCode;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.extern.log4j.Log4j2;
+import org.dfe.components.internal.DFEnum;
+import org.dfe.exceptions.NoEnumException;
+import org.dfe.interfaces.internal.ReturnCode;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -411,6 +411,7 @@ public enum CteReturnCode implements ReturnCode {
     CODE_871("871", "Rejeição: Comprovante de entrega não pode informar NF-e para CT-e de tipo de serviço diferente de Normal"),
     CODE_872("872", "Rejeição: Data e hora da entrega inválida"),
     CODE_873("873", "Rejeição: Data e hora do hash do comprovante de entrega inválida"),
+    CODE_930("930", "Rejeicao: Chave de acesso da NFe transportada muito antiga [chNFe:99999999999999999999999999999999999999999999]"),
     CODE_997("997", "Rejeição: XML do CT-e referenciado indisponível no momento da validação (Existem situações em que o ambiente de autorização trabalha com um banco de dados separado para o arquivo XML)"),
     CODE_999("999", "Rejeição: Erro não catalogado (informar a mensagem de erro capturado no tratamento da exceção)");
 
@@ -428,7 +429,7 @@ public enum CteReturnCode implements ReturnCode {
         try {
             return generateProc(valueOfCode(code));
         } catch (NoEnumException e) {
-            log.warn("no enum found for code " + e.getValue());
+            log.warn("no enum found for code {}", e.getValue());
             return false;
         }
     }

@@ -23,6 +23,7 @@ import org.dfe.models.internal.Before;
 import org.dfe.models.internal.Validation;
 import org.dfe.models.internal.wsdl.ProviderConfig;
 import org.dfe.util.GZIPUtils;
+import org.dfe.util.StringUtils;
 
 import java.io.IOException;
 import java.util.Collection;
@@ -34,7 +35,7 @@ public final class CteMtService extends CteAnService {
 
     @Override
     public <T extends SefazRequest<TEvento, TRetEvento>> Pair<TEvento, TRetEvento> event(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = data.signer().signEvent(CteMarshallerFactory.getInstance().eventCte(data.data()), data.config());
+        String xml = data.signer().signEvent(StringUtils.toAscii(CteMarshallerFactory.getInstance().eventCte(data.data())), data.config());
         JAXBElement<TEvento> envio = CteUnmarshallerFactory.getInstance().eventCte400(xml);
 
         for (Validator<TEvento> it : data.validators())
@@ -54,7 +55,7 @@ public final class CteMtService extends CteAnService {
             br.inf.portalfiscal.cte4.wsdl.event.mt.prod.CteRecepcaoEventoResult resultMsg = ws.cteRecepcaoEvento(msg);
 
             if (!resultMsg.getContent().isEmpty())
-                retorno = (TRetEvento) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();
+                retorno = (TRetEvento) ((JAXBElement<?>) resultMsg.getContent().getFirst()).getValue();
         } else {
             br.inf.portalfiscal.cte4.wsdl.event.mt.hom.CTeRecepcaoEventoV4Soap12 ws = ((br.inf.portalfiscal.cte4.wsdl.event.mt.hom.CTeRecepcaoEventoV4) getSoapService().homEvent()).getCTeRecepcaoEventoV4Soap12();
             data.configureProvider().configure(ProviderConfig.builder().overridePortAddress("https://homologacao.sefaz.mt.gov.br/ctews2/services/CTeRecepcaoEventoV4").port((BindingProvider) ws).config(data.config()).build());
@@ -65,7 +66,7 @@ public final class CteMtService extends CteAnService {
             br.inf.portalfiscal.cte4.wsdl.event.mt.hom.CteRecepcaoEventoResult resultMsg = ws.cteRecepcaoEvento(msg);
 
             if (!resultMsg.getContent().isEmpty())
-                retorno = (TRetEvento) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();
+                retorno = (TRetEvento) ((JAXBElement<?>) resultMsg.getContent().getFirst()).getValue();
         }
 
         for (AfterWebServiceRequest<TEvento, TRetEvento> it : data.afterRequest())
@@ -98,7 +99,7 @@ public final class CteMtService extends CteAnService {
             br.inf.portalfiscal.cte4.wsdl.query_situation.mt.prod.CteConsultaCTResult resultMsg = ws.cteConsultaCT(msg);
 
             if (!resultMsg.getContent().isEmpty())
-                retorno = (TRetConsSitCTe) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();
+                retorno = (TRetConsSitCTe) ((JAXBElement<?>) resultMsg.getContent().getFirst()).getValue();
         } else {
             br.inf.portalfiscal.cte4.wsdl.query_situation.mt.hom.CTeConsultaV4Soap12 ws = ((br.inf.portalfiscal.cte4.wsdl.query_situation.mt.hom.CTeConsultaV4) getSoapService().homQuerySituation()).getCTeConsultaV4Soap12();
             data.configureProvider().configure(ProviderConfig.builder().overridePortAddress("https://homologacao.sefaz.mt.gov.br/ctews2/services/CTeConsultaV4").port((BindingProvider) ws).config(data.config()).build());
@@ -110,7 +111,7 @@ public final class CteMtService extends CteAnService {
             br.inf.portalfiscal.cte4.wsdl.query_situation.mt.hom.CteConsultaCTResult resultMsg = ws.cteConsultaCT(msg);
 
             if (!resultMsg.getContent().isEmpty())
-                retorno = (TRetConsSitCTe) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();
+                retorno = (TRetConsSitCTe) ((JAXBElement<?>) resultMsg.getContent().getFirst()).getValue();
         }
 
         for (AfterWebServiceRequest<TConsSitCTe, TRetConsSitCTe> it : data.afterRequest())
@@ -133,7 +134,7 @@ public final class CteMtService extends CteAnService {
         TRetGTVe retorno = null;
 
         if (data.config().production()) {
-            br.inf.portalfiscal.cte4.wsdl.reception_gtve.mt.prod.CTeRecepcaoGTVeSoap12 ws = ((br.inf.portalfiscal.cte4.wsdl.reception_gtve.mt.prod.CTeRecepcaoGTVeV4) getSoapService().prodReceptionGtve()).getCTeRecepcaoGTVeSoap12();
+            br.inf.portalfiscal.cte4.wsdl.reception_gtve.mt.prod.CTeRecepcaoGTVeV4Soap12 ws = ((br.inf.portalfiscal.cte4.wsdl.reception_gtve.mt.prod.CTeRecepcaoGTVeV4) getSoapService().prodReceptionGtve()).getCTeRecepcaoGTVeV4Soap12();
 
             data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
 
@@ -144,7 +145,7 @@ public final class CteMtService extends CteAnService {
                 throw new DfeUncheckedException(e);
             }
             if (!resultMsg.getContent().isEmpty())
-                retorno = (TRetGTVe) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();
+                retorno = (TRetGTVe) ((JAXBElement<?>) resultMsg.getContent().getFirst()).getValue();
         } else {
             br.inf.portalfiscal.cte4.wsdl.reception_gtve.mt.hom.CTeRecepcaoGTVeV4Soap12 ws = ((br.inf.portalfiscal.cte4.wsdl.reception_gtve.mt.hom.CTeRecepcaoGTVeV4) getSoapService().homReceptionGtve()).getCTeRecepcaoGTVeV4Soap12();
             data.configureProvider().configure(ProviderConfig.builder().overridePortAddress("https://homologacao.sefaz.mt.gov.br/ctews2/services/CTeRecepcaoGTVeV4").port((BindingProvider) ws).config(data.config()).build());
@@ -156,7 +157,7 @@ public final class CteMtService extends CteAnService {
                 throw new DfeUncheckedException(e);
             }
             if (!resultMsg.getContent().isEmpty())
-                retorno = (TRetGTVe) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();
+                retorno = (TRetGTVe) ((JAXBElement<?>) resultMsg.getContent().getFirst()).getValue();
         }
 
         for (AfterWebServiceRequest<TGTVe, TRetGTVe> it : data.afterRequest())
@@ -178,7 +179,7 @@ public final class CteMtService extends CteAnService {
         TRetCTeOS retorno = null;
 
         if (data.config().production()) {
-            br.inf.portalfiscal.cte4.wsdl.reception_os.mt.prod.CteRecepcaoOSSoap12 ws = ((br.inf.portalfiscal.cte4.wsdl.reception_os.mt.prod.CTeRecepcaoOSV4) getSoapService().prodReceptionOs()).getCteRecepcaoOSSoap12();
+            br.inf.portalfiscal.cte4.wsdl.reception_os.mt.prod.CTeRecepcaoOSV4Soap12 ws = ((br.inf.portalfiscal.cte4.wsdl.reception_os.mt.prod.CTeRecepcaoOSV4) getSoapService().prodReceptionOs()).getCTeRecepcaoOSV4Soap12();
 
             data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
 
@@ -189,7 +190,7 @@ public final class CteMtService extends CteAnService {
                 throw new DfeUncheckedException(e);
             }
             if (!resultMsg.getContent().isEmpty())
-                retorno = (TRetCTeOS) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();
+                retorno = (TRetCTeOS) ((JAXBElement<?>) resultMsg.getContent().getFirst()).getValue();
         } else {
             br.inf.portalfiscal.cte4.wsdl.reception_os.mt.hom.CTeRecepcaoOSV4Soap12 ws = ((br.inf.portalfiscal.cte4.wsdl.reception_os.mt.hom.CTeRecepcaoOSV4) getSoapService().prodReceptionOs()).getCTeRecepcaoOSV4Soap12();
             data.configureProvider().configure(ProviderConfig.builder().overridePortAddress("https://homologacao.sefaz.mt.gov.br/ctews/services/CTeRecepcaoOSV4").port((BindingProvider) ws).config(data.config()).build());
@@ -201,7 +202,7 @@ public final class CteMtService extends CteAnService {
                 throw new DfeUncheckedException(e);
             }
             if (!resultMsg.getContent().isEmpty())
-                retorno = (TRetCTeOS) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();
+                retorno = (TRetCTeOS) ((JAXBElement<?>) resultMsg.getContent().getFirst()).getValue();
         }
 
         for (AfterWebServiceRequest<TCTeOS, TRetCTeOS> it : data.afterRequest())
@@ -212,7 +213,7 @@ public final class CteMtService extends CteAnService {
 
     @Override
     public <T extends SefazRequest<TCTe, TRetCTe>> Pair<TCTe, TRetCTe> receptionSync(T data) throws SecurityException, ValidationException, ProcessException {
-        String xml = data.signer().signCte(CteMarshallerFactory.getInstance().receptionCteSync(data.data()), data.config());
+        String xml = data.signer().signCte(StringUtils.toAscii(CteMarshallerFactory.getInstance().receptionCteSync(data.data())), data.config());
         JAXBElement<TCTe> envio = CteUnmarshallerFactory.getInstance().receptionCteSync400(xml);
 
         for (Validator<TCTe> it : data.validators())
@@ -233,7 +234,7 @@ public final class CteMtService extends CteAnService {
                 throw new DfeUncheckedException(e);
             }
             if (!resultMsg.getContent().isEmpty())
-                retorno = (TRetCTe) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();
+                retorno = (TRetCTe) ((JAXBElement<?>) resultMsg.getContent().getFirst()).getValue();
         } else {
             br.inf.portalfiscal.cte4.wsdl.reception_sync.mt.hom.CTeRecepcaoSincV4Soap12 ws = ((br.inf.portalfiscal.cte4.wsdl.reception_sync.mt.hom.CTeRecepcaoSincV4) getSoapService().homReceptionSync()).getCTeRecepcaoSincV4Soap12();
             data.configureProvider().configure(ProviderConfig.builder().overridePortAddress("https://homologacao.sefaz.mt.gov.br/ctews2/services/CTeRecepcaoSincV4").port((BindingProvider) ws).config(data.config()).build());
@@ -245,7 +246,7 @@ public final class CteMtService extends CteAnService {
                 throw new DfeUncheckedException(e);
             }
             if (!resultMsg.getContent().isEmpty())
-                retorno = (TRetCTe) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();
+                retorno = (TRetCTe) ((JAXBElement<?>) resultMsg.getContent().getFirst()).getValue();
         }
 
         for (AfterWebServiceRequest<TCTe, TRetCTe> it : data.afterRequest())
@@ -277,7 +278,7 @@ public final class CteMtService extends CteAnService {
             br.inf.portalfiscal.cte4.wsdl.status_service.mt.prod.CteStatusServicoCTResult resultMsg = ws.cteStatusServicoCT(msg);
 
             if (!resultMsg.getContent().isEmpty())
-                retorno = (TRetConsStatServ) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();
+                retorno = (TRetConsStatServ) ((JAXBElement<?>) resultMsg.getContent().getFirst()).getValue();
         } else {
             br.inf.portalfiscal.cte4.wsdl.status_service.mt.hom.CTeStatusServicoV4Soap12 ws = ((br.inf.portalfiscal.cte4.wsdl.status_service.mt.hom.CTeStatusServicoV4) getSoapService().homStatusService()).getCTeStatusServicoV4Soap12();
             data.configureProvider().configure(ProviderConfig.builder().overridePortAddress("https://homologacao.sefaz.mt.gov.br/ctews2/services/CTeStatusServicoV4").port((BindingProvider) ws).config(data.config()).build());
@@ -288,7 +289,7 @@ public final class CteMtService extends CteAnService {
             br.inf.portalfiscal.cte4.wsdl.status_service.mt.hom.CteStatusServicoCTResult resultMsg = ws.cteStatusServicoCT(msg);
 
             if (!resultMsg.getContent().isEmpty())
-                retorno = (TRetConsStatServ) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();
+                retorno = (TRetConsStatServ) ((JAXBElement<?>) resultMsg.getContent().getFirst()).getValue();
         }
 
         for (AfterWebServiceRequest<TConsStatServ, TRetConsStatServ> it : data.afterRequest())

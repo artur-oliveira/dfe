@@ -1,9 +1,9 @@
 package org.dfe.components.storage.mdfe;
 
 import br.inf.portalfiscal.mdfe.classes.*;
+import lombok.extern.log4j.Log4j2;
 import org.dfe.interfaces.storage.Store;
 import org.dfe.interfaces.storage.mdfe.MdfeStorage;
-import lombok.extern.log4j.Log4j2;
 
 @Log4j2
 public final class MdfeNoStorage implements MdfeStorage {

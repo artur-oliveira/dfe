@@ -7,7 +7,7 @@ import org.dfe.enums.internal.UF;
 import org.dfe.enums.nf.NFEvent;
 import org.dfe.enums.nf.NFSend;
 import org.dfe.enums.nf.identification.NFEmissionType;
-import org.dfe.models.nf.manifestation.NfeReturnManifestation;
+import org.dfe.models.nf.event.ReturnNfEvent;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -25,11 +25,11 @@ class NfeManifestationServiceImplTest {
                         NFEmissionType.NORMAL,
                         NFSend.SYNC)
         );
-        NfeReturnManifestation o = service.notPerformed("22230511520224000140550010000450661287506862", NFEvent.OPERATION_NOT_PERFORMED.getDefaultMessage());
+        ReturnNfEvent o = service.notPerformed("22230511520224000140550010000450661287506862", NFEvent.OPERATION_NOT_PERFORMED.getDefaultMessage());
         assertNotNull(o);
         assertEquals(1, o.getRetEvento().size());
-        assertEquals(NFEvent.OPERATION_NOT_PERFORMED.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
-        assertEquals(Environment.HOMOLOGATION.getCode(), o.getRetEvento().get(0).getInfEvento().getTpAmb());
+        assertEquals(NFEvent.OPERATION_NOT_PERFORMED.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpEvento());
+        assertEquals(Environment.HOMOLOGATION.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpAmb());
     }
 
     @Test
@@ -43,11 +43,11 @@ class NfeManifestationServiceImplTest {
                         NFEmissionType.NORMAL,
                         NFSend.SYNC)
         );
-        NfeReturnManifestation o = service.notPerformed("22230511520224000140550010000450661287506862", NFEvent.OPERATION_NOT_PERFORMED.getDefaultMessage());
+        ReturnNfEvent o = service.notPerformed("22230511520224000140550010000450661287506862", NFEvent.OPERATION_NOT_PERFORMED.getDefaultMessage());
         assertNotNull(o);
         assertEquals(1, o.getRetEvento().size());
-        assertEquals(NFEvent.OPERATION_NOT_PERFORMED.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
-        assertEquals(Environment.PRODUCTION.getCode(), o.getRetEvento().get(0).getInfEvento().getTpAmb());
+        assertEquals(NFEvent.OPERATION_NOT_PERFORMED.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpEvento());
+        assertEquals(Environment.PRODUCTION.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpAmb());
     }
 
     @Test
@@ -61,11 +61,11 @@ class NfeManifestationServiceImplTest {
                         NFEmissionType.NORMAL,
                         NFSend.SYNC)
         );
-        NfeReturnManifestation o = service.ignorance("22230511520224000140550010000450661287506862", NFEvent.OPERATION_IGNORANCE.getDefaultMessage());
+        ReturnNfEvent o = service.ignorance("22230511520224000140550010000450661287506862", NFEvent.OPERATION_IGNORANCE.getDefaultMessage());
         assertNotNull(o);
         assertEquals(1, o.getRetEvento().size());
-        assertEquals(NFEvent.OPERATION_IGNORANCE.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
-        assertEquals(Environment.HOMOLOGATION.getCode(), o.getRetEvento().get(0).getInfEvento().getTpAmb());
+        assertEquals(NFEvent.OPERATION_IGNORANCE.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpEvento());
+        assertEquals(Environment.HOMOLOGATION.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpAmb());
     }
 
     @Test
@@ -79,11 +79,11 @@ class NfeManifestationServiceImplTest {
                         NFEmissionType.NORMAL,
                         NFSend.SYNC)
         );
-        NfeReturnManifestation o = service.ignorance("22230511520224000140550010000450661287506862", NFEvent.OPERATION_IGNORANCE.getDefaultMessage());
+        ReturnNfEvent o = service.ignorance("22230511520224000140550010000450661287506862", NFEvent.OPERATION_IGNORANCE.getDefaultMessage());
         assertNotNull(o);
         assertEquals(1, o.getRetEvento().size());
-        assertEquals(NFEvent.OPERATION_IGNORANCE.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
-        assertEquals(Environment.PRODUCTION.getCode(), o.getRetEvento().get(0).getInfEvento().getTpAmb());
+        assertEquals(NFEvent.OPERATION_IGNORANCE.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpEvento());
+        assertEquals(Environment.PRODUCTION.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpAmb());
     }
 
     @Test
@@ -97,11 +97,11 @@ class NfeManifestationServiceImplTest {
                         NFEmissionType.NORMAL,
                         NFSend.SYNC)
         );
-        NfeReturnManifestation o = service.confirmation("22230511520224000140550010000450661287506862");
+        ReturnNfEvent o = service.confirmation("22230511520224000140550010000450661287506862");
         assertNotNull(o);
         assertEquals(1, o.getRetEvento().size());
-        assertEquals(NFEvent.OPERATION_CONFIRMATION.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
-        assertEquals(Environment.HOMOLOGATION.getCode(), o.getRetEvento().get(0).getInfEvento().getTpAmb());
+        assertEquals(NFEvent.OPERATION_CONFIRMATION.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpEvento());
+        assertEquals(Environment.HOMOLOGATION.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpAmb());
     }
 
     @Test
@@ -115,11 +115,11 @@ class NfeManifestationServiceImplTest {
                         NFEmissionType.NORMAL,
                         NFSend.SYNC)
         );
-        NfeReturnManifestation o = service.confirmation("22230511520224000140550010000450661287506862");
+        ReturnNfEvent o = service.confirmation("22230511520224000140550010000450661287506862");
         assertNotNull(o);
         assertEquals(1, o.getRetEvento().size());
-        assertEquals(NFEvent.OPERATION_CONFIRMATION.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
-        assertEquals(Environment.PRODUCTION.getCode(), o.getRetEvento().get(0).getInfEvento().getTpAmb());
+        assertEquals(NFEvent.OPERATION_CONFIRMATION.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpEvento());
+        assertEquals(Environment.PRODUCTION.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpAmb());
     }
 
     @Test
@@ -133,11 +133,11 @@ class NfeManifestationServiceImplTest {
                         NFEmissionType.NORMAL,
                         NFSend.SYNC)
         );
-        NfeReturnManifestation o = service.science("22230511520224000140550010000450661287506862");
+        ReturnNfEvent o = service.science("22230511520224000140550010000450661287506862");
         assertNotNull(o);
         assertEquals(1, o.getRetEvento().size());
-        assertEquals(NFEvent.OPERATION_SCIENCE.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
-        assertEquals(Environment.HOMOLOGATION.getCode(), o.getRetEvento().get(0).getInfEvento().getTpAmb());
+        assertEquals(NFEvent.OPERATION_SCIENCE.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpEvento());
+        assertEquals(Environment.HOMOLOGATION.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpAmb());
     }
 
     @Test
@@ -151,10 +151,10 @@ class NfeManifestationServiceImplTest {
                         NFEmissionType.NORMAL,
                         NFSend.SYNC)
         );
-        NfeReturnManifestation o = service.science("22230511520224000140550010000450661287506862");
+        ReturnNfEvent o = service.science("22230511520224000140550010000450661287506862");
         assertNotNull(o);
         assertEquals(1, o.getRetEvento().size());
-        assertEquals(NFEvent.OPERATION_SCIENCE.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
-        assertEquals(Environment.PRODUCTION.getCode(), o.getRetEvento().get(0).getInfEvento().getTpAmb());
+        assertEquals(NFEvent.OPERATION_SCIENCE.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpEvento());
+        assertEquals(Environment.PRODUCTION.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpAmb());
     }
 }

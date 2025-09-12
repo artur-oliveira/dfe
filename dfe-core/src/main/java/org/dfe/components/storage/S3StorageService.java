@@ -1,22 +1,28 @@
 package org.dfe.components.storage;
 
-import com.amazonaws.services.s3.AmazonS3;
-import com.amazonaws.services.s3.model.S3ObjectSummary;
 import lombok.Getter;
 import org.dfe.interfaces.internal.StorageKey;
 import org.dfe.interfaces.internal.config.Config;
 import org.dfe.models.internal.storage.RootPath;
 import org.dfe.models.internal.storage.StorageResult;
-import org.dfe.util.*;
+import org.dfe.util.IOUtils;
+import org.dfe.util.RequireUtils;
+import org.dfe.util.S3Utils;
+import software.amazon.awssdk.services.s3.S3Client;
+import software.amazon.awssdk.services.s3.model.S3Object;
 
 import java.io.IOException;
-import java.util.*;
+import java.time.Instant;
+import java.util.Collection;
+import java.util.Comparator;
+import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 
 @Getter
 public final class S3StorageService extends StorageServiceFactory {
-    private final AmazonS3 client;
+    private final S3Client client;
     private final String s3Bucket;
 
     public S3StorageService() {
@@ -28,26 +34,14 @@ public final class S3StorageService extends StorageServiceFactory {
         this.s3Bucket = s3Bucket;
     }
 
-    /**
-     * It returns a string with the path to the directory where the XML files are stored
-     *
-     * @param rootPath The config object that contains the environment, cnpj and other information.
-     * @return The root path of the XMLs
-     */
     @Override
     public String rootPath(RootPath rootPath) {
-        return String.join(IOUtils.separator(),
-                "xmls",
-                rootPath.config().environment().getRootPath(),
-                rootPath.config().cnpj(),
-                DateUtils.currentyear(),
-                StringUtils.padZeroStart(DateUtils.currentMonth(), 2)
-        );
+        return rootPath.getRootPath();
     }
 
     StorageResult getFirst(Config config, String key, String xmlName) throws IOException {
-        String fileKey = String.join(IOUtils.separator(), rootPath(new RootPath(config, key)), xmlName);
-        S3ObjectSummary summary = S3Utils.listObjects(fileKey).stream().min(Comparator.comparing(it -> Optional.ofNullable(it.getLastModified()).orElseGet(Date::new))).orElse(null);
+        String fileKey = String.join(IOUtils.separator(), rootPath(RootPath.builder().config(config).key(key).xmlName(xmlName).build()), xmlName);
+        S3Object summary = S3Utils.listObjects(fileKey).stream().min(Comparator.comparing(it -> Optional.ofNullable(it.lastModified()).orElseGet(Instant::now))).orElse(null);
 
         if (Objects.isNull(summary)) {
             return StorageResult.builder().build();
@@ -55,7 +49,7 @@ public final class S3StorageService extends StorageServiceFactory {
 
         return StorageResult
                 .builder()
-                .file(IOUtils.writeTemp(summary.getKey(), IOUtils.readAllBytes(S3Utils.getObject(summary.getBucketName(), summary.getKey()).getObjectContent())))
+                .file(IOUtils.writeTemp(summary.key(), IOUtils.readAllBytes(S3Utils.getObject(summary.key()).asInputStream())))
                 .build();
     }
 
@@ -69,12 +63,12 @@ public final class S3StorageService extends StorageServiceFactory {
      */
     @Override
     public StorageResult writeSend(Config conf, StorageKey key, String xmlName, String xmlContent) throws IOException {
-        return getResult(String.join(IOUtils.separator(), rootPath(new RootPath(conf, key.getForSend())), xmlName), xmlContent);
+        return write(String.join(IOUtils.separator(), rootPath(RootPath.builder().config(conf).key(key.getForSend()).xmlName(xmlName).build()), xmlName), xmlContent);
     }
 
     @Override
     public Collection<StorageResult> getSend(Config conf, StorageKey key, String xmlName) throws IOException {
-        return listKeys(String.join(IOUtils.separator(), rootPath(new RootPath(conf, key.getForSend())), xmlName));
+        return listKeys(String.join(IOUtils.separator(), rootPath(RootPath.builder().config(conf).key(key.getForSend()).xmlName(xmlName).build()), xmlName));
     }
 
     @Override
@@ -92,12 +86,12 @@ public final class S3StorageService extends StorageServiceFactory {
      */
     @Override
     public StorageResult writeReturn(Config conf, StorageKey key, String xmlName, String xmlContent) throws IOException {
-        return getResult(String.join(IOUtils.separator(), rootPath(new RootPath(conf, key.getForReturn())), xmlName), xmlContent);
+        return write(String.join(IOUtils.separator(), rootPath(RootPath.builder().config(conf).key(key.getForReturn()).xmlName(xmlName).build()), xmlName), xmlContent);
     }
 
     @Override
     public Collection<StorageResult> getReturn(Config conf, StorageKey key, String xmlName) {
-        return listKeys(String.join(IOUtils.separator(), rootPath(new RootPath(conf, key.getForReturn())), xmlName));
+        return listKeys(String.join(IOUtils.separator(), rootPath(RootPath.builder().config(conf).key(key.getForReturn()).xmlName(xmlName).build()), xmlName));
     }
 
     @Override
@@ -115,12 +109,22 @@ public final class S3StorageService extends StorageServiceFactory {
      */
     @Override
     public StorageResult writeProc(Config conf, StorageKey key, String xmlName, String xmlContent) throws IOException {
-        return getResult(String.join(IOUtils.separator(), rootPath(new RootPath(conf, key.getForProcessed())), xmlName), xmlContent);
+        RootPath path = RootPath.builder().config(conf).key(key.getForProcessed()).xmlName(xmlName).build();
+        StorageResult result = null;
+        for (RootPath currentPath : path.getAllPaths()) {
+            result = write(String.join(IOUtils.separator(), rootPath(currentPath), xmlName), xmlContent);
+        }
+        return result;
     }
 
     @Override
     public Collection<StorageResult> getProc(Config conf, StorageKey key, String xmlName) {
-        return listKeys(String.join(IOUtils.separator(), rootPath(new RootPath(conf, key.getForProcessed())), xmlName));
+        return listKeys(String.join(IOUtils.separator(), rootPath(RootPath.builder().config(conf).key(key.getForProcessed()).xmlName(xmlName).build()), xmlName));
+    }
+
+    @Override
+    public Collection<StorageResult> getProc(RootPath rootPath) throws IOException {
+        return listKeys(String.join(IOUtils.separator(), rootPath(rootPath), rootPath.getXmlName()));
     }
 
     @Override
@@ -135,7 +139,7 @@ public final class S3StorageService extends StorageServiceFactory {
      * @param xmlContent The XML content to be stored in S3
      * @return A StorageResult object with the filename.
      */
-    private StorageResult getResult(String filename, String xmlContent) throws IOException {
+    private StorageResult write(String filename, String xmlContent) throws IOException {
         S3Utils.putObject(getClient(), getS3Bucket(), filename, xmlContent);
         return StorageResult.builder().fileName(filename).build();
     }
@@ -143,7 +147,7 @@ public final class S3StorageService extends StorageServiceFactory {
     private Collection<StorageResult> listKeys(String filename) {
         return S3Utils.listObjects(filename).stream().map(it -> {
             try {
-                return StorageResult.builder().file(IOUtils.writeTemp(it.getKey(), IOUtils.readAllBytes(S3Utils.getObject(it.getBucketName(), it.getKey()).getObjectContent()))).build();
+                return StorageResult.builder().file(IOUtils.writeTemp(it.key(), IOUtils.readAllBytes(S3Utils.getObject(it.key()).asInputStream()))).build();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

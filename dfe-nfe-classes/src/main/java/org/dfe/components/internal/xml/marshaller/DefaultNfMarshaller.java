@@ -5,10 +5,10 @@ import br.inf.portalfiscal.nfe.distribution.TRetDistDFeInt;
 import br.inf.portalfiscal.nfe.gtin.TConsGTIN;
 import br.inf.portalfiscal.nfe.gtin.TRetConsGTIN;
 import br.inf.portalfiscal.nfe.send.*;
+import jakarta.xml.bind.JAXBElement;
 import org.dfe.components.internal.xml.context.NfContextFactory;
 import org.dfe.components.internal.xml.objectfactory.NfObjectFactoryWrapperFactory;
 import org.dfe.util.XMLUtils;
-import jakarta.xml.bind.JAXBElement;
 
 final class DefaultNfMarshaller extends NfMarshallerFactory {
 
@@ -16,32 +16,8 @@ final class DefaultNfMarshaller extends NfMarshallerFactory {
         return XMLUtils.marshall(NfContextFactory.getInstance().getNfeEventContext(), el);
     }
 
-    String cancelMarshall(JAXBElement<?> el) {
-        return XMLUtils.marshall(NfContextFactory.getInstance().getNfeCancelContext(), el);
-    }
-
     String sendMarshall(JAXBElement<?> el) {
         return XMLUtils.marshall(NfContextFactory.getInstance().getNfeSendContext(), el);
-    }
-
-    String substituteCancelMarshall(JAXBElement<?> el) {
-        return XMLUtils.marshall(NfContextFactory.getInstance().getNfeSubstituteCancelContext(), el);
-    }
-
-    String correctionLetterMarshall(JAXBElement<?> el) {
-        return XMLUtils.marshall(NfContextFactory.getInstance().getNfeCorrectionLetterContext(), el);
-    }
-
-    String epecMarshall(JAXBElement<?> el) {
-        return XMLUtils.marshall(NfContextFactory.getInstance().getNfeEpecContext(), el);
-    }
-
-    String manifestationMarshall(JAXBElement<?> el) {
-        return XMLUtils.marshall(NfContextFactory.getInstance().getNfeManifestationContext(), el);
-    }
-
-    String interestedActorMarshall(JAXBElement<?> el) {
-        return XMLUtils.marshall(NfContextFactory.getInstance().getNfeInterestedActorContext(), el);
     }
 
     String gtinMarshall(JAXBElement<?> el) {
@@ -66,39 +42,6 @@ final class DefaultNfMarshaller extends NfMarshallerFactory {
     public String procEventNfe(br.inf.portalfiscal.nfe.event_generic.TProcEvento o) {
         return eventMarshall(NfObjectFactoryWrapperFactory.getInstance().getEventNfeObjectFactory().createProcEventoNFe(o));
     }
-
-    @Override
-    public String cancelNfe(br.inf.portalfiscal.nfe.event_cancel.TEnvEvento o) {
-        return cancelMarshall(NfObjectFactoryWrapperFactory.getInstance().getCancelNfeObjectFactory().createEnvEvento(o));
-    }
-
-    @Override
-    public String returnCancelNfe(br.inf.portalfiscal.nfe.event_cancel.TRetEnvEvento o) {
-        return cancelMarshall(NfObjectFactoryWrapperFactory.getInstance().getCancelNfeObjectFactory().createRetEnvEvento(o));
-    }
-
-    @Override
-    public String procCancelNfe(br.inf.portalfiscal.nfe.event_cancel.TProcEvento o) {
-        return cancelMarshall(NfObjectFactoryWrapperFactory.getInstance().getCancelNfeObjectFactory().createProcEventoNFe(o));
-    }
-
-
-    @Override
-    public String substituteCancelNfe(br.inf.portalfiscal.nfe.event_substitute_cancel.TEnvEvento o) {
-        return substituteCancelMarshall(NfObjectFactoryWrapperFactory.getInstance().getSubstituteCancelNfeObjectFactory().createEnvEvento(o));
-    }
-
-    @Override
-    public String returnSubstituteCancelNfe(br.inf.portalfiscal.nfe.event_substitute_cancel.TRetEnvEvento o) {
-        return substituteCancelMarshall(NfObjectFactoryWrapperFactory.getInstance().getSubstituteCancelNfeObjectFactory().createRetEnvEvento(o));
-    }
-
-    @Override
-    public String procSubstituteCancelNfe(br.inf.portalfiscal.nfe.event_substitute_cancel.TProcEvento o) {
-        return substituteCancelMarshall(NfObjectFactoryWrapperFactory.getInstance().getSubstituteCancelNfeObjectFactory().createProcEventoNFe(o));
-    }
-
-
     @Override
     public String inutNfe(TInutNFe o) {
         return sendMarshall(NfObjectFactoryWrapperFactory.getInstance().getSendNfeObjectFactory().createInutNFe(o));
@@ -182,66 +125,6 @@ final class DefaultNfMarshaller extends NfMarshallerFactory {
     @Override
     public String returnDistributionNfe(TRetDistDFeInt o) {
         return distributionMarshall(NfObjectFactoryWrapperFactory.getInstance().getDistributionNfeObjectFactory().createRetDistDFeInt(o));
-    }
-
-    @Override
-    public String manifestationNfe(br.inf.portalfiscal.nfe.event_manifestation.TEnvEvento o) {
-        return manifestationMarshall(NfObjectFactoryWrapperFactory.getInstance().getManifestationNfeObjectFactory().createEnvEvento(o));
-    }
-
-    @Override
-    public String procManifestationNfe(br.inf.portalfiscal.nfe.event_manifestation.TProcEvento o) {
-        return manifestationMarshall(NfObjectFactoryWrapperFactory.getInstance().getManifestationNfeObjectFactory().createProcEventoNFe(o));
-    }
-
-    @Override
-    public String returnManifestationNfe(br.inf.portalfiscal.nfe.event_manifestation.TRetEnvEvento o) {
-        return manifestationMarshall(NfObjectFactoryWrapperFactory.getInstance().getManifestationNfeObjectFactory().createRetEnvEvento(o));
-    }
-
-    @Override
-    public String epecNfe(br.inf.portalfiscal.nfe.event_epec.TEnvEvento o) {
-        return epecMarshall(NfObjectFactoryWrapperFactory.getInstance().getEpecNfeObjectFactory().createEnvEvento(o));
-    }
-
-    @Override
-    public String returnEpecNfe(br.inf.portalfiscal.nfe.event_epec.TRetEnvEvento o) {
-        return epecMarshall(NfObjectFactoryWrapperFactory.getInstance().getEpecNfeObjectFactory().createRetEnvEvento(o));
-    }
-
-    @Override
-    public String procEpecNfe(br.inf.portalfiscal.nfe.event_epec.TProcEvento o) {
-        return epecMarshall(NfObjectFactoryWrapperFactory.getInstance().getEpecNfeObjectFactory().createProcEventoNFe(o));
-    }
-
-    @Override
-    public String correctionLetterNfe(br.inf.portalfiscal.nfe.event_correction_letter.TEnvEvento o) {
-        return correctionLetterMarshall(NfObjectFactoryWrapperFactory.getInstance().getCorrectionLetterNfeObjectFactory().createEnvEvento(o));
-    }
-
-    @Override
-    public String returnCorrectionLetterNfe(br.inf.portalfiscal.nfe.event_correction_letter.TRetEnvEvento o) {
-        return correctionLetterMarshall(NfObjectFactoryWrapperFactory.getInstance().getCorrectionLetterNfeObjectFactory().createRetEnvEvento(o));
-    }
-
-    @Override
-    public String procCorrectionLetterNfe(br.inf.portalfiscal.nfe.event_correction_letter.TProcEvento o) {
-        return correctionLetterMarshall(NfObjectFactoryWrapperFactory.getInstance().getCorrectionLetterNfeObjectFactory().createProcEventoNFe(o));
-    }
-
-    @Override
-    public String interestedActorNfe(br.inf.portalfiscal.nfe.event_interested_actor.TEnvEvento o) {
-        return interestedActorMarshall(NfObjectFactoryWrapperFactory.getInstance().getInterestedActorNfeObjectFactory().createEnvEvento(o));
-    }
-
-    @Override
-    public String returnInterestedActorNfe(br.inf.portalfiscal.nfe.event_interested_actor.TRetEnvEvento o) {
-        return interestedActorMarshall(NfObjectFactoryWrapperFactory.getInstance().getInterestedActorNfeObjectFactory().createRetEnvEvento(o));
-    }
-
-    @Override
-    public String procInterestedActorNfe(br.inf.portalfiscal.nfe.event_interested_actor.TProcEvento o) {
-        return interestedActorMarshall(NfObjectFactoryWrapperFactory.getInstance().getInterestedActorNfeObjectFactory().createProcEventoNFe(o));
     }
 
     @Override

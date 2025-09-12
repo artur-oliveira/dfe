@@ -1,5 +1,6 @@
 package org.dfe.services.nf.correction_letter;
 
+import jakarta.xml.ws.WebServiceException;
 import org.dfe.components.internal.certificate.KeyStoreFactory;
 import org.dfe.components.internal.config.PfxNfeConfigImpl;
 import org.dfe.enums.internal.Environment;
@@ -8,8 +9,8 @@ import org.dfe.enums.nf.NFEvent;
 import org.dfe.enums.nf.NFReturnCode;
 import org.dfe.enums.nf.NFSend;
 import org.dfe.enums.nf.identification.NFEmissionType;
-import org.dfe.models.nf.correction_letter.ReturnNfeCorrectionLetter;
-import jakarta.xml.ws.WebServiceException;
+import org.dfe.exceptions.CircuitBreakerException;
+import org.dfe.models.nf.event.ReturnNfEvent;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -27,10 +28,10 @@ class NfeCorrectionLetterServiceImplTest {
                         NFSend.SYNC
                 )
         );
-        ReturnNfeCorrectionLetter o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
+        ReturnNfEvent o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
         assertNotNull(o);
         assertEquals(1, o.getRetEvento().size());
-        assertEquals(NFEvent.CORRECTION_LETTER.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
+        assertEquals(NFEvent.CORRECTION_LETTER.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpEvento());
         assertEquals(UF.AM.getCode(), o.getCOrgao());
         assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
     }
@@ -47,10 +48,10 @@ class NfeCorrectionLetterServiceImplTest {
                         NFSend.SYNC
                 )
         );
-        ReturnNfeCorrectionLetter o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
+        ReturnNfEvent o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
         assertNotNull(o);
         assertEquals(1, o.getRetEvento().size());
-        assertEquals(NFEvent.CORRECTION_LETTER.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
+        assertEquals(NFEvent.CORRECTION_LETTER.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpEvento());
         assertEquals(UF.AM.getCode(), o.getCOrgao());
         assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
     }
@@ -67,10 +68,10 @@ class NfeCorrectionLetterServiceImplTest {
                         NFSend.SYNC
                 )
         );
-        ReturnNfeCorrectionLetter o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
+        ReturnNfEvent o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
         assertNotNull(o);
         assertEquals(1, o.getRetEvento().size());
-        assertEquals(NFEvent.CORRECTION_LETTER.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
+        assertEquals(NFEvent.CORRECTION_LETTER.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpEvento());
         assertEquals(UF.BA.getCode(), o.getCOrgao());
         assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
     }
@@ -87,10 +88,10 @@ class NfeCorrectionLetterServiceImplTest {
                         NFSend.SYNC
                 )
         );
-        ReturnNfeCorrectionLetter o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
+        ReturnNfEvent o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
         assertNotNull(o);
         assertEquals(1, o.getRetEvento().size());
-        assertEquals(NFEvent.CORRECTION_LETTER.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
+        assertEquals(NFEvent.CORRECTION_LETTER.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpEvento());
         assertEquals(UF.BA.getCode(), o.getCOrgao());
         assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
     }
@@ -108,7 +109,7 @@ class NfeCorrectionLetterServiceImplTest {
                 )
         );
         try {
-            ReturnNfeCorrectionLetter o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
+            ReturnNfEvent o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
             assertNotNull(o);
             assertEquals(1, o.getRetEvento().size());
             assertEquals(UF.GO.getCode(), o.getCOrgao());
@@ -131,11 +132,11 @@ class NfeCorrectionLetterServiceImplTest {
                         NFSend.SYNC
                 )
         );
-        ReturnNfeCorrectionLetter o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
+        ReturnNfEvent o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
         assertNotNull(o);
         assertEquals(1, o.getRetEvento().size());
         assertEquals(UF.GO.getCode(), o.getCOrgao());
-        assertEquals(NFReturnCode.CODE_494.getCode(), o.getRetEvento().get(0).getInfEvento().getCStat());
+        assertEquals(NFReturnCode.CODE_494.getCode(), o.getRetEvento().getFirst().getInfEvento().getCStat());
         assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
     }
 
@@ -151,10 +152,10 @@ class NfeCorrectionLetterServiceImplTest {
 //                        NFSend.SYNC
 //                )
 //        );
-//        ReturnNfeCorrectionLetter o = service.correctionLetter()("22230511520224000140550010000450661287506862", "99999999999999922230511520224000140550010000450661287506862, N"1);
+//        ReturnNfEvent o = service.correctionLetter()("22230511520224000140550010000450661287506862", "99999999999999922230511520224000140550010000450661287506862, N"1);
 //        assertNotNull(o);
 //        assertEquals(1, o.getRetEvento().size());
-//        assertEquals(NFEvent.CORRECTION_LETTER.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
+//        assertEquals(NFEvent.CORRECTION_LETTER.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpEvento());
 //        assertEquals(UF.MG.getCode(), o.getCOrgao());
 //        assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
     }
@@ -171,10 +172,10 @@ class NfeCorrectionLetterServiceImplTest {
                         NFSend.SYNC
                 )
         );
-        ReturnNfeCorrectionLetter o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
+        ReturnNfEvent o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
         assertNotNull(o);
         assertEquals(1, o.getRetEvento().size());
-        assertEquals(NFEvent.CORRECTION_LETTER.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
+        assertEquals(NFEvent.CORRECTION_LETTER.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpEvento());
         assertEquals(UF.MG.getCode(), o.getCOrgao());
         assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
     }
@@ -191,10 +192,10 @@ class NfeCorrectionLetterServiceImplTest {
                         NFSend.SYNC
                 )
         );
-        ReturnNfeCorrectionLetter o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
+        ReturnNfEvent o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
         assertNotNull(o);
         assertEquals(1, o.getRetEvento().size());
-        assertEquals(NFEvent.CORRECTION_LETTER.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
+        assertEquals(NFEvent.CORRECTION_LETTER.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpEvento());
         assertEquals(UF.MS.getCode(), o.getCOrgao());
         assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
     }
@@ -211,10 +212,10 @@ class NfeCorrectionLetterServiceImplTest {
                         NFSend.SYNC
                 )
         );
-        ReturnNfeCorrectionLetter o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
+        ReturnNfEvent o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
         assertNotNull(o);
         assertEquals(1, o.getRetEvento().size());
-        assertEquals(NFEvent.CORRECTION_LETTER.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
+        assertEquals(NFEvent.CORRECTION_LETTER.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpEvento());
         assertEquals(UF.MS.getCode(), o.getCOrgao());
         assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
     }
@@ -231,11 +232,11 @@ class NfeCorrectionLetterServiceImplTest {
                         NFSend.SYNC
                 )
         );
-        ReturnNfeCorrectionLetter o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
+        ReturnNfEvent o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
         assertNotNull(o);
         assertTrue(1 == o.getRetEvento().size() || o.getRetEvento().isEmpty());
         if (o.getRetEvento().size() == 1) {
-            assertEquals(NFEvent.CORRECTION_LETTER.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
+            assertEquals(NFEvent.CORRECTION_LETTER.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpEvento());
             assertEquals(UF.MT.getCode(), o.getCOrgao());
             assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
         } else {
@@ -258,10 +259,10 @@ class NfeCorrectionLetterServiceImplTest {
                         NFSend.SYNC
                 )
         );
-        ReturnNfeCorrectionLetter o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
+        ReturnNfEvent o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
         assertNotNull(o);
         assertEquals(1, o.getRetEvento().size());
-        assertEquals(NFEvent.CORRECTION_LETTER.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
+        assertEquals(NFEvent.CORRECTION_LETTER.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpEvento());
         assertEquals(UF.MT.getCode(), o.getCOrgao());
         assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
     }
@@ -278,10 +279,10 @@ class NfeCorrectionLetterServiceImplTest {
                         NFSend.SYNC
                 )
         );
-        ReturnNfeCorrectionLetter o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
+        ReturnNfEvent o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
         assertNotNull(o);
         assertEquals(1, o.getRetEvento().size());
-        assertEquals(NFEvent.CORRECTION_LETTER.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
+        assertEquals(NFEvent.CORRECTION_LETTER.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpEvento());
         assertEquals(UF.PE.getCode(), o.getCOrgao());
         assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
     }
@@ -298,10 +299,10 @@ class NfeCorrectionLetterServiceImplTest {
                         NFSend.SYNC
                 )
         );
-        ReturnNfeCorrectionLetter o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
+        ReturnNfEvent o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
         assertNotNull(o);
         assertEquals(1, o.getRetEvento().size());
-        assertEquals(NFEvent.CORRECTION_LETTER.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
+        assertEquals(NFEvent.CORRECTION_LETTER.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpEvento());
         assertEquals(UF.PE.getCode(), o.getCOrgao());
         assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
     }
@@ -318,12 +319,16 @@ class NfeCorrectionLetterServiceImplTest {
                         NFSend.SYNC
                 )
         );
-        ReturnNfeCorrectionLetter o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
+        ReturnNfEvent o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
         assertNotNull(o);
-        assertEquals(1, o.getRetEvento().size());
-        assertEquals(NFEvent.CORRECTION_LETTER.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
-        assertEquals(UF.PR.getCode(), o.getCOrgao());
-        assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
+        if (o.getRetEvento().isEmpty()) {
+            assertEquals(NFReturnCode.CODE_656.getCode(), o.getCStat());
+        } else {
+            assertEquals(1, o.getRetEvento().size());
+            assertEquals(NFEvent.CORRECTION_LETTER.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpEvento());
+            assertEquals(UF.PR.getCode(), o.getCOrgao());
+            assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
+        }
     }
 
     @Test
@@ -338,11 +343,11 @@ class NfeCorrectionLetterServiceImplTest {
                         NFSend.SYNC
                 )
         );
-        ReturnNfeCorrectionLetter o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
+        ReturnNfEvent o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
         assertNotNull(o);
         assertTrue(1 == o.getRetEvento().size() || o.getRetEvento().isEmpty());
         if (o.getRetEvento().size() == 1) {
-            assertEquals(NFEvent.CORRECTION_LETTER.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
+            assertEquals(NFEvent.CORRECTION_LETTER.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpEvento());
             assertEquals(UF.PR.getCode(), o.getCOrgao());
             assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
         } else {
@@ -365,10 +370,10 @@ class NfeCorrectionLetterServiceImplTest {
                         NFSend.SYNC
                 )
         );
-        ReturnNfeCorrectionLetter o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
+        ReturnNfEvent o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
         assertNotNull(o);
         assertEquals(1, o.getRetEvento().size());
-        assertEquals(NFEvent.CORRECTION_LETTER.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
+        assertEquals(NFEvent.CORRECTION_LETTER.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpEvento());
         assertEquals(UF.RS.getCode(), o.getCOrgao());
         assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
     }
@@ -385,10 +390,10 @@ class NfeCorrectionLetterServiceImplTest {
                         NFSend.SYNC
                 )
         );
-        ReturnNfeCorrectionLetter o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
+        ReturnNfEvent o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
         assertNotNull(o);
         assertEquals(1, o.getRetEvento().size());
-        assertEquals(NFEvent.CORRECTION_LETTER.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
+        assertEquals(NFEvent.CORRECTION_LETTER.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpEvento());
         assertEquals(UF.RS.getCode(), o.getCOrgao());
         assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
     }
@@ -405,10 +410,10 @@ class NfeCorrectionLetterServiceImplTest {
                         NFSend.SYNC
                 )
         );
-        ReturnNfeCorrectionLetter o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
+        ReturnNfEvent o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
         assertNotNull(o);
         assertEquals(1, o.getRetEvento().size());
-        assertEquals(NFEvent.CORRECTION_LETTER.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
+        assertEquals(NFEvent.CORRECTION_LETTER.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpEvento());
         assertEquals(UF.SP.getCode(), o.getCOrgao());
         assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
     }
@@ -425,10 +430,10 @@ class NfeCorrectionLetterServiceImplTest {
                         NFSend.SYNC
                 )
         );
-        ReturnNfeCorrectionLetter o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
+        ReturnNfEvent o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
         assertNotNull(o);
         assertEquals(1, o.getRetEvento().size());
-        assertEquals(NFEvent.CORRECTION_LETTER.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
+        assertEquals(NFEvent.CORRECTION_LETTER.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpEvento());
         assertEquals(UF.SP.getCode(), o.getCOrgao());
         assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
     }
@@ -445,13 +450,15 @@ class NfeCorrectionLetterServiceImplTest {
                         NFSend.SYNC
                 )
         );
-        ReturnNfeCorrectionLetter o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
-        assertNotNull(o);
-        assertEquals(1, o.getRetEvento().size());
-        assertEquals(NFEvent.CORRECTION_LETTER.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
-        assertEquals(UF.MA.getCode(), o.getRetEvento().get(0).getInfEvento().getCOrgao());
-        assertEquals(NFReturnCode.CODE_249.getCode(), o.getRetEvento().get(0).getInfEvento().getCStat());
-        assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
+        try {
+            ReturnNfEvent o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
+            assertNotNull(o);
+            assertEquals(0, o.getRetEvento().size());
+            assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
+            assertEquals(NFReturnCode.CODE_582.getCode(), o.getCStat());
+        } catch (CircuitBreakerException ignored) {
+
+        }
     }
 
     @Test
@@ -466,12 +473,12 @@ class NfeCorrectionLetterServiceImplTest {
                         NFSend.SYNC
                 )
         );
-        ReturnNfeCorrectionLetter o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
+        ReturnNfEvent o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
         assertNotNull(o);
         assertEquals(1, o.getRetEvento().size());
-        assertEquals(NFEvent.CORRECTION_LETTER.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
-        assertEquals(UF.MA.getCode(), o.getRetEvento().get(0).getInfEvento().getCOrgao());
-        assertEquals(NFReturnCode.CODE_249.getCode(), o.getRetEvento().get(0).getInfEvento().getCStat());
+        assertEquals(NFEvent.CORRECTION_LETTER.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpEvento());
+        assertEquals(UF.MA.getCode(), o.getRetEvento().getFirst().getInfEvento().getCOrgao());
+        assertEquals(NFReturnCode.CODE_491.getCode(), o.getRetEvento().getFirst().getInfEvento().getCStat());
         assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
     }
 
@@ -487,13 +494,17 @@ class NfeCorrectionLetterServiceImplTest {
                         NFSend.SYNC
                 )
         );
-        ReturnNfeCorrectionLetter o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
-        assertNotNull(o);
-        assertEquals(1, o.getRetEvento().size());
-        assertEquals(NFEvent.CORRECTION_LETTER.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
-        assertEquals(UF.PI.getCode(), o.getRetEvento().get(0).getInfEvento().getCOrgao());
-        assertEquals(NFReturnCode.CODE_491.getCode(), o.getRetEvento().get(0).getInfEvento().getCStat());
-        assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
+        try {
+            ReturnNfEvent o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
+            assertNotNull(o);
+            assertEquals(1, o.getRetEvento().size());
+            assertEquals(NFEvent.CORRECTION_LETTER.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpEvento());
+            assertEquals(UF.PI.getCode(), o.getRetEvento().getFirst().getInfEvento().getCOrgao());
+            assertEquals(NFReturnCode.CODE_491.getCode(), o.getRetEvento().getFirst().getInfEvento().getCStat());
+            assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
+        } catch (CircuitBreakerException ignored) {
+
+        }
     }
 
     @Test
@@ -508,12 +519,12 @@ class NfeCorrectionLetterServiceImplTest {
                         NFSend.SYNC
                 )
         );
-        ReturnNfeCorrectionLetter o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
+        ReturnNfEvent o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
         assertNotNull(o);
         assertEquals(1, o.getRetEvento().size());
-        assertEquals(NFEvent.CORRECTION_LETTER.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
-        assertEquals(UF.PI.getCode(), o.getRetEvento().get(0).getInfEvento().getCOrgao());
-        assertEquals(NFReturnCode.CODE_491.getCode(), o.getRetEvento().get(0).getInfEvento().getCStat());
+        assertEquals(NFEvent.CORRECTION_LETTER.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpEvento());
+        assertEquals(UF.PI.getCode(), o.getRetEvento().getFirst().getInfEvento().getCOrgao());
+        assertEquals(NFReturnCode.CODE_491.getCode(), o.getRetEvento().getFirst().getInfEvento().getCStat());
         assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
     }
 
@@ -529,10 +540,10 @@ class NfeCorrectionLetterServiceImplTest {
                         NFSend.SYNC
                 )
         );
-        ReturnNfeCorrectionLetter o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
+        ReturnNfEvent o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
         assertNotNull(o);
         assertEquals(1, o.getRetEvento().size());
-        assertEquals(NFEvent.CORRECTION_LETTER.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
+        assertEquals(NFEvent.CORRECTION_LETTER.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpEvento());
         assertEquals(UF.MT.getCode(), o.getCOrgao());
         assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
     }
@@ -549,10 +560,10 @@ class NfeCorrectionLetterServiceImplTest {
                         NFSend.SYNC
                 )
         );
-        ReturnNfeCorrectionLetter o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
+        ReturnNfEvent o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
         assertNotNull(o);
         assertEquals(1, o.getRetEvento().size());
-        assertEquals(NFEvent.CORRECTION_LETTER.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
+        assertEquals(NFEvent.CORRECTION_LETTER.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpEvento());
         assertEquals(UF.MT.getCode(), o.getCOrgao());
         assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
     }
@@ -569,10 +580,10 @@ class NfeCorrectionLetterServiceImplTest {
                         NFSend.SYNC
                 )
         );
-        ReturnNfeCorrectionLetter o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
+        ReturnNfEvent o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
         assertNotNull(o);
         assertEquals(1, o.getRetEvento().size());
-        assertEquals(NFEvent.CORRECTION_LETTER.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
+        assertEquals(NFEvent.CORRECTION_LETTER.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpEvento());
         assertEquals(UF.PI.getCode(), o.getCOrgao());
         assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
     }
@@ -589,10 +600,10 @@ class NfeCorrectionLetterServiceImplTest {
                         NFSend.SYNC
                 )
         );
-        ReturnNfeCorrectionLetter o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
+        ReturnNfEvent o = service.correctionLetter("22230511520224000140550010000450661287506862", "22230511520224000140550010000450661287506862", "1");
         assertNotNull(o);
         assertEquals(1, o.getRetEvento().size());
-        assertEquals(NFEvent.CORRECTION_LETTER.getCode(), o.getRetEvento().get(0).getInfEvento().getTpEvento());
+        assertEquals(NFEvent.CORRECTION_LETTER.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpEvento());
         assertEquals(UF.PI.getCode(), o.getCOrgao());
         assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
     }

@@ -8,7 +8,7 @@ import java.util.Collections;
 public abstract class DefaultNfCommonValidator implements NfCommonValidator {
 
     private final Collection<NfInutValidator> inutValidators = Collections.singleton(new XSDInutValidator());
-    private final Collection<NfCancelValidator> cancelValidators = Collections.singleton(new XSDCancelValidator());
+    private final Collection<NfEventValidator> eventValidators = Collections.singleton(new XSDEventValidator());
     private final Collection<NfAuthorizationValidator> authorizationValidators = Collections.singleton(new XSDAuthorizationValidator());
     private final Collection<NfReturnAuthorizationValidator> returnAuthorizationValidators = Collections.singleton(new XSDReturnAuthorizationValidator());
     private final Collection<NfQueryProtocolValidator> queryProtocolValidators = Collections.singleton(new XSDQueryProtocolValidator());
@@ -21,8 +21,8 @@ public abstract class DefaultNfCommonValidator implements NfCommonValidator {
     }
 
     @Override
-    public Collection<NfCancelValidator> cancelValidators() {
-        return cancelValidators;
+    public Collection<NfEventValidator> eventValidators() {
+        return eventValidators;
     }
 
     @Override

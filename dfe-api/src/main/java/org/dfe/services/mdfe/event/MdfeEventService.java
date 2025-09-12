@@ -1,13 +1,19 @@
 package org.dfe.services.mdfe.event;
 
 import br.inf.portalfiscal.mdfe.classes.TEvento;
+import br.inf.portalfiscal.mdfe.classes.TRetEvento;
+import org.dfe.enums.internal.Model;
 import org.dfe.enums.mdfe.MdfeEvent;
+import org.dfe.exceptions.CircuitBreakerException;
 import org.dfe.exceptions.ProcessException;
 import org.dfe.exceptions.ValidationException;
 import org.dfe.exceptions.port.SoapServiceGeneralException;
 import org.dfe.exceptions.security.SecurityException;
 import org.dfe.exceptions.services.NoProviderFound;
+import org.dfe.interfaces.circuitbreaker.DfeOperation;
+import org.dfe.interfaces.internal.Pair;
 import org.dfe.interfaces.internal.config.MdfeConfig;
+import org.dfe.interfaces.sefaz.mdfe.MdfeService;
 import org.dfe.interfaces.services.MdfeSefazService;
 import org.dfe.models.mdfe.event.*;
 import org.dfe.models.mdfe.query_situation.MdfeReturnQuerySituation;
@@ -23,23 +29,25 @@ public interface MdfeEventService extends MdfeSefazService {
      * @param evento The event object to be sent to the SEFAZ.
      * @return The return is the object MdfeReturnEvent, which contains the response of the event.
      */
-    default MdfeReturnEvent event(TEvento evento) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default MdfeReturnEvent event(TEvento evento) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         MdfeConfig config = getConfig().withEnviroment(evento.getInfEvento().getTpAmb());
-        return MdfeReturnEvent
+        MdfeService service = getProviderFactory().getMdfeService(config);
+        Pair<?, TRetEvento> res = getCircuitBreakerRegistry().get(
+                config.environment(),
+                Model.MDFE,
+                config.webServiceUF(),
+                DfeOperation.EVENT
+        ).execute(() -> service.event(MdfeEventRequest
                 .builder()
-                .build()
-                .fromObject(getProviderFactory()
-                        .getMdfeService(config)
-                        .event(MdfeEventRequest
-                                .builder()
-                                .data(evento)
-                                .signer(getXmlSigner())
-                                .config(config)
-                                .configureProvider(getConfigureProviderFactory())
-                                .validators(getValidatorFactory().mdfeValidator().eventValidators())
-                                .afterRequest(getProcess().afterEvent())
-                                .beforeRequest(getProcess().beforeEvent())
-                                .build()));
+                .data(evento)
+                .signer(getXmlSigner())
+                .config(config)
+                .configureProvider(getConfigureProviderFactory())
+                .validators(getValidatorFactory().mdfeValidator().eventValidators())
+                .afterRequest(getProcess().afterEvent())
+                .beforeRequest(getProcess().beforeEvent())
+                .build()));
+        return new MdfeReturnEvent().fromObject(res);
     }
 
     /**
@@ -49,7 +57,7 @@ public interface MdfeEventService extends MdfeSefazService {
      * @param confirmation MdfeTransportConfirmation object
      * @return The return is the object MdfeReturnEvent, which contains the response of the event.
      */
-    default MdfeReturnEvent transportConfirmation(MdfeTransportConfirmation confirmation) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default MdfeReturnEvent transportConfirmation(MdfeTransportConfirmation confirmation) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return event(confirmation.toObject());
     }
 
@@ -60,7 +68,7 @@ public interface MdfeEventService extends MdfeSefazService {
      * @param protocol  The protocol number of the transport confirmation.
      * @return The return is the MdfeReturnEvent object, which contains the return of the event.
      */
-    default MdfeReturnEvent transportConfirmation(String accessKey, String protocol) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default MdfeReturnEvent transportConfirmation(String accessKey, String protocol) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return transportConfirmation(MdfeTransportConfirmation.build(accessKey, protocol, "1", getConfig()));
     }
 
@@ -70,7 +78,7 @@ public interface MdfeEventService extends MdfeSefazService {
      * @param driverInclusion The driverInclusion object that will be sent to the webservice.
      * @return The return is the object MdfeReturnEvent, which contains the response of the event.
      */
-    default MdfeReturnEvent driverInclusion(MdfeDriverInclusion driverInclusion) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default MdfeReturnEvent driverInclusion(MdfeDriverInclusion driverInclusion) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return event(driverInclusion.toObject());
     }
 
@@ -83,7 +91,7 @@ public interface MdfeEventService extends MdfeSefazService {
      * @param sequence   The sequence number of the driver in the MDF-e.
      * @return The return is the object MdfeReturnEvent, which contains the response of the event.
      */
-    default MdfeReturnEvent driverInclusion(String accessKey, String driverName, String driverCpf, String sequence) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default MdfeReturnEvent driverInclusion(String accessKey, String driverName, String driverCpf, String sequence) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return driverInclusion(MdfeDriverInclusion.build(accessKey, driverName, driverCpf, sequence, getConfig()));
     }
 
@@ -95,7 +103,7 @@ public interface MdfeEventService extends MdfeSefazService {
      * @param sequence  The sequence number of the event.
      * @return The return is the object MdfeReturnEvent, which contains the response of the event.
      */
-    default MdfeReturnEvent driverInclusion(String accessKey, MdfeDriverInclusion.InfEvento.DetEvento.EvIncCondutorMDFe.Condutor condutor, String sequence) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default MdfeReturnEvent driverInclusion(String accessKey, MdfeDriverInclusion.InfEvento.DetEvento.EvIncCondutorMDFe.Condutor condutor, String sequence) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return driverInclusion(MdfeDriverInclusion.build(accessKey, condutor, sequence, getConfig()));
     }
 
@@ -107,7 +115,7 @@ public interface MdfeEventService extends MdfeSefazService {
      * @param driverCpf  Driver's CPF
      * @return The return is a MdfeReturnEvent object.
      */
-    default MdfeReturnEvent driverInclusion(String accessKey, String driverName, String driverCpf) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default MdfeReturnEvent driverInclusion(String accessKey, String driverName, String driverCpf) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return driverInclusion(accessKey, MdfeDriverInclusion.InfEvento.DetEvento.EvIncCondutorMDFe.Condutor.builder().cpf(driverCpf).xNome(driverName).build());
     }
 
@@ -117,7 +125,7 @@ public interface MdfeEventService extends MdfeSefazService {
      * @param paymentOperation The payment operation to be performed.
      * @return The return is the object MdfeReturnEvent, which contains the response of the event.
      */
-    default MdfeReturnEvent paymentOperation(MdfePaymentOperation paymentOperation) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default MdfeReturnEvent paymentOperation(MdfePaymentOperation paymentOperation) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return event(paymentOperation.toObject());
     }
 
@@ -132,7 +140,7 @@ public interface MdfeEventService extends MdfeSefazService {
      * @param sequence  The sequence number of the event.
      * @return The return is the object MdfeReturnEvent, which contains the response of the event.
      */
-    default MdfeReturnEvent paymentOperation(String accessKey, String protocol, MdfePaymentOperation.InfEvento.DetEvento.EvPagtoOperMDFe.InfViagens travel, List<MdfePaymentOperation.InfEvento.DetEvento.EvPagtoOperMDFe.InfPag> payments, String sequence) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default MdfeReturnEvent paymentOperation(String accessKey, String protocol, MdfePaymentOperation.InfEvento.DetEvento.EvPagtoOperMDFe.InfViagens travel, List<MdfePaymentOperation.InfEvento.DetEvento.EvPagtoOperMDFe.InfPag> payments, String sequence) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return paymentOperation(MdfePaymentOperation.build(accessKey, protocol, travel, payments, sequence, getConfig()));
     }
 
@@ -142,7 +150,7 @@ public interface MdfeEventService extends MdfeSefazService {
      * @param dfeInclusion The object that contains the data to be sent to the SEFAZ.
      * @return The return is the object MdfeReturnEvent, which contains the response of the event.
      */
-    default MdfeReturnEvent dfeInclusion(MdfeDfeInclusion dfeInclusion) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default MdfeReturnEvent dfeInclusion(MdfeDfeInclusion dfeInclusion) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return event(dfeInclusion.toObject());
     }
 
@@ -157,7 +165,7 @@ public interface MdfeEventService extends MdfeSefazService {
      * @param sequence               The sequence number of the event.
      * @return The return is the object MdfeReturnEvent, which contains the response of the event.
      */
-    default MdfeReturnEvent dfeInclusion(String accessKey, String protocol, String cityLoadingCode, String cityLoadingDescription, List<MdfeDfeInclusion.InfEvento.DetEvento.EvIncDFeMDFe.InfDoc> documents, String sequence) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default MdfeReturnEvent dfeInclusion(String accessKey, String protocol, String cityLoadingCode, String cityLoadingDescription, List<MdfeDfeInclusion.InfEvento.DetEvento.EvIncDFeMDFe.InfDoc> documents, String sequence) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return dfeInclusion(MdfeDfeInclusion.build(accessKey, protocol, cityLoadingCode, cityLoadingDescription, documents, sequence, getConfig()));
     }
 
@@ -167,7 +175,7 @@ public interface MdfeEventService extends MdfeSefazService {
      * @param paymentModification The payment modification object.
      * @return The return is the event response.
      */
-    default MdfeReturnEvent paymentModification(MdfePaymentModification paymentModification) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default MdfeReturnEvent paymentModification(MdfePaymentModification paymentModification) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return event(paymentModification.toObject());
     }
 
@@ -181,7 +189,7 @@ public interface MdfeEventService extends MdfeSefazService {
      * @param sequence     The sequence number of the event.
      * @return The return is the object MdfeReturnEvent, which contains the response of the event.
      */
-    default MdfeReturnEvent paymentModification(String accessKey, String protocol, List<MdfePaymentModification.InfEvento.DetEvento.EvAlteracaoPagtoServMDFe.InfPag> infoPayments, String sequence) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default MdfeReturnEvent paymentModification(String accessKey, String protocol, List<MdfePaymentModification.InfEvento.DetEvento.EvAlteracaoPagtoServMDFe.InfPag> infoPayments, String sequence) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return paymentModification(MdfePaymentModification.build(accessKey, protocol, sequence, infoPayments, getConfig()));
     }
 
@@ -191,7 +199,7 @@ public interface MdfeEventService extends MdfeSefazService {
      * @param mdfeClose The object that contains the data to be sent to the SEFAZ.
      * @return The return is the object MdfeReturnEvent, which contains the response of the event.
      */
-    default MdfeReturnEvent close(MdfeClose mdfeClose) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default MdfeReturnEvent close(MdfeClose mdfeClose) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return event(mdfeClose.toObject());
     }
 
@@ -204,7 +212,7 @@ public interface MdfeEventService extends MdfeSefazService {
      * @param cityCode  The city code where the MDF-e was issued.
      * @return The return is the object MdfeReturnEvent, which contains the return of the event.
      */
-    default MdfeReturnEvent close(String accessKey, String protocol, String ufCode, String cityCode) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default MdfeReturnEvent close(String accessKey, String protocol, String ufCode, String cityCode) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return close(MdfeClose.build(accessKey, protocol, ufCode, cityCode, "1", getConfig()));
     }
 
@@ -214,7 +222,7 @@ public interface MdfeEventService extends MdfeSefazService {
      * @param mdfeCancel The object that contains the data to be sent to the SEFAZ.
      * @return The return of the event is the MdfeReturnEvent object.
      */
-    default MdfeReturnEvent cancel(MdfeCancel mdfeCancel) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default MdfeReturnEvent cancel(MdfeCancel mdfeCancel) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return event(mdfeCancel.toObject());
     }
 
@@ -226,7 +234,7 @@ public interface MdfeEventService extends MdfeSefazService {
      * @param motive    The reason for the cancellation.
      * @return The return is a MdfeReturnEvent object.
      */
-    default MdfeReturnEvent cancel(String accessKey, String protocol, String motive) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default MdfeReturnEvent cancel(String accessKey, String protocol, String motive) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return cancel(MdfeCancel.build(accessKey, protocol, motive, "1", getConfig()));
     }
 
@@ -236,7 +244,7 @@ public interface MdfeEventService extends MdfeSefazService {
      * @param accessKey The access key of the MDF-e.
      * @return The return is the event object.
      */
-    default MdfeReturnEvent cancel(String accessKey) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default MdfeReturnEvent cancel(String accessKey) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return cancel(accessKey, MdfeEvent.CANCEL.getDefaultMessage());
     }
 
@@ -247,7 +255,7 @@ public interface MdfeEventService extends MdfeSefazService {
      * @param motive    The reason for the cancellation.
      * @return The return is a MdfeReturnEvent object.
      */
-    default MdfeReturnEvent cancel(String accessKey, String motive) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default MdfeReturnEvent cancel(String accessKey, String motive) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         MdfeReturnQuerySituation returnQuerySituation = getMdfeQuerySituationService().querySituation(accessKey);
         return cancel(accessKey, returnQuerySituation.protocol(), motive);
     }
@@ -260,7 +268,7 @@ public interface MdfeEventService extends MdfeSefazService {
      * @param cityCode  The city code of the city where the MDFe was issued.
      * @return The return is a MdfeReturnEvent object.
      */
-    default MdfeReturnEvent close(String accessKey, String ufCode, String cityCode) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default MdfeReturnEvent close(String accessKey, String ufCode, String cityCode) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         MdfeReturnQuerySituation returnQuerySituation = getMdfeQuerySituationService().querySituation(accessKey);
         return close(accessKey, returnQuerySituation.protocol(), ufCode, cityCode);
     }
@@ -272,7 +280,7 @@ public interface MdfeEventService extends MdfeSefazService {
      * @param infoPayments List of payments to be modified.
      * @return The return is a MdfeReturnEvent object.
      */
-    default MdfeReturnEvent paymentModification(String accessKey, List<MdfePaymentModification.InfEvento.DetEvento.EvAlteracaoPagtoServMDFe.InfPag> infoPayments) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default MdfeReturnEvent paymentModification(String accessKey, List<MdfePaymentModification.InfEvento.DetEvento.EvAlteracaoPagtoServMDFe.InfPag> infoPayments) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         MdfeReturnQuerySituation returnQuerySituation = getMdfeQuerySituationService().querySituation(accessKey);
         return paymentModification(accessKey, returnQuerySituation.protocol(), infoPayments, returnQuerySituation.getLastSequenceNumberAsString(MdfeEvent.PAYMENT_MODIFICATION.getCode()));
     }
@@ -286,12 +294,12 @@ public interface MdfeEventService extends MdfeSefazService {
      * @param documents              List of documents to be included in the event.
      * @return The return is a MdfeReturnEvent object.
      */
-    default MdfeReturnEvent dfeInclusion(String accessKey, String cityLoadingCode, String cityLoadingDescription, List<MdfeDfeInclusion.InfEvento.DetEvento.EvIncDFeMDFe.InfDoc> documents) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default MdfeReturnEvent dfeInclusion(String accessKey, String cityLoadingCode, String cityLoadingDescription, List<MdfeDfeInclusion.InfEvento.DetEvento.EvIncDFeMDFe.InfDoc> documents) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         MdfeReturnQuerySituation returnQuerySituation = getMdfeQuerySituationService().querySituation(accessKey);
         return dfeInclusion(accessKey, returnQuerySituation.protocol(), cityLoadingCode, cityLoadingDescription, documents, returnQuerySituation.getLastSequenceNumberAsString(MdfeEvent.DFE_INCLUSION.getCode()));
     }
 
-    default MdfeReturnEvent paymentOperation(String accessKey, MdfePaymentOperation.InfEvento.DetEvento.EvPagtoOperMDFe.InfViagens travel, List<MdfePaymentOperation.InfEvento.DetEvento.EvPagtoOperMDFe.InfPag> payments) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default MdfeReturnEvent paymentOperation(String accessKey, MdfePaymentOperation.InfEvento.DetEvento.EvPagtoOperMDFe.InfViagens travel, List<MdfePaymentOperation.InfEvento.DetEvento.EvPagtoOperMDFe.InfPag> payments) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         MdfeReturnQuerySituation returnQuerySituation = getMdfeQuerySituationService().querySituation(accessKey);
         return paymentOperation(accessKey, returnQuerySituation.protocol(), travel, payments, returnQuerySituation.getLastSequenceNumberAsString(MdfeEvent.PAYMENT_OPERATION.getCode()));
     }
@@ -303,7 +311,7 @@ public interface MdfeEventService extends MdfeSefazService {
      * @param condutor  The driver object.
      * @return The return is a MdfeReturnEvent object.
      */
-    default MdfeReturnEvent driverInclusion(String accessKey, MdfeDriverInclusion.InfEvento.DetEvento.EvIncCondutorMDFe.Condutor condutor) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default MdfeReturnEvent driverInclusion(String accessKey, MdfeDriverInclusion.InfEvento.DetEvento.EvIncCondutorMDFe.Condutor condutor) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return driverInclusion(accessKey, condutor, getMdfeQuerySituationService().querySituation(accessKey).getLastSequenceNumberAsString(MdfeEvent.DRIVER_INCLUSION.getCode()));
     }
 
@@ -313,7 +321,7 @@ public interface MdfeEventService extends MdfeSefazService {
      * @param accessKey The access key of the MDF-e.
      * @return The return is a MdfeReturnEvent object.
      */
-    default MdfeReturnEvent transportConfirmation(String accessKey) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default MdfeReturnEvent transportConfirmation(String accessKey) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return transportConfirmation(accessKey, getMdfeQuerySituationService().querySituation(accessKey).protocol());
     }
 

@@ -1,7 +1,7 @@
 package org.dfe.models.internal;
 
-import org.dfe.interfaces.xml.generic.XML;
 import lombok.Builder;
+import org.dfe.interfaces.xml.generic.XML;
 
 /**
  * Validation is a class that holds a value of type T and a String.

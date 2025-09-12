@@ -1,7 +1,7 @@
 package org.dfe.enums.nf.prod.importation;
 
-import org.dfe.components.internal.DFEnum;
 import lombok.Getter;
+import org.dfe.components.internal.DFEnum;
 
 
 @Getter

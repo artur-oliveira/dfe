@@ -1,10 +1,10 @@
 package org.dfe.models.internal.process;
 
-import org.dfe.components.process.ProcessFactory;
-import org.dfe.components.process.cte4.Cte4ProcessFactory;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.dfe.components.process.ProcessFactory;
+import org.dfe.components.process.cte4.Cte4ProcessFactory;
 
 import java.util.Arrays;
 import java.util.List;

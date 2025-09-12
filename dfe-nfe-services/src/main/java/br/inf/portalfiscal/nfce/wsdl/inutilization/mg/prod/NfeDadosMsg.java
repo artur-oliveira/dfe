@@ -1,17 +1,22 @@
-package br.inf.portalfiscal.nfce.wsdl.inutilization.mg.prod;
 
-import jakarta.xml.bind.annotation.*;
-import org.w3c.dom.Element;
+package br.inf.portalfiscal.nfce.wsdl.inutilization.mg.prod;
 
 import java.util.ArrayList;
 import java.util.List;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlAnyElement;
+import jakarta.xml.bind.annotation.XmlMixed;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlType;
+import org.w3c.dom.Element;
 
 
 /**
- * <p>Java class for anonymous complex type.
- *
- * <p>The following schema fragment specifies the expected content contained within this class.
- *
+ * <p>Java class for anonymous complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType>
  *   <complexContent>
@@ -23,10 +28,12 @@ import java.util.List;
  *   </complexContent>
  * </complexType>
  * }</pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-        "content"
+    "content"
 })
 @XmlRootElement(name = "nfeDadosMsg")
 public class NfeDadosMsg {
@@ -37,27 +44,30 @@ public class NfeDadosMsg {
 
     /**
      * Gets the value of the content property.
-     *
-     * <p>
-     * This accessor method returns a reference to the live list,
+     * 
+     * <p>This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the Jakarta XML Binding object.
-     * This is why there is not a {@code set} method for the content property.
-     *
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the content property.</p>
+     * 
      * <p>
      * For example, to add a new item, do as follows:
+     * </p>
      * <pre>
-     *    getContent().add(newItem);
+     * getContent().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Object }
      * {@link String }
      * {@link Element }
-     *
-     * @return The value of the content property.
+     * </p>
+     * 
+     * 
+     * @return
+     *     The value of the content property.
      */
     public List<Object> getContent() {
         if (content == null) {

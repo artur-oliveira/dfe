@@ -54,7 +54,7 @@ public final class CteSvspService extends CteAnService {
             br.inf.portalfiscal.cte4.wsdl.event.svsp.prod.CteRecepcaoEventoResult resultMsg = ws.cteRecepcaoEvento(msg);
 
             if (!resultMsg.getContent().isEmpty())
-                retorno = (TRetEvento) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();
+                retorno = (TRetEvento) ((JAXBElement<?>) resultMsg.getContent().getFirst()).getValue();
         } else {
             br.inf.portalfiscal.cte4.wsdl.event.svsp.hom.CTeRecepcaoEventoV4Soap12 ws = ((br.inf.portalfiscal.cte4.wsdl.event.svsp.hom.CTeRecepcaoEventoV4) getSoapService().homEvent()).getCTeRecepcaoEventoV4Soap12();
             data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
@@ -65,7 +65,7 @@ public final class CteSvspService extends CteAnService {
             br.inf.portalfiscal.cte4.wsdl.event.svsp.hom.CteRecepcaoEventoResult resultMsg = ws.cteRecepcaoEvento(msg);
 
             if (!resultMsg.getContent().isEmpty())
-                retorno = (TRetEvento) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();
+                retorno = (TRetEvento) ((JAXBElement<?>) resultMsg.getContent().getFirst()).getValue();
         }
 
         for (AfterWebServiceRequest<TEvento, TRetEvento> it : data.afterRequest())
@@ -98,7 +98,7 @@ public final class CteSvspService extends CteAnService {
             br.inf.portalfiscal.cte4.wsdl.query_situation.svsp.prod.CteConsultaCTResult resultMsg = ws.cteConsultaCT(msg);
 
             if (!resultMsg.getContent().isEmpty())
-                retorno = (TRetConsSitCTe) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();
+                retorno = (TRetConsSitCTe) ((JAXBElement<?>) resultMsg.getContent().getFirst()).getValue();
         } else {
             br.inf.portalfiscal.cte4.wsdl.query_situation.svsp.hom.CTeConsultaV4Soap12 ws = ((br.inf.portalfiscal.cte4.wsdl.query_situation.svsp.hom.CTeConsultaV4) getSoapService().homQuerySituation()).getCTeConsultaV4Soap12();
             data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
@@ -110,7 +110,7 @@ public final class CteSvspService extends CteAnService {
             br.inf.portalfiscal.cte4.wsdl.query_situation.svsp.hom.CteConsultaCTResult resultMsg = ws.cteConsultaCT(msg);
 
             if (!resultMsg.getContent().isEmpty())
-                retorno = (TRetConsSitCTe) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();
+                retorno = (TRetConsSitCTe) ((JAXBElement<?>) resultMsg.getContent().getFirst()).getValue();
         }
 
         for (AfterWebServiceRequest<TConsSitCTe, TRetConsSitCTe> it : data.afterRequest())
@@ -144,7 +144,7 @@ public final class CteSvspService extends CteAnService {
                 throw new DfeUncheckedException(e);
             }
             if (!resultMsg.getContent().isEmpty())
-                retorno = (TRetGTVe) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();
+                retorno = (TRetGTVe) ((JAXBElement<?>) resultMsg.getContent().getFirst()).getValue();
         } else {
             br.inf.portalfiscal.cte4.wsdl.reception_gtve.svsp.hom.CTeRecepcaoGTVeV4Soap12 ws = ((br.inf.portalfiscal.cte4.wsdl.reception_gtve.svsp.hom.CTeRecepcaoGTVeV4) getSoapService().homReceptionGtve()).getCTeRecepcaoGTVeV4Soap12();
 
@@ -157,7 +157,7 @@ public final class CteSvspService extends CteAnService {
                 throw new DfeUncheckedException(e);
             }
             if (!resultMsg.getContent().isEmpty())
-                retorno = (TRetGTVe) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();
+                retorno = (TRetGTVe) ((JAXBElement<?>) resultMsg.getContent().getFirst()).getValue();
         }
 
         for (AfterWebServiceRequest<TGTVe, TRetGTVe> it : data.afterRequest())
@@ -190,7 +190,7 @@ public final class CteSvspService extends CteAnService {
                 throw new DfeUncheckedException(e);
             }
             if (!resultMsg.getContent().isEmpty())
-                retorno = (TRetCTeOS) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();
+                retorno = (TRetCTeOS) ((JAXBElement<?>) resultMsg.getContent().getFirst()).getValue();
         } else {
             br.inf.portalfiscal.cte4.wsdl.reception_os.svsp.hom.CTeRecepcaoOSV4Soap12 ws = ((br.inf.portalfiscal.cte4.wsdl.reception_os.svsp.hom.CTeRecepcaoOSV4) getSoapService().homReceptionOs()).getCTeRecepcaoOSV4Soap12();
 
@@ -203,7 +203,7 @@ public final class CteSvspService extends CteAnService {
                 throw new DfeUncheckedException(e);
             }
             if (!resultMsg.getContent().isEmpty())
-                retorno = (TRetCTeOS) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();
+                retorno = (TRetCTeOS) ((JAXBElement<?>) resultMsg.getContent().getFirst()).getValue();
         }
 
         for (AfterWebServiceRequest<TCTeOS, TRetCTeOS> it : data.afterRequest())
@@ -235,7 +235,7 @@ public final class CteSvspService extends CteAnService {
                 throw new DfeUncheckedException(e);
             }
             if (!resultMsg.getContent().isEmpty())
-                retorno = (TRetCTe) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();
+                retorno = (TRetCTe) ((JAXBElement<?>) resultMsg.getContent().getFirst()).getValue();
         } else {
             br.inf.portalfiscal.cte4.wsdl.reception_sync.svsp.hom.CTeRecepcaoSincV4Soap12 ws = ((br.inf.portalfiscal.cte4.wsdl.reception_sync.svsp.hom.CTeRecepcaoSincV4) getSoapService().homReceptionSync()).getCTeRecepcaoSincV4Soap12();
             data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
@@ -247,7 +247,7 @@ public final class CteSvspService extends CteAnService {
                 throw new DfeUncheckedException(e);
             }
             if (!resultMsg.getContent().isEmpty())
-                retorno = (TRetCTe) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();
+                retorno = (TRetCTe) ((JAXBElement<?>) resultMsg.getContent().getFirst()).getValue();
         }
 
         for (AfterWebServiceRequest<TCTe, TRetCTe> it : data.afterRequest())
@@ -279,7 +279,7 @@ public final class CteSvspService extends CteAnService {
             br.inf.portalfiscal.cte4.wsdl.status_service.svsp.prod.CteStatusServicoCTResult resultMsg = ws.cteStatusServicoCT(msg);
 
             if (!resultMsg.getContent().isEmpty())
-                retorno = (TRetConsStatServ) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();
+                retorno = (TRetConsStatServ) ((JAXBElement<?>) resultMsg.getContent().getFirst()).getValue();
         } else {
             br.inf.portalfiscal.cte4.wsdl.status_service.svsp.hom.CTeStatusServicoV4Soap12 ws = ((br.inf.portalfiscal.cte4.wsdl.status_service.svsp.hom.CTeStatusServicoV4) getSoapService().homStatusService()).getCTeStatusServicoV4Soap12();
             data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
@@ -290,7 +290,7 @@ public final class CteSvspService extends CteAnService {
             br.inf.portalfiscal.cte4.wsdl.status_service.svsp.hom.CteStatusServicoCTResult resultMsg = ws.cteStatusServicoCT(msg);
 
             if (!resultMsg.getContent().isEmpty())
-                retorno = (TRetConsStatServ) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();
+                retorno = (TRetConsStatServ) ((JAXBElement<?>) resultMsg.getContent().getFirst()).getValue();
         }
 
         for (AfterWebServiceRequest<TConsStatServ, TRetConsStatServ> it : data.afterRequest())

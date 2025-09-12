@@ -1,16 +1,20 @@
 package org.dfe.util;
 
-import org.dfe.exceptions.xml.MarshallException;
-import org.dfe.exceptions.xml.UnmarshallException;
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Marshaller;
+import lombok.SneakyThrows;
+import org.dfe.exceptions.xml.MarshallException;
+import org.dfe.exceptions.xml.UnmarshallException;
+import org.dfe.models.internal.xml.NamespaceCleaner;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.Node;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
+import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.OutputKeys;
@@ -20,6 +24,10 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMResult;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathExpression;
+import javax.xml.xpath.XPathFactory;
 import java.io.IOException;
 import java.io.StringReader;
 import java.io.StringWriter;
@@ -70,6 +78,27 @@ public final class XMLUtils {
         }
     }
 
+    @SneakyThrows
+    public static String extractNodeAsString(String xml, String xPath) {
+        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+        DocumentBuilder db = dbf.newDocumentBuilder();
+        try (StringReader reader = new StringReader(xml)) {
+            Document doc = db.parse(new InputSource(reader));
+
+            XPath xpath = XPathFactory.newInstance().newXPath();
+            XPathExpression expr = xpath.compile(xPath);
+            Node node = (Node) expr.evaluate(doc, XPathConstants.NODE);
+            if (node == null) return null;
+
+            Transformer transformer = getTransformer();
+            transformer.setOutputProperty(OutputKeys.INDENT, "no");
+            try (StringWriter writer = new StringWriter()) {
+                transformer.transform(new DOMSource(node), new StreamResult(writer));
+                return writer.toString();
+            }
+        }
+    }
+
     /**
      * This Java function converts an XML string into a Document object.
      *
@@ -102,7 +131,12 @@ public final class XMLUtils {
         try {
             try (StringWriter sw = new StringWriter()) {
                 context.createMarshaller().marshal(o, sw);
-                return XMLStringUtils.cleanNamespace(sw.toString());
+                return XMLStringUtils.cleanNamespace(NamespaceCleaner
+                        .builder()
+                        .xml(sw.toString())
+                        .jaxbElement(o)
+                        .build()
+                );
             }
         } catch (JAXBException | IOException e) {
             throw new MarshallException(e);

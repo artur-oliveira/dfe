@@ -1,14 +1,20 @@
 package org.dfe.services.cte4.event;
 
 import br.inf.portalfiscal.cte.send400.TEvento;
+import br.inf.portalfiscal.cte.send400.TRetEvento;
 import org.dfe.components.internal.parser.AccessKeyParserFactory;
 import org.dfe.enums.cte.CteEvent;
+import org.dfe.enums.internal.Model;
+import org.dfe.exceptions.CircuitBreakerException;
 import org.dfe.exceptions.ProcessException;
 import org.dfe.exceptions.ValidationException;
 import org.dfe.exceptions.port.SoapServiceGeneralException;
 import org.dfe.exceptions.security.SecurityException;
 import org.dfe.exceptions.services.NoProviderFound;
+import org.dfe.interfaces.circuitbreaker.DfeOperation;
+import org.dfe.interfaces.internal.Pair;
 import org.dfe.interfaces.internal.config.CteConfig;
+import org.dfe.interfaces.sefaz.cte4.Cte4Service;
 import org.dfe.interfaces.services.Cte4SefazService;
 import org.dfe.models.cte4.event.*;
 import org.dfe.models.cte4.query_situation.CteReturnQuerySituation;
@@ -28,18 +34,24 @@ public interface CteEventService extends Cte4SefazService {
      * @param evento The event object to be sent to the SEFAZ.
      * @return A CteReturnEvent object.
      */
-    default CteReturnEvent event(TEvento evento) throws SoapServiceGeneralException, NoProviderFound, ProcessException, ValidationException, SecurityException {
+    default CteReturnEvent event(TEvento evento) throws CircuitBreakerException, SoapServiceGeneralException, NoProviderFound, ProcessException, ValidationException, SecurityException {
         CteConfig config = getConfig().withEnviroment(evento.getInfEvento().getTpAmb());
-        return CteReturnEvent.builder().build().fromObject(getProviderFactory().getCte4Service(config)
-                .event(CteEventRequest.builder()
-                        .data(evento)
-                        .signer(getXmlSigner())
-                        .config(config)
-                        .configureProvider(getConfigureProviderFactory())
-                        .beforeRequest(getProcess().beforeEvent())
-                        .afterRequest(getProcess().afterEvent())
-                        .validators(getValidatorFactory().cte4Validator().eventValidators())
-                        .build()));
+        Cte4Service service = getProviderFactory().getCte4Service(config);
+        Pair<?, TRetEvento> res = getCircuitBreakerRegistry().get(
+                config.environment(),
+                Model.CTE,
+                config.webServiceUF(),
+                DfeOperation.DISTRIBUTION
+        ).execute(() -> service.event(CteEventRequest.builder()
+                .data(evento)
+                .signer(getXmlSigner())
+                .config(config)
+                .configureProvider(getConfigureProviderFactory())
+                .beforeRequest(getProcess().beforeEvent())
+                .afterRequest(getProcess().afterEvent())
+                .validators(getValidatorFactory().cte4Validator().eventValidators())
+                .build()));
+        return new CteReturnEvent().fromObject(res);
     }
 
     /**
@@ -48,7 +60,7 @@ public interface CteEventService extends Cte4SefazService {
      * @param cancel The CteCancel object that contains the information about the cancellation.
      * @return The CteReturnEvent object.
      */
-    default CteReturnEvent cancel(CteCancel cancel) throws ProcessException, SoapServiceGeneralException, ValidationException, NoProviderFound, SecurityException {
+    default CteReturnEvent cancel(CteCancel cancel) throws CircuitBreakerException, ProcessException, SoapServiceGeneralException, ValidationException, NoProviderFound, SecurityException {
         return event(cancel.toObject());
     }
 
@@ -60,7 +72,7 @@ public interface CteEventService extends Cte4SefazService {
      * @param defaultMessage The message that will be sent to the SEFAZ.
      * @return The CteReturnEvent object.
      */
-    default CteReturnEvent cancel(String accessKey, String protocol, String defaultMessage) throws ProcessException, SoapServiceGeneralException, ValidationException, NoProviderFound, SecurityException {
+    default CteReturnEvent cancel(String accessKey, String protocol, String defaultMessage) throws CircuitBreakerException, ProcessException, SoapServiceGeneralException, ValidationException, NoProviderFound, SecurityException {
         return event(CteCancel.build(accessKey, protocol, defaultMessage, "1", getConfig()).toObject());
     }
 
@@ -71,7 +83,7 @@ public interface CteEventService extends Cte4SefazService {
      * @param protocol  The protocol number of the CTe to be canceled.
      * @return A CteReturnEvent object.
      */
-    default CteReturnEvent cancel(String accessKey, String protocol) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default CteReturnEvent cancel(String accessKey, String protocol) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return cancel(accessKey, protocol, CteEvent.CANCEL.getDefaultMessage());
     }
 
@@ -81,7 +93,7 @@ public interface CteEventService extends Cte4SefazService {
      * @param correctionLetter The correction letter object.
      * @return A CteReturnEvent object.
      */
-    default CteReturnEvent correctionLetter(CteCorrectionLetter correctionLetter) throws ProcessException, SoapServiceGeneralException, ValidationException, NoProviderFound, SecurityException {
+    default CteReturnEvent correctionLetter(CteCorrectionLetter correctionLetter) throws CircuitBreakerException, ProcessException, SoapServiceGeneralException, ValidationException, NoProviderFound, SecurityException {
         return event(correctionLetter.toObject());
     }
 
@@ -93,7 +105,7 @@ public interface CteEventService extends Cte4SefazService {
      * @param sequence   The sequence number of the event.
      * @return The return is a CteReturnEvent object, which contains the following attributes:
      */
-    default CteReturnEvent correctionLetter(String accessKey, CteCorrectionLetter.InfEvento.DetEvento.EvCCeCTe.InfCorrecao correction, String sequence) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default CteReturnEvent correctionLetter(String accessKey, CteCorrectionLetter.InfEvento.DetEvento.EvCCeCTe.InfCorrecao correction, String sequence) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return correctionLetter(CteCorrectionLetter.build(accessKey, correction, sequence, getConfig()));
     }
 
@@ -105,7 +117,7 @@ public interface CteEventService extends Cte4SefazService {
      * @param sequence    The sequence number of the event.
      * @return The CteReturnEvent object.
      */
-    default CteReturnEvent correctionLetter(String accessKey, List<CteCorrectionLetter.InfEvento.DetEvento.EvCCeCTe.InfCorrecao> corrections, String sequence) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default CteReturnEvent correctionLetter(String accessKey, List<CteCorrectionLetter.InfEvento.DetEvento.EvCCeCTe.InfCorrecao> corrections, String sequence) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return correctionLetter(CteCorrectionLetter.build(accessKey, corrections, sequence, getConfig()));
     }
 
@@ -116,7 +128,7 @@ public interface CteEventService extends Cte4SefazService {
      * @param correction The correction to be made.
      * @return A CteReturnEvent object.
      */
-    default CteReturnEvent correctionLetter(String accessKey, CteCorrectionLetter.InfEvento.DetEvento.EvCCeCTe.InfCorrecao correction) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default CteReturnEvent correctionLetter(String accessKey, CteCorrectionLetter.InfEvento.DetEvento.EvCCeCTe.InfCorrecao correction) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return correctionLetter(accessKey, Collections.singletonList(correction));
     }
 
@@ -126,7 +138,7 @@ public interface CteEventService extends Cte4SefazService {
      * @param deliveryReceipt The CteDeliveryReceipt object that you want to send to the CteReturnEvent service.
      * @return A CteReturnEvent object.
      */
-    default CteReturnEvent deliveryReceipt(CteDeliveryReceipt deliveryReceipt) throws ProcessException, SoapServiceGeneralException, ValidationException, NoProviderFound, SecurityException {
+    default CteReturnEvent deliveryReceipt(CteDeliveryReceipt deliveryReceipt) throws CircuitBreakerException, ProcessException, SoapServiceGeneralException, ValidationException, NoProviderFound, SecurityException {
         return event(deliveryReceipt.toObject());
     }
 
@@ -144,7 +156,7 @@ public interface CteEventService extends Cte4SefazService {
      * @param deliveryAcessKey The access key of the delivery.
      * @return The CteReturnEvent object.
      */
-    default CteReturnEvent deliveryReceipt(String accessKey, String protocol, String sequence, String base64Image, String document, String name, String lat, String lon, Collection<String> deliveryAcessKey) throws ProcessException, SoapServiceGeneralException, ValidationException, NoProviderFound, SecurityException {
+    default CteReturnEvent deliveryReceipt(String accessKey, String protocol, String sequence, String base64Image, String document, String name, String lat, String lon, Collection<String> deliveryAcessKey) throws CircuitBreakerException, ProcessException, SoapServiceGeneralException, ValidationException, NoProviderFound, SecurityException {
         return deliveryReceipt(CteDeliveryReceipt.build(accessKey, protocol, sequence, base64Image, document, name, lat, lon, deliveryAcessKey, getConfig()));
     }
 
@@ -154,7 +166,7 @@ public interface CteEventService extends Cte4SefazService {
      * @param cancelDeliveryReceipt The object that contains the data to be sent to the SEFAZ.
      * @return The CteReturnEvent object.
      */
-    default CteReturnEvent cancelDeliveryReceipt(CteCancelDeliveryReceipt cancelDeliveryReceipt) throws ProcessException, SoapServiceGeneralException, ValidationException, NoProviderFound, SecurityException {
+    default CteReturnEvent cancelDeliveryReceipt(CteCancelDeliveryReceipt cancelDeliveryReceipt) throws CircuitBreakerException, ProcessException, SoapServiceGeneralException, ValidationException, NoProviderFound, SecurityException {
         return event(cancelDeliveryReceipt.toObject());
     }
 
@@ -167,7 +179,7 @@ public interface CteEventService extends Cte4SefazService {
      * @param protocolDelivery The protocol number of the delivery receipt.
      * @return The CteReturnEvent object.
      */
-    default CteReturnEvent cancelDeliveryReceipt(String accessKey, String protocol, String sequence, String protocolDelivery) throws ProcessException, SoapServiceGeneralException, ValidationException, NoProviderFound, SecurityException {
+    default CteReturnEvent cancelDeliveryReceipt(String accessKey, String protocol, String sequence, String protocolDelivery) throws CircuitBreakerException, ProcessException, SoapServiceGeneralException, ValidationException, NoProviderFound, SecurityException {
         return cancelDeliveryReceipt(CteCancelDeliveryReceipt.build(accessKey, protocol, sequence, protocolDelivery, getConfig()));
     }
 
@@ -178,7 +190,7 @@ public interface CteEventService extends Cte4SefazService {
      * @param epec The epec object that you want to return.
      * @return A CteReturnEvent object.
      */
-    default CteReturnEvent epec(CteEpec epec) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default CteReturnEvent epec(CteEpec epec) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return event(epec.toObject());
     }
 
@@ -189,7 +201,7 @@ public interface CteEventService extends Cte4SefazService {
      * @param epec      The CteEpec object.
      * @return The return is the same as the return of the method "sendEvent"
      */
-    default CteReturnEvent epec(String accessKey, CteEpec.InfEvento.DetEvento.EvEPECCTe epec) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default CteReturnEvent epec(String accessKey, CteEpec.InfEvento.DetEvento.EvEPECCTe epec) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return epec(CteEpec.build(accessKey, "1", epec, getConfig()));
     }
 
@@ -200,7 +212,7 @@ public interface CteEventService extends Cte4SefazService {
      * @param cte The Cte object that will be used to generate the event.
      * @return A CteReturnEvent object.
      */
-    default CteReturnEvent epec(Cte cte) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default CteReturnEvent epec(Cte cte) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         cte = Cte.builder().build().fromObject(cte.toObject());
         return epec(CteEpec.build(
                 AccessKeyParserFactory.cte().fromId(cte.getInfCte().getId()),
@@ -237,7 +249,7 @@ public interface CteEventService extends Cte4SefazService {
      * @param gtv The GTV object that contains the data to be sent to the CTE.
      * @return A CteReturnEvent object.
      */
-    default CteReturnEvent gtv(CteGtv gtv) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default CteReturnEvent gtv(CteGtv gtv) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return event(gtv.toObject());
     }
 
@@ -249,7 +261,7 @@ public interface CteEventService extends Cte4SefazService {
      * @param infGTV    List of GTV objects
      * @return The return is a CteReturnEvent object, which contains the following attributes:
      */
-    default CteReturnEvent gtv(String accessKey, String sequence, List<CteGtv.InfEvento.DetEvento.EvGTV.InfGTV> infGTV) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default CteReturnEvent gtv(String accessKey, String sequence, List<CteGtv.InfEvento.DetEvento.EvGTV.InfGTV> infGTV) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return gtv(CteGtv.build(accessKey, sequence, infGTV, getConfig()));
     }
 
@@ -261,7 +273,7 @@ public interface CteEventService extends Cte4SefazService {
      * @param infGTV    The object that contains the information about the event.
      * @return The return is a CteReturnEvent object, which contains the following attributes:
      */
-    default CteReturnEvent gtv(String accessKey, String sequence, CteGtv.InfEvento.DetEvento.EvGTV.InfGTV infGTV) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default CteReturnEvent gtv(String accessKey, String sequence, CteGtv.InfEvento.DetEvento.EvGTV.InfGTV infGTV) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return gtv(CteGtv.build(accessKey, sequence, Collections.singletonList(infGTV), getConfig()));
     }
 
@@ -272,7 +284,7 @@ public interface CteEventService extends Cte4SefazService {
      * @param infGTV    The object that contains the information about the event.
      * @return The return is a CteReturnEvent object, which contains the following attributes:
      */
-    default CteReturnEvent gtv(String accessKey, CteGtv.InfEvento.DetEvento.EvGTV.InfGTV infGTV) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default CteReturnEvent gtv(String accessKey, CteGtv.InfEvento.DetEvento.EvGTV.InfGTV infGTV) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return gtv(accessKey, Collections.singletonList(infGTV));
     }
 
@@ -282,7 +294,7 @@ public interface CteEventService extends Cte4SefazService {
      * @param provisionDisagreement The provisionDisagreement object that you want to send to the CTE.
      * @return A CteReturnEvent object.
      */
-    default CteReturnEvent provisionDisagreement(CteProvisionDisagreement provisionDisagreement) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default CteReturnEvent provisionDisagreement(CteProvisionDisagreement provisionDisagreement) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return event(provisionDisagreement.toObject());
     }
 
@@ -294,7 +306,7 @@ public interface CteEventService extends Cte4SefazService {
      * @param observation The reason for the disagreement.
      * @return The CteReturnEvent object.
      */
-    default CteReturnEvent provisionDisagreement(String accessKey, String sequence, String observation) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default CteReturnEvent provisionDisagreement(String accessKey, String sequence, String observation) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return provisionDisagreement(CteProvisionDisagreement.build(accessKey, sequence, observation, getConfig()));
     }
 
@@ -304,7 +316,7 @@ public interface CteEventService extends Cte4SefazService {
      * @param multiModal The event multiModal
      * @return The return is a CteReturnEvent object, which contains the following attributes:
      */
-    default CteReturnEvent multimodal(CteMultiModal multiModal) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default CteReturnEvent multimodal(CteMultiModal multiModal) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return event(multiModal.toObject());
     }
 
@@ -317,7 +329,7 @@ public interface CteEventService extends Cte4SefazService {
      * @param document  The document number of the CTe.
      * @return The return is a CteReturnEvent object, which contains the following attributes:
      */
-    default CteReturnEvent multimodal(String accessKey, String sequence, String register, String document) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default CteReturnEvent multimodal(String accessKey, String sequence, String register, String document) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return multimodal(CteMultiModal.build(accessKey, sequence, register, document, getConfig()));
     }
 
@@ -329,7 +341,7 @@ public interface CteEventService extends Cte4SefazService {
      * @param document  XML document to be sent to the Sefaz.
      * @return The return is a CteReturnEvent object.
      */
-    default CteReturnEvent multimodal(String accessKey, String register, String document) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default CteReturnEvent multimodal(String accessKey, String register, String document) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         CteReturnQuerySituation querySituation = getCteQuerySituationService().querySituation(accessKey);
         return multimodal(accessKey, querySituation.getLastSequenceNumberAsString(CteEvent.MULTIMODAL.getCode()), register, document);
     }
@@ -341,7 +353,7 @@ public interface CteEventService extends Cte4SefazService {
      * @param observation The observation of the provisioning.
      * @return The response is a CteReturnEvent object.
      */
-    default CteReturnEvent provisionDisagreement(String accessKey, String observation) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default CteReturnEvent provisionDisagreement(String accessKey, String observation) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         CteReturnQuerySituation querySituation = getCteQuerySituationService().querySituation(accessKey);
         return provisionDisagreement(accessKey, querySituation.getLastSequenceNumberAsString(CteEvent.PROVISION_IN_DISAGREEMENT.getCode()), observation);
     }
@@ -353,7 +365,7 @@ public interface CteEventService extends Cte4SefazService {
      * @param infGTV    List of GTV objects
      * @return The return is a CteReturnEvent object.
      */
-    default CteReturnEvent gtv(String accessKey, List<CteGtv.InfEvento.DetEvento.EvGTV.InfGTV> infGTV) throws ProcessException, ValidationException, SoapServiceGeneralException, NoProviderFound, SecurityException {
+    default CteReturnEvent gtv(String accessKey, List<CteGtv.InfEvento.DetEvento.EvGTV.InfGTV> infGTV) throws CircuitBreakerException, ProcessException, ValidationException, SoapServiceGeneralException, NoProviderFound, SecurityException {
         CteReturnQuerySituation querySituation = getCteQuerySituationService().querySituation(accessKey);
         return gtv(accessKey, querySituation.getLastSequenceNumberAsString(CteEvent.INFO_GTV.getCode()), infGTV);
     }
@@ -365,7 +377,7 @@ public interface CteEventService extends Cte4SefazService {
      * @param protocolDelivery The protocol number of the delivery receipt.
      * @return The response is a CteReturnEvent object.
      */
-    default CteReturnEvent cancelDeliveryReceipt(String accessKey, String protocolDelivery) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default CteReturnEvent cancelDeliveryReceipt(String accessKey, String protocolDelivery) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         CteReturnQuerySituation querySituation = getCteQuerySituationService().querySituation(accessKey);
         return cancelDeliveryReceipt(accessKey, querySituation.getProtCTe().protocol(), querySituation.getLastSequenceNumberAsString(CteEvent.CANCEL_DELIVERY_RECEIPT.getCode()), protocolDelivery);
     }
@@ -377,7 +389,7 @@ public interface CteEventService extends Cte4SefazService {
      * @param corrections A list of corrections to be made.
      * @return The CteReturnEvent object contains the XML of the event.
      */
-    default CteReturnEvent correctionLetter(String accessKey, List<CteCorrectionLetter.InfEvento.DetEvento.EvCCeCTe.InfCorrecao> corrections) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default CteReturnEvent correctionLetter(String accessKey, List<CteCorrectionLetter.InfEvento.DetEvento.EvCCeCTe.InfCorrecao> corrections) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return correctionLetter(accessKey, corrections, String.valueOf(getCteQuerySituationService().getLastSequenceNumber(accessKey, CteEvent.CORRECTION_LETTER)));
     }
 
@@ -387,7 +399,7 @@ public interface CteEventService extends Cte4SefazService {
      * @param accessKey The access key of the user who is cancelling the Cte.
      * @return The cancel method returns a CteReturnEvent object.
      */
-    default CteReturnEvent cancel(String accessKey) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default CteReturnEvent cancel(String accessKey) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return cancel(accessKey, RequireUtils.nonNull(getCteQuerySituationService().querySituation(accessKey).getProtCTe(), "protocol must be not null to cancel cfe " + accessKey).protocol());
     }
 
@@ -403,7 +415,7 @@ public interface CteEventService extends Cte4SefazService {
      * @param deliveryAcessKey The access key of the delivery.
      * @return CteReturnEvent
      */
-    default CteReturnEvent deliveryReceipt(String accessKey, String base64Image, String document, String name, String lat, String lon, Collection<String> deliveryAcessKey) throws ProcessException, SoapServiceGeneralException, ValidationException, NoProviderFound, SecurityException {
+    default CteReturnEvent deliveryReceipt(String accessKey, String base64Image, String document, String name, String lat, String lon, Collection<String> deliveryAcessKey) throws CircuitBreakerException, ProcessException, SoapServiceGeneralException, ValidationException, NoProviderFound, SecurityException {
         CteReturnQuerySituation querySituation = getCteQuerySituationService().querySituation(accessKey);
         return deliveryReceipt(accessKey, querySituation.getProtCTe().protocol(), querySituation.getLastSequenceNumberAsString(CteEvent.DELIVERY_RECEIPT.getCode()), base64Image, document, name, lat, lon, deliveryAcessKey);
     }

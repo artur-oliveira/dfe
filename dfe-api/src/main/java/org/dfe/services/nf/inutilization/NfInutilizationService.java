@@ -1,14 +1,18 @@
 package org.dfe.services.nf.inutilization;
 
 import br.inf.portalfiscal.nfe.send.TInutNFe;
+import br.inf.portalfiscal.nfe.send.TRetInutNFe;
 import org.dfe.enums.internal.Environment;
 import org.dfe.enums.internal.Model;
 import org.dfe.enums.nf.NFEvent;
+import org.dfe.exceptions.CircuitBreakerException;
 import org.dfe.exceptions.ProcessException;
 import org.dfe.exceptions.ValidationException;
 import org.dfe.exceptions.port.SoapServiceGeneralException;
 import org.dfe.exceptions.security.SecurityException;
 import org.dfe.exceptions.services.NoProviderFound;
+import org.dfe.interfaces.circuitbreaker.DfeOperation;
+import org.dfe.interfaces.internal.Pair;
 import org.dfe.interfaces.internal.config.NfConfig;
 import org.dfe.interfaces.sefaz.nf.common.NfCommonService;
 import org.dfe.interfaces.services.NfSefazService;
@@ -29,18 +33,24 @@ public interface NfInutilizationService extends NfSefazService {
      * @param inutNFe The object that contains the data to be sent to the SEFAZ.
      * @return ReturnNfeInut
      */
-    default ReturnNfeInut inutilization(TInutNFe inutNFe) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default ReturnNfeInut inutilization(TInutNFe inutNFe) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         NfConfig config = getConfig().withEnviroment(inutNFe.getInfInut().getTpAmb());
-        return ReturnNfeInut.builder().build().fromObject(getService(config.environment())
-                .inutilization(NfeInutRequest
-                        .builder()
-                        .data(inutNFe)
-                        .config(config).signer(getXmlSigner())
-                        .validators(getValidator().inutValidators())
-                        .afterRequest(getProcess().afterInutilization())
-                        .beforeRequest(getProcess().beforeInutilization())
-                        .configureProvider(getConfigureProviderFactory())
-                        .build()));
+        NfCommonService service = getService(config.environment());
+        Pair<?, TRetInutNFe> res = getCircuitBreakerRegistry().get(
+                config.environment(),
+                getModel(),
+                config.webServiceUF(),
+                DfeOperation.INUTILIZATION
+        ).execute(() -> service.inutilization(NfeInutRequest
+                .builder()
+                .data(inutNFe)
+                .config(config).signer(getXmlSigner())
+                .validators(getValidator().inutValidators())
+                .afterRequest(getProcess().afterInutilization())
+                .beforeRequest(getProcess().beforeInutilization())
+                .configureProvider(getConfigureProviderFactory())
+                .build()));
+        return new ReturnNfeInut().fromObject(res);
     }
 
     /**
@@ -49,7 +59,7 @@ public interface NfInutilizationService extends NfSefazService {
      * @param inut NfeInut object
      * @return The return is a ReturnNfeInut object, which contains the XML of the response from the SEFAZ.
      */
-    default ReturnNfeInut inutilization(NfeInut inut) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default ReturnNfeInut inutilization(NfeInut inut) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return inutilization(inut.toObject());
     }
 
@@ -64,7 +74,7 @@ public interface NfInutilizationService extends NfSefazService {
      * @param motive The reason for the inutilization.
      * @return ReturnNfeInut
      */
-    default ReturnNfeInut inutilization(Model model, Number ano, Number serie, Number start, Number end, String motive) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default ReturnNfeInut inutilization(Model model, Number ano, Number serie, Number start, Number end, String motive) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return inutilization(model, ano, serie, start, end, motive, getConfig().environment());
     }
 
@@ -82,7 +92,7 @@ public interface NfInutilizationService extends NfSefazService {
      * @return The return is the object of the type ReturnNfeInut, which contains the XML of the inutilization request and
      * the XML of the inutilization response.
      */
-    default ReturnNfeInut inutilization(Model model, Number ano, Number serie, Number start, Number end, String motive, Environment environment) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default ReturnNfeInut inutilization(Model model, Number ano, Number serie, Number start, Number end, String motive, Environment environment) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return inutilization(NfeInut
                 .builder()
                 .infInut(NfeInut.InfInut
@@ -109,11 +119,11 @@ public interface NfInutilizationService extends NfSefazService {
      * @param motive The reason for the inutilization.
      * @return ReturnNfeInut
      */
-    default ReturnNfeInut inutilization(Number ano, Number serie, Number start, Number end, String motive) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default ReturnNfeInut inutilization(Number ano, Number serie, Number start, Number end, String motive) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return inutilization(getModel(), ano, serie, start, end, motive, getConfig().environment());
     }
 
-    default ReturnNfeInut inutilization(Number ano, Number serie, Number start, Number end, String motive, Environment environment) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default ReturnNfeInut inutilization(Number ano, Number serie, Number start, Number end, String motive, Environment environment) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return inutilization(getModel(), ano, serie, start, end, motive, environment);
     }
 
@@ -126,7 +136,7 @@ public interface NfInutilizationService extends NfSefazService {
      * @param motive The reason for the inutilization.
      * @return ReturnNfeInut
      */
-    default ReturnNfeInut inutilization(Number serie, Number start, Number end, String motive) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default ReturnNfeInut inutilization(Number serie, Number start, Number end, String motive) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return inutilization(Year.now().get(ChronoField.YEAR), serie, start, end, motive);
     }
 
@@ -138,7 +148,7 @@ public interface NfInutilizationService extends NfSefazService {
      * @param end   End of the range of numbers to be canceled.
      * @return ReturnNfeInut
      */
-    default ReturnNfeInut inutilization(Number serie, Number start, Number end) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default ReturnNfeInut inutilization(Number serie, Number start, Number end) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return inutilization(getModel(), Year.now().get(ChronoField.YEAR), serie, start, end, NFEvent.INUTILIZATION.getDefaultMessage());
     }
 
@@ -149,7 +159,7 @@ public interface NfInutilizationService extends NfSefazService {
      * @param number The number of the first NFe to be canceled.
      * @return ReturnNfeInut
      */
-    default ReturnNfeInut inutilization(Number serie, Number number) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default ReturnNfeInut inutilization(Number serie, Number number) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return inutilization(serie, number, number);
     }
 
@@ -161,7 +171,7 @@ public interface NfInutilizationService extends NfSefazService {
      * @param motive The reason for the inutilization.
      * @return ReturnNfeInut
      */
-    default ReturnNfeInut inutilization(Number serie, Number number, String motive) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default ReturnNfeInut inutilization(Number serie, Number number, String motive) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return inutilization(serie, number, number, motive);
     }
 
@@ -172,7 +182,7 @@ public interface NfInutilizationService extends NfSefazService {
      *
      * @return The service object.
      */
-    NfCommonService getService(Environment environment) throws NoProviderFound, SoapServiceGeneralException;
+    NfCommonService getService(Environment environment) throws CircuitBreakerException, NoProviderFound, SoapServiceGeneralException;
 
     /**
      * Returns the validator used by this class

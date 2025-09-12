@@ -11,9 +11,9 @@ import java.util.Map;
 
 
 /**
- * <p>Java class for nfeMonitoria complex type.
+ * <p>Java class for nfeMonitoria complex type</p>.
  *
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
  *
  * <pre>{@code
  * <complexType name="nfeMonitoria">
@@ -28,6 +28,8 @@ import java.util.Map;
  *   </complexContent>
  * </complexType>
  * }</pre>
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "nfeMonitoria", propOrder = {
@@ -46,6 +48,7 @@ public class NfeMonitoria {
      *
      * @return possible object is
      * {@link String }
+     *
      */
     public String getNomeServidor() {
         return nomeServidor;
@@ -56,6 +59,7 @@ public class NfeMonitoria {
      *
      * @param value allowed object is
      *              {@link String }
+     *
      */
     public void setNomeServidor(String value) {
         this.nomeServidor = value;
@@ -66,6 +70,7 @@ public class NfeMonitoria {
      *
      * @return possible object is
      * {@link String }
+     *
      */
     public String getDhServidor() {
         return dhServidor;
@@ -76,6 +81,7 @@ public class NfeMonitoria {
      *
      * @param value allowed object is
      *              {@link String }
+     *
      */
     public void setDhServidor(String value) {
         this.dhServidor = value;

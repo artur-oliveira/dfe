@@ -27,7 +27,7 @@ public abstract class StoreProcAuthorizationNfe implements AfterAuthorization {
                     getStorage().storeProcNfe(new XMLStore<>(proc, data.config(), NfMarshallerFactory.getInstance().procNfe(proc)));
                 }
             }
-        } else {
+        } else if (Objects.nonNull(data.response())) {
             log.warn(Objects.requireNonNull(data.response()).getXMotivo());
             if (Objects.nonNull(data.response().getProtNFe()) && Objects.nonNull(data.response().getProtNFe().getInfProt()))
                 log.warn(data.response().getProtNFe().getInfProt().getXMotivo());

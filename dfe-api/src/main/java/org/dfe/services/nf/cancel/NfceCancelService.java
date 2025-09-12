@@ -1,6 +1,7 @@
 package org.dfe.services.nf.cancel;
 
 import org.dfe.enums.internal.Environment;
+import org.dfe.enums.internal.Model;
 import org.dfe.exceptions.port.SoapServiceGeneralException;
 import org.dfe.exceptions.services.NoProviderFound;
 import org.dfe.interfaces.internal.config.NfceConfig;
@@ -19,6 +20,11 @@ public interface NfceCancelService extends NfCancelService {
     @Override
     default NfCommonValidator getValidator() {
         return getValidatorFactory().nfeValidator();
+    }
+
+    @Override
+    default Model getModel() {
+        return Model.NFCE;
     }
 
     @Override

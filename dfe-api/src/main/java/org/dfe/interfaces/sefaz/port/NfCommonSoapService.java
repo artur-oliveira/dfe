@@ -25,7 +25,7 @@ public interface NfCommonSoapService extends CommonSoapService {
      *
      * @return A function that takes a type parameter T and returns a value of type T.
      */
-    <T> T prodCancel();
+    <T> T prodEvent();
 
 
     /**
@@ -33,7 +33,7 @@ public interface NfCommonSoapService extends CommonSoapService {
      *
      * @return A function that takes a type parameter T and returns a value of type T.
      */
-    <T> T homCancel();
+    <T> T homEvent();
 
 
     /**

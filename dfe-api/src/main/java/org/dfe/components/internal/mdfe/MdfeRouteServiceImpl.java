@@ -1,9 +1,9 @@
 package org.dfe.components.internal.mdfe;
 
-import org.dfe.enums.internal.UF;
-import org.dfe.models.internal.mdfe.RouteLocator;
 import lombok.AccessLevel;
 import lombok.Getter;
+import org.dfe.enums.internal.UF;
+import org.dfe.models.internal.mdfe.RouteLocator;
 
 import java.util.*;
 

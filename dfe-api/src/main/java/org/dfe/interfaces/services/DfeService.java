@@ -1,5 +1,6 @@
 package org.dfe.interfaces.services;
 
+import org.dfe.enums.internal.nf.NfeAuthorizer;
 import org.dfe.exceptions.port.SoapServiceGeneralException;
 import org.dfe.exceptions.services.NoProviderFound;
 import org.dfe.interfaces.internal.config.CteConfig;
@@ -18,16 +19,10 @@ import org.dfe.interfaces.sefaz.nf.nfe.NfeService;
  * there is a general SOAP service exception.
  */
 public interface DfeService {
-    /**
-     * This function returns an instance of the NfeService class, which is the class that will be used to make the
-     * requests to the webservice
-     *
-     * @param config NfConfig object
-     * @return The NfeService object.
-     * @throws NoProviderFound             NoProviderFound
-     * @throws SoapServiceGeneralException SoapServiceGeneralException
-     */
+
     NfeService getNfeService(NfeConfig config) throws NoProviderFound, SoapServiceGeneralException;
+
+    NfeService getNfeService(NfeConfig config, NfeAuthorizer nfeAuthorizer) throws NoProviderFound, SoapServiceGeneralException;
 
     /**
      * This function returns an instance of the NFCe service

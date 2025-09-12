@@ -238,6 +238,12 @@ public final class DateUtils {
                 .toLocalDateTime();
     }
 
+    public static LocalDate localDate(Instant f) {
+        return f
+                .atZone(ZoneId.systemDefault())
+                .toLocalDate();
+    }
+
     public static LocalDate localDate(Date f) {
         return f
                 .toInstant()

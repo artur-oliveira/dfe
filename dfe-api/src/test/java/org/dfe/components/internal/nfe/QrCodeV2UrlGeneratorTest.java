@@ -42,7 +42,7 @@ class QrCodeV2UrlGeneratorTest {
 
     @Test
     public void testGenerateAcProd() throws Exception {
-        assertEquals("http://www.sefaznet.ac.gov.br/nfce/qrcode?p=99999999999999999999999999999999999999999999|2|1|1|C6536E73BCE16DA57234BD0EF9CF1D9BE21CF69D",
+        assertEquals("http://hml.sefaznet.ac.gov.br/nfce/qrcode?p=99999999999999999999999999999999999999999999|2|1|1|C6536E73BCE16DA57234BD0EF9CF1D9BE21CF69D",
                 new QrCodeV2UrlGenerator().generate(
                         UF.valueOfCode("AC").getCode(),
                         "99999999999999999999999999999999999999999999",
@@ -74,7 +74,7 @@ class QrCodeV2UrlGeneratorTest {
 
     @Test
     public void testGenerateApProd() throws Exception {
-        assertEquals("https://www.sefaz.ap.gov.br/nfce/nfcep.php?p=99999999999999999999999999999999999999999999|2|1|1|C6536E73BCE16DA57234BD0EF9CF1D9BE21CF69D",
+        assertEquals("https://www.sefaz.ap.gov.br/nfce/nfce.php?p=99999999999999999999999999999999999999999999|2|1|1|C6536E73BCE16DA57234BD0EF9CF1D9BE21CF69D",
                 new QrCodeV2UrlGenerator().generate(
                         UF.valueOfCode("AP").getCode(),
                         "99999999999999999999999999999999999999999999",
@@ -90,7 +90,7 @@ class QrCodeV2UrlGeneratorTest {
 
     @Test
     public void testGenerateAmProd() throws Exception {
-        assertEquals("https://sistemas.sefaz.am.gov.br/nfceweb/consultarNFCe.jsp?p=99999999999999999999999999999999999999999999|2|1|1|C6536E73BCE16DA57234BD0EF9CF1D9BE21CF69D",
+        assertEquals("http://sistemas.sefaz.am.gov.br/nfceweb/consultarNFCe.jsp?p=99999999999999999999999999999999999999999999|2|1|1|C6536E73BCE16DA57234BD0EF9CF1D9BE21CF69D",
                 new QrCodeV2UrlGenerator().generate(
                         UF.valueOfCode("AM").getCode(),
                         "99999999999999999999999999999999999999999999",
@@ -106,7 +106,7 @@ class QrCodeV2UrlGeneratorTest {
 
     @Test
     public void testGenerateBaProd() throws Exception {
-        assertEquals("http://nfe.sefaz.ba.gov.br/servicos/nfce/qrcode.aspx?p=99999999999999999999999999999999999999999999|2|1|1|C6536E73BCE16DA57234BD0EF9CF1D9BE21CF69D",
+        assertEquals("http://nfe.sefaz.ba.gov.br/servicos/nfce/modulos/geral/NFCEC_consulta_chave_acesso.aspx?p=99999999999999999999999999999999999999999999|2|1|1|C6536E73BCE16DA57234BD0EF9CF1D9BE21CF69D",
                 new QrCodeV2UrlGenerator().generate(
                         UF.valueOfCode("BA").getCode(),
                         "99999999999999999999999999999999999999999999",
@@ -122,7 +122,7 @@ class QrCodeV2UrlGeneratorTest {
 
     @Test
     public void testGenerateDfProd() throws Exception {
-        assertEquals("http://www.fazenda.df.gov.br/nfce/qrcode?p=99999999999999999999999999999999999999999999|2|1|1|C6536E73BCE16DA57234BD0EF9CF1D9BE21CF69D",
+        assertEquals("http://dec.fazenda.df.gov.br/ConsultarNFCe.aspx?p=99999999999999999999999999999999999999999999|2|1|1|C6536E73BCE16DA57234BD0EF9CF1D9BE21CF69D",
                 new QrCodeV2UrlGenerator().generate(
                         UF.valueOfCode("DF").getCode(),
                         "99999999999999999999999999999999999999999999",
@@ -138,7 +138,7 @@ class QrCodeV2UrlGeneratorTest {
 
     @Test
     public void testGenerateEsProd() throws Exception {
-        assertEquals("http://app.sefaz.es.gov.br/ConsultaNFCe/?p=99999999999999999999999999999999999999999999|2|1|1|C6536E73BCE16DA57234BD0EF9CF1D9BE21CF69D",
+        assertEquals("http://app.sefaz.es.gov.br/ConsultaNFCe/qrcode.aspx?p=99999999999999999999999999999999999999999999|2|1|1|C6536E73BCE16DA57234BD0EF9CF1D9BE21CF69D",
                 new QrCodeV2UrlGenerator().generate(
                         UF.valueOfCode("ES").getCode(),
                         "99999999999999999999999999999999999999999999",
@@ -154,7 +154,7 @@ class QrCodeV2UrlGeneratorTest {
 
     @Test
     public void testGenerateGoProd() throws Exception {
-        assertEquals("http://nfe.sefaz.go.gov.br/nfeweb/sites/nfce/danfeNFCe?p=99999999999999999999999999999999999999999999|2|1|1|C6536E73BCE16DA57234BD0EF9CF1D9BE21CF69D",
+        assertEquals("https://nfeweb.sefaz.go.gov.br/nfeweb/sites/nfce/danfeNFCe?p=99999999999999999999999999999999999999999999|2|1|1|C6536E73BCE16DA57234BD0EF9CF1D9BE21CF69D",
                 new QrCodeV2UrlGenerator().generate(
                         UF.valueOfCode("GO").getCode(),
                         "99999999999999999999999999999999999999999999",
@@ -170,7 +170,7 @@ class QrCodeV2UrlGeneratorTest {
 
     @Test
     public void testGenerateMaProd() throws Exception {
-        assertEquals("nfce.sefaz.ma.gov.br/portal/consultarNFCe.jsp?p=99999999999999999999999999999999999999999999|2|1|1|C6536E73BCE16DA57234BD0EF9CF1D9BE21CF69D",
+        assertEquals("http://www.nfce.sefaz.ma.gov.br/portal/consultarNFCe.jsp?p=99999999999999999999999999999999999999999999|2|1|1|C6536E73BCE16DA57234BD0EF9CF1D9BE21CF69D",
                 new QrCodeV2UrlGenerator().generate(
                         UF.valueOfCode("MA").getCode(),
                         "99999999999999999999999999999999999999999999",
@@ -282,7 +282,7 @@ class QrCodeV2UrlGeneratorTest {
 
     @Test
     public void testGeneratePeProd() throws Exception {
-        assertEquals("http://nfce.sefaz.pe.gov.br/nfce/consulta?p=99999999999999999999999999999999999999999999|2|1|1|C6536E73BCE16DA57234BD0EF9CF1D9BE21CF69D",
+        assertEquals("http://nfce.sefaz.pe.gov.br/nfce-web/consultarNFCe?p=99999999999999999999999999999999999999999999|2|1|1|C6536E73BCE16DA57234BD0EF9CF1D9BE21CF69D",
                 new QrCodeV2UrlGenerator().generate(
                         UF.valueOfCode("PE").getCode(),
                         "99999999999999999999999999999999999999999999",
@@ -410,7 +410,7 @@ class QrCodeV2UrlGeneratorTest {
 
     @Test
     public void testGenerateSpProd() throws Exception {
-        assertEquals("https://www.nfce.fazenda.sp.gov.br/qrcode?p=99999999999999999999999999999999999999999999|2|1|1|C6536E73BCE16DA57234BD0EF9CF1D9BE21CF69D",
+        assertEquals("https://www.nfce.fazenda.sp.gov.br/NFCeConsultaPublica/Paginas/ConsultaQRCode.aspx?p=99999999999999999999999999999999999999999999|2|1|1|C6536E73BCE16DA57234BD0EF9CF1D9BE21CF69D",
                 new QrCodeV2UrlGenerator().generate(
                         UF.valueOfCode("SP").getCode(),
                         "99999999999999999999999999999999999999999999",
@@ -458,7 +458,7 @@ class QrCodeV2UrlGeneratorTest {
 
     @Test
     void testGenerateAcHom() throws Exception {
-        assertEquals("http://www.hml.sefaznet.ac.gov.br/nfce/qrcode?p=99999999999999999999999999999999999999999999|2|2|1|4702544D418BC2078B1D10DB34A1EC239C1DA2E3",
+        assertEquals("http://hml.sefaznet.ac.gov.br/nfce/qrcode?p=99999999999999999999999999999999999999999999|2|2|1|4702544D418BC2078B1D10DB34A1EC239C1DA2E3",
                 new QrCodeV2UrlGenerator().generate(
                         UF.valueOfCode("AC").getCode(),
                         "99999999999999999999999999999999999999999999",
@@ -506,7 +506,7 @@ class QrCodeV2UrlGeneratorTest {
 
     @Test
     void testGenerateAmHom() throws Exception {
-        assertEquals("https://sistemas.sefaz.am.gov.br/nfceweb-hom/consultarNFCe.jsp?p=99999999999999999999999999999999999999999999|2|2|1|4702544D418BC2078B1D10DB34A1EC239C1DA2E3",
+        assertEquals("http://homnfce.sefaz.am.gov.br/nfceweb/consultarNFCe.jsp?p=99999999999999999999999999999999999999999999|2|2|1|4702544D418BC2078B1D10DB34A1EC239C1DA2E3",
                 new QrCodeV2UrlGenerator().generate(
                         UF.valueOfCode("AM").getCode(),
                         "99999999999999999999999999999999999999999999",
@@ -522,7 +522,7 @@ class QrCodeV2UrlGeneratorTest {
 
     @Test
     void testGenerateBaHom() throws Exception {
-        assertEquals("http://hnfe.sefaz.ba.gov.br/servicos/nfce/qrcode.aspx?p=99999999999999999999999999999999999999999999|2|2|1|4702544D418BC2078B1D10DB34A1EC239C1DA2E3",
+        assertEquals("http://hnfe.sefaz.ba.gov.br/servicos/nfce/modulos/geral/NFCEC_consulta_chave_acesso.aspx?p=99999999999999999999999999999999999999999999|2|2|1|4702544D418BC2078B1D10DB34A1EC239C1DA2E3",
                 new QrCodeV2UrlGenerator().generate(
                         UF.valueOfCode("BA").getCode(),
                         "99999999999999999999999999999999999999999999",
@@ -538,7 +538,7 @@ class QrCodeV2UrlGeneratorTest {
 
     @Test
     void testGenerateDfHom() throws Exception {
-        assertEquals("http://www.fazenda.df.gov.br/nfce/qrcode?p=99999999999999999999999999999999999999999999|2|2|1|4702544D418BC2078B1D10DB34A1EC239C1DA2E3",
+        assertEquals("http://dec.fazenda.df.gov.br/ConsultarNFCe.aspx?p=99999999999999999999999999999999999999999999|2|2|1|4702544D418BC2078B1D10DB34A1EC239C1DA2E3",
                 new QrCodeV2UrlGenerator().generate(
                         UF.valueOfCode("DF").getCode(),
                         "99999999999999999999999999999999999999999999",
@@ -554,7 +554,7 @@ class QrCodeV2UrlGeneratorTest {
 
     @Test
     void testGenerateEsHom() throws Exception {
-        assertEquals("http://homologacao.sefaz.es.gov.br/ConsultaNFCe?p=99999999999999999999999999999999999999999999|2|2|1|4702544D418BC2078B1D10DB34A1EC239C1DA2E3",
+        assertEquals("http://homologacao.sefaz.es.gov.br/ConsultaNFCe/qrcode.aspx?p=99999999999999999999999999999999999999999999|2|2|1|4702544D418BC2078B1D10DB34A1EC239C1DA2E3",
                 new QrCodeV2UrlGenerator().generate(
                         UF.valueOfCode("ES").getCode(),
                         "99999999999999999999999999999999999999999999",
@@ -570,7 +570,7 @@ class QrCodeV2UrlGeneratorTest {
 
     @Test
     void testGenerateGoHom() throws Exception {
-        assertEquals("http://homolog.sefaz.go.gov.br/nfeweb/sites/nfce/danfeNFCe?p=99999999999999999999999999999999999999999999|2|2|1|4702544D418BC2078B1D10DB34A1EC239C1DA2E3",
+        assertEquals("https://nfewebhomolog.sefaz.go.gov.br/nfeweb/sites/nfce/danfeNFCe?p=99999999999999999999999999999999999999999999|2|2|1|4702544D418BC2078B1D10DB34A1EC239C1DA2E3",
                 new QrCodeV2UrlGenerator().generate(
                         UF.valueOfCode("GO").getCode(),
                         "99999999999999999999999999999999999999999999",
@@ -586,7 +586,7 @@ class QrCodeV2UrlGeneratorTest {
 
     @Test
     void testGenerateMaHom() throws Exception {
-        assertEquals("homologacao.sefaz.ma.gov.br/portal/consultarNFCe.jsp?p=99999999999999999999999999999999999999999999|2|2|1|4702544D418BC2078B1D10DB34A1EC239C1DA2E3",
+        assertEquals("http://www.hom.nfce.sefaz.ma.gov.br/portal/consultarNFCe.jsp?p=99999999999999999999999999999999999999999999|2|2|1|4702544D418BC2078B1D10DB34A1EC239C1DA2E3",
                 new QrCodeV2UrlGenerator().generate(
                         UF.valueOfCode("MA").getCode(),
                         "99999999999999999999999999999999999999999999",
@@ -698,7 +698,7 @@ class QrCodeV2UrlGeneratorTest {
 
     @Test
     void testGeneratePeHom() throws Exception {
-        assertEquals("http://nfcehomolog.sefaz.pe.gov.br/nfce/consulta?p=99999999999999999999999999999999999999999999|2|2|1|4702544D418BC2078B1D10DB34A1EC239C1DA2E3",
+        assertEquals("http://nfcehomolog.sefaz.pe.gov.br/nfce-web/consultarNFCe?p=99999999999999999999999999999999999999999999|2|2|1|4702544D418BC2078B1D10DB34A1EC239C1DA2E3",
                 new QrCodeV2UrlGenerator().generate(
                         UF.valueOfCode("PE").getCode(),
                         "99999999999999999999999999999999999999999999",
@@ -826,7 +826,7 @@ class QrCodeV2UrlGeneratorTest {
 
     @Test
     void testGenerateSpHom() throws Exception {
-        assertEquals("https://www.homologacao.nfce.fazenda.sp.gov.br/qrcode?p=99999999999999999999999999999999999999999999|2|2|1|4702544D418BC2078B1D10DB34A1EC239C1DA2E3",
+        assertEquals("https://www.homologacao.nfce.fazenda.sp.gov.br/NFCeConsultaPublica/Paginas/ConsultaQRCode.aspx?p=99999999999999999999999999999999999999999999|2|2|1|4702544D418BC2078B1D10DB34A1EC239C1DA2E3",
                 new QrCodeV2UrlGenerator().generate(
                         UF.valueOfCode("SP").getCode(),
                         "99999999999999999999999999999999999999999999",
@@ -863,6 +863,39 @@ class QrCodeV2UrlGeneratorTest {
                         UF.valueOfCode("TO").getCode(),
                         "99999999999999999999999999999999999999999999",
                         "2",
+                        "1",
+                        null,
+                        null,
+                        null,
+                        "1",
+                        "99999999999999999999"
+                ));
+    }
+
+
+    @Test
+    void testGenerateCeHom() throws Exception {
+        assertEquals("http://nfceh.sefaz.ce.gov.br/pages/ShowNFCe.html?p=99999999999999999999999999999999999999999999|2|2|1|4702544D418BC2078B1D10DB34A1EC239C1DA2E3",
+                new QrCodeV2UrlGenerator().generate(
+                        UF.valueOfCode("CE").getCode(),
+                        "99999999999999999999999999999999999999999999",
+                        "2",
+                        "1",
+                        null,
+                        null,
+                        null,
+                        "1",
+                        "99999999999999999999"
+                ));
+    }
+
+    @Test
+    void testGenerateCeProd() throws Exception {
+        assertEquals("http://nfce.sefaz.ce.gov.br/pages/ShowNFCe.html?p=99999999999999999999999999999999999999999999|2|1|1|C6536E73BCE16DA57234BD0EF9CF1D9BE21CF69D",
+                new QrCodeV2UrlGenerator().generate(
+                        UF.valueOfCode("CE").getCode(),
+                        "99999999999999999999999999999999999999999999",
+                        "1",
                         "1",
                         null,
                         null,

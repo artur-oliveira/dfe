@@ -1,8 +1,8 @@
 package org.dfe.components.validation.mdfe;
 
-import org.dfe.interfaces.validation.mdfe.*;
 import lombok.AccessLevel;
 import lombok.Getter;
+import org.dfe.interfaces.validation.mdfe.*;
 
 import java.util.Collection;
 import java.util.Collections;

@@ -1,9 +1,8 @@
 package org.dfe.exceptions.xml;
 
-import org.dfe.exceptions.ValidationException;
 import lombok.Getter;
 import lombok.extern.log4j.Log4j2;
-import org.xml.sax.SAXException;
+import org.dfe.exceptions.ValidationException;
 
 /**
  * The class XSDValidationException extends the ValidationException class in Java.
@@ -12,19 +11,23 @@ import org.xml.sax.SAXException;
 @Log4j2
 public class XSDValidationException extends ValidationException {
 
-    private String xml;
+    private final String xml;
+    private final String tag;
+    private final String value;
 
     public XSDValidationException(Exception e) {
-        this(e, null);
+        this(e, null, null, null);
     }
 
     public XSDValidationException(Exception e, String xml) {
-        super(e);
-        this.xml = xml;
+        this(e, xml, null, null);
     }
 
-    public XSDValidationException(SAXException ex, String xml) {
-        super(ex.getMessage());
+
+    public XSDValidationException(Exception e, String xml, String tag, String value) {
+        super(e);
         this.xml = xml;
+        this.tag = tag;
+        this.value = value;
     }
 }

@@ -16,7 +16,7 @@ public interface NfCommonValidator {
      *
      * @return A collection of NfCancelValidator objects.
      */
-    Collection<NfCancelValidator> cancelValidators();
+    Collection<NfEventValidator> eventValidators();
 
     /**
      * This function returns a collection of authorization validators that will be used to validate the authorization of

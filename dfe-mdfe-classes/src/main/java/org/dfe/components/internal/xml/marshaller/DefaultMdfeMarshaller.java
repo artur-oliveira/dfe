@@ -3,13 +3,13 @@ package org.dfe.components.internal.xml.marshaller;
 import br.inf.portalfiscal.mdfe.classes.*;
 import br.inf.portalfiscal.mdfe.distribution.DistDFeInt;
 import br.inf.portalfiscal.mdfe.distribution.RetDistDFeInt;
+import jakarta.xml.bind.JAXBException;
+import jakarta.xml.bind.Marshaller;
 import org.dfe.components.internal.xml.context.MdfeContextFactory;
 import org.dfe.components.internal.xml.objectfactory.MdfeObjectFactoryWrapperFactory;
 import org.dfe.exceptions.xml.MarshallException;
 import org.dfe.util.XMLStringUtils;
 import org.dfe.util.XMLUtils;
-import jakarta.xml.bind.JAXBException;
-import jakarta.xml.bind.Marshaller;
 import org.w3c.dom.Element;
 
 import javax.xml.transform.dom.DOMSource;
@@ -51,7 +51,7 @@ final class DefaultMdfeMarshaller extends MdfeMarshallerFactory {
         try {
             try (StringWriter sw = new StringWriter()) {
                 XMLUtils.getTransformer().transform(new DOMSource(element), new StreamResult(sw));
-                return XMLStringUtils.cleanNamespace(sw.toString());
+                return XMLStringUtils.cleanNamespace(sw.toString(), "http://www.portalfiscal.inf.br/mdfe");
             }
         } catch (Exception e) {
             throw new MarshallException(e);

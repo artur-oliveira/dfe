@@ -2,11 +2,16 @@
 <wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
                   xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
                   xmlns:tns="http://www.portalfiscal.inf.br/nfe/wsdl/NFeRetAutorizacao4"
+                  xmlns:jaxws="https://jakarta.ee/xml/ns/jaxws"
                   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
                   targetNamespace="http://www.portalfiscal.inf.br/nfe/wsdl/NFeRetAutorizacao4">
-    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Serviço destinado a retornar o resultado do
+    <wsdl:documentation xmlns:jaxws="https://jakarta.ee/xml/ns/jaxws"
+                        xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Serviço destinado a retornar o resultado do
         processamento do lote de NFC-e.
     </wsdl:documentation>
+    <jaxws:bindings>
+        <jaxws:enableAsyncMapping>true</jaxws:enableAsyncMapping>
+    </jaxws:bindings>
     <wsdl:types>
         <s:schema elementFormDefault="qualified"
                   targetNamespace="http://www.portalfiscal.inf.br/nfe/wsdl/NFeRetAutorizacao4">
@@ -34,7 +39,9 @@
     </wsdl:message>
     <wsdl:portType name="NFeRetAutorizacao4Soap12">
         <wsdl:operation name="nfeRetAutorizacaoLote">
-            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta Processamento de Lote de NF-e
+            <wsdl:documentation xmlns:jaxws="https://jakarta.ee/xml/ns/jaxws"
+
+                                xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta Processamento de Lote de NF-e
             </wsdl:documentation>
             <wsdl:input message="tns:nfeRetAutorizacaoLoteSoap12In"/>
             <wsdl:output message="tns:nfeRetAutorizacaoLoteSoap12Out"/>
@@ -55,7 +62,8 @@
         </wsdl:operation>
     </wsdl:binding>
     <wsdl:service name="NFeRetAutorizacao4">
-        <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Serviço destinado a retornar o resultado do
+        <wsdl:documentation xmlns:jaxws="https://jakarta.ee/xml/ns/jaxws"
+                            xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Serviço destinado a retornar o resultado do
             processamento do lote de NFC-e.
         </wsdl:documentation>
         <wsdl:port name="NFeRetAutorizacao4Soap12" binding="tns:NFeRetAutorizacao4Soap12">

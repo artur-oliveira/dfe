@@ -3,8 +3,12 @@
                   xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
                   xmlns:tns="http://www.portalfiscal.inf.br/nfe/wsdl/NFeStatusServico4"
                   xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:jaxws="https://jakarta.ee/xml/ns/jaxws"
                   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
                   targetNamespace="http://www.portalfiscal.inf.br/nfe/wsdl/NFeStatusServico4">
+    <jaxws:bindings>
+        <jaxws:enableAsyncMapping>true</jaxws:enableAsyncMapping>
+    </jaxws:bindings>
     <wsdl:types>
         <s:schema elementFormDefault="qualified"
                   targetNamespace="http://www.portalfiscal.inf.br/nfe/wsdl/NFeStatusServico4">
@@ -32,7 +36,9 @@
     </wsdl:message>
     <wsdl:portType name="NFeStatusServico4Soap">
         <wsdl:operation name="nfeStatusServicoNF">
-            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Serviço destinado à consulta do status do
+            <wsdl:documentation
+                    xmlns:jaxws="https://jakarta.ee/xml/ns/jaxws"
+                    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Serviço destinado à consulta do status do
                 serviço da NF-e.
             </wsdl:documentation>
             <wsdl:input message="tns:nfeStatusServicoNFSoapIn"/>

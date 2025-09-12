@@ -1,14 +1,14 @@
 package org.dfe.components.internal.config;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.SneakyThrows;
 import org.dfe.enums.cte.identification.CteEmissionType;
 import org.dfe.enums.internal.Environment;
 import org.dfe.enums.internal.UF;
 import org.dfe.exceptions.security.SSLContextException;
 import org.dfe.interfaces.internal.KeyStoreInfo;
 import org.dfe.interfaces.internal.config.CteConfig;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.SneakyThrows;
 
 import java.util.Objects;
 

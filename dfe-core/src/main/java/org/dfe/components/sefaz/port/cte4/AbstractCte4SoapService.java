@@ -67,6 +67,23 @@ public abstract class AbstractCte4SoapService extends AbstractSoapService implem
         this.homStatusService = Optional.ofNullable(abstractCte4SoapService.homStatusService).orElse(this.homStatusService);
     }
 
+    void fullInitialization(Cte4SoapService o) {
+        safeInititialization(o::prodDistribution);
+        safeInititialization(o::homDistribution);
+        safeInititialization(o::prodEvent);
+        safeInititialization(o::homEvent);
+        safeInititialization(o::prodQuerySituation);
+        safeInititialization(o::homQuerySituation);
+        safeInititialization(o::prodReceptionGtve);
+        safeInititialization(o::homReceptionGtve);
+        safeInititialization(o::prodReceptionOs);
+        safeInititialization(o::homReceptionOs);
+        safeInititialization(o::prodReceptionSync);
+        safeInititialization(o::homReceptionSync);
+        safeInititialization(o::prodStatusService);
+        safeInititialization(o::homStatusService);
+    }
+
     public void initialize(Cte4SoapService o) {
         this.config = o.getConfig();
 
@@ -74,63 +91,8 @@ public abstract class AbstractCte4SoapService extends AbstractSoapService implem
             initializeDefault(abstractCte4SoapService);
         }
 
-        if (!LAZY_INITIALIZATION) {
-            try {
-                o.prodDistribution();
-            } catch (Exception ignored) {
-            }
-            try {
-                o.homDistribution();
-            } catch (Exception ignored) {
-            }
-            try {
-                o.prodEvent();
-            } catch (Exception ignored) {
-            }
-            try {
-                o.homEvent();
-            } catch (Exception ignored) {
-            }
-            try {
-                o.prodQuerySituation();
-            } catch (Exception ignored) {
-            }
-            try {
-                o.homQuerySituation();
-            } catch (Exception ignored) {
-            }
-            try {
-                o.prodReceptionGtve();
-            } catch (Exception ignored) {
-            }
-            try {
-                o.homReceptionGtve();
-            } catch (Exception ignored) {
-            }
-            try {
-                o.prodReceptionOs();
-            } catch (Exception ignored) {
-            }
-            try {
-                o.homReceptionOs();
-            } catch (Exception ignored) {
-            }
-            try {
-                o.prodReceptionSync();
-            } catch (Exception ignored) {
-            }
-            try {
-                o.homReceptionSync();
-            } catch (Exception ignored) {
-            }
-            try {
-                o.prodStatusService();
-            } catch (Exception ignored) {
-            }
-            try {
-                o.homStatusService();
-            } catch (Exception ignored) {
-            }
+        if (!Cte4SoapConfigurationProperties.LAZY_INITIALIZATION) {
+            fullInitialization(o);
         }
 
         SoapServiceProxy.getInstance().addCte4Service(this);
@@ -140,7 +102,7 @@ public abstract class AbstractCte4SoapService extends AbstractSoapService implem
     public void initialize(Config config) throws SSLContextException {
         HttpsURLConnection.setDefaultSSLSocketFactory(SocketFactory.getInstance().context(config).getSocketFactory());
 
-        if (!LAZY_INITIALIZATION) {
+        if (!Cte4SoapConfigurationProperties.LAZY_INITIALIZATION) {
             initialize(this);
         }
 
@@ -153,8 +115,11 @@ public abstract class AbstractCte4SoapService extends AbstractSoapService implem
         if (Objects.nonNull(getProdDistribution())) {
             return (T) getProdDistribution();
         }
-        setProdDistribution(newServiceInstance(SoapServiceMapping.getInstance().getCte4ServiceClassFor(Cte4ServiceFinder.builder().endpoint(Cte4PathEndpoint.DISTRIBUTION).authorizer(Cte4Authorizer.AN).environment(Environment.PRODUCTION).build())));
-        return (T) getProdDistribution();
+        Object o = newServiceInstance(SoapServiceMapping.getInstance().getCte4ServiceClassFor(Cte4ServiceFinder.builder().endpoint(Cte4PathEndpoint.DISTRIBUTION).authorizer(Cte4Authorizer.AN).environment(Environment.PRODUCTION).build()));
+        if (Cte4SoapConfigurationProperties.CACHE_PROD_DISTRIBUTION) {
+            setProdDistribution(o);
+        }
+        return (T) o;
     }
 
     @Override
@@ -162,8 +127,11 @@ public abstract class AbstractCte4SoapService extends AbstractSoapService implem
         if (Objects.nonNull(getHomDistribution())) {
             return (T) getHomDistribution();
         }
-        setHomDistribution(newServiceInstance(SoapServiceMapping.getInstance().getCte4ServiceClassFor(Cte4ServiceFinder.builder().endpoint(Cte4PathEndpoint.DISTRIBUTION).authorizer(Cte4Authorizer.AN).environment(Environment.HOMOLOGATION).build())));
-        return (T) getHomDistribution();
+        Object o = newServiceInstance(SoapServiceMapping.getInstance().getCte4ServiceClassFor(Cte4ServiceFinder.builder().endpoint(Cte4PathEndpoint.DISTRIBUTION).authorizer(Cte4Authorizer.AN).environment(Environment.HOMOLOGATION).build()));
+        if (Cte4SoapConfigurationProperties.CACHE_HOM_DISTRIBUTION) {
+            setHomDistribution(o);
+        }
+        return (T) o;
     }
 
     @Override
@@ -171,8 +139,11 @@ public abstract class AbstractCte4SoapService extends AbstractSoapService implem
         if (Objects.nonNull(getProdEvent())) {
             return (T) getProdEvent();
         }
-        setProdEvent(newServiceInstance(SoapServiceMapping.getInstance().getCte4ServiceClassFor(Cte4ServiceFinder.builder().endpoint(Cte4PathEndpoint.EVENT).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
-        return (T) getProdEvent();
+        Object o = newServiceInstance(SoapServiceMapping.getInstance().getCte4ServiceClassFor(Cte4ServiceFinder.builder().endpoint(Cte4PathEndpoint.EVENT).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build()));
+        if (Cte4SoapConfigurationProperties.CACHE_PROD_EVENT) {
+            setProdEvent(o);
+        }
+        return (T) o;
     }
 
     @Override
@@ -180,8 +151,11 @@ public abstract class AbstractCte4SoapService extends AbstractSoapService implem
         if (Objects.nonNull(getHomEvent())) {
             return (T) getHomEvent();
         }
-        setHomEvent(newServiceInstance(SoapServiceMapping.getInstance().getCte4ServiceClassFor(Cte4ServiceFinder.builder().endpoint(Cte4PathEndpoint.EVENT).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
-        return (T) getHomEvent();
+        Object o = newServiceInstance(SoapServiceMapping.getInstance().getCte4ServiceClassFor(Cte4ServiceFinder.builder().endpoint(Cte4PathEndpoint.EVENT).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build()));
+        if (Cte4SoapConfigurationProperties.CACHE_HOM_EVENT) {
+            setHomEvent(o);
+        }
+        return (T) o;
     }
 
     @Override
@@ -189,8 +163,11 @@ public abstract class AbstractCte4SoapService extends AbstractSoapService implem
         if (Objects.nonNull(getProdQuerySituation())) {
             return (T) getProdQuerySituation();
         }
-        setProdQuerySituation(newServiceInstance(SoapServiceMapping.getInstance().getCte4ServiceClassFor(Cte4ServiceFinder.builder().endpoint(Cte4PathEndpoint.QUERY_SITUATION).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
-        return (T) getProdQuerySituation();
+        Object o = newServiceInstance(SoapServiceMapping.getInstance().getCte4ServiceClassFor(Cte4ServiceFinder.builder().endpoint(Cte4PathEndpoint.QUERY_SITUATION).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build()));
+        if (Cte4SoapConfigurationProperties.CACHE_PROD_QUERY_SITUATION) {
+            setProdQuerySituation(o);
+        }
+        return (T) o;
     }
 
     @Override
@@ -198,8 +175,11 @@ public abstract class AbstractCte4SoapService extends AbstractSoapService implem
         if (Objects.nonNull(getHomQuerySituation())) {
             return (T) getHomQuerySituation();
         }
-        setHomQuerySituation(newServiceInstance(SoapServiceMapping.getInstance().getCte4ServiceClassFor(Cte4ServiceFinder.builder().endpoint(Cte4PathEndpoint.QUERY_SITUATION).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
-        return (T) getHomQuerySituation();
+        Object o = newServiceInstance(SoapServiceMapping.getInstance().getCte4ServiceClassFor(Cte4ServiceFinder.builder().endpoint(Cte4PathEndpoint.QUERY_SITUATION).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build()));
+        if (Cte4SoapConfigurationProperties.CACHE_HOM_QUERY_SITUATION) {
+            setHomQuerySituation(o);
+        }
+        return (T) o;
     }
 
     @Override
@@ -207,8 +187,11 @@ public abstract class AbstractCte4SoapService extends AbstractSoapService implem
         if (Objects.nonNull(getProdReceptionGtve())) {
             return (T) getProdReceptionGtve();
         }
-        setProdReceptionGtve(newServiceInstance(SoapServiceMapping.getInstance().getCte4ServiceClassFor(Cte4ServiceFinder.builder().endpoint(Cte4PathEndpoint.RECEPTION_GTVE).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
-        return (T) getProdReceptionGtve();
+        Object o = newServiceInstance(SoapServiceMapping.getInstance().getCte4ServiceClassFor(Cte4ServiceFinder.builder().endpoint(Cte4PathEndpoint.RECEPTION_GTVE).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build()));
+        if (Cte4SoapConfigurationProperties.CACHE_PROD_RECEPTION_GTVE) {
+            setProdReceptionGtve(o);
+        }
+        return (T) o;
     }
 
     @Override
@@ -216,8 +199,11 @@ public abstract class AbstractCte4SoapService extends AbstractSoapService implem
         if (Objects.nonNull(getHomReceptionGtve())) {
             return (T) getHomReceptionGtve();
         }
-        setHomReceptionGtve(newServiceInstance(SoapServiceMapping.getInstance().getCte4ServiceClassFor(Cte4ServiceFinder.builder().endpoint(Cte4PathEndpoint.RECEPTION_GTVE).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
-        return (T) getHomReceptionGtve();
+        Object o = newServiceInstance(SoapServiceMapping.getInstance().getCte4ServiceClassFor(Cte4ServiceFinder.builder().endpoint(Cte4PathEndpoint.RECEPTION_GTVE).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build()));
+        if (Cte4SoapConfigurationProperties.CACHE_HOM_RECEPTION_GTVE) {
+            setHomReceptionGtve(o);
+        }
+        return (T) o;
     }
 
     @Override
@@ -225,8 +211,11 @@ public abstract class AbstractCte4SoapService extends AbstractSoapService implem
         if (Objects.nonNull(getProdReceptionOs())) {
             return (T) getProdReceptionOs();
         }
-        setProdReceptionOs(newServiceInstance(SoapServiceMapping.getInstance().getCte4ServiceClassFor(Cte4ServiceFinder.builder().endpoint(Cte4PathEndpoint.RECEPTION_OS).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
-        return (T) getProdReceptionOs();
+        Object o = newServiceInstance(SoapServiceMapping.getInstance().getCte4ServiceClassFor(Cte4ServiceFinder.builder().endpoint(Cte4PathEndpoint.RECEPTION_OS).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build()));
+        if (Cte4SoapConfigurationProperties.CACHE_PROD_RECEPTION_OS) {
+            setProdReceptionOs(o);
+        }
+        return (T) o;
     }
 
     @Override
@@ -234,8 +223,11 @@ public abstract class AbstractCte4SoapService extends AbstractSoapService implem
         if (Objects.nonNull(getHomReceptionOs())) {
             return (T) getHomReceptionOs();
         }
-        setHomReceptionOs(newServiceInstance(SoapServiceMapping.getInstance().getCte4ServiceClassFor(Cte4ServiceFinder.builder().endpoint(Cte4PathEndpoint.RECEPTION_OS).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
-        return (T) getHomReceptionOs();
+        Object o = newServiceInstance(SoapServiceMapping.getInstance().getCte4ServiceClassFor(Cte4ServiceFinder.builder().endpoint(Cte4PathEndpoint.RECEPTION_OS).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build()));
+        if (Cte4SoapConfigurationProperties.CACHE_HOM_RECEPTION_OS) {
+            setHomReceptionOs(o);
+        }
+        return (T) o;
     }
 
     @Override
@@ -243,8 +235,11 @@ public abstract class AbstractCte4SoapService extends AbstractSoapService implem
         if (Objects.nonNull(getProdReceptionSync())) {
             return (T) getProdReceptionSync();
         }
-        setProdReceptionSync(newServiceInstance(SoapServiceMapping.getInstance().getCte4ServiceClassFor(Cte4ServiceFinder.builder().endpoint(Cte4PathEndpoint.RECEPTION_SYNC).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
-        return (T) getProdReceptionSync();
+        Object o = newServiceInstance(SoapServiceMapping.getInstance().getCte4ServiceClassFor(Cte4ServiceFinder.builder().endpoint(Cte4PathEndpoint.RECEPTION_SYNC).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build()));
+        if (Cte4SoapConfigurationProperties.CACHE_PROD_RECEPTION_SYNC) {
+            setProdReceptionSync(o);
+        }
+        return (T) o;
     }
 
     @Override
@@ -252,8 +247,11 @@ public abstract class AbstractCte4SoapService extends AbstractSoapService implem
         if (Objects.nonNull(getHomReceptionSync())) {
             return (T) getHomReceptionSync();
         }
-        setHomReceptionSync(newServiceInstance(SoapServiceMapping.getInstance().getCte4ServiceClassFor(Cte4ServiceFinder.builder().endpoint(Cte4PathEndpoint.RECEPTION_SYNC).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
-        return (T) getHomReceptionSync();
+        Object o = newServiceInstance(SoapServiceMapping.getInstance().getCte4ServiceClassFor(Cte4ServiceFinder.builder().endpoint(Cte4PathEndpoint.RECEPTION_SYNC).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build()));
+        if (Cte4SoapConfigurationProperties.CACHE_HOM_RECEPTION_SYNC) {
+            setHomReceptionSync(o);
+        }
+        return (T) o;
     }
 
     @Override
@@ -261,8 +259,11 @@ public abstract class AbstractCte4SoapService extends AbstractSoapService implem
         if (Objects.nonNull(getProdStatusService())) {
             return (T) getProdStatusService();
         }
-        setProdStatusService(newServiceInstance(SoapServiceMapping.getInstance().getCte4ServiceClassFor(Cte4ServiceFinder.builder().endpoint(Cte4PathEndpoint.STATUS_SERVICE).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build())));
-        return (T) getProdStatusService();
+        Object o = newServiceInstance(SoapServiceMapping.getInstance().getCte4ServiceClassFor(Cte4ServiceFinder.builder().endpoint(Cte4PathEndpoint.STATUS_SERVICE).authorizer(getAuthorizer()).environment(Environment.PRODUCTION).build()));
+        if (Cte4SoapConfigurationProperties.CACHE_PROD_STATUS_SERVICE) {
+            setProdStatusService(o);
+        }
+        return (T) o;
     }
 
     @Override
@@ -270,8 +271,11 @@ public abstract class AbstractCte4SoapService extends AbstractSoapService implem
         if (Objects.nonNull(getHomStatusService())) {
             return (T) getHomStatusService();
         }
-        setHomStatusService(newServiceInstance(SoapServiceMapping.getInstance().getCte4ServiceClassFor(Cte4ServiceFinder.builder().endpoint(Cte4PathEndpoint.STATUS_SERVICE).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build())));
-        return (T) getHomStatusService();
+        Object o = newServiceInstance(SoapServiceMapping.getInstance().getCte4ServiceClassFor(Cte4ServiceFinder.builder().endpoint(Cte4PathEndpoint.STATUS_SERVICE).authorizer(getAuthorizer()).environment(Environment.HOMOLOGATION).build()));
+        if (Cte4SoapConfigurationProperties.CACHE_HOM_STATUS_SERVICE) {
+            setHomStatusService(o);
+        }
+        return (T) o;
     }
 
     public abstract Cte4Authorizer getAuthorizer();

@@ -7,9 +7,9 @@ import java.util.List;
 
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>Java class for anonymous complex type</p>.
  *
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
  *
  * <pre>{@code
  * <complexType>
@@ -32,6 +32,8 @@ import java.util.List;
  *   </complexContent>
  * </complexType>
  * }</pre>
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
@@ -40,15 +42,16 @@ import java.util.List;
 @XmlRootElement(name = "cteDistDFeInteresse")
 public class CteDistDFeInteresse {
 
-    protected CteDistDFeInteresse.CteDadosMsg cteDadosMsg;
+    protected CteDadosMsg cteDadosMsg;
 
     /**
      * Gets the value of the cteDadosMsg property.
      *
      * @return possible object is
-     * {@link CteDistDFeInteresse.CteDadosMsg }
+     * {@link CteDadosMsg }
+     *
      */
-    public CteDistDFeInteresse.CteDadosMsg getCteDadosMsg() {
+    public CteDadosMsg getCteDadosMsg() {
         return cteDadosMsg;
     }
 
@@ -56,17 +59,18 @@ public class CteDistDFeInteresse {
      * Sets the value of the cteDadosMsg property.
      *
      * @param value allowed object is
-     *              {@link CteDistDFeInteresse.CteDadosMsg }
+     *              {@link CteDadosMsg }
+     *
      */
-    public void setCteDadosMsg(CteDistDFeInteresse.CteDadosMsg value) {
+    public void setCteDadosMsg(CteDadosMsg value) {
         this.cteDadosMsg = value;
     }
 
 
     /**
-     * <p>Java class for anonymous complex type.
+     * <p>Java class for anonymous complex type</p>.
      *
-     * <p>The following schema fragment specifies the expected content contained within this class.
+     * <p>The following schema fragment specifies the expected content contained within this class.</p>
      *
      * <pre>{@code
      * <complexType>
@@ -79,6 +83,8 @@ public class CteDistDFeInteresse {
      *   </complexContent>
      * </complexType>
      * }</pre>
+     *
+     *
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
@@ -93,16 +99,16 @@ public class CteDistDFeInteresse {
         /**
          * Gets the value of the content property.
          *
-         * <p>
-         * This accessor method returns a reference to the live list,
+         * <p>This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
-         * returned list will be present inside the Jakarta XML Binding object.
-         * This is why there is not a {@code set} method for the content property.
+         * returned list will be present inside the JAXB object.
+         * This is why there is not a <CODE>set</CODE> method for the content property.</p>
          *
          * <p>
          * For example, to add a new item, do as follows:
+         * </p>
          * <pre>
-         *    getContent().add(newItem);
+         * getContent().add(newItem);
          * </pre>
          *
          *
@@ -110,6 +116,7 @@ public class CteDistDFeInteresse {
          * Objects of the following type(s) are allowed in the list
          * {@link Object }
          * {@link String }
+         * </p>
          *
          * @return The value of the content property.
          */

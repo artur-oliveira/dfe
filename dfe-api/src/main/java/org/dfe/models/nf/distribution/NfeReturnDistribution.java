@@ -1,10 +1,10 @@
 package org.dfe.models.nf.distribution;
 
 import br.inf.portalfiscal.nfe.distribution.TRetDistDFeInt;
+import lombok.*;
 import org.dfe.interfaces.xml.XMLAdapter;
 import org.dfe.interfaces.xml.generic.DFObject;
 import org.dfe.util.GZIPUtils;
-import lombok.*;
 
 import java.util.List;
 

@@ -11,47 +11,22 @@ import lombok.SneakyThrows;
 final class DefaultNfContext extends NfContextFactory {
 
     public final JAXBContext nfeEventContext;
-    public final JAXBContext nfeCancelContext;
-    public final JAXBContext nfeSubstituteCancelContext;
     public final JAXBContext nfeSendContext;
     public final JAXBContext nfeDistributionContext;
-    public final JAXBContext nfeManifestationContext;
-    public final JAXBContext nfeEpecContext;
-    public final JAXBContext nfeCorrectionLetterContext;
-    public final JAXBContext nfeInterestedActorContext;
     public final JAXBContext nfeGtinContext;
 
     @SneakyThrows
     DefaultNfContext() {
         // EVENT
 
-        this.nfeEventContext = JAXBContext.newInstance(br.inf.portalfiscal.nfe.event_generic.ObjectFactory.class);
-        // CANCEL
-        this.nfeCancelContext = JAXBContext.newInstance(br.inf.portalfiscal.nfe.event_cancel.ObjectFactory.class);
-
-        // SUBSTITUTE CANCEL
-        this.nfeSubstituteCancelContext = JAXBContext.newInstance(br.inf.portalfiscal.nfe.event_substitute_cancel.ObjectFactory.class);
-
+        this.nfeEventContext = JAXBContext.newInstance("br.inf.portalfiscal.nfe.event_generic");
         // SEND
-        this.nfeSendContext = JAXBContext.newInstance(br.inf.portalfiscal.nfe.send.ObjectFactory.class);
+        this.nfeSendContext = JAXBContext.newInstance("br.inf.portalfiscal.nfe.send");
 
         // DISTRIBUTION
-        this.nfeDistributionContext = JAXBContext.newInstance(br.inf.portalfiscal.nfe.distribution.ObjectFactory.class);
-
-        // MANIFESTATION
-        this.nfeManifestationContext = JAXBContext.newInstance(br.inf.portalfiscal.nfe.event_manifestation.ObjectFactory.class);
-
-        // EPEC
-        this.nfeEpecContext = JAXBContext.newInstance(br.inf.portalfiscal.nfe.event_epec.ObjectFactory.class);
-
-        // CORRECTION LETTER
-        this.nfeCorrectionLetterContext = JAXBContext.newInstance(br.inf.portalfiscal.nfe.event_correction_letter.ObjectFactory.class);
-
-        // INTERESTED ACTOR
-        this.nfeInterestedActorContext = JAXBContext.newInstance(br.inf.portalfiscal.nfe.event_interested_actor.ObjectFactory.class);
-
+        this.nfeDistributionContext = JAXBContext.newInstance("br.inf.portalfiscal.nfe.distribution");
         // GTIN
-        this.nfeGtinContext = JAXBContext.newInstance(br.inf.portalfiscal.nfe.gtin.ObjectFactory.class);
+        this.nfeGtinContext = JAXBContext.newInstance("br.inf.portalfiscal.nfe.gtin");
     }
 
 }

@@ -51,7 +51,7 @@ public final class ReflectionUtils {
             if (Objects.isNull(cls)) return null;
             return newInstance(cls);
         } catch (Exception e) {
-            log.warn("error on create instance of class " + cls.getName());
+            log.warn("error on create instance of class {}", cls.getName());
             return null;
         }
     }

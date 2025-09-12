@@ -1,13 +1,13 @@
 package org.dfe.components.security.signer;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.dfe.exceptions.security.XMLSignException;
 import org.dfe.interfaces.internal.KeyStoreInfo;
 import org.dfe.interfaces.internal.config.Config;
 import org.dfe.util.Base64Utils;
 import org.dfe.util.XMLStringUtils;
 import org.dfe.util.XMLUtils;
-import lombok.Getter;
-import lombok.Setter;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;

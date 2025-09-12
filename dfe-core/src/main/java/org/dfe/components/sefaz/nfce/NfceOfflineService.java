@@ -1,7 +1,5 @@
 package org.dfe.components.sefaz.nfce;
 
-import br.inf.portalfiscal.nfe.event_substitute_cancel.TEnvEvento;
-import br.inf.portalfiscal.nfe.event_substitute_cancel.TRetEnvEvento;
 import br.inf.portalfiscal.nfe.send.*;
 import jakarta.xml.bind.JAXBElement;
 import org.dfe.components.internal.PairImpl;
@@ -45,11 +43,6 @@ public final class NfceOfflineService implements NfceService {
     }
 
     @Override
-    public <T extends SefazRequest<TEnvEvento, TRetEnvEvento>> Pair<TEnvEvento, TRetEnvEvento> substituteCancel(T data) {
-        throw new UnsupportedOperationException("cannot perform this action");
-    }
-
-    @Override
     public NfceSoapService getSoapService() {
         return null;
     }
@@ -76,7 +69,7 @@ public final class NfceOfflineService implements NfceService {
     }
 
     @Override
-    public <T extends SefazRequest<br.inf.portalfiscal.nfe.event_cancel.TEnvEvento, br.inf.portalfiscal.nfe.event_cancel.TRetEnvEvento>> Pair<br.inf.portalfiscal.nfe.event_cancel.TEnvEvento, br.inf.portalfiscal.nfe.event_cancel.TRetEnvEvento> cancel(T data) {
+    public <T extends SefazRequest<br.inf.portalfiscal.nfe.event_generic.TEnvEvento, br.inf.portalfiscal.nfe.event_generic.TRetEnvEvento>> Pair<br.inf.portalfiscal.nfe.event_generic.TEnvEvento, br.inf.portalfiscal.nfe.event_generic.TRetEnvEvento> event(T data) {
         throw new UnsupportedOperationException("cannot perform this action");
     }
 

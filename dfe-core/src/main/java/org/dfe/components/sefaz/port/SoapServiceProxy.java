@@ -21,10 +21,11 @@ import java.util.concurrent.ConcurrentHashMap;
 
 @Getter(AccessLevel.PRIVATE)
 public final class SoapServiceProxy {
-    private final static int DEFAULT_NFE_SERVICE_MAP_CAPACITY = Integer.parseInt(System.getProperty("org.dfe.sefaz.port.proxy.map.capacity.nfe", "100"));
-    private final static int DEFAULT_NFCE_SERVICE_MAP_CAPACITY = Integer.parseInt(System.getProperty("org.dfe.sefaz.port.proxy.map.capacity.nfce", "100"));
-    private final static int DEFAULT_CTE_SERVICE_MAP_CAPACITY = Integer.parseInt(System.getProperty("org.dfe.sefaz.port.proxy.map.capacity.cte", "100"));
-    private final static int DEFAULT_MDFE_SERVICE_MAP_CAPACITY = Integer.parseInt(System.getProperty("org.dfe.sefaz.port.proxy.map.capacity.mdfe", "100"));
+    private final static int DEFAULT_NFE_SERVICE_MAP_CAPACITY = Integer.parseInt(System.getProperty("org.dfe.sefaz.port.proxy.map.capacity.nfe", "10"));
+    private final static int DEFAULT_NFCE_SERVICE_MAP_CAPACITY = Integer.parseInt(System.getProperty("org.dfe.sefaz.port.proxy.map.capacity.nfce", "10"));
+    private final static int DEFAULT_CTE_SERVICE_MAP_CAPACITY = Integer.parseInt(System.getProperty("org.dfe.sefaz.port.proxy.map.capacity.cte", "10"));
+    private final static int DEFAULT_MDFE_SERVICE_MAP_CAPACITY = Integer.parseInt(System.getProperty("org.dfe.sefaz.port.proxy.map.capacity.mdfe", "10"));
+
     private final Map<NfeAuthorizer, NfeSoapService> nfeServiceMap = new ConcurrentHashMap<>(DEFAULT_NFE_SERVICE_MAP_CAPACITY);
     private final Map<NfceAuthorizer, NfceSoapService> nfceServiceMap = new ConcurrentHashMap<>(DEFAULT_NFCE_SERVICE_MAP_CAPACITY);
     private final Map<Cte4Authorizer, Cte4SoapService> cte4ServiceMap = new ConcurrentHashMap<>(DEFAULT_CTE_SERVICE_MAP_CAPACITY);
@@ -65,6 +66,12 @@ public final class SoapServiceProxy {
         getInstance().getNfeServiceMap().put(soapService.getAuthorizer(), soapService);
     }
 
+    /**
+     * This function clears the nfe services cache
+     */
+    public synchronized void clearNfeServices() {
+        getInstance().getNfeServiceMap().clear();
+    }
 
     /**
      * If the authorizer is not null, then return the soapService
@@ -90,6 +97,14 @@ public final class SoapServiceProxy {
     }
 
     /**
+     * This function clears the nfce services cache
+     */
+    public synchronized void clearNfceServices() {
+        getInstance().getNfceServiceMap().clear();
+    }
+
+
+    /**
      * If the authorizer is already in the map, return the soap service. Otherwise, return null
      *
      * @param authorizer The authorizer object that contains the credentials to access the CteSoapService.
@@ -110,6 +125,14 @@ public final class SoapServiceProxy {
      */
     public synchronized void addCte4Service(AbstractCte4SoapService soapService) {
         getInstance().getCte4ServiceMap().put(soapService.getAuthorizer(), soapService);
+    }
+
+
+    /**
+     * This function clears the cte services cache
+     */
+    public synchronized void clearCteServices() {
+        getInstance().getCte4ServiceMap().clear();
     }
 
     /**
@@ -133,6 +156,14 @@ public final class SoapServiceProxy {
      */
     public synchronized void addMdfeService(AbstractMdfeSoapService soapService) {
         getInstance().getMdfeServiceMap().put(soapService.getAuthorizer(), soapService);
+    }
+
+
+    /**
+     * This function clears the mdfe services cache
+     */
+    public synchronized void clearMdfeServices() {
+        getInstance().getMdfeServiceMap().clear();
     }
 
     private final static class SoapServiceProxyHolder {

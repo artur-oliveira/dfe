@@ -6,8 +6,11 @@
         xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
         xmlns:s="http://www.w3.org/2001/XMLSchema"
         targetNamespace="http://www.portalfiscal.inf.br/cte/wsdl/CTeStatusServicoV4"
-        xmlns="http://schemas.xmlsoap.org/wsdl/"
+        xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:jaxws="https://jakarta.ee/xml/ns/jaxws"
 >
+    <jaxws:bindings>
+        <jaxws:enableAsyncMapping>true</jaxws:enableAsyncMapping>
+    </jaxws:bindings>
     <types>
         <s:schema elementFormDefault="qualified"
                   targetNamespace="http://www.portalfiscal.inf.br/cte/wsdl/CTeStatusServicoV4">

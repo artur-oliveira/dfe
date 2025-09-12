@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.portalfiscal.inf.br/cte"
+           targetNamespace="http://www.portalfiscal.inf.br/cte" elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+    <xs:include schemaLocation="cteTiposBasico_v4.00.xsd"/>
+    <xs:element name="protGTVe" type="TProtGTVe">
+        <xs:annotation>
+            <xs:documentation>Protocolo de status resultado do processamento do Guia de Transporte de Valores Eletrônica
+                (Modelo 64)
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+</xs:schema>

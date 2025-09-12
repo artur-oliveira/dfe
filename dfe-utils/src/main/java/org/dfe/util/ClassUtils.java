@@ -123,7 +123,7 @@ public final class ClassUtils {
      * @param thisInstance The instance of the class you want to set the field on.
      * @param val          The value to set the field to.
      */
-    public static <I> void set(Method method, I thisInstance, Object val) {
+    public static <I> void set(Method method, I thisInstance, Object... val) {
         try {
             method.setAccessible(true);
             method.invoke(thisInstance, val);

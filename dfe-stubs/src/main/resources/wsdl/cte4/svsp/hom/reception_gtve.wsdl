@@ -2,11 +2,17 @@
 <wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
                   xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
                   xmlns:tns="http://www.portalfiscal.inf.br/cte/wsdl/CTeRecepcaoGTVeV4"
+                  xmlns:jaxws="https://jakarta.ee/xml/ns/jaxws"
                   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
                   targetNamespace="http://www.portalfiscal.inf.br/cte/wsdl/CTeRecepcaoGTVeV4">
-    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Serviço destinado à recepção de mensagens de GTVe
+    <wsdl:documentation
+            xmlns:jaxws="https://jakarta.ee/xml/ns/jaxws"
+            xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Serviço destinado à recepção de mensagens de GTVe
         (modelo 64).
     </wsdl:documentation>
+    <jaxws:bindings>
+        <jaxws:enableAsyncMapping>true</jaxws:enableAsyncMapping>
+    </jaxws:bindings>
     <wsdl:types>
         <s:schema elementFormDefault="qualified"
                   targetNamespace="http://www.portalfiscal.inf.br/cte/wsdl/CTeRecepcaoGTVeV4">
@@ -28,7 +34,9 @@
     </wsdl:message>
     <wsdl:portType name="CTeRecepcaoGTVeV4Soap12">
         <wsdl:operation name="cteRecepcaoGTVe">
-            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Recepção GTVe (modelo 64).
+            <wsdl:documentation
+                    xmlns:jaxws="https://jakarta.ee/xml/ns/jaxws"
+                    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Recepção GTVe (modelo 64).
             </wsdl:documentation>
             <wsdl:input message="tns:cteRecepcaoGTVeSoap12In"/>
             <wsdl:output message="tns:cteRecepcaoGTVeSoap12Out"/>
@@ -48,7 +56,9 @@
         </wsdl:operation>
     </wsdl:binding>
     <wsdl:service name="CTeRecepcaoGTVeV4">
-        <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Serviço destinado à recepção de mensagens de
+        <wsdl:documentation
+                xmlns:jaxws="https://jakarta.ee/xml/ns/jaxws"
+                xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Serviço destinado à recepção de mensagens de
             GTVe (modelo 64).
         </wsdl:documentation>
         <wsdl:port name="CTeRecepcaoGTVeV4Soap12" binding="tns:CTeRecepcaoGTVeV4Soap12">

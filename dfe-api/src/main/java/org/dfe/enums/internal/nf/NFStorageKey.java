@@ -1,15 +1,15 @@
 package org.dfe.enums.internal.nf;
 
 import br.inf.portalfiscal.nfe.send.ObjectFactory;
-import org.dfe.interfaces.internal.StorageKey;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import org.dfe.interfaces.internal.StorageKey;
 
 @Getter
 @AllArgsConstructor
 public enum NFStorageKey implements StorageKey {
     NF_AUTHORIZATION(System.getProperty("org.dfe.storage.key.nf.send_authorization", ObjectFactory._EnviNFe_QNAME.getLocalPart()), System.getProperty("org.dfe.storage.key.nf.return_send_authorization", ObjectFactory._RetEnviNFe_QNAME.getLocalPart()), System.getProperty("org.dfe.storage.key.nf.proc_authorization", ObjectFactory._NfeProc_QNAME.getLocalPart())),
-    NF_EVENT(System.getProperty("org.dfe.storage.key.nf.send_event", br.inf.portalfiscal.nfe.event_cancel.ObjectFactory._EnvEvento_QNAME.getLocalPart()), System.getProperty("org.dfe.storage.key.nf.return_send_event", br.inf.portalfiscal.nfe.event_cancel.ObjectFactory._RetEnvEvento_QNAME.getLocalPart()), System.getProperty("org.dfe.storage.key.nf.proc_event", br.inf.portalfiscal.nfe.event_cancel.ObjectFactory._ProcEventoNFe_QNAME.getLocalPart())),
+    NF_EVENT(System.getProperty("org.dfe.storage.key.nf.send_event", br.inf.portalfiscal.nfe.event_generic.ObjectFactory._EnvEvento_QNAME.getLocalPart()), System.getProperty("org.dfe.storage.key.nf.return_send_event", br.inf.portalfiscal.nfe.event_generic.ObjectFactory._RetEnvEvento_QNAME.getLocalPart()), System.getProperty("org.dfe.storage.key.nf.proc_event", br.inf.portalfiscal.nfe.event_generic.ObjectFactory._ProcEventoNFe_QNAME.getLocalPart())),
     NF_INUTILIZATION(System.getProperty("org.dfe.storage.key.nf.send_inutilization", ObjectFactory._InutNFe_QNAME.getLocalPart()), System.getProperty("org.dfe.storage.key.nf.return_send_inutilization", ObjectFactory._RetInutNFe_QNAME.getLocalPart()), System.getProperty("org.dfe.storage.key.nf.proc_inutilization", ObjectFactory._ProcInutNFe_QNAME.getLocalPart())),
     NF_RETURN_AUTHORIZATION(System.getProperty("org.dfe.storage.key.nf.send_return_authorization", ObjectFactory._ConsReciNFe_QNAME.getLocalPart()), System.getProperty("org.dfe.storage.key.nf.return_send_return_authorization", ObjectFactory._RetConsReciNFe_QNAME.getLocalPart()), null),
     NF_QUERY_PROTOCOL(System.getProperty("org.dfe.storage.key.nf.send_query_protocol", ObjectFactory._ConsSitNFe_QNAME.getLocalPart()), System.getProperty("org.dfe.storage.key.nf.return_send_query_protocol", ObjectFactory._RetConsSitNFe_QNAME.getLocalPart()), null),

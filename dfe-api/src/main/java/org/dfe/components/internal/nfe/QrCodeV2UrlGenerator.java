@@ -5,7 +5,6 @@ import org.dfe.components.internal.xml.marshaller.NfMarshallerFactory;
 import org.dfe.components.internal.xml.unmarshaller.NfUnmarshallerFactory;
 import org.dfe.enums.internal.Environment;
 import org.dfe.enums.internal.UF;
-import org.dfe.enums.internal.nf.QrCodeNfceURL;
 import org.dfe.enums.nf.identification.NFEmissionType;
 import org.dfe.exceptions.security.XMLSignException;
 import org.dfe.exceptions.services.NoProviderFound;
@@ -66,7 +65,7 @@ final class QrCodeV2UrlGenerator extends QrCodeGeneratorFactory {
     }
 
     String generate(String uf, String chNFe, String tpAmb, String tpEmis, String dhEmi, String vNF, byte[] digestValue, String cscId, String csc) throws NoProviderFound, GeneralSecurityException {
-        String url = QrCodeNfceURL.get(UF.valueOfCode(uf), Environment.valueOfCode(tpAmb));
+        String url = QrCodeNfceUrlFactory.getInstance().get(UF.valueOfCode(uf), Environment.valueOfCode(tpAmb));
         String params = getParams(
                 AccessKeyParserFactory.nfe().fromId(chNFe),
                 tpAmb,

@@ -1,9 +1,11 @@
 package org.dfe.models.nf.authorization;
 
 import br.inf.portalfiscal.nfe.send.TEnviNFe;
+import lombok.*;
+import org.dfe.components.internal.nfe.QrCodeNfceUrlFactory;
+import org.dfe.components.internal.nfe.QueryNfceUrlFactory;
 import org.dfe.enums.internal.Environment;
 import org.dfe.enums.internal.UF;
-import org.dfe.enums.internal.nf.QrCodeNfceURL;
 import org.dfe.enums.internal.nf.QueryNfceURL;
 import org.dfe.enums.nf.version.NFVersion;
 import org.dfe.exceptions.security.XMLSignException;
@@ -14,7 +16,6 @@ import org.dfe.interfaces.xml.XMLAdapter;
 import org.dfe.interfaces.xml.XMLSignerService;
 import org.dfe.interfaces.xml.generic.DFObject;
 import org.dfe.util.StringUtils;
-import lombok.*;
 
 import java.security.GeneralSecurityException;
 import java.util.ArrayList;
@@ -41,8 +42,8 @@ public class SendNf implements DFObject, XMLAdapter<SendNf, TEnviNFe> {
             try {
                 it.setInfNFeSupl(Nf.InfNFeSupl
                         .builder()
-                        .urlChave(QueryNfceURL.get(UF.valueOfNf(it), Environment.valueOfNf(it)))
-                        .qrCode(QrCodeNfceURL.generate(it, (NfceConfig) config, xmlSigner))
+                        .urlChave(QueryNfceUrlFactory.getInstance().get(UF.valueOfNf(it), Environment.valueOfNf(it)))
+                        .qrCode(QrCodeNfceUrlFactory.getInstance().generate(it, (NfceConfig) config, xmlSigner))
                         .build());
             } catch (NoProviderFound | GeneralSecurityException | XMLSignException e) {
                 throw new RuntimeException(e);

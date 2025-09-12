@@ -3,13 +3,19 @@
                   xmlns:s="http://www.w3.org/2001/XMLSchema"
                   xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
                   xmlns:tns="http://www.portalfiscal.inf.br/nfe/wsdl/NFeAutorizacao4"
+                  xmlns:jaxws="https://jakarta.ee/xml/ns/jaxws"
                   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
                   targetNamespace="http://www.portalfiscal.inf.br/nfe/wsdl/NFeAutorizacao4">
 
-    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:documentation
+            xmlns:jaxws="https://jakarta.ee/xml/ns/jaxws"
+            xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
         Servico destinado a recepcao de mensagens de lote de NFe
     </wsdl:documentation>
 
+    <jaxws:bindings>
+        <jaxws:enableAsyncMapping>true</jaxws:enableAsyncMapping>
+    </jaxws:bindings>
     <wsdl:types>
 
         <s:schema elementFormDefault="qualified"
@@ -103,7 +109,9 @@
 
         <wsdl:operation name="nfeAutorizacaoLote">
 
-            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+            <wsdl:documentation
+                    xmlns:jaxws="https://jakarta.ee/xml/ns/jaxws"
+                    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
                 Transmissao de Lote de NFe
             </wsdl:documentation>
 
@@ -115,7 +123,9 @@
 
         <wsdl:operation name="nfeAutorizacaoLoteZip">
 
-            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+            <wsdl:documentation
+                    xmlns:jaxws="https://jakarta.ee/xml/ns/jaxws"
+                    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
                 Transmissao de Lote Compactado de NFe
             </wsdl:documentation>
 
@@ -173,7 +183,9 @@
 
     <wsdl:service name="NFeAutorizacao4">
 
-        <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <wsdl:documentation
+                xmlns:jaxws="https://jakarta.ee/xml/ns/jaxws"
+                xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
             Servico destinado a recepcao de mensagens de lote de NFe
         </wsdl:documentation>
 

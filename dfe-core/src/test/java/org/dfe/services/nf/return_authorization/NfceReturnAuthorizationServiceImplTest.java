@@ -53,6 +53,47 @@ class NfceReturnAuthorizationServiceImplTest {
         assertEquals(service.getConfig().environment().getCode(), o.getTpAmb());
     }
 
+
+    @Test
+    void testReturnAuthorizationWithEnvironmentIsHomologationAndAuthorizerCe() throws Exception {
+        NfceReturnAuthorizationService service = new NfceReturnAuthorizationServiceImpl(
+                new PfxNfceConfigImpl(
+                        UF.AM,
+                        "11520224000140",
+                        Environment.HOMOLOGATION,
+                        KeyStoreFactory.getInstance(),
+                        NFEmissionType.NORMAL,
+                        NFSend.SYNC,
+                        "1",
+                        "115202241607220426225340"
+                )
+        );
+        ReturnQueryReceiptNfe o = service.queryReceipt(service.getConfig().uf().getCode() + "3" + "999999999999");
+        assertNotNull(o);
+        assertEquals(service.getConfig().uf().getCode(), o.getCuf());
+        assertEquals(service.getConfig().environment().getCode(), o.getTpAmb());
+    }
+
+    @Test
+    void testReturnAuthorizationWithEnvironmentIsProductionAndAuthorizerCe() throws Exception {
+        NfceReturnAuthorizationService service = new NfceReturnAuthorizationServiceImpl(
+                new PfxNfceConfigImpl(
+                        UF.AM,
+                        "11520224000140",
+                        Environment.PRODUCTION,
+                        KeyStoreFactory.getInstance(),
+                        NFEmissionType.NORMAL,
+                        NFSend.SYNC,
+                        "1",
+                        "115202241607220426225340"
+                )
+        );
+        ReturnQueryReceiptNfe o = service.queryReceipt(service.getConfig().uf().getCode() + "3" + "999999999999");
+        assertNotNull(o);
+        assertEquals(service.getConfig().uf().getCode(), o.getCuf());
+        assertEquals(service.getConfig().environment().getCode(), o.getTpAmb());
+    }
+
     @Test
     void testReturnAuthorizationWithEnvironmentIsHomologationAndAuthorizerGo() throws Exception {
         NfceReturnAuthorizationService service = new NfceReturnAuthorizationServiceImpl(
@@ -118,46 +159,6 @@ class NfceReturnAuthorizationServiceImplTest {
         NfceReturnAuthorizationService service = new NfceReturnAuthorizationServiceImpl(
                 new PfxNfceConfigImpl(
                         UF.MG,
-                        "11520224000140",
-                        Environment.PRODUCTION,
-                        KeyStoreFactory.getInstance(),
-                        NFEmissionType.NORMAL,
-                        NFSend.SYNC,
-                        "1",
-                        "115202241607220426225340"
-                )
-        );
-        ReturnQueryReceiptNfe o = service.queryReceipt(service.getConfig().uf().getCode() + "3" + "999999999999");
-        assertNotNull(o);
-        assertEquals(service.getConfig().uf().getCode(), o.getCuf());
-        assertEquals(service.getConfig().environment().getCode(), o.getTpAmb());
-    }
-
-    @Test
-    void testReturnAuthorizationWithEnvironmentIsHomologationAndAuthorizerMs() throws Exception {
-        NfceReturnAuthorizationService service = new NfceReturnAuthorizationServiceImpl(
-                new PfxNfceConfigImpl(
-                        UF.MS,
-                        "11520224000140",
-                        Environment.HOMOLOGATION,
-                        KeyStoreFactory.getInstance(),
-                        NFEmissionType.NORMAL,
-                        NFSend.SYNC,
-                        "1",
-                        "115202241607220426225340"
-                )
-        );
-        ReturnQueryReceiptNfe o = service.queryReceipt(service.getConfig().uf().getCode() + "3" + "999999999999");
-        assertNotNull(o);
-        assertEquals(service.getConfig().uf().getCode(), o.getCuf());
-        assertEquals(service.getConfig().environment().getCode(), o.getTpAmb());
-    }
-
-    @Test
-    void testReturnAuthorizationWithEnvironmentIsProductionAndAuthorizerMs() throws Exception {
-        NfceReturnAuthorizationService service = new NfceReturnAuthorizationServiceImpl(
-                new PfxNfceConfigImpl(
-                        UF.MS,
                         "11520224000140",
                         Environment.PRODUCTION,
                         KeyStoreFactory.getInstance(),

@@ -3,8 +3,12 @@
                   xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
                   xmlns:tns="http://www.portalfiscal.inf.br/nfe/wsdl/NFeInutilizacao4"
                   xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-                  targetNamespace="http://www.portalfiscal.inf.br/nfe/wsdl/NFeInutilizacao4">
+                  targetNamespace="http://www.portalfiscal.inf.br/nfe/wsdl/NFeInutilizacao4"
+                  xmlns:jaxws="https://jakarta.ee/xml/ns/jaxws"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <jaxws:bindings>
+        <jaxws:enableAsyncMapping>true</jaxws:enableAsyncMapping>
+    </jaxws:bindings>
     <wsdl:types>
         <s:schema elementFormDefault="qualified"
                   targetNamespace="http://www.portalfiscal.inf.br/nfe/wsdl/NFeInutilizacao4">
@@ -31,46 +35,48 @@
         <wsdl:part name="nfeInutilizacaoNFResult" element="tns:nfeResultMsg"/>
     </wsdl:message>
     <wsdl:portType name="NFeInutilizacao4Soap">
-        <wsdl:operation name="nfeInutilizacaoNF">
-            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Serviço destinado à inutilização de
+        <wsdl:operation name="NFeInutilizacao">
+            <wsdl:documentation
+                    xmlns:jaxws="https://jakarta.ee/xml/ns/jaxws"
+                    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Serviço destinado à inutilização de
                 números de NF-e.
             </wsdl:documentation>
-            <wsdl:input message="tns:nfeInutilizacaoNFSoapIn"/>
-            <wsdl:output message="tns:nfeInutilizacaoNFSoapOut"/>
+            <wsdl:input name="nfeInutilizacaoNF" message="tns:nfeInutilizacaoNFSoapIn"/>
+            <wsdl:output name="nfeInutilizacaoNF" message="tns:nfeInutilizacaoNFSoapOut"/>
         </wsdl:operation>
     </wsdl:portType>
     <wsdl:binding name="NFeInutilizacao4Soap" type="tns:NFeInutilizacao4Soap">
         <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
-        <wsdl:operation name="nfeInutilizacaoNF">
+        <wsdl:operation name="NFeInutilizacao">
             <soap:operation soapAction="http://www.portalfiscal.inf.br/nfe/wsdl/NFeInutilizacao4/nfeInutilizacaoNF"
                             style="document"/>
-            <wsdl:input>
+            <wsdl:input name="nfeInutilizacaoNF">
                 <soap:body use="literal"/>
             </wsdl:input>
-            <wsdl:output>
+            <wsdl:output name="nfeInutilizacaoNF">
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
     </wsdl:binding>
     <wsdl:binding name="NFeInutilizacao4Soap12" type="tns:NFeInutilizacao4Soap">
         <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
-        <wsdl:operation name="nfeInutilizacaoNF">
+        <wsdl:operation name="NFeInutilizacao">
             <soap12:operation soapAction="http://www.portalfiscal.inf.br/nfe/wsdl/NFeInutilizacao4/nfeInutilizacaoNF"
                               style="document"/>
-            <wsdl:input>
+            <wsdl:input name="nfeInutilizacaoNF">
                 <soap12:body use="literal"/>
             </wsdl:input>
-            <wsdl:output>
+            <wsdl:output name="nfeInutilizacaoNF">
                 <soap12:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
     </wsdl:binding>
     <wsdl:service name="NFeInutilizacao4">
         <wsdl:port name="NFeInutilizacao4Soap" binding="tns:NFeInutilizacao4Soap">
-            <soap:address location="https://hnfe.sefaz.ba.gov.br/webservices/NFeInutilizacao4/NFeInutilizacao4.asmx"/>
+            <soap:address location="https://nfe.sefaz.ba.gov.br/webservices/NFeInutilizacao4/NFeInutilizacao4.asmx"/>
         </wsdl:port>
         <wsdl:port name="NFeInutilizacao4Soap12" binding="tns:NFeInutilizacao4Soap12">
-            <soap12:address location="https://hnfe.sefaz.ba.gov.br/webservices/NFeInutilizacao4/NFeInutilizacao4.asmx"/>
+            <soap12:address location="https://nfe.sefaz.ba.gov.br/webservices/NFeInutilizacao4/NFeInutilizacao4.asmx"/>
         </wsdl:port>
     </wsdl:service>
 </wsdl:definitions>

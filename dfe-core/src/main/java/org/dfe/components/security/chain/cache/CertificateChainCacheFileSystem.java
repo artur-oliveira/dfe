@@ -20,7 +20,7 @@ final class CertificateChainCacheFileSystem extends CertificateChainCacheFactory
         File f = new File(getFileName(certificateChain));
         if (!f.exists()) return null;
 
-        if (Duration.between(Objects.requireNonNull(IOUtils.creationDate(f)), DateUtils.now()).compareTo(Duration.ofDays(DAYS_IN_CACHE)) >= 0) {
+        if (Duration.between(Objects.requireNonNull(IOUtils.lastModifiedDate(f)), DateUtils.now()).compareTo(Duration.ofDays(DAYS_IN_CACHE)) >= 0) {
             return null;
         }
 

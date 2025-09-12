@@ -10,6 +10,6 @@ import org.dfe.models.internal.xml.XMLValidation;
 public final class XSDStatusServiceValidator implements MdfeStatusServiceValidator {
     @Override
     public void valid(Validation<TConsStatServ> o) throws ValidationException {
-        XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/mdfe/PL_MDFe_300b/consStatServMDFe_v3.00.xsd", o.xml()));
+        XMLValidatorFactory.getInstance().validateXML(new XMLValidation("xsds/mdfe/PL_MDFe_300b_NT012025_100/consStatServMDFe_v3.00.xsd", o.xml()));
     }
 }

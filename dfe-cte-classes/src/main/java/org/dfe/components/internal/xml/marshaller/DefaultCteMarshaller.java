@@ -61,21 +61,6 @@ final class DefaultCteMarshaller extends CteMarshallerFactory {
     }
 
     @Override
-    public String inutilizationCte(br.inf.portalfiscal.cte.send400.TInutCTe data) {
-        return marshallSend400(CteObjectFactoryWrapperFactory.getInstance().getCte4ObjectFactory().createInutCTe(data));
-    }
-
-    @Override
-    public String returnInutilizationCte(br.inf.portalfiscal.cte.send400.TRetInutCTe data) {
-        return marshallSend400(CteObjectFactoryWrapperFactory.getInstance().getCte4ObjectFactory().createRetInutCTe(data));
-    }
-
-    @Override
-    public String procInutilizationCte(br.inf.portalfiscal.cte.send400.TProcInutCTe data) {
-        return marshallSend400(CteObjectFactoryWrapperFactory.getInstance().getCte4ObjectFactory().createProcInutCTe(data));
-    }
-
-    @Override
     public String querySituationCte(br.inf.portalfiscal.cte.send400.TConsSitCTe data) {
         return marshallSend400(CteObjectFactoryWrapperFactory.getInstance().getCte4ObjectFactory().createConsSitCTe(data));
     }

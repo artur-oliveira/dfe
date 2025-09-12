@@ -13,6 +13,6 @@ class MdfeRouteServiceImplTest {
     void testGetRouteBetweenPiAndPa() {
         List<UF> route = new MdfeRouteServiceImpl().getRoute(UF.PI, UF.PA);
         assertEquals(1, route.size());
-        assertEquals(UF.MA, route.get(0));
+        assertEquals(UF.MA, route.getFirst());
     }
 }

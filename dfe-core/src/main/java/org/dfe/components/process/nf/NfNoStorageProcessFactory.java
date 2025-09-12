@@ -1,19 +1,14 @@
 package org.dfe.components.process.nf;
 
 import org.dfe.components.process.nf.authorization.impl.AuthorizationProcessFactory;
-import org.dfe.components.process.nf.cancel.impl.CancelProcessFactory;
-import org.dfe.components.process.nf.correction_letter.impl.CorrectionLetterProcessFactory;
 import org.dfe.components.process.nf.distribution.impl.DistributionProcessFactory;
-import org.dfe.components.process.nf.epec.impl.EpecProcessFactory;
-import org.dfe.components.process.nf.interested_actor.impl.InterestedActorProcessFactory;
+import org.dfe.components.process.nf.event.impl.EventProcessFactory;
 import org.dfe.components.process.nf.inut.impl.InutilizationProcessFactory;
-import org.dfe.components.process.nf.manifestation.impl.ManifestationProcessFactory;
 import org.dfe.components.process.nf.query_gtin.impl.QueryGtinProcessFactory;
 import org.dfe.components.process.nf.query_protocol.impl.QueryProtocolProcessFactory;
 import org.dfe.components.process.nf.query_register.impl.QueryRegisterProcessFactory;
 import org.dfe.components.process.nf.query_status_service.impl.QueryStatusServiceProcessFactory;
 import org.dfe.components.process.nf.return_authorization.impl.ReturnAuthorizationProcessFactory;
-import org.dfe.components.process.nf.substitute_cancel.impl.SubstituteCancelProcessFactory;
 
 final class NfNoStorageProcessFactory extends NfProcessFactory {
 
@@ -23,7 +18,7 @@ final class NfNoStorageProcessFactory extends NfProcessFactory {
     }
 
     @Override
-    public CancelProcessFactory cancel() {
+    public EventProcessFactory cancel() {
         return Holder.CANCEL;
     }
 
@@ -47,40 +42,18 @@ final class NfNoStorageProcessFactory extends NfProcessFactory {
         return Holder.DISTRIBUTION;
     }
 
-    @Override
-    public ManifestationProcessFactory manifestation() {
-        return Holder.MANIFESTATION;
-    }
 
     @Override
     public QueryStatusServiceProcessFactory queryStatusService() {
         return Holder.QUERYSTATUSSERVICE;
     }
 
-    @Override
-    public CorrectionLetterProcessFactory correctionLetter() {
-        return Holder.CORRECTIONLETTER;
-    }
-
-    @Override
-    public EpecProcessFactory epec() {
-        return Holder.EPEC;
-    }
-
-    @Override
-    public InterestedActorProcessFactory interestedActor() {
-        return Holder.INTERESTEDACTOR;
-    }
 
     @Override
     public QueryGtinProcessFactory queryGtin() {
         return Holder.QUERYGTIN;
     }
 
-    @Override
-    public SubstituteCancelProcessFactory substituteCancel() {
-        return Holder.SUBSTITUTECANCEL;
-    }
 
     @Override
     public QueryRegisterProcessFactory queryRegister() {
@@ -89,18 +62,13 @@ final class NfNoStorageProcessFactory extends NfProcessFactory {
 
     static final class Holder {
         static final InutilizationProcessFactory INUTILIZATION = InutilizationProcessFactory.noStore();
-        static final CancelProcessFactory CANCEL = CancelProcessFactory.noStore();
+        static final EventProcessFactory CANCEL = EventProcessFactory.noStore();
         static final AuthorizationProcessFactory AUTHORIZATION = AuthorizationProcessFactory.noStore();
         static final ReturnAuthorizationProcessFactory RETURNAUTHORIZATION = ReturnAuthorizationProcessFactory.noStore();
         static final QueryProtocolProcessFactory QUERYPROTOCOL = QueryProtocolProcessFactory.noStore();
         static final DistributionProcessFactory DISTRIBUTION = DistributionProcessFactory.noStore();
-        static final ManifestationProcessFactory MANIFESTATION = ManifestationProcessFactory.noStore();
         static final QueryStatusServiceProcessFactory QUERYSTATUSSERVICE = QueryStatusServiceProcessFactory.noStore();
-        static final CorrectionLetterProcessFactory CORRECTIONLETTER = CorrectionLetterProcessFactory.noStore();
-        static final EpecProcessFactory EPEC = EpecProcessFactory.noStore();
-        static final InterestedActorProcessFactory INTERESTEDACTOR = InterestedActorProcessFactory.noStore();
         static final QueryGtinProcessFactory QUERYGTIN = QueryGtinProcessFactory.noStore();
         static final QueryRegisterProcessFactory QUERYREGISTER = QueryRegisterProcessFactory.noStore();
-        static final SubstituteCancelProcessFactory SUBSTITUTECANCEL = SubstituteCancelProcessFactory.noStore();
     }
 }

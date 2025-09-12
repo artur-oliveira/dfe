@@ -58,7 +58,7 @@ public abstract class CteAnService implements Cte4Service {
             br.inf.portalfiscal.cte4.wsdl.distribution.an.prod.CteDistDFeInteresseResponse.CteDistDFeInteresseResult resultMsg = ws.cteDistDFeInteresse(msg);
 
             if (!resultMsg.getContent().isEmpty())
-                retorno = (RetDistDFeInt) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();
+                retorno = (RetDistDFeInt) ((JAXBElement<?>) resultMsg.getContent().getFirst()).getValue();
         } else {
             br.inf.portalfiscal.cte4.wsdl.distribution.an.hom.CTeDistribuicaoDFeSoap ws = ((br.inf.portalfiscal.cte4.wsdl.distribution.an.hom.CTeDistribuicaoDFe) getSoapService().homDistribution()).getCTeDistribuicaoDFeSoap();
             data.configureProvider().configure(ProviderConfig.builder().port((BindingProvider) ws).config(data.config()).build());
@@ -69,7 +69,7 @@ public abstract class CteAnService implements Cte4Service {
             br.inf.portalfiscal.cte4.wsdl.distribution.an.hom.CteDistDFeInteresseResponse.CteDistDFeInteresseResult resultMsg = ws.cteDistDFeInteresse(msg);
 
             if (!resultMsg.getContent().isEmpty())
-                retorno = (RetDistDFeInt) ((JAXBElement<?>) resultMsg.getContent().get(0)).getValue();
+                retorno = (RetDistDFeInt) ((JAXBElement<?>) resultMsg.getContent().getFirst()).getValue();
         }
 
         for (AfterWebServiceRequest<DistDFeInt, RetDistDFeInt> it : data.afterRequest())

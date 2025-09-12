@@ -1,8 +1,8 @@
 package org.dfe.models.cte4.reception_sync;
 
-import br.inf.portalfiscal.cte.send400.TCTe;
-import br.inf.portalfiscal.cte.send400.TUFSemEX;
-import br.inf.portalfiscal.cte.send400.TUf;
+import br.inf.portalfiscal.cte.send400.*;
+import jakarta.xml.bind.annotation.XmlElement;
+import lombok.*;
 import org.dfe.components.internal.AccessKeyGenerator;
 import org.dfe.components.internal.ProjectProperties;
 import org.dfe.components.internal.xml.marshaller.CteMarshallerFactory;
@@ -18,7 +18,6 @@ import org.dfe.util.DateUtils;
 import org.dfe.util.RequireUtils;
 import org.dfe.util.StringUtils;
 import org.dfe.util.XMLStringUtils;
-import lombok.*;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -188,6 +187,7 @@ public final class Cte implements DFObject, XMLAdapter<Cte, TCTe> {
         private List<AutXML> autXML;
         private TRespTec infRespTec;
         private InfSolicNFF infSolicNFF;
+        private TCompraGov gCompraGov;
         @Builder.Default
         private String versao = CteVersion.VERSION_400.getVersion();
         private String id;
@@ -272,6 +272,7 @@ public final class Cte implements DFObject, XMLAdapter<Cte, TCTe> {
             private Toma4 toma4;
             private String dhCont;
             private String xJust;
+            private TCompraGov gCompraGov;
 
             public CteType tpCTe() {
                 return RequireUtils.nonNull(CteType.valueOfCode(getTpCTe()), "tpCTe() cannot be null");
@@ -310,6 +311,7 @@ public final class Cte implements DFObject, XMLAdapter<Cte, TCTe> {
                     return getEnderToma().getUf();
                 }
             }
+
         }
 
         @AllArgsConstructor
@@ -600,6 +602,124 @@ public final class Cte implements DFObject, XMLAdapter<Cte, TCTe> {
             private String vTotTrib;
             private String infAdFisco;
             private ICMSUFFim icmsufFim;
+            private TTribCTe ibscbs;
+            private String vTotDFe;
+
+            @AllArgsConstructor
+            @NoArgsConstructor
+            @Data
+            @Builder
+            public final static class TTribCTe implements DFObject, XMLAdapter<TTribCTe, br.inf.portalfiscal.cte.send400.TTribCTe> {
+                private String cst;
+                private String cClassTrib;
+                private TCIBS gibscbs;
+
+                @AllArgsConstructor
+                @NoArgsConstructor
+                @Data
+                @Builder
+                public final static class TCIBS implements DFObject, XMLAdapter<TCIBS, br.inf.portalfiscal.cte.send400.TCIBS> {
+                    private String vbc;
+                    private GIBSUF gibsuf;
+                    private GIBSMun gibsMun;
+                    private GCBS gcbs;
+                    private TTribRegular gTribRegular;
+                    private TCredPres gibsCredPres;
+                    private TCredPres gcbsCredPres;
+
+
+                    @AllArgsConstructor
+                    @NoArgsConstructor
+                    @Data
+                    @Builder
+                    public final static class GIBSUF implements DFObject, XMLAdapter<GIBSUF, br.inf.portalfiscal.cte.send400.TCIBS.GIBSUF> {
+                        private String pibsuf;
+                        private TDifIBS gDif;
+                        private TDevTrib gDevTrib;
+                        private TRed gRed;
+                        private String vibsuf;
+
+                    }
+
+                    @AllArgsConstructor
+                    @NoArgsConstructor
+                    @Data
+                    @Builder
+                    public final static class GIBSMun implements DFObject, XMLAdapter<GIBSMun, br.inf.portalfiscal.cte.send400.TCIBS.GIBSMun> {
+                        private String pibsMun;
+                        private TDifIBS gDif;
+                        private TDevTrib gDevTrib;
+                        private TRed gRed;
+                        private String vibsMun;
+                    }
+
+                    @AllArgsConstructor
+                    @NoArgsConstructor
+                    @Data
+                    @Builder
+                    public final static class GCBS implements DFObject, XMLAdapter<GCBS, br.inf.portalfiscal.cte.send400.TCIBS.GCBS> {
+                        private String pcbs;
+                        private TDifCBS gDif;
+                        private TDevTrib gDevTrib;
+                        private TRed gRed;
+                        private String vcbs;
+                    }
+
+                    @AllArgsConstructor
+                    @NoArgsConstructor
+                    @Data
+                    @Builder
+                    public final static class TCredPres implements DFObject, XMLAdapter<TCredPres, br.inf.portalfiscal.cte.send400.TCredPres> {
+                        private String cCredPres;
+                        private String pCredPres;
+                        private String vCredPres;
+                        private String vCredPresCondSus;
+                    }
+
+                    @AllArgsConstructor
+                    @NoArgsConstructor
+                    @Data
+                    @Builder
+                    public final static class TTribRegular implements DFObject, XMLAdapter<TTribRegular, br.inf.portalfiscal.cte.send400.TTribRegular> {
+                        private String cstReg;
+                        private String cClassTribReg;
+                        private String pAliqEfetRegIBSUF;
+                        private String vTribRegIBSUF;
+                        private String pAliqEfetRegIBSMun;
+                        private String vTribRegIBSMun;
+                        private String pAliqEfetRegCBS;
+                        private String vTribRegCBS;
+                    }
+
+
+                    @AllArgsConstructor
+                    @NoArgsConstructor
+                    @Data
+                    @Builder
+                    public final static class TRed implements DFObject, XMLAdapter<TRed, br.inf.portalfiscal.cte.send400.TRed> {
+                        private String pRedAliq;
+                        private String pAliqEfet;
+                    }
+
+                    @AllArgsConstructor
+                    @NoArgsConstructor
+                    @Data
+                    @Builder
+                    public final static class TDifIBS implements DFObject, XMLAdapter<TDifIBS, br.inf.portalfiscal.cte.send400.TDifIBS> {
+                        private String pDif;
+                        private String vDif;
+                    }
+
+                    @AllArgsConstructor
+                    @NoArgsConstructor
+                    @Data
+                    @Builder
+                    public final static class TDevTrib implements DFObject, XMLAdapter<TDevTrib, br.inf.portalfiscal.cte.send400.TDevTrib> {
+                        private String vDevTrib;
+                    }
+
+                }
+            }
 
             @AllArgsConstructor
             @NoArgsConstructor
@@ -654,6 +774,8 @@ public final class Cte implements DFObject, XMLAdapter<Cte, TCTe> {
                     private String vbc;
                     private String picms;
                     private String vicms;
+                    private String vicmsDeson;
+                    private String cBenef;
                 }
 
                 @Data
@@ -662,6 +784,8 @@ public final class Cte implements DFObject, XMLAdapter<Cte, TCTe> {
                 @NoArgsConstructor
                 public final static class ICMS45 implements DFObject, XMLAdapter<ICMS45, br.inf.portalfiscal.cte.send400.TImp.ICMS45> {
                     private String cst;
+                    private String vicmsDeson;
+                    private String cBenef;
                 }
 
                 @Data
@@ -675,6 +799,8 @@ public final class Cte implements DFObject, XMLAdapter<Cte, TCTe> {
                     private String vicmsstRet;
                     private String picmsstRet;
                     private String vCred;
+                    private String vicmsDeson;
+                    private String cBenef;
                 }
 
                 @Data
@@ -689,6 +815,8 @@ public final class Cte implements DFObject, XMLAdapter<Cte, TCTe> {
                     private String picms;
                     private String vicms;
                     private String vCred;
+                    private String vicmsDeson;
+                    private String cBenef;
                 }
 
                 @Data
@@ -702,6 +830,8 @@ public final class Cte implements DFObject, XMLAdapter<Cte, TCTe> {
                     private String vbcOutraUF;
                     private String picmsOutraUF;
                     private String vicmsOutraUF;
+                    private String vicmsDeson;
+                    private String cBenef;
                 }
 
                 @Data
@@ -775,7 +905,7 @@ public final class Cte implements DFObject, XMLAdapter<Cte, TCTe> {
                 private List<InfNF> infNF;
                 private List<InfNFe> infNFe;
                 private List<InfOutros> infOutros;
-
+                private List<InfDCe> infDCe;
 
                 @AllArgsConstructor
                 @NoArgsConstructor
@@ -812,6 +942,14 @@ public final class Cte implements DFObject, XMLAdapter<Cte, TCTe> {
                     private String dPrev;
                     private List<TUnidCarga> infUnidCarga;
                     private List<TUnidadeTransp> infUnidTransp;
+                }
+
+                @AllArgsConstructor
+                @NoArgsConstructor
+                @Data
+                @Builder
+                public final static class InfDCe implements DFObject, XMLAdapter<InfDCe, TCTe.InfCte.InfCTeNorm.InfDoc.InfDCe> {
+                    private String chave;
                 }
 
                 @AllArgsConstructor
@@ -1161,6 +1299,11 @@ public final class Cte implements DFObject, XMLAdapter<Cte, TCTe> {
                     private String vTar;
                     private String dIni;
                     private String dFim;
+                    private String classDuto;
+                    private String tpContratacao;
+                    private String codPontoEntrada;
+                    private String codPontoSaida;
+                    private String nContrato;
                 }
 
 
@@ -1369,5 +1512,15 @@ public final class Cte implements DFObject, XMLAdapter<Cte, TCTe> {
             private String xSolic;
         }
 
+        @Getter
+        @Setter
+        @Builder
+        @ToString
+        @AllArgsConstructor
+        @NoArgsConstructor
+        public static class TCompraGov implements DFObject, XMLAdapter<TCompraGov, br.inf.portalfiscal.cte.send400.TCompraGov> {
+            private String tpEnteGov;
+            private String pRedutor;
+        }
     }
 }

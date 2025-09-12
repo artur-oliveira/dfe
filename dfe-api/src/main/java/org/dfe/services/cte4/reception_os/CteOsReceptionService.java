@@ -1,13 +1,19 @@
 package org.dfe.services.cte4.reception_os;
 
 import br.inf.portalfiscal.cte.send400.TCTeOS;
+import br.inf.portalfiscal.cte.send400.TRetCTeOS;
 import org.dfe.components.internal.xml.unmarshaller.CteUnmarshallerFactory;
+import org.dfe.enums.internal.Model;
+import org.dfe.exceptions.CircuitBreakerException;
 import org.dfe.exceptions.ProcessException;
 import org.dfe.exceptions.ValidationException;
 import org.dfe.exceptions.port.SoapServiceGeneralException;
 import org.dfe.exceptions.security.SecurityException;
 import org.dfe.exceptions.services.NoProviderFound;
+import org.dfe.interfaces.circuitbreaker.DfeOperation;
+import org.dfe.interfaces.internal.Pair;
 import org.dfe.interfaces.internal.config.CteConfig;
+import org.dfe.interfaces.sefaz.cte4.Cte4Service;
 import org.dfe.interfaces.services.Cte4SefazService;
 import org.dfe.models.cte4.reception_os.CteOs;
 import org.dfe.models.cte4.reception_os.CteOsRequest;
@@ -21,23 +27,25 @@ public interface CteOsReceptionService extends Cte4SefazService {
      * @param tcTeOS The object that contains the data to be sent to the SEFAZ.
      * @return A CteOsReturn object.
      */
-    default CteOsReturn receptionOs(TCTeOS tcTeOS) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default CteOsReturn receptionOs(TCTeOS tcTeOS) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         CteConfig config = getConfig().withEnviroment(tcTeOS.getInfCte().getIde().getTpAmb());
-        return CteOsReturn
+        Cte4Service service = getProviderFactory().getCte4Service(config);
+        Pair<?, TRetCTeOS> res = getCircuitBreakerRegistry().get(
+                config.environment(),
+                Model.CTE_OS,
+                config.webServiceUF(),
+                DfeOperation.AUTHORIZATION
+        ).execute(() -> service.receptionOs(CteOsRequest
                 .builder()
-                .build()
-                .fromObject(getProviderFactory()
-                        .getCte4Service(config)
-                        .receptionOs(CteOsRequest
-                                .builder()
-                                .config(config)
-                                .signer(getXmlSigner())
-                                .data(tcTeOS)
-                                .configureProvider(getConfigureProviderFactory())
-                                .validators(getValidatorFactory().cte4Validator().receptionCteOsValidators())
-                                .beforeRequest(getProcess().beforeCteOs())
-                                .afterRequest(getProcess().afterCteOs())
-                                .build()));
+                .config(config)
+                .signer(getXmlSigner())
+                .data(tcTeOS)
+                .configureProvider(getConfigureProviderFactory())
+                .validators(getValidatorFactory().cte4Validator().receptionCteOsValidators())
+                .beforeRequest(getProcess().beforeCteOs())
+                .afterRequest(getProcess().afterCteOs())
+                .build()));
+        return new CteOsReturn().fromObject(res);
     }
 
     /**
@@ -46,7 +54,7 @@ public interface CteOsReceptionService extends Cte4SefazService {
      * @param cteOs The CteOs object that will be sent to the SEFAZ.
      * @return The return is a CteOsReturn object.
      */
-    default CteOsReturn receptionOs(CteOs cteOs) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default CteOsReturn receptionOs(CteOs cteOs) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return receptionOs(cteOs.toObject());
     }
 
@@ -56,7 +64,7 @@ public interface CteOsReceptionService extends Cte4SefazService {
      * @param xml XML string containing the OS to be sent.
      * @return The CteOsReturn object.
      */
-    default CteOsReturn receptionOs(String xml) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default CteOsReturn receptionOs(String xml) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return receptionOs(CteUnmarshallerFactory.getInstance().receptionCteOs400(xml).getValue());
     }
 

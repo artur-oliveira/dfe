@@ -1,5 +1,6 @@
 package org.dfe.components.sefaz;
 
+import org.dfe.enums.internal.nf.NfeAuthorizer;
 import org.dfe.exceptions.port.SoapServiceGeneralException;
 import org.dfe.interfaces.internal.config.CteConfig;
 import org.dfe.interfaces.internal.config.MdfeConfig;
@@ -27,10 +28,11 @@ public abstract class SoapService {
      * This function returns a NfeSoapService object, which is a SOAP client that can be used to send and receive
      * messages from the SEFAZ
      *
-     * @param config NfConfig object
+     * @param config        NfConfig object
+     * @param nfeAuthorizer The nfe authorizer
      * @return The NfeSoapService object.
      */
-    public abstract NfeSoapService getNfeSoapService(NfConfig config) throws SoapServiceGeneralException;
+    public abstract NfeSoapService getNfeSoapService(NfConfig config, NfeAuthorizer nfeAuthorizer) throws SoapServiceGeneralException;
 
     /**
      * This function returns a collection of all the NfeSoapService objects that are available for the given NfConfig

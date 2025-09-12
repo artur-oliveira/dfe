@@ -1,9 +1,9 @@
 package org.dfe.components.process.mdfe.query_situation.impl.file;
 
+import lombok.Getter;
 import org.dfe.components.process.mdfe.query_situation.StoreQuerySituationMdfe;
 import org.dfe.components.storage.StorageFactory;
 import org.dfe.interfaces.storage.mdfe.MdfeStorage;
-import lombok.Getter;
 
 @Getter
 final class FileSystemStoreQuerySituationMdfe extends StoreQuerySituationMdfe {

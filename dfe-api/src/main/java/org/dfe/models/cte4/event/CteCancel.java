@@ -51,7 +51,7 @@ public final class CteCancel implements DFObject, XMLAdapter<CteCancel, TEvento>
     @AllArgsConstructor
     @NoArgsConstructor
     @Builder
-    public static final class InfEvento implements DFObject, XMLAdapter<InfEvento, br.inf.portalfiscal.cte.send400.TEvento.InfEvento> {
+    public static final class InfEvento implements DFObject, XMLAdapter<InfEvento, TEvento.InfEvento> {
         private String cOrgao;
         private String tpAmb;
         private String cnpj;
@@ -66,8 +66,8 @@ public final class CteCancel implements DFObject, XMLAdapter<CteCancel, TEvento>
         private String id;
 
         @Override
-        public br.inf.portalfiscal.cte.send400.TEvento.InfEvento toObject() {
-            br.inf.portalfiscal.cte.send400.TEvento.InfEvento evento = XMLAdapter.super.toObject();
+        public TEvento.InfEvento toObject() {
+            TEvento.InfEvento evento = XMLAdapter.super.toObject();
             setId(XMLStringUtils.idEventoCte400(getTpEvento(), getChCTe(), getNSeqEvento()));
             evento.setId(getId());
             return evento;
@@ -77,7 +77,7 @@ public final class CteCancel implements DFObject, XMLAdapter<CteCancel, TEvento>
         @AllArgsConstructor
         @NoArgsConstructor
         @Builder
-        public static final class DetEvento implements DFObject, XMLAdapter<DetEvento, br.inf.portalfiscal.cte.send400.TEvento.InfEvento.DetEvento> {
+        public static final class DetEvento implements DFObject, XMLAdapter<DetEvento, TEvento.InfEvento.DetEvento> {
 
             private EvCancCTe event;
 
@@ -87,14 +87,14 @@ public final class CteCancel implements DFObject, XMLAdapter<CteCancel, TEvento>
             @Override
             @SneakyThrows
             public TEvento.InfEvento.DetEvento toObject() {
-                br.inf.portalfiscal.cte.send400.TEvento.InfEvento.DetEvento evento = new TEvento.InfEvento.DetEvento();
+                TEvento.InfEvento.DetEvento evento = new TEvento.InfEvento.DetEvento();
                 evento.setVersaoEvento(getVersaoEvento());
                 evento.setAny(CteMarshallerFactory.getInstance().toElement(getEvent().toObject()));
                 return evento;
             }
 
             @Override
-            public DetEvento fromObject(br.inf.portalfiscal.cte.send400.TEvento.InfEvento.DetEvento o) {
+            public DetEvento fromObject(TEvento.InfEvento.DetEvento o) {
                 DetEvento evento = DetEvento.builder().build();
                 evento.setVersaoEvento(evento.getVersaoEvento());
                 evento.setEvent(EvCancCTe.builder().build().fromObject(CteUnmarshallerFactory.getInstance().evCancCTe400(o.getAny()).getValue()));

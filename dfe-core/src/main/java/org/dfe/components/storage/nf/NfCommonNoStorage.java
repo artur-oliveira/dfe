@@ -3,9 +3,9 @@ package org.dfe.components.storage.nf;
 import br.inf.portalfiscal.nfe.gtin.TConsGTIN;
 import br.inf.portalfiscal.nfe.gtin.TRetConsGTIN;
 import br.inf.portalfiscal.nfe.send.*;
+import lombok.extern.log4j.Log4j2;
 import org.dfe.interfaces.storage.Store;
 import org.dfe.interfaces.storage.nf.common.NfCommonStorage;
-import lombok.extern.log4j.Log4j2;
 
 @Log4j2
 public class NfCommonNoStorage implements NfCommonStorage {
@@ -34,21 +34,21 @@ public class NfCommonNoStorage implements NfCommonStorage {
     }
 
     @Override
-    public void storeProcCancel(Store<br.inf.portalfiscal.nfe.event_cancel.TProcEvento> o) {
+    public void storeProcEvent(Store<br.inf.portalfiscal.nfe.event_generic.TProcEvento> o) {
         if (LOG_XML) {
             log.debug(o.xml());
         }
     }
 
     @Override
-    public void storeRetCancel(Store<br.inf.portalfiscal.nfe.event_cancel.TRetEnvEvento> o) {
+    public void storeRetEvent(Store<br.inf.portalfiscal.nfe.event_generic.TRetEnvEvento> o) {
         if (LOG_XML) {
             log.debug(o.xml());
         }
     }
 
     @Override
-    public void storeSendCancel(Store<br.inf.portalfiscal.nfe.event_cancel.TEnvEvento> o) {
+    public void storeSendEvent(Store<br.inf.portalfiscal.nfe.event_generic.TEnvEvento> o) {
         if (LOG_XML) {
             log.debug(o.xml());
         }

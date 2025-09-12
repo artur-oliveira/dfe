@@ -7,7 +7,7 @@ import org.dfe.enums.internal.UF;
 import org.dfe.enums.nf.NFSend;
 import org.dfe.enums.nf.identification.NFEmissionType;
 import org.dfe.enums.nf.interested_actor.NFDownloadAuthorization;
-import org.dfe.models.nf.interested_actor.ReturnNfeInterestedActor;
+import org.dfe.models.nf.event.ReturnNfEvent;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -25,10 +25,10 @@ class NfeInterestedActorServiceImplTest {
                         NFEmissionType.NORMAL,
                         NFSend.SYNC)
         );
-        ReturnNfeInterestedActor o = service.interestedActor("22230511520224000140550010000450661287506862", "05213730345", "", NFDownloadAuthorization.YES);
+        ReturnNfEvent o = service.interestedActor("22230511520224000140550010000450661287506862", "05213730345", "", NFDownloadAuthorization.YES);
         assertNotNull(o);
         assertEquals(1, o.getRetEvento().size());
-        assertEquals(Environment.HOMOLOGATION.getCode(), o.getRetEvento().get(0).getInfEvento().getTpAmb());
+        assertEquals(Environment.HOMOLOGATION.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpAmb());
     }
 
     @Test
@@ -42,9 +42,9 @@ class NfeInterestedActorServiceImplTest {
                         NFEmissionType.NORMAL,
                         NFSend.SYNC)
         );
-        ReturnNfeInterestedActor o = service.interestedActor("22230511520224000140550010000450661287506862", "05213730345", "", NFDownloadAuthorization.YES);
+        ReturnNfEvent o = service.interestedActor("22230511520224000140550010000450661287506862", "05213730345", "", NFDownloadAuthorization.YES);
         assertNotNull(o);
         assertEquals(1, o.getRetEvento().size());
-        assertEquals(Environment.PRODUCTION.getCode(), o.getRetEvento().get(0).getInfEvento().getTpAmb());
+        assertEquals(Environment.PRODUCTION.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpAmb());
     }
 }

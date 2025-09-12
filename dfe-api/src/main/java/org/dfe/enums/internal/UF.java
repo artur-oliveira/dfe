@@ -1,10 +1,10 @@
 package org.dfe.enums.internal;
 
 import br.inf.portalfiscal.nfe.send.TNFe;
+import lombok.Getter;
 import org.dfe.components.internal.DFEnum;
 import org.dfe.enums.internal.city.*;
 import org.dfe.models.nf.authorization.Nf;
-import lombok.Getter;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -62,7 +62,7 @@ public enum UF implements DFEnum.Codeable {
     }
 
     public static Collection<UF> states() {
-        return Arrays.stream(values()).filter(it -> !Arrays.asList(UF.NACIONAL, UF.RFB, UF.EX).contains(it)).collect(Collectors.toList());
+        return Arrays.stream(values()).filter(it -> !Arrays.asList(UF.NACIONAL, UF.RFB, UF.EX, UF.SU).contains(it)).collect(Collectors.toList());
     }
 
     public static UF valueOfCode(String code) {

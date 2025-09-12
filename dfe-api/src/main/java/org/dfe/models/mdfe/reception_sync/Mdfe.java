@@ -2,6 +2,7 @@ package org.dfe.models.mdfe.reception_sync;
 
 import br.inf.portalfiscal.mdfe.classes.TMDFe;
 import br.inf.portalfiscal.mdfe.classes.TUf;
+import lombok.*;
 import org.dfe.components.internal.AccessKeyGenerator;
 import org.dfe.components.internal.ProjectProperties;
 import org.dfe.components.internal.xml.marshaller.MdfeMarshallerFactory;
@@ -18,7 +19,6 @@ import org.dfe.interfaces.xml.generic.DFObject;
 import org.dfe.util.DateUtils;
 import org.dfe.util.StringUtils;
 import org.dfe.util.XMLStringUtils;
-import lombok.*;
 
 import java.util.List;
 import java.util.Objects;
@@ -36,7 +36,7 @@ public final class Mdfe implements DFObject, XMLAdapter<Mdfe, TMDFe> {
         Mdfe mdfeTemp = Mdfe.builder().build().fromObject(mdfe.toObject());
         mdfeTemp.setInfMDFeSupl(InfMDFeSupl
                 .builder()
-                .qrCodMDFe(QrCodeMdfeURL.generate(mdfeTemp, config, xmlSigner))
+                .qrCodMDFe(Objects.nonNull(config) && Objects.nonNull(xmlSigner) ? QrCodeMdfeURL.generate(mdfeTemp, config, xmlSigner) : null)
                 .build());
         return mdfeTemp;
     }
@@ -295,7 +295,7 @@ public final class Mdfe implements DFObject, XMLAdapter<Mdfe, TMDFe> {
                 private List<InfEmbComb> infEmbComb;
                 private List<InfUnidCargaVazia> infUnidCargaVazia;
                 private List<InfUnidTranspVazia> infUnidTranspVazia;
-
+                private String mmsi;
 
                 @Data
                 @Builder
@@ -408,6 +408,17 @@ public final class Mdfe implements DFObject, XMLAdapter<Mdfe, TMDFe> {
                         private String cpf;
                         private String cnpj;
                         private String idEstrangeiro;
+                        private InfContrato infContrato;
+
+                        @Data
+                        @Builder
+                        @AllArgsConstructor
+                        @NoArgsConstructor
+                        public static final class InfContrato implements DFObject, XMLAdapter<InfContrato, br.inf.portalfiscal.mdfe.classes.Rodo.InfANTT.InfContratante.InfContrato> {
+                            private String nroContrato;
+                            private String vContratoGlobal;
+                        }
+
                     }
 
                     @Data
@@ -614,6 +625,8 @@ public final class Mdfe implements DFObject, XMLAdapter<Mdfe, TMDFe> {
                     private List<TUnidadeTransp> infUnidTransp;
                     private List<Peri> peri;
                     private InfEntregaParcial infEntregaParcial;
+                    private String indPrestacaoParcial;
+                    private List<InfNFePrestParcial> infNFePrestParcial;
 
                     @Data
                     @Builder
@@ -635,6 +648,14 @@ public final class Mdfe implements DFObject, XMLAdapter<Mdfe, TMDFe> {
                     public static final class InfEntregaParcial implements DFObject, XMLAdapter<InfEntregaParcial, TMDFe.InfMDFe.InfDoc.InfMunDescarga.InfCTe.InfEntregaParcial> {
                         private String qtdTotal;
                         private String qtdParcial;
+                    }
+
+                    @Data
+                    @Builder
+                    @AllArgsConstructor
+                    @NoArgsConstructor
+                    public static final class InfNFePrestParcial implements DFObject, XMLAdapter<InfNFePrestParcial, TMDFe.InfMDFe.InfDoc.InfMunDescarga.InfCTe.InfNFePrestParcial> {
+                        private String chNFe;
                     }
 
                 }

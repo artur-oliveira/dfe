@@ -1,6 +1,7 @@
 package org.dfe.services.nf.authorization;
 
 import org.dfe.enums.internal.Environment;
+import org.dfe.enums.internal.Model;
 import org.dfe.exceptions.port.SoapServiceGeneralException;
 import org.dfe.exceptions.services.NoProviderFound;
 import org.dfe.interfaces.internal.config.NfeConfig;
@@ -16,6 +17,11 @@ public interface NfeAuthorizationService extends NfAuthorizationService {
     @Override
     default NfCommonValidator getValidator() {
         return getValidatorFactory().nfeValidator();
+    }
+
+    @Override
+    default Model getModel() {
+        return Model.NFE;
     }
 
     @Override

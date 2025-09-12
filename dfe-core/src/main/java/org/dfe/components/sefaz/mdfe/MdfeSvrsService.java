@@ -94,7 +94,7 @@ public final class MdfeSvrsService implements MdfeService {
             br.inf.portalfiscal.mdfe.wsdl.distribution.svrs.prod.MdfeDistDFeInteresseResult result = ws.mdfeDistDFeInteresse(dadosMsg);
 
             if (!result.getContent().isEmpty()) {
-                resultElement = (JAXBElement<?>) result.getContent().get(0);
+                resultElement = (JAXBElement<?>) result.getContent().getFirst();
             }
         } else {
             br.inf.portalfiscal.mdfe.wsdl.distribution.svrs.hom.MDFeDistribuicaoDFeSoap12 ws = ((br.inf.portalfiscal.mdfe.wsdl.distribution.svrs.hom.MDFeDistribuicaoDFe) (getSoapService()).distributionHom()).getMDFeDistribuicaoDFeSoap12();
@@ -112,7 +112,7 @@ public final class MdfeSvrsService implements MdfeService {
             br.inf.portalfiscal.mdfe.wsdl.distribution.svrs.hom.MdfeDistDFeInteresseResult result = ws.mdfeDistDFeInteresse(dadosMsg);
 
             if (!result.getContent().isEmpty()) {
-                resultElement = (JAXBElement<?>) result.getContent().get(0);
+                resultElement = (JAXBElement<?>) result.getContent().getFirst();
             }
         }
 
@@ -156,7 +156,7 @@ public final class MdfeSvrsService implements MdfeService {
             br.inf.portalfiscal.mdfe.wsdl.distribution.svrs.prod.MdfeDistDFeInteresseResult result = ws.mdfeDistDFeInteresse(dadosMsg);
 
             if (!result.getContent().isEmpty()) {
-                resultElement = (JAXBElement<?>) result.getContent().get(0);
+                resultElement = (JAXBElement<?>) result.getContent().getFirst();
             }
         } else {
             br.inf.portalfiscal.mdfe.wsdl.distribution.svrs.hom.MDFeDistribuicaoDFeSoap12 ws = ((br.inf.portalfiscal.mdfe.wsdl.distribution.svrs.hom.MDFeDistribuicaoDFe) (getSoapService()).distributionHom()).getMDFeDistribuicaoDFeSoap12();
@@ -174,7 +174,7 @@ public final class MdfeSvrsService implements MdfeService {
             br.inf.portalfiscal.mdfe.wsdl.distribution.svrs.hom.MdfeDistDFeInteresseResult result = ws.mdfeDistDFeInteresse(dadosMsg);
 
             if (!result.getContent().isEmpty()) {
-                resultElement = (JAXBElement<?>) result.getContent().get(0);
+                resultElement = (JAXBElement<?>) result.getContent().getFirst();
             }
         }
 
@@ -218,7 +218,7 @@ public final class MdfeSvrsService implements MdfeService {
             br.inf.portalfiscal.mdfe.wsdl.event.svrs.prod.MdfeRecepcaoEventoResult result = ws.mdfeRecepcaoEvento(dadosMsg);
 
             if (!result.getContent().isEmpty()) {
-                resultElement = (JAXBElement<?>) result.getContent().get(0);
+                resultElement = (JAXBElement<?>) result.getContent().getFirst();
             }
         } else {
             br.inf.portalfiscal.mdfe.wsdl.event.svrs.hom.MDFeRecepcaoEventoSoap12 ws = ((br.inf.portalfiscal.mdfe.wsdl.event.svrs.hom.MDFeRecepcaoEvento) (getSoapService()).eventHom()).getMDFeRecepcaoEventoSoap12();
@@ -236,7 +236,7 @@ public final class MdfeSvrsService implements MdfeService {
             br.inf.portalfiscal.mdfe.wsdl.event.svrs.hom.MdfeRecepcaoEventoResult result = ws.mdfeRecepcaoEvento(dadosMsg);
 
             if (!result.getContent().isEmpty()) {
-                resultElement = (JAXBElement<?>) result.getContent().get(0);
+                resultElement = (JAXBElement<?>) result.getContent().getFirst();
             }
         }
 
@@ -280,7 +280,7 @@ public final class MdfeSvrsService implements MdfeService {
             br.inf.portalfiscal.mdfe.wsdl.return_reception.svrs.prod.MdfeRetRecepcaoResult result = ws.mdfeRetRecepcao(dadosMsg);
 
             if (!result.getContent().isEmpty()) {
-                resultElement = (JAXBElement<?>) result.getContent().get(0);
+                resultElement = (JAXBElement<?>) result.getContent().getFirst();
             }
         } else {
             br.inf.portalfiscal.mdfe.wsdl.return_reception.svrs.hom.MDFeRetRecepcaoSoap12 ws = ((br.inf.portalfiscal.mdfe.wsdl.return_reception.svrs.hom.MDFeRetRecepcao) (getSoapService()).queryReceiptHom()).getMDFeRetRecepcaoSoap12();
@@ -298,7 +298,7 @@ public final class MdfeSvrsService implements MdfeService {
             br.inf.portalfiscal.mdfe.wsdl.return_reception.svrs.hom.MdfeRetRecepcaoResult result = ws.mdfeRetRecepcao(dadosMsg);
 
             if (!result.getContent().isEmpty()) {
-                resultElement = (JAXBElement<?>) result.getContent().get(0);
+                resultElement = (JAXBElement<?>) result.getContent().getFirst();
             }
         }
 
@@ -342,7 +342,7 @@ public final class MdfeSvrsService implements MdfeService {
             br.inf.portalfiscal.mdfe.wsdl.query_situation.svrs.prod.MdfeConsultaMDFResult result = ws.mdfeConsultaMDF(dadosMsg);
 
             if (!result.getContent().isEmpty()) {
-                resultElement = (JAXBElement<?>) result.getContent().get(0);
+                resultElement = (JAXBElement<?>) result.getContent().getFirst();
             }
         } else {
             br.inf.portalfiscal.mdfe.wsdl.query_situation.svrs.hom.MDFeConsultaSoap12 ws = ((br.inf.portalfiscal.mdfe.wsdl.query_situation.svrs.hom.MDFeConsulta) (getSoapService()).querySituationHom()).getMDFeConsultaSoap12();
@@ -360,7 +360,7 @@ public final class MdfeSvrsService implements MdfeService {
             br.inf.portalfiscal.mdfe.wsdl.query_situation.svrs.hom.MdfeConsultaMDFResult result = ws.mdfeConsultaMDF(dadosMsg);
 
             if (!result.getContent().isEmpty()) {
-                resultElement = (JAXBElement<?>) result.getContent().get(0);
+                resultElement = (JAXBElement<?>) result.getContent().getFirst();
             }
         }
 
@@ -404,7 +404,7 @@ public final class MdfeSvrsService implements MdfeService {
             br.inf.portalfiscal.mdfe.wsdl.query_unclosed.svrs.prod.MdfeConsNaoEncResult result = ws.mdfeConsNaoEnc(dadosMsg);
 
             if (!result.getContent().isEmpty()) {
-                resultElement = (JAXBElement<?>) result.getContent().get(0);
+                resultElement = (JAXBElement<?>) result.getContent().getFirst();
             }
         } else {
             br.inf.portalfiscal.mdfe.wsdl.query_unclosed.svrs.hom.MDFeConsNaoEncSoap12 ws = ((br.inf.portalfiscal.mdfe.wsdl.query_unclosed.svrs.hom.MDFeConsNaoEnc) (getSoapService()).queryUnclosedHom()).getMDFeConsNaoEncSoap12();
@@ -422,7 +422,7 @@ public final class MdfeSvrsService implements MdfeService {
             br.inf.portalfiscal.mdfe.wsdl.query_unclosed.svrs.hom.MdfeConsNaoEncResult result = ws.mdfeConsNaoEnc(dadosMsg);
 
             if (!result.getContent().isEmpty()) {
-                resultElement = (JAXBElement<?>) result.getContent().get(0);
+                resultElement = (JAXBElement<?>) result.getContent().getFirst();
             }
         }
 
@@ -466,7 +466,7 @@ public final class MdfeSvrsService implements MdfeService {
             br.inf.portalfiscal.mdfe.wsdl.reception.svrs.prod.MdfeRecepcaoLoteResult result = ws.mdfeRecepcaoLote(dadosMsg);
 
             if (!result.getContent().isEmpty()) {
-                resultElement = (JAXBElement<?>) result.getContent().get(0);
+                resultElement = (JAXBElement<?>) result.getContent().getFirst();
             }
         } else {
             br.inf.portalfiscal.mdfe.wsdl.reception.svrs.hom.MDFeRecepcaoSoap12 ws = ((br.inf.portalfiscal.mdfe.wsdl.reception.svrs.hom.MDFeRecepcao) (getSoapService()).receptionHom()).getMDFeRecepcaoSoap12();
@@ -484,7 +484,7 @@ public final class MdfeSvrsService implements MdfeService {
             br.inf.portalfiscal.mdfe.wsdl.reception.svrs.hom.MdfeRecepcaoLoteResult result = ws.mdfeRecepcaoLote(dadosMsg);
 
             if (!result.getContent().isEmpty()) {
-                resultElement = (JAXBElement<?>) result.getContent().get(0);
+                resultElement = (JAXBElement<?>) result.getContent().getFirst();
             }
         }
 
@@ -525,7 +525,7 @@ public final class MdfeSvrsService implements MdfeService {
             }
 
             if (!result.getContent().isEmpty()) {
-                resultElement = (JAXBElement<?>) result.getContent().get(0);
+                resultElement = (JAXBElement<?>) result.getContent().getFirst();
             }
         } else {
             br.inf.portalfiscal.mdfe.wsdl.reception_sync.svrs.hom.MDFeRecepcaoSincSoap12 ws = ((br.inf.portalfiscal.mdfe.wsdl.reception_sync.svrs.hom.MDFeRecepcaoSinc) (getSoapService()).receptionSyncHom()).getMDFeRecepcaoSincSoap12();
@@ -540,7 +540,7 @@ public final class MdfeSvrsService implements MdfeService {
             }
 
             if (!result.getContent().isEmpty()) {
-                resultElement = (JAXBElement<?>) result.getContent().get(0);
+                resultElement = (JAXBElement<?>) result.getContent().getFirst();
             }
         }
 
@@ -584,7 +584,7 @@ public final class MdfeSvrsService implements MdfeService {
             br.inf.portalfiscal.mdfe.wsdl.status_service.svrs.prod.MdfeStatusServicoMDFResult result = ws.mdfeStatusServicoMDF(dadosMsg);
 
             if (!result.getContent().isEmpty()) {
-                resultElement = (JAXBElement<?>) result.getContent().get(0);
+                resultElement = (JAXBElement<?>) result.getContent().getFirst();
             }
         } else {
             br.inf.portalfiscal.mdfe.wsdl.status_service.svrs.hom.MDFeStatusServicoSoap12 ws = ((br.inf.portalfiscal.mdfe.wsdl.status_service.svrs.hom.MDFeStatusServico) (getSoapService()).statusServiceHom()).getMDFeStatusServicoSoap12();
@@ -602,7 +602,7 @@ public final class MdfeSvrsService implements MdfeService {
             br.inf.portalfiscal.mdfe.wsdl.status_service.svrs.hom.MdfeStatusServicoMDFResult result = ws.mdfeStatusServicoMDF(dadosMsg);
 
             if (!result.getContent().isEmpty()) {
-                resultElement = (JAXBElement<?>) result.getContent().get(0);
+                resultElement = (JAXBElement<?>) result.getContent().getFirst();
             }
         }
 

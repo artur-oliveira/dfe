@@ -1,9 +1,6 @@
 package org.dfe.components.internal.xml.objectfactory;
 
-import br.inf.portalfiscal.nfe.send.TConsStatServ;
-import br.inf.portalfiscal.nfe.send.TIpi;
-import br.inf.portalfiscal.nfe.send.TNFe;
-import br.inf.portalfiscal.nfe.send.TNfeProc;
+import br.inf.portalfiscal.nfe.send.*;
 import jakarta.xml.bind.JAXBElement;
 import lombok.Getter;
 
@@ -12,12 +9,6 @@ final class DefaultNfObjectFactoryWrapper extends NfObjectFactoryWrapperFactory 
 
     private final br.inf.portalfiscal.nfe.send.ObjectFactory sendNfeObjectFactory = new br.inf.portalfiscal.nfe.send.ObjectFactory();
     private final br.inf.portalfiscal.nfe.event_generic.ObjectFactory eventNfeObjectFactory = new br.inf.portalfiscal.nfe.event_generic.ObjectFactory();
-    private final br.inf.portalfiscal.nfe.event_cancel.ObjectFactory cancelNfeObjectFactory = new br.inf.portalfiscal.nfe.event_cancel.ObjectFactory();
-    private final br.inf.portalfiscal.nfe.event_substitute_cancel.ObjectFactory substituteCancelNfeObjectFactory = new br.inf.portalfiscal.nfe.event_substitute_cancel.ObjectFactory();
-    private final br.inf.portalfiscal.nfe.event_correction_letter.ObjectFactory correctionLetterNfeObjectFactory = new br.inf.portalfiscal.nfe.event_correction_letter.ObjectFactory();
-    private final br.inf.portalfiscal.nfe.event_epec.ObjectFactory epecNfeObjectFactory = new br.inf.portalfiscal.nfe.event_epec.ObjectFactory();
-    private final br.inf.portalfiscal.nfe.event_manifestation.ObjectFactory manifestationNfeObjectFactory = new br.inf.portalfiscal.nfe.event_manifestation.ObjectFactory();
-    private final br.inf.portalfiscal.nfe.event_interested_actor.ObjectFactory interestedActorNfeObjectFactory = new br.inf.portalfiscal.nfe.event_interested_actor.ObjectFactory();
     private final br.inf.portalfiscal.nfe.gtin.ObjectFactory gtinNfeObjectFactory = new br.inf.portalfiscal.nfe.gtin.ObjectFactory();
     private final br.inf.portalfiscal.nfe.distribution.ObjectFactory distributionNfeObjectFactory = new br.inf.portalfiscal.nfe.distribution.ObjectFactory();
 
@@ -84,5 +75,15 @@ final class DefaultNfObjectFactoryWrapper extends NfObjectFactoryWrapperFactory 
     @Override
     public JAXBElement<TNFe.InfNFe.Det.Imposto.ICMSUFDest> icmsufdest(TNFe.InfNFe.Det.Imposto.ICMSUFDest o) {
         return getSendNfeObjectFactory().createTNFeInfNFeDetImpostoICMSUFDest(o);
+    }
+
+    @Override
+    public JAXBElement<TIS> is(TIS o) {
+        return getSendNfeObjectFactory().createTNFeInfNFeDetImpostoIS(o);
+    }
+
+    @Override
+    public JAXBElement<TTribNFe> ibsCbs(TTribNFe o) {
+        return getSendNfeObjectFactory().createTNFeInfNFeDetImpostoIBSCBS(o);
     }
 }

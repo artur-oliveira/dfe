@@ -15,7 +15,7 @@ import org.dfe.enums.nf.payment.NFPaymentIndicative;
 import org.dfe.enums.nf.payment.NFPaymentType;
 import org.dfe.interfaces.internal.config.NfConfig;
 import org.dfe.models.nf.authorization.Nf;
-import org.dfe.models.nf.epec.ReturnNfeEpec;
+import org.dfe.models.nf.event.ReturnNfEvent;
 import org.dfe.util.DateUtils;
 import org.junit.jupiter.api.Test;
 
@@ -107,10 +107,10 @@ class NfeEpecServiceImplTest {
                         NFEmissionType.EPEC,
                         NFSend.SYNC)
         );
-        ReturnNfeEpec o = service.epec(getNfe(service.getConfig(), 1, Model.NFE));
+        ReturnNfEvent o = service.epec(getNfe(service.getConfig(), 1, Model.NFE));
         assertNotNull(o);
         assertEquals(1, o.getRetEvento().size());
-        assertEquals(Environment.HOMOLOGATION.getCode(), o.getRetEvento().get(0).getInfEvento().getTpAmb());
+        assertEquals(Environment.HOMOLOGATION.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpAmb());
     }
 
     @Test
@@ -124,9 +124,9 @@ class NfeEpecServiceImplTest {
                         NFEmissionType.EPEC,
                         NFSend.SYNC)
         );
-        ReturnNfeEpec o = service.epec(getNfe(service.getConfig(), 1, Model.NFE));
+        ReturnNfEvent o = service.epec(getNfe(service.getConfig(), 1, Model.NFE));
         assertNotNull(o);
         assertEquals(1, o.getRetEvento().size());
-        assertEquals(Environment.PRODUCTION.getCode(), o.getRetEvento().get(0).getInfEvento().getTpAmb());
+        assertEquals(Environment.PRODUCTION.getCode(), o.getRetEvento().getFirst().getInfEvento().getTpAmb());
     }
 }

@@ -3,20 +3,12 @@ package org.dfe.interfaces.process.nf;
 import org.dfe.interfaces.process.DfProcess;
 import org.dfe.interfaces.process.nf.authorization.AfterAuthorization;
 import org.dfe.interfaces.process.nf.authorization.BeforeAuthorization;
-import org.dfe.interfaces.process.nf.cancel.AfterCancel;
-import org.dfe.interfaces.process.nf.cancel.BeforeCancel;
-import org.dfe.interfaces.process.nf.correction_letter.AfterCorrectionLetter;
-import org.dfe.interfaces.process.nf.correction_letter.BeforeCorrectionLetter;
 import org.dfe.interfaces.process.nf.distribution.AfterDistribution;
 import org.dfe.interfaces.process.nf.distribution.BeforeDistribution;
-import org.dfe.interfaces.process.nf.epec.AfterEpec;
-import org.dfe.interfaces.process.nf.epec.BeforeEpec;
-import org.dfe.interfaces.process.nf.interested_actor.AfterInterestedActor;
-import org.dfe.interfaces.process.nf.interested_actor.BeforeInterestedActor;
+import org.dfe.interfaces.process.nf.event.AfterEvent;
+import org.dfe.interfaces.process.nf.event.BeforeEvent;
 import org.dfe.interfaces.process.nf.inut.AfterInut;
 import org.dfe.interfaces.process.nf.inut.BeforeInut;
-import org.dfe.interfaces.process.nf.manifestation.AfterManifestation;
-import org.dfe.interfaces.process.nf.manifestation.BeforeManifestation;
 import org.dfe.interfaces.process.nf.query_gtin.AfterQueryGtin;
 import org.dfe.interfaces.process.nf.query_gtin.BeforeQueryGtin;
 import org.dfe.interfaces.process.nf.query_protocol.AfterQueryProtocol;
@@ -27,8 +19,6 @@ import org.dfe.interfaces.process.nf.query_status_service.AfterQueryStatusServic
 import org.dfe.interfaces.process.nf.query_status_service.BeforeQueryStatusService;
 import org.dfe.interfaces.process.nf.return_authorization.AfterReturnAuthorization;
 import org.dfe.interfaces.process.nf.return_authorization.BeforeReturnAuthorization;
-import org.dfe.interfaces.process.nf.substitute_cancel.AfterSubstituteCancel;
-import org.dfe.interfaces.process.nf.substitute_cancel.BeforeSubstituteCancel;
 
 import java.util.Collection;
 
@@ -49,18 +39,18 @@ public interface NfProcessService extends DfProcess {
     Collection<BeforeInut> beforeInutilization();
 
     /**
-     * Returns a collection of all the AfterCancel objects in the current process.
+     * Returns a collection of all the afterEvent objects in the current process.
      *
-     * @return A collection of AfterCancel objects.
+     * @return A collection of afterEvent objects.
      */
-    Collection<AfterCancel> afterCancel();
+    Collection<AfterEvent> afterEvent();
 
     /**
-     * Returns a collection of all the BeforeCancel objects in the current object.
+     * Returns a collection of all the beforeEvent objects in the current object.
      *
-     * @return A collection of BeforeCancel objects.
+     * @return A collection of beforeEvent objects.
      */
-    Collection<BeforeCancel> beforeCancel();
+    Collection<BeforeEvent> beforeEvent();
 
     /**
      * "Return a collection of AfterAuthorization objects that will be called after the user has been authorized."
@@ -140,62 +130,6 @@ public interface NfProcessService extends DfProcess {
     Collection<BeforeDistribution> beforeDistribution();
 
     /**
-     * Returns a collection of all the AfterManifestation objects in the model.
-     *
-     * @return A collection of AfterManifestation objects.
-     */
-    Collection<AfterManifestation> afterManifestation();
-
-    /**
-     * Returns a collection of all the BeforeManifestation objects in the model.
-     *
-     * @return A collection of BeforeManifestation objects.
-     */
-    Collection<BeforeManifestation> beforeManifestation();
-
-    /**
-     * It returns a collection of AfterCorrectionLetter objects.
-     *
-     * @return A collection of AfterCorrectionLetter objects.
-     */
-    Collection<AfterCorrectionLetter> afterCorrectionLetter();
-
-    /**
-     * Returns a collection of all the BeforeCorrectionLetter objects in the database.
-     *
-     * @return A collection of BeforeCorrectionLetter objects.
-     */
-    Collection<BeforeCorrectionLetter> beforeCorrectionLetter();
-
-    /**
-     * It returns a collection of AfterEpec objects.
-     *
-     * @return A collection of AfterEpec objects.
-     */
-    Collection<AfterEpec> afterEpec();
-
-    /**
-     * Returns a collection of all the BeforeEpec objects in the database.
-     *
-     * @return A collection of BeforeEpec objects.
-     */
-    Collection<BeforeEpec> beforeEpec();
-
-    /**
-     * Returns a collection of all the actors interested in the after event
-     *
-     * @return A collection of AfterInterestedActor objects.
-     */
-    Collection<AfterInterestedActor> afterInterestedActor();
-
-    /**
-     * Returns a collection of all the actors interested in the before event
-     *
-     * @return A collection of BeforeInterestedActor objects.
-     */
-    Collection<BeforeInterestedActor> beforeInterestedActor();
-
-    /**
      * It returns a collection of AfterQueryGtin objects.
      *
      * @return A collection of AfterQueryGtin objects.
@@ -208,20 +142,6 @@ public interface NfProcessService extends DfProcess {
      * @return A collection of BeforeQueryGtin objects.
      */
     Collection<BeforeQueryGtin> beforeQueryGtin();
-
-    /**
-     * Returns a collection of all the AfterSubstituteCancel objects in the current document.
-     *
-     * @return A collection of AfterSubstituteCancel objects.
-     */
-    Collection<AfterSubstituteCancel> afterSubstituteCancel();
-
-    /**
-     * Returns a collection of all the BeforeSubstituteCancel objects in the current document
-     *
-     * @return A collection of BeforeSubstituteCancel objects.
-     */
-    Collection<BeforeSubstituteCancel> beforeSubstituteCancel();
 
     /**
      * This function is called after the query is executed and the results are returned

@@ -1,7 +1,7 @@
 package org.dfe.enums.nf;
 
-import org.dfe.components.internal.DFEnum;
 import lombok.Getter;
+import org.dfe.components.internal.DFEnum;
 
 @Getter
 public enum NFAuthor implements DFEnum.Codeable {

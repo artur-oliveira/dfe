@@ -140,24 +140,6 @@ class DefaultCteMarshallerTest {
     }
 
     @Test
-    void testInutilizationCte400() {
-        br.inf.portalfiscal.cte.send400.TInutCTe o = new br.inf.portalfiscal.cte.send400.TInutCTe();
-        assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><inutCTe xmlns=\"http://www.portalfiscal.inf.br/cte\"/>", new DefaultCteMarshaller().inutilizationCte(o));
-    }
-
-    @Test
-    void testReturnInutilizationCte400() {
-        br.inf.portalfiscal.cte.send400.TRetInutCTe o = new br.inf.portalfiscal.cte.send400.TRetInutCTe();
-        assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><retInutCTe xmlns=\"http://www.portalfiscal.inf.br/cte\"/>", new DefaultCteMarshaller().returnInutilizationCte(o));
-    }
-
-    @Test
-    void testProcInutilizationCte400() {
-        br.inf.portalfiscal.cte.send400.TProcInutCTe o = new br.inf.portalfiscal.cte.send400.TProcInutCTe();
-        assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><procInutCTe xmlns=\"http://www.portalfiscal.inf.br/cte\"/>", new DefaultCteMarshaller().procInutilizationCte(o));
-    }
-
-    @Test
     void testQuerySituationCte400() {
         br.inf.portalfiscal.cte.send400.TConsSitCTe o = new br.inf.portalfiscal.cte.send400.TConsSitCTe();
         assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><consSitCTe xmlns=\"http://www.portalfiscal.inf.br/cte\"/>", new DefaultCteMarshaller().querySituationCte(o));

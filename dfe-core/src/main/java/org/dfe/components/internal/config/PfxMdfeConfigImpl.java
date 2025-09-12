@@ -1,14 +1,14 @@
 package org.dfe.components.internal.config;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.SneakyThrows;
 import org.dfe.enums.internal.Environment;
 import org.dfe.enums.internal.UF;
 import org.dfe.enums.mdfe.identification.MdfeEmissionType;
 import org.dfe.exceptions.security.SSLContextException;
 import org.dfe.interfaces.internal.KeyStoreInfo;
 import org.dfe.interfaces.internal.config.MdfeConfig;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.SneakyThrows;
 
 @Getter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true, callSuper = true)

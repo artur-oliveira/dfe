@@ -73,6 +73,17 @@ public enum QrCodeNfceURL implements AllowUF {
             return "http://hnfe.sefaz.ba.gov.br/servicos/nfce/modulos/geral/NFCEC_consulta_chave_acesso.aspx";
         }
     },
+    CE {
+        @Override
+        public String production() {
+            return "http://nfce.sefaz.ce.gov.br/pages/ShowNFCe.html";
+        }
+
+        @Override
+        public String homologation() {
+            return "http://nfceh.sefaz.ce.gov.br/pages/ShowNFCe.html";
+        }
+    },
     DF {
         @Override
         public String production() {
@@ -87,12 +98,12 @@ public enum QrCodeNfceURL implements AllowUF {
     GO {
         @Override
         public String production() {
-            return "http://nfe.sefaz.go.gov.br/nfeweb/sites/nfce/danfeNFCe";
+            return "https://nfeweb.sefaz.go.gov.br/nfeweb/sites/nfce/danfeNFCe";
         }
 
         @Override
         public String homologation() {
-            return "http://homolog.sefaz.go.gov.br/nfeweb/sites/nfce/danfeNFCe";
+            return "https://nfewebhomolog.sefaz.go.gov.br/nfeweb/sites/nfce/danfeNFCe";
         }
     },
     ES {
@@ -164,12 +175,12 @@ public enum QrCodeNfceURL implements AllowUF {
     PB {
         @Override
         public String production() {
-            return "http://www.receita.pb.gov.br/nfce";
+            return "http://www.sefaz.pb.gov.br/nfce";
         }
 
         @Override
         public String homologation() {
-            return "http://www.receita.pb.gov.br/nfcehom";
+            return "http://www.sefaz.pb.gov.br/nfcehom";
         }
     },
     PR {
@@ -285,12 +296,12 @@ public enum QrCodeNfceURL implements AllowUF {
     SE {
         @Override
         public String production() {
-            return "http://www.nfce.se.gov.br/portal/consultarNFCe.jsp";
+            return "http://www.nfce.se.gov.br/nfce/qrcode";
         }
 
         @Override
         public String homologation() {
-            return "http://www.hom.nfe.se.gov.br/portal/consultarNFCe.jsp";
+            return "http://www.hom.nfe.se.gov.br/nfce/qrcode";
         }
     },
     TO {
@@ -305,16 +316,6 @@ public enum QrCodeNfceURL implements AllowUF {
         }
     },
     ;
-
-    public static String get(UF uf, Environment environment) throws NoProviderFound {
-        QrCodeNfceURL serviceURL = Arrays.stream(QrCodeNfceURL.values()).filter(it -> it.allow(uf, environment)).findFirst().orElseThrow(NoProviderFound::new);
-
-        return environment.production() ? serviceURL.production() : serviceURL.homologation();
-    }
-
-    public static String generate(Nf nf, NfceConfig config, XMLSignerService xmlSigner) throws NoProviderFound, GeneralSecurityException, XMLSignException {
-        return QrCodeGeneratorFactory.getInstance().generate(NfQrCode.builder().nf(nf).config(config).xmlSigner(xmlSigner).build());
-    }
 
     @Override
     public Collection<UF> allowedUfsHomologation() {

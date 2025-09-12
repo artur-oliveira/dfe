@@ -3,8 +3,12 @@
                   xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
                   xmlns:tns="http://www.portalfiscal.inf.br/nfe/wsdl/NFeAutorizacao4"
                   xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:jaxws="https://jakarta.ee/xml/ns/jaxws"
                   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
                   targetNamespace="http://www.portalfiscal.inf.br/nfe/wsdl/NFeAutorizacao4">
+    <jaxws:bindings>
+        <jaxws:enableAsyncMapping>true</jaxws:enableAsyncMapping>
+    </jaxws:bindings>
     <wsdl:types>
         <s:schema elementFormDefault="qualified"
                   targetNamespace="http://www.portalfiscal.inf.br/nfe/wsdl/NFeAutorizacao4">
@@ -39,14 +43,18 @@
     </wsdl:message>
     <wsdl:portType name="NFeAutorizacao4Soap">
         <wsdl:operation name="nfeAutorizacaoLote">
-            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Serviço destinado à recepção de mensagens
+            <wsdl:documentation
+                    xmlns:jaxws="https://jakarta.ee/xml/ns/jaxws"
+                    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Serviço destinado à recepção de mensagens
                 de lote de NF-e
             </wsdl:documentation>
             <wsdl:input message="tns:nfeAutorizacaoLoteSoapIn"/>
             <wsdl:output message="tns:nfeAutorizacaoLoteSoapOut"/>
         </wsdl:operation>
         <wsdl:operation name="nfeAutorizacaoLoteZip">
-            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Serviço destinado à recepção de mensagens
+            <wsdl:documentation
+                    xmlns:jaxws="https://jakarta.ee/xml/ns/jaxws"
+                    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Serviço destinado à recepção de mensagens
                 de lote de NF-e compactada
             </wsdl:documentation>
             <wsdl:input message="tns:nfeAutorizacaoLoteZipSoapIn"/>

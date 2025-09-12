@@ -1,9 +1,9 @@
 package org.dfe.models.nf.query_gtin;
 
 import br.inf.portalfiscal.nfe.gtin.TRetConsGTIN;
+import lombok.*;
 import org.dfe.interfaces.xml.XMLAdapter;
 import org.dfe.interfaces.xml.generic.DFObject;
-import lombok.*;
 
 import java.util.List;
 

@@ -88,11 +88,6 @@ final class DefaultCteUnmarshaller extends CteUnmarshallerFactory {
     }
 
     @Override
-    public JAXBElement<br.inf.portalfiscal.cte.send400.TInutCTe> inutCte400(String xml) {
-        return CteObjectFactoryWrapperFactory.getInstance().getCte4ObjectFactory().createInutCTe(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.TInutCTe.class, xml));
-    }
-
-    @Override
     public JAXBElement<br.inf.portalfiscal.cte.send400.TConsSitCTe> querySituationCte400(String xml) {
         return CteObjectFactoryWrapperFactory.getInstance().getCte4ObjectFactory().createConsSitCTe(XMLUtils.getJaxbElementValue(any400(xml).getValue(), br.inf.portalfiscal.cte.send400.TConsSitCTe.class, xml));
     }

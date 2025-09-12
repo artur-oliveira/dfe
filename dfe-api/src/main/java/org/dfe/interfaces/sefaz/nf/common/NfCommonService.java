@@ -8,5 +8,5 @@ import org.dfe.interfaces.internal.allow.NfServiceAllow;
  * By extending these interfaces, `NfCommonService` inherits their methods and can be used to provide a common set of
  * functionality across different classes that implement this interface.
  */
-public interface NfCommonService extends NfCancel, NfInut, NfAuthorization, NfReturnAuthorization, NfQueryProtocol, NfServiceAllow, NfQueryStatusService {
+public interface NfCommonService extends NfEvent, NfInut, NfAuthorization, NfReturnAuthorization, NfQueryProtocol, NfServiceAllow, NfQueryStatusService {
 }

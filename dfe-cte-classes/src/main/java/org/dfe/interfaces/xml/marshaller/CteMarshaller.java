@@ -14,12 +14,6 @@ public interface CteMarshaller {
 
     String procEventCte(br.inf.portalfiscal.cte.send400.TProcEvento data);
 
-    String inutilizationCte(br.inf.portalfiscal.cte.send400.TInutCTe data);
-
-    String returnInutilizationCte(br.inf.portalfiscal.cte.send400.TRetInutCTe data);
-
-    String procInutilizationCte(br.inf.portalfiscal.cte.send400.TProcInutCTe data);
-
     String querySituationCte(br.inf.portalfiscal.cte.send400.TConsSitCTe data);
 
     String returnQuerySituationCte(br.inf.portalfiscal.cte.send400.TRetConsSitCTe data);

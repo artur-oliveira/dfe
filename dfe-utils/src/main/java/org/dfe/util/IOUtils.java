@@ -70,12 +70,12 @@ public final class IOUtils {
      * @return A LocalDateTime object
      */
     @SneakyThrows
-    public static LocalDateTime creationDate(File f) {
+    public static LocalDateTime lastModifiedDate(File f) {
         if (Objects.isNull(f) || !f.exists()) return null;
 
         BasicFileAttributes attr = Files.readAttributes(f.toPath(), BasicFileAttributes.class);
 
-        return DateUtils.localDateTime(attr.creationTime());
+        return DateUtils.localDateTime(attr.lastModifiedTime());
     }
 
     /**

@@ -41,12 +41,12 @@ class QrCodeUrlGeneratorTest {
 
     @Test
     void testGenerateMgHom() throws NoProviderFound {
-        assertEquals("https://cte.fazenda.mg.gov.br/portalcte/sistema/qrcode.xhtml?chCTe=99999999999999999999999999999999999999999999&tpAmb=2", new QrCodeUrlGenerator().generate(UF.MG.getCode(), "99999999999999999999999999999999999999999999", "2"));
+        assertEquals("https://portalcte.fazenda.mg.gov.br/portalcte/sistema/qrcode.xhtml?chCTe=99999999999999999999999999999999999999999999&tpAmb=2", new QrCodeUrlGenerator().generate(UF.MG.getCode(), "99999999999999999999999999999999999999999999", "2"));
     }
 
     @Test
     void testGenerateMgProd() throws NoProviderFound {
-        assertEquals("https://cte.fazenda.mg.gov.br/portalcte/sistema/qrcode.xhtml?chCTe=99999999999999999999999999999999999999999999&tpAmb=1", new QrCodeUrlGenerator().generate(UF.MG.getCode(), "99999999999999999999999999999999999999999999", "1"));
+        assertEquals("https://portalcte.fazenda.mg.gov.br/portalcte/sistema/qrcode.xhtml?chCTe=99999999999999999999999999999999999999999999&tpAmb=1", new QrCodeUrlGenerator().generate(UF.MG.getCode(), "99999999999999999999999999999999999999999999", "1"));
     }
 
     @Test

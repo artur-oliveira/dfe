@@ -1,6 +1,7 @@
 package org.dfe.services.nf.return_authorization;
 
 import org.dfe.enums.internal.Environment;
+import org.dfe.enums.internal.Model;
 import org.dfe.exceptions.port.SoapServiceGeneralException;
 import org.dfe.exceptions.services.NoProviderFound;
 import org.dfe.interfaces.internal.config.NfeConfig;
@@ -17,6 +18,11 @@ public interface NfeReturnAuthorizationService extends NfReturnAuthorizationServ
     @Override
     default NfCommonService getService(Environment environment) throws NoProviderFound, SoapServiceGeneralException {
         return getProviderFactory().getNfeService(getConfig());
+    }
+
+    @Override
+    default Model getModel() {
+        return Model.NFE;
     }
 
     @Override

@@ -8,9 +8,9 @@ import java.util.List;
 
 
 /**
- * <p>Java class for nfeResultMsg complex type.
+ * <p>Java class for nfeResultMsg complex type</p>.
  *
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
  *
  * <pre>{@code
  * <complexType name="nfeResultMsg">
@@ -23,6 +23,8 @@ import java.util.List;
  *   </complexContent>
  * </complexType>
  * }</pre>
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "nfeResultMsg", propOrder = {
@@ -37,16 +39,16 @@ public class NfeResultMsg {
     /**
      * Gets the value of the content property.
      *
-     * <p>
-     * This accessor method returns a reference to the live list,
+     * <p>This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the Jakarta XML Binding object.
-     * This is why there is not a {@code set} method for the content property.
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the content property.</p>
      *
      * <p>
      * For example, to add a new item, do as follows:
+     * </p>
      * <pre>
-     *    getContent().add(newItem);
+     * getContent().add(newItem);
      * </pre>
      *
      *
@@ -55,6 +57,7 @@ public class NfeResultMsg {
      * {@link Object }
      * {@link String }
      * {@link Element }
+     * </p>
      *
      * @return The value of the content property.
      */

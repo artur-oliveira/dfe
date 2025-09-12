@@ -1,14 +1,22 @@
 package org.dfe.services.nf.distribution;
 
 import br.inf.portalfiscal.nfe.distribution.TDistDFeInt;
+import br.inf.portalfiscal.nfe.distribution.TRetDistDFeInt;
 import org.dfe.enums.internal.Environment;
+import org.dfe.enums.internal.Model;
+import org.dfe.enums.internal.UF;
+import org.dfe.enums.internal.nf.NfeAuthorizer;
 import org.dfe.enums.nf.version.NFDistributionVersion;
+import org.dfe.exceptions.CircuitBreakerException;
 import org.dfe.exceptions.ProcessException;
 import org.dfe.exceptions.ValidationException;
 import org.dfe.exceptions.port.SoapServiceGeneralException;
 import org.dfe.exceptions.security.SecurityException;
 import org.dfe.exceptions.services.NoProviderFound;
+import org.dfe.interfaces.circuitbreaker.DfeOperation;
+import org.dfe.interfaces.internal.Pair;
 import org.dfe.interfaces.internal.config.NfeConfig;
+import org.dfe.interfaces.sefaz.nf.nfe.NfeService;
 import org.dfe.interfaces.services.NfSefazService;
 import org.dfe.models.nf.distribution.NfeDistribution;
 import org.dfe.models.nf.distribution.NfeDistributionRequest;
@@ -23,23 +31,24 @@ public interface NfeDistributionService extends NfSefazService {
      * @param tDistDFeInt The object that contains the parameters for the distribution request.
      * @return A NfeReturnDistribution object.
      */
-    default NfeReturnDistribution distribution(TDistDFeInt tDistDFeInt) throws ProcessException, ValidationException, NoProviderFound, SecurityException, SoapServiceGeneralException {
+    default NfeReturnDistribution distribution(TDistDFeInt tDistDFeInt) throws CircuitBreakerException, ProcessException, ValidationException, NoProviderFound, SecurityException, SoapServiceGeneralException {
         NfeConfig config = getConfig().withEnviroment(tDistDFeInt.getTpAmb());
-        return NfeReturnDistribution.builder().build()
-                .fromObject(
-                        getProviderFactory()
-                                .getNfeService(config)
-                                .distribution(NfeDistributionRequest
-                                        .builder()
-                                        .data(tDistDFeInt)
-                                        .config(config)
-                                        .beforeRequest(getProcess().beforeDistribution())
-                                        .afterRequest(getProcess().afterDistribution())
-                                        .validators(getValidatorFactory().nfeValidator().distributionValidators())
-                                        .configureProvider(getConfigureProviderFactory())
-                                        .build())
-                                .second()
-                );
+        NfeService service = getProviderFactory().getNfeService(config, NfeAuthorizer.AN);
+        Pair<?, TRetDistDFeInt> res = getCircuitBreakerRegistry().get(
+                config.environment(),
+                Model.NFE,
+                UF.NACIONAL,
+                DfeOperation.DISTRIBUTION
+        ).execute(() -> service.distribution(NfeDistributionRequest
+                .builder()
+                .data(tDistDFeInt)
+                .config(config)
+                .beforeRequest(getProcess().beforeDistribution())
+                .afterRequest(getProcess().afterDistribution())
+                .validators(getValidatorFactory().nfeValidator().distributionValidators())
+                .configureProvider(getConfigureProviderFactory())
+                .build()));
+        return new NfeReturnDistribution().fromObject(res);
     }
 
     /**
@@ -48,7 +57,7 @@ public interface NfeDistributionService extends NfSefazService {
      * @param nfeDistribution NfeDistribution object
      * @return The return of the distribution method is a NfeReturnDistribution object.
      */
-    default NfeReturnDistribution distribution(NfeDistribution nfeDistribution) throws ProcessException, ValidationException, NoProviderFound, SecurityException, SoapServiceGeneralException {
+    default NfeReturnDistribution distribution(NfeDistribution nfeDistribution) throws CircuitBreakerException, ProcessException, ValidationException, NoProviderFound, SecurityException, SoapServiceGeneralException {
         return distribution(nfeDistribution.toObject());
     }
 
@@ -58,7 +67,7 @@ public interface NfeDistributionService extends NfSefazService {
      * @param nsu Unique number of the NF-e
      * @return The return of the distribution is a NfeReturnDistribution object, which contains the following attributes:
      */
-    default NfeReturnDistribution distributionUniqueNsu(Long nsu) throws ValidationException, NoProviderFound, SecurityException, ProcessException, SoapServiceGeneralException {
+    default NfeReturnDistribution distributionUniqueNsu(Long nsu) throws CircuitBreakerException, ValidationException, NoProviderFound, SecurityException, ProcessException, SoapServiceGeneralException {
         return distributionUniqueNsu(nsu, getConfig().environment());
 
     }
@@ -70,7 +79,7 @@ public interface NfeDistributionService extends NfSefazService {
      * @param environment Environment.PRODUCTION or Environment.HOMOLOGATION
      * @return The return of the distribution is a NfeReturnDistribution object, which contains the following attributes:
      */
-    default NfeReturnDistribution distributionUniqueNsu(Long nsu, Environment environment) throws ValidationException, NoProviderFound, SecurityException, ProcessException, SoapServiceGeneralException {
+    default NfeReturnDistribution distributionUniqueNsu(Long nsu, Environment environment) throws CircuitBreakerException, ValidationException, NoProviderFound, SecurityException, ProcessException, SoapServiceGeneralException {
         return distribution(NfeDistribution
                 .builder()
                 .tpAmb(environment.getCode())
@@ -88,7 +97,7 @@ public interface NfeDistributionService extends NfSefazService {
      * @param accessKey The access key of the NF-e to be consulted.
      * @return The NfeReturnDistribution object.
      */
-    default NfeReturnDistribution distributionAccessKey(String accessKey) throws ProcessException, ValidationException, NoProviderFound, SecurityException, SoapServiceGeneralException {
+    default NfeReturnDistribution distributionAccessKey(String accessKey) throws CircuitBreakerException, ProcessException, ValidationException, NoProviderFound, SecurityException, SoapServiceGeneralException {
         return distributionAccessKey(accessKey, getConfig().environment());
     }
 
@@ -99,7 +108,7 @@ public interface NfeDistributionService extends NfSefazService {
      * @param environment The environment in which the request will be made.
      * @return The return is a NfeReturnDistribution object, which contains the following attributes:
      */
-    default NfeReturnDistribution distributionAccessKey(String accessKey, Environment environment) throws ProcessException, ValidationException, NoProviderFound, SecurityException, SoapServiceGeneralException {
+    default NfeReturnDistribution distributionAccessKey(String accessKey, Environment environment) throws CircuitBreakerException, ProcessException, ValidationException, NoProviderFound, SecurityException, SoapServiceGeneralException {
         return distribution(NfeDistribution
                 .builder()
                 .tpAmb(environment.getCode())
@@ -117,7 +126,7 @@ public interface NfeDistributionService extends NfSefazService {
      * @param nsu The last NSU number received.
      * @return The return of the distribution is a NfeReturnDistribution object, which contains the following attributes:
      */
-    default NfeReturnDistribution distributionUltNsu(Long nsu) throws ProcessException, ValidationException, NoProviderFound, SecurityException, SoapServiceGeneralException {
+    default NfeReturnDistribution distributionUltNsu(Long nsu) throws CircuitBreakerException, ProcessException, ValidationException, NoProviderFound, SecurityException, SoapServiceGeneralException {
         return distributionUltNsu(nsu, getConfig().environment());
     }
 
@@ -128,7 +137,7 @@ public interface NfeDistributionService extends NfSefazService {
      * @param environment Environment.PRODUCTION or Environment.HOMOLOGATION
      * @return The return is a list of NfeReturnDistribution, which is a list of NfeDistribution.
      */
-    default NfeReturnDistribution distributionUltNsu(Long nsu, Environment environment) throws ProcessException, ValidationException, NoProviderFound, SecurityException, SoapServiceGeneralException {
+    default NfeReturnDistribution distributionUltNsu(Long nsu, Environment environment) throws CircuitBreakerException, ProcessException, ValidationException, NoProviderFound, SecurityException, SoapServiceGeneralException {
         return distribution(NfeDistribution
                 .builder()
                 .tpAmb(environment.getCode())

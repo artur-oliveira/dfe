@@ -1,12 +1,17 @@
 package org.dfe.services.nf.query_status_service;
 
+import br.inf.portalfiscal.nfe.send.TRetConsStatServ;
 import org.dfe.enums.internal.Environment;
+import org.dfe.enums.internal.Model;
 import org.dfe.enums.internal.UF;
+import org.dfe.exceptions.CircuitBreakerException;
 import org.dfe.exceptions.ProcessException;
 import org.dfe.exceptions.ValidationException;
 import org.dfe.exceptions.port.SoapServiceGeneralException;
 import org.dfe.exceptions.security.SecurityException;
 import org.dfe.exceptions.services.NoProviderFound;
+import org.dfe.interfaces.circuitbreaker.DfeOperation;
+import org.dfe.interfaces.internal.Pair;
 import org.dfe.interfaces.sefaz.nf.common.NfCommonService;
 import org.dfe.interfaces.services.NfSefazService;
 import org.dfe.interfaces.validation.nf.common.NfCommonValidator;
@@ -21,28 +26,30 @@ public interface NfQueryStatusService extends NfSefazService {
      *
      * @return A ReturnQueryStatusServiceNf object.
      */
-    default ReturnQueryStatusServiceNf queryStatusService() throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default ReturnQueryStatusServiceNf queryStatusService() throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return queryStatusService(getConfig().uf(), getConfig().environment());
     }
 
-    default ReturnQueryStatusServiceNf queryStatusService(UF uf, Environment environment) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
-        return ReturnQueryStatusServiceNf
+    default ReturnQueryStatusServiceNf queryStatusService(UF uf, Environment environment) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+        NfCommonService service = getService(uf, environment);
+        Pair<?, TRetConsStatServ> res = getCircuitBreakerRegistry().get(
+                environment,
+                getModel(),
+                uf,
+                DfeOperation.STATUS_SERVICE
+        ).execute(() -> service.queryStatusService(QueryStatusServiceRequest
                 .builder()
-                .build()
-                .fromObject(getService(uf, environment)
-                        .queryStatusService(QueryStatusServiceRequest
-                                .builder()
-                                .data(QueryStatusServiceNf
-                                        .builder()
-                                        .cuf(uf.getCode())
-                                        .tpAmb(environment.getCode()).build().toObject())
-                                .validators(getValidator().queryStatusServiceValidators())
-                                .afterRequest(getProcess().afterQueryStatusService())
-                                .beforeRequest(getProcess().beforeQueryStatusService())
-                                .configureProvider(getConfigureProviderFactory())
-                                .config(getConfig().withWebServiceUf(uf).withEnviroment(environment))
-                                .build()
-                        ).second());
+                .data(QueryStatusServiceNf
+                        .builder()
+                        .cuf(uf.getCode())
+                        .tpAmb(environment.getCode()).build().toObject())
+                .validators(getValidator().queryStatusServiceValidators())
+                .afterRequest(getProcess().afterQueryStatusService())
+                .beforeRequest(getProcess().beforeQueryStatusService())
+                .configureProvider(getConfigureProviderFactory())
+                .config(getConfig().withWebServiceUf(uf).withEnviroment(environment))
+                .build()));
+        return new ReturnQueryStatusServiceNf().fromObject(res);
     }
 
     /**
@@ -59,5 +66,7 @@ public interface NfQueryStatusService extends NfSefazService {
      *
      * @return The service object.
      */
-    NfCommonService getService(UF uf, Environment environment) throws NoProviderFound, SoapServiceGeneralException;
+    NfCommonService getService(UF uf, Environment environment) throws CircuitBreakerException, NoProviderFound, SoapServiceGeneralException;
+
+    Model getModel();
 }

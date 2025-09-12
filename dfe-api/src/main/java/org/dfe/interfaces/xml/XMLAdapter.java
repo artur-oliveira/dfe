@@ -129,7 +129,7 @@ public interface XMLAdapter<T extends XML, I extends XML> {
                     ClassUtils.set(descriptor.getWriteMethod(), instance, value);
                 } else if (value instanceof List<?> listValue) {
 
-                    if (!listValue.isEmpty() && !(listValue.get(0) instanceof String) && !(listValue.get(0) instanceof Enum)) {
+                    if (!listValue.isEmpty() && !(listValue.getFirst() instanceof String) && !(listValue.getFirst() instanceof Enum)) {
                         Class<?> objInstanceClass = (Class<?>) ((ParameterizedType) descriptor.getWriteMethod().getGenericParameterTypes()[0]).getActualTypeArguments()[0];
                         ClassUtils.set(descriptor.getWriteMethod(), instance, listValue.stream().map(it -> (((XMLAdapter) ClassUtils.newInstance(objInstanceClass)).fromObject((XML) it))).collect(Collectors.toList()));
                     } else {

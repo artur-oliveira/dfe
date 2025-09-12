@@ -1,7 +1,6 @@
 package org.dfe.models.nf.authorization;
 
-import br.inf.portalfiscal.nfe.send.*;
-import jakarta.xml.bind.annotation.XmlElement;
+import br.inf.portalfiscal.nfe.send.*;import lombok.*;
 import org.dfe.components.internal.AccessKeyGenerator;
 import org.dfe.components.internal.ProjectProperties;
 import org.dfe.components.internal.xml.objectfactory.NfObjectFactoryWrapperFactory;
@@ -14,7 +13,6 @@ import org.dfe.interfaces.xml.generic.DFObject;
 import org.dfe.util.DateUtils;
 import org.dfe.util.StringUtils;
 import org.dfe.util.XMLStringUtils;
-import lombok.*;
 
 import java.util.List;
 import java.util.Objects;
@@ -111,6 +109,7 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
         protected Cana cana;
         protected TInfRespTec infRespTec;
         protected InfSolicNFF infSolicNFF;
+        protected Agropecuario agropecuario;
         protected String id;
 
         @Override
@@ -165,15 +164,20 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
             protected String mod;
             protected String serie;
             protected String nnf;
+            @Builder.Default
+            private String dhEmi = DateUtils.nowString();
             protected String dhSaiEnt;
             protected String tpNF;
             protected String idDest;
             protected String cMunFG;
+            protected String cMunFGIBS;
             protected String tpImp;
             protected String tpEmis;
             protected String cdv;
             protected String tpAmb;
             protected String finNFe;
+            protected String tpNFDebito;
+            protected String tpNFCredito;
             protected String indFinal;
             protected String indPres;
             protected String indIntermed;
@@ -183,8 +187,8 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
             protected String dhCont;
             protected String xJust;
             protected List<NFref> nFref;
-            @Builder.Default
-            private String dhEmi = DateUtils.nowString();
+            protected TCompraGov gCompraGov;
+            protected GPagAntecipado gPagAntecipado;
 
             @Getter
             @Setter
@@ -194,11 +198,11 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
             @NoArgsConstructor
             public static class NFref implements DFObject, XMLAdapter<NFref, TNFe.InfNFe.Ide.NFref> {
                 protected String refNFe;
+                protected String refNFeSig;
                 protected RefNF refNF;
                 protected RefNFP refNFP;
                 protected String refCTe;
                 protected RefECF refECF;
-
 
                 @Getter
                 @Setter
@@ -243,6 +247,28 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
                     protected String necf;
                     protected String ncoo;
                 }
+            }
+
+            @Getter
+            @Setter
+            @Builder
+            @ToString
+            @AllArgsConstructor
+            @NoArgsConstructor
+            public static class TCompraGov implements DFObject, XMLAdapter<TCompraGov, br.inf.portalfiscal.nfe.send.TCompraGov> {
+                protected String tpEnteGov;
+                protected String pRedutor;
+                protected String tpOperGov;
+            }
+
+            @Getter
+            @Setter
+            @Builder
+            @ToString
+            @AllArgsConstructor
+            @NoArgsConstructor
+            public static class GPagAntecipado implements DFObject, XMLAdapter<GPagAntecipado, TNFe.InfNFe.Ide.GPagAntecipado> {
+                protected List<String> refNFe;
             }
         }
 
@@ -395,6 +421,8 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
             protected String infAdProd;
             protected ObsItem obsItem;
             protected String nItem;
+            protected DFeReferenciado dFeReferenciado;
+            protected String vItem;
 
             @Getter
             @Setter
@@ -413,6 +441,7 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
                 protected String indEscala;
                 protected String cnpjFab;
                 protected String cBenef;
+                protected List<GCred> gCred;
                 protected String extipi;
                 protected String cfop;
                 protected String uCom;
@@ -429,6 +458,7 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
                 protected String vDesc;
                 protected String vOutro;
                 protected String indTot;
+                protected String indBemMovelUsado;
                 protected List<DI> di;
                 protected List<DetExport> detExport;
                 protected String xPed;
@@ -449,6 +479,18 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
                 @ToString
                 @AllArgsConstructor
                 @NoArgsConstructor
+                public static class GCred implements DFObject, XMLAdapter<GCred, TNFe.InfNFe.Det.Prod.GCred> {
+                    protected String cCredPresumido;
+                    protected String pCredPresumido;
+                    protected String vCredPresumido;
+                }
+
+                @Getter
+                @Setter
+                @Builder
+                @ToString
+                @AllArgsConstructor
+                @NoArgsConstructor
                 public static class DI implements DFObject, XMLAdapter<DI, TNFe.InfNFe.Det.Prod.DI> {
                     protected String ndi;
                     protected String ddi;
@@ -458,6 +500,7 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
                     protected String tpViaTransp;
                     protected String vafrmm;
                     protected String tpIntermedio;
+                    protected String cpf;
                     protected String cnpj;
                     protected TUfEmi ufTerceiro;
                     protected String cExportador;
@@ -617,6 +660,7 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
                     protected Encerrante encerrante;
                     protected String pBio;
                     protected List<OrigComb> origComb;
+
                     @Getter
                     @Setter
                     @Builder
@@ -674,6 +718,8 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
                 protected ICMS icms;
                 protected COFINSST cofinsst;
                 protected ICMSUFDest icmsufDest;
+                protected IS is;
+                protected TTribNFe ibsCbs;
 
                 @Override
                 public TNFe.InfNFe.Det.Imposto toObject() {
@@ -699,6 +745,10 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
                         imposto.getContent().add(NfObjectFactoryWrapperFactory.getInstance().cofinsst(getCofinsst().toObject()));
                     if (Objects.nonNull(getIcmsufDest()))
                         imposto.getContent().add(NfObjectFactoryWrapperFactory.getInstance().icmsufdest(getIcmsufDest().toObject()));
+                    if (Objects.nonNull(getIs()))
+                        imposto.getContent().add(NfObjectFactoryWrapperFactory.getInstance().is(getIs().toObject()));
+                    if (Objects.nonNull(getIbsCbs()))
+                        imposto.getContent().add(NfObjectFactoryWrapperFactory.getInstance().ibsCbs(getIbsCbs().toObject()));
                     return imposto;
                 }
 
@@ -1092,6 +1142,7 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
                         protected String vfcp;
                         protected String vicmsDeson;
                         protected String motDesICMS;
+                        protected String indDeduzDeson;
                     }
 
                     @Getter
@@ -1114,6 +1165,7 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
                         protected String vfcpst;
                         protected String vicmsDeson;
                         protected String motDesICMS;
+                        protected String indDeduzDeson;
                     }
 
                     @Getter
@@ -1127,6 +1179,7 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
                         protected String cst;
                         protected String vicmsDeson;
                         protected String motDesICMS;
+                        protected String indDeduzDeson;
                     }
 
                     @Getter
@@ -1140,6 +1193,7 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
                         protected String cst;
                         protected String modBC;
                         protected String pRedBC;
+                        protected String cBenefRBC;
                         protected String vbc;
                         protected String picms;
                         protected String vicmsOp;
@@ -1163,9 +1217,14 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
                     public static class ICMS53 implements DFObject, XMLAdapter<ICMS53, TNFe.InfNFe.Det.Imposto.ICMS.ICMS53> {
                         protected String orig;
                         protected String cst;
+                        protected String qbcMono;
+                        protected String adRemICMS;
+                        protected String vicmsMonoOp;
+                        protected String pDif;
+                        protected String vicmsMonoDif;
+                        protected String vicmsMono;
                         protected String qbcMonoDif;
                         protected String adRemICMSDif;
-                        protected String vicmsMonoDif;
                     }
 
                     @Getter
@@ -1234,6 +1293,7 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
                         protected String motDesICMS;
                         protected String vicmsstDeson;
                         protected String motDesICMSST;
+                        protected String indDeduzDeson;
                     }
 
                     @Getter
@@ -1256,6 +1316,9 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
                         protected String vbcst;
                         protected String picmsst;
                         protected String vicmsst;
+                        protected String vbcfcpst;
+                        protected String pfcpst;
+                        protected String vfcpst;
                         protected String pbcOp;
                         protected TUf ufst;
                     }
@@ -1314,6 +1377,7 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
                         protected String motDesICMS;
                         protected String vicmsstDeson;
                         protected String motDesICMSST;
+                        protected String indDeduzDeson;
                     }
 
                     @Getter
@@ -1453,6 +1517,272 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
                 @ToString
                 @AllArgsConstructor
                 @NoArgsConstructor
+                public static class IS implements DFObject, XMLAdapter<IS, br.inf.portalfiscal.nfe.send.TIS> {
+                    protected String cstis;
+                    protected String cClassTribIS;
+                    protected String vbcis;
+                    protected String pis;
+                    protected String pisEspec;
+                    protected String uTrib;
+                    protected String qTrib;
+                    protected String vis;
+                }
+
+                @Getter
+                @Setter
+                @Builder
+                @ToString
+                @AllArgsConstructor
+                @NoArgsConstructor
+                public static class TTribNFe implements DFObject, XMLAdapter<TTribNFe, br.inf.portalfiscal.nfe.send.TTribNFe> {
+                    protected String cst;
+                    protected String cClassTrib;
+                    protected TCIBS gibscbs;
+                    protected TMonofasia gibscbsMono;
+                    protected TTransfCred gTransfCred;
+                    protected TCredPresIBSZFM gCredPresIBSZFM;
+
+
+                    @Getter
+                    @Setter
+                    @Builder
+                    @ToString
+                    @AllArgsConstructor
+                    @NoArgsConstructor
+                    public static class TMonofasia implements DFObject, XMLAdapter<TMonofasia, br.inf.portalfiscal.nfe.send.TMonofasia> {
+                        protected GMonoPadrao gMonoPadrao;
+                        protected GMonoReten gMonoReten;
+                        protected GMonoRet gMonoRet;
+                        protected GMonoDif gMonoDif;
+                        protected String vTotIBSMonoItem;
+                        protected String vTotCBSMonoItem;
+
+                        @Getter
+                        @Setter
+                        @Builder
+                        @ToString
+                        @AllArgsConstructor
+                        @NoArgsConstructor
+                        public static class GMonoPadrao implements DFObject, XMLAdapter<GMonoPadrao, br.inf.portalfiscal.nfe.send.TMonofasia.GMonoPadrao> {
+                            protected String qbcMono;
+                            protected String adRemIBS;
+                            protected String adRemCBS;
+                            protected String vibsMono;
+                            protected String vcbsMono;
+                        }
+
+                        @Getter
+                        @Setter
+                        @Builder
+                        @ToString
+                        @AllArgsConstructor
+                        @NoArgsConstructor
+                        public static class GMonoReten implements DFObject, XMLAdapter<GMonoReten, br.inf.portalfiscal.nfe.send.TMonofasia.GMonoReten> {
+                            protected String qbcMonoReten;
+                            protected String adRemIBSReten;
+                            protected String vibsMonoReten;
+                            protected String adRemCBSReten;
+                            protected String vcbsMonoReten;
+                        }
+
+                        @Getter
+                        @Setter
+                        @Builder
+                        @ToString
+                        @AllArgsConstructor
+                        @NoArgsConstructor
+                        public static class GMonoRet implements DFObject, XMLAdapter<GMonoRet, br.inf.portalfiscal.nfe.send.TMonofasia.GMonoRet> {
+                            protected String qbcMonoRet;
+                            protected String adRemIBSRet;
+                            protected String vibsMonoRet;
+                            protected String adRemCBSRet;
+                            protected String vcbsMonoRet;
+                        }
+
+                        @Getter
+                        @Setter
+                        @Builder
+                        @ToString
+                        @AllArgsConstructor
+                        @NoArgsConstructor
+                        public static class GMonoDif implements DFObject, XMLAdapter<GMonoDif, br.inf.portalfiscal.nfe.send.TMonofasia.GMonoDif> {
+                            protected String pDifIBS;
+                            protected String vibsMonoDif;
+                            protected String pDifCBS;
+                            protected String vcbsMonoDif;
+                        }
+                    }
+
+                    @Getter
+                    @Setter
+                    @Builder
+                    @ToString
+                    @AllArgsConstructor
+                    @NoArgsConstructor
+                    public static class TTransfCred implements DFObject, XMLAdapter<TTransfCred, br.inf.portalfiscal.nfe.send.TTransfCred> {
+                        protected String vibs;
+                        protected String vcbs;
+                    }
+
+                    @Getter
+                    @Setter
+                    @Builder
+                    @ToString
+                    @AllArgsConstructor
+                    @NoArgsConstructor
+                    public static class TCIBS implements DFObject, XMLAdapter<TCIBS, br.inf.portalfiscal.nfe.send.TCIBS> {
+                        protected String vbc;
+                        protected String vibs;
+                        protected GIBSUF gibsuf;
+                        protected GIBSMun gibsMun;
+                        protected GCBS gcbs;
+                        protected TTribRegular gTribRegular;
+                        protected TCredPres gibsCredPres;
+                        protected TCredPres gcbsCredPres;
+                        protected TTribCompraGov gTribCompraGov;
+
+
+                        @Getter
+                        @Setter
+                        @Builder
+                        @ToString
+                        @AllArgsConstructor
+                        @NoArgsConstructor
+                        public static class TDif implements DFObject, XMLAdapter<TDif, br.inf.portalfiscal.nfe.send.TDif> {
+                            protected String pDif;
+                            protected String vDif;
+                        }
+
+                        @Getter
+                        @Setter
+                        @Builder
+                        @ToString
+                        @AllArgsConstructor
+                        @NoArgsConstructor
+                        public static class TDevTrib implements DFObject, XMLAdapter<TDevTrib, br.inf.portalfiscal.nfe.send.TDevTrib> {
+                            protected String vDevTrib;
+                        }
+
+                        @Getter
+                        @Setter
+                        @Builder
+                        @ToString
+                        @AllArgsConstructor
+                        @NoArgsConstructor
+                        public static class TRed implements DFObject, XMLAdapter<TRed, br.inf.portalfiscal.nfe.send.TRed> {
+                            protected String pRedAliq;
+                            protected String pAliqEfet;
+                        }
+
+                        @Getter
+                        @Setter
+                        @Builder
+                        @ToString
+                        @AllArgsConstructor
+                        @NoArgsConstructor
+                        public static class GIBSUF implements DFObject, XMLAdapter<GIBSUF, br.inf.portalfiscal.nfe.send.TCIBS.GIBSUF> {
+                            protected String pibsuf;
+                            protected TDif gDif;
+                            protected TDevTrib gDevTrib;
+                            protected TRed gRed;
+                            protected String vibsuf;
+
+                        }
+
+                        @Getter
+                        @Setter
+                        @Builder
+                        @ToString
+                        @AllArgsConstructor
+                        @NoArgsConstructor
+                        public static class GIBSMun implements DFObject, XMLAdapter<GIBSMun, br.inf.portalfiscal.nfe.send.TCIBS.GIBSMun> {
+                            protected String pibsMun;
+                            protected TDif gDif;
+                            protected TDevTrib gDevTrib;
+                            protected TRed gRed;
+                            protected String vibsMun;
+
+                        }
+
+                        @Getter
+                        @Setter
+                        @Builder
+                        @ToString
+                        @AllArgsConstructor
+                        @NoArgsConstructor
+                        public static class GCBS implements DFObject, XMLAdapter<GCBS, br.inf.portalfiscal.nfe.send.TCIBS.GCBS> {
+                            protected String pcbs;
+                            protected TDif gDif;
+                            protected TDevTrib gDevTrib;
+                            protected TRed gRed;
+                            protected String vcbs;
+                        }
+
+                        @Getter
+                        @Setter
+                        @Builder
+                        @ToString
+                        @AllArgsConstructor
+                        @NoArgsConstructor
+                        public static class TTribRegular implements DFObject, XMLAdapter<TTribRegular, br.inf.portalfiscal.nfe.send.TTribRegular> {
+                            protected String cstReg;
+                            protected String cClassTribReg;
+                            protected String pAliqEfetRegIBSUF;
+                            protected String vTribRegIBSUF;
+                            protected String pAliqEfetRegIBSMun;
+                            protected String vTribRegIBSMun;
+                            protected String pAliqEfetRegCBS;
+                            protected String vTribRegCBS;
+                        }
+
+                        @Getter
+                        @Setter
+                        @Builder
+                        @ToString
+                        @AllArgsConstructor
+                        @NoArgsConstructor
+                        public static class TCredPres implements DFObject, XMLAdapter<TCredPres, br.inf.portalfiscal.nfe.send.TCredPres> {
+                            protected Object cCredPres;
+                            protected String pCredPres;
+                            protected String vCredPres;
+                            protected String vCredPresCondSus;
+
+                        }
+
+                        @Getter
+                        @Setter
+                        @Builder
+                        @ToString
+                        @AllArgsConstructor
+                        @NoArgsConstructor
+                        public static class TTribCompraGov implements DFObject, XMLAdapter<TTribCompraGov, br.inf.portalfiscal.nfe.send.TTribCompraGov> {
+                            protected String pAliqIBSUF;
+                            protected String vTribIBSUF;
+                            protected String pAliqIBSMun;
+                            protected String vTribIBSMun;
+                            protected String pAliqCBS;
+                            protected String vTribCBS;
+                        }
+                    }
+
+                    @Getter
+                    @Setter
+                    @Builder
+                    @ToString
+                    @AllArgsConstructor
+                    @NoArgsConstructor
+                    public static class TCredPresIBSZFM implements DFObject, XMLAdapter<TCredPresIBSZFM, br.inf.portalfiscal.nfe.send.TCredPresIBSZFM> {
+                        protected String tpCredPresIBSZFM;
+                        protected String vCredPresIBSZFM;
+                    }
+                }
+
+                @Getter
+                @Setter
+                @Builder
+                @ToString
+                @AllArgsConstructor
+                @NoArgsConstructor
                 public static class ICMSUFDest implements DFObject, XMLAdapter<ICMSUFDest, TNFe.InfNFe.Det.Imposto.ICMSUFDest> {
                     protected String vbcufDest;
                     protected String vbcfcpufDest;
@@ -1487,6 +1817,17 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
                     protected String vipiDevol;
                 }
 
+            }
+
+            @Getter
+            @Setter
+            @Builder
+            @ToString
+            @AllArgsConstructor
+            @NoArgsConstructor
+            public static class DFeReferenciado implements DFObject, XMLAdapter<DFeReferenciado, TNFe.InfNFe.Det.DFeReferenciado> {
+                protected String chaveAcesso;
+                protected String nItem;
             }
 
             @Getter
@@ -1534,6 +1875,9 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
             protected ICMSTot icmsTot;
             protected ISSQNtot issqNtot;
             protected RetTrib retTrib;
+            protected TISTot isTot;
+            protected TIBSCBSMonoTot ibscbsTot;
+            protected String vnfTot;
 
             @Getter
             @Setter
@@ -1608,6 +1952,100 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
                 protected String virrf;
                 protected String vbcRetPrev;
                 protected String vRetPrev;
+            }
+
+            @Getter
+            @Setter
+            @Builder
+            @ToString
+            @AllArgsConstructor
+            @NoArgsConstructor
+            public static class TISTot implements DFObject, XMLAdapter<TISTot, br.inf.portalfiscal.nfe.send.TISTot> {
+                protected String vis;
+            }
+
+            @Getter
+            @Setter
+            @Builder
+            @ToString
+            @AllArgsConstructor
+            @NoArgsConstructor
+            public static class TIBSCBSMonoTot implements DFObject, XMLAdapter<TIBSCBSMonoTot, br.inf.portalfiscal.nfe.send.TIBSCBSMonoTot> {
+                protected String vbcibscbs;
+                protected GIBS gibs;
+                protected GCBS gcbs;
+                protected GMono gMono;
+
+
+                @Getter
+                @Setter
+                @Builder
+                @ToString
+                @AllArgsConstructor
+                @NoArgsConstructor
+                public static class GIBS implements DFObject, XMLAdapter<GIBS, br.inf.portalfiscal.nfe.send.TIBSCBSMonoTot.GIBS> {
+                    protected GIBSUF gibsuf;
+                    protected GIBSMun gibsMun;
+                    protected String vibs;
+                    protected String vCredPres;
+                    protected String vCredPresCondSus;
+
+
+                    @Getter
+                    @Setter
+                    @Builder
+                    @ToString
+                    @AllArgsConstructor
+                    @NoArgsConstructor
+                    public static class GIBSUF implements DFObject, XMLAdapter<GIBSUF, br.inf.portalfiscal.nfe.send.TIBSCBSMonoTot.GIBS.GIBSUF> {
+                        protected String vDif;
+                        protected String vDevTrib;
+                        protected String vibsuf;
+                    }
+
+                    @Getter
+                    @Setter
+                    @Builder
+                    @ToString
+                    @AllArgsConstructor
+                    @NoArgsConstructor
+                    public static class GIBSMun implements DFObject, XMLAdapter<GIBSMun, br.inf.portalfiscal.nfe.send.TIBSCBSMonoTot.GIBS.GIBSMun> {
+                        protected String vDif;
+                        protected String vDevTrib;
+                        protected String vibsMun;
+                    }
+
+                }
+
+                @Getter
+                @Setter
+                @Builder
+                @ToString
+                @AllArgsConstructor
+                @NoArgsConstructor
+                public static class GCBS implements DFObject, XMLAdapter<GCBS, br.inf.portalfiscal.nfe.send.TIBSCBSMonoTot.GCBS> {
+                    protected String vDif;
+                    protected String vDevTrib;
+                    protected String vcbs;
+                    protected String vCredPres;
+                    protected String vCredPresCondSus;
+                }
+
+                @Getter
+                @Setter
+                @Builder
+                @ToString
+                @AllArgsConstructor
+                @NoArgsConstructor
+                public static class GMono implements DFObject, XMLAdapter<GMono, br.inf.portalfiscal.nfe.send.TIBSCBSMonoTot.GMono> {
+                    protected String vibsMono;
+                    protected String vcbsMono;
+                    protected String vibsMonoReten;
+                    protected String vcbsMonoReten;
+                    protected String vibsMonoRet;
+                    protected String vcbsMonoRet;
+                }
+
             }
         }
 
@@ -1756,6 +2194,9 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
                 protected String tPag;
                 protected String xPag;
                 protected String vPag;
+                protected String dPag;
+                protected String cnpjPag;
+                protected TUfEmi ufPag;
                 protected Card card;
 
                 @Getter
@@ -1769,6 +2210,8 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
                     protected String cnpj;
                     protected String tBand;
                     protected String cAut;
+                    protected String cnpjReceb;
+                    protected String idTermPag;
                 }
             }
         }
@@ -1828,6 +2271,7 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
             public static class ProcRef implements DFObject, XMLAdapter<ProcRef, TNFe.InfNFe.InfAdic.ProcRef> {
                 protected String nProc;
                 protected String indProc;
+                protected String tpAto;
             }
         }
 
@@ -1904,6 +2348,42 @@ public class Nf implements DFObject, XMLAdapter<Nf, TNFe> {
         @NoArgsConstructor
         public static class InfSolicNFF implements DFObject, XMLAdapter<InfSolicNFF, TNFe.InfNFe.InfSolicNFF> {
             protected String xSolic;
+        }
+
+        @Getter
+        @Setter
+        @Builder
+        @ToString
+        @AllArgsConstructor
+        @NoArgsConstructor
+        public static class Agropecuario implements DFObject, XMLAdapter<Agropecuario, TNFe.InfNFe.Agropecuario> {
+            protected List<Defensivo> defensivo;
+            protected GuiaTransito guiaTransito;
+
+            @Getter
+            @Setter
+            @Builder
+            @ToString
+            @AllArgsConstructor
+            @NoArgsConstructor
+            public static class Defensivo implements DFObject, XMLAdapter<InfSolicNFF, TNFe.InfNFe.Agropecuario.Defensivo> {
+                protected String nReceituario;
+                protected String cpfRespTec;
+            }
+
+            @Getter
+            @Setter
+            @Builder
+            @ToString
+            @AllArgsConstructor
+            @NoArgsConstructor
+            public static class GuiaTransito implements DFObject, XMLAdapter<InfSolicNFF, TNFe.InfNFe.Agropecuario.GuiaTransito> {
+                protected String tpGuia;
+                protected TUfEmi ufGuia;
+                protected String serieGuia;
+                protected String nGuia;
+            }
+
         }
 
         @Getter

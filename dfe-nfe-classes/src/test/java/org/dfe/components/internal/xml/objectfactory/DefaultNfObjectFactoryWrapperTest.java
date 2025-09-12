@@ -12,41 +12,6 @@ class DefaultNfObjectFactoryWrapperTest {
     }
 
     @Test
-    void testGetEventNfeObjectFactory() {
-        assertNotNull(new DefaultNfObjectFactoryWrapper().getEventNfeObjectFactory());
-    }
-
-    @Test
-    void testGetCancelNfeObjectFactory() {
-        assertNotNull(new DefaultNfObjectFactoryWrapper().getCancelNfeObjectFactory());
-    }
-
-    @Test
-    void testGetSubstituteCancelNfeObjectFactory() {
-        assertNotNull(new DefaultNfObjectFactoryWrapper().getSubstituteCancelNfeObjectFactory());
-    }
-
-    @Test
-    void testGetCorrectionLetterNfeObjectFactory() {
-        assertNotNull(new DefaultNfObjectFactoryWrapper().getCorrectionLetterNfeObjectFactory());
-    }
-
-    @Test
-    void testGetEpecNfeObjectFactory() {
-        assertNotNull(new DefaultNfObjectFactoryWrapper().getEpecNfeObjectFactory());
-    }
-
-    @Test
-    void testGetManifestationNfeObjectFactory() {
-        assertNotNull(new DefaultNfObjectFactoryWrapper().getManifestationNfeObjectFactory());
-    }
-
-    @Test
-    void testGetInterestedActorNfeObjectFactory() {
-        assertNotNull(new DefaultNfObjectFactoryWrapper().getInterestedActorNfeObjectFactory());
-    }
-
-    @Test
     void testGetGtinNfeObjectFactory() {
         assertNotNull(new DefaultNfObjectFactoryWrapper().getGtinNfeObjectFactory());
     }

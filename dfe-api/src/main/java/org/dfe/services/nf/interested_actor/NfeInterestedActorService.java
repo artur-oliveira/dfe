@@ -1,18 +1,25 @@
 package org.dfe.services.nf.interested_actor;
 
-import br.inf.portalfiscal.nfe.event_interested_actor.TEnvEvento;
+import br.inf.portalfiscal.nfe.event_generic.TEnvEvento;
+import br.inf.portalfiscal.nfe.event_generic.TRetEnvEvento;
+import org.dfe.enums.internal.Model;
+import org.dfe.enums.internal.nf.NfeAuthorizer;
 import org.dfe.enums.nf.NFEvent;
 import org.dfe.enums.nf.interested_actor.NFDownloadAuthorization;
+import org.dfe.exceptions.CircuitBreakerException;
 import org.dfe.exceptions.ProcessException;
 import org.dfe.exceptions.ValidationException;
 import org.dfe.exceptions.port.SoapServiceGeneralException;
 import org.dfe.exceptions.security.SecurityException;
 import org.dfe.exceptions.services.NoProviderFound;
+import org.dfe.interfaces.circuitbreaker.DfeOperation;
+import org.dfe.interfaces.internal.Pair;
 import org.dfe.interfaces.internal.config.NfeConfig;
+import org.dfe.interfaces.sefaz.nf.nfe.NfeService;
 import org.dfe.interfaces.services.NfSefazService;
-import org.dfe.models.nf.interested_actor.NfeInterestedActorRequest;
-import org.dfe.models.nf.interested_actor.ReturnNfeInterestedActor;
-import org.dfe.models.nf.interested_actor.SendNfeInterestedActor;
+import org.dfe.models.nf.event.NfEventRequest;
+import org.dfe.models.nf.event.ReturnNfEvent;
+import org.dfe.models.nf.event.SendNfEvent;
 import org.dfe.services.nf.query_protocol.NfeQueryProtocolService;
 
 public interface NfeInterestedActorService extends NfSefazService {
@@ -21,31 +28,36 @@ public interface NfeInterestedActorService extends NfSefazService {
      * A function that sends an interested actor to the SEFAZ.
      *
      * @param tEnvEvento The object that will be sent to the SEFAZ.
-     * @return A ReturnNfeInterestedActor object.
+     * @return A ReturnNfEvent object.
      */
-    default ReturnNfeInterestedActor interestedActor(TEnvEvento tEnvEvento) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default ReturnNfEvent interestedActor(TEnvEvento tEnvEvento) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         NfeConfig config = getConfig().withEnviroment(tEnvEvento.getEvento().stream().findFirst().map(it -> it.getInfEvento().getTpAmb()).orElse(getConfig().environment().getCode()));
-        return ReturnNfeInterestedActor.builder().build().fromObject(getProviderFactory()
-                .getNfeService(config)
-                .interestedActor(NfeInterestedActorRequest
-                        .builder()
-                        .data(tEnvEvento)
-                        .config(config)
-                        .signer(getXmlSigner())
-                        .validators(getValidatorFactory().nfeValidator().interestedActorValidators())
-                        .afterRequest(getProcess().afterInterestedActor())
-                        .beforeRequest(getProcess().beforeInterestedActor())
-                        .configureProvider(getConfigureProviderFactory())
-                        .build()));
+        NfeService service = getProviderFactory().getNfeService(config, NfeAuthorizer.AN);
+        Pair<?, TRetEnvEvento> res = getCircuitBreakerRegistry().get(
+                config.environment(),
+                Model.NFE,
+                config.webServiceUF(),
+                DfeOperation.EVENT
+        ).execute(() -> service.eventAN(NfEventRequest
+                .builder()
+                .data(tEnvEvento)
+                .config(config)
+                .signer(getXmlSigner())
+                .validators(getValidatorFactory().nfeValidator().eventValidators())
+                .afterRequest(getProcess().afterEvent())
+                .beforeRequest(getProcess().beforeEvent())
+                .configureProvider(getConfigureProviderFactory())
+                .build()));
+        return new ReturnNfEvent().fromObject(res);
     }
 
     /**
-     * It converts the sendNfeInterestedActor object to an object and then calls the interestedActor function.
+     * It converts the SendNfEvent object to an object and then calls the interestedActor function.
      *
      * @param sendNfeInterestedActor The object that contains the data to be sent to the webservice.
-     * @return The return is the object of the class ReturnNfeInterestedActor.
+     * @return The return is the object of the class ReturnNfEvent.
      */
-    default ReturnNfeInterestedActor interestedActor(SendNfeInterestedActor sendNfeInterestedActor) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default ReturnNfEvent interestedActor(SendNfEvent sendNfeInterestedActor) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return interestedActor(sendNfeInterestedActor.toObject());
     }
 
@@ -57,10 +69,10 @@ public interface NfeInterestedActorService extends NfSefazService {
      * @param cnpj          CNPJ of the company that will receive the NF-e.
      * @param nseq          The sequence number of the NF-e.
      * @param authorization The authorization object returned by the authorization method.
-     * @return ReturnNfeInterestedActor
+     * @return ReturnNfEvent
      */
-    default ReturnNfeInterestedActor interestedActor(String accessKey, String cpf, String cnpj, String nseq, NFDownloadAuthorization authorization) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
-        return interestedActor(SendNfeInterestedActor.interestedActor(accessKey, cpf, cnpj, nseq, authorization, getConfig()));
+    default ReturnNfEvent interestedActor(String accessKey, String cpf, String cnpj, String nseq, NFDownloadAuthorization authorization) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+        return interestedActor(SendNfEvent.interestedActor(accessKey, cpf, cnpj, nseq, authorization, getConfig()));
     }
 
     /**
@@ -72,7 +84,7 @@ public interface NfeInterestedActorService extends NfSefazService {
      * @param authorization The authorization object returned by the method "authorizeDownload"
      * @return The interested actor is the person who is responsible for the NF-e.
      */
-    default ReturnNfeInterestedActor interestedActor(String accessKey, String cpf, String cnpj, NFDownloadAuthorization authorization) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default ReturnNfEvent interestedActor(String accessKey, String cpf, String cnpj, NFDownloadAuthorization authorization) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return interestedActor(accessKey, cpf, cnpj, String.valueOf(getNfeQueryProtocolService().getLastSequenceNumber(accessKey, NFEvent.INTERESTED_ACTOR)), authorization);
     }
 
@@ -82,9 +94,9 @@ public interface NfeInterestedActorService extends NfSefazService {
      * @param accessKey The access key of the user who is making the request.
      * @param cpf       CPF of the interested party
      * @param cnpj      The CNPJ of the company that is interested in the NFe.
-     * @return ReturnNfeInterestedActor
+     * @return ReturnNfEvent
      */
-    default ReturnNfeInterestedActor interestedActor(String accessKey, String cpf, String cnpj) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default ReturnNfEvent interestedActor(String accessKey, String cpf, String cnpj) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return interestedActor(accessKey, cpf, cnpj, NFDownloadAuthorization.YES);
     }
 
@@ -94,9 +106,9 @@ public interface NfeInterestedActorService extends NfSefazService {
      * @param accessKey The access key of the user who is making the request.
      * @param cpf       CPF of the interested party
      * @param cnpj      The CNPJ of the company that is interested in the NFe.
-     * @return ReturnNfeInterestedActor
+     * @return ReturnNfEvent
      */
-    default ReturnNfeInterestedActor noInterestedActor(String accessKey, String cpf, String cnpj) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default ReturnNfEvent noInterestedActor(String accessKey, String cpf, String cnpj) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return interestedActor(accessKey, cpf, cnpj, NFDownloadAuthorization.NO);
     }
 

@@ -1,5 +1,7 @@
 package org.dfe.components.internal.config;
 
+import lombok.EqualsAndHashCode;
+import lombok.SneakyThrows;
 import org.dfe.enums.internal.Environment;
 import org.dfe.enums.internal.UF;
 import org.dfe.enums.nf.NFSend;
@@ -7,8 +9,6 @@ import org.dfe.enums.nf.identification.NFEmissionType;
 import org.dfe.exceptions.security.SSLContextException;
 import org.dfe.interfaces.internal.KeyStoreInfo;
 import org.dfe.interfaces.internal.config.NfceConfig;
-import lombok.EqualsAndHashCode;
-import lombok.SneakyThrows;
 
 @EqualsAndHashCode(onlyExplicitlyIncluded = true, callSuper = true)
 public final class PfxNfceConfigImpl extends PfxConfigImpl implements NfceConfig {

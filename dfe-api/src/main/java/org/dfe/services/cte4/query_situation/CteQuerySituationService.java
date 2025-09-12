@@ -1,13 +1,19 @@
 package org.dfe.services.cte4.query_situation;
 
+import br.inf.portalfiscal.cte.send400.TRetConsSitCTe;
 import org.dfe.enums.cte.CteEvent;
 import org.dfe.enums.internal.Environment;
+import org.dfe.enums.internal.Model;
+import org.dfe.exceptions.CircuitBreakerException;
 import org.dfe.exceptions.ProcessException;
 import org.dfe.exceptions.ValidationException;
 import org.dfe.exceptions.port.SoapServiceGeneralException;
 import org.dfe.exceptions.security.SecurityException;
 import org.dfe.exceptions.services.NoProviderFound;
+import org.dfe.interfaces.circuitbreaker.DfeOperation;
+import org.dfe.interfaces.internal.Pair;
 import org.dfe.interfaces.internal.config.CteConfig;
+import org.dfe.interfaces.sefaz.cte4.Cte4Service;
 import org.dfe.interfaces.services.Cte4SefazService;
 import org.dfe.models.cte4.query_situation.CteQuerySituation;
 import org.dfe.models.cte4.query_situation.CteQuerySituationRequest;
@@ -23,19 +29,24 @@ public interface CteQuerySituationService extends Cte4SefazService {
      * @param environment Environment of the CTe.
      * @return A CteReturnQuerySituation object.
      */
-    default CteReturnQuerySituation querySituation(String chCTe, Environment environment) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default CteReturnQuerySituation querySituation(String chCTe, Environment environment) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         CteConfig config = getConfig().withEnviroment(environment);
-        return CteReturnQuerySituation.builder().build().fromObject(getProviderFactory()
-                .getCte4Service(config)
-                .querySituation(CteQuerySituationRequest
-                        .builder()
-                        .data(CteQuerySituation.build(chCTe, config).toObject())
-                        .config(config)
-                        .beforeRequest(getProcess().beforeQuerySituation())
-                        .afterRequest(getProcess().afterQuerySituation())
-                        .validators(getValidatorFactory().cte4Validator().querySituationValidators())
-                        .configureProvider(getConfigureProviderFactory())
-                        .build()));
+        Cte4Service service = getProviderFactory().getCte4Service(config);
+        Pair<?, TRetConsSitCTe> res = getCircuitBreakerRegistry().get(
+                config.environment(),
+                Model.CTE,
+                config.webServiceUF(),
+                DfeOperation.QUERY_SITUATION
+        ).execute(() -> service.querySituation(CteQuerySituationRequest
+                .builder()
+                .data(CteQuerySituation.build(chCTe, config).toObject())
+                .config(config)
+                .beforeRequest(getProcess().beforeQuerySituation())
+                .afterRequest(getProcess().afterQuerySituation())
+                .validators(getValidatorFactory().cte4Validator().querySituationValidators())
+                .configureProvider(getConfigureProviderFactory())
+                .build()));
+        return new CteReturnQuerySituation().fromObject(res);
     }
 
     /**
@@ -44,7 +55,7 @@ public interface CteQuerySituationService extends Cte4SefazService {
      * @param chCTe CTe key
      * @return The CteReturnQuerySituation object.
      */
-    default CteReturnQuerySituation querySituation(String chCTe) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default CteReturnQuerySituation querySituation(String chCTe) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return querySituation(chCTe, getConfig().environment());
     }
 
@@ -56,7 +67,7 @@ public interface CteQuerySituationService extends Cte4SefazService {
      * @param eventType The type of event you want to get the last sequence number for.
      * @return The last sequence number for the event type.
      */
-    default Long getLastSequenceNumber(String accessKey, String eventType) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default Long getLastSequenceNumber(String accessKey, String eventType) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return querySituation(accessKey).getLastSequenceNumber(eventType);
     }
 
@@ -67,7 +78,7 @@ public interface CteQuerySituationService extends Cte4SefazService {
      * @param event     The event code for which you want to get the last sequence number.
      * @return The last sequence number for the given event.
      */
-    default Long getLastSequenceNumber(String accessKey, CteEvent event) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default Long getLastSequenceNumber(String accessKey, CteEvent event) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return getLastSequenceNumber(accessKey, event.getCode());
     }
 
@@ -78,7 +89,7 @@ public interface CteQuerySituationService extends Cte4SefazService {
      * @param eventType The type of event you want to get the last sequence number for.
      * @return The last sequence number for the event type.
      */
-    default String getLastSequenceNumberAsString(String accessKey, String eventType) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default String getLastSequenceNumberAsString(String accessKey, String eventType) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return querySituation(accessKey).getLastSequenceNumberAsString(eventType);
     }
 
@@ -89,7 +100,7 @@ public interface CteQuerySituationService extends Cte4SefazService {
      * @param event     The event code.
      * @return The last sequence number for the given event.
      */
-    default String getLastSequenceNumberAsString(String accessKey, CteEvent event) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default String getLastSequenceNumberAsString(String accessKey, CteEvent event) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return getLastSequenceNumberAsString(accessKey, event.getCode());
     }
 }

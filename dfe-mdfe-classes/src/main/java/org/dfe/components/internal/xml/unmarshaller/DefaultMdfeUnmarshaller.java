@@ -109,10 +109,10 @@ final class DefaultMdfeUnmarshaller extends MdfeUnmarshallerFactory {
                 if (o instanceof JAXBElement) {
                     return (JAXBElement<?>) o;
                 }
-                throw new UnmarshallException("Object " + o + " of unknown type");
+                throw new UnmarshallException("Object " + o + " of unknown type", xml);
             }
         } catch (JAXBException e) {
-            throw new UnmarshallException(e);
+            throw new UnmarshallException(e, xml);
         }
     }
 
@@ -124,10 +124,10 @@ final class DefaultMdfeUnmarshaller extends MdfeUnmarshallerFactory {
                 if (o instanceof JAXBElement) {
                     return (JAXBElement<?>) o;
                 }
-                throw new UnmarshallException("Object " + o + " of unknown type");
+                throw new UnmarshallException("Object " + o + " of unknown type", xml);
             }
         } catch (JAXBException e) {
-            throw new UnmarshallException(e);
+            throw new UnmarshallException(e, xml);
         }
     }
 

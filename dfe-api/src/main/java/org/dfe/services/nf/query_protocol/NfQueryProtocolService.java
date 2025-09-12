@@ -2,15 +2,21 @@ package org.dfe.services.nf.query_protocol;
 
 import br.inf.portalfiscal.nfe.send.TEnviNFe;
 import br.inf.portalfiscal.nfe.send.TNfeProc;
+import br.inf.portalfiscal.nfe.send.TRetConsSitNFe;
 import org.dfe.components.internal.parser.AccessKeyParserFactory;
 import org.dfe.components.internal.xml.unmarshaller.NfUnmarshallerFactory;
 import org.dfe.enums.internal.Environment;
+import org.dfe.enums.internal.Model;
 import org.dfe.enums.nf.NFEvent;
+import org.dfe.exceptions.CircuitBreakerException;
 import org.dfe.exceptions.ProcessException;
 import org.dfe.exceptions.ValidationException;
 import org.dfe.exceptions.port.SoapServiceGeneralException;
 import org.dfe.exceptions.security.SecurityException;
 import org.dfe.exceptions.services.NoProviderFound;
+import org.dfe.interfaces.circuitbreaker.DfeOperation;
+import org.dfe.interfaces.internal.Pair;
+import org.dfe.interfaces.internal.config.NfConfig;
 import org.dfe.interfaces.sefaz.nf.common.NfCommonService;
 import org.dfe.interfaces.services.NfSefazService;
 import org.dfe.interfaces.validation.nf.common.NfCommonValidator;
@@ -31,25 +37,29 @@ public interface NfQueryProtocolService extends NfSefazService {
      * @param accessKey The access key of the NF-e.
      * @return A ReturnQueryProtocolNfe object.
      */
-    default ReturnQueryProtocolNfe queryProtocol(String accessKey) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default ReturnQueryProtocolNfe queryProtocol(String accessKey) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return queryProtocol(accessKey, getConfig().environment());
     }
 
-    default ReturnQueryProtocolNfe queryProtocol(String accessKey, Environment environment) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
-        return ReturnQueryProtocolNfe
+    default ReturnQueryProtocolNfe queryProtocol(String accessKey, Environment environment) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+        NfConfig config = getConfig().withEnviroment(environment);
+        NfCommonService service = getService(config.environment());
+        Pair<?, TRetConsSitNFe> res = getCircuitBreakerRegistry().get(
+                config.environment(),
+                getModel(),
+                config.webServiceUF(),
+                DfeOperation.QUERY_SITUATION
+        ).execute(() -> service.queryProtocol(QueryProtocolRequest
                 .builder()
-                .build()
-                .fromObject(getService(environment)
-                        .queryProtocol(QueryProtocolRequest
-                                .builder()
-                                .data(QueryProtocolNfe.builder().chNFe(accessKey).tpAmb(environment.getCode()).build().toObject())
-                                .validators(getValidator().queryProtocolValidators())
-                                .afterRequest(getProcess().afterQueryProtocol())
-                                .beforeRequest(getProcess().beforeQueryProtocol())
-                                .config(getConfig().withEnviroment(environment))
-                                .configureProvider(getConfigureProviderFactory())
-                                .build())
-                        .second());
+                .data(QueryProtocolNfe.builder().chNFe(accessKey).tpAmb(environment.getCode()).build().toObject())
+                .validators(getValidator().queryProtocolValidators())
+                .afterRequest(getProcess().afterQueryProtocol())
+                .beforeRequest(getProcess().beforeQueryProtocol())
+                .config(getConfig().withEnviroment(environment))
+                .configureProvider(getConfigureProviderFactory())
+                .build()));
+
+        return new ReturnQueryProtocolNfe().fromObject(res);
     }
 
     /**
@@ -67,7 +77,7 @@ public interface NfQueryProtocolService extends NfSefazService {
                 tNfeProc.setProtNFe(queryProtocol(AccessKeyParserFactory.nfe().fromId(it.getInfNFe().getId())).getProtNFe().toObject());
                 return tNfeProc;
             } catch (NoProviderFound | SecurityException | ProcessException | ValidationException |
-                     SoapServiceGeneralException e) {
+                     SoapServiceGeneralException | CircuitBreakerException e) {
                 throw new RuntimeException(e);
             }
         }).collect(Collectors.toList());
@@ -90,7 +100,7 @@ public interface NfQueryProtocolService extends NfSefazService {
      * @param environment The environment you want to connect to.
      * @return A service object that can be used to call the service.
      */
-    NfCommonService getService(Environment environment) throws NoProviderFound, SoapServiceGeneralException;
+    NfCommonService getService(Environment environment) throws CircuitBreakerException, NoProviderFound, SoapServiceGeneralException;
 
     /**
      * Returns the validator used by this class
@@ -99,6 +109,8 @@ public interface NfQueryProtocolService extends NfSefazService {
      */
     NfCommonValidator getValidator();
 
+    Model getModel();
+
     /**
      * This function returns the last sequence number for the given event type
      *
@@ -106,7 +118,7 @@ public interface NfQueryProtocolService extends NfSefazService {
      * @param eventType The event type you want to get the last sequence number for.
      * @return The last sequence number for the given event type.
      */
-    default Long getLastSequenceNumber(String accessKey, String eventType) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default Long getLastSequenceNumber(String accessKey, String eventType) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return queryProtocol(accessKey)
                 .getProcEventoNFe()
                 .stream()
@@ -123,7 +135,7 @@ public interface NfQueryProtocolService extends NfSefazService {
      * @param event     The event code for which you want to get the last sequence number.
      * @return The last sequence number for the given event.
      */
-    default Long getLastSequenceNumber(String accessKey, NFEvent event) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default Long getLastSequenceNumber(String accessKey, NFEvent event) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return getLastSequenceNumber(accessKey, event.getCode());
     }
 }

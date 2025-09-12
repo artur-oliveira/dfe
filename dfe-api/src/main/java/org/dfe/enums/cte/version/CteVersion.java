@@ -17,7 +17,7 @@ public enum CteVersion {
     VERSION_400("4.00") {
         @Override
         public String xsdRootPath() {
-            return "xsds/cte/PL_CTe_400";
+            return "xsds/cte/PL_CTe_400_NT2025_001_RTC_101a";
         }
     };
 

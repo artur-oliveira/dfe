@@ -6,8 +6,11 @@
         xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
         xmlns:s="http://www.w3.org/2001/XMLSchema"
         targetNamespace="http://www.portalfiscal.inf.br/cte/wsdl/CTeStatusServicoV4"
-        xmlns="http://schemas.xmlsoap.org/wsdl/"
+        xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:jaxws="https://jakarta.ee/xml/ns/jaxws"
 >
+    <jaxws:bindings>
+        <jaxws:enableAsyncMapping>true</jaxws:enableAsyncMapping>
+    </jaxws:bindings>
     <types>
         <s:schema elementFormDefault="qualified"
                   targetNamespace="http://www.portalfiscal.inf.br/cte/wsdl/CTeStatusServicoV4">
@@ -33,17 +36,17 @@
     <message name="cteStatusServicoCTSoap12Out">
         <part name="cteStatusServicoCTResult" element="tns:cteStatusServicoCTResult"/>
     </message>
-    <portType name="CteStatusServicoSoap12">
+    <portType name="CTeStatusServicoV4Soap12">
         <operation name="cteStatusServicoCT">
             <input message="tns:cteStatusServicoCTSoap12In"/>
             <output message="tns:cteStatusServicoCTSoap12Out"/>
         </operation>
     </portType>
-    <binding name="CteStatusServicoSoap12" type="tns:CteStatusServicoSoap12">
+    <binding name="CTeStatusServicoV4Soap12" type="tns:CTeStatusServicoV4Soap12">
         <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
         <operation name="cteStatusServicoCT">
             <soap12:operation style="document"
-                              soapAction="http://www.portalfiscal.inf.br/cte/wsdl/CteStatusServicoV4/CTeStatusServicoV4"
+                              soapAction="http://www.portalfiscal.inf.br/cte/wsdl/CTeStatusServicoV4/cteStatusServicoCT"
                               soapActionRequired="false"/>
             <input>
                 <soap12:body use="literal"/>
@@ -54,7 +57,7 @@
         </operation>
     </binding>
     <service name="CTeStatusServicoV4">
-        <port name="CteStatusServicoSoap12" binding="tns:CteStatusServicoSoap12">
+        <port name="CTeStatusServicoV4Soap12" binding="tns:CTeStatusServicoV4Soap12">
             <soap12:address location="https://cte.sefaz.mt.gov.br/ctews2/services/CTeStatusServicoV4"/>
         </port>
     </service>

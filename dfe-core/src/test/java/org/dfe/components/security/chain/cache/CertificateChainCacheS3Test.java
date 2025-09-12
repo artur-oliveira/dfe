@@ -1,12 +1,12 @@
 package org.dfe.components.security.chain.cache;
 
-import org.dfe.util.DateUtils;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.ZoneOffset;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class CertificateChainCacheS3Test {
 
@@ -15,7 +15,7 @@ class CertificateChainCacheS3Test {
         System.setProperty("org.dfe.chain.cache.s3.bucket", "teste");
         System.setProperty("org.dfe.chain.cache.s3.enable-day-cache", "false");
         CertificateChainCacheS3 certificateChainCacheS3 = new CertificateChainCacheS3();
-        assertTrue(certificateChainCacheS3.canUseCache(DateUtils.date(LocalDateTime.of(LocalDate.of(2023, 1, 1), LocalDateTime.now().toLocalTime()))));
+        assertTrue(certificateChainCacheS3.canUseCache(LocalDate.of(2023, 1, 1).atTime(LocalTime.MIN).toInstant(ZoneOffset.UTC)));
     }
 
     @Test
@@ -23,6 +23,6 @@ class CertificateChainCacheS3Test {
         System.setProperty("org.dfe.chain.cache.s3.bucket", "teste");
         System.setProperty("org.dfe.chain.cache.s3.enable-day-cache", "true");
         CertificateChainCacheS3 certificateChainCacheS3 = new CertificateChainCacheS3();
-        assertTrue(certificateChainCacheS3.canUseCache(DateUtils.date(LocalDateTime.of(LocalDate.now().minusDays(13), LocalDateTime.now().toLocalTime()))));
+        assertTrue(certificateChainCacheS3.canUseCache(LocalDate.now().minusDays(13).atTime(LocalTime.now()).toInstant(ZoneOffset.ofHours(-3))));
     }
 }

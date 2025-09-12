@@ -53,6 +53,7 @@ class NfceQueryProtocolServiceImplTest {
         assertEquals(service.getConfig().environment().getCode(), o.getTpAmb());
     }
 
+
     @Test
     void testQueryProtocolWithEnvironmentIsHomologationAndAuthorizerGo() throws Exception {
         NfceQueryProtocolService service = new NfceQueryProtocolServiceImpl(

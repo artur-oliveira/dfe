@@ -11,7 +11,6 @@ import org.dfe.enums.mdfe.MdfeReturnCode;
 import org.dfe.exceptions.storage.StorageException;
 import org.dfe.interfaces.storage.Store;
 import org.dfe.interfaces.storage.mdfe.MdfeStorage;
-import org.dfe.models.internal.storage.StorageResult;
 import org.dfe.models.internal.xml.XMLStore;
 import org.dfe.util.Functions;
 import org.dfe.util.IOUtils;
@@ -69,7 +68,7 @@ public abstract class GenericMdfeStorage extends CommonStorage implements MdfeSt
     public void storeProcEvent(Store<TProcEvento> o) throws StorageException {
         try {
             if (Objects.nonNull(o.data()) && Objects.nonNull(o.data().getRetEventoMDFe()) && Objects.nonNull(o.xml()) && MdfeReturnCode.generateProc(o.data().getRetEventoMDFe().getInfEvento().getCStat())) {
-                getStorageService().writeProc(o, MdfeStorageKey.MDFE_EVENT, xmlNameWithTime(String.join("-", o.data().getEventoMDFe().getInfEvento().getChMDFe(), o.data().getEventoMDFe().getInfEvento().getTpEvento(), o.data().getEventoMDFe().getInfEvento().getNSeqEvento())));
+                getStorageService().writeProc(o, MdfeStorageKey.MDFE_EVENT, xmlName(String.join("-", o.data().getEventoMDFe().getInfEvento().getChMDFe(), o.data().getEventoMDFe().getInfEvento().getTpEvento(), o.data().getEventoMDFe().getInfEvento().getNSeqEvento())));
             }
         } catch (Exception e) {
             throw new StorageException(e);
@@ -194,7 +193,7 @@ public abstract class GenericMdfeStorage extends CommonStorage implements MdfeSt
     public void storeProcMdfe(Store<TMdfeProc> o) throws StorageException {
         try {
             if (Objects.nonNull(o.data()) && Objects.nonNull(o.data().getProtMDFe()) && Objects.nonNull(o.xml()) && MdfeReturnCode.generateProc(o.data().getProtMDFe().getInfProt().getCStat())) {
-                getStorageService().writeProc(o, MdfeStorageKey.MDFE_RECEPTION, xmlNameWithTime(o.data().getProtMDFe().getInfProt().getChMDFe()));
+                getStorageService().writeProc(o, MdfeStorageKey.MDFE_RECEPTION, xmlName(o.data().getProtMDFe().getInfProt().getChMDFe()));
             }
         } catch (Exception e) {
             throw new StorageException(e);

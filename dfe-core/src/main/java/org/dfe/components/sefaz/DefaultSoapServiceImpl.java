@@ -7,9 +7,11 @@ import org.dfe.components.sefaz.port.cte4.AbstractCte4SoapService;
 import org.dfe.components.sefaz.port.mdfe.AbstractMdfeSoapService;
 import org.dfe.components.sefaz.port.nfce.AbstractNfceSoapService;
 import org.dfe.components.sefaz.port.nfe.AbstractNfeSoapService;
+import org.dfe.components.sefaz.port.nfe.impl.NfeAnSoapService;
 import org.dfe.enums.cte.identification.CteEmissionType;
 import org.dfe.enums.internal.Environment;
 import org.dfe.enums.internal.UF;
+import org.dfe.enums.internal.nf.NfeAuthorizer;
 import org.dfe.enums.nf.identification.NFEmissionType;
 import org.dfe.exceptions.port.SoapServiceGeneralException;
 import org.dfe.exceptions.port.SoapServiceInitializationException;
@@ -27,6 +29,7 @@ import org.dfe.util.ReflectionUtils;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -71,7 +74,17 @@ final class DefaultSoapServiceImpl extends SoapService {
     public AbstractNfeSoapService getNfeSoapService(UF uf, Environment environment, NFEmissionType emissionType) throws SoapServiceGeneralException {
         return ReflectionUtils.newInstance(getNfeSoapServices()
                 .stream()
+                .filter(it -> !(it instanceof NfeAnSoapService))
                 .filter(it -> it.getAuthorizer().allow(uf, environment, emissionType))
+                .findFirst()
+                .orElseThrow(SoapServiceNotFoundException::new)
+                .getClass());
+    }
+
+    public AbstractNfeSoapService getNfeSoapService(NfeAuthorizer authorizer) throws SoapServiceGeneralException {
+        return ReflectionUtils.newInstance(getNfeSoapServices()
+                .stream()
+                .filter(it -> Objects.equals(authorizer, it.getAuthorizer()))
                 .findFirst()
                 .orElseThrow(SoapServiceNotFoundException::new)
                 .getClass());
@@ -105,8 +118,8 @@ final class DefaultSoapServiceImpl extends SoapService {
     }
 
     @Override
-    public NfeSoapService getNfeSoapService(NfConfig config) throws SoapServiceGeneralException {
-        AbstractNfeSoapService service = (AbstractNfeSoapService) getNfeSoapService(config.webServiceUF(), config.environment(), config.emission()).withConfig(config);
+    public NfeSoapService getNfeSoapService(NfConfig config, NfeAuthorizer nfeAuthorizer) throws SoapServiceGeneralException {
+        AbstractNfeSoapService service = (AbstractNfeSoapService) getNfeSoapService(nfeAuthorizer).withConfig(config);
         SoapServiceInitializer.nfe().initialize(service);
         return service;
     }

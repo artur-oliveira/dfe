@@ -1,11 +1,11 @@
 package org.dfe.enums.mdfe;
 
-import org.dfe.components.internal.DFEnum;
-import org.dfe.exceptions.NoEnumException;
-import org.dfe.interfaces.internal.ReturnCode;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.extern.log4j.Log4j2;
+import org.dfe.components.internal.DFEnum;
+import org.dfe.exceptions.NoEnumException;
+import org.dfe.interfaces.internal.ReturnCode;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -237,7 +237,7 @@ public enum MdfeReturnCode implements ReturnCode {
         try {
             return generateProc(valueOfCode(code));
         } catch (NoEnumException e) {
-            log.warn("no enum found for code " + e.getValue());
+            log.warn("no enum found for code {}", e.getValue());
             return false;
         }
     }

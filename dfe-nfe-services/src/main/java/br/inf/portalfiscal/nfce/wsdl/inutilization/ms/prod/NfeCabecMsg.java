@@ -1,17 +1,21 @@
+
 package br.inf.portalfiscal.nfce.wsdl.inutilization.ms.prod;
 
-import jakarta.xml.bind.annotation.*;
-
-import javax.xml.namespace.QName;
 import java.util.HashMap;
 import java.util.Map;
+import javax.xml.namespace.QName;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlAnyAttribute;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for nfeCabecMsg complex type.
- *
- * <p>The following schema fragment specifies the expected content contained within this class.
- *
+ * <p>Java class for nfeCabecMsg complex type</p>.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
+ * 
  * <pre>{@code
  * <complexType name="nfeCabecMsg">
  *   <complexContent>
@@ -25,11 +29,13 @@ import java.util.Map;
  *   </complexContent>
  * </complexType>
  * }</pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "nfeCabecMsg", propOrder = {
-        "cuf",
-        "versaoDados"
+    "cuf",
+    "versaoDados"
 })
 public class NfeCabecMsg {
 
@@ -41,9 +47,11 @@ public class NfeCabecMsg {
 
     /**
      * Gets the value of the cuf property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getCUF() {
         return cuf;
@@ -51,9 +59,11 @@ public class NfeCabecMsg {
 
     /**
      * Sets the value of the cuf property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setCUF(String value) {
         this.cuf = value;
@@ -61,9 +71,11 @@ public class NfeCabecMsg {
 
     /**
      * Gets the value of the versaoDados property.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getVersaoDados() {
         return versaoDados;
@@ -71,9 +83,11 @@ public class NfeCabecMsg {
 
     /**
      * Sets the value of the versaoDados property.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setVersaoDados(String value) {
         this.versaoDados = value;
@@ -81,15 +95,17 @@ public class NfeCabecMsg {
 
     /**
      * Gets a map that contains attributes that aren't bound to any typed property on this class.
-     *
+     * 
      * <p>
-     * the map is keyed by the name of the attribute and
+     * the map is keyed by the name of the attribute and 
      * the value is the string value of the attribute.
-     * <p>
+     * 
      * the map returned by this method is live, and you can add new attribute
      * by updating the map directly. Because of this design, there's no setter.
-     *
-     * @return always non-null
+     * 
+     * 
+     * @return
+     *     always non-null
      */
     public Map<QName, String> getOtherAttributes() {
         return otherAttributes;

@@ -3,6 +3,7 @@ package org.dfe.components.storage.cte4;
 import br.inf.portalfiscal.cte.distribution.DistDFeInt;
 import br.inf.portalfiscal.cte.distribution.RetDistDFeInt;
 import br.inf.portalfiscal.cte.send400.*;
+import lombok.extern.log4j.Log4j2;
 import org.dfe.components.internal.parser.AccessKeyParserFactory;
 import org.dfe.components.internal.xml.unmarshaller.CteUnmarshallerFactory;
 import org.dfe.components.storage.common.CommonStorage;
@@ -12,7 +13,6 @@ import org.dfe.exceptions.storage.StorageException;
 import org.dfe.exceptions.xml.MarshallException;
 import org.dfe.interfaces.storage.Store;
 import org.dfe.interfaces.storage.cte4.CteStorage;
-import lombok.extern.log4j.Log4j2;
 
 import java.util.Objects;
 
@@ -67,7 +67,7 @@ public abstract class GenericCteStorage extends CommonStorage implements CteStor
     public void storeProcEvent(Store<TProcEvento> o) throws StorageException {
         try {
             if (Objects.nonNull(o.data()) && Objects.nonNull(o.data().getRetEventoCTe()) && Objects.nonNull(o.xml()) && CteReturnCode.generateProc(o.data().getRetEventoCTe().getInfEvento().getCStat())) {
-                getStorageService().writeProc(o, Cte4StorageKey.CTE_EVENT, xmlNameWithTime(o.data().getRetEventoCTe().getInfEvento().getChCTe() + "-" + o.data().getEventoCTe().getInfEvento().getTpEvento() + "-" + o.data().getEventoCTe().getInfEvento().getNSeqEvento()));
+                getStorageService().writeProc(o, Cte4StorageKey.CTE_EVENT, xmlName(o.data().getRetEventoCTe().getInfEvento().getChCTe() + "-" + o.data().getEventoCTe().getInfEvento().getTpEvento() + "-" + o.data().getEventoCTe().getInfEvento().getNSeqEvento()));
             }
         } catch (Exception e) {
             throw new StorageException(e);
@@ -139,7 +139,7 @@ public abstract class GenericCteStorage extends CommonStorage implements CteStor
     public void storeProcGtve(Store<TGTVeProc> o) throws StorageException {
         try {
             if (Objects.nonNull(o.data()) && Objects.nonNull(o.data().getProtCTe()) && Objects.nonNull(o.xml()) && CteReturnCode.generateProc(o.data().getProtCTe().getInfProt().getCStat())) {
-                getStorageService().writeProc(o, Cte4StorageKey.CTE_RECEPTION_GTVE, xmlNameWithTime(o.data().getProtCTe().getInfProt().getChCTe()));
+                getStorageService().writeProc(o, Cte4StorageKey.CTE_RECEPTION_GTVE, xmlName(o.data().getProtCTe().getInfProt().getChCTe()));
             }
         } catch (Exception e) {
             throw new StorageException(e);
@@ -176,7 +176,7 @@ public abstract class GenericCteStorage extends CommonStorage implements CteStor
     public void storeProcCteOs(Store<TCteOSProc> o) throws StorageException {
         try {
             if (Objects.nonNull(o.data()) && Objects.nonNull(o.data().getProtCTe()) && Objects.nonNull(o.xml()) && CteReturnCode.generateProc(o.data().getProtCTe().getInfProt().getCStat())) {
-                getStorageService().writeProc(o, Cte4StorageKey.CTE_RECEPTION_OS, xmlNameWithTime(o.data().getProtCTe().getInfProt().getChCTe()));
+                getStorageService().writeProc(o, Cte4StorageKey.CTE_RECEPTION_OS, xmlName(o.data().getProtCTe().getInfProt().getChCTe()));
             }
         } catch (Exception e) {
             throw new StorageException(e);
@@ -213,7 +213,7 @@ public abstract class GenericCteStorage extends CommonStorage implements CteStor
     public void storeProcCteSync(Store<TCteProc> o) throws StorageException {
         try {
             if (Objects.nonNull(o.data()) && Objects.nonNull(o.data().getProtCTe()) && Objects.nonNull(o.xml()) && CteReturnCode.generateProc(o.data().getProtCTe().getInfProt().getCStat())) {
-                getStorageService().writeProc(o, Cte4StorageKey.CTE_RECEPTION_SYNC, xmlNameWithTime(o.data().getProtCTe().getInfProt().getChCTe()));
+                getStorageService().writeProc(o, Cte4StorageKey.CTE_RECEPTION_SYNC, xmlName(o.data().getProtCTe().getInfProt().getChCTe()));
             }
         } catch (Exception e) {
             throw new StorageException(e);

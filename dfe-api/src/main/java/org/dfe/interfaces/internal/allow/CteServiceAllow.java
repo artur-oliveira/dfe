@@ -3,6 +3,7 @@ package org.dfe.interfaces.internal.allow;
 import org.dfe.enums.cte.identification.CteEmissionType;
 import org.dfe.enums.internal.Environment;
 import org.dfe.enums.internal.UF;
+import org.dfe.interfaces.internal.config.CteConfig;
 
 /**
  * The code is defining a Java interface named `CteServiceAllow` that extends another interface named `AllowUF`. This means
@@ -28,5 +29,9 @@ public interface CteServiceAllow extends AllowUF {
      * @return A boolean value is being returned.
      */
     boolean allow(UF uf, Environment environment, CteEmissionType emissionType);
+
+    default boolean allow(CteConfig config) {
+        return allow(config.webServiceUF(), config.environment(), config.emission());
+    }
 
 }

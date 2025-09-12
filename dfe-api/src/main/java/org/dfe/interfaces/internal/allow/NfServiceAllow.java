@@ -3,6 +3,7 @@ package org.dfe.interfaces.internal.allow;
 import org.dfe.enums.internal.Environment;
 import org.dfe.enums.internal.UF;
 import org.dfe.enums.nf.identification.NFEmissionType;
+import org.dfe.interfaces.internal.config.NfConfig;
 
 /**
  * The `public interface NfServiceAllow` is declaring a Java interface named `NfServiceAllow`. The `extends AllowUF` part
@@ -29,4 +30,7 @@ public interface NfServiceAllow extends AllowUF {
      */
     boolean allow(UF uf, Environment environment, NFEmissionType emissionType);
 
+    default boolean allow(NfConfig config) {
+        return allow(config.webServiceUF(), config.environment(), config.emission());
+    }
 }

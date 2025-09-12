@@ -74,12 +74,12 @@ public enum QueryNfceURL implements AllowUF {
     CE {
         @Override
         public String production() {
-            return "http://nfceh.sefaz.ce.gov.br/pages/consultaNota.jsf";
+            return "http://nfce.sefaz.ce.gov.br/pages/consultaNota.jsf";
         }
 
         @Override
         public String homologation() {
-            return "http://nfce.sefaz.ce.gov.br/pages/consultaNota.jsf";
+            return "http://nfceh.sefaz.ce.gov.br/pages/consultaNota.jsf";
         }
     },
     DF {
@@ -173,12 +173,12 @@ public enum QueryNfceURL implements AllowUF {
     PB {
         @Override
         public String production() {
-            return "www.receita.pb.gov.br/nfce/consulta";
+            return "http://www.sefaz.pb.gov.br/nfce";
         }
 
         @Override
         public String homologation() {
-            return "www.receita.pb.gov.br/nfcehom";
+            return "http://www.sefaz.pb.gov.br/nfcehom";
         }
     },
     PR {
@@ -283,7 +283,7 @@ public enum QueryNfceURL implements AllowUF {
     SC {
         @Override
         public String production() {
-            return " https://sat.sef.sc.gov.br/nfce/consulta";
+            return "https://sat.sef.sc.gov.br/nfce/consulta";
         }
 
         @Override
@@ -294,12 +294,12 @@ public enum QueryNfceURL implements AllowUF {
     SE {
         @Override
         public String production() {
-            return "http://www.nfce.se.gov.br/portal/portalNoticias.jsp";
+            return "http://www.nfce.se.gov.br/nfce/consulta";
         }
 
         @Override
         public String homologation() {
-            return "http://www.hom.nfe.se.gov.br/portal/portalNoticias.jsp";
+            return "http://www.hom.nfe.se.gov.br/nfce/consulta";
         }
     },
     TO {
@@ -314,12 +314,6 @@ public enum QueryNfceURL implements AllowUF {
         }
     },
     ;
-
-    public static String get(UF uf, Environment environment) throws NoProviderFound {
-        QueryNfceURL url = Arrays.stream(QueryNfceURL.values()).filter(it -> it.allow(uf, environment)).findFirst().orElseThrow(NoProviderFound::new);
-
-        return environment.production() ? url.production() : url.homologation();
-    }
 
     @Override
     public Collection<UF> allowedUfsHomologation() {

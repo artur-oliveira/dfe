@@ -15,6 +15,10 @@ public abstract class CommonStorage {
         return (prefix.toString().isEmpty() ? "" : prefix + "_") + System.currentTimeMillis() + "-" + UUID.randomUUID() + ".xml";
     }
 
+    protected String xmlName(Object prefix) {
+        return prefix + ".xml";
+    }
+
     /**
      * Return a string that is a random UUID with a timestamp prepended to it.
      *

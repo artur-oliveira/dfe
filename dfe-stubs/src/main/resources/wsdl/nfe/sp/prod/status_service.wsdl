@@ -2,11 +2,17 @@
 <wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
                   xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
                   xmlns:tns="http://www.portalfiscal.inf.br/nfe/wsdl/NFeStatusServico4"
+                  xmlns:jaxws="https://jakarta.ee/xml/ns/jaxws"
                   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
                   targetNamespace="http://www.portalfiscal.inf.br/nfe/wsdl/NFeStatusServico4">
-    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Serviço destinado à consulta do status do serviço
+    <wsdl:documentation
+            xmlns:jaxws="https://jakarta.ee/xml/ns/jaxws"
+            xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Serviço destinado à consulta do status do serviço
         prestado pelo Portal da Secretaria de Fazenda Estadual.
     </wsdl:documentation>
+    <jaxws:bindings>
+        <jaxws:enableAsyncMapping>true</jaxws:enableAsyncMapping>
+    </jaxws:bindings>
     <wsdl:types>
         <s:schema elementFormDefault="qualified"
                   targetNamespace="http://www.portalfiscal.inf.br/nfe/wsdl/NFeStatusServico4">
@@ -34,7 +40,9 @@
     </wsdl:message>
     <wsdl:portType name="NFeStatusServico4Soap12">
         <wsdl:operation name="nfeStatusServicoNF">
-            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta Status do Serviço
+            <wsdl:documentation
+                    xmlns:jaxws="https://jakarta.ee/xml/ns/jaxws"
+                    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta Status do Serviço
             </wsdl:documentation>
             <wsdl:input message="tns:nfeStatusServicoNFSoap12In"/>
             <wsdl:output message="tns:nfeStatusServicoNFSoap12Out"/>
@@ -54,7 +62,9 @@
         </wsdl:operation>
     </wsdl:binding>
     <wsdl:service name="NFeStatusServico4">
-        <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Serviço destinado à consulta do status do
+        <wsdl:documentation
+                xmlns:jaxws="https://jakarta.ee/xml/ns/jaxws"
+                xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Serviço destinado à consulta do status do
             serviço prestado pelo Portal da Secretaria de Fazenda Estadual.
         </wsdl:documentation>
         <wsdl:port name="NFeStatusServico4Soap12" binding="tns:NFeStatusServico4Soap12">

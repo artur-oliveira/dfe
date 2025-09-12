@@ -1,7 +1,7 @@
 package org.dfe.enums.nf.prod.vehicle;
 
-import org.dfe.components.internal.DFEnum;
 import lombok.Getter;
+import org.dfe.components.internal.DFEnum;
 
 @Getter
 public enum NFVehicleFuelType implements DFEnum.Codeable {

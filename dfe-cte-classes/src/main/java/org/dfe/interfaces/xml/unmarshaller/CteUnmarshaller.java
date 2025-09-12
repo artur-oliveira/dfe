@@ -12,8 +12,6 @@ public interface CteUnmarshaller {
 
     JAXBElement<br.inf.portalfiscal.cte.send400.TProcEvento> procEventCte400(String xml);
 
-    JAXBElement<br.inf.portalfiscal.cte.send400.TInutCTe> inutCte400(String xml);
-
     JAXBElement<br.inf.portalfiscal.cte.send400.TConsSitCTe> querySituationCte400(String xml);
 
     JAXBElement<br.inf.portalfiscal.cte.send400.TGTVe> receptionGtve400(String xml);

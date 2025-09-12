@@ -1,13 +1,18 @@
 package org.dfe.services.nf.authorization;
 
 import br.inf.portalfiscal.nfe.send.TEnviNFe;
+import br.inf.portalfiscal.nfe.send.TRetEnviNFe;
 import org.dfe.components.internal.xml.unmarshaller.NfUnmarshallerFactory;
 import org.dfe.enums.internal.Environment;
+import org.dfe.enums.internal.Model;
+import org.dfe.exceptions.CircuitBreakerException;
 import org.dfe.exceptions.ProcessException;
 import org.dfe.exceptions.ValidationException;
 import org.dfe.exceptions.port.SoapServiceGeneralException;
 import org.dfe.exceptions.security.SecurityException;
 import org.dfe.exceptions.services.NoProviderFound;
+import org.dfe.interfaces.circuitbreaker.DfeOperation;
+import org.dfe.interfaces.internal.Pair;
 import org.dfe.interfaces.internal.config.NfConfig;
 import org.dfe.interfaces.sefaz.nf.common.NfCommonService;
 import org.dfe.interfaces.services.NfSefazService;
@@ -39,22 +44,27 @@ public interface NfAuthorizationService extends NfSefazService {
      * @param enviNFe The object that contains the data to be sent to the SEFAZ.
      * @return A ReturnSendNf object.
      */
-    default ReturnSendNf authorization(TEnviNFe enviNFe) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default ReturnSendNf authorization(TEnviNFe enviNFe) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         NfConfig config = getConfig().withEnviroment(enviNFe.getNFe().stream().findFirst().map(it -> it.getInfNFe().getIde().getTpAmb()).orElse(getConfig().environment().getCode()));
-        return ReturnSendNf
+        enviNFe.getNFe().forEach(it -> it.setSignature(null));
+        NfCommonService service = getService(config.environment());
+        Pair<?, TRetEnviNFe> res = getCircuitBreakerRegistry().get(
+                config.environment(),
+                getModel(),
+                config.webServiceUF(),
+                DfeOperation.AUTHORIZATION
+        ).execute(() -> service.authorize(NfAuthorizationRequest
                 .builder()
-                .build()
-                .fromObject(getService(config.environment())
-                        .authorize(NfAuthorizationRequest
-                                .builder()
-                                .data(enviNFe)
-                                .config(config)
-                                .afterRequest(getProcess().afterAuthorization())
-                                .beforeRequest(getProcess().beforeAuthorization())
-                                .signer(getXmlSigner())
-                                .configureProvider(getConfigureProviderFactory())
-                                .validators(getValidator().authorizationValidators())
-                                .build()).second());
+                .data(enviNFe)
+                .config(config)
+                .afterRequest(getProcess().afterAuthorization())
+                .beforeRequest(getProcess().beforeAuthorization())
+                .signer(getXmlSigner())
+                .configureProvider(getConfigureProviderFactory())
+                .validators(getValidator().authorizationValidators())
+                .build()));
+
+        return new ReturnSendNf().fromObject(res);
     }
 
     /**
@@ -63,7 +73,7 @@ public interface NfAuthorizationService extends NfSefazService {
      * @param nfe Collection of NF objects
      * @return ReturnSendNf
      */
-    default ReturnSendNf authorization(Collection<Nf> nfe) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default ReturnSendNf authorization(Collection<Nf> nfe) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return authorization(getEnviNfe(nfe));
     }
 
@@ -73,7 +83,7 @@ public interface NfAuthorizationService extends NfSefazService {
      * @param nfe Nf object
      * @return ReturnSendNf
      */
-    default ReturnSendNf authorization(Nf nfe) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default ReturnSendNf authorization(Nf nfe) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return authorization(Collections.singleton(nfe));
     }
 
@@ -85,7 +95,7 @@ public interface NfAuthorizationService extends NfSefazService {
      *                       transforming the XML into a Java object.
      * @return The return type is the class ReturnSendNf.
      */
-    default ReturnSendNf authorization(String xml, XMLTransformer<Nf> xmlTransformer) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default ReturnSendNf authorization(String xml, XMLTransformer<Nf> xmlTransformer) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return authorization(xmlTransformer.transform(xml));
     }
 
@@ -95,7 +105,7 @@ public interface NfAuthorizationService extends NfSefazService {
      * @param xml XML string containing the NF-e to be sent.
      * @return ReturnSendNf
      */
-    default ReturnSendNf authorizationFromEnviNfe(String xml) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default ReturnSendNf authorizationFromEnviNfe(String xml) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return authorization(NfUnmarshallerFactory.getInstance().enviNfe(xml).getValue());
     }
 
@@ -108,11 +118,13 @@ public interface NfAuthorizationService extends NfSefazService {
      * @param xml The XML of the NF-e to be sent.
      * @return ReturnSendNf
      */
-    default ReturnSendNf authorizationFromNfe(String xml) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default ReturnSendNf authorizationFromNfe(String xml) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return authorization(xml, x -> Nf.builder().build().fromObject(NfUnmarshallerFactory.getInstance().nfe(xml).getValue()));
     }
 
-    NfCommonService getService(Environment environment) throws NoProviderFound, SoapServiceGeneralException;
+    NfCommonService getService(Environment environment) throws CircuitBreakerException, NoProviderFound, SoapServiceGeneralException;
+
+    Model getModel();
 
     NfCommonValidator getValidator();
 }

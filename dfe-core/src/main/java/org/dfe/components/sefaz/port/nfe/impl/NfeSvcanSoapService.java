@@ -17,4 +17,10 @@ public final class NfeSvcanSoapService extends AbstractNfeSoapService {
     public NfeAuthorizer getAuthorizer() {
         return NfeAuthorizer.SVCAN;
     }
+
+
+    @Override
+    public NfeAuthorizer getServiceFinderAuthorizer() {
+        return NfeAuthorizer.SVAN;
+    }
 }

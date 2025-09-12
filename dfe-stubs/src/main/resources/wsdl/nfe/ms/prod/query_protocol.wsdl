@@ -1,9 +1,14 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-                  xmlns:tns="http://www.portalfiscal.inf.br/nfe/wsdl/NFeConsultaProtocolo4"
-                  xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-                  name="NFeConsultaProtocolo4"
-                  targetNamespace="http://www.portalfiscal.inf.br/nfe/wsdl/NFeConsultaProtocolo4">
+<wsdl:definitions
+        xmlns:jaxws="https://jakarta.ee/xml/ns/jaxws"
+        xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+        xmlns:tns="http://www.portalfiscal.inf.br/nfe/wsdl/NFeConsultaProtocolo4"
+        xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+        name="NFeConsultaProtocolo4"
+        targetNamespace="http://www.portalfiscal.inf.br/nfe/wsdl/NFeConsultaProtocolo4">
+    <jaxws:bindings>
+        <jaxws:enableAsyncMapping>true</jaxws:enableAsyncMapping>
+    </jaxws:bindings>
     <wsdl:types>
         <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
                    targetNamespace="http://www.portalfiscal.inf.br/nfe/wsdl/NFeConsultaProtocolo4" version="1.0">

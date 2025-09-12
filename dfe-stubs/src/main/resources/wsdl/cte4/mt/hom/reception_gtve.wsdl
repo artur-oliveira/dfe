@@ -6,8 +6,11 @@
         xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
         xmlns:s="http://www.w3.org/2001/XMLSchema"
         targetNamespace="http://www.portalfiscal.inf.br/cte/wsdl/CTeRecepcaoGTVeV4"
-        xmlns="http://schemas.xmlsoap.org/wsdl/"
+        xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:jaxws="https://jakarta.ee/xml/ns/jaxws"
 >
+    <jaxws:bindings>
+        <jaxws:enableAsyncMapping>true</jaxws:enableAsyncMapping>
+    </jaxws:bindings>
     <types>
         <s:schema elementFormDefault="qualified"
                   targetNamespace="http://www.portalfiscal.inf.br/cte/wsdl/CTeRecepcaoGTVeV4">
@@ -49,7 +52,7 @@
     </binding>
     <service name="CTeRecepcaoGTVeV4">
         <port name="CTeRecepcaoGTVeV4Soap12" binding="tns:CTeRecepcaoGTVeV4Soap12">
-            <soap12:address location="https://cte.sefaz.mt.gov.br/ctews2/services/CTeRecepcaoGTVeV4"/>
+            <soap12:address location="https://homologacao.sefaz.mt.gov.br/ctews2/services/CTeRecepcaoGTVeV4"/>
         </port>
     </service>
 </definitions>

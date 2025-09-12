@@ -1,6 +1,7 @@
 package org.dfe.services.nf.query_status_service;
 
 import org.dfe.enums.internal.Environment;
+import org.dfe.enums.internal.Model;
 import org.dfe.enums.internal.UF;
 import org.dfe.exceptions.port.SoapServiceGeneralException;
 import org.dfe.exceptions.services.NoProviderFound;
@@ -18,6 +19,11 @@ public interface NfeQueryStatusService extends NfQueryStatusService {
     @Override
     default NfCommonService getService(UF uf, Environment environment) throws NoProviderFound, SoapServiceGeneralException {
         return getProviderFactory().getNfeService(getConfig().withWebServiceUf(uf).withEnviroment(environment));
+    }
+
+    @Override
+    default Model getModel() {
+        return Model.NFE;
     }
 
     @Override

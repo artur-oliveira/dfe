@@ -21,6 +21,7 @@ public interface NfQueryGtinService extends NfSefazService {
      * @return A ReturnQueryGtinNf object.
      */
     default ReturnQueryGtinNf queryGtin(TConsGTIN tConsGTIN) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+
         return ReturnQueryGtinNf
                 .builder()
                 .build()

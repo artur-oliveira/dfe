@@ -18,12 +18,12 @@ public enum QrCodeCteURL implements AllowUF {
     MG {
         @Override
         public String production() {
-            return "https://cte.fazenda.mg.gov.br/portalcte/sistema/qrcode.xhtml";
+            return "https://portalcte.fazenda.mg.gov.br/portalcte/sistema/qrcode.xhtml";
         }
 
         @Override
         public String homologation() {
-            return "https://cte.fazenda.mg.gov.br/portalcte/sistema/qrcode.xhtml";
+            return "https://portalcte.fazenda.mg.gov.br/portalcte/sistema/qrcode.xhtml";
         }
     },
     MS {

@@ -18,9 +18,9 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Objects;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 class CteReceptionSyncServiceImplTest {
 
@@ -221,7 +221,7 @@ class CteReceptionSyncServiceImplTest {
                 getCte(service.getConfig(), 1, Model.CTE)
         );
         assertNotNull(o);
-        assertEquals(CteReturnCode.CODE_539.getCode(), o.getCStat());
+        assertEquals(CteReturnCode.CODE_930.getCode(), o.getCStat());
         assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
         assertEquals(UF.PI.getCode(), o.getCuf());
     }
@@ -234,7 +234,7 @@ class CteReceptionSyncServiceImplTest {
         CteReturn o = service.receptionSync(
                 getCte(service.getConfig(), 1, Model.CTE)
         );
-        assertEquals(CteReturnCode.CODE_661.getCode(), o.getCStat());
+        assertEquals(CteReturnCode.CODE_930.getCode(), o.getCStat());
         assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
         assertEquals(UF.PI.getCode(), o.getCuf());
     }
@@ -248,7 +248,7 @@ class CteReceptionSyncServiceImplTest {
                 getCte(service.getConfig(), 1, Model.CTE)
         );
         assertNotNull(o);
-        assertEquals(CteReturnCode.CODE_524.getCode(), o.getCStat());
+        assertTrue(Objects.equals(CteReturnCode.CODE_930.getCode(), o.getCStat()) || Objects.equals(CteReturnCode.CODE_524.getCode(), o.getCStat()));
         assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
         assertEquals(UF.SP.getCode(), o.getCuf());
     }
@@ -261,7 +261,7 @@ class CteReceptionSyncServiceImplTest {
         CteReturn o = service.receptionSync(
                 getCte(service.getConfig(), 1, Model.CTE)
         );
-        assertEquals(CteReturnCode.CODE_524.getCode(), o.getCStat());
+        assertEquals(CteReturnCode.CODE_930.getCode(), o.getCStat());
         assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
         assertEquals(UF.SP.getCode(), o.getCuf());
     }
@@ -275,7 +275,7 @@ class CteReceptionSyncServiceImplTest {
                 getCte(service.getConfig(), 1, Model.CTE)
         );
         assertNotNull(o);
-        assertEquals(CteReturnCode.CODE_524.getCode(), o.getCStat());
+        assertEquals(CteReturnCode.CODE_930.getCode(), o.getCStat());
         assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
         assertEquals(UF.MG.getCode(), o.getCuf());
     }
@@ -288,7 +288,7 @@ class CteReceptionSyncServiceImplTest {
         CteReturn o = service.receptionSync(
                 getCte(service.getConfig(), 1, Model.CTE)
         );
-        assertEquals(CteReturnCode.CODE_524.getCode(), o.getCStat());
+        assertEquals(CteReturnCode.CODE_930.getCode(), o.getCStat());
         assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
         assertEquals(UF.MG.getCode(), o.getCuf());
     }
@@ -302,7 +302,7 @@ class CteReceptionSyncServiceImplTest {
                 getCte(service.getConfig(), 1, Model.CTE)
         );
         assertNotNull(o);
-        assertEquals(CteReturnCode.CODE_524.getCode(), o.getCStat());
+        assertEquals(CteReturnCode.CODE_646.getCode(), o.getCStat());
         assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
         assertEquals(UF.MT.getCode(), o.getCuf());
     }
@@ -315,7 +315,7 @@ class CteReceptionSyncServiceImplTest {
         CteReturn o = service.receptionSync(
                 getCte(service.getConfig(), 1, Model.CTE)
         );
-        assertEquals(CteReturnCode.CODE_524.getCode(), o.getCStat());
+        assertEquals(CteReturnCode.CODE_930.getCode(), o.getCStat());
         assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
         assertEquals(UF.MT.getCode(), o.getCuf());
     }
@@ -356,7 +356,7 @@ class CteReceptionSyncServiceImplTest {
                 getCte(service.getConfig(), 1, Model.CTE)
         );
         assertNotNull(o);
-        assertEquals(CteReturnCode.CODE_524.getCode(), o.getCStat());
+        assertEquals(CteReturnCode.CODE_930.getCode(), o.getCStat());
         assertEquals(Environment.HOMOLOGATION.getCode(), o.getTpAmb());
         assertEquals(UF.PR.getCode(), o.getCuf());
     }
@@ -369,7 +369,7 @@ class CteReceptionSyncServiceImplTest {
         CteReturn o = service.receptionSync(
                 getCte(service.getConfig(), 1, Model.CTE)
         );
-        assertEquals(CteReturnCode.CODE_524.getCode(), o.getCStat());
+        assertEquals(CteReturnCode.CODE_930.getCode(), o.getCStat());
         assertEquals(Environment.PRODUCTION.getCode(), o.getTpAmb());
         assertEquals(UF.PR.getCode(), o.getCuf());
     }

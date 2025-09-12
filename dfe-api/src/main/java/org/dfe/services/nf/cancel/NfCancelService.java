@@ -1,22 +1,27 @@
 package org.dfe.services.nf.cancel;
 
-import br.inf.portalfiscal.nfe.event_cancel.TEnvEvento;
+import br.inf.portalfiscal.nfe.event_generic.TEnvEvento;
+import br.inf.portalfiscal.nfe.event_generic.TRetEnvEvento;
 import org.dfe.components.internal.xml.unmarshaller.NfUnmarshallerFactory;
 import org.dfe.enums.internal.Environment;
+import org.dfe.enums.internal.Model;
 import org.dfe.enums.nf.NFEvent;
+import org.dfe.exceptions.CircuitBreakerException;
 import org.dfe.exceptions.ProcessException;
 import org.dfe.exceptions.ValidationException;
 import org.dfe.exceptions.port.SoapServiceGeneralException;
 import org.dfe.exceptions.security.SecurityException;
 import org.dfe.exceptions.services.NoProviderFound;
+import org.dfe.interfaces.circuitbreaker.DfeOperation;
+import org.dfe.interfaces.internal.Pair;
 import org.dfe.interfaces.internal.config.NfConfig;
 import org.dfe.interfaces.sefaz.nf.common.NfCommonService;
 import org.dfe.interfaces.services.NfSefazService;
 import org.dfe.interfaces.validation.nf.common.NfCommonValidator;
 import org.dfe.models.nf.authorization.NfProcessed;
-import org.dfe.models.nf.cancel.NfeCancelRequest;
-import org.dfe.models.nf.cancel.ReturnNfeCancel;
-import org.dfe.models.nf.cancel.SendNfeCancel;
+import org.dfe.models.nf.event.NfEventRequest;
+import org.dfe.models.nf.event.ReturnNfEvent;
+import org.dfe.models.nf.event.SendNfEvent;
 import org.dfe.services.nf.query_protocol.NfQueryProtocolService;
 
 import java.util.Collection;
@@ -34,29 +39,35 @@ public interface NfCancelService extends NfSefazService {
      * @param tEnvEvento The object that contains the cancellation data.
      * @return A ReturnNfeCancel object.
      */
-    default ReturnNfeCancel cancel(TEnvEvento tEnvEvento) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default ReturnNfEvent cancel(TEnvEvento tEnvEvento) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         NfConfig config = getConfig().withEnviroment(tEnvEvento.getEvento().stream().findFirst().map(it -> it.getInfEvento().getTpAmb()).orElse(getConfig().environment().getCode()));
-        return ReturnNfeCancel.builder().build().fromObject(getService(config.environment())
-                .cancel(NfeCancelRequest
-                        .builder()
-                        .data(tEnvEvento)
-                        .config(config)
-                        .signer(getXmlSigner())
-                        .validators(getValidator().cancelValidators())
-                        .afterRequest(getProcess().afterCancel())
-                        .beforeRequest(getProcess().beforeCancel())
-                        .configureProvider(getConfigureProviderFactory())
-                        .build()));
+        NfCommonService service = getService(config.environment());
+        Pair<?, TRetEnvEvento> res = getCircuitBreakerRegistry().get(
+                config.environment(),
+                getModel(),
+                config.webServiceUF(),
+                DfeOperation.EVENT
+        ).execute(() -> service.event(NfEventRequest
+                .builder()
+                .data(tEnvEvento)
+                .config(config)
+                .signer(getXmlSigner())
+                .validators(getValidator().eventValidators())
+                .afterRequest(getProcess().afterEvent())
+                .beforeRequest(getProcess().beforeEvent())
+                .configureProvider(getConfigureProviderFactory())
+                .build()));
+        return new ReturnNfEvent().fromObject(res);
     }
 
     /**
      * It converts the sendNfeCancel object to an object and then calls the cancelar function.
      *
-     * @param sendNfeCancel The object that contains the data to be sent to the cancellation service.
+     * @param sendNfEvent The object that contains the data to be sent to the cancellation service.
      * @return ReturnNfeCancel
      */
-    default ReturnNfeCancel cancel(SendNfeCancel sendNfeCancel) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
-        return cancel(sendNfeCancel.toObject());
+    default ReturnNfEvent cancel(SendNfEvent sendNfEvent) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+        return cancel(sendNfEvent.toObject());
     }
 
     /**
@@ -66,7 +77,7 @@ public interface NfCancelService extends NfSefazService {
      * @param motive    The reason for the cancellation.
      * @return ReturnNfeCancel
      */
-    default ReturnNfeCancel cancelProcessed(NfProcessed processed, String motive) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default ReturnNfEvent cancelProcessed(NfProcessed processed, String motive) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return cancelProcessed(Collections.singletonList(processed), motive);
     }
 
@@ -76,7 +87,7 @@ public interface NfCancelService extends NfSefazService {
      * @param processed The processed object that will be canceled.
      * @return ReturnNfeCancel
      */
-    default ReturnNfeCancel cancelProcessed(NfProcessed processed) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default ReturnNfEvent cancelProcessed(NfProcessed processed) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return cancelProcessed(Collections.singletonList(processed));
     }
 
@@ -87,8 +98,8 @@ public interface NfCancelService extends NfSefazService {
      * @param motive     The reason for the cancellation.
      * @return ReturnNfeCancel
      */
-    default ReturnNfeCancel cancelProcessed(List<NfProcessed> processeds, String motive) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
-        return cancel(SendNfeCancel.build(processeds, motive, getConfig()));
+    default ReturnNfEvent cancelProcessed(List<NfProcessed> processeds, String motive) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+        return cancel(SendNfEvent.cancel(processeds, motive, getConfig()));
     }
 
     /**
@@ -97,7 +108,7 @@ public interface NfCancelService extends NfSefazService {
      * @param processeds List of NFProcessed objects.
      * @return ReturnNfeCancel
      */
-    default ReturnNfeCancel cancelProcessed(List<NfProcessed> processeds) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default ReturnNfEvent cancelProcessed(List<NfProcessed> processeds) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return cancelProcessed(processeds, NFEvent.CANCEL.getDefaultMessage());
     }
 
@@ -108,7 +119,7 @@ public interface NfCancelService extends NfSefazService {
      * @param motive   The reason for the cancellation.
      * @return A ReturnNfeCancel object.
      */
-    default ReturnNfeCancel cancelXmlProc(Collection<String> xmlProcs, String motive) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default ReturnNfEvent cancelXmlProc(Collection<String> xmlProcs, String motive) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return cancelProcessed(xmlProcs.stream().map(xmlProc -> NfProcessed.builder().build().fromObject(NfUnmarshallerFactory.getInstance().nfeProc(xmlProc).getValue())).collect(Collectors.toList()), motive);
     }
 
@@ -118,7 +129,7 @@ public interface NfCancelService extends NfSefazService {
      * @param xmlProcs Collection of XMLs to be canceled.
      * @return ReturnNfeCancel
      */
-    default ReturnNfeCancel cancelXmlProc(Collection<String> xmlProcs) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default ReturnNfEvent cancelXmlProc(Collection<String> xmlProcs) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return cancelXmlProc(xmlProcs, NFEvent.CANCEL.getDefaultMessage());
     }
 
@@ -129,7 +140,7 @@ public interface NfCancelService extends NfSefazService {
      * @param motive  The reason for the cancellation.
      * @return ReturnNfeCancel
      */
-    default ReturnNfeCancel cancelXmlProc(String xmlProc, String motive) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default ReturnNfEvent cancelXmlProc(String xmlProc, String motive) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return cancelXmlProc(Collections.singletonList(xmlProc), motive);
     }
 
@@ -139,7 +150,7 @@ public interface NfCancelService extends NfSefazService {
      * @param xmlProc The XML file of the NFe that you want to cancel.
      * @return A list of ReturnNfeCancel objects.
      */
-    default ReturnNfeCancel cancelXmlProc(String xmlProc) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default ReturnNfEvent cancelXmlProc(String xmlProc) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return cancelXmlProc(Collections.singletonList(xmlProc));
     }
 
@@ -152,8 +163,8 @@ public interface NfCancelService extends NfSefazService {
      * @param sequenceNumber The number of the NF-e to be canceled.
      * @return ReturnNfeCancel
      */
-    default ReturnNfeCancel cancel(String accessKey, String protocol, String justification, String sequenceNumber) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
-        return cancel(SendNfeCancel.cancel(accessKey, protocol, justification, sequenceNumber, getConfig()).toObject());
+    default ReturnNfEvent cancel(String accessKey, String protocol, String justification, String sequenceNumber) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+        return cancel(SendNfEvent.cancel(accessKey, protocol, justification, sequenceNumber, getConfig()).toObject());
     }
 
     /**
@@ -164,7 +175,7 @@ public interface NfCancelService extends NfSefazService {
      * @param justification The justification for the cancellation.
      * @return ReturnNfeCancel
      */
-    default ReturnNfeCancel cancel(String accessKey, String protocol, String justification) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default ReturnNfEvent cancel(String accessKey, String protocol, String justification) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return cancel(accessKey, protocol, justification, "1");
     }
 
@@ -175,7 +186,7 @@ public interface NfCancelService extends NfSefazService {
      * @param protocol  The protocol number of the NFe to be canceled.
      * @return ReturnNfeCancel
      */
-    default ReturnNfeCancel cancel(String accessKey, String protocol) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default ReturnNfEvent cancel(String accessKey, String protocol) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return cancel(accessKey, protocol, NFEvent.CANCEL.getDefaultMessage());
     }
 
@@ -185,11 +196,11 @@ public interface NfCancelService extends NfSefazService {
      * @param accessKey The access key of the NFe to be canceled.
      * @return The return is an object of type ReturnNfeCancel.
      */
-    default ReturnNfeCancel cancel(String accessKey) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default ReturnNfEvent cancel(String accessKey) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return cancel(accessKey, String.valueOf(getNfQueryProtocolService().queryProtocol(accessKey).getProtNFe().getInfProt().getNProt()));
     }
 
-    default ReturnNfeCancel cancelWithMotive(String accessKey, String motive) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default ReturnNfEvent cancelWithMotive(String accessKey, String motive) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return cancel(accessKey, String.valueOf(getNfQueryProtocolService().queryProtocol(accessKey).getProtNFe().getInfProt().getNProt()), motive);
     }
 
@@ -200,7 +211,9 @@ public interface NfCancelService extends NfSefazService {
      *
      * @return The service object.
      */
-    NfCommonService getService(Environment environment) throws NoProviderFound, SoapServiceGeneralException;
+    NfCommonService getService(Environment environment) throws CircuitBreakerException, NoProviderFound, SoapServiceGeneralException;
+
+    Model getModel();
 
     /**
      * Returns the validator used by this class

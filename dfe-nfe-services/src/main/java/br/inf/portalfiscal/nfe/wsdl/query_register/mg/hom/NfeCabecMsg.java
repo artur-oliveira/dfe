@@ -8,9 +8,9 @@ import java.util.Map;
 
 
 /**
- * <p>Java class for nfeCabecMsg complex type.
+ * <p>Java class for nfeCabecMsg complex type</p>.
  *
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>The following schema fragment specifies the expected content contained within this class.</p>
  *
  * <pre>{@code
  * <complexType name="nfeCabecMsg">
@@ -25,6 +25,8 @@ import java.util.Map;
  *   </complexContent>
  * </complexType>
  * }</pre>
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "nfeCabecMsg", propOrder = {
@@ -44,6 +46,7 @@ public class NfeCabecMsg {
      *
      * @return possible object is
      * {@link String }
+     *
      */
     public String getCUF() {
         return cuf;
@@ -54,6 +57,7 @@ public class NfeCabecMsg {
      *
      * @param value allowed object is
      *              {@link String }
+     *
      */
     public void setCUF(String value) {
         this.cuf = value;
@@ -64,6 +68,7 @@ public class NfeCabecMsg {
      *
      * @return possible object is
      * {@link String }
+     *
      */
     public String getVersaoDados() {
         return versaoDados;
@@ -74,6 +79,7 @@ public class NfeCabecMsg {
      *
      * @param value allowed object is
      *              {@link String }
+     *
      */
     public void setVersaoDados(String value) {
         this.versaoDados = value;

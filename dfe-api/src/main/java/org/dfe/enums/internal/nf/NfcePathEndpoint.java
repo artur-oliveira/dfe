@@ -1,16 +1,15 @@
 package org.dfe.enums.internal.nf;
 
-import org.dfe.components.internal.DFEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import org.dfe.components.internal.DFEnum;
 
 @Getter
 @AllArgsConstructor
 public enum NfcePathEndpoint implements DFEnum.Codeable {
     AUTHORIZATION("authorization", "Autorização"),
     RETURN_AUTHORIZATION("return_authorization", "Consulta recibo"),
-    EVENT_CANCEL("event_cancel", "Evento de cancelamento"),
-    EVENT_SUBSTITUTE_CANCEL("event_substitute_cancel", "Evento de cancelamento por substituição"),
+    EVENT("event_generic", "Evento genérico"),
     INUTILIZATION("inutilization", "Inutilização"),
     QUERY_PROTOCOL("query_protocol", "Consulta protocolo"),
     STATUS_SERVICE("status_service", "Consulta status do serviço");

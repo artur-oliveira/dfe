@@ -1,15 +1,15 @@
 package org.dfe.models.mdfe.reception;
 
 import br.inf.portalfiscal.mdfe.classes.TEnviMDFe;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.dfe.enums.mdfe.version.MdfeVersion;
 import org.dfe.interfaces.xml.XMLAdapter;
 import org.dfe.interfaces.xml.generic.DFObject;
 import org.dfe.models.mdfe.reception_sync.Mdfe;
 import org.dfe.util.StringUtils;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
 @Builder

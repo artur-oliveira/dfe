@@ -44,6 +44,9 @@ public interface AllowUF {
      * present in the list of
      */
     default boolean allow(UF uf, Environment environment) {
-        return Objects.equals(environment, Environment.PRODUCTION) ? allowedUfsProduction().contains(uf) : allowedUfsHomologation().contains(uf);
+        return Objects.equals(environment, Environment.PRODUCTION) ? allow(uf, allowedUfsProduction()) : allow(uf, allowedUfsHomologation());
+    }
+    default boolean allow(UF uf, Collection<UF> ufs) {
+        return ufs.contains(uf);
     }
 }

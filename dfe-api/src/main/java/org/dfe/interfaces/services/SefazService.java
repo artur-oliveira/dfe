@@ -1,5 +1,6 @@
 package org.dfe.interfaces.services;
 
+import org.dfe.interfaces.circuitbreaker.CircuitBreakerRegistry;
 import org.dfe.interfaces.internal.config.Config;
 import org.dfe.interfaces.process.DfProcess;
 import org.dfe.interfaces.validation.ValidationService;
@@ -55,4 +56,5 @@ public interface SefazService {
      */
     ConfigureProvider getConfigureProviderFactory();
 
+    CircuitBreakerRegistry getCircuitBreakerRegistry();
 }

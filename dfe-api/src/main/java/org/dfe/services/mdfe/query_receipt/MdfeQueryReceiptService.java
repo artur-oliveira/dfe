@@ -1,13 +1,19 @@
 package org.dfe.services.mdfe.query_receipt;
 
 import br.inf.portalfiscal.mdfe.classes.TConsReciMDFe;
+import br.inf.portalfiscal.mdfe.classes.TRetConsReciMDFe;
 import org.dfe.enums.internal.Environment;
+import org.dfe.enums.internal.Model;
+import org.dfe.exceptions.CircuitBreakerException;
 import org.dfe.exceptions.ProcessException;
 import org.dfe.exceptions.ValidationException;
 import org.dfe.exceptions.port.SoapServiceGeneralException;
 import org.dfe.exceptions.security.SecurityException;
 import org.dfe.exceptions.services.NoProviderFound;
+import org.dfe.interfaces.circuitbreaker.DfeOperation;
+import org.dfe.interfaces.internal.Pair;
 import org.dfe.interfaces.internal.config.MdfeConfig;
+import org.dfe.interfaces.sefaz.mdfe.MdfeService;
 import org.dfe.interfaces.services.MdfeSefazService;
 import org.dfe.models.mdfe.query_receipt.MdfeQueryReceipt;
 import org.dfe.models.mdfe.query_receipt.MdfeQueryReceiptRequest;
@@ -21,23 +27,25 @@ public interface MdfeQueryReceiptService extends MdfeSefazService {
      * @param tConsReciMDFe The object that contains the receipt number.
      * @return A MdfeReturnQueryReceipt object.
      */
-    default MdfeReturnQueryReceipt queryReceipt(TConsReciMDFe tConsReciMDFe) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default MdfeReturnQueryReceipt queryReceipt(TConsReciMDFe tConsReciMDFe) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         MdfeConfig config = getConfig().withEnviroment(tConsReciMDFe.getTpAmb());
-        return MdfeReturnQueryReceipt
+        MdfeService service = getProviderFactory().getMdfeService(config);
+        Pair<?, TRetConsReciMDFe> res = getCircuitBreakerRegistry().get(
+                config.environment(),
+                Model.MDFE,
+                config.webServiceUF(),
+                DfeOperation.QUERY_RECEIPT
+        ).execute(() -> service.queryReceipt(MdfeQueryReceiptRequest
                 .builder()
-                .build()
-                .fromObject(getProviderFactory()
-                        .getMdfeService(config)
-                        .queryReceipt(MdfeQueryReceiptRequest
-                                .builder()
-                                .data(tConsReciMDFe)
-                                .config(config)
-                                .signer(getXmlSigner())
-                                .validators(getValidatorFactory().mdfeValidator().queryReceiptValidators())
-                                .afterRequest(getProcess().afterQueryReceipt())
-                                .beforeRequest(getProcess().beforeQueryReceipt())
-                                .configureProvider(getConfigureProviderFactory())
-                                .build()));
+                .data(tConsReciMDFe)
+                .config(config)
+                .signer(getXmlSigner())
+                .validators(getValidatorFactory().mdfeValidator().queryReceiptValidators())
+                .afterRequest(getProcess().afterQueryReceipt())
+                .beforeRequest(getProcess().beforeQueryReceipt())
+                .configureProvider(getConfigureProviderFactory())
+                .build()));
+        return new MdfeReturnQueryReceipt().fromObject(res);
     }
 
     /**
@@ -46,7 +54,7 @@ public interface MdfeQueryReceiptService extends MdfeSefazService {
      * @param queryReceipt The query receipt object.
      * @return The return is a MdfeReturnQueryReceipt object.
      */
-    default MdfeReturnQueryReceipt queryReceipt(MdfeQueryReceipt queryReceipt) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default MdfeReturnQueryReceipt queryReceipt(MdfeQueryReceipt queryReceipt) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return queryReceipt(queryReceipt.toObject());
     }
 
@@ -57,7 +65,7 @@ public interface MdfeQueryReceiptService extends MdfeSefazService {
      * @param environment The environment you want to use.
      * @return The return of the query receipt is a MdfeReturnQueryReceipt object.
      */
-    default MdfeReturnQueryReceipt queryReceipt(String receipt, Environment environment) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default MdfeReturnQueryReceipt queryReceipt(String receipt, Environment environment) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return queryReceipt(MdfeQueryReceipt.build(receipt, getConfig().withEnviroment(environment)));
     }
 
@@ -67,7 +75,7 @@ public interface MdfeQueryReceiptService extends MdfeSefazService {
      * @param receipt The receipt number of the MDFe.
      * @return The return is a MdfeReturnQueryReceipt object.
      */
-    default MdfeReturnQueryReceipt queryReceipt(String receipt) throws NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
+    default MdfeReturnQueryReceipt queryReceipt(String receipt) throws CircuitBreakerException, NoProviderFound, SecurityException, ProcessException, ValidationException, SoapServiceGeneralException {
         return queryReceipt(receipt, getConfig().environment());
     }
 

@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @Data
-public class CteReturnEvent implements DFObject, XMLAdapter<CteReturnEvent, br.inf.portalfiscal.cte.send400.TRetEvento> {
+public class CteReturnEvent implements DFObject, XMLAdapter<CteReturnEvent, TRetEvento> {
     private RetInfEvento infEvento;
     private String versao;
 

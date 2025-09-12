@@ -1,7 +1,7 @@
 package org.dfe.enums.nf.prod.tax;
 
-import org.dfe.components.internal.DFEnum;
 import lombok.Getter;
+import org.dfe.components.internal.DFEnum;
 
 @Getter
 public enum NFCSTCOFINS implements DFEnum.Codeable {
