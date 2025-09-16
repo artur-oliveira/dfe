@@ -1,16 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.github.artur-oliveira</groupId>
     <artifactId>dfe</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <name>DF-e</name>
-    <description>Projeto DF-e</description>
+    <description>Projeto que unifica os WebServices de NF-e, NFC-e, CT-e e MDF-e</description>
     <url>https://github.com/artur-oliveira/dfe</url>
-    <packaging>pom</packaging>
-
     <modules>
         <module>dfe-stubs</module>
         <module>dfe-utils</module>
@@ -24,25 +20,7 @@
         <module>dfe-core</module>
     </modules>
 
-    <repositories>
-        <repository>
-            <id>tartigrado-central</id>
-            <name>Tartigrado Repository</name>
-            <url>https://tartigrado-221658248770.d.codeartifact.us-east-1.amazonaws.com/maven/tartigrado-libs/</url>
-        </repository>
-        <repository>
-            <id>jasper</id>
-            <name>JasperSoft Repository</name>
-            <url>https://jaspersoft.jfrog.io/artifactory/third-party-ce-artifacts/</url>
-        </repository>
-    </repositories>
-
-    <distributionManagement>
-        <repository>
-            <id>tartigrado-central</id>
-            <url>https://tartigrado-221658248770.d.codeartifact.us-east-1.amazonaws.com/maven/tartigrado-libs/</url>
-        </repository>
-    </distributionManagement>
+    <packaging>pom</packaging>
 
     <licenses>
         <license>
@@ -63,6 +41,26 @@
         <developerConnection>scm:git:ssh://github.com/artur-oliveira/dfe/tree/master</developerConnection>
         <url>https://github.com/artur-oliveira/dfe/tree/master</url>
     </scm>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+
+    <properties>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <junit-jupiter.version>5.13.4</junit-jupiter.version>
+        <lombok.version>1.18.38</lombok.version>
+        <log4j.version>2.24.1</log4j.version>
+    </properties>
 
     <dependencies>
         <dependency>
@@ -105,16 +103,8 @@
             <artifactId>log4j-core</artifactId>
             <version>${log4j.version}</version>
         </dependency>
-    </dependencies>
 
-    <properties>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <junit-jupiter.version>5.13.4</junit-jupiter.version>
-        <lombok.version>1.18.38</lombok.version>
-        <log4j.version>2.24.1</log4j.version>
-    </properties>
+    </dependencies>
 
     <build>
         <plugins>
@@ -159,6 +149,7 @@
                     </excludes>
                 </configuration>
             </plugin>
+
         </plugins>
     </build>
 </project>
